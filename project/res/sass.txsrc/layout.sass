@@ -1,0 +1,337 @@
+@import "compass"
+@import "txsass/wtmixins"
+@import "txsass/wtparameters"
+
+
+
+
+
+
+/* Layout */
+
+
+
+body
+	+wt-set-boundaries
+
+
+
+/* Counters Code */
+
+.countersCode
+	position: absolute
+	width: 1px
+	height: 1px
+	top: 0
+	left: 0
+	overflow: hidden
+	z-index: -1
+
+
+
+/* Header */
+
+.header
+	position: relative
+	z-index: 2
+
+
+
+/* Bread Crumbs */
+
+.breadCrumbs
+	position: relative
+	left: -.75em
+	+adjust-font-size-to($base-font-size * .75, 1)
+	+wt-rhythm(1, 1, $base-font-size * .75, $mlft: $horizontal-gap)
+	overflow: hidden
+
+.breadCrumbs li
+	+wt-inline-block
+	margin: 0 .75em 0 -1px
+	padding: 0 0 0 .75em
+	border-width: 0 0 0 1px
+	border-style: dotted
+	border-color: #000
+	vertical-align: top
+
+
+
+/* Aside */
+
+.sidePanel
+	width: $side-panel-width
+	padding: 0 $horizontal-gap
+
+.sPLeft
+	float: left
+	margin: 0 -$horizontal-gap 0 0
+
+.sPRight
+	float: right
+	margin: 0 -$horizontal-gap 0 0
+
+
+
+/* Content */
+
+.content
+	padding: 0 $horizontal-gap
+	overflow: hidden
+
+
+
+/* Form */
+
+.form
+	width: 670px
+
+fieldset .form
+	+wt-rhythm(0, -.5)
+
+.form dt, .form dd
+	+wt-inline-block
+	vertical-align: top
+
+.form dt
+	width: 160px
+	+wt-rhythm(0, .5)
+	padding: 0 10px 0 0
+
+.form dd
+	width: 100%
+	+wt-rhythm(0, .5, $mrgt: -170px)
+	padding: 0 170px 0 0
+	+box-sizing(border-box)
+
+.form .field, .form textarea, .form select
+	display: block
+
+.form .field, .form textarea
+	width: 500px
+
+
+
+/* Box */
+
+.box
+	position: relative
+	width: $box-width
+	+adjust-font-size-to(12px, 1)
+
+.fLeft
+	float: left
+	+wt-rhythm(0, 1, $mrgt: $horizontal-gap)
+	clear: left
+
+.fRight
+	float: right
+	+wt-rhythm(0, 1, $mlft: $horizontal-gap)
+	clear: right
+
+.box img
+	display: block
+	
+
+
+/* News */
+
+.news
+	position: relative
+	+wt-rhythm(0, -1)
+	overflow: hidden
+
+.news li
+	position: relative
+	top: -1.5em
+	margin: -1px 0 0
+	border-width: 1px 0 0
+	border-style: dotted
+	border-color: #000
+
+.news h2
+	+adjust-font-size-to($h3-font-size, 1)
+	+wt-rhythm(1, 1 , $h3-font-size)
+
+.news img
+	float: left
+	margin: 0 ($horizontal-gap / 2) 0 0
+
+
+
+/* Pages */
+
+.pages
+	position: relative
+	+adjust-font-size-to($base-font-size * .75, 1)
+	+wt-rhythm(1, 1, $base-font-size * .75, auto, auto)
+	overflow: hidden
+
+.pages 
+	display: table
+	left: .352em
+	text-align: center
+	white-space: nowrap
+
+.pages li
+	+inline-block
+	position: relative
+	left: -.75em
+	margin: 0 .75em 0 -1px
+	padding: 0 0 0 .75em
+	border-width: 0 0 0 1px
+	border-style: dotted
+	border-color: #000
+	vertical-align: top
+
+
+
+/* Footer */
+
+.footer
+	position: relative
+	clear: both
+	z-index: 2
+
+
+
+
+
+
+/* Large Resolutions Layout */
+
+@media only screen and (min-width: 1382px) 
+
+
+
+
+
+
+/* Print Layout */
+
+@media print 
+
+	body 
+		max-width: none
+		margin: 0 10px
+		padding: 0
+
+
+
+	.header, .sidePanel, .breadCrumbs, .pagination, .footer 
+		display: none
+	
+
+
+	.content 
+		overflow: visible
+	
+
+
+
+
+
+/* Small Resolutions Layout */
+
+@media handheld, only screen and (max-width: 480px) 
+
+	html 
+		-webkit-text-size-adjust: none
+	
+	body 
+		min-width: 0
+		max-width: none
+
+
+
+	.sPLeft, .sPRight, .fLeft, .fRight
+		float: none	
+
+
+
+	.news img 
+		display: none
+	
+
+
+	.form 
+		width: auto
+	
+	.form dt, .form dd 
+		display: block
+	
+	.form dt 
+		+wt-rhythm(0, .5)
+	
+	.form dd 
+		+wt-rhythm(0, 1)
+	
+	.form .field, .form dd textarea, .form select 
+		width: 100%
+
+
+
+
+
+
+/* Smartphones (Landscape) Layout */
+
+@media only screen and (min-width : 321px) 
+
+
+
+
+
+
+/* Smartphones (Portrait) Layout */
+
+@media only screen and (max-width : 320px) 
+
+
+
+
+
+
+/* Tablets Layout */
+
+@media only screen and (min-width: 481px) and (max-width : 800px) 
+
+	body 
+		min-width: 0
+		max-width: none
+	
+
+
+
+
+
+/* Tablets (Landscape) Layout */
+
+@media only screen and (max-width : 1024px) and (orientation : landscape) 
+
+
+
+
+
+
+/* Tablets (Portrait) Layout */
+
+@media only screen and (max-width : 768px) and (orientation : portrait) 
+
+
+
+
+
+
+/* TV Layout */
+
+@media projection, tv 
+
+
+
+
+
+
+/* Audio Layout */
+
+@media aural 

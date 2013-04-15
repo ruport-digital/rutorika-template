@@ -1,0 +1,431 @@
+@import "compass"
+@import "txsass/wtmixins"
+@import "txsass/wtparameters"
+
+
+
+
+
+
+/* Base Typographics & Rhythm */
+
+
+
++establish-baseline
+
+body
+	position: relative
+	color: #000
+	font-family: $base-font-stack
+	counter-reset: heading
+
++wt-selection-style
+
+a
+	color: #013568
+	text-decoration: underline
+	&:hover
+		color: #f00
+	&:active
+		color: #f00
+	&:visited
+		color: #000203
+	&:focus
+		color: #000
+
+a:focus, select:focus
+	outline: 1px dotted #939393
+
+label, button, .button
+	cursor: pointer
+
+label
+	border-width: 0 0 1px
+	border-style: dotted
+	border-color: #777
+
+h1, h2, h3, h4, h5, h6
+	font-weight: bold
+	text-rendering: optimizelegibility
+
+h1
+	+adjust-font-size-to($h1-font-size, 2)
+	+wt-rhythm(1, 2, $h1-font-size)
+
+h2
+	+adjust-font-size-to($h2-font-size, 2)
+	+wt-rhythm(1, 1 , $h2-font-size)
+
+h3
+	+adjust-font-size-to($h3-font-size, 1)
+	+wt-rhythm(1, 1, $h3-font-size)
+
+h4
+	+adjust-font-size-to($h4-font-size, 1)
+	+wt-rhythm(1, 1, $h4-font-size)
+
+h5
+	+adjust-font-size-to($h5-font-size, 1)
+	+wt-rhythm(1, 1, $h5-font-size)
+
+h6
+	+adjust-font-size-to($h6-font-size, 1)
+	+wt-rhythm(1, 1, $h6-font-size)
+
+p, pre, dl, ul, ol, li, address, video, table
+	+wt-rhythm(1, 1)
+
+p, blockquote, li, dd
+	+hyphens(auto)
+
+pre, code, samp, var, tt
+	font-family: $base-monospace-font-stack
+
+pre, code, samp, del
+	color: #686868
+
+pre
+	padding: 0 1.5em
+	+force-wrap
+	overflow: hidden
+
+p
+	var, code, samp
+		position: relative
+		top: .090em
+		vertical-align: top
+
+code, samp
+	var
+		top: 0
+
+blockquote, em, cite, q, i
+	font-style: italic
+
+blockquote
+	+wt-rhythm(1, 1, $mrgt: 3em, $mlft: 3em)
+	font-family: $base-serif-font-stack
+
+address
+	font-style: normal
+
+dt
+	+wt-rhythm(1)
+	font-weight: bold
+
+dd
+	+wt-rhythm(0, 1, $mlft: 1.5em)
+	font-style: italic
+
+ul
+	list-style-type: disc
+
+ol
+	list-style-type: decimal
+
+li
+	ul, ol
+		+wt-rhythm(1, 1, $mlft: 1.5em)
+
+strong, dfn, b, kbd, acronym, abbr, var
+	font-weight: bold
+
+acronym, abbr, ins, del
+	color: #488dc6
+	border-width: 0 0 1px
+	border-style: dotted
+	border-color: #488dc6
+	cursor: help
+
+acronym, abbr
+	margin: 0 -.075em 0 0
+	letter-spacing: .075em
+
+kbd
+	padding: .25em .5em .20em
+	color: #333
+	background: #ededed
+	font: caption
+	font-size: 1em
+	font-weight: bold
+	letter-spacing: .1em
+	+border-radius(3px)
+	+background-clip(padding-box)
+	+box-shadow(-2px -2px 2px #dadada inset)
+
+var
+	color: #d00837
+	font-style: normal
+
+ins, mark
+	color: #1c8400
+	border-width: 0 0 1px
+	border-style: dotted
+	border-color: #1c8400
+	text-decoration: none
+
+del, strike, s
+	text-decoration: line-through
+
+sup, sub
+	position: relative
+	font-size: .75em
+	line-height: 0
+
+sup
+	top: -.65em
+
+sub
+	bottom: -.25em
+
+big
+	font-size: 1.5em
+	line-height: 0
+
+small
+	font-size: .75em
+	line-height: 0
+
+u
+	text-decoration: underline
+
+img
+	max-width: 100%
+	vertical-align: top
+
+caption
+	+wt-rhythm-padding(0, .5)
+	font-weight: bold
+
+table
+	width: 100%
+	max-width: 100%
+
+td, th
+	+wt-table-borders(1px, .5)
+
+th
+	font-weight: bold
+
+fieldset
+	+wt-rhythm-padding(.5, 0)
+
+legend
+	position: relative
+	left: -1.5em
+	padding: 0 1.5em
+	color: #fff
+	background: #000
+	font-weight: bold
+
+input, select, button, textarea
+	font-family: $base-font-stack
+	+adjust-font-size-to($base-font-size, 1)
+
+input, button, textarea
+	padding: 0 .5em
+
+input, button
+	+wt-form-height(1, 0)
+	border: none
+
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly]
+	opacity: .5
+	cursor: not-allowed
+
+.ie button
+	width: auto
+	overflow: visible
+
+input, select 
+	vertical-align: top
+
+input[type="radio"], input[type="checkbox"] 
+	vertical-align: top
+	+box-sizing(border-box)
+
+input[type="file"]
+	height: auto
+	line-height: auto
+	border: none
+
+select
+	+wt-form-height(1, 0)
+	border: 1px solid #9a9a9a
+
+select[multiple="multiple"]
+	+wt-form-height(5.1)
+
+.field, textarea
+	border: 1px solid #9a9a9a
+	+box-shadow(0 1px 2px rgba(0, 0, 0, .25) inset)
+
+.field
+	+wt-form-height(1)
+
+textarea 
+	+wt-form-height(10)
+
+.field:focus, textarea:focus 
+	outline: none
+	-webkit-animation: focusPulse 1.5s infinite
+	-moz-animation: focusPulse 1.5s infinite
+	animation: focusPulse 1.5s infinite
+
+@-moz-keyframes focusPulse 
+	0% 
+		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px  #8ac7ff
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+	
+	50% 
+		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px  #8ac7ff
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
+	
+	100% 
+		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px  #8ac7ff
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+	
+
+@-webkit-keyframes focusPulse 
+	0% 
+		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+	
+	50% 
+		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 14px 1px #8ac7ff
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
+	
+	100% 
+		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+	
+
+@keyframes focusPulse 
+	0% 
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+	
+	50% 
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
+	
+	100% 
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+
+hr 
+	display: block
+	height: 1px
+	margin: 1.5em 0 -1px
+	padding: 0
+	border-width: 1px 0
+	border-style: solid
+	border-color: #c7ced6 #000 #ffffff
+
+
+
+/* Additional Decorative Styles */
+
+.alnLft 
+	text-align: left
+
+.alnRgt 
+	text-align: right
+
+.alnCnt 
+	text-align: center
+
+.alnJst 
+	text-align: justify
+
+.alnTop 
+	vertical-align: top
+
+.alnMdl 
+	vertical-align: middle
+
+.alnBtm 
+	vertical-align: bottom
+
+.fntBld 
+	font-weight: bold
+
+.fntItl 
+	font-style: italic
+
+.fntNrm 
+	font-weight: normal
+	font-style: normal
+
+.blkClr 
+	clear: both
+
+.blkNClr 
+	clear: none
+
+
+
+/* Headings Counter */
+
+.hNumber:before 
+	+wt-inline-block
+	counter-increment: heading
+	content: counter(heading) ". "
+	position: relative
+
+
+
+
+
+
+/* Small Resolutions Typographics */
+
+@media handheld, only screen and (max-width: 480px) 
+
+	table 
+		display: block
+	
+	tr 
+		border: 3px solid red
+	
+	tr, th, td 
+		display: block
+
+
+
+
+
+
+/* High DPI Typographics */
+
+@media only screen and (min-resolution: 2dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 1.5)
+
+	html
+		text-rendering: optimizelegibility
+
+
+
+
+
+
+/* Print Typographics */
+
+@media print
+
+	@page
+		margin: 0
+
+	a, acronym, abbr, ins, del, var, input, select, textarea
+		color: #000
+		border: none
+		text-decoration: none
+		outline: none
+	
+	h1, h2, h3, h4, h5, h6
+		page-break-after: avoid
+		orphans: 3
+		widows: 3
+	
+	p
+		orphans: 3
+		widows: 3
+	
+	blockquote, pre, img
+		page-break-inside: avoid

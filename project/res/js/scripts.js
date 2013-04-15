@@ -1,0 +1,1 @@
+$(document).ready(function(){});function whichDevice(){var b=navigator.userAgent.toLowerCase();var a=new Array("iphone os 5","ipad; cpu os 5","iphone","ipad","android 2","android","blackberry","palmos");for(var c in a){if(b.indexOf(a[c])>=0){return a[c];break;}}}

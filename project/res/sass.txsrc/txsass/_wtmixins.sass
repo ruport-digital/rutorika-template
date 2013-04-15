@@ -1,0 +1,91 @@
+=wt-selection-style($background: #00f, $color: #fff, $shadow: none)
+	::-webkit-selection 
+		color: $color
+		background: $background
+		text-shadow: $shadow
+	::-moz-selection 
+		color: $color
+		background: $background
+		text-shadow: $shadow
+	::selection 
+		color: $color
+		background: $background
+		text-shadow: $shadow
+
+
+
+=wt-rhythm($leader: 0, $trailer: 0, $font-size: $base-font-size, $mrgt: 0, $mlft: 0)
+	@if $leader == $trailer and $mrgt == $mlft
+		margin: rhythm($leader, $font-size) $mrgt
+	@else if $mrgt == $mlft
+		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size)
+	@else
+		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size) $mlft
+
+
+
+=wt-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $font-size: $base-font-size, $prgt: 0, $plft: 0)
+	@if $padding-leader == $padding-trailer and $prgt == $plft
+		padding: rhythm($padding-leader, $font-size) $prgt
+	@else if $prgt == $plft
+		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size)
+	@else
+		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size) $plft
+
+
+
+=wt-inline-block
+	display: -moz-inline-box
+	display: inline-block
+
+
+
+=wt-inline-block-ie
+	display: inline
+	zoom: 1
+
+
+
+=wt-pseudo($display: block, $position: absolute, $content: "")
+	@if $display == "inline-block"
+		display: -moz-inline-box
+	display: $display
+	content: "" + $content
+	position: $position
+
+
+
+=wt-pseudo-ie($before: true, $after: true, $class: "")
+	$beforeClass: $class + "ieBefore"
+	$afterClass: $class + "ieAfter"
+	@if $before and $after
+		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + "></i>'), insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + "></i>'))"
+	@else if $before
+		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + "></i>'))"
+	@else
+		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + "></i>'))"
+
+
+
+=wt-table-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
+	$calculated-width: $font-unit * $width / $font-size
+	$calculated-vertical-padding: rhythm($lines, $font-size, $offset: $width)
+	border: $width $bstyle $bcolor
+	@if $lines != 0
+		@if $prgt == $plft
+			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width)
+		@else
+			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width) $plft
+
+
+
+=wt-form-height($lines: 1, $border-width: 1px, $font-size: $base-font-size)
+	height: rhythm($lines, $font-size, $offset: 2 * $border-width)
+
+
+
+=wt-set-boundaries($min: 980px, $max: 1400px, $center: true)
+	min-width: $min
+	max-width: $max
+	@if $center
+		margin: 0 auto

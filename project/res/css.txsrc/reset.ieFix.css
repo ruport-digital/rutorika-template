@@ -1,0 +1,28 @@
+/* CSS-Reset (Internet Explorer < 8) */
+/* line 11, ../sass.txsrc/reset.ieFix.sass */
+.ie6 html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+
+/* Lists Styles Reset */
+/* line 27, ../sass.txsrc/reset.ieFix.sass */
+.ie6 .lstRst, .ie6 .lstRst li, .ie6 .dfLstRst, .ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
+  margin: 0;
+  padding: 0;
+}
+/* line 35, ../sass.txsrc/reset.ieFix.sass */
+.ie6 .lstRst li {
+  background: none;
+  list-style: none outside;
+}
+/* line 43, ../sass.txsrc/reset.ieFix.sass */
+.ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Image Interpolation */
+/* line 59, ../sass.txsrc/reset.ieFix.sass */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}

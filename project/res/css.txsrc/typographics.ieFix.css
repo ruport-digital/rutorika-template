@@ -1,0 +1,35 @@
+/* Base Typographics & Rhythm (Internet Explorer < 8) */
+/* line 27, ../sass.txsrc/typographics.ieFix.sass */
+dfn {
+  font-style: normal;
+}
+
+/* line 35, ../sass.txsrc/typographics.ieFix.sass */
+.ie6 label, .ie6 button, .ie6 .button {
+  cursor: hand;
+}
+/* line 49, ../sass.txsrc/typographics.ieFix.sass */
+.ie6 .content ul, .ie6 .content .lstRst li ul {
+  list-style: disc outside;
+}
+/* line 55, ../sass.txsrc/typographics.ieFix.sass */
+.ie6 .content ol, .ie6 .content .lstRst li ol {
+  list-style: decimal outside;
+}
+/* line 61, ../sass.txsrc/typographics.ieFix.sass */
+.ie6 .content .lstRst li li {
+  margin: 1.5em 0;
+}
+/* line 67, ../sass.txsrc/typographics.ieFix.sass */
+.ie6 .content .dfLstRst dl dt {
+  margin: 1.5em 0 0em;
+}
+/* line 73, ../sass.txsrc/typographics.ieFix.sass */
+.ie6 .content .dfLstRst dl dd {
+  margin: 0em 0 1.5em 1.5em;
+  font-style: italic;
+}
+/* line 81, ../sass.txsrc/typographics.ieFix.sass */
+.ie6 input {
+  vertical-align: text-bottom;
+}

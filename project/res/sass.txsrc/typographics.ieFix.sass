@@ -1,0 +1,42 @@
+@import "compass"
+@import "txsass/wtmixins"
+@import "txsass/wtparameters"
+
+
+
+
+
+
+/* Base Typographics & Rhythm (Internet Explorer < 8) */
+
+
+
+dfn
+	font-style: normal
+
+.ie6
+	label, button, .button
+		cursor: hand
+
+	pre
+		zoom 1
+
+	.content
+		ul, .lstRst li ul
+			list-style: disc outside
+
+		ol, .lstRst li ol
+			list-style: decimal outside
+
+		.lstRst li li
+			+wt-rhythm(1, 1)
+		
+		.dfLstRst dl dt
+			+wt-rhythm(1)
+
+		.dfLstRst dl dd
+			+wt-rhythm(0, 1, $mlft: 1.5em)
+			font-style: italic
+
+	input
+		vertical-align: text-bottom

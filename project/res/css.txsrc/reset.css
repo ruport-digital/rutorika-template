@@ -1,0 +1,80 @@
+/* CSS-Reset */
+/* line 9, ../sass.txsrc/reset.sass */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, acronym, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, form, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, applet, object, iframe, article, aside, figure, figcaption, footer, header, hgroup, menu, nav, section, time, mark, audio, video, canvas {
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  border: none;
+  outline: none;
+}
+
+/* line 33, ../sass.txsrc/reset.sass */
+html {
+  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+  -webkit-tap-highlight-color: #f3f5f6;
+}
+
+/* line 43, ../sass.txsrc/reset.sass */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 51, ../sass.txsrc/reset.sass */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 57, ../sass.txsrc/reset.sass */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 65, ../sass.txsrc/reset.sass */
+caption, th, td {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* line 75, ../sass.txsrc/reset.sass */
+ul, ol {
+  list-style: none;
+}
+
+/* line 81, ../sass.txsrc/reset.sass */
+article, aside, figure, figcaption, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+/* line 87, ../sass.txsrc/reset.sass */
+input, button, select, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+/* Lists Styles Reset */
+/* line 103, ../sass.txsrc/reset.sass */
+.lstRst, .lstRst > li, .dfLstRst, .dfLstRst > dt, .dfLstRst > dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 111, ../sass.txsrc/reset.sass */
+.lstRst > li {
+  list-style: none outside;
+  background: none;
+}
+
+/* line 119, ../sass.txsrc/reset.sass */
+.dfLstRst > dt, .dfLstRst > dd {
+  font-weight: normal;
+  font-style: normal;
+}

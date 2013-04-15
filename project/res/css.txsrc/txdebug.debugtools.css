@@ -1,0 +1,143 @@
+/* txdebug Styles */
+/* line 27, ../sass.txsrc/txdebug.debugtools.sass */
+.debugRhythmLines {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 102, 255, 0.25)), color-stop(5%, rgba(0, 102, 255, 0)));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
+  background-image: -moz-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
+  background-image: -o-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
+  background-image: linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
+  -webkit-background-size: 100% 1.5em;
+  -moz-background-size: 100% 1.5em;
+  -o-background-size: 100% 1.5em;
+  background-size: 100% 1.5em;
+  background-position: left top;
+}
+
+/* line 33, ../sass.txsrc/txdebug.debugtools.sass */
+.debugResponsiveGuide {
+  background: url(../images/txdebug.responsiveGuide.jpg);
+}
+
+/* line 39, ../sass.txsrc/txdebug.debugtools.sass */
+.debugToggle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 20px;
+  right: 20px;
+  border: 10px solid white;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+
+/* line 57, ../sass.txsrc/txdebug.debugtools.sass */
+.debugToggle.on {
+  border-color: white;
+}
+
+/* line 63, ../sass.txsrc/txdebug.debugtools.sass */
+.debugToggle.on:before {
+  display: block;
+  content: "D";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 5px;
+  top: 5px;
+  color: rgba(0, 0, 0, 0.75);
+  background: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+}
+
+/* line 91, ../sass.txsrc/txdebug.debugtools.sass */
+.debugTools {
+  position: fixed;
+  width: 300px;
+  top: -20px;
+  right: -10px;
+  margin: 6em 0 0em;
+  padding: 20px 0 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* line 119, ../sass.txsrc/txdebug.debugtools.sass */
+.debugTools.off {
+  -webkit-transform: translate(290px, 0);
+  -moz-transform: translate(290px, 0);
+  transform: translate(290px, 0);
+}
+
+/* line 129, ../sass.txsrc/txdebug.debugtools.sass */
+.debugTools ul {
+  position: relative;
+  z-index: 2;
+}
+
+/* line 137, ../sass.txsrc/txdebug.debugtools.sass */
+.debugTools li {
+  margin: 1.5em 0 1.5em 25px;
+}
+
+/* line 143, ../sass.txsrc/txdebug.debugtools.sass */
+.debugTools label {
+  border: none;
+}
+
+/* line 149, ../sass.txsrc/txdebug.debugtools.sass */
+.debugTools input {
+  margin: 0 0.5em 0 0;
+}
+
+/* line 155, ../sass.txsrc/txdebug.debugtools.sass */
+.debugToolsToggle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 5px;
+  top: 5px;
+  background: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 1;
+}
+
+/* line 181, ../sass.txsrc/txdebug.debugtools.sass */
+.off .debugToolsToggle {
+  width: 35px;
+  height: 70px;
+  top: 50%;
+  left: -35px;
+  margin: -35px 0 0;
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-border-radius: 35px 0 0 35px;
+  -moz-border-radius: 35px 0 0 35px;
+  -ms-border-radius: 35px 0 0 35px;
+  -o-border-radius: 35px 0 0 35px;
+  border-radius: 35px 0 0 35px;
+}

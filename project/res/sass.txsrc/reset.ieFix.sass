@@ -1,0 +1,31 @@
+/* CSS-Reset (Internet Explorer < 8) */
+
+
+
+.ie6
+	html
+		filter: expression(document.execCommand("BackgroundImageCache", false, true))
+
+
+
+/* Lists Styles Reset */
+
+.ie6
+	.lstRst, .lstRst li, .dfLstRst, .dfLstRst dt, .dfLstRst dd
+		margin: 0
+		padding: 0
+
+	.lstRst li
+		background: none
+		list-style: none outside
+
+	.dfLstRst dt, .dfLstRst dd
+		font-weight: normal
+		font-style: normal
+
+
+
+/* Image Interpolation */
+
+.ie7 img
+	-ms-interpolation-mode: bicubic

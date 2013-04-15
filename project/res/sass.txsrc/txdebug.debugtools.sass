@@ -1,0 +1,98 @@
+@import "compass"
+@import "txsass/wtmixins"
+@import "txsass/wtparameters"
+
+
+
+
+
+
+/* txdebug Styles */
+
+
+
+.debugRhythmLines
+	+debug-vertical-alignment
+
+.debugResponsiveGuide
+	background: url(../images/txdebug.responsiveGuide.jpg)
+
+.debugToggle
+	position: absolute
+	width: 40px
+	height: 40px
+	top: 20px
+	right: 20px
+	border: 10px solid #fff
+	+border-radius(30px)
+
+.debugToggle.on
+	border-color: #fff
+
+.debugToggle.on:before
+	+wt-pseudo($content: D)
+	width: 30px
+	height: 30px
+	left: 5px
+	top: 5px
+	color: rgba(0,0,0,.75)
+	background: #fff
+	font-size: 1.5em
+	font-weight: bold
+	line-height: 30px
+	text-align: center
+	+border-radius(15px)
+
+.debugTools
+	position: fixed
+	width: 300px
+	top: -20px
+	right: -10px
+	+wt-rhythm(4, 0)
+	padding: 20px 0 0
+	color: #fff
+	background: rgba(0,0,0,.85)
+	+border-radius(10px)
+	-webkit-transition: all .5s
+	-moz-transition: all .5s
+	transition: all .5s
+
+.debugTools.off
+	-webkit-transform: translate(290px, 0)
+	-moz-transform: translate(290px, 0)
+	transform: translate(290px, 0)
+
+.debugTools ul
+	position: relative
+	z-index: 2
+
+.debugTools li
+	+wt-rhythm(1, 1, $mlft: 25px)
+
+.debugTools label
+	border: none
+
+.debugTools input
+	margin: 0 .5em 0 0
+
+.debugToolsToggle
+	position: absolute
+	width: 10px
+	height: 10px
+	left: 5px
+	top: 5px
+	background: #fff
+	+border-radius(5px)
+	-webkit-transition: all .5s
+	-moz-transition: all .5s
+	transition: all .5s
+	z-index: 1
+
+.off .debugToolsToggle
+	width: 35px
+	height: 70px
+	top: 50%
+	left: -35px
+	margin: -35px 0 0
+	background: rgba(0, 0, 0, .85)
+	+border-radius(35px 0 0 35px)
