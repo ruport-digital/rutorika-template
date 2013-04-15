@@ -15,6 +15,7 @@ build/*.*
 .metadata
 bin/
 tmp/
+.settings
 *.tmp
 *.bak
 *.swp
@@ -22,6 +23,11 @@ tmp/
 local.properties
 .classpath
 .loadpath
+.project
+.launch
+
+# externalToolBuilders
+.externalToolBuilders
 
 # CDT-specific
 .cproject
