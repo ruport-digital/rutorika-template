@@ -34,6 +34,16 @@
 
 
 
+=wt-grid-height($lines: 1, $line-height: true, $padding: false)
+	@if $padding
+		padding: $lines * $base-line-height 0 0
+	@else
+		height: $lines * $base-line-height
+	@if $line-height
+		line-height: $lines * $base-line-height
+
+
+
 =wt-inline-block
 	display: -moz-inline-box
 	display: inline-block
@@ -86,6 +96,7 @@
 
 =wt-set-boundaries($min: 980px, $max: 1400px, $center: true)
 	min-width: $min
-	max-width: $max
+	@if $max != 0
+		max-width: $max
 	@if $center
 		margin: 0 auto
