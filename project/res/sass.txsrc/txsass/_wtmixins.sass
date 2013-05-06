@@ -60,7 +60,9 @@
 	@if $display == "inline-block"
 		display: -moz-inline-box
 	display: $display
-	content: "" + $content
+	@if $content != ""
+		@if $content != false
+			content: "" + $content
 	position: $position
 
 

@@ -14,23 +14,23 @@
 +establish-baseline
 
 body
-	color: #000
+	color: $base-text-color
 	font-family: $base-font-stack
 	counter-reset: heading
 
 +wt-selection-style
 
 a
-	color: #013568
+	color: $link-color
 	text-decoration: underline
 	&:hover
-		color: #f00
+		color: $link-hover-color
 	&:active
-		color: #f00
+		color: $link-active-color
 	&:visited
-		color: #000203
+		color: $link-visited-color
 	&:focus
-		color: #000
+		color: $link-focus-color
 
 a:focus, select:focus
 	outline: 1px dotted #939393
