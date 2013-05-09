@@ -3,7 +3,7 @@
 #################
 
 build/*.*
-project sources/*.*
+sources/project sources/*.*
 
 
 #################
