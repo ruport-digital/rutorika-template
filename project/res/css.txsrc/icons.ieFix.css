@@ -1,21 +1,24 @@
 /* Icons (Internet Explorer < 8) */
-/* line 27, ../sass.txsrc/icons.ieFix.sass */
+/* line 14, ../sass.txsrc/icons.ieFix.sass */
 .icn {
   zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=ieBefore></i>'))";
 }
 
-/* line 33, ../sass.txsrc/icons.ieFix.sass */
+/* line 17, ../sass.txsrc/icons.ieFix.sass */
 .icn .ieBefore {
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
   display: block;
   position: absolute;
   left: 0;
-  background: url(../images/icons.gif) no-repeat 0 0;
+  background: url(../images/txex.icons.gif) no-repeat 0 0;
   font-size: 0;
   line-height: 0;
-  overflow: hidden;
 }
 
-/* line 51, ../sass.txsrc/icons.ieFix.sass */
+/* line 26, ../sass.txsrc/icons.ieFix.sass */
 .icn1 .ieBefore {
   width: 6px;
   height: 11px;
@@ -24,7 +27,7 @@
   background-position: 0 0;
 }
 
-/* line 65, ../sass.txsrc/icons.ieFix.sass */
+/* line 33, ../sass.txsrc/icons.ieFix.sass */
 .icn2 .ieBefore {
   width: 11px;
   height: 11px;
@@ -33,7 +36,7 @@
   background-position: -6px 0;
 }
 
-/* line 79, ../sass.txsrc/icons.ieFix.sass */
+/* line 40, ../sass.txsrc/icons.ieFix.sass */
 .icn3 .ieBefore {
   width: 13px;
   height: 11px;
@@ -42,7 +45,7 @@
   background-position: -17px 0;
 }
 
-/* line 93, ../sass.txsrc/icons.ieFix.sass */
+/* line 47, ../sass.txsrc/icons.ieFix.sass */
 .icn4 .ieBefore {
   width: 27px;
   height: 11px;
@@ -51,7 +54,7 @@
   background-position: -31px 0;
 }
 
-/* line 107, ../sass.txsrc/icons.ieFix.sass */
+/* line 54, ../sass.txsrc/icons.ieFix.sass */
 .icn5 .ieBefore {
   width: 17px;
   height: 27px;

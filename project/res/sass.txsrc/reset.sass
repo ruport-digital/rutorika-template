@@ -15,8 +15,8 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, a
 	outline: none
 
 html
+	overflow: auto
 	-webkit-overflow-scrolling: touch
-	overflow: scroll
 	-webkit-tap-highlight-color: #f3f5f6
 
 blockquote:before, blockquote:after, q:before, q:after
@@ -53,10 +53,13 @@ input, button, select, textarea
 	margin: 0
 	padding: 0
 
-.lstRst>li
+.lstRst
 	list-style: none outside
+
+.lstRst>li
 	background: none
 
-.dfLstRst>dt, .dfLstRst>dd
-	font-weight: normal
-	font-style: normal
+.dfLstRst
+	>dt, >dd
+		font-weight: normal
+		font-style: normal

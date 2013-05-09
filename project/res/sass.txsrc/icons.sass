@@ -1,6 +1,6 @@
 @import "compass"
-@import "txsass/wtmixins"
-@import "txsass/wtparameters"
+@import "txsass/tx.mixins"
+@import "txsass/tx.parameters"
 
 
 
@@ -12,21 +12,18 @@
 
 
 .icons
-	+wt-rhythm(1, 1)
+	+tx-rhythm(1, 1)
 
 .icons li
-	+wt-rhythm(1, 1)
+	+tx-rhythm(1, 1)
 
 .icn
 	position: relative
 
 .icn:before
-	+wt-pseudo
+	+tx-pseudo
 	left: 0
-	background: url(../images/icons.gif) no-repeat 0 0
-	font-size: 0
-	line-height: 0
-	overflow: hidden
+	background: url(../images/txex.icons.gif) no-repeat 0 0
 
 .icn1:before
 	width: 6px
@@ -59,6 +56,6 @@
 .icn5:before
 	width: 17px
 	height: 27px
-	top: 0px
+	top: 0
 	margin: 0 0 0 -21px
 	background-position: -3px -11px

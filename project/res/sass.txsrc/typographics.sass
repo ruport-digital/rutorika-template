@@ -1,6 +1,6 @@
 @import "compass"
-@import "txsass/wtmixins"
-@import "txsass/wtparameters"
+@import "txsass/tx.mixins"
+@import "txsass/tx.parameters"
 
 
 
@@ -18,19 +18,23 @@ body
 	font-family: $base-font-stack
 	counter-reset: heading
 
-+wt-selection-style
++tx-selection-style
 
 a
-	color: $link-color
+	color: $base-link-color
 	text-decoration: underline
+	
 	&:hover
-		color: $link-hover-color
+		color: $base-link-hover-color
+	
 	&:active
-		color: $link-active-color
+		color: $base-link-active-color
+	
 	&:visited
-		color: $link-visited-color
+		color: $base-link-visited-color
+	
 	&:focus
-		color: $link-focus-color
+		color: $base-link-focus-color
 
 a:focus, select:focus
 	outline: 1px dotted #939393
@@ -49,30 +53,30 @@ h1, h2, h3, h4, h5, h6
 
 h1
 	+adjust-font-size-to($h1-font-size, 2)
-	+wt-rhythm(1, 2, $h1-font-size)
+	+tx-rhythm(1, 2, $h1-font-size)
 
 h2
 	+adjust-font-size-to($h2-font-size, 2)
-	+wt-rhythm(1, 1 , $h2-font-size)
+	+tx-rhythm(1, 1 , $h2-font-size)
 
 h3
 	+adjust-font-size-to($h3-font-size, 1)
-	+wt-rhythm(1, 1, $h3-font-size)
+	+tx-rhythm(1, 1, $h3-font-size)
 
 h4
 	+adjust-font-size-to($h4-font-size, 1)
-	+wt-rhythm(1, 1, $h4-font-size)
+	+tx-rhythm(1, 1, $h4-font-size)
 
 h5
 	+adjust-font-size-to($h5-font-size, 1)
-	+wt-rhythm(1, 1, $h5-font-size)
+	+tx-rhythm(1, 1, $h5-font-size)
 
 h6
 	+adjust-font-size-to($h6-font-size, 1)
-	+wt-rhythm(1, 1, $h6-font-size)
+	+tx-rhythm(1, 1, $h6-font-size)
 
 p, pre, dl, ul, ol, li, address, video, table
-	+wt-rhythm(1, 1)
+	+tx-rhythm(1, 1)
 
 p, blockquote, li, dd
 	+hyphens(auto)
@@ -102,18 +106,18 @@ blockquote, em, cite, q, i
 	font-style: italic
 
 blockquote
-	+wt-rhythm(1, 1, $mrgt: 3em, $mlft: 3em)
+	+tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em)
 	font-family: $base-serif-font-stack
 
 address
 	font-style: normal
 
 dt
-	+wt-rhythm(1)
+	+tx-rhythm(1)
 	font-weight: bold
 
 dd
-	+wt-rhythm(0, 1, $mlft: 1.5em)
+	+tx-rhythm(0, 1, $mlft: 1.5em)
 	font-style: italic
 
 ul
@@ -124,7 +128,7 @@ ol
 
 li
 	ul, ol
-		+wt-rhythm(1, 1, $mlft: 1.5em)
+		+tx-rhythm(1, 1, $mlft: 1.5em)
 
 strong, dfn, b, kbd, acronym, abbr, var
 	font-weight: bold
@@ -193,7 +197,7 @@ img
 	vertical-align: top
 
 caption
-	+wt-rhythm-padding(0, .5)
+	+tx-rhythm-padding(0, .5)
 	font-weight: bold
 
 table
@@ -201,13 +205,13 @@ table
 	max-width: 100%
 
 td, th
-	+wt-table-borders(1px, .5)
+	+tx-table-borders(1px, .5)
 
 th
 	font-weight: bold
 
 fieldset
-	+wt-rhythm-padding(.5, 0)
+	+tx-rhythm-padding(.5, 0)
 
 legend
 	position: relative
@@ -225,12 +229,13 @@ input, button, textarea
 	padding: 0 .5em
 
 input, button
-	+wt-form-height(1, 0)
+	+tx-form-height(1, 0)
 	border: none
 
-input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly]
-	opacity: .5
-	cursor: not-allowed
+input, select, textarea
+	&[disabled], &[readonly]
+		opacity: .5
+		cursor: not-allowed
 
 .ie button
 	width: auto
@@ -239,9 +244,10 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
 input, select 
 	vertical-align: top
 
-input[type="radio"], input[type="checkbox"] 
-	vertical-align: top
-	+box-sizing(border-box)
+input
+	&[type="radio"], &[type="checkbox"] 
+		vertical-align: top
+		+box-sizing(border-box)
 
 input[type="file"]
 	height: auto
@@ -249,21 +255,21 @@ input[type="file"]
 	border: none
 
 select
-	+wt-form-height(1, 0)
+	+tx-form-height(1, 0)
 	border: 1px solid #9a9a9a
 
 select[multiple="multiple"]
-	+wt-form-height(5.1)
+	+tx-form-height(5.1)
 
 .field, textarea
 	border: 1px solid #9a9a9a
 	+box-shadow(0 1px 2px rgba(0, 0, 0, .25) inset)
 
 .field
-	+wt-form-height(1)
+	+tx-form-height(1)
 
 textarea 
-	+wt-form-height(10)
+	+tx-form-height(10)
 
 .field:focus, textarea:focus 
 	outline: none
@@ -364,7 +370,7 @@ hr
 /* Headings Counter */
 
 .hNumber:before 
-	+wt-inline-block
+	+tx-inline-block
 	counter-increment: heading
 	content: counter(heading) ". "
 	position: relative

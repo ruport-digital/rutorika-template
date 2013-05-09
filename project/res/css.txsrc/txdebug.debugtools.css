@@ -1,5 +1,5 @@
 /* txdebug Styles */
-/* line 27, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 14, ../sass.txsrc/txdebug.debugtools.sass */
 .debugRhythmLines {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 102, 255, 0.25)), color-stop(5%, rgba(0, 102, 255, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
@@ -13,12 +13,17 @@
   background-position: left top;
 }
 
-/* line 33, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 17, ../sass.txsrc/txdebug.debugtools.sass */
 .debugResponsiveGuide {
   background: url(../images/txdebug.responsiveGuide.jpg);
 }
 
-/* line 39, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 22, ../sass.txsrc/txdebug.debugtools.sass */
+.debugRhythmLines .content, .debugResponsiveGuide .content {
+  background: none;
+}
+
+/* line 25, ../sass.txsrc/txdebug.debugtools.sass */
 .debugToggle {
   position: absolute;
   width: 40px;
@@ -32,13 +37,11 @@
   -o-border-radius: 30px;
   border-radius: 30px;
 }
-
-/* line 57, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 34, ../sass.txsrc/txdebug.debugtools.sass */
 .debugToggle.on {
   border-color: white;
 }
-
-/* line 63, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 37, ../sass.txsrc/txdebug.debugtools.sass */
 .debugToggle.on:before {
   display: block;
   content: "D";
@@ -60,7 +63,7 @@
   border-radius: 15px;
 }
 
-/* line 91, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 51, ../sass.txsrc/txdebug.debugtools.sass */
 .debugTools {
   position: fixed;
   width: 300px;
@@ -78,37 +81,38 @@
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
+  z-index: 100;
 }
 
-/* line 119, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 66, ../sass.txsrc/txdebug.debugtools.sass */
 .debugTools.off {
   -webkit-transform: translate(290px, 0);
   -moz-transform: translate(290px, 0);
   transform: translate(290px, 0);
 }
 
-/* line 129, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 71, ../sass.txsrc/txdebug.debugtools.sass */
 .debugTools ul {
   position: relative;
   z-index: 2;
 }
 
-/* line 137, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 75, ../sass.txsrc/txdebug.debugtools.sass */
 .debugTools li {
   margin: 1.5em 0 1.5em 25px;
 }
 
-/* line 143, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 78, ../sass.txsrc/txdebug.debugtools.sass */
 .debugTools label {
   border: none;
 }
 
-/* line 149, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 81, ../sass.txsrc/txdebug.debugtools.sass */
 .debugTools input {
   margin: 0 0.5em 0 0;
 }
 
-/* line 155, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 84, ../sass.txsrc/txdebug.debugtools.sass */
 .debugToolsToggle {
   position: absolute;
   width: 10px;
@@ -127,7 +131,7 @@
   z-index: 1;
 }
 
-/* line 181, ../sass.txsrc/txdebug.debugtools.sass */
+/* line 97, ../sass.txsrc/txdebug.debugtools.sass */
 .off .debugToolsToggle {
   width: 35px;
   height: 70px;

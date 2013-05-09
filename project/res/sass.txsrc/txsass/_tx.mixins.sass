@@ -1,4 +1,4 @@
-=wt-selection-style($background: #00f, $color: #fff, $shadow: none)
+=tx-selection-style($background: #00f, $color: #fff, $shadow: none)
 	::-webkit-selection 
 		color: $color
 		background: $background
@@ -14,7 +14,7 @@
 
 
 
-=wt-rhythm($leader: 0, $trailer: 0, $font-size: $base-font-size, $mrgt: 0, $mlft: 0)
+=tx-rhythm($leader: 0, $trailer: 0, $font-size: $base-font-size, $mrgt: 0, $mlft: 0)
 	@if $leader == $trailer and $mrgt == $mlft
 		margin: rhythm($leader, $font-size) $mrgt
 	@else if $mrgt == $mlft
@@ -24,7 +24,7 @@
 
 
 
-=wt-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $font-size: $base-font-size, $prgt: 0, $plft: 0)
+=tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $font-size: $base-font-size, $prgt: 0, $plft: 0)
 	@if $padding-leader == $padding-trailer and $prgt == $plft
 		padding: rhythm($padding-leader, $font-size) $prgt
 	@else if $prgt == $plft
@@ -34,7 +34,7 @@
 
 
 
-=wt-grid-height($lines: 1, $line-height: true, $padding: false)
+=tx-grid-height($lines: 1, $line-height: true, $padding: false)
 	@if $padding
 		padding: $lines * $base-line-height 0 0
 	@else
@@ -44,42 +44,47 @@
 
 
 
-=wt-inline-block
+=tx-inline-block
 	display: -moz-inline-box
 	display: inline-block
 
 
 
-=wt-inline-block-ie
+=tx-inline-block-ie
 	display: inline
 	zoom: 1
 
 
 
-=wt-pseudo($display: block, $position: absolute, $content: "")
+=tx-pseudo($display: block, $position: absolute, $content: "", $ie: false)
 	@if $display == "inline-block"
 		display: -moz-inline-box
 	display: $display
 	@if $content != ""
-		@if $content != false
+		@if $content and not $ie
 			content: "" + $content
+	@else
+		@if not $ie
+			content: ""
+		font-size: 0
+		line-height: 0
 	position: $position
 
 
 
-=wt-pseudo-ie($before: true, $after: true, $class: "")
+=tx-pseudo-ie($before: true, $after: true, $class: "", $beforeContent: "", $afterContent: "")
 	$beforeClass: $class + "ieBefore"
 	$afterClass: $class + "ieAfter"
 	@if $before and $after
-		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + "></i>'), insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + "></i>'))"
+		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + ">" + $beforeContent + "</i>'), insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + ">" + $afterContent + "</i>'))"
 	@else if $before
-		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + "></i>'))"
+		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + ">" + $beforeContent + "</i>'))"
 	@else
-		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + "></i>'))"
+		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + ">" + $afterContent + "</i>'))"
 
 
 
-=wt-table-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
+=tx-table-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
 	$calculated-width: $font-unit * $width / $font-size
 	$calculated-vertical-padding: rhythm($lines, $font-size, $offset: $width)
 	border: $width $bstyle $bcolor
@@ -91,12 +96,12 @@
 
 
 
-=wt-form-height($lines: 1, $border-width: 1px, $font-size: $base-font-size)
+=tx-form-height($lines: 1, $border-width: 1px, $font-size: $base-font-size)
 	height: rhythm($lines, $font-size, $offset: 2 * $border-width)
 
 
 
-=wt-set-boundaries($min: 980px, $max: 1400px, $center: true)
+=tx-set-boundaries($min: 980px, $max: 1400px, $center: true)
 	min-width: $min
 	@if $max != 0
 		max-width: $max

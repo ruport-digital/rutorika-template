@@ -95,7 +95,7 @@
 				<exclude name="**/txdebug.*.*"/>
 				<exclude name="res/*.txsrc/"/>
 			</fileset>
-			<fileset dir="./sources/projectGraphics">
+			<fileset dir="./sources/project meta images">
 				<include name="*.ico"/>
 				<include name="*.png"/>
 				<include name="*.jpg"/>

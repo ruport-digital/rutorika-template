@@ -1,6 +1,6 @@
 @import "compass"
-@import "txsass/wtmixins"
-@import "txsass/wtparameters"
+@import "txsass/tx.mixins"
+@import "txsass/tx.parameters"
 
 
 
@@ -15,6 +15,7 @@ dfn
 	font-style: normal
 
 .ie6
+
 	label, button, .button
 		cursor: hand
 
@@ -22,6 +23,7 @@ dfn
 		zoom 1
 
 	.content
+
 		ul, .lstRst li ul
 			list-style: disc outside
 
@@ -29,13 +31,13 @@ dfn
 			list-style: decimal outside
 
 		.lstRst li li
-			+wt-rhythm(1, 1)
-		
+			+tx-rhythm(1, 1)
+
 		.dfLstRst dl dt
-			+wt-rhythm(1)
+			+tx-rhythm(1)
 
 		.dfLstRst dl dd
-			+wt-rhythm(0, 1, $mlft: 1.5em)
+			+tx-rhythm(0, 1, $mlft: 1.5em)
 			font-style: italic
 
 	input

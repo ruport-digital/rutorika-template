@@ -1,29 +1,39 @@
 @import "compass"
-@import "txsass/wtmixins"
-@import "txsass/wtparameters"
+@import "txsass/tx.mixins"
+@import "txsass/tx.parameters"
 
 
 
-// Layout (Internet Explorer < 8)
 
-// Aside
+
+
+/* Layout (Internet Explorer < 8) */
+
+
+
+/* Aside */
 
 .ie6 .sPLeft
-	margin: 0 (-($horizontal-gap + 3)) 0 0
+	margin: 0 (-$horizontal-gap - 3) 0 0
 
 .ie6 .sPRight
-	margin: 0 0 0 (-($horizontal-gap + 3))
+	margin: 0 0 0 (-$horizontal-gap - 3)
 
 
 
-// inline-block
+/* inline-block */
 
 fieldset, .form dt, .form dd, .pages li
-	+wt-inline-block-ie
+	+tx-inline-block-ie
 
 
 
-// zoom
+/* zoom */
 
-.ie6 .breadCrumbs, .ie6 .content, .ie6 .news, .ie6 .pages, .footer
+.ie6
+
+	.breadCrumbs, .content, .news, .pages
+		zoom: 1
+
+.footer
 	zoom: 1
