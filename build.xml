@@ -93,6 +93,7 @@
 				<include name="res/"/>
 				<exclude name="**/txex.*.*"/>
 				<exclude name="**/txdebug.*.*"/>
+				<exclude name="**/txexample.*.*"/>
 				<exclude name="res/*.txsrc/"/>
 			</fileset>
 			<fileset dir="./sources/project meta images">

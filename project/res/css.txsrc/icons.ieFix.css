@@ -10,15 +10,11 @@
   font-size: 0;
   line-height: 0;
   position: absolute;
-  display: block;
-  position: absolute;
   left: 0;
   background: url(../images/txex.icons.gif) no-repeat 0 0;
-  font-size: 0;
-  line-height: 0;
 }
 
-/* line 26, ../sass.txsrc/icons.ieFix.sass */
+/* line 22, ../sass.txsrc/icons.ieFix.sass */
 .icn1 .ieBefore {
   width: 6px;
   height: 11px;
@@ -27,7 +23,7 @@
   background-position: 0 0;
 }
 
-/* line 33, ../sass.txsrc/icons.ieFix.sass */
+/* line 29, ../sass.txsrc/icons.ieFix.sass */
 .icn2 .ieBefore {
   width: 11px;
   height: 11px;
@@ -36,7 +32,7 @@
   background-position: -6px 0;
 }
 
-/* line 40, ../sass.txsrc/icons.ieFix.sass */
+/* line 36, ../sass.txsrc/icons.ieFix.sass */
 .icn3 .ieBefore {
   width: 13px;
   height: 11px;
@@ -45,7 +41,7 @@
   background-position: -17px 0;
 }
 
-/* line 47, ../sass.txsrc/icons.ieFix.sass */
+/* line 43, ../sass.txsrc/icons.ieFix.sass */
 .icn4 .ieBefore {
   width: 27px;
   height: 11px;
@@ -54,7 +50,7 @@
   background-position: -31px 0;
 }
 
-/* line 54, ../sass.txsrc/icons.ieFix.sass */
+/* line 50, ../sass.txsrc/icons.ieFix.sass */
 .icn5 .ieBefore {
   width: 17px;
   height: 27px;

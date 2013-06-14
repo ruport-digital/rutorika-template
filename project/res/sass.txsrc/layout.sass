@@ -22,7 +22,7 @@ body
 .countersCode
 	position: absolute
 	width: 1px
-	height: 1px
+	height: 100px
 	top: 0
 	left: 0
 	overflow: hidden
@@ -38,165 +38,18 @@ body
 
 
 
-/* Bread Crumbs */
-
-.breadCrumbs
-	position: relative
-	left: -.75em
-	+adjust-font-size-to($base-font-size * .75, 1)
-	+tx-rhythm(1, 1, $base-font-size * .75, $mlft: $horizontal-gap)
-	overflow: hidden
-
-.breadCrumbs li
-	+tx-inline-block
-	margin: 0 .75em 0 -1px
-	padding: 0 0 0 .75em
-	border-width: 0 0 0 1px
-	border-style: dotted
-	border-color: #000
-	vertical-align: top
-
-
-
-/* Aside */
-
-.sidePanel
-	width: $side-panel-width
-	padding: 0 $horizontal-gap
-
-.sPLeft
-	float: left
-	margin: 0 -$horizontal-gap 0 0
-
-.sPRight
-	float: right
-	margin: 0 -$horizontal-gap 0 0
-
-
-
 /* Content */
 
 .content
 	padding: 0 $horizontal-gap
 	background: $content-background
 
-.content:after
-	+tx-pseudo($position: relative)
-	height: 1px	
-	margin: -1px 0 0
-	overflow: hidden
-	clear: both
-
-
-
-/* Form */
-
-.form
-	width: 670px
-
-fieldset .form
-	+tx-rhythm(0, -.5)
-
-.form
-
-	dt, dd
-		+tx-inline-block
-		vertical-align: top
-
-.form dt
-	width: 160px
-	+tx-rhythm(0, .5)
-	padding: 0 10px 0 0
-
-.form dd
-	width: 100%
-	+tx-rhythm(0, .5, $mrgt: -170px)
-	padding: 0 170px 0 0
-	+box-sizing(border-box)
-
-.form
-
-	.field, textarea, select
-		display: block
-
-.form
-
-	.field, textarea
-		width: 500px
-
-
-
-/* Box */
-
-.box
-	position: relative
-	width: $box-width
-	+adjust-font-size-to(12px, 1)
-
-.fLeft
-	float: left
-	+tx-rhythm(0, 1, $mrgt: $horizontal-gap)
-	clear: left
-
-.fRight
-	float: right
-	+tx-rhythm(0, 1, $mlft: $horizontal-gap)
-	clear: right
-
-.box img
-	display: block
-	
-
-
-/* News */
-
-.news
-	position: relative
-	+tx-rhythm(0, -1)
-	overflow: hidden
-
-.news li
-	position: relative
-	top: -1.5em
-	margin: -1px 0 0
-	border-width: 1px 0 0
-	border-style: dotted
-	border-color: #000
-
-.news h2
-	+adjust-font-size-to($h3-font-size, 1)
-	+tx-rhythm(1, 1 , $h3-font-size)
-
-.news img
-	float: left
-	margin: 0 ($horizontal-gap / 2) 0 0
-
-
-
-/* Pages */
-
-.pages
-	position: relative
-	+adjust-font-size-to($base-font-size * .75, 1)
-	+tx-rhythm(1, 1, $base-font-size * .75, auto, auto)
-	overflow: hidden
-
-.pages 
-	display: table
-	left: .352em
-	text-align: center
-	white-space: nowrap
-
-.pages li
-	+inline-block
-	position: relative
-	left: -.75em
-	margin: 0 .75em 0 -1px
-	padding: 0 0 0 .75em
-	border-width: 0 0 0 1px
-	border-style: dotted
-	border-color: #000
-	vertical-align: top
+	&:after
+		+tx-pseudo($position: relative)
+		height: 1px	
+		margin: -1px 0 0
+		font-size: 0
+		clear: both
 
 
 
@@ -232,14 +85,9 @@ fieldset .form
 
 
 
-	.header, .sidePanel, .breadCrumbs, .pages, .footer 
+	.header, .footer 
 		display: none
-	
 
-
-	.content 
-		overflow: visible
-	
 
 
 
@@ -255,37 +103,6 @@ fieldset .form
 	body 
 		min-width: 0
 		max-width: none
-
-
-
-	.sPLeft, .sPRight, .fLeft, .fRight
-		float: none	
-
-
-
-	.news img 
-		display: none
-	
-
-
-	.form 
-		width: auto
-	
-	.form
-
-		dt, dd 
-			display: block
-	
-	.form dt 
-		+tx-rhythm(0, .5)
-	
-	.form dd 
-		+tx-rhythm(0, 1)
-	
-	.form
-
-		.field, dd textarea, select 
-			width: 100%
 
 
 

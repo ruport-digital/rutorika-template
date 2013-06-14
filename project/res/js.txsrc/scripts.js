@@ -6,7 +6,6 @@ function whichDevice() {
 	for (var device in mobilelist) {
 		if (useragentstring.indexOf(mobilelist[device])>=0) {
 			return mobilelist[device];
-			break;
 		}
 	}
 }

@@ -402,7 +402,7 @@ input[type="radio"], input[type="checkbox"] {
 /* line 252, ../sass.txsrc/typographics.sass */
 input[type="file"] {
   height: auto;
-  line-height: auto;
+  line-height: normal;
   border: none;
 }
 

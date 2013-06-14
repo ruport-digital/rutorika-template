@@ -1,0 +1,207 @@
+/* Bread Crumbs */
+/* line 12, ../sass.txsrc/txexamples.layout.sass */
+.breadCrumbs {
+  position: relative;
+  left: -0.75em;
+  font-size: 0.75em;
+  line-height: 2em;
+  margin: 2em 0 2em 36px;
+  overflow: hidden;
+}
+/* line 19, ../sass.txsrc/txexamples.layout.sass */
+.breadCrumbs li {
+  display: -moz-inline-box;
+  display: inline-block;
+  margin: 0 0.75em 0 -1px;
+  padding: 0 0 0 0.75em;
+  border-width: 0 0 0 1px;
+  border-style: dotted;
+  border-color: black;
+  vertical-align: top;
+}
+
+/* Aside */
+/* line 32, ../sass.txsrc/txexamples.layout.sass */
+.sidePanel {
+  width: 260px;
+  padding: 0 36px;
+}
+
+/* line 36, ../sass.txsrc/txexamples.layout.sass */
+.sPLeft {
+  float: left;
+  margin: -36px 0 0;
+}
+
+/* line 40, ../sass.txsrc/txexamples.layout.sass */
+.sPRight {
+  float: right;
+  margin: -36px 0 0;
+}
+
+/* Form */
+/* line 48, ../sass.txsrc/txexamples.layout.sass */
+.form {
+  width: 670px;
+}
+/* line 51, ../sass.txsrc/txexamples.layout.sass */
+.form dt, .form dd {
+  display: -moz-inline-box;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 55, ../sass.txsrc/txexamples.layout.sass */
+.form dt {
+  width: 160px;
+  margin: 0em 0 0.75em;
+  padding: 0 10px 0 0;
+}
+/* line 60, ../sass.txsrc/txexamples.layout.sass */
+.form dd {
+  width: 100%;
+  margin: 0em -170px 0.75em 0;
+  padding: 0 170px 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 66, ../sass.txsrc/txexamples.layout.sass */
+.form .field, .form textarea, .form select {
+  display: block;
+}
+/* line 69, ../sass.txsrc/txexamples.layout.sass */
+.form .field, .form textarea {
+  width: 500px;
+}
+
+/* line 72, ../sass.txsrc/txexamples.layout.sass */
+fieldset .form {
+  margin: 0em 0 -0.75em;
+}
+
+/* Box */
+/* line 79, ../sass.txsrc/txexamples.layout.sass */
+.box {
+  position: relative;
+  width: 260px;
+  font-size: 0.75em;
+  line-height: 2em;
+}
+/* line 84, ../sass.txsrc/txexamples.layout.sass */
+.box img {
+  display: block;
+}
+
+/* line 87, ../sass.txsrc/txexamples.layout.sass */
+.fLeft {
+  float: left;
+  margin: 0em 36px 1.5em 0;
+  clear: left;
+}
+
+/* line 92, ../sass.txsrc/txexamples.layout.sass */
+.fRight {
+  float: right;
+  margin: 0em 0 1.5em 36px;
+  clear: right;
+}
+
+/* News */
+/* line 101, ../sass.txsrc/txexamples.layout.sass */
+.news {
+  position: relative;
+  margin: 0em 0 -1.5em;
+  overflow: hidden;
+}
+/* line 106, ../sass.txsrc/txexamples.layout.sass */
+.news li {
+  position: relative;
+  top: -1.5em;
+  margin: -1px 0 0;
+  border-width: 1px 0 0;
+  border-style: dotted;
+  border-color: black;
+}
+/* line 114, ../sass.txsrc/txexamples.layout.sass */
+.news h2 {
+  font-size: 1.375em;
+  line-height: 1.09091em;
+  margin: 1.09091em 0;
+}
+/* line 118, ../sass.txsrc/txexamples.layout.sass */
+.news img {
+  float: left;
+  margin: 0 18px 0 0;
+}
+
+/* Pages */
+/* line 126, ../sass.txsrc/txexamples.layout.sass */
+.pages {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 2em;
+  margin: 2em auto;
+  overflow: hidden;
+}
+/* line 132, ../sass.txsrc/txexamples.layout.sass */
+.pages li {
+  display: -moz-inline-box;
+  display: inline-block;
+  position: relative;
+  left: -0.75em;
+  margin: 0 0.75em 0 -1px;
+  padding: 0 0 0 0.75em;
+  border-width: 0 0 0 1px;
+  border-style: dotted;
+  border-color: black;
+  vertical-align: top;
+}
+
+/* Large Resolutions Layout */
+/* Print Layout */
+@media print {
+  /* line 161, ../sass.txsrc/txexamples.layout.sass */
+  .sidePanel, .breadCrumbs, .pages {
+    display: none;
+  }
+}
+/* Small Resolutions Layout */
+@media handheld, only screen and (max-width: 480px) {
+  /* line 173, ../sass.txsrc/txexamples.layout.sass */
+  .sPLeft, .sPRight, .fLeft, .fRight {
+    float: none;
+  }
+
+  /* line 178, ../sass.txsrc/txexamples.layout.sass */
+  .news img {
+    display: none;
+  }
+
+  /* line 183, ../sass.txsrc/txexamples.layout.sass */
+  .form {
+    width: auto;
+  }
+  /* line 186, ../sass.txsrc/txexamples.layout.sass */
+  .form dt, .form dd {
+    display: block;
+  }
+  /* line 189, ../sass.txsrc/txexamples.layout.sass */
+  .form dt {
+    margin: 0em 0 0.75em;
+  }
+  /* line 192, ../sass.txsrc/txexamples.layout.sass */
+  .form dd {
+    margin: 0em 0 1.5em;
+  }
+  /* line 195, ../sass.txsrc/txexamples.layout.sass */
+  .form .field, .form dd textarea, .form select {
+    width: 100%;
+  }
+}
+/* Smartphones (Landscape) Layout */
+/* Smartphones (Portrait) Layout */
+/* Tablets Layout */
+/* Tablets (Landscape) Layout */
+/* Tablets (Portrait) Layout */
+/* TV Layout */
+/* Audio Layout */

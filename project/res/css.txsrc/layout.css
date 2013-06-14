@@ -12,7 +12,7 @@ body {
 .countersCode {
   position: absolute;
   width: 1px;
-  height: 1px;
+  height: 100px;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -26,56 +26,13 @@ body {
   z-index: 2;
 }
 
-/* Bread Crumbs */
-/* line 43, ../sass.txsrc/layout.sass */
-.breadCrumbs {
-  position: relative;
-  left: -0.75em;
-  font-size: 0.75em;
-  line-height: 2em;
-  margin: 2em 0 2em 36px;
-  overflow: hidden;
-}
-
-/* line 50, ../sass.txsrc/layout.sass */
-.breadCrumbs li {
-  display: -moz-inline-box;
-  display: inline-block;
-  margin: 0 0.75em 0 -1px;
-  padding: 0 0 0 0.75em;
-  border-width: 0 0 0 1px;
-  border-style: dotted;
-  border-color: black;
-  vertical-align: top;
-}
-
-/* Aside */
-/* line 63, ../sass.txsrc/layout.sass */
-.sidePanel {
-  width: 260px;
-  padding: 0 36px;
-}
-
-/* line 67, ../sass.txsrc/layout.sass */
-.sPLeft {
-  float: left;
-  margin: -36px 0 0;
-}
-
-/* line 71, ../sass.txsrc/layout.sass */
-.sPRight {
-  float: right;
-  margin: -36px 0 0;
-}
-
 /* Content */
-/* line 79, ../sass.txsrc/layout.sass */
+/* line 43, ../sass.txsrc/layout.sass */
 .content {
   padding: 0 36px;
   background: white;
 }
-
-/* line 83, ../sass.txsrc/layout.sass */
+/* line 47, ../sass.txsrc/layout.sass */
 .content:after {
   display: block;
   content: "";
@@ -84,152 +41,12 @@ body {
   position: relative;
   height: 1px;
   margin: -1px 0 0;
-  overflow: hidden;
+  font-size: 0;
   clear: both;
 }
 
-/* Form */
-/* line 94, ../sass.txsrc/layout.sass */
-.form {
-  width: 670px;
-}
-
-/* line 97, ../sass.txsrc/layout.sass */
-fieldset .form {
-  margin: 0em 0 -0.75em;
-}
-
-/* line 102, ../sass.txsrc/layout.sass */
-.form dt, .form dd {
-  display: -moz-inline-box;
-  display: inline-block;
-  vertical-align: top;
-}
-
-/* line 106, ../sass.txsrc/layout.sass */
-.form dt {
-  width: 160px;
-  margin: 0em 0 0.75em;
-  padding: 0 10px 0 0;
-}
-
-/* line 111, ../sass.txsrc/layout.sass */
-.form dd {
-  width: 100%;
-  margin: 0em -170px 0.75em 0;
-  padding: 0 170px 0 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* line 119, ../sass.txsrc/layout.sass */
-.form .field, .form textarea, .form select {
-  display: block;
-}
-
-/* line 124, ../sass.txsrc/layout.sass */
-.form .field, .form textarea {
-  width: 500px;
-}
-
-/* Box */
-/* line 131, ../sass.txsrc/layout.sass */
-.box {
-  position: relative;
-  width: 260px;
-  font-size: 0.75em;
-  line-height: 2em;
-}
-
-/* line 136, ../sass.txsrc/layout.sass */
-.fLeft {
-  float: left;
-  margin: 0em 36px 1.5em 0;
-  clear: left;
-}
-
-/* line 141, ../sass.txsrc/layout.sass */
-.fRight {
-  float: right;
-  margin: 0em 0 1.5em 36px;
-  clear: right;
-}
-
-/* line 146, ../sass.txsrc/layout.sass */
-.box img {
-  display: block;
-}
-
-/* News */
-/* line 153, ../sass.txsrc/layout.sass */
-.news {
-  position: relative;
-  margin: 0em 0 -1.5em;
-  overflow: hidden;
-}
-
-/* line 158, ../sass.txsrc/layout.sass */
-.news li {
-  position: relative;
-  top: -1.5em;
-  margin: -1px 0 0;
-  border-width: 1px 0 0;
-  border-style: dotted;
-  border-color: black;
-}
-
-/* line 166, ../sass.txsrc/layout.sass */
-.news h2 {
-  font-size: 1.375em;
-  line-height: 1.09091em;
-  margin: 1.09091em 0;
-}
-
-/* line 170, ../sass.txsrc/layout.sass */
-.news img {
-  float: left;
-  margin: 0 18px 0 0;
-}
-
-/* Pages */
-/* line 178, ../sass.txsrc/layout.sass */
-.pages {
-  position: relative;
-  font-size: 0.75em;
-  line-height: 2em;
-  margin: 2em auto;
-  overflow: hidden;
-}
-
-/* line 184, ../sass.txsrc/layout.sass */
-.pages {
-  display: table;
-  left: 0.352em;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* line 190, ../sass.txsrc/layout.sass */
-.pages li {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  position: relative;
-  left: -0.75em;
-  margin: 0 0.75em 0 -1px;
-  padding: 0 0 0 0.75em;
-  border-width: 0 0 0 1px;
-  border-style: dotted;
-  border-color: black;
-  vertical-align: top;
-}
-
 /* Footer */
-/* line 205, ../sass.txsrc/layout.sass */
+/* line 58, ../sass.txsrc/layout.sass */
 .footer {
   position: relative;
   clear: both;
@@ -239,76 +56,36 @@ fieldset .form {
 /* Large Resolutions Layout */
 /* Print Layout */
 @media print {
-  /* line 228, ../sass.txsrc/layout.sass */
+  /* line 81, ../sass.txsrc/layout.sass */
   body {
     max-width: none;
     margin: 0 10px;
     padding: 0;
   }
 
-  /* line 235, ../sass.txsrc/layout.sass */
-  .header, .sidePanel, .breadCrumbs, .pages, .footer {
+  /* line 88, ../sass.txsrc/layout.sass */
+  .header, .footer {
     display: none;
-  }
-
-  /* line 240, ../sass.txsrc/layout.sass */
-  .content {
-    overflow: visible;
   }
 }
 /* Small Resolutions Layout */
 @media handheld, only screen and (max-width: 480px) {
-  /* line 252, ../sass.txsrc/layout.sass */
+  /* line 100, ../sass.txsrc/layout.sass */
   html {
     -webkit-text-size-adjust: none;
   }
 
-  /* line 255, ../sass.txsrc/layout.sass */
+  /* line 103, ../sass.txsrc/layout.sass */
   body {
     min-width: 0;
     max-width: none;
-  }
-
-  /* line 261, ../sass.txsrc/layout.sass */
-  .sPLeft, .sPRight, .fLeft, .fRight {
-    float: none;
-  }
-
-  /* line 266, ../sass.txsrc/layout.sass */
-  .news img {
-    display: none;
-  }
-
-  /* line 271, ../sass.txsrc/layout.sass */
-  .form {
-    width: auto;
-  }
-
-  /* line 276, ../sass.txsrc/layout.sass */
-  .form dt, .form dd {
-    display: block;
-  }
-
-  /* line 279, ../sass.txsrc/layout.sass */
-  .form dt {
-    margin: 0em 0 0.75em;
-  }
-
-  /* line 282, ../sass.txsrc/layout.sass */
-  .form dd {
-    margin: 0em 0 1.5em;
-  }
-
-  /* line 287, ../sass.txsrc/layout.sass */
-  .form .field, .form dd textarea, .form select {
-    width: 100%;
   }
 }
 /* Smartphones (Landscape) Layout */
 /* Smartphones (Portrait) Layout */
 /* Tablets Layout */
 @media only screen and (min-width: 481px) and (max-width: 800px) {
-  /* line 317, ../sass.txsrc/layout.sass */
+  /* line 134, ../sass.txsrc/layout.sass */
   body {
     min-width: 0;
     max-width: none;

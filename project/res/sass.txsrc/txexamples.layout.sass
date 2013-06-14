@@ -1,0 +1,259 @@
+@import "compass"
+@import "txsass/tx.mixins"
+@import "txsass/tx.parameters"
+
+
+
+
+
+
+/* Bread Crumbs */
+
+.breadCrumbs
+	position: relative
+	left: -.75em
+	+adjust-font-size-to($base-font-size * .75, 1)
+	+tx-rhythm(1, 1, $base-font-size * .75, $mlft: $horizontal-gap)
+	overflow: hidden
+
+	li
+		+tx-inline-block
+		margin: 0 .75em 0 -1px
+		padding: 0 0 0 .75em
+		border-width: 0 0 0 1px
+		border-style: dotted
+		border-color: #000
+		vertical-align: top
+
+
+
+/* Aside */
+
+.sidePanel
+	width: $side-panel-width
+	padding: 0 $horizontal-gap
+
+.sPLeft
+	float: left
+	margin: 0 -$horizontal-gap 0 0
+
+.sPRight
+	float: right
+	margin: 0 -$horizontal-gap 0 0
+
+
+
+/* Form */
+
+.form
+	width: 670px
+
+	dt, dd
+		+tx-inline-block
+		vertical-align: top
+
+	dt
+		width: 160px
+		+tx-rhythm(0, .5)
+		padding: 0 10px 0 0
+
+	dd
+		width: 100%
+		+tx-rhythm(0, .5, $mrgt: -170px)
+		padding: 0 170px 0 0
+		+box-sizing(border-box)
+
+	.field, textarea, select
+		display: block
+
+	.field, textarea
+		width: 500px
+
+fieldset .form
+	+tx-rhythm(0, -.5)
+
+
+
+/* Box */
+
+.box
+	position: relative
+	width: $box-width
+	+adjust-font-size-to(12px, 1)
+
+	img
+		display: block
+
+.fLeft
+	float: left
+	+tx-rhythm(0, 1, $mrgt: $horizontal-gap)
+	clear: left
+
+.fRight
+	float: right
+	+tx-rhythm(0, 1, $mlft: $horizontal-gap)
+	clear: right
+	
+
+
+/* News */
+
+.news
+	position: relative
+	+tx-rhythm(0, -1)
+	overflow: hidden
+
+	li
+		position: relative
+		top: -1.5em
+		margin: -1px 0 0
+		border-width: 1px 0 0
+		border-style: dotted
+		border-color: #000
+
+	h2
+		+adjust-font-size-to($h3-font-size, 1)
+		+tx-rhythm(1, 1 , $h3-font-size)
+
+	img
+		float: left
+		margin: 0 ($horizontal-gap / 2) 0 0
+
+
+
+/* Pages */
+
+.pages
+	position: relative
+	+adjust-font-size-to($base-font-size * .75, 1)
+	+tx-rhythm(1, 1, $base-font-size * .75, auto, auto)
+	overflow: hidden
+
+	li
+		+tx-inline-block
+		position: relative
+		left: -.75em
+		margin: 0 .75em 0 -1px
+		padding: 0 0 0 .75em
+		border-width: 0 0 0 1px
+		border-style: dotted
+		border-color: #000
+		vertical-align: top
+
+
+
+
+
+
+/* Large Resolutions Layout */
+
+@media only screen and (min-width: 1382px) 
+
+
+
+
+
+
+/* Print Layout */
+
+@media print 
+
+	.sidePanel, .breadCrumbs, .pages
+		display: none
+
+
+
+
+
+
+/* Small Resolutions Layout */
+
+@media handheld, only screen and (max-width: 480px) 
+
+	.sPLeft, .sPRight, .fLeft, .fRight
+		float: none	
+
+
+
+	.news img 
+		display: none
+	
+
+
+	.form 
+		width: auto
+
+		dt, dd 
+			display: block
+	
+		dt 
+			+tx-rhythm(0, .5)
+	
+		dd 
+			+tx-rhythm(0, 1)
+
+		.field, dd textarea, select 
+			width: 100%
+
+
+
+
+
+
+/* Smartphones (Landscape) Layout */
+
+@media only screen and (min-width : 321px) 
+
+
+
+
+
+
+/* Smartphones (Portrait) Layout */
+
+@media only screen and (max-width : 320px) 
+
+
+
+
+
+
+/* Tablets Layout */
+
+@media only screen and (min-width: 481px) and (max-width : 800px) 
+
+
+
+
+
+
+/* Tablets (Landscape) Layout */
+
+@media only screen and (max-width : 1024px) and (orientation : landscape) 
+
+
+
+
+
+
+/* Tablets (Portrait) Layout */
+
+@media only screen and (max-width : 768px) and (orientation : portrait) 
+
+
+
+
+
+
+/* TV Layout */
+
+@media projection, tv 
+
+
+
+
+
+
+/* Audio Layout */
+
+@media aural 
