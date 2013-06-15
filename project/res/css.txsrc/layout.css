@@ -1,14 +1,13 @@
 /* Layout */
-/* line 14, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000314}}
 body {
   position: relative;
   min-width: 980px;
   max-width: 1400px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 /* Counters Code */
-/* line 22, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000322}}
 .countersCode {
   position: absolute;
   width: 1px;
@@ -16,82 +15,71 @@ body {
   top: 0;
   left: 0;
   overflow: hidden;
-  z-index: -1;
-}
+  z-index: -1; }
 
 /* Header */
-/* line 35, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000335}}
 .header {
   position: relative;
-  z-index: 2;
-}
+  z-index: 1; }
 
 /* Content */
-/* line 43, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000343}}
 .content {
   padding: 0 36px;
-  background: white;
-}
-/* line 47, ../sass.txsrc/layout.sass */
-.content:after {
-  display: block;
-  content: "";
-  font-size: 0;
-  line-height: 0;
-  position: relative;
-  height: 1px;
-  margin: -1px 0 0;
-  font-size: 0;
-  clear: both;
-}
+  background: white; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000347}}
+  .content:after {
+    display: block;
+    content: "";
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    height: 1px;
+    margin: -1px 0 0;
+    font-size: 0;
+    clear: both; }
 
 /* Footer */
-/* line 58, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000358}}
 .footer {
   position: relative;
   clear: both;
-  z-index: 2;
-}
+  z-index: 1; }
 
 /* Large Resolutions Layout */
 /* Print Layout */
 @media print {
-  /* line 81, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000381}}
   body {
     max-width: none;
     margin: 0 10px;
-    padding: 0;
-  }
+    padding: 0; }
 
-  /* line 88, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000388}}
   .header, .footer {
-    display: none;
-  }
-}
+    display: none; } }
 /* Small Resolutions Layout */
 @media handheld, only screen and (max-width: 480px) {
-  /* line 100, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\00003100}}
   html {
-    -webkit-text-size-adjust: none;
-  }
+    -webkit-text-size-adjust: none; }
 
-  /* line 103, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\00003103}}
   body {
     min-width: 0;
-    max-width: none;
-  }
-}
+    max-width: none; } }
 /* Smartphones (Landscape) Layout */
 /* Smartphones (Portrait) Layout */
 /* Tablets Layout */
 @media only screen and (min-width: 481px) and (max-width: 800px) {
-  /* line 134, ../sass.txsrc/layout.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\00003134}}
   body {
     min-width: 0;
-    max-width: none;
-  }
-}
+    max-width: none; } }
 /* Tablets (Landscape) Layout */
 /* Tablets (Portrait) Layout */
 /* TV Layout */
 /* Audio Layout */
+
+/*@ sourceMappingURL=layout.css.map */

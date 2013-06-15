@@ -1,29 +1,26 @@
 /* Layout (Internet Explorer < 8) */
 /* Aside */
-/* line 16, ../sass.txsrc/layout.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000316}}
 .ie6 .sPLeft {
-  margin: 0 -39px 0 0;
-}
+  margin: 0 -39px 0 0; }
 
-/* line 19, ../sass.txsrc/layout.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000319}}
 .ie6 .sPRight {
-  margin: 0 0 0 -39px;
-}
+  margin: 0 0 0 -39px; }
 
 /* inline-block */
-/* line 26, ../sass.txsrc/layout.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000326}}
 fieldset, .form dt, .form dd, .pages li {
   display: inline;
-  zoom: 1;
-}
+  zoom: 1; }
 
 /* zoom */
-/* line 35, ../sass.txsrc/layout.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000335}}
 .ie6 .breadCrumbs, .ie6 .content, .ie6 .news, .ie6 .pages {
-  zoom: 1;
-}
+  zoom: 1; }
 
-/* line 38, ../sass.txsrc/layout.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000338}}
 .footer {
-  zoom: 1;
-}
+  zoom: 1; }
+
+/*@ sourceMappingURL=layout.ieFix.css.map */

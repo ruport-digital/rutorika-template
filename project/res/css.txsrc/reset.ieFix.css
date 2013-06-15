@@ -1,28 +1,25 @@
 /* CSS-Reset (Internet Explorer < 8) */
-/* line 5, ../sass.txsrc/reset.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\000035}}
 html.ie6 {
-  filter: expression(document.execCommand("BackgroundImageCache", false, true));
-}
+  filter: expression(document.execCommand("BackgroundImageCache", false, true)); }
 
 /* Lists Styles Reset */
-/* line 14, ../sass.txsrc/reset.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000314}}
 .ie6 .lstRst, .ie6 .lstRst li, .ie6 .dfLstRst, .ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
   margin: 0;
-  padding: 0;
-}
-/* line 18, ../sass.txsrc/reset.ieFix.sass */
+  padding: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000318}}
 .ie6 .lstRst li {
   background: none;
-  list-style: none outside;
-}
-/* line 22, ../sass.txsrc/reset.ieFix.sass */
+  list-style: none outside; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000322}}
 .ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
   font-weight: normal;
-  font-style: normal;
-}
+  font-style: normal; }
 
 /* Image Interpolation */
-/* line 30, ../sass.txsrc/reset.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000330}}
 .ie7 img {
-  -ms-interpolation-mode: bicubic;
-}
+  -ms-interpolation-mode: bicubic; }
+
+/*@ sourceMappingURL=reset.ieFix.css.map */

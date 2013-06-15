@@ -1,60 +1,55 @@
 /* Icons (Internet Explorer < 8) */
-/* line 14, ../sass.txsrc/icons.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/icons\.ieFix\.sass}line{font-family:\0000314}}
 .icn {
-  zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=ieBefore></i>'))";
-}
+  zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=ieBefore></i>'))"; }
 
-/* line 17, ../sass.txsrc/icons.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/icons\.ieFix\.sass}line{font-family:\0000317}}
 .icn .ieBefore {
   display: block;
   font-size: 0;
   line-height: 0;
   position: absolute;
   left: 0;
-  background: url(../images/txex.icons.gif) no-repeat 0 0;
-}
+  background: url(../images/txex.icons.gif) no-repeat 0 0; }
 
-/* line 22, ../sass.txsrc/icons.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/icons\.ieFix\.sass}line{font-family:\0000322}}
 .icn1 .ieBefore {
   width: 6px;
   height: 11px;
   top: 2px;
   margin: 0 0 0 -10px;
-  background-position: 0 0;
-}
+  background-position: 0 0; }
 
-/* line 29, ../sass.txsrc/icons.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/icons\.ieFix\.sass}line{font-family:\0000329}}
 .icn2 .ieBefore {
   width: 11px;
   height: 11px;
   top: 2px;
   margin: 0 0 0 -14px;
-  background-position: -6px 0;
-}
+  background-position: -6px 0; }
 
-/* line 36, ../sass.txsrc/icons.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/icons\.ieFix\.sass}line{font-family:\0000336}}
 .icn3 .ieBefore {
   width: 13px;
   height: 11px;
   top: 2px;
   margin: 0 0 0 -17px;
-  background-position: -17px 0;
-}
+  background-position: -17px 0; }
 
-/* line 43, ../sass.txsrc/icons.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/icons\.ieFix\.sass}line{font-family:\0000343}}
 .icn4 .ieBefore {
   width: 27px;
   height: 11px;
   top: 2px;
   margin: 0 0 0 -31px;
-  background-position: -31px 0;
-}
+  background-position: -31px 0; }
 
-/* line 50, ../sass.txsrc/icons.ieFix.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/icons\.ieFix\.sass}line{font-family:\0000350}}
 .icn5 .ieBefore {
   width: 17px;
   height: 27px;
   top: 2px;
   margin: 0 0 0 -21px;
-  background-position: -3px -11px;
-}
+  background-position: -3px -11px; }
+
+/*@ sourceMappingURL=icons.ieFix.css.map */

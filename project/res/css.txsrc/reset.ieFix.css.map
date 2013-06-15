@@ -1,0 +1,6 @@
+{
+"version": "3",
+"mappings": ";;AAIA,QAAQ;EACP,MAAM,EAAE,qEAAqE;;;;AAQ7E,mFAA0D;EACzD,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;;AAEX,eAAU;EACT,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,YAAY;;AAEzB,oCAA0B;EACzB,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,MAAM;;;;AAMpB,QAAQ;EACP,sBAAsB,EAAE,OAAO",
+"sources": ["../sass.txsrc/reset.ieFix.sass"],
+"file": "reset.ieFix.css"
+}

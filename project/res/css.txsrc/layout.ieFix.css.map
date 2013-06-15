@@ -1,0 +1,6 @@
+{
+"version": "3",
+"mappings": ";;;AAeA,YAAY;EACX,MAAM,EAAE,WAA4B;;;AAErC,aAAa;EACZ,MAAM,EAAE,WAA4B;;;;AAMrC,uCAAuC;EC4BtC,OAAO,EAAE,MAAM;EACf,IAAI,EAAE,CAAC;;;;ADpBP,yDAAqC;EACpC,IAAI,EAAE,CAAC;;;AAET,OAAO;EACN,IAAI,EAAE,CAAC",
+"sources": ["../sass.txsrc/layout.ieFix.sass","../sass.txsrc/txsass/_tx.mixins.sass"],
+"file": "layout.ieFix.css"
+}

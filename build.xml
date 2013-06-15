@@ -28,8 +28,17 @@
 		</classpath>
 	</taskdef>
 
-	<target name="build" depends="concatenateFiles, minifyFiles, erasePreviousBuild, copyPrebuild, replaceTokens, shareBuild">
+	<target name="build" depends="concatenateFiles, removeSassDebugInfo, minifyFiles, erasePreviousBuild, copyPrebuild, replaceTokens, shareBuild">
 		<echo>Done.</echo>
+	</target>
+
+	<target name="removeSassDebugInfo">
+		<echo>Removing Sass Debug Info</echo>
+		<replaceregexp match=".media \-sass\-debug\-info(.|\t|\s|\n)*?\}\}" replace="" flags="g">
+			<fileset dir="${cssD.dir}">
+				<include name="*.css"/>
+			</fileset>
+		</replaceregexp>
 	</target>
 
 	<target name="concatenateFiles">
