@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
-<project name="Build Template X" default="build" basedir=".">
+<project name="Build TemplateX" default="build" basedir=".">
 
-	<property name="prj.title" value="Template X"/>
+	<property name="prj.title" value="TemplateX"/>
 	<property name="prj.lng" value="ru"/>
 	<property name="prj.dir" value="./project"/>
 
