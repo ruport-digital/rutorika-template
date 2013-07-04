@@ -1,128 +1,128 @@
 /* Base Typographics & Rhythm */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/\.rvm\/gems\/ruby-2\.0\.0-p195\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/_vertical_rhythm\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Ruby\/lib\/ruby\/gems\/2\.0\.0\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/_vertical_rhythm\.scss}line{font-family:\0000361}}
 * html {
   font-size: 100%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/\.rvm\/gems\/ruby-2\.0\.0-p195\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/_vertical_rhythm\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Ruby\/lib\/ruby\/gems\/2\.0\.0\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/_vertical_rhythm\.scss}line{font-family:\0000364}}
 html {
   font-size: 16px;
   line-height: 1.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000316}}
 body {
   color: black;
   font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
   counter-reset: heading; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txsass\/_tx\.mixins\.sass}line{font-family:\000032}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txsass\/_tx\.mixins\.sass}line{font-family:\000032}}
 ::-webkit-selection {
   color: white;
   background: blue;
   text-shadow: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txsass\/_tx\.mixins\.sass}line{font-family:\000036}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txsass\/_tx\.mixins\.sass}line{font-family:\000036}}
 ::-moz-selection {
   color: white;
   background: blue;
   text-shadow: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txsass\/_tx\.mixins\.sass}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txsass\/_tx\.mixins\.sass}line{font-family:\0000310}}
 ::selection {
   color: white;
   background: blue;
   text-shadow: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000323}}
 a {
   color: #003b9e;
   text-decoration: underline; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000327}}
   a:hover {
     color: red; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000330}}
   a:active {
     color: red; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000333}}
   a:visited {
     color: black; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000336}}
   a:focus {
     color: black; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000339}}
 a:focus, select:focus {
   outline: 1px dotted #939393; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000342}}
 label, button, .button {
   cursor: pointer; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000345}}
 label {
   border-width: 0 0 1px;
   border-style: dotted;
   border-color: #777777; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000350}}
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   text-rendering: optimizelegibility; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000354}}
 h1 {
   font-size: 2em;
   line-height: 1.5em;
   margin: 0.75em 0 1.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000358}}
 h2 {
   font-size: 1.5em;
   line-height: 2em;
   margin: 1em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000362}}
 h3 {
   font-size: 1.375em;
   line-height: 1.09091em;
   margin: 1.09091em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000366}}
 h4 {
   font-size: 1.25em;
   line-height: 1.2em;
   margin: 1.2em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000370}}
 h5 {
   font-size: 1.125em;
   line-height: 1.33333em;
   margin: 1.33333em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000374}}
 h6 {
   font-size: 1em;
   line-height: 1.5em;
   margin: 1.5em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000378}}
 p, pre, dl, ul, ol, li, address, video, table {
   margin: 1.5em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000381}}
 p, blockquote, li, dd {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000384}}
 pre, code, samp, var, tt {
   font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000387}}
 pre, code, samp, del {
   color: #686868; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000390}}
 pre {
   padding: 0 1.5em;
   white-space: pre;
@@ -135,56 +135,56 @@ pre {
   word-wrap: break-word;
   overflow: hidden; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\0000396}}
 p var, p code, p samp {
   position: relative;
   top: 0.09em;
   vertical-align: top; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003102}}
 code var, samp var {
   top: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003105}}
 blockquote, em, cite, q, i {
   font-style: italic; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003108}}
 blockquote {
   margin: 1.5em 3em;
   font-family: Cambria, Georgia, Times, "Times New Roman", serif; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003112}}
 address {
   font-style: normal; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003115}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003115}}
 dt {
   margin: 1.5em 0 0em;
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003119}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003119}}
 dd {
   margin: 0em 0 1.5em 1.5em;
   font-style: italic; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003123}}
 ul {
   list-style-type: disc; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003126}}
 ol {
   list-style-type: decimal; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003130}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003130}}
 li ul, li ol {
   margin: 1.5em 0 1.5em 1.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003133}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003133}}
 strong, dfn, b, kbd, acronym, abbr, var {
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003136}}
 acronym, abbr, ins, del {
   color: #488dc6;
   border-width: 0 0 1px;
@@ -192,12 +192,12 @@ acronym, abbr, ins, del {
   border-color: #488dc6;
   cursor: help; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003143}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003143}}
 acronym, abbr {
   margin: 0 -0.075em 0 0;
   letter-spacing: 0.075em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003147}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003147}}
 kbd {
   padding: 0.25em 0.5em 0.2em;
   color: #333333;
@@ -218,12 +218,12 @@ kbd {
   -moz-box-shadow: -2px -2px 2px #dadada inset;
   box-shadow: -2px -2px 2px #dadada inset; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003159}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003159}}
 var {
   color: #d00837;
   font-style: normal; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003163}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003163}}
 ins, mark {
   color: #1c8400;
   border-width: 0 0 1px;
@@ -231,67 +231,67 @@ ins, mark {
   border-color: #1c8400;
   text-decoration: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003170}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003170}}
 del, strike, s {
   text-decoration: line-through; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003173}}
 sup, sub {
   position: relative;
   font-size: 0.75em;
   line-height: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003178}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003178}}
 sup {
   top: -0.65em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003181}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003181}}
 sub {
   bottom: -0.25em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003184}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003184}}
 big {
   font-size: 1.5em;
   line-height: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003188}}
 small {
   font-size: 0.75em;
   line-height: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003192}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003192}}
 u {
   text-decoration: underline; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003195}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003195}}
 img {
   max-width: 100%;
   vertical-align: top; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003199}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003199}}
 caption {
   padding: 0em 0 0.75em;
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003203}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003203}}
 table {
   width: 100%;
   max-width: 100%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003207}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003207}}
 td, th {
   border: 1px solid black;
   padding: 0.6875em 0.5em 0.75em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003210}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003210}}
 th {
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003213}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003213}}
 fieldset {
   padding: 0.75em 0 0em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003216}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003216}}
 legend {
   position: relative;
   left: -1.5em;
@@ -300,73 +300,73 @@ legend {
   background: black;
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003224}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003224}}
 input, select, button, textarea {
   font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
   font-size: 1em;
   line-height: 1.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003228}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003228}}
 input, button, textarea {
   padding: 0 0.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003231}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003231}}
 input, button {
   height: 1.5em;
   border: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003236}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003236}}
 input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly] {
   opacity: 0.5;
   cursor: not-allowed; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003240}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003240}}
 .ie button {
   width: auto;
   overflow: visible; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003244}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003244}}
 input, select {
   vertical-align: top; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003248}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003248}}
 input[type="radio"], input[type="checkbox"] {
   vertical-align: top;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003252}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003252}}
 input[type="file"] {
   height: auto;
   line-height: normal;
   border: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003257}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003257}}
 select {
   height: 1.5em;
   border: 1px solid #9a9a9a; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003261}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003261}}
 select[multiple="multiple"] {
   height: 7.525em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003264}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003264}}
 .field, textarea {
   border: 1px solid #9a9a9a;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003268}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003268}}
 .field {
   height: 1.375em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003271}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003271}}
 textarea {
   height: 14.875em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003274}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003274}}
 .field:focus, textarea:focus {
   outline: none;
   -webkit-animation: focusPulse 1.5s infinite;
@@ -409,7 +409,7 @@ textarea {
   100% {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003318}}
 hr {
   display: block;
   height: 1px;
@@ -420,57 +420,57 @@ hr {
   border-color: #c7ced6 black white; }
 
 /* Additional Decorative Styles */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003331}}
 .alnLft {
   text-align: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003334}}
 .alnRgt {
   text-align: right; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003337}}
 .alnCnt {
   text-align: center; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003340}}
 .alnJst {
   text-align: justify; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003343}}
 .alnTop {
   vertical-align: top; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003346}}
 .alnMdl {
   vertical-align: middle; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003349}}
 .alnBtm {
   vertical-align: bottom; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003352}}
 .fntBld {
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003355}}
 .fntItl {
   font-style: italic; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003358}}
 .fntNrm {
   font-weight: normal;
   font-style: normal; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003362}}
 .blkClr {
   clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003365}}
 .blkNClr {
   clear: none; }
 
 /* Headings Counter */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003372}}
 .hNumber:before {
   display: -moz-inline-box;
   display: inline-block;
@@ -480,20 +480,20 @@ hr {
 
 /* Small Resolutions Typographics */
 @media handheld, only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003387}}
   table {
     display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003390}}
   tr {
     border: 3px solid red; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003393}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003393}}
   tr, th, td {
     display: block; } }
 /* High DPI Typographics */
 @media only screen and (min-resolution: 2dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 1.5) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003405}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003405}}
   html {
     text-rendering: optimizelegibility; } }
 /* Print Typographics */
@@ -501,25 +501,25 @@ hr {
   @page {
     margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003420}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003420}}
   a, acronym, abbr, ins, del, var, input, select, textarea {
     color: black;
     border: none;
     text-decoration: none;
     outline: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003426}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003426}}
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
     orphans: 3;
     widows: 3; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003431}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003431}}
   p {
     orphans: 3;
     widows: 3; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003435}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.sass}line{font-family:\00003435}}
   blockquote, pre, img {
     page-break-inside: avoid; } }
 

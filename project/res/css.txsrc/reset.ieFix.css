@@ -1,24 +1,24 @@
 /* CSS-Reset (Internet Explorer < 8) */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\000035}}
 html.ie6 {
   filter: expression(document.execCommand("BackgroundImageCache", false, true)); }
 
 /* Lists Styles Reset */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000314}}
 .ie6 .lstRst, .ie6 .lstRst li, .ie6 .dfLstRst, .ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
   margin: 0;
   padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000318}}
 .ie6 .lstRst li {
   background: none;
   list-style: none outside; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000322}}
 .ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
   font-weight: normal;
   font-style: normal; }
 
 /* Image Interpolation */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.ieFix\.sass}line{font-family:\0000330}}
 .ie7 img {
   -ms-interpolation-mode: bicubic; }
 

@@ -1,5 +1,5 @@
 /* CSS-Reset */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\000035}}
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, acronym, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, form, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, applet, object, iframe, article, aside, figure, figcaption, footer, header, hgroup, menu, nav, section, time, mark, audio, video, canvas {
   margin: 0;
   padding: 0;
@@ -12,60 +12,60 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, a
   border: none;
   outline: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000317}}
 html {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: #f3f5f6; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000322}}
 blockquote:before, blockquote:after, q:before, q:after {
   content: "";
   content: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000326}}
 blockquote, q {
   quotes: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000329}}
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000333}}
 caption, th, td {
   font-weight: normal;
   text-align: left;
   vertical-align: middle; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000338}}
 ul, ol {
   list-style: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000341}}
 article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000344}}
 input, button, select, textarea {
   margin: 0;
   padding: 0; }
 
 /* Lists Styles Reset */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000352}}
 .lstRst, .lstRst > li, .dfLstRst, .dfLstRst > dt, .dfLstRst > dd {
   margin: 0;
   padding: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000356}}
 .lstRst {
   list-style: none outside; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000359}}
 .lstRst > li {
   background: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000363}}
 .dfLstRst > dt, .dfLstRst > dd {
   font-weight: normal;
   font-style: normal; }
