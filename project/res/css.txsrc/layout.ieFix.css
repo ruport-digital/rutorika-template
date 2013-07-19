@@ -1,25 +1,25 @@
 /* Layout (Internet Explorer < 8) */
 /* Aside */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000316}}
 .ie6 .sPLeft {
   margin: 0 -39px 0 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000319}}
 .ie6 .sPRight {
   margin: 0 0 0 -39px; }
 
 /* inline-block */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000326}}
 fieldset, .form dt, .form dd, .pages li {
   display: inline;
   zoom: 1; }
 
 /* zoom */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000335}}
 .ie6 .breadCrumbs, .ie6 .content, .ie6 .news, .ie6 .pages {
   zoom: 1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Projects\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000338}}
 .footer {
   zoom: 1; }
 
