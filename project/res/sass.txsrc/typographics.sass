@@ -14,30 +14,32 @@
 +establish-baseline
 
 body
-	color: $base-text-color
-	font-family: $base-font-stack
+	color: $text-color
+	font-family: $sans-font
 	counter-reset: heading
 
 +tx-selection-style
 
+a, select
+
+	&:focus
+		outline: 1px dotted $focus-outline
+
 a
-	color: $base-link-color
+	color: $link
 	text-decoration: underline
 	
 	&:hover
-		color: $base-link-hover-color
+		color: $hover
 	
 	&:active
-		color: $base-link-active-color
+		color: $active
 	
 	&:visited
-		color: $base-link-visited-color
+		color: $visited
 	
 	&:focus
-		color: $base-link-focus-color
-
-a:focus, select:focus
-	outline: 1px dotted #939393
+		color: $focus
 
 label, button, .button
 	cursor: pointer
@@ -45,7 +47,7 @@ label, button, .button
 label
 	border-width: 0 0 1px
 	border-style: dotted
-	border-color: #777
+	border-color: $focus-outline
 
 h1, h2, h3, h4, h5, h6
 	font-weight: bold
@@ -82,7 +84,7 @@ p, blockquote, li, dd
 	+hyphens(auto)
 
 pre, code, samp, var, tt
-	font-family: $base-monospace-font-stack
+	font-family: $monospace-font
 
 pre, code, samp, del
 	color: #686868
@@ -107,7 +109,7 @@ blockquote, em, cite, q, i
 
 blockquote
 	+tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em)
-	font-family: $base-serif-font-stack
+	font-family: $serif-font
 
 address
 	font-style: normal
@@ -127,6 +129,7 @@ ol
 	list-style-type: decimal
 
 li
+	
 	ul, ol
 		+tx-rhythm(1, 1, $mlft: 1.5em)
 
@@ -172,8 +175,7 @@ del, strike, s
 
 sup, sub
 	position: relative
-	font-size: .75em
-	line-height: 0
+	+adjust-font-size-to($font-size * .75, 0)
 
 sup
 	top: -.65em
@@ -186,8 +188,7 @@ big
 	line-height: 0
 
 small
-	font-size: .75em
-	line-height: 0
+	+adjust-font-size-to($font-size * .75, 0)
 
 u
 	text-decoration: underline
@@ -222,8 +223,8 @@ legend
 	font-weight: bold
 
 input, select, button, textarea
-	font-family: $base-font-stack
-	+adjust-font-size-to($base-font-size, 1)
+	font-family: $sans-font
+	+adjust-font-size-to($font-size, 1)
 
 input, button, textarea
 	padding: 0 .5em
@@ -233,18 +234,22 @@ input, button
 	border: none
 
 input, select, textarea
+	
 	&[disabled], &[readonly]
 		opacity: .5
 		cursor: not-allowed
 
-.ie button
-	width: auto
-	overflow: visible
+.ie
+	
+	button
+		width: auto
+		overflow: visible
 
 input, select 
 	vertical-align: top
 
 input
+	
 	&[type="radio"], &[type="checkbox"] 
 		vertical-align: top
 		+box-sizing(border-box)
@@ -271,11 +276,13 @@ select[multiple="multiple"]
 textarea 
 	+tx-form-height(10)
 
-.field:focus, textarea:focus 
-	outline: none
-	-webkit-animation: focusPulse 1.5s infinite
-	-moz-animation: focusPulse 1.5s infinite
-	animation: focusPulse 1.5s infinite
+.field, textarea
+
+	&:focus 
+		outline: none
+		-webkit-animation: focusPulse 1.5s infinite
+		-moz-animation: focusPulse 1.5s infinite
+		animation: focusPulse 1.5s infinite
 
 @-moz-keyframes focusPulse 
 	0% 

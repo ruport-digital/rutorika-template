@@ -11,9 +11,21 @@
 
 
 
+/* Aside */
+
+.ie6
+	
+	.sPLeft
+		margin: 0 (-$gap - 3) 0 0
+
+	.sPRight
+		margin: 0 0 0 (-$gap - 3)
+
+
+
 /* inline-block */
 
-fieldset
+.form dt, .form dd, .pages li
 	+tx-inline-block-ie
 
 
@@ -22,8 +34,5 @@ fieldset
 
 .ie6
 
-	.content
+	.breadCrumbs, .news, .pages
 		zoom: 1
-
-.footer
-	zoom: 1

@@ -12,8 +12,8 @@
 .breadCrumbs
 	position: relative
 	left: -.75em
-	+adjust-font-size-to($base-font-size * .75, 1)
-	+tx-rhythm(1, 1, $base-font-size * .75, $mlft: $horizontal-gap)
+	+adjust-font-size-to($base-font * .75, 1)
+	+tx-rhythm(1, 1, $base-font * .75, $mlft: $gap)
 	overflow: hidden
 
 	li
@@ -30,16 +30,16 @@
 /* Aside */
 
 .sidePanel
-	width: $side-panel-width
-	padding: 0 $horizontal-gap
+	width: $side-panel
+	padding: 0 $gap
 
 .sPLeft
 	float: left
-	margin: 0 -$horizontal-gap 0 0
+	margin: 0 -$gap 0 0
 
 .sPRight
 	float: right
-	margin: 0 -$horizontal-gap 0 0
+	margin: 0 -$gap 0 0
 
 
 
@@ -78,7 +78,7 @@ fieldset .form
 
 .box
 	position: relative
-	width: $box-width
+	width: $box
 	+adjust-font-size-to(12px, 1)
 
 	img
@@ -86,12 +86,12 @@ fieldset .form
 
 .fLeft
 	float: left
-	+tx-rhythm(0, 1, $mrgt: $horizontal-gap)
+	+tx-rhythm(0, 1, $mrgt: $gap)
 	clear: left
 
 .fRight
 	float: right
-	+tx-rhythm(0, 1, $mlft: $horizontal-gap)
+	+tx-rhythm(0, 1, $mlft: $gap)
 	clear: right
 	
 
@@ -113,11 +113,11 @@ fieldset .form
 
 	h2
 		+adjust-font-size-to($h3-font-size, 1)
-		+tx-rhythm(1, 1 , $h3-font-size)
+		+tx-rhythm(1, 1, $h3-font-size)
 
 	img
 		float: left
-		margin: 0 ($horizontal-gap / 2) 0 0
+		margin: 0 ($gap / 2) 0 0
 
 
 
@@ -125,8 +125,8 @@ fieldset .form
 
 .pages
 	position: relative
-	+adjust-font-size-to($base-font-size * .75, 1)
-	+tx-rhythm(1, 1, $base-font-size * .75, auto, auto)
+	+adjust-font-size-to($font-size * .75, 1)
+	+tx-rhythm(1, 1, $font-size * .75, auto, auto)
 	overflow: hidden
 
 	li
@@ -175,8 +175,10 @@ fieldset .form
 
 
 
-	.news img 
-		display: none
+	.news
+		
+		img 
+			display: none
 	
 
 
@@ -192,7 +194,7 @@ fieldset .form
 		dd 
 			+tx-rhythm(0, 1)
 
-		.field, dd textarea, select 
+		.field, textarea, select 
 			width: 100%
 
 

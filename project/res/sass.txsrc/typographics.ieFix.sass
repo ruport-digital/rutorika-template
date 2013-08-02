@@ -20,7 +20,7 @@ dfn
 		cursor: hand
 
 	pre
-		zoom 1
+		zoom: 1
 
 	.content
 
@@ -30,15 +30,26 @@ dfn
 		ol, .lstRst li ol
 			list-style: decimal outside
 
-		.lstRst li li
-			+tx-rhythm(1, 1)
+		.lstRst
+			
+			li
+				
+				li
+					+tx-rhythm(1, 1)
 
-		.dfLstRst dl dt
-			+tx-rhythm(1)
+		.dfLstRst
 
-		.dfLstRst dl dd
-			+tx-rhythm(0, 1, $mlft: 1.5em)
-			font-style: italic
+			dl
+
+				dt
+					+tx-rhythm(1)
+
+		.dfLstRst
+
+			dl
+				dd
+					+tx-rhythm(0, 1, $mlft: 1.5em)
+					font-style: italic
 
 	input
 		vertical-align: text-bottom
