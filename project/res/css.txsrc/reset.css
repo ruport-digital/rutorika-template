@@ -19,13 +19,12 @@ html {
   -webkit-tap-highlight-color: #f3f5f6; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000322}}
-blockquote:before, blockquote:after, q:before, q:after {
-  content: "";
-  content: none; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000326}}
 blockquote, q {
   quotes: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000325}}
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000329}}
 table {
@@ -61,11 +60,11 @@ input, button, select, textarea {
 .lstRst {
   list-style: none outside; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000361}}
 .lstRst > li {
   background: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000366}}
 .dfLstRst > dt, .dfLstRst > dd {
   font-weight: normal;
   font-style: normal; }

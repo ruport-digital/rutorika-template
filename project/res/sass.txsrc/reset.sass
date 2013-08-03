@@ -19,12 +19,12 @@ html
 	-webkit-overflow-scrolling: touch
 	-webkit-tap-highlight-color: #f3f5f6
 
-blockquote:before, blockquote:after, q:before, q:after
-	content: ""
-	content: none
-
 blockquote, q
 	quotes: none
+
+	&:before, &:after
+		content: ""
+		content: none
 
 table
 	border-collapse: collapse
@@ -56,10 +56,13 @@ input, button, select, textarea
 .lstRst
 	list-style: none outside
 
-.lstRst>li
-	background: none
+.lstRst
+
+	>li
+		background: none
 
 .dfLstRst
+
 	>dt, >dd
 		font-weight: normal
 		font-style: normal
