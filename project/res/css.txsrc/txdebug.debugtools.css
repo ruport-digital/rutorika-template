@@ -1,5 +1,5 @@
-/* txdebug Styles */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000314}}
+/* TX.Debug Styles */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000315}}
 .debugRhythmLines {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 102, 255, 0.25)), color-stop(5%, rgba(0, 102, 255, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
@@ -12,15 +12,15 @@
   background-size: 100% 1.5em;
   background-position: left top; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000318}}
 .debugResponsiveGuide {
   background: url(../images/txdebug.responsiveGuide.jpg); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000323}}
 .debugRhythmLines .content, .debugResponsiveGuide .content {
   background: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000326}}
 .debugToggle {
   position: absolute;
   width: 40px;
@@ -33,10 +33,10 @@
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   border-radius: 30px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000335}}
   .debugToggle.on {
     border-color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000338}}
   .debugToggle.on:before {
     display: block;
     content: "D";
@@ -57,7 +57,7 @@
     -o-border-radius: 15px;
     border-radius: 15px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000352}}
 .debugTools {
   position: fixed;
   width: 300px;
@@ -74,33 +74,31 @@
   border-radius: 10px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   z-index: 100; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000366}}
-.debugTools.off {
-  -webkit-transform: translate(290px, 0);
-  -moz-transform: translate(290px, 0);
-  transform: translate(290px, 0); }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000371}}
-.debugTools ul {
-  position: relative;
-  z-index: 2; }
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000365}}
+  .debugTools.off {
+    -webkit-transform: translate(290px, 0);
+    -moz-transform: translate(290px, 0);
+    -ms-transform: translate(290px, 0);
+    -o-transform: translate(290px, 0);
+    transform: translate(290px, 0); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000368}}
+  .debugTools ul {
+    position: relative;
+    z-index: 2; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000372}}
+  .debugTools li {
+    margin: 1.5em 0 1.5em 25px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000375}}
-.debugTools li {
-  margin: 1.5em 0 1.5em 25px; }
-
+  .debugTools label {
+    border: none; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000378}}
-.debugTools label {
-  border: none; }
+  .debugTools input {
+    margin: 0 0.5em 0 0; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000381}}
-.debugTools input {
-  margin: 0 0.5em 0 0; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000384}}
 .debugToolsToggle {
   position: absolute;
   width: 10px;
@@ -115,10 +113,11 @@
   border-radius: 5px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   z-index: 1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdebug\.debugtools\.sass}line{font-family:\0000394}}
 .off .debugToolsToggle {
   width: 35px;
   height: 70px;

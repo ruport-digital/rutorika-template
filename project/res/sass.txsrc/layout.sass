@@ -1,4 +1,5 @@
 @import "compass"
+@import "compass/css3/user-interface"
 @import "txsass/tx.mixins"
 @import "txsass/tx.parameters"
 
@@ -14,6 +15,7 @@
 body
 	position: relative
 	+tx-set-boundaries
+	background: $background
 
 
 
@@ -29,6 +31,7 @@ body
 	z-index: -1
 
 
+
 /* Header */
 
 .header
@@ -41,11 +44,10 @@ body
 
 .content
 	padding: 0 $gap
-	background: $content-background
 
 	&:after
 		+tx-pseudo($position: relative)
-		height: 1px	
+		height: 1px
 		margin: -1px 0 0
 		font-size: 0
 		clear: both

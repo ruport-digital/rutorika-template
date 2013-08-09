@@ -10,6 +10,7 @@
 	<condition property="b.exists">
 		<available file="${b.dir}" type="dir"/>
 	</condition>
+
 	<property name="bshr.dir" value="./build"/>
 	<condition property="b.shareCond">
 		<equals arg1="${b.share}" arg2="true"/>
@@ -49,7 +50,6 @@
 				<file name="typographics.css"/>
 				<file name="layout.css"/>
 				<file name="ui.css"/>
-				<file name="icons.css"/>
 			</filelist>
 		</concat>
 		<concat destfile="${cssD.dir}/styles.ieFix.css">
@@ -58,7 +58,6 @@
 				<file name="typographics.ieFix.css"/>
 				<file name="layout.ieFix.css"/>
 				<file name="ui.ieFix.css"/>
-				<file name="icons.ieFix.css"/>
 			</filelist>
 		</concat>
 		<concat destfile="${jsD.dir}/scripts.js">

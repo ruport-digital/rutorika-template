@@ -1,4 +1,5 @@
 @import "compass"
+@import "compass/css3/user-interface"
 @import "txsass/tx.mixins"
 @import "txsass/tx.parameters"
 
@@ -14,16 +15,16 @@
 .icons
 	+tx-rhythm(1, 1)
 
-.icons li
-	+tx-rhythm(1, 1)
+	li
+		+tx-rhythm(1, 1)
 
 .icn
 	position: relative
 
-.icn:before
-	+tx-pseudo
-	left: 0
-	background: url(../images/txex.icons.gif) no-repeat 0 0
+	&:before
+		+tx-pseudo
+		left: 0
+		background: url(../images/txex.icons.gif) no-repeat 0 0
 
 .icn1:before
 	width: 6px

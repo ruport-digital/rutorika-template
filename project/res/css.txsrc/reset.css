@@ -59,12 +59,11 @@ input, button, select, textarea {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000356}}
 .lstRst {
   list-style: none outside; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000359}}
+  .lstRst > li {
+    background: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000361}}
-.lstRst > li {
-  background: none; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/reset\.sass}line{font-family:\0000364}}
 .dfLstRst > dt, .dfLstRst > dd {
   font-weight: normal;
   font-style: normal; }

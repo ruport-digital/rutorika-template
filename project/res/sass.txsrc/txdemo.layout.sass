@@ -1,4 +1,5 @@
 @import "compass"
+@import "compass/css3/user-interface"
 @import "txsass/tx.mixins"
 @import "txsass/tx.parameters"
 
@@ -12,8 +13,8 @@
 .breadCrumbs
 	position: relative
 	left: -.75em
-	+adjust-font-size-to($base-font * .75, 1)
-	+tx-rhythm(1, 1, $base-font * .75, $mlft: $gap)
+	+adjust-font-size-to($font-size * .75, 1)
+	+tx-rhythm(1, 1, $font-size * .75, $mlft: $gap)
 	overflow: hidden
 
 	li

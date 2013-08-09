@@ -1,71 +1,177 @@
-/*
-Syntax error: Undefined variable: "$base-font".
-        on line 15 of project/res/sass.txsrc/txdemo.layout.sass, in `adjust-font-size-to'
-        from line 15 of project/res/sass.txsrc/txdemo.layout.sass
+/* Bread Crumbs */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000313}}
+.breadCrumbs {
+  position: relative;
+  left: -0.75em;
+  font-size: 0.75em;
+  line-height: 2em;
+  margin: 2em 0 2em 36px;
+  overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000320}}
+  .breadCrumbs li {
+    display: -moz-inline-box;
+    display: inline-block;
+    margin: 0 0.75em 0 -1px;
+    padding: 0 0 0 0.75em;
+    border-width: 0 0 0 1px;
+    border-style: dotted;
+    border-color: black;
+    vertical-align: top; }
 
-10: /* Bread Crumbs */
-11: 
-12: .breadCrumbs
-13: 	position: relative
-14: 	left: -.75em
-15: 	+adjust-font-size-to($base-font * .75, 1)
-16: 	+tx-rhythm(1, 1, $base-font * .75, $mlft: $gap)
-17: 	overflow: hidden
-18: 
-19: 	li
-20: 		+tx-inline-block
+/* Aside */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000333}}
+.sidePanel {
+  width: 260px;
+  padding: 0 36px; }
 
-Backtrace:
-project/res/sass.txsrc/txdemo.layout.sass:15:in `adjust-font-size-to'
-project/res/sass.txsrc/txdemo.layout.sass:15
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/script/variable.rb:49:in `_perform'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/script/node.rb:50:in `perform'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/script/operation.rb:76:in `_perform'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/script/node.rb:50:in `perform'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:262:in `block in visit_mixin'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:262:in `map'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:262:in `visit_mixin'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:325:in `visit_rule'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/engine.rb:351:in `_render_with_sourcemap'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/engine.rb:282:in `render_with_sourcemap'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/plugin/compiler.rb:307:in `update_stylesheet'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/plugin/compiler.rb:182:in `block in update_stylesheets'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/plugin/compiler.rb:179:in `each'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/plugin/compiler.rb:179:in `update_stylesheets'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/sass-3.3.0.alpha.149/lib/sass/plugin/compiler.rb:262:in `block in watch'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `call'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `on_change'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/listen-0.7.3/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/listen-0.7.3/lib/listen/adapter.rb:198:in `call'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/listen-0.7.3/lib/listen/adapter.rb:198:in `report_changes'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/listen-0.7.3/lib/listen/adapter.rb:210:in `poll_changed_dirs'
-/Users/uncleFucka/.rvm/gems/ruby-2.0.0-p195/gems/listen-0.7.3/lib/listen/adapters/darwin.rb:38:in `block in start'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$base-font\".\A         on line 15 of project/res/sass.txsrc/txdemo.layout.sass, in `adjust-font-size-to'\A         from line 15 of project/res/sass.txsrc/txdemo.layout.sass\A \A 10: /* Bread Crumbs */\A 11: \A 12: .breadCrumbs\A 13: 	position: relative\A 14: 	left: -.75em\A 15: 	+adjust-font-size-to($base-font * .75, 1)\A 16: 	+tx-rhythm(1, 1, $base-font * .75, $mlft: $gap)\A 17: 	overflow: hidden\A 18: \A 19: 	li\A 20: 		+tx-inline-block"; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000337}}
+.sPLeft {
+  float: left;
+  margin: -36px 0 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000341}}
+.sPRight {
+  float: right;
+  margin: -36px 0 0; }
+
+/* Form */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000349}}
+.form {
+  width: 670px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000352}}
+  .form dt, .form dd {
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: top; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000356}}
+  .form dt {
+    width: 160px;
+    margin: 0em 0 0.75em;
+    padding: 0 10px 0 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000361}}
+  .form dd {
+    width: 100%;
+    margin: 0em -170px 0.75em 0;
+    padding: 0 170px 0 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000367}}
+  .form .field, .form textarea, .form select {
+    display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000370}}
+  .form .field, .form textarea {
+    width: 500px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000373}}
+fieldset .form {
+  margin: 0em 0 -0.75em; }
+
+/* Box */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000380}}
+.box {
+  position: relative;
+  width: 260px;
+  font-size: 0.75em;
+  line-height: 2em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000385}}
+  .box img {
+    display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000388}}
+.fLeft {
+  float: left;
+  margin: 0em 36px 1.5em 0;
+  clear: left; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\0000393}}
+.fRight {
+  float: right;
+  margin: 0em 0 1.5em 36px;
+  clear: right; }
+
+/* News */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003102}}
+.news {
+  position: relative;
+  margin: 0em 0 -1.5em;
+  overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003107}}
+  .news li {
+    position: relative;
+    top: -1.5em;
+    margin: -1px 0 0;
+    border-width: 1px 0 0;
+    border-style: dotted;
+    border-color: black; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003115}}
+  .news h2 {
+    font-size: 1.375em;
+    line-height: 1.09091em;
+    margin: 1.09091em 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003119}}
+  .news img {
+    float: left;
+    margin: 0 18px 0 0; }
+
+/* Pages */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003127}}
+.pages {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 2em;
+  margin: 2em auto;
+  overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003133}}
+  .pages li {
+    display: -moz-inline-box;
+    display: inline-block;
+    position: relative;
+    left: -0.75em;
+    margin: 0 0.75em 0 -1px;
+    padding: 0 0 0 0.75em;
+    border-width: 0 0 0 1px;
+    border-style: dotted;
+    border-color: black;
+    vertical-align: top; }
+
+/* Large Resolutions Layout */
+/* Print Layout */
+@media print {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003162}}
+  .sidePanel, .breadCrumbs, .pages {
+    display: none; } }
+/* Small Resolutions Layout */
+@media handheld, only screen and (max-width: 480px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003174}}
+  .sPLeft, .sPRight, .fLeft, .fRight {
+    float: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003181}}
+  .news img {
+    display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003186}}
+  .form {
+    width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003189}}
+    .form dt, .form dd {
+      display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003192}}
+    .form dt {
+      margin: 0em 0 0.75em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003195}}
+    .form dd {
+      margin: 0em 0 1.5em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.layout\.sass}line{font-family:\00003198}}
+    .form .field, .form textarea, .form select {
+      width: 100%; } }
+/* Smartphones (Landscape) Layout */
+/* Smartphones (Portrait) Layout */
+/* Tablets Layout */
+/* Tablets (Landscape) Layout */
+/* Tablets (Portrait) Layout */
+/* TV Layout */
+/* Audio Layout */
+
+/*@ sourceMappingURL=txdemo.layout.css.map */

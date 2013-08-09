@@ -1,16 +1,16 @@
 /* Layout (Internet Explorer < 8) */
 /* inline-block */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000317}}
 fieldset {
   display: inline;
   zoom: 1; }
 
 /* zoom */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000326}}
 .ie6 .content {
   zoom: 1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000329}}
 .footer {
   zoom: 1; }
 
