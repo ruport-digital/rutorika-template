@@ -107,3 +107,31 @@
 		max-width: $max
 	@if $center
 		margin: 0 auto
+
+
+
+=tx-placeholder($color: #999, $font-size: 1em, $font-weight: normal)
+	&::-webkit-input-placeholder
+		color: $color
+		font-size: $font-size
+		font-weight: $font-weight
+
+	&:-moz-placeholder
+		color: $color
+		font-size: $font-size
+		font-weight: $font-weight
+
+	&::-moz-placeholder
+		color: $color
+		font-size: $font-size
+		font-weight: $font-weight
+
+	&:-ms-input-placeholder
+		color: $color
+		font-size: $font-size
+		font-weight: $font-weight
+
+
+
+=tx-debug($color: #f00, $alpha: .25)
+	background: rgba($color, $alpha) !important
