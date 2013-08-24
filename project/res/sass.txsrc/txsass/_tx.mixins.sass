@@ -14,102 +14,6 @@
 
 
 
-=tx-rhythm($leader: 0, $trailer: 0, $font-size: $base-font-size, $mrgt: 0, $mlft: 0)
-	@if $leader == $trailer and $mrgt == $mlft
-		margin: rhythm($leader, $font-size) $mrgt
-	@else if $mrgt == $mlft
-		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size)
-	@else
-		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size) $mlft
-
-
-
-=tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $font-size: $base-font-size, $prgt: 0, $plft: 0)
-	@if $padding-leader == $padding-trailer and $prgt == $plft
-		padding: rhythm($padding-leader, $font-size) $prgt
-	@else if $prgt == $plft
-		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size)
-	@else
-		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size) $plft
-
-
-
-=tx-grid-height($lines: 1, $line-height: true, $padding: false)
-	@if $padding
-		padding: $lines * $base-line-height 0 0
-	@else
-		height: $lines * $base-line-height
-	@if $line-height
-		line-height: $lines * $base-line-height
-
-
-
-=tx-inline-block
-	display: -moz-inline-box
-	display: inline-block
-
-
-
-=tx-inline-block-ie
-	display: inline
-	zoom: 1
-
-
-
-=tx-pseudo($display: block, $position: absolute, $content: "", $ie: false)
-	@if $display == "inline-block"
-		display: -moz-inline-box
-	display: $display
-	@if $content != ""
-		@if $content and not $ie
-			content: "" + $content
-	@else
-		@if not $ie
-			content: ""
-		font-size: 0
-		line-height: 0
-	position: $position
-
-
-
-=tx-pseudo-ie($before: true, $after: true, $class: "", $beforeContent: "", $afterContent: "")
-	$beforeClass: $class + "ieBefore"
-	$afterClass: $class + "ieAfter"
-	@if $before and $after
-		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + ">" + $beforeContent + "</i>'), insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + ">" + $afterContent + "</i>'))"
-	@else if $before
-		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=" + $beforeClass + ">" + $beforeContent + "</i>'))"
-	@else
-		zoom: "expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=" + $afterClass + ">" + $afterContent + "</i>'))"
-
-
-
-=tx-table-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
-	$calculated-width: $font-unit * $width / $font-size
-	$calculated-vertical-padding: rhythm($lines, $font-size, $offset: $width)
-	border: $width $bstyle $bcolor
-	@if $lines != 0
-		@if $prgt == $plft
-			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width)
-		@else
-			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width) $plft
-
-
-
-=tx-form-height($lines: 1, $border-width: 1px, $font-size: $base-font-size)
-	height: rhythm($lines, $font-size, $offset: 2 * $border-width)
-
-
-
-=tx-set-boundaries($min: 980px, $max: 1400px, $center: true)
-	min-width: $min
-	@if $max != 0
-		max-width: $max
-	@if $center
-		margin: 0 auto
-
-
-
 =tx-placeholder($color: #999, $font-size: 1em, $font-weight: normal)
 	&::-webkit-input-placeholder
 		color: $color
@@ -133,5 +37,93 @@
 
 
 
-=tx-debug($color: #f00, $alpha: .25)
-	background: rgba($color, $alpha) !important
+=tx-set-boundaries($min: 980px, $max: 1400px, $center: true)
+	min-width: $min
+	@if $max != 0
+		max-width: $max
+	@if $center
+		margin: 0 auto
+
+
+
+=tx-rhythm($leader: 0, $trailer: 0, $font-size: $base-font-size, $mrgt: 0, $mlft: 0)
+	@if $leader == $trailer and $mrgt == $mlft
+		margin: rhythm($leader, $font-size) $mrgt
+	@else if $mrgt == $mlft
+		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size)
+	@else
+		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size) $mlft
+
+
+
+=tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $font-size: $base-font-size, $prgt: 0, $plft: 0)
+	@if $padding-leader == $padding-trailer and $prgt == $plft
+		padding: rhythm($padding-leader, $font-size) $prgt
+	@else if $prgt == $plft
+		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size)
+	@else
+		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size) $plft
+
+
+
+=tx-table-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
+	$calculated-width: $font-unit * $width / $font-size
+	$calculated-vertical-padding: rhythm($lines, $font-size, $offset: $width)
+	border: $width $bstyle $bcolor
+	@if $lines != 0
+		@if $prgt == $plft
+			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width)
+		@else
+			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width) $plft
+
+
+
+=tx-grid-height($lines: 1, $line-height: true, $padding: false)
+	@if $padding
+		padding: $lines * $base-line-height 0 0
+	@else
+		height: $lines * $base-line-height
+	@if $line-height
+		line-height: $lines * $base-line-height
+
+
+
+=tx-form-height($lines: 1, $border-width: 1px, $font-size: $base-font-size)
+	height: rhythm($lines, $font-size, $offset: 2 * $border-width)
+
+
+
+=tx-inline-block($ie: $tx-ie)
+	@if not $ie
+		display: -moz-inline-box
+		display: inline-block
+	@else
+		display: inline
+		zoom: 1
+
+
+
+=tx-pseudo($display: block, $position: absolute, $content: "", $ie: $tx-ie)
+	@if $display == "inline-block"
+		+tx-inline-block
+	@else
+		display: $display
+	@if $content != ""
+		@if $content and not $ie
+			content: "" + $content
+	@else
+		@if not $ie
+			content: ""
+	position: $position
+
+
+
+=tx-pseudo-ie($before: true, $after: true, $class: "", $beforeContent: "", $afterContent: "")
+	$beforeClass: ieBefore + $class
+	$afterClass: ieAfter + $class
+	@if $before and $after
+		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'), insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))")
+	@else if $before
+		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'))")
+	@else
+		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))")

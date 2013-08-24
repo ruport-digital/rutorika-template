@@ -2,24 +2,24 @@
 
 <project name="Build TemplateX" default="build" basedir=".">
 
-	<property name="prj.title" value="TemplateX"/>
-	<property name="prj.lng" value="ru"/>
-	<property name="prj.dir" value="./project"/>
+	<property name="project.title" value="TemplateX"/>
+	<property name="project.lng" value="ru"/>
+	<property name="project.dir" value="./project"/>
 
-	<property name="b.dir" value="./build"/>
-	<condition property="b.exists">
-		<available file="${b.dir}" type="dir"/>
+	<property name="build.dir" value="./build"/>
+	<condition property="build.exists">
+		<available file="${build.dir}" type="dir"/>
 	</condition>
 
-	<property name="bshr.dir" value="./build"/>
-	<condition property="b.shareCond">
-		<equals arg1="${b.share}" arg2="true"/>
+	<property name="build.shareDir" value="./build"/>
+	<condition property="build.shareCnd">
+		<equals arg1="${build.share}" arg2="true"/>
 	</condition>
 
-	<property name="cssS.dir" value="${prj.dir}/res/css.txsrc"/>
-	<property name="cssD.dir" value="${prj.dir}/res/css"/>
-	<property name="jsS.dir" value="${prj.dir}/res/js.txsrc"/>
-	<property name="jsD.dir" value="${prj.dir}/res/js"/>
+	<property name="res.css.sourceDir" value="${project.dir}/res/css.txsrc"/>
+	<property name="res.css.dir" value="${project.dir}/res/css"/>
+	<property name="res.js.sourceDir" value="${project.dir}/res/js.txsrc"/>
+	<property name="res.js.dir" value="${project.dir}/res/js"/>
 
 	<taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
 		<classpath>
@@ -36,7 +36,7 @@
 	<target name="removeSassDebugInfo">
 		<echo>Removing Sass Debug Info</echo>
 		<replaceregexp match=".media \-sass\-debug\-info(.|\t|\s|\n)*?\}\}" replace="" flags="g">
-			<fileset dir="${cssD.dir}">
+			<fileset dir="${res.css.dir}">
 				<include name="*.css"/>
 			</fileset>
 		</replaceregexp>
@@ -44,55 +44,56 @@
 
 	<target name="concatenateFiles">
 		<echo>Concatenating Files</echo>
-		<concat destfile="${cssD.dir}/styles.css">
-			<filelist dir="${cssS.dir}">
+		<concat destfile="${res.css.dir}/styles.css">
+			<filelist dir="${res.css.sourceDir}">
 				<file name="reset.css"/>
 				<file name="typographics.css"/>
 				<file name="layout.css"/>
 				<file name="ui.css"/>
 			</filelist>
 		</concat>
-		<concat destfile="${cssD.dir}/styles.ieFix.css">
-			<filelist dir="${cssS.dir}">
+		<concat destfile="${res.css.dir}/styles.ieFix.css">
+			<filelist dir="${res.css.sourceDir}">
 				<file name="reset.ieFix.css"/>
 				<file name="typographics.ieFix.css"/>
 				<file name="layout.ieFix.css"/>
 				<file name="ui.ieFix.css"/>
 			</filelist>
 		</concat>
-		<concat destfile="${jsD.dir}/scripts.js">
-			<filelist dir="${jsS.dir}">
-				<file name="scripts.js"/>
+		<concat destfile="${res.js.dir}/scripts.js">
+			<filelist dir="${res.js.sourceDir}">
+				<file name="utilites.js"/>
+				<file name="ui.js"/>
 			</filelist>
 		</concat>
 	</target>
 
 	<target name="minifyFiles">
 		<echo>Minifying Files</echo>
-		<yuicompress munge="yes" linebreak="5000" preserveallsemicolons="yes" outputfolder="${cssD.dir}">
-			<fileset dir="${cssD.dir}">
+		<yuicompress munge="yes" linebreak="5000" preserveallsemicolons="yes" outputfolder="${res.css.dir}">
+			<fileset dir="${res.css.dir}">
 				<include name="*.css"/>
 			</fileset>
 		</yuicompress>
-		<yuicompress munge="yes" linebreak="5000" preserveallsemicolons="yes" outputfolder="${jsD.dir}">
-			<fileset dir="${jsD.dir}">
+		<yuicompress munge="yes" linebreak="5000" preserveallsemicolons="yes" outputfolder="${res.js.dir}">
+			<fileset dir="${res.js.dir}">
 				<include name="*.js"/>
 			</fileset>
 		</yuicompress>
 	</target>
 
-	<target name="erasePreviousBuild" if="b.exists">
+	<target name="erasePreviousBuild" if="build.exists">
 		<echo>Erasing Previous Build</echo>
 		<delete includeemptydirs="true">
-			<fileset dir="./${b.dir}"/>
+			<fileset dir="./${build.dir}"/>
 		</delete>
 	</target>
 
 	<target name="copyPrebuild">
 		<echo>Copying Files</echo>
-		<mkdir dir="${b.dir}"/>
-		<copy todir="${b.dir}">
-			<fileset dir="${prj.dir}">
+		<mkdir dir="${build.dir}"/>
+		<copy todir="${build.dir}" includeEmptyDirs="false">
+			<fileset dir="${project.dir}">
 				<include name="audio/"/>
 				<include name="images/"/>
 				<include name="flash/"/>
@@ -115,17 +116,17 @@
 	<target name="replaceTokens">
 		<echo>Replacing Tokens</echo>
 		<replaceregexp match=".!-- CSS -->(.|\t|\s|\n)*?!-- \/CSS -->" replace="@CSSGOESHERE!">
-			<fileset dir="${b.dir}">
+			<fileset dir="${build.dir}">
 				<include name="*.html"/>
 			</fileset>
 		</replaceregexp>
 		<replaceregexp match=".!-- JS -->(.|\t|\s|\n)*?!-- \/JS -->" replace="@JSGOESHERE!">
-			<fileset dir="${b.dir}">
+			<fileset dir="${build.dir}">
 				<include name="*.html"/>
 			</fileset>
 		</replaceregexp>
 		<replace>
-			<fileset dir="${b.dir}">
+			<fileset dir="${build.dir}">
 				<include name="*.html"/>
 			</fileset>
 			<replacefilter>
@@ -136,15 +137,15 @@
 				<replacetoken>@JSGOESHERE!</replacetoken>
 				<replacevalue><![CDATA[<script type="text/javascript" src="res/js/scripts.js"></script>]]></replacevalue>
 			</replacefilter>
-			<replacefilter token="@TITLEGOESHERE!" value="${prj.title}" />
-			<replacefilter token="@LANGUAGEGOESHERE!" value="${prj.lng}" />
+			<replacefilter token="@TITLEGOESHERE!" value="${project.title}" />
+			<replacefilter token="@LANGUAGEGOESHERE!" value="${project.lng}" />
 		</replace>
 	</target>
 
-	<target name="shareBuild" if="b.shareCond">
+	<target name="shareBuild" if="build.shareCnd">
 		<echo>Sharing Build</echo>
-		<copy todir="${bshr.dir}">
-			<fileset dir="${b.dir}"/>
+		<copy todir="${build.shareDir}">
+			<fileset dir="${build.dir}"/>
 		</copy>
 	</target>
 

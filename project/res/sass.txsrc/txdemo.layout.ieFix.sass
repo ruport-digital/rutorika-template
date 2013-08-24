@@ -1,8 +1,10 @@
 @import "compass"
 @import "compass/css3/user-interface"
 @import "txsass/tx.mixins"
+@import "txsass/tx.mixins.debug"
 @import "txsass/tx.parameters"
 
+$tx-ie: true
 
 
 
@@ -27,7 +29,7 @@
 /* inline-block */
 
 .form dt, .form dd, .pages li
-	+tx-inline-block-ie
+	+tx-inline-block
 
 
 

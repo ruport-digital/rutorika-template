@@ -1,6 +1,6 @@
 {
 "version": "3",
-"mappings": ";;;AAkBC,YAAO;EACN,MAAM,EAAE,WAAiB;;AAE1B,aAAQ;EACP,MAAM,EAAE,WAAiB;;;;AAM3B,6BAA6B;ECyB5B,OAAO,EAAE,MAAM;EACf,IAAI,EAAE,CAAC;;;;ADjBP,0CAA2B;EAC1B,IAAI,EAAE,CAAC",
+"mappings": ";;;AAoBC,YAAO;EACN,MAAM,EAAE,WAAiB;;AAE1B,aAAQ;EACP,MAAM,EAAE,WAAiB;;;;AAM3B,6BAA6B;ECsE3B,OAAO,EAAE,MAAM;EACf,IAAI,EAAE,CAAC;;;;AD9DR,0CAA2B;EAC1B,IAAI,EAAE,CAAC",
 "sources": ["../sass.txsrc/txdemo.layout.ieFix.sass","../sass.txsrc/txsass/_tx.mixins.sass"],
 "file": "txdemo.layout.ieFix.css"
 }

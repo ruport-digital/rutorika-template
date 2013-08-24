@@ -1,25 +1,23 @@
 /* Icons */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000316}}
 .icons {
   margin: 1.5em 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000319}}
   .icons li {
     margin: 1.5em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000322}}
 .icn {
   position: relative; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000325}}
   .icn:before {
     display: block;
     content: "";
-    font-size: 0;
-    line-height: 0;
     position: absolute;
     left: 0;
     background: url(../images/txex.icons.gif) no-repeat 0 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000330}}
 .icn1:before {
   width: 6px;
   height: 11px;
@@ -27,7 +25,7 @@
   margin: 0 0 0 -10px;
   background-position: 0 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000337}}
 .icn2:before {
   width: 11px;
   height: 11px;
@@ -35,7 +33,7 @@
   margin: 0 0 0 -14px;
   background-position: -6px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000344}}
 .icn3:before {
   width: 13px;
   height: 11px;
@@ -43,7 +41,7 @@
   margin: 0 0 0 -17px;
   background-position: -17px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000351}}
 .icn4:before {
   width: 27px;
   height: 11px;
@@ -51,7 +49,7 @@
   margin: 0 0 0 -31px;
   background-position: -31px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/txdemo\.icons\.sass}line{font-family:\0000358}}
 .icn5:before {
   width: 17px;
   height: 27px;
