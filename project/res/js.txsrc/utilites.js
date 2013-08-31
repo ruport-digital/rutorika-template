@@ -8,7 +8,7 @@ function whichDevice() {
 	}
 }
 
-function whichTransitionEvent() {
+function whichTransitionEndEvent() {
 	var TRANSITION;
 	var ELEMENT = document.createElement('fakeelement');
 	var TRANSITIONS = {
