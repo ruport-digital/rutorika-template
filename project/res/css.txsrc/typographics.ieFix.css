@@ -1,31 +1,22 @@
 /* Base Typographics & Rhythm (Internet Explorer < 8) */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000318}}
 dfn {
   font-style: normal; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000323}}
 .ie6 label, .ie6 button, .ie6 .button {
   cursor: hand; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000326}}
 .ie6 pre {
   zoom: 1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000331}}
 .ie6 .content ul, .ie6 .content .lstRst li ul {
   list-style: disc outside; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000334}}
 .ie6 .content ol, .ie6 .content .lstRst li ol {
   list-style: decimal outside; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000341}}
 .ie6 .content .lstRst li li {
   margin: 1.5em 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000348}}
 .ie6 .content .dfLstRst dl dt {
   margin: 1.5em 0 0em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000354}}
 .ie6 .content .dfLstRst dl dd {
   margin: 0em 0 1.5em 1.5em;
   font-style: italic; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/typographics\.ieFix\.sass}line{font-family:\0000358}}
 .ie6 input {
   vertical-align: text-bottom; }
 

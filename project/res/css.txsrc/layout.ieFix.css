@@ -1,16 +1,13 @@
 /* Layout (Internet Explorer < 8) */
 /* inline-block */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000319}}
 fieldset {
   display: inline;
   zoom: 1; }
 
 /* zoom */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000328}}
 .ie6 .content {
   zoom: 1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.ieFix\.sass}line{font-family:\0000331}}
 .footer {
   zoom: 1; }
 

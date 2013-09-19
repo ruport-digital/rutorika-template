@@ -1,5 +1,4 @@
 /* Layout */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000316}}
 body {
   position: relative;
   min-width: 980px;
@@ -8,7 +7,6 @@ body {
   background: white; }
 
 /* Counters Code */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000325}}
 .countersCode {
   position: absolute;
   width: 1px;
@@ -19,16 +17,13 @@ body {
   z-index: -1; }
 
 /* Header */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000338}}
 .header {
   position: relative;
   z-index: 1; }
 
 /* Content */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000346}}
 .content {
   padding: 0 36px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000349}}
   .content:after {
     display: block;
     content: "";
@@ -39,7 +34,6 @@ body {
     clear: both; }
 
 /* Footer */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000360}}
 .footer {
   position: relative;
   clear: both;
@@ -48,22 +42,18 @@ body {
 /* Large Resolutions Layout */
 /* Print Layout */
 @media print {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000383}}
   body {
     max-width: none;
     margin: 0 10px;
     padding: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\0000390}}
   .header, .footer {
     display: none; } }
 /* Small Resolutions Layout */
 @media handheld, only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\00003102}}
   html {
     -webkit-text-size-adjust: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\00003105}}
   body {
     min-width: 0;
     max-width: none; } }
@@ -71,7 +61,6 @@ body {
 /* Smartphones (Portrait) Layout */
 /* Tablets Layout */
 @media only screen and (min-width: 481px) and (max-width: 800px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/uncleFucka\/Eclipse\/TemplateX\/project\/res\/sass\.txsrc\/layout\.sass}line{font-family:\00003136}}
   body {
     min-width: 0;
     max-width: none; } }
