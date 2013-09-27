@@ -2,64 +2,39 @@
 
 <project name="Build TemplateX" default="build" basedir=".">
 
+	<description>Client-side ANT Build File for TemplateX Project</description>
+
 	<property name="project.title" value="TemplateX"/>
 	<property name="project.lng" value="ru"/>
 	<property name="project.dir" value="./project"/>
+	<property name="project.res" value="${project.dir}/res"/>
+
+	<property name="res.css.sourceDir" value="${project.res}/css.txsrc"/>
+	<property name="res.css.dir" value="${project.res}/css"/>
+	<property name="res.js.sourceDir" value="${project.res}/js.txsrc"/>
+	<property name="res.js.dir" value="${project.res}/js"/>
 
 	<property name="build.dir" value="./build"/>
-	<condition property="build.exists">
-		<available file="${build.dir}" type="dir"/>
-	</condition>
-
 	<property name="build.shareDir" value="./build"/>
-	<condition property="build.shareCnd">
-		<equals arg1="${build.share}" arg2="true"/>
-	</condition>
 
-	<property name="res.css.sourceDir" value="${project.dir}/res/css.txsrc"/>
-	<property name="res.css.dir" value="${project.dir}/res/css"/>
-	<property name="res.js.sourceDir" value="${project.dir}/res/js.txsrc"/>
-	<property name="res.js.dir" value="${project.dir}/res/js"/>
-
-	<taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
-		<classpath>
-			<fileset dir="${yui.path}">
-				<include name="*.jar"/>
-			</fileset>
-		</classpath>
-	</taskdef>
-
-	<target name="build" depends="concatenateFiles, removeSassDebugInfo, minifyFiles, erasePreviousBuild, copyPrebuild, replaceTokens, shareBuild">
-		<echo>Done.</echo>
+	<target name="build" depends="checkJSFiles, concatenateJSFiles, concatenateCSSFiles, removeSassDebugInfo, minifyJSFiles, minifyCSSFiles, checkPreviousBuild, erasePreviousBuild, copyBuild, checkCSSTargetedForIE, replaceTokens, replaceCSSTokensExcludeIE, replaceCSSTokensIncludeIE, shareBuild">
+		<echo>Build Successful</echo>
 	</target>
 
-	<target name="removeSassDebugInfo">
-		<echo>Removing Sass Debug Info</echo>
-		<replaceregexp match=".media \-sass\-debug\-info(.|\t|\s|\n)*?\}\}" replace="" flags="g">
-			<fileset dir="${res.css.dir}">
-				<include name="*.css"/>
+	<target name="checkJSFiles">
+		<echo>Checking JavaScript Files with JSLint</echo>
+		<pathconvert pathsep=" " property="jsfiles">
+			<fileset dir="${res.js.sourceDir}">
+				<include name="*.js"/>
 			</fileset>
-		</replaceregexp>
+		</pathconvert>
+		<exec dir="${res.js.sourceDir}" executable="java" failonerror="true">
+			<arg line="-jar ${tools.rhino} ${tools.jslint} ${jsfiles}"/>
+		</exec>
 	</target>
 
-	<target name="concatenateFiles">
-		<echo>Concatenating Files</echo>
-		<concat destfile="${res.css.dir}/styles.css">
-			<filelist dir="${res.css.sourceDir}">
-				<file name="reset.css"/>
-				<file name="typographics.css"/>
-				<file name="layout.css"/>
-				<file name="ui.css"/>
-			</filelist>
-		</concat>
-		<concat destfile="${res.css.dir}/styles.ieFix.css">
-			<filelist dir="${res.css.sourceDir}">
-				<file name="reset.ieFix.css"/>
-				<file name="typographics.ieFix.css"/>
-				<file name="layout.ieFix.css"/>
-				<file name="ui.ieFix.css"/>
-			</filelist>
-		</concat>
+	<target name="concatenateJSFiles" depends="checkJSFiles">
+		<echo>Concatenating JavaScript Files</echo>
 		<concat destfile="${res.js.dir}/scripts.js">
 			<filelist dir="${res.js.sourceDir}">
 				<file name="utilites.js"/>
@@ -68,29 +43,94 @@
 		</concat>
 	</target>
 
-	<target name="minifyFiles">
-		<echo>Minifying Files</echo>
-		<yuicompress munge="yes" linebreak="5000" preserveallsemicolons="yes" outputfolder="${res.css.dir}">
+	<target name="concatenateCSSFiles">
+		<echo>Concatenating CSS Files</echo>
+		<concat destfile="${res.css.dir}/styles.css">
+			<filelist dir="${res.css.sourceDir}">
+				<file name="reset.css"/>
+				<file name="typographics.css"/>
+			</filelist>
+			<fileset dir="${res.css.sourceDir}">
+				<include name="*.css"/>
+				<exclude name="reset.css"/>
+				<exclude name="typographics.css"/>
+				<exclude name="*.ieFix.css"/>
+				<exclude name="txdebug.*.css"/>
+				<exclude name="txdemo.*.css"/>
+			</fileset>
+		</concat>
+		<concat destfile="${res.css.dir}/styles.ieFix.css">
+			<filelist dir="${res.css.sourceDir}">
+				<file name="reset.ieFix.css"/>
+				<file name="typographics.ieFix.css"/>
+			</filelist>
+			<fileset dir="${res.css.sourceDir}">
+				<include name="*.ieFix.css"/>
+				<exclude name="reset.ieFix.css"/>
+				<exclude name="typographics.ieFix.css"/>
+				<exclude name="txdebug.*.css"/>
+				<exclude name="txdemo.*.css"/>
+			</fileset>
+		</concat>
+	</target>
+
+	<target name="removeSassDebugInfo" depends="concatenateCSSFiles">
+		<echo>Removing Sass Debug Info from CSS Files</echo>
+		<replaceregexp match="/\*@ sourceMappingURL(.|\t|\s|\n)*?\*\/|.media \-sass\-debug\-info(.|\t|\s|\n)*?\}\}" replace="" flags="g">
 			<fileset dir="${res.css.dir}">
 				<include name="*.css"/>
 			</fileset>
-		</yuicompress>
-		<yuicompress munge="yes" linebreak="5000" preserveallsemicolons="yes" outputfolder="${res.js.dir}">
-			<fileset dir="${res.js.dir}">
-				<include name="*.js"/>
-			</fileset>
-		</yuicompress>
+		</replaceregexp>
 	</target>
 
-	<target name="erasePreviousBuild" if="build.exists">
+	<target name="minifyJSFiles" depends="concatenateJSFiles">
+        <echo>Minifying JavaScript Files</echo>
+        <apply executable="java" parallel="false" dest="${res.js.dir}">
+            <fileset dir="${res.js.dir}">
+            	<include name="*.js"/>
+            	<exclude name="*.min.js"/>
+            </fileset>
+            <arg line="-jar"/>
+            <arg path="${tools.yuicompressor}"/>
+            <arg line="--line-break 5000"/>
+            <srcfile/>
+            <arg line="-o"/>
+            <mapper type="glob" from="*.js" to="*.min.js"/>
+            <targetfile/>
+        </apply>
+    </target>
+
+	<target name="minifyCSSFiles" depends="concatenateCSSFiles">
+        <echo>Minifying CSS Files</echo>
+        <apply executable="java" parallel="false" dest="${res.css.dir}">
+            <fileset dir="${res.css.dir}">
+				<include name="*.css"/>
+				<exclude name="*.min.css"/>
+            </fileset>
+            <arg line="-jar"/>
+            <arg path="${tools.yuicompressor}"/>
+            <arg line="--line-break 5000"/>
+            <srcfile/>
+            <arg line="-o"/>
+            <mapper type="glob" from="*.css" to="*.min.css"/>
+            <targetfile/>
+        </apply>
+    </target>
+
+	<target name="checkPreviousBuild">
+		<echo>Cheking if Previous Build Exists</echo>
+		<available file="${build.dir}" type="dir"  property="build.exists"/>
+	</target>
+
+	<target name="erasePreviousBuild" depends="checkPreviousBuild" if="build.exists">
 		<echo>Erasing Previous Build</echo>
 		<delete includeemptydirs="true">
-			<fileset dir="./${build.dir}"/>
+			<fileset dir="${build.dir}"/>
 		</delete>
 	</target>
 
-	<target name="copyPrebuild">
-		<echo>Copying Files</echo>
+	<target name="copyBuild">
+		<echo>Copying Current Build</echo>
 		<mkdir dir="${build.dir}"/>
 		<copy todir="${build.dir}" includeEmptyDirs="false">
 			<fileset dir="${project.dir}">
@@ -105,12 +145,18 @@
 				<exclude name="**/txexample.*.*"/>
 				<exclude name="res/*.txsrc/"/>
 			</fileset>
-			<fileset dir="./sources/project meta images">
+			<fileset dir="./sources/project meta images" includes="">
 				<include name="*.ico"/>
 				<include name="*.png"/>
 				<include name="*.jpg"/>
+				<include name="*.gif"/>
 			</fileset>
 		</copy>
+	</target>
+
+	<target name="checkCSSTargetedForIE">
+		<echo>Checking if CSS Targeted for the Older Versions of Internet Explorer is Available</echo>
+	    <available file="${res.css.dir}/styles.ieFix.css" property="build.ie"/>
 	</target>
 
 	<target name="replaceTokens">
@@ -130,20 +176,42 @@
 				<include name="*.html"/>
 			</fileset>
 			<replacefilter>
-				<replacetoken>@CSSGOESHERE!</replacetoken>
-				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/styles.css">]]>&#13;&#9;&#9;<![CDATA[<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="res/css/styles.ieFix.css"> <![endif]-->]]></replacevalue>
-			</replacefilter>
-			<replacefilter>
 				<replacetoken>@JSGOESHERE!</replacetoken>
-				<replacevalue><![CDATA[<script type="text/javascript" src="res/js/scripts.js"></script>]]></replacevalue>
+				<replacevalue><![CDATA[<script type="text/javascript" src="res/js/scripts.min.js"></script>]]></replacevalue>
 			</replacefilter>
 			<replacefilter token="@TITLEGOESHERE!" value="${project.title}" />
 			<replacefilter token="@LANGUAGEGOESHERE!" value="${project.lng}" />
 		</replace>
 	</target>
 
-	<target name="shareBuild" if="build.shareCnd">
-		<echo>Sharing Build</echo>
+	<target name="replaceCSSTokensIncludeIE" depends="checkCSSTargetedForIE" if="build.ie">
+		<echo>Replacing CSS Tokens, Including CSS Targeted for the Older Versions of Internet Explorer</echo>
+		<replace>
+			<fileset dir="${build.dir}">
+				<include name="*.html"/>
+			</fileset>
+			<replacefilter>
+				<replacetoken>@CSSGOESHERE!</replacetoken>
+				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/styles.min.css">]]>&#13;&#9;&#9;<![CDATA[<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="res/css/styles.ieFix.min.css"> <![endif]-->]]></replacevalue>
+			</replacefilter>
+		</replace>
+	</target>
+
+	<target name="replaceCSSTokensExcludeIE" depends="checkCSSTargetedForIE" unless="build.ie">
+		<echo>Replacing CSS Tokens</echo>
+		<replace>
+			<fileset dir="${build.dir}">
+				<include name="*.html"/>
+			</fileset>
+			<replacefilter>
+				<replacetoken>@CSSGOESHERE!</replacetoken>
+				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/styles.min.css">]]></replacevalue>
+			</replacefilter>
+		</replace>
+	</target>
+
+	<target name="shareBuild" if="build.share">
+		<echo>Sharing Current Build</echo>
 		<copy todir="${build.shareDir}">
 			<fileset dir="${build.dir}"/>
 		</copy>
