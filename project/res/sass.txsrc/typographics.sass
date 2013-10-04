@@ -31,14 +31,14 @@ a
 	color: $link
 	text-decoration: underline
 	
+	&:visited
+		color: $visited
+
 	&:hover
 		color: $hover
 	
 	&:active
 		color: $active
-	
-	&:visited
-		color: $visited
 	
 	&:focus
 		color: $focus
@@ -258,35 +258,33 @@ input
 		vertical-align: top
 		+box-sizing(border-box)
 
-input[type="file"]
-	height: auto
-	line-height: normal
-	border: none
+	&[type="file"]
+		height: auto
+		line-height: normal
+		border: none
 
 select
 	+tx-form-height(1, 0)
 	border: 1px solid #9a9a9a
 
-select[multiple="multiple"]
-	+tx-form-height(5.1)
+	&[multiple="multiple"]
+		+tx-form-height(5.1)
 
 .field, textarea
 	border: 1px solid #9a9a9a
 	+box-shadow(0 1px 2px rgba(0, 0, 0, .25) inset)
-
-.field
-	+tx-form-height(1)
-
-textarea 
-	+tx-form-height(10)
-
-.field, textarea
 
 	&:focus 
 		outline: none
 		-webkit-animation: focusPulse 1.5s infinite
 		-moz-animation: focusPulse 1.5s infinite
 		animation: focusPulse 1.5s infinite
+
+.field
+	+tx-form-height(1)
+
+textarea 
+	+tx-form-height(10)
 
 @-moz-keyframes focusPulse 
 	0% 
@@ -409,7 +407,7 @@ hr
 
 /* High DPI Typographics */
 
-@media only screen and (min-resolution: 2dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 1.5)
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)
 
 	html
 		text-rendering: optimizelegibility
