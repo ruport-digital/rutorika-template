@@ -42,6 +42,7 @@ a
 	
 	&:focus
 		color: $focus
+		outline: none
 
 label, button, .button
 	cursor: pointer
@@ -140,12 +141,13 @@ li
 strong, dfn, b, kbd, acronym, abbr, var
 	font-weight: bold
 
-acronym, abbr, ins, del
-	color: #488dc6
+acronym, abbr, ins, mark, del
+	color: $text-ins
 	border-width: 0 0 1px
 	border-style: dotted
-	border-color: #488dc6
+	border-color: $text-ins
 	cursor: help
+	text-decoration: none
 
 acronym, abbr
 	margin: 0 -.075em 0 0
@@ -153,7 +155,7 @@ acronym, abbr
 
 kbd
 	padding: .25em .5em .20em
-	color: #333
+	color: $text-alt
 	background: #ededed
 	font: caption
 	font-size: 1em
@@ -164,15 +166,8 @@ kbd
 	+box-shadow(-2px -2px 2px #dadada inset)
 
 var
-	color: #d00837
+	color: $text-code
 	font-style: normal
-
-ins, mark
-	color: #1c8400
-	border-width: 0 0 1px
-	border-style: dotted
-	border-color: #1c8400
-	text-decoration: none
 
 del, strike, s
 	text-decoration: line-through
@@ -188,8 +183,7 @@ sub
 	bottom: -.25em
 
 big
-	font-size: 1.5em
-	line-height: 0
+	+adjust-font-size-to($font-size * 1.5, 0)
 
 small
 	+adjust-font-size-to($font-size * .75, 0)
@@ -276,6 +270,7 @@ select
 
 	&:focus 
 		outline: none
+		-o-animation: focusPulse 1.5s infinite
 		-webkit-animation: focusPulse 1.5s infinite
 		-moz-animation: focusPulse 1.5s infinite
 		animation: focusPulse 1.5s infinite
@@ -285,29 +280,33 @@ select
 
 textarea 
 	+tx-form-height(10)
+	
+@-o-keyframes focusPulse 
+	0% 
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
+	50% 
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
+	100% 
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 
 @-moz-keyframes focusPulse 
 	0% 
 		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px  #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	
 	50% 
 		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px  #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
-	
 	100% 
 		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px  #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	
+
 @-webkit-keyframes focusPulse 
 	0% 
 		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	
 	50% 
 		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 14px 1px #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
-	
 	100% 
 		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
@@ -315,10 +314,8 @@ textarea
 @keyframes focusPulse 
 	0% 
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	
 	50% 
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
-	
 	100% 
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 
@@ -389,7 +386,7 @@ hr
 
 /* Small Resolutions Typographics */
 
-@media handheld, only screen and (max-width: 480px) 
+@media handheld, only screen and (max-width: 640px) 
 
 	table 
 		display: block

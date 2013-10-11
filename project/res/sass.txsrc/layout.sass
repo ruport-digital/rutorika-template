@@ -13,6 +13,9 @@
 
 
 
+html
+	min-height: 100%
+
 body
 	position: relative
 	+tx-set-boundaries
@@ -24,8 +27,8 @@ body
 
 .countersCode
 	position: absolute
-	width: 1px
-	height: 100px
+	width: 0
+	height: 0
 	top: 0
 	left: 0
 	overflow: hidden
@@ -37,7 +40,7 @@ body
 
 .header
 	position: relative
-	z-index: 1
+	z-index: 0
 
 
 
@@ -60,7 +63,7 @@ body
 .footer
 	position: relative
 	clear: both
-	z-index: 1
+	z-index: 0
 
 
 
@@ -95,9 +98,9 @@ body
 
 
 
-/* Small Resolutions Layout */
+/* Phone Layout */
 
-@media handheld, only screen and (max-width: 480px) 
+@media handheld, only screen and (max-width: 640px) 
 
 	html 
 		-webkit-text-size-adjust: none
@@ -111,49 +114,13 @@ body
 
 
 
-/* Smartphones (Landscape) Layout */
-
-@media only screen and (min-width : 321px) 
-
-
-
-
-
-
-/* Smartphones (Portrait) Layout */
-
-@media only screen and (max-width : 320px) 
-
-
-
-
-
-
 /* Tablets Layout */
 
-@media only screen and (min-width: 481px) and (max-width : 800px) 
+@media only screen and (min-width: 641px) and (max-width : 1024px) 
 
 	body 
 		min-width: 0
 		max-width: none
-	
-
-
-
-
-
-/* Tablets (Landscape) Layout */
-
-@media only screen and (max-width : 1024px) and (orientation : landscape) 
-
-
-
-
-
-
-/* Tablets (Portrait) Layout */
-
-@media only screen and (max-width : 768px) and (orientation : portrait) 
 
 
 

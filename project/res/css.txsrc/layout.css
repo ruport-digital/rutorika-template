@@ -1,16 +1,20 @@
 /* Layout */
+html {
+  min-height: 100%; }
+
 body {
   position: relative;
   min-width: 980px;
   max-width: 1400px;
+  min-height: 100%;
   margin: 0 auto;
   background: white; }
 
 /* Counters Code */
 .countersCode {
   position: absolute;
-  width: 1px;
-  height: 100px;
+  width: 0;
+  height: 0;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -19,7 +23,7 @@ body {
 /* Header */
 .header {
   position: relative;
-  z-index: 1; }
+  z-index: 0; }
 
 /* Content */
 .content {
@@ -37,7 +41,7 @@ body {
 .footer {
   position: relative;
   clear: both;
-  z-index: 1; }
+  z-index: 0; }
 
 /* Large Resolutions Layout */
 /* Print Layout */
@@ -49,23 +53,19 @@ body {
 
   .header, .footer {
     display: none; } }
-/* Small Resolutions Layout */
-@media handheld, only screen and (max-width: 480px) {
+/* Phone Layout */
+@media handheld, only screen and (max-width: 640px) {
   html {
     -webkit-text-size-adjust: none; }
 
   body {
     min-width: 0;
     max-width: none; } }
-/* Smartphones (Landscape) Layout */
-/* Smartphones (Portrait) Layout */
 /* Tablets Layout */
-@media only screen and (min-width: 481px) and (max-width: 800px) {
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
   body {
     min-width: 0;
     max-width: none; } }
-/* Tablets (Landscape) Layout */
-/* Tablets (Portrait) Layout */
 /* TV Layout */
 /* Audio Layout */
 

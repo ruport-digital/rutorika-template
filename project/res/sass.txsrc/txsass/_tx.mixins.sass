@@ -37,10 +37,12 @@
 
 
 
-=tx-set-boundaries($min: 980px, $max: 1400px, $center: true)
-	min-width: $min
-	@if $max != 0
-		max-width: $max
+=tx-set-boundaries($minw: 980px, $maxw: 1400px, $center: true, $minh: 100%)
+	min-width: $minw
+	@if $maxw != 0
+		max-width: $maxw
+	@if $minh != 0
+		min-height: $minh
 	@if $center
 		margin: 0 auto
 

@@ -32,14 +32,15 @@ a:focus, select:focus {
 a {
   color: #003b9e;
   text-decoration: underline; }
+  a:visited {
+    color: black; }
   a:hover {
     color: red; }
   a:active {
     color: red; }
-  a:visited {
-    color: black; }
   a:focus {
-    color: black; }
+    color: black;
+    outline: none; }
 
 label, button, .button {
   cursor: pointer; }
@@ -147,12 +148,13 @@ li ul, li ol {
 strong, dfn, b, kbd, acronym, abbr, var {
   font-weight: bold; }
 
-acronym, abbr, ins, del {
+acronym, abbr, ins, mark, del {
   color: #488dc6;
   border-width: 0 0 1px;
   border-style: dotted;
   border-color: #488dc6;
-  cursor: help; }
+  cursor: help;
+  text-decoration: none; }
 
 acronym, abbr {
   margin: 0 -0.075em 0 0;
@@ -182,13 +184,6 @@ var {
   color: #d00837;
   font-style: normal; }
 
-ins, mark {
-  color: #1c8400;
-  border-width: 0 0 1px;
-  border-style: dotted;
-  border-color: #1c8400;
-  text-decoration: none; }
-
 del, strike, s {
   text-decoration: line-through; }
 
@@ -205,7 +200,7 @@ sub {
 
 big {
   font-size: 1.5em;
-  line-height: 0; }
+  line-height: 0em; }
 
 small {
   font-size: 0.75em;
@@ -272,7 +267,6 @@ input[type="radio"], input[type="checkbox"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-
 input[type="file"] {
   height: auto;
   line-height: normal;
@@ -281,15 +275,20 @@ input[type="file"] {
 select {
   height: 1.5em;
   border: 1px solid #9a9a9a; }
-
-select[multiple="multiple"] {
-  height: 7.525em; }
+  select[multiple="multiple"] {
+    height: 7.525em; }
 
 .field, textarea {
   border: 1px solid #9a9a9a;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset; }
+  .field:focus, textarea:focus {
+    outline: none;
+    -o-animation: focusPulse 1.5s infinite;
+    -webkit-animation: focusPulse 1.5s infinite;
+    -moz-animation: focusPulse 1.5s infinite;
+    animation: focusPulse 1.5s infinite; }
 
 .field {
   height: 1.375em; }
@@ -297,11 +296,15 @@ select[multiple="multiple"] {
 textarea {
   height: 14.875em; }
 
-.field:focus, textarea:focus {
-  outline: none;
-  -webkit-animation: focusPulse 1.5s infinite;
-  -moz-animation: focusPulse 1.5s infinite;
-  animation: focusPulse 1.5s infinite; }
+@-o-keyframes focusPulse {
+  0% {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; }
+
+  50% {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 8px 1px #8ac7ff; }
+
+  100% {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; } }
 
 @-moz-keyframes focusPulse {
   0% {
@@ -395,7 +398,7 @@ hr {
   position: relative; }
 
 /* Small Resolutions Typographics */
-@media handheld, only screen and (max-width: 480px) {
+@media handheld, only screen and (max-width: 640px) {
   table {
     display: block; }
 
@@ -405,7 +408,7 @@ hr {
   tr, th, td {
     display: block; } }
 /* High DPI Typographics */
-@media only screen and (min-resolution: 2dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 1.5) {
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
   html {
     text-rendering: optimizelegibility; } }
 /* Print Typographics */
