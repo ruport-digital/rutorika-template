@@ -2,7 +2,7 @@
 @import "compass/css3/user-interface"
 @import "txsass/tx.mixins"
 @import "txsass/tx.mixins.debug"
-@import "txsass/tx.parameters"
+@import "txsass/tx.project"
 
 
 
@@ -70,9 +70,43 @@ body
 
 
 
-/* Large Resolutions Layout */
+/* High DPI Layout */
 
-@media only screen and (min-width: 1382px) 
+@media only screen and (min-resolution: 1.5dppx) and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (min--moz-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (-o-min-device-pixel-ratio: 3/2) and (max-width: 720px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 720px)
+
+
+
+
+
+
+/* Large Resolution Layout */
+
+@media only screen and (min-width: 1382px)
+
+
+
+
+
+
+/* Phone Layout */
+
+@media handheld, only screen and (max-width: 720px)
+
+	html 
+		-webkit-text-size-adjust: none
+
+@media only screen and (min-resolution: 1.5dppx) and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (min--moz-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (-o-min-device-pixel-ratio: 3/2) and (max-width: 720px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 720px)
+
+
+
+
+
+
+/* Tablet Layout */
+
+@media only screen and (min-width: 721px) and (max-width : 1024px)
+
+@media only screen and (min-resolution: 1.5dppx) and (min-width: 721px) and (max-width : 1024px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 721px) and (max-width : 1024px), only screen and (min--moz-device-pixel-ratio: 1.5) and (min-width: 721px) and (max-width : 1024px), only screen and (-o-min-device-pixel-ratio: 3/2) and (min-width: 721px) and (max-width : 1024px), only screen and (min-device-pixel-ratio: 1.5) and (min-width: 721px) and (max-width : 1024px)
 
 
 
@@ -81,7 +115,7 @@ body
 
 /* Print Layout */
 
-@media print 
+@media print
 
 	body 
 		max-width: none
@@ -98,38 +132,9 @@ body
 
 
 
-/* Phone Layout */
-
-@media handheld, only screen and (max-width: 640px) 
-
-	html 
-		-webkit-text-size-adjust: none
-	
-	body 
-		min-width: 0
-		max-width: none
-
-
-
-
-
-
-/* Tablets Layout */
-
-@media only screen and (min-width: 641px) and (max-width : 1024px) 
-
-	body 
-		min-width: 0
-		max-width: none
-
-
-
-
-
-
 /* TV Layout */
 
-@media projection, tv 
+@media projection, tv
 
 
 
@@ -138,4 +143,4 @@ body
 
 /* Audio Layout */
 
-@media aural 
+@media aural

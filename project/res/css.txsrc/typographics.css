@@ -297,7 +297,7 @@ textarea {
   height: 14.875em; }
 
 @-o-keyframes focusPulse {
-  0% {
+  From {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; }
 
   50% {
@@ -307,7 +307,7 @@ textarea {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; } }
 
 @-moz-keyframes focusPulse {
-  0% {
+  From {
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; }
 
@@ -320,7 +320,7 @@ textarea {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; } }
 
 @-webkit-keyframes focusPulse {
-  0% {
+  From {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; }
 
@@ -333,7 +333,7 @@ textarea {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; } }
 
 @keyframes focusPulse {
-  0% {
+  From {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset, 0 0 4px 1px #8ac7ff; }
 
   50% {
@@ -397,8 +397,12 @@ hr {
   content: counter(heading) ". ";
   position: relative; }
 
-/* Small Resolutions Typographics */
-@media handheld, only screen and (max-width: 640px) {
+/* High DPI Typographics */
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
+  html {
+    text-rendering: optimizelegibility; } }
+/* Phone Typographics */
+@media handheld, only screen and (max-width: 720px) {
   table {
     display: block; }
 
@@ -407,10 +411,6 @@ hr {
 
   tr, th, td {
     display: block; } }
-/* High DPI Typographics */
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
-  html {
-    text-rendering: optimizelegibility; } }
 /* Print Typographics */
 @media print {
   @page {

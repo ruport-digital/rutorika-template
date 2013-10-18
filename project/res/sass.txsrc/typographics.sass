@@ -2,7 +2,7 @@
 @import "compass/css3/user-interface"
 @import "txsass/tx.mixins"
 @import "txsass/tx.mixins.debug"
-@import "txsass/tx.parameters"
+@import "txsass/tx.project"
 
 
 
@@ -282,41 +282,41 @@ textarea
 	+tx-form-height(10)
 	
 @-o-keyframes focusPulse 
-	0% 
+	From
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	50% 
+	50%
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
-	100% 
+	100%
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 
 @-moz-keyframes focusPulse 
-	0% 
+	From
 		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px  #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	50% 
+	50%
 		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px  #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
-	100% 
+	100%
 		-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px  #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 
 @-webkit-keyframes focusPulse 
-	0% 
+	From
 		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	50% 
+	50%
 		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 14px 1px #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
-	100% 
+	100%
 		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 	
 @keyframes focusPulse 
-	0% 
+	From
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
-	50% 
+	50%
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff
-	100% 
+	100%
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff
 
 hr 
@@ -330,73 +330,7 @@ hr
 
 
 
-/* Additional Decorative Styles */
-
-.alnLft 
-	text-align: left
-
-.alnRgt 
-	text-align: right
-
-.alnCnt 
-	text-align: center
-
-.alnJst 
-	text-align: justify
-
-.alnTop 
-	vertical-align: top
-
-.alnMdl 
-	vertical-align: middle
-
-.alnBtm 
-	vertical-align: bottom
-
-.fntBld 
-	font-weight: bold
-
-.fntItl 
-	font-style: italic
-
-.fntNrm 
-	font-weight: normal
-	font-style: normal
-
-.blkClr 
-	clear: both
-
-.blkNClr 
-	clear: none
-
-
-
-/* Headings Counter */
-
-.hNumber:before 
-	+tx-inline-block
-	counter-increment: heading
-	content: counter(heading) ". "
-	position: relative
-
-
-
-
-
-
-/* Small Resolutions Typographics */
-
-@media handheld, only screen and (max-width: 640px) 
-
-	table 
-		display: block
-	
-	tr 
-		border: 3px solid red
-	
-	tr, th, td 
-		display: block
-
+@import "txsass/tx.typographics.add"
 
 
 
@@ -408,6 +342,26 @@ hr
 
 	html
 		text-rendering: optimizelegibility
+
+
+
+
+
+
+/* Phone Typographics */
+
+@media handheld, only screen and (max-width: 720px) 
+
+	table 
+		display: block
+	
+	tr 
+		border: 3px solid red
+	
+	tr, th, td 
+		display: block
+
+@media only screen and (min-resolution: 1.5dppx) and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (min--moz-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (-o-min-device-pixel-ratio: 3/2) and (max-width: 720px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 720px)
 
 
 

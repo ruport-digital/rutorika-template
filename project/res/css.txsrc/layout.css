@@ -43,7 +43,13 @@ body {
   clear: both;
   z-index: 0; }
 
-/* Large Resolutions Layout */
+/* High DPI Layout */
+/* Large Resolution Layout */
+/* Phone Layout */
+@media handheld, only screen and (max-width: 720px) {
+  html {
+    -webkit-text-size-adjust: none; } }
+/* Tablet Layout */
 /* Print Layout */
 @media print {
   body {
@@ -53,19 +59,6 @@ body {
 
   .header, .footer {
     display: none; } }
-/* Phone Layout */
-@media handheld, only screen and (max-width: 640px) {
-  html {
-    -webkit-text-size-adjust: none; }
-
-  body {
-    min-width: 0;
-    max-width: none; } }
-/* Tablets Layout */
-@media only screen and (min-width: 641px) and (max-width: 1024px) {
-  body {
-    min-width: 0;
-    max-width: none; } }
 /* TV Layout */
 /* Audio Layout */
 
