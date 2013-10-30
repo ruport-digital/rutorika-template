@@ -13,18 +13,15 @@ body {
 
 ::-webkit-selection {
   color: white;
-  background: blue;
-  text-shadow: none; }
+  background: blue; }
 
 ::-moz-selection {
   color: white;
-  background: blue;
-  text-shadow: none; }
+  background: blue; }
 
 ::selection {
   color: white;
-  background: blue;
-  text-shadow: none; }
+  background: blue; }
 
 a:focus, select:focus {
   outline: 1px dotted #939393; }

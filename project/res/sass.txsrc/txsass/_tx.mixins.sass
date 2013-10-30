@@ -1,97 +1,109 @@
-=tx-selection-style($background: #00f, $color: #fff, $shadow: none)
+=tx-selection-style($bg: #00f, $cl: #fff, $sw: none)
 	::-webkit-selection 
-		color: $color
-		background: $background
-		text-shadow: $shadow
+		color: $cl
+		background: $bg
+		@if $sw != none
+			text-shadow: $sw
 	::-moz-selection 
-		color: $color
-		background: $background
-		text-shadow: $shadow
+		color: $cl
+		background: $bg
+		@if $sw != none
+			text-shadow: $sw
 	::selection 
-		color: $color
-		background: $background
-		text-shadow: $shadow
+		color: $cl
+		background: $bg
+		@if $sw != none
+			text-shadow: $sw
 
 
 
-=tx-placeholder($color: #999, $font-size: 1em, $font-weight: normal)
+=tx-placeholder($cl: #999, $fz: 1em, $fw: normal)
 	&::-webkit-input-placeholder
-		color: $color
-		font-size: $font-size
-		font-weight: $font-weight
+		color: $cl
+		font-size: $fz
+		font-weight: $fw
 
 	&:-moz-placeholder
-		color: $color
-		font-size: $font-size
-		font-weight: $font-weight
+		color: $cl
+		font-size: $fz
+		font-weight: $fw
 
 	&::-moz-placeholder
-		color: $color
-		font-size: $font-size
-		font-weight: $font-weight
+		color: $cl
+		font-size: $fz
+		font-weight: $fw
 
 	&:-ms-input-placeholder
-		color: $color
-		font-size: $font-size
-		font-weight: $font-weight
+		color: $cl
+		font-size: $fz
+		font-weight: $fw
 
 
 
 =tx-set-boundaries($minw: 980px, $maxw: 1400px, $center: true, $minh: 100%)
-	min-width: $minw
-	@if $maxw != 0
+	@if $minw != none or $minw != 0
+		min-width: $minw
+	@if $maxw != none or $maxw != 0
 		max-width: $maxw
-	@if $minh != 0
+	@if $minh != none or $minh != 0
 		min-height: $minh
 	@if $center
 		margin: 0 auto
 
 
 
-=tx-rhythm($leader: 0, $trailer: 0, $font-size: $base-font-size, $mrgt: 0, $mlft: 0)
-	@if $leader == $trailer and $mrgt == $mlft
-		margin: rhythm($leader, $font-size) $mrgt
-	@else if $mrgt == $mlft
-		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size)
+=tx-rhythm($leader: 0, $trailer: 0, $fz: $base-font-size, $mrgt: 0, $mlft: 0)
+	@if $leader == $trailer
+		@if $mrgt == $mlft
+			margin: rhythm($leader, $fz) $mrgt
+		@else
+			margin: rhythm($leader, $fz) $mrgt rhythm($trailer, $fz) $mlft
 	@else
-		margin: rhythm($leader, $font-size) $mrgt rhythm($trailer, $font-size) $mlft
+		@if $mrgt == $mlft
+			margin: rhythm($leader, $fz) $mrgt rhythm($trailer, $fz)
+		@else
+			margin: rhythm($leader, $fz) $mrgt rhythm($trailer, $fz) $mlft
 
 
 
-=tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $font-size: $base-font-size, $prgt: 0, $plft: 0)
-	@if $padding-leader == $padding-trailer and $prgt == $plft
-		padding: rhythm($padding-leader, $font-size) $prgt
-	@else if $prgt == $plft
-		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size)
-	@else
-		padding: rhythm($padding-leader, $font-size) $prgt rhythm($padding-trailer, $font-size) $plft
-
-
-
-=tx-table-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
-	$calculated-width: $font-unit * $width / $font-size
-	$calculated-vertical-padding: rhythm($lines, $font-size, $offset: $width)
-	border: $width $bstyle $bcolor
-	@if $lines != 0
+=tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $fz: $base-font-size, $prgt: 0, $plft: 0)
+	@if $padding-leader == $padding-trailer
 		@if $prgt == $plft
+			padding: rhythm($padding-leader, $fz) $prgt
+		@else
+			padding: rhythm($padding-leader, $fz) $prgt rhythm($padding-trailer, $fz) $plft
+	@else
+		@if $prgt == $plft
+			padding: rhythm($padding-leader, $fz) $prgt rhythm($padding-trailer, $fz)
+		@else
+			padding: rhythm($padding-leader, $fz) $prgt rhythm($padding-trailer, $fz) $plft
+
+
+
+=tx-table-borders($wdt: 1px, $lines: 1, $fz: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
+	$calculated-width: $font-unit * $wdt / $fz
+	$calculated-vertical-padding: rhythm($lines, $fz, $offset: $wdt)
+	border: $wdt $bstyle $bcolor
+	@if $lines != 0
+		@if $prgt == $plft and $prgt != 0
 			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width)
 		@else
 			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width) $plft
 
 
 
-=tx-grid-height($lines: 1, $line-height: true, $padding: false)
-	@if $padding
+=tx-grid-height($lines: 1, $lh: true, $pd: false)
+	@if $pd
 		padding: $lines * $base-line-height 0 0
 	@else
 		height: $lines * $base-line-height
-	@if $line-height
+	@if $lh
 		line-height: $lines * $base-line-height
 
 
 
-=tx-form-height($lines: 1, $border-width: 1px, $font-size: $base-font-size)
-	height: rhythm($lines, $font-size, $offset: 2 * $border-width)
+=tx-form-height($lines: 1, $brdw: 1px, $fz: $base-font-size)
+	height: rhythm($lines, $fz, $offset: 2 * $brdw)
 
 
 
@@ -105,18 +117,18 @@
 
 
 
-=tx-pseudo($display: block, $position: absolute, $content: "", $ie: $tx-ie)
-	@if $display == "inline-block"
+=tx-pseudo($dsp: block, $pos: absolute, $cnt: "", $ie: $tx-ie)
+	@if $dsp == "inline-block"
 		+tx-inline-block
 	@else
-		display: $display
-	@if $content != ""
-		@if $content and not $ie
-			content: "" + $content
+		display: $dsp
+	@if $cnt != ""
+		@if $cnt and not $ie
+			content: "" + $cnt
 	@else
 		@if not $ie
 			content: ""
-	position: $position
+	position: $pos
 
 
 

@@ -55,25 +55,25 @@
   border-radius: 30px; }
   .debugToggle.on {
     border-color: white; }
-  .debugToggle.on:before {
-    display: block;
-    content: "D";
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: 5px;
-    top: 5px;
-    color: rgba(0, 0, 0, 0.75);
-    background: white;
-    font-size: 1.5em;
-    font-weight: bold;
-    line-height: 30px;
-    text-align: center;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    border-radius: 15px; }
+    .debugToggle.on:before {
+      display: block;
+      content: "D";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 5px;
+      top: 5px;
+      color: rgba(0, 0, 0, 0.75);
+      background: white;
+      font-size: 1.5em;
+      font-weight: bold;
+      line-height: 30px;
+      text-align: center;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+      border-radius: 15px; }
 
 .debugTools {
   position: fixed;
