@@ -13,13 +13,13 @@
 
 
 
-.debugRhythmLines
+.s-debugRhythmLines
 	+debug-vertical-alignment
 
-.debugResponsiveGuide
+.s-debugResponsiveGuide
 	background: url(../images/txdebug.responsiveGuide.jpg)
 
-.debugRhythmLines, .debugResponsiveGuide
+.s-debugRhythmLines, .s-debugResponsiveGuide
 
 	.content
 		background: none
@@ -29,23 +29,23 @@
 /* TX.Debug Console */
 
 .debugConsole
-	display: none
 	position: fixed
-	width: 100%
-	height: 100%
 	top: 0
 	left: 0
+	z-index: 99
+	display: none
+	+box-sizing(border-box)
+	width: 100%
+	height: 100%
 	padding: 50px
 	color: #fff
 	background: rgba(0, 0, 0, .75)
 	font-family: $monospace-font
 	font-size: $font-size
 	line-height: 1.5em
-	+box-sizing(border-box)
-	z-index: 99
 	pointer-events: none
 
-.debugShowConsole
+.s-debugShowConsole
 	
 	.debugConsole
 		display: block
@@ -56,10 +56,10 @@
 
 .debugToggle
 	position: absolute
-	width: 40px
-	height: 40px
 	top: 20px
 	right: 20px
+	width: 40px
+	height: 40px
 	border: 10px solid #fff
 	+border-radius(30px)
 
@@ -68,10 +68,10 @@
 
 		&:before
 			+tx-pseudo($cnt: D)
-			width: 30px
-			height: 30px
 			left: 5px
 			top: 5px
+			width: 30px
+			height: 30px
 			color: rgba(0,0,0,.75)
 			background: #fff
 			font-size: 1.5em
@@ -82,18 +82,18 @@
 
 .debugTools
 	position: fixed
-	width: 300px
 	top: 0
 	right: -10px
+	width: 300px
+	z-index: 100
 	+tx-rhythm(4, 0)
 	+tx-rhythm-padding(3, 0)
+	+border-radius(18px)
 	color: #fff
 	background: rgba(0,0,0,.85)
-	+border-radius(18px)
 	+transition(all .5s)
-	z-index: 100
 
-	&.off
+	&.s-debugTools-off
 		+transform(translate(290px, 0))
 
 	ul
@@ -111,24 +111,24 @@
 
 .debugToolsToggle
 	position: absolute
-	width: 30px
-	height: 30px
 	left: 5px
 	top: 5px
-	background: #fff
-	+border-radius(50%)
-	+transition(all .5s)
 	z-index: 1
+	width: 30px
+	height: 30px
+	+border-radius(50%)
+	background: #fff
+	+transition(all .5s)
 	opacity: 1
 
-.off
+.s-debugTools-off
 	
 	.debugToolsToggle
-		width: 140px
-		height: 140px
 		top: 50%
 		left: -70px
+		width: 140px
+		height: 140px
 		margin: -70px 0 0
-		background: #000
 		+border-radius(50%)
+		background: #000
 		opacity: .85

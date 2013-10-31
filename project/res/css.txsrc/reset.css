@@ -2,13 +2,13 @@
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, acronym, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, form, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, applet, object, iframe, article, aside, figure, figcaption, footer, header, hgroup, menu, nav, section, time, mark, audio, video, canvas {
   margin: 0;
   padding: 0;
+  border: none;
   background: none;
   font-family: inherit;
   font-weight: inherit;
   font-style: inherit;
   line-height: inherit;
   vertical-align: baseline;
-  border: none;
   outline: none; }
 
 html {
@@ -41,16 +41,20 @@ input, button, select, textarea {
   padding: 0; }
 
 /* Lists Styles Reset */
-.lstRst, .lstRst > li, .dfLstRst, .dfLstRst > dt, .dfLstRst > dd {
+.u-listReset, .u-descriptionListReset {
   margin: 0;
   padding: 0; }
 
-.lstRst {
+.u-listReset {
   list-style: none outside; }
-  .lstRst > li {
+  .u-listReset > li {
+    margin: 0;
+    padding: 0;
     background: none; }
 
-.dfLstRst > dt, .dfLstRst > dd {
+.u-descriptionListReset > dt, .u-descriptionListReset > dd {
+  margin: 0;
+  padding: 0;
   font-weight: normal;
   font-style: normal; }
 

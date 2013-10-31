@@ -6,18 +6,18 @@ dfn {
   cursor: hand; }
 .ie6 pre {
   zoom: 1; }
-.ie6 .content ul, .ie6 .content .lstRst li ul {
+.ie6 ul, .ie6 .u-listReset ul {
   list-style: disc outside; }
-.ie6 .content ol, .ie6 .content .lstRst li ol {
+.ie6 ol, .ie6 .u-listReset ol {
   list-style: decimal outside; }
-.ie6 .content .lstRst li li {
+.ie6 .u-listReset li li {
   margin: 1.5em 0; }
-.ie6 .content .dfLstRst dl dt {
+.ie6 .u-descriptionListReset dl dt {
   margin: 1.5em 0 0em; }
-.ie6 .content .dfLstRst dl dd {
+.ie6 .u-descriptionListReset dl dd {
   margin: 0em 0 1.5em 1.5em;
   font-style: italic; }
 .ie6 input {
   vertical-align: text-bottom; }
 
-/*@ sourceMappingURL=typographics.ieFix.css.map */
+/*@ sourceMappingURL=typographics.ie.css.map */

@@ -23,19 +23,6 @@ body
 
 
 
-/* Counters Code */
-
-.countersCode
-	position: absolute
-	width: 0
-	height: 0
-	top: 0
-	left: 0
-	overflow: hidden
-	z-index: -1
-
-
-
 /* Header */
 
 .header
@@ -51,8 +38,7 @@ body
 
 	&:after
 		+tx-pseudo($pos: relative)
-		height: 1px
-		margin: -1px 0 0
+		height: 0
 		font-size: 0
 		clear: both
 
@@ -72,7 +58,7 @@ body
 
 /* High DPI Layout */
 
-@media only screen and (min-resolution: 1.5dppx) and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (min--moz-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (-o-min-device-pixel-ratio: 3/2) and (max-width: 720px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 720px)
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)
 
 
 
@@ -91,9 +77,6 @@ body
 /* Phone Layout */
 
 @media handheld, only screen and (max-width: 720px)
-
-	html 
-		-webkit-text-size-adjust: none
 
 @media only screen and (min-resolution: 1.5dppx) and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (min--moz-device-pixel-ratio: 1.5) and (max-width: 720px), only screen and (-o-min-device-pixel-ratio: 3/2) and (max-width: 720px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 720px)
 

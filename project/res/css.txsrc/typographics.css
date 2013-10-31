@@ -7,9 +7,9 @@ html {
   line-height: 1.5em; }
 
 body {
+  counter-reset: heading;
   color: black;
-  font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
-  counter-reset: heading; }
+  font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif; }
 
 ::-webkit-selection {
   color: white;
@@ -52,34 +52,34 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility; }
 
 h1 {
+  margin: 0.75em 0 1.5em;
   font-size: 2em;
-  line-height: 1.5em;
-  margin: 0.75em 0 1.5em; }
+  line-height: 1.5em; }
 
 h2 {
+  margin: 1em 0;
   font-size: 1.5em;
-  line-height: 2em;
-  margin: 1em 0; }
+  line-height: 2em; }
 
 h3 {
+  margin: 1.09091em 0;
   font-size: 1.375em;
-  line-height: 1.09091em;
-  margin: 1.09091em 0; }
+  line-height: 1.09091em; }
 
 h4 {
+  margin: 1.2em 0;
   font-size: 1.25em;
-  line-height: 1.2em;
-  margin: 1.2em 0; }
+  line-height: 1.2em; }
 
 h5 {
+  margin: 1.33333em 0;
   font-size: 1.125em;
-  line-height: 1.33333em;
-  margin: 1.33333em 0; }
+  line-height: 1.33333em; }
 
 h6 {
+  margin: 1.5em 0;
   font-size: 1em;
-  line-height: 1.5em;
-  margin: 1.5em 0; }
+  line-height: 1.5em; }
 
 p, pre, dl, ul, ol, li, address, video, table {
   margin: 1.5em 0; }
@@ -96,6 +96,7 @@ pre, code, samp, del {
   color: #686868; }
 
 pre {
+  overflow: hidden;
   padding: 0 1.5em;
   white-space: pre;
   white-space: pre-wrap;
@@ -104,16 +105,7 @@ pre {
   white-space: -o-pre-wrap;
   white-space: -moz-pre-wrap;
   white-space: -hp-pre-wrap;
-  word-wrap: break-word;
-  overflow: hidden; }
-
-p var, p code, p samp {
-  position: relative;
-  top: 0.09em;
-  vertical-align: top; }
-
-code var, samp var {
-  top: 0; }
+  word-wrap: break-word; }
 
 blockquote, em, cite, q, i {
   font-style: italic; }
@@ -146,25 +138,23 @@ strong, dfn, b, kbd, acronym, abbr, var {
   font-weight: bold; }
 
 acronym, abbr, ins, mark, del {
-  color: #488dc6;
   border-width: 0 0 1px;
   border-style: dotted;
   border-color: #488dc6;
-  cursor: help;
-  text-decoration: none; }
+  color: #488dc6;
+  text-decoration: none;
+  cursor: help; }
 
 acronym, abbr {
   margin: 0 -0.075em 0 0;
   letter-spacing: 0.075em; }
 
 kbd {
-  padding: 0.25em 0.5em 0.2em;
-  color: #333333;
-  background: #ededed;
-  font: caption;
-  font-size: 1em;
-  font-weight: bold;
-  letter-spacing: 0.1em;
+  display: -moz-inline-box;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 0.5em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -175,7 +165,13 @@ kbd {
   background-clip: padding-box;
   -webkit-box-shadow: -2px -2px 2px #dadada inset;
   -moz-box-shadow: -2px -2px 2px #dadada inset;
-  box-shadow: -2px -2px 2px #dadada inset; }
+  box-shadow: -2px -2px 2px #dadada inset;
+  color: #333333;
+  background: #ededed;
+  font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  vertical-align: top; }
 
 var {
   color: #d00837;
@@ -215,8 +211,7 @@ caption {
   font-weight: bold; }
 
 table {
-  width: 100%;
-  max-width: 100%; }
+  width: 100%; }
 
 td, th {
   border: 1px solid black;
@@ -260,14 +255,14 @@ input, select {
   vertical-align: top; }
 
 input[type="radio"], input[type="checkbox"] {
-  vertical-align: top;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  vertical-align: top; }
 input[type="file"] {
   height: auto;
-  line-height: normal;
-  border: none; }
+  border: none;
+  line-height: normal; }
 
 select {
   height: 1.5em;
@@ -388,11 +383,11 @@ hr {
 
 /* Headings Counter */
 .hNumber:before {
+  position: relative;
   display: -moz-inline-box;
   display: inline-block;
-  counter-increment: heading;
   content: counter(heading) ". ";
-  position: relative; }
+  counter-increment: heading; }
 
 /* High DPI Typographics */
 @media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
@@ -400,6 +395,9 @@ hr {
     text-rendering: optimizelegibility; } }
 /* Phone Typographics */
 @media handheld, only screen and (max-width: 720px) {
+  html {
+    -webkit-text-size-adjust: none; }
+
   table {
     display: block; }
 
@@ -408,14 +406,15 @@ hr {
 
   tr, th, td {
     display: block; } }
+/* Tablet Typographics */
 /* Print Typographics */
 @media print {
   @page {
     margin: 0; }
 
   a, acronym, abbr, ins, del, var, input, select, textarea {
-    color: black;
     border: none;
+    color: black;
     text-decoration: none;
     outline: none; }
 

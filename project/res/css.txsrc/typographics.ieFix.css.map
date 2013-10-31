@@ -1,6 +1,0 @@
-{
-"version": "3",
-"mappings": ";AAiBA,GAAG;EACF,UAAU,EAAE,MAAM;;AAIlB,qCAAsB;EACrB,MAAM,EAAE,IAAI;AAEb,QAAG;EACF,IAAI,EAAE,CAAC;AAIP,6CAAiB;EAChB,UAAU,EAAE,YAAY;AAEzB,6CAAiB;EAChB,UAAU,EAAE,eAAe;AAM1B,2BAAE;ECiBH,MAAM,EAAE,OAA0B;ADVjC,6BAAE;ECeH,MAAM,EAAE,WAAgD;ADTvD,6BAAE;ECWH,MAAM,EAAE,iBAAsD;EDT5D,UAAU,EAAE,MAAM;AAEtB,UAAK;EACJ,cAAc,EAAE,WAAW",
-"sources": ["../sass.txsrc/typographics.ieFix.sass","../sass.txsrc/txsass/_tx.mixins.sass"],
-"file": "typographics.ieFix.css"
-}

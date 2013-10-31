@@ -54,20 +54,20 @@
 				<include name="*.css"/>
 				<exclude name="reset.css"/>
 				<exclude name="typographics.css"/>
-				<exclude name="*.ieFix.css"/>
+				<exclude name="*.ie.css"/>
 				<exclude name="txdebug.*.css"/>
 				<exclude name="txdemo.*.css"/>
 			</fileset>
 		</concat>
-		<concat destfile="${res.css.dir}/styles.ieFix.css">
+		<concat destfile="${res.css.dir}/styles.ie.css">
 			<filelist dir="${res.css.sourceDir}">
-				<file name="reset.ieFix.css"/>
-				<file name="typographics.ieFix.css"/>
+				<file name="reset.ie.css"/>
+				<file name="typographics.ie.css"/>
 			</filelist>
 			<fileset dir="${res.css.sourceDir}">
-				<include name="*.ieFix.css"/>
-				<exclude name="reset.ieFix.css"/>
-				<exclude name="typographics.ieFix.css"/>
+				<include name="*.ie.css"/>
+				<exclude name="reset.ie.css"/>
+				<exclude name="typographics.ie.css"/>
 				<exclude name="txdebug.*.css"/>
 				<exclude name="txdemo.*.css"/>
 			</fileset>
@@ -156,7 +156,7 @@
 
 	<target name="checkCSSTargetedForIE">
 		<echo>Checking if CSS Targeted for the Older Versions of Internet Explorer is Available</echo>
-	    <available file="${res.css.dir}/styles.ieFix.css" property="build.ie"/>
+	    <available file="${res.css.dir}/styles.ie.css" property="build.ie"/>
 	</target>
 
 	<target name="replaceTokens">
@@ -192,7 +192,7 @@
 			</fileset>
 			<replacefilter>
 				<replacetoken>@CSSGOESHERE!</replacetoken>
-				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/styles.min.css">]]>&#13;&#9;&#9;<![CDATA[<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="res/css/styles.ieFix.min.css"> <![endif]-->]]></replacevalue>
+				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/styles.min.css">]]>&#13;&#9;&#9;<![CDATA[<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="res/css/styles.ie.min.css"> <![endif]-->]]></replacevalue>
 			</replacefilter>
 		</replace>
 	</target>

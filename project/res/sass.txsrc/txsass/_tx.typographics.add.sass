@@ -44,7 +44,7 @@
 .hNumber
 
 	&:before 
-		+tx-inline-block
-		counter-increment: heading
-		content: counter(heading) ". "
 		position: relative
+		+tx-inline-block
+		content: counter(heading) ". "
+		counter-increment: heading

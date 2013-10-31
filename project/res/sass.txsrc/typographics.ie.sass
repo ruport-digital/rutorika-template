@@ -26,34 +26,29 @@ dfn
 	pre
 		zoom: 1
 
-	.content
+	ul, .u-listReset ul
+		list-style: disc outside
 
-		ul, .lstRst li ul
-			list-style: disc outside
+	ol, .u-listReset ol
+		list-style: decimal outside
 
-		ol, .lstRst li ol
-			list-style: decimal outside
-
-		.lstRst
+	.u-listReset
+		
+		li
 			
 			li
-				
-				li
-					+tx-rhythm(1, 1)
+				+tx-rhythm(1, 1)
 
-		.dfLstRst
+	.u-descriptionListReset
 
-			dl
+		dl
 
-				dt
-					+tx-rhythm(1)
+			dt
+				+tx-rhythm(1)
 
-		.dfLstRst
-
-			dl
-				dd
-					+tx-rhythm(0, 1, $mlft: 1.5em)
-					font-style: italic
+			dd
+				+tx-rhythm(0, 1, $mlft: 1.5em)
+				font-style: italic
 
 	input
 		vertical-align: text-bottom

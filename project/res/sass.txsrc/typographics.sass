@@ -16,9 +16,9 @@
 +establish-baseline
 
 body
+	counter-reset: heading
 	color: $text
 	font-family: $sans-font
-	counter-reset: heading
 
 +tx-selection-style
 
@@ -57,28 +57,28 @@ h1, h2, h3, h4, h5, h6
 	text-rendering: optimizelegibility
 
 h1
-	+adjust-font-size-to($h1-font-size, 2)
 	+tx-rhythm(1, 2, $h1-font-size)
+	+adjust-font-size-to($h1-font-size, 2)
 
 h2
-	+adjust-font-size-to($h2-font-size, 2)
 	+tx-rhythm(1, 1 , $h2-font-size)
+	+adjust-font-size-to($h2-font-size, 2)
 
 h3
-	+adjust-font-size-to($h3-font-size, 1)
 	+tx-rhythm(1, 1, $h3-font-size)
+	+adjust-font-size-to($h3-font-size, 1)
 
 h4
-	+adjust-font-size-to($h4-font-size, 1)
 	+tx-rhythm(1, 1, $h4-font-size)
+	+adjust-font-size-to($h4-font-size, 1)
 
 h5
-	+adjust-font-size-to($h5-font-size, 1)
 	+tx-rhythm(1, 1, $h5-font-size)
+	+adjust-font-size-to($h5-font-size, 1)
 
 h6
-	+adjust-font-size-to($h6-font-size, 1)
 	+tx-rhythm(1, 1, $h6-font-size)
+	+adjust-font-size-to($h6-font-size, 1)
 
 p, pre, dl, ul, ol, li, address, video, table
 	+tx-rhythm(1, 1)
@@ -93,21 +93,9 @@ pre, code, samp, del
 	color: #686868
 
 pre
+	overflow: hidden
 	padding: 0 1.5em
 	+force-wrap
-	overflow: hidden
-
-p
-
-	var, code, samp
-		position: relative
-		top: .090em
-		vertical-align: top
-
-code, samp
-
-	var
-		top: 0
 
 blockquote, em, cite, q, i
 	font-style: italic
@@ -142,28 +130,30 @@ strong, dfn, b, kbd, acronym, abbr, var
 	font-weight: bold
 
 acronym, abbr, ins, mark, del
-	color: $text-ins
 	border-width: 0 0 1px
 	border-style: dotted
 	border-color: $text-ins
-	cursor: help
+	color: $text-ins
 	text-decoration: none
+	cursor: help
 
 acronym, abbr
 	margin: 0 -.075em 0 0
 	letter-spacing: .075em
 
 kbd
-	padding: .25em .5em .20em
-	color: $text-alt
-	background: #ededed
-	font: caption
-	font-size: 1em
-	font-weight: bold
-	letter-spacing: .1em
+	+tx-inline-block
+	+tx-grid-height(1)
+	padding: 0 .5em
 	+border-radius(3px)
 	+background-clip(padding-box)
 	+box-shadow(-2px -2px 2px #dadada inset)
+	color: $text-alt
+	background: #ededed
+	font-family: $monospace-font
+	font-weight: bold
+	letter-spacing: .1em
+	vertical-align: top
 
 var
 	color: $text-code
@@ -201,7 +191,6 @@ caption
 
 table
 	width: 100%
-	max-width: 100%
 
 td, th
 	+tx-table-borders(1px, .5)
@@ -249,13 +238,13 @@ input, select
 input
 	
 	&[type="radio"], &[type="checkbox"] 
-		vertical-align: top
 		+box-sizing(border-box)
+		vertical-align: top
 
 	&[type="file"]
 		height: auto
-		line-height: normal
 		border: none
+		line-height: normal
 
 select
 	+tx-form-height(1, 0)
@@ -352,6 +341,9 @@ hr
 
 @media handheld, only screen and (max-width: 720px) 
 
+	html 
+		-webkit-text-size-adjust: none
+
 	table 
 		display: block
 	
@@ -368,6 +360,17 @@ hr
 
 
 
+/* Tablet Typographics */
+
+@media only screen and (min-width: 721px) and (max-width : 1024px)
+
+@media only screen and (min-resolution: 1.5dppx) and (min-width: 721px) and (max-width : 1024px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 721px) and (max-width : 1024px), only screen and (min--moz-device-pixel-ratio: 1.5) and (min-width: 721px) and (max-width : 1024px), only screen and (-o-min-device-pixel-ratio: 3/2) and (min-width: 721px) and (max-width : 1024px), only screen and (min-device-pixel-ratio: 1.5) and (min-width: 721px) and (max-width : 1024px)
+
+
+
+
+
+
 /* Print Typographics */
 
 @media print
@@ -376,8 +379,8 @@ hr
 		margin: 0
 
 	a, acronym, abbr, ins, del, var, input, select, textarea
-		color: #000
 		border: none
+		color: #000
 		text-decoration: none
 		outline: none
 	

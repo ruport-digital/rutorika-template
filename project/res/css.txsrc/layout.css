@@ -10,16 +10,6 @@ body {
   margin: 0 auto;
   background: white; }
 
-/* Counters Code */
-.countersCode {
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -1; }
-
 /* Header */
 .header {
   position: relative;
@@ -27,13 +17,12 @@ body {
 
 /* Content */
 .content {
-  padding: 0 36px; }
+  padding: 0 30px; }
   .content:after {
     display: block;
     content: "";
     position: relative;
-    height: 1px;
-    margin: -1px 0 0;
+    height: 0;
     font-size: 0;
     clear: both; }
 
@@ -46,9 +35,6 @@ body {
 /* High DPI Layout */
 /* Large Resolution Layout */
 /* Phone Layout */
-@media handheld, only screen and (max-width: 720px) {
-  html {
-    -webkit-text-size-adjust: none; } }
 /* Tablet Layout */
 /* Print Layout */
 @media print {

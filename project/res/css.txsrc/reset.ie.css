@@ -3,13 +3,17 @@ html.ie6 {
   filter: expression(document.execCommand("BackgroundImageCache", false, true)); }
 
 /* Lists Styles Reset */
-.ie6 .lstRst, .ie6 .lstRst li, .ie6 .dfLstRst, .ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
+.ie6 .u-listReset, .ie6 .u-descriptionListReset {
   margin: 0;
   padding: 0; }
-.ie6 .lstRst li {
+.ie6 .u-listReset li {
+  margin: 0;
+  padding: 0;
   background: none;
   list-style: none outside; }
-.ie6 .dfLstRst dt, .ie6 .dfLstRst dd {
+.ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
+  margin: 0;
+  padding: 0;
   font-weight: normal;
   font-style: normal; }
 
@@ -17,4 +21,4 @@ html.ie6 {
 .ie7 img {
   -ms-interpolation-mode: bicubic; }
 
-/*@ sourceMappingURL=reset.ieFix.css.map */
+/*@ sourceMappingURL=reset.ie.css.map */
