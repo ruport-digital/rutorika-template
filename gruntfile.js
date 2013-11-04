@@ -309,7 +309,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("build", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build"]);
 
-	grunt.registerTask("build-s", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build", "copy:share"]);
+	grunt.registerTask("build-share", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build", "copy:share"]);
 
 	grunt.registerTask("build-ex", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build"]);
 
