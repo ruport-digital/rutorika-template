@@ -172,11 +172,11 @@
 			</fileset>
 			<replacefilter>
 				<replacetoken>@tx-js</replacetoken>
-				<replacevalue><![CDATA[<script type="text/javascript" src="res/js/@tx-jsFilename.min.js"></script>]]></replacevalue>
+				<replacevalue><![CDATA[<script type="text/javascript" src="res/js/@tx-filenameJS.min.js"></script>]]></replacevalue>
 			</replacefilter>
 			<replacefilter token="@tx-title" value="${project.title}"/>
 			<replacefilter token="@tx-language" value="${project.lng}"/>
-			<replacefilter token="@tx-jsFilename" value="${res.js.filename}"/>
+			<replacefilter token="@tx-filenameJS" value="${res.js.filename}"/>
 		</replace>
 	</target>
 
@@ -188,9 +188,9 @@
 			</fileset>
 			<replacefilter>
 				<replacetoken>@tx-css</replacetoken>
-				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/@tx-cssFilename.min.css">]]>&#13;&#9;&#9;<![CDATA[<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="res/css/@tx-cssFilename-IE.min.css"> <![endif]-->]]></replacevalue>
+				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/@tx-filenameCSS.min.css">]]>&#13;&#9;&#9;<![CDATA[<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="res/css/@tx-filenameCSS-IE.min.css"> <![endif]-->]]></replacevalue>
 			</replacefilter>
-			<replacefilter token="@tx-cssFilename" value="${res.css.filename}"/>
+			<replacefilter token="@tx-filenameCSS" value="${res.css.filename}"/>
 		</replace>
 	</target>
 
@@ -202,9 +202,9 @@
 			</fileset>
 			<replacefilter>
 				<replacetoken>@tx-css</replacetoken>
-				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/@tx-cssFilename.min.css">]]></replacevalue>
+				<replacevalue><![CDATA[<link rel="stylesheet" type="text/css" href="res/css/@tx-filenameCSS.min.css">]]></replacevalue>
 			</replacefilter>
-			<replacefilter token="@tx-cssFilename" value="${res.css.filename}"/>
+			<replacefilter token="@tx-filenameCSS" value="${res.css.filename}"/>
 		</replace>
 	</target>
 
