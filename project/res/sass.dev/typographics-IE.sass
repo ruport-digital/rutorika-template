@@ -1,0 +1,54 @@
+@import "compass"
+@import "compass/css3/user-interface"
+@import "tx/tx.mixins"
+@import "tx/tx.mixins.debug"
+@import "tx/tx.project"
+
+$tx-ie: true
+
+
+
+
+
+
+/* Base Typographics & Rhythm (Internet Explorer < 8) */
+
+
+
+dfn
+	font-style: normal
+
+.ie6
+
+	label, button, .button
+		cursor: hand
+
+	pre
+		zoom: 1
+
+	ul, .u-listReset ul
+		list-style: disc outside
+
+	ol, .u-listReset ol
+		list-style: decimal outside
+
+	.u-listReset
+		
+		li
+			
+			li
+				+tx-rhythm(1, 1)
+
+	.u-descriptionListReset
+
+		dl
+
+			dt
+				+tx-rhythm(1)
+
+			dd
+				+tx-rhythm(0, 1, $mlft: 1.5em)
+				font-style: italic
+
+	input
+		vertical-align: text-bottom

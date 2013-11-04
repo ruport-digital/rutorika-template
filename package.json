@@ -1,0 +1,19 @@
+{
+	"private" : true,
+	"devDependencies" : {
+		"grunt" : "~0.4.0",
+		"matchdep": "*",
+		"grunt-htmlhint": "*",
+		"grunt-contrib-jshint": "*",
+		"grunt-contrib-csslint": "*",
+		"grunt-contrib-concat": "*",
+		"grunt-string-replace": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-csscomb": "*",
+    "grunt-cssc": "*",
+		"grunt-contrib-cssmin": "*",
+    "grunt-uncss": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*"
+  }
+}

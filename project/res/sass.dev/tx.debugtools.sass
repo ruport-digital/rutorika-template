@@ -1,0 +1,135 @@
+@import "compass"
+@import "compass/css3/user-interface"
+@import "tx/tx.mixins"
+@import "tx/tx.mixins.debug"
+@import "tx/tx.project"
+
+
+
+
+
+
+/* TX.Debug Styles */
+
+
+
+.s-debugRhythmLines
+	+debug-vertical-alignment
+
+.s-debugResponsiveGuide
+	background: url(../images/txdebug.responsiveGuide.jpg)
+
+.s-debugRhythmLines, .s-debugResponsiveGuide
+
+	.content
+		background: none
+
+
+
+/* TX.Debug Console */
+
+.debugConsole
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 99
+	display: none
+	+box-sizing(border-box)
+	width: 100%
+	height: 100%
+	padding: 50px
+	color: #fff
+	background: rgba(0, 0, 0, .75)
+	font-family: $monospace-font
+	font-size: $font-size
+	line-height: 1.5em
+	pointer-events: none
+
+.s-debugShowConsole
+	
+	.debugConsole
+		display: block
+
+
+
+/* TX.Debug Controls */
+
+.debugToggle
+	position: absolute
+	top: 20px
+	right: 20px
+	width: 40px
+	height: 40px
+	border: 10px solid #fff
+	+border-radius(30px)
+
+	&.on
+		border-color: #fff
+
+		&:before
+			+tx-pseudo($cnt: D)
+			left: 5px
+			top: 5px
+			width: 30px
+			height: 30px
+			color: #000
+			color: rgba(0,0,0,.75)
+			background: #fff
+			font-size: 1.5em
+			font-weight: bold
+			line-height: 30px
+			text-align: center
+			+border-radius(15px)
+
+.debugTools
+	position: fixed
+	top: 0
+	right: -10px
+	width: 300px
+	z-index: 100
+	+tx-rhythm(4, 0)
+	+tx-rhythm-padding(3, 0)
+	+border-radius(18px)
+	color: #fff
+	background: rgba(0,0,0,.75)
+	+transition(all .5s)
+
+	&.s-debugTools-off
+		+transform(translate(290px, 0))
+
+	ul
+		position: relative
+		z-index: 2
+
+	li
+		+tx-rhythm(0, 1, $mlft: 25px)
+
+	label
+		border: none
+
+	input
+		margin: 0 .5em 0 0
+
+.debugToolsToggle
+	position: absolute
+	left: 5px
+	top: 5px
+	z-index: 1
+	width: 30px
+	height: 30px
+	+border-radius(50%)
+	background: #fff
+	+transition(all .5s)
+	opacity: 1
+
+.s-debugTools-off
+	
+	.debugToolsToggle
+		top: 50%
+		left: -70px
+		width: 140px
+		height: 140px
+		margin: -70px 0 0
+		+border-radius(50%)
+		background: #000
+		opacity: .85

@@ -2,8 +2,8 @@
 ## Project
 #################
 
-build/*.*
-
+build/
+node_modules/
 
 #################
 ## Compass

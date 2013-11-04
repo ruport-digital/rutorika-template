@@ -1,0 +1,32 @@
+@import "compass"
+@import "compass/css3/user-interface"
+@import "tx/tx.mixins"
+@import "tx/tx.mixins.debug"
+@import "tx/tx.project"
+
+$tx-ie: true
+
+
+
+
+
+/* Layout (Internet Explorer < 8) */
+
+
+
+/* inline-block */
+
+fieldset
+	+tx-inline-block
+
+
+
+/* zoom */
+
+.ie6
+
+	.content
+		zoom: 1
+
+.footer
+	zoom: 1

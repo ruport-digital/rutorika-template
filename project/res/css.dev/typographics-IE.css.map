@@ -1,0 +1,6 @@
+{
+"version": "3",
+"mappings": ";AAiBA,GAAG;EACF,UAAU,EAAE,MAAM;;AAIlB,qCAAsB;EACrB,MAAM,EAAE,IAAI;AAEb,QAAG;EACF,IAAI,EAAE,CAAC;AAER,6BAAmB;EAClB,UAAU,EAAE,YAAY;AAEzB,6BAAmB;EAClB,UAAU,EAAE,eAAe;AAM1B,uBAAE;ECmBF,MAAM,EAAE,OAA0B;ADZlC,kCAAE;ECiBF,MAAM,EAAE,WAAgD;ADdxD,kCAAE;ECgBF,MAAM,EAAE,iBAAsD;EDd7D,UAAU,EAAE,MAAM;AAErB,UAAK;EACJ,cAAc,EAAE,WAAW",
+"sources": ["../sass.dev/typographics-IE.sass","../sass.dev/tx/_tx.mixins.sass"],
+"file": "typographics-IE.css"
+}

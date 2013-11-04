@@ -1,6 +1,0 @@
-{
-"version": "3",
-"mappings": ";;AAkBA,QAAQ;ECgGN,OAAO,EAAE,MAAM;EACf,IAAI,EAAE,CAAC;;;ADxFR,aAAQ;EACP,IAAI,EAAE,CAAC;;AAET,OAAO;EACN,IAAI,EAAE,CAAC",
-"sources": ["../sass.txsrc/layout.ie.sass","../sass.txsrc/txsass/_tx.mixins.sass"],
-"file": "layout.ie.css"
-}

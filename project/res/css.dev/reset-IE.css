@@ -1,0 +1,24 @@
+/* CSS-Reset (Internet Explorer < 8) */
+html.ie6 {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true)); }
+
+/* Lists Styles Reset */
+.ie6 .u-listReset, .ie6 .u-descriptionListReset {
+  margin: 0;
+  padding: 0; }
+.ie6 .u-listReset li {
+  margin: 0;
+  padding: 0;
+  background: none;
+  list-style: none outside; }
+.ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-style: normal; }
+
+/* Image Interpolation */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+/*@ sourceMappingURL=reset-IE.css.map */

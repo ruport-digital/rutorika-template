@@ -22,4 +22,4 @@ function whichTransitionEndEvent() {
 			return TRANSITIONS[TRANSITION];
 		}
 	}
-}$(document).ready(function() {});
+}
