@@ -4,22 +4,23 @@ html.ie6 {
 
 /* Lists Styles Reset */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
-  margin: 0;
-  padding: 0; }
-.ie6 .u-listReset li {
-  margin: 0;
   padding: 0;
+  margin: 0; }
+.ie6 .u-listReset li {
+  padding: 0;
+  margin: 0;
   background: none;
   list-style: none outside; }
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
-  margin: 0;
   padding: 0;
+  margin: 0;
   font-weight: normal;
   font-style: normal; }
 
 /* Image Interpolation */
 .ie7 img {
   -ms-interpolation-mode: bicubic; }
+
 
 /* Base Typographics & Rhythm (Internet Explorer < 8) */
 dfn {
@@ -43,6 +44,7 @@ dfn {
 .ie6 input {
   vertical-align: text-bottom; }
 
+
 /* Layout (Internet Explorer < 8) */
 /* inline-block */
 fieldset {
@@ -55,6 +57,7 @@ fieldset {
 
 .footer {
   zoom: 1; }
+
 
 /* UI (Internet Explorer < 8) */
 

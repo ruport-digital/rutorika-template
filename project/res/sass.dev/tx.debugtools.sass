@@ -13,13 +13,13 @@
 
 
 
-.s-debugRhythmLines
+.is-debug-rhythmLines
 	+debug-vertical-alignment
 
-.s-debugResponsiveGuide
-	background: url(../images/txdebug.responsiveGuide.jpg)
+.is-debug-responsiveGuide
+	background: url(../images/tx.responsiveGuide.jpg)
 
-.s-debugRhythmLines, .s-debugResponsiveGuide
+.is-debug-rhythmLines, .is-debug-responsiveGuide
 
 	.content
 		background: none
@@ -45,7 +45,7 @@
 	line-height: 1.5em
 	pointer-events: none
 
-.s-debugShowConsole
+.is-debug-showConsole
 	
 	.debugConsole
 		display: block
@@ -53,33 +53,6 @@
 
 
 /* TX.Debug Controls */
-
-.debugToggle
-	position: absolute
-	top: 20px
-	right: 20px
-	width: 40px
-	height: 40px
-	border: 10px solid #fff
-	+border-radius(30px)
-
-	&.on
-		border-color: #fff
-
-		&:before
-			+tx-pseudo($cnt: D)
-			left: 5px
-			top: 5px
-			width: 30px
-			height: 30px
-			color: #000
-			color: rgba(0,0,0,.75)
-			background: #fff
-			font-size: 1.5em
-			font-weight: bold
-			line-height: 30px
-			text-align: center
-			+border-radius(15px)
 
 .debugTools
 	position: fixed
@@ -93,9 +66,7 @@
 	color: #fff
 	background: rgba(0,0,0,.75)
 	+transition(all .5s)
-
-	&.s-debugTools-off
-		+transform(translate(290px, 0))
+	+transform(translate(290px, 0))
 
 	ul
 		position: relative
@@ -110,26 +81,31 @@
 	input
 		margin: 0 .5em 0 0
 
+.is-debug-on
+
+	.debugTools
+		+transform(translate(0, 0))
+
 .debugToolsToggle
 	position: absolute
-	left: 5px
-	top: 5px
+	top: 50%
+	left: -70px
+	width: 140px
+	height: 140px
+	margin: -70px 0 0
 	z-index: 1
-	width: 30px
-	height: 30px
 	+border-radius(50%)
-	background: #fff
+	background: #000
 	+transition(all .5s)
-	opacity: 1
+	opacity: .85
 
-.s-debugTools-off
+.is-debug-on
 	
 	.debugToolsToggle
-		top: 50%
-		left: -70px
-		width: 140px
-		height: 140px
-		margin: -70px 0 0
-		+border-radius(50%)
-		background: #000
-		opacity: .85
+		top: 5px
+		left: 5px
+		width: 30px
+		height: 30px
+		margin: 0
+		background: #fff
+		opacity: 1

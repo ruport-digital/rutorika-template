@@ -15,7 +15,7 @@ function whichTransitionEndEvent() {
 		"transition": "transitionend",
 		"OTransition": "oTransitionEnd",
 		"MozTransition": "transitionend",
-		"WebkitTransition": "webkitTransitionEnd"
+		"WebkitTransition": 'webkitTransitionEnd'
 	};
 	for(TRANSITION in TRANSITIONS){
 		if(ELEMENT.style[TRANSITION] !== undefined) {

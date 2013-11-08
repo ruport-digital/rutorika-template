@@ -1,5 +1,5 @@
 /* TX.Debug Styles */
-.s-debugRhythmLines {
+.is-debug-rhythmLines {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 102, 255, 0.25)), color-stop(5%, rgba(0, 102, 255, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
   background-image: -moz-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
@@ -11,10 +11,10 @@
   background-size: 100% 1.5em;
   background-position: left top; }
 
-.s-debugResponsiveGuide {
-  background: url(../images/txdebug.responsiveGuide.jpg); }
+.is-debug-responsiveGuide {
+  background: url(../images/tx.responsiveGuide.jpg); }
 
-.s-debugRhythmLines .content, .s-debugResponsiveGuide .content {
+.is-debug-rhythmLines .content, .is-debug-responsiveGuide .content {
   background: none; }
 
 /* TX.Debug Console */
@@ -37,45 +37,10 @@
   line-height: 1.5em;
   pointer-events: none; }
 
-.s-debugShowConsole .debugConsole {
+.is-debug-showConsole .debugConsole {
   display: block; }
 
 /* TX.Debug Controls */
-.debugToggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  border: 10px solid white;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  border-radius: 30px; }
-  .debugToggle.on {
-    border-color: white; }
-    .debugToggle.on:before {
-      display: block;
-      content: "D";
-      position: absolute;
-      left: 5px;
-      top: 5px;
-      width: 30px;
-      height: 30px;
-      color: black;
-      color: rgba(0, 0, 0, 0.75);
-      background: white;
-      font-size: 1.5em;
-      font-weight: bold;
-      line-height: 30px;
-      text-align: center;
-      -webkit-border-radius: 15px;
-      -moz-border-radius: 15px;
-      -ms-border-radius: 15px;
-      -o-border-radius: 15px;
-      border-radius: 15px; }
-
 .debugTools {
   position: fixed;
   top: 0;
@@ -94,13 +59,12 @@
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
-  transition: all 0.5s; }
-  .debugTools.s-debugTools-off {
-    -webkit-transform: translate(290px, 0);
-    -moz-transform: translate(290px, 0);
-    -ms-transform: translate(290px, 0);
-    -o-transform: translate(290px, 0);
-    transform: translate(290px, 0); }
+  transition: all 0.5s;
+  -webkit-transform: translate(290px, 0);
+  -moz-transform: translate(290px, 0);
+  -ms-transform: translate(290px, 0);
+  -o-transform: translate(290px, 0);
+  transform: translate(290px, 0); }
   .debugTools ul {
     position: relative;
     z-index: 2; }
@@ -111,37 +75,40 @@
   .debugTools input {
     margin: 0 0.5em 0 0; }
 
+.is-debug-on .debugTools {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
 .debugToolsToggle {
   position: absolute;
-  left: 5px;
-  top: 5px;
-  z-index: 1;
-  width: 30px;
-  height: 30px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  background: white;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  opacity: 1; }
-
-.s-debugTools-off .debugToolsToggle {
   top: 50%;
   left: -70px;
   width: 140px;
   height: 140px;
   margin: -70px 0 0;
+  z-index: 1;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
   background: black;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
   opacity: 0.85; }
+
+.is-debug-on .debugToolsToggle {
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  background: white;
+  opacity: 1; }
 
 /*@ sourceMappingURL=tx.debugtools.css.map */
