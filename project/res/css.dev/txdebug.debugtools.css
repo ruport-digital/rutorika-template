@@ -12,7 +12,7 @@
   background-position: left top; }
 
 .is-debug-responsiveGuide {
-  background: url(../images/tx.responsiveGuide.jpg); }
+  background: url(../images/txdebug.responsiveGuide.jpg); }
 
 .is-debug-rhythmLines .content, .is-debug-responsiveGuide .content {
   background: none; }
@@ -111,4 +111,4 @@
   background: white;
   opacity: 1; }
 
-/*@ sourceMappingURL=tx.debugtools.css.map */
+/*@ sourceMappingURL=txdebug.debugtools.css.map */

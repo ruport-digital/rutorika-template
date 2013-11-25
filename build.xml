@@ -137,8 +137,9 @@
 			<fileset dir="${project.dir}">
 				<include name="**"/>
 				<exclude name="**/tx.*.*"/>
-				<exclude name="**/tx/**"/>
+				<exclude name="**/txdebug.*.*"/>
 				<exclude name="**/*.dev/**"/>
+				<exclude name="**/txdebug/**"/>
 			</fileset>
 			<fileset dir="${project.meta}">
 				<include name="*.ico"/>

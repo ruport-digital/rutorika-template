@@ -285,7 +285,7 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 				cwd: project.dir + "/",
-				src: ["**", "!**/tx.*.*", "!**/**.dev/**", "!**/tx/**"],
+				src: ["**", "!**/tx.*.*", "!**/txdebug.*.*", "!**/**.dev/**", "!**/txdebug/**"],
 				dest: project.build.dir,
 				expand: true
 			},
@@ -297,7 +297,7 @@ module.exports = function(grunt) {
 			},
 			share: {
 				cwd: project.build.dir + "/",
-				src: ["**", "!**/tx.*.*", "!**/**.dev/**", "!**/tx/**"],
+				src: ["**"],
 				dest: "<%= buildEnv.shareRoot %>" + "/" + project.build.shareDir,
 				expand: true
 			}
