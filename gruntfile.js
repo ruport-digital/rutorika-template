@@ -301,6 +301,19 @@ module.exports = function(grunt) {
 				dest: "<%= buildEnv.shareRoot %>" + "/" + project.build.shareDir,
 				expand: true
 			}
+		},
+
+		yuidoc: {
+			all: {
+				name: '<%= pkg.name %>',
+				description: '<%= pkg.description %>',
+				version: '<%= pkg.version %>',
+				url: '<%= pkg.homepage %>',
+				options: {
+					paths: [project.res.js.dir],
+					outdir: project.dir + '/docs/'
+				}
+			}
 		}
 
 	});
@@ -312,5 +325,7 @@ module.exports = function(grunt) {
 	grunt.registerTask("build-share", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build", "copy:share"]);
 
 	grunt.registerTask("build-ex", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build"]);
+
+	grunt.registerTask("doc", ["yuidoc"]);
 
 };

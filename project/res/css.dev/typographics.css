@@ -211,7 +211,8 @@ caption {
   font-weight: bold; }
 
 table {
-  width: 100%; }
+  width: 100%;
+  table-layout: fixed; }
 
 td, th {
   border: 1px solid black;

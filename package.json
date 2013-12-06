@@ -1,7 +1,7 @@
 {
 	"private" : true,
 	"devDependencies" : {
-		"grunt" : "~0.4.0",
+		"grunt": "~0.4.2",
 		"matchdep": "*",
 		"grunt-htmlhint": "*",
 		"grunt-contrib-jshint": "*",
@@ -14,6 +14,7 @@
 		"grunt-contrib-cssmin": "*",
     "grunt-uncss": "*",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-copy": "*"
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-yuidoc": "*"
   }
 }

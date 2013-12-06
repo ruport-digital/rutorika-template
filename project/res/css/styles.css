@@ -272,7 +272,8 @@ caption {
   font-weight: bold; }
 
 table {
-  width: 100%; }
+  width: 100%;
+  table-layout: fixed; }
 
 td, th {
   padding: 0.6875em 0.5em 0.75em;
