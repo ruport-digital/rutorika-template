@@ -1,12 +1,14 @@
-//Client-side Grunt Build File (gruntfile.js) for TemplateX Project
+//Client-side Grunt Build File for TemplateX Project
 
 var
 	title					= "TemplateX",	//Project Title
 	language			= "ru",					//Project Language
 	dir						= "project",		//Project Directory
+	images				= "images",			//Project Images Directory
 	meta					= "meta",				//Meta Resources Directory
 	res						= "res",				//Resources Directory
 
+	resImages			= "images",			//Resources Images Directory
 	css						= "css",				//CSS Production Directory
 	cssDev				= "css.dev",		//CSS Development Directory
 	cssFilename		= "styles",			//CSS Production Filename
@@ -46,19 +48,23 @@ var project = {
 		this.title = title;
 		this.language = language;
 		this.dir = dir;
+		this.images = this.dir + "/" + images + "/";
 		this.meta = meta;
-		this.resDir = this.dir + "/" + res;
+		this.resDir = this.dir + "/" + res + "/";
 		this.res = {
+			images: {
+				dir: this.resDir + "/" + resImages + "/"
+			},
 			css: {
-				dir: this.resDir + "/" + css,
-				devDir: this.resDir + "/" + cssDev,
+				dir: this.resDir + "/" + css + "/",
+				devDir: this.resDir + "/" + cssDev + "/",
 				filename: cssFilename,
 				dev: fillAnArray(cssDevFiles, dir + "/" + res + "/" + cssDev + "/"),
 				devIE: fillAnArray(cssDevFilesIE, dir + "/" + res + "/" + cssDev + "/")
 			},
 			js: {
-				dir: this.resDir + "/" + js,
-				devDir: this.resDir + "/" + jsDev,
+				dir: this.resDir + "/" + js + "/",
+				devDir: this.resDir + "/" + jsDev + "/",
 				filename: jsFilename,
 				dev: fillAnArray(jsDevFiles, dir + "/" + res + "/" + jsDev + "/")
 			}
@@ -73,7 +79,7 @@ var project = {
 
 module.exports = function(grunt) {
 
-	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
 		
@@ -157,11 +163,11 @@ module.exports = function(grunt) {
 					separator: "\n\n",
 				},
 				src: project.res.js.dev,
-				dest: project.res.js.dir + "/" + project.res.js.filename + ".js",
+				dest: project.res.js.dir + project.res.js.filename + ".js",
 			},
 			css: {
 				src: project.res.css.dev,
-				dest: project.res.css.dir + "/" + project.res.css.filename + ".css"
+				dest: project.res.css.dir + project.res.css.filename + ".css"
 			},
 			cssIE: {
 				checkIE: function() {
@@ -169,7 +175,7 @@ module.exports = function(grunt) {
 					if (project.res.css.devIE.length !== 0) {
 						task = {
 							src: project.res.css.devIE,
-							dest: project.res.css.dir + "/" + project.res.css.filename + "-IE.css"
+							dest: project.res.css.dir + project.res.css.filename + "-IE.css"
 						};
 					}
 					return task;
@@ -205,7 +211,7 @@ module.exports = function(grunt) {
 						replacement: {
 							checkie: function() {
 								var cssfiles;
-								if (grunt.file.exists(project.res.css.dir + "/" + project.res.css.filename + "-IE.css")) {
+								if (grunt.file.exists(project.res.css.dir + project.res.css.filename + "-IE.css")) {
 									cssfiles = '<link rel="stylesheet" type="text/css" href="res/css/' + project.res.css.filename + '.min.css">\n\t\t<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="res/css/' + project.res.css.filename + '-IE.min.css"> <![endif]-->';
 								} else {
 									cssfiles = '<link rel="stylesheet" type="text/css" href="res/css/' + project.res.css.filename + '.min.css">';
@@ -249,7 +255,7 @@ module.exports = function(grunt) {
 				files: {
 					cssMinFiles: function() {
 						var cssMinFilesObject = {};
-						cssMinFilesObject[project.res.css.dir + "/" + project.res.css.filename + ".min.css"] = project.dir + "/*.html";
+						cssMinFilesObject[project.res.css.dir + project.res.css.filename + ".min.css"] = project.dir + "/*.html";
 						return cssMinFilesObject;
 					}
 				}.cssMinFiles()
@@ -269,7 +275,7 @@ module.exports = function(grunt) {
 
 		csscomb: {
 			options: {
-				sortOrder: "cssorder.json"
+				sortOrder: "grunt/cssorder.json"
 			},
 			cssSort: {
 				src: [project.res.css.dir + "/*.css", "!" + project.res.css.dir + "/*.min.css"],
@@ -280,39 +286,47 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			build: [project.build.dir + "/"]
+			build: [project.build.dir]
 		},
 		copy: {
 			build: {
-				cwd: project.dir + "/",
-				src: ["**", "!**/tx.*.*", "!**/txdebug.*.*", "!**/**.dev/**", "!**/txdebug/**"],
+				cwd: project.dir,
+				src: ["**", "!**/images/*.*", "!**/tx.*.*", "!**/txdebug.*.*", "!**/**.dev/**", "!**/txdebug/**"],
 				dest: project.build.dir,
 				expand: true
 			},
 			meta: {
-				cwd: project.meta + "/",
+				cwd: project.meta,
 				src: ["*.ico", "*.png", "*.jpg", "*.gif"],
 				dest: project.build.dir,
 				expand: true
 			},
 			share: {
-				cwd: project.build.dir + "/",
+				cwd: project.build.dir,
 				src: ["**"],
-				dest: "<%= buildEnv.shareRoot %>" + "/" + project.build.shareDir,
+				dest: "<%= buildEnv.shareRoot %>" + project.build.shareDir,
 				expand: true
 			}
 		},
 
-		yuidoc: {
-			all: {
-				name: '<%= pkg.name %>',
-				description: '<%= pkg.description %>',
-				version: '<%= pkg.version %>',
-				url: '<%= pkg.homepage %>',
-				options: {
-					paths: [project.res.js.dir],
-					outdir: project.dir + '/docs/'
-				}
+		imagemin: {
+			images: {
+				cwd: project.images,
+				src: ["**/*.{png,jpg,gif}", "!**/tx.*.*", "!**/txdebug.*.*"],
+				dest: project.images,
+				expand: true
+			},
+			res: {
+				cwd: project.res.images.dir,
+				src: ["**/*.{png,jpg,gif}", "!**/tx.*.*", "!**/txdebug.*.*"],
+				dest: project.res.images.dir,
+				expand: true
+			},
+			meta: {
+				cwd: project.build.dir,
+				src: ["*.{png,jpg,gif}"],
+				dest: project.build.dir,
+				expand: true
 			}
 		}
 
@@ -320,12 +334,12 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("lint", ["htmlhint", "jshint", "csslint"]);
 
-	grunt.registerTask("build", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build"]);
+	grunt.registerTask("images", ["imagemin:images", "imagemin:res"]);
 
-	grunt.registerTask("build-share", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build", "copy:share"]);
+	grunt.registerTask("build", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "string-replace:build"]);
 
-	grunt.registerTask("build-ex", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "string-replace:build"]);
+	grunt.registerTask("build-share", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "string-replace:build", "copy:share"]);
 
-	grunt.registerTask("doc", ["yuidoc"]);
+	grunt.registerTask("build-exp", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "string-replace:build"]);
 
 };
