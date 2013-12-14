@@ -8,13 +8,15 @@
 		"grunt-contrib-csslint": "*",
 		"grunt-contrib-concat": "*",
 		"grunt-string-replace": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-csscomb": "*",
-    "grunt-cssc": "*",
+		"grunt-remove-logging": "*",
+		"grunt-contrib-uglify": "*",
+		"grunt-csscomb": "*",
+		"grunt-cssc": "*",
 		"grunt-contrib-cssmin": "*",
-    "grunt-uncss": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-imagemin": "*"
-  }
+		"grunt-uncss": "*",
+		"grunt-contrib-clean": "*",
+		"grunt-contrib-copy": "*",
+		"grunt-contrib-imagemin": "*",
+		"grunt-contrib-compress": "*"
+	}
 }
