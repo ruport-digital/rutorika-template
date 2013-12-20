@@ -1,4 +1,4 @@
-/* Base Typographics & Rhythm */
+/* Base Typography & Rhythm */
 * html {
   font-size: 100%; }
 
@@ -390,11 +390,11 @@ hr {
   content: counter(heading) ". ";
   counter-increment: heading; }
 
-/* High DPI Typographics */
+/* High DPI Typography */
 @media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
   html {
     text-rendering: optimizelegibility; } }
-/* Phone Typographics */
+/* Phone Typography */
 @media handheld, only screen and (max-width: 720px) {
   html {
     -webkit-text-size-adjust: none; }
@@ -407,8 +407,8 @@ hr {
 
   tr, th, td {
     display: block; } }
-/* Tablet Typographics */
-/* Print Typographics */
+/* Tablet Typography */
+/* Print Typography */
 @media print {
   @page {
     margin: 0; }
@@ -431,4 +431,4 @@ hr {
   blockquote, pre, img {
     page-break-inside: avoid; } }
 
-/*@ sourceMappingURL=typographics.css.map */
+/*@ sourceMappingURL=typography.css.map */

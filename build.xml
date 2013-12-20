@@ -51,12 +51,12 @@
 		<concat destfile="${res.css.dir}/${res.css.filename}.css">
 			<filelist dir="${res.css.devDir}">
 				<file name="reset.css"/>
-				<file name="typographics.css"/>
+				<file name="typography.css"/>
 			</filelist>
 			<fileset dir="${res.css.devDir}">
 				<include name="*.css"/>
 				<exclude name="reset.css"/>
-				<exclude name="typographics.css"/>
+				<exclude name="typography.css"/>
 				<exclude name="*-IE.css"/>
 				<exclude name="tx.*.css"/>
 			</fileset>
@@ -64,12 +64,12 @@
 		<concat destfile="${res.css.dir}/${res.css.filename}-IE.css">
 			<filelist dir="${res.css.devDir}">
 				<file name="reset-IE.css"/>
-				<file name="typographics-IE.css"/>
+				<file name="typography-IE.css"/>
 			</filelist>
 			<fileset dir="${res.css.devDir}">
 				<include name="*-IE.css"/>
 				<exclude name="reset-IE.css"/>
-				<exclude name="typographics-IE.css"/>
+				<exclude name="typography-IE.css"/>
 				<exclude name="tx.*.css"/>
 			</fileset>
 		</concat>

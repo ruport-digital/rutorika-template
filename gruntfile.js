@@ -14,13 +14,13 @@ var
 	cssFilename		= "styles",			//CSS Production Filename
 	cssDevFiles		= [							//CSS Order
 									"reset.css",
-									"typographics.css",
+									"typography.css",
 									"layout.css",
 									"ui.css",
 	],
 	cssDevFilesIE = [							//CSS Order (IE)
 									"reset-IE.css",
-									"typographics-IE.css",
+									"typography-IE.css",
 									"layout-IE.css",
 									"ui-IE.css",
 	],
@@ -160,7 +160,7 @@ module.exports = function(grunt) {
 					"zero-units": false
 				},
 				cwd: project.res.css.devDir,
-				src: ["*.css", "!reset*.css", "!typographics*.css"],
+				src: ["*.css", "!reset*.css", "!typography*.css"],
 				expand: true,
 				flatten: true
 			}
