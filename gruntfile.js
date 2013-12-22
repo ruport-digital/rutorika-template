@@ -160,7 +160,7 @@ module.exports = function(grunt) {
 					"zero-units": false
 				},
 				cwd: project.res.css.devDir,
-				src: ["*.css", "!reset*.css", "!typography*.css"],
+				src: ["*.css", "!reset.css", "!typography.css", "!*-IE.css"],
 				expand: true,
 				flatten: true
 			}
@@ -370,10 +370,10 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("images", ["imagemin:images", "imagemin:res"]);
 
-	grunt.registerTask("build", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
+	grunt.registerTask("build", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
 
-	grunt.registerTask("build-share", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build", "copy:share"]);
+	grunt.registerTask("build-share", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build", "copy:share"]);
 
-	grunt.registerTask("build-exp", ["htmlhint", "jshint", "csslint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
+	grunt.registerTask("build-exp", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
 
 };
