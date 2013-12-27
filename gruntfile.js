@@ -12,15 +12,17 @@ var
 	css						= "css",				//CSS Production Directory
 	cssDev				= "css.dev",		//CSS Development Directory
 	cssFilename		= "styles",			//CSS Production Filename
-	cssDevFiles		= [							//CSS Order
+	cssDevFiles		= [							//CSS Files
 									"reset.css",
 									"typography.css",
+									"utilities.css",
 									"layout.css",
 									"ui.css",
 	],
-	cssDevFilesIE = [							//CSS Order (IE)
+	cssDevFilesIE = [							//CSS Files (IE)
 									"reset-IE.css",
 									"typography-IE.css",
+									"utilities-IE.css",
 									"layout-IE.css",
 									"ui-IE.css",
 	],

@@ -2,40 +2,14 @@
 
 
 
-html.ie6
-	filter: expression(document.execCommand("BackgroundImageCache", false, true))
+html
 
-
-
-/* Lists Styles Reset */
-
-.ie6
-
-	.u-listReset, .u-descriptionListReset
-		margin: 0
-		padding: 0
-
-	.u-listReset
-
-		li
-			margin: 0
-			padding: 0
-			background: none
-			list-style: none outside
-
-	.u-descriptionListReset
-
-		dt, dd
-			margin: 0
-			padding: 0
-			font-weight: normal
-			font-style: normal
+	&.ie6
+		filter: expression(document.execCommand("BackgroundImageCache", false, true))
 
 
 
 /* Image Interpolation */
 
-.ie7
-
-	img
-		-ms-interpolation-mode: bicubic
+img
+	-ms-interpolation-mode: bicubic

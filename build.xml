@@ -52,6 +52,7 @@
 			<filelist dir="${res.css.devDir}">
 				<file name="reset.css"/>
 				<file name="typography.css"/>
+				<file name="utilities.css"/>
 			</filelist>
 			<fileset dir="${res.css.devDir}">
 				<include name="*.css"/>
@@ -65,6 +66,7 @@
 			<filelist dir="${res.css.devDir}">
 				<file name="reset-IE.css"/>
 				<file name="typography-IE.css"/>
+				<file name="utilities-IE.css"/>
 			</filelist>
 			<fileset dir="${res.css.devDir}">
 				<include name="*-IE.css"/>

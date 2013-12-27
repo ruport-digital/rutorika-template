@@ -2,6 +2,10 @@
 dfn {
   font-style: normal; }
 
+input[type="checkbox"], input[type="radio"] {
+  width: 13px;
+  height: 13px; }
+
 .ie6 label, .ie6 button, .ie6 .button {
   cursor: hand; }
 .ie6 pre {

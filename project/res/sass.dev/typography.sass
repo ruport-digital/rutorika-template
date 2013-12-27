@@ -15,9 +15,13 @@
 
 +establish-baseline
 
+html
+	+tx-font-adjustment
+
 body
 	counter-reset: heading
 	color: $text
+	background: $background
 	font-family: $sans-font
 
 +tx-selection-style
@@ -42,7 +46,7 @@ a
 	
 	&:focus
 		color: $focus
-		outline: none
+		outline: 1px dotted $focus-outline
 
 label, button, .button
 	cursor: pointer
@@ -51,6 +55,10 @@ label
 	border-width: 0 0 1px
 	border-style: dotted
 	border-color: $focus-outline
+
+	&:focus
+		border: none
+		outline: 1px dotted $focus-outline
 
 h1, h2, h3, h4, h5, h6
 	font-weight: bold
@@ -221,17 +229,22 @@ input, button
 	+tx-form-height(1, 0)
 	border: none
 
+	&::-moz-focus-inner
+		border: 0
+		padding: 0
+
+input[type="reset"] input[type="submit"], button
+	width: auto
+	-webkit-appearance: button
+	overflow: visible
+	cursor: pointer
+
 input, select, textarea
 	
 	&[disabled], &[readonly]
 		opacity: .5
+		cursor: default
 		cursor: not-allowed
-
-.ie
-	
-	button
-		width: auto
-		overflow: visible
 
 input, select 
 	vertical-align: top
@@ -246,6 +259,13 @@ input
 		height: auto
 		border: none
 		line-height: normal
+
+	&[type="search"]
+		-webkit-appearance: textfield
+		+box-sizing(content-box)
+
+		&::-webkit-search-cancel-button, &::-webkit-search-decoration
+			-webkit-appearance: none
 
 select
 	+tx-form-height(1, 0)
@@ -270,6 +290,7 @@ select
 
 textarea 
 	+tx-form-height(10)
+	overflow: auto
 	
 @-o-keyframes focusPulse 
 	0%
@@ -317,6 +338,7 @@ hr
 	border-width: 1px 0
 	border-style: solid
 	border-color: #c7ced6 #000 #ffffff
+	+box-sizing(content-box)
 
 
 
@@ -326,9 +348,10 @@ hr
 
 
 
+
 /* High DPI Typography */
 
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)
+@media only screen and (min-resolution: 1.25dppx), only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min--moz-device-pixel-ratio: 1.25), only screen and (-o-min-device-pixel-ratio: 5/4), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi)
 
 	html
 		text-rendering: optimizelegibility
@@ -342,16 +365,7 @@ hr
 
 @media handheld, only screen and (max-width: 720px) 
 
-	html 
-		-webkit-text-size-adjust: none
-
-	table 
-		display: block
-	
-	tr 
-		border: 3px solid red
-	
-	tr, th, td 
+	table, tr, th, td
 		display: block
 
 	@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5)
@@ -377,14 +391,35 @@ hr
 @media print
 
 	@page
-		margin: 0
+		margin: 0 .5cm
+
+	body
+		color: #000
+		background: #fff
 
 	a, acronym, abbr, ins, del, var, input, select, textarea
 		border: none
 		color: #000
 		text-decoration: none
 		outline: none
+
+	a
+
+		&[href]
+
+			&:after
+				content: " (" attr(href) ")"
+
+		&[href^="javascript:"], &[href^="#"]
+
+			&:after
+				content: ""
 	
+	abbr[title]
+
+		&:after
+			content: " (" attr(title) ")"
+
 	h1, h2, h3, h4, h5, h6
 		page-break-after: avoid
 		orphans: 3
@@ -394,5 +429,8 @@ hr
 		orphans: 3
 		widows: 3
 	
-	blockquote, pre, img
+	blockquote, pre, img, tr
 		page-break-inside: avoid
+
+	thead
+		display: table-header-group

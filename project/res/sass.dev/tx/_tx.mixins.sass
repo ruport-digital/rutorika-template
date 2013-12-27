@@ -42,6 +42,22 @@
 
 
 
+=tx-font-adjustment($cond: true)
+	@if $cond != true
+		-webkit-text-size-adjust: 100%
+		-ms-text-size-adjust: 100%
+
+
+
+=tx-scroll-bar($cond)
+	@if $cond
+		overflow-x: auto
+		overflow-y: scroll
+	@else
+		overflow: auto
+
+
+
 =tx-set-boundaries($minw: 980px, $maxw: 1400px, $center: true, $minh: 100%)
 	@if $minw != none or $minw != 0
 		min-width: $minw

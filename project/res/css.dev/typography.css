@@ -9,6 +9,7 @@ html {
 body {
   counter-reset: heading;
   color: black;
+  background: white;
   font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif; }
 
 ::-webkit-selection {
@@ -37,7 +38,7 @@ a {
     color: red; }
   a:focus {
     color: black;
-    outline: none; }
+    outline: 1px dotted #939393; }
 
 label, button, .button {
   cursor: pointer; }
@@ -46,6 +47,9 @@ label {
   border-width: 0 0 1px;
   border-style: dotted;
   border-color: #939393; }
+  label:focus {
+    border: none;
+    outline: 1px dotted #939393; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
@@ -243,14 +247,20 @@ input, button, textarea {
 input, button {
   height: 1.5em;
   border: none; }
+  input::-moz-focus-inner, button::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+
+input[type="reset"] input[type="submit"], button {
+  width: auto;
+  -webkit-appearance: button;
+  overflow: visible;
+  cursor: pointer; }
 
 input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly] {
   opacity: 0.5;
+  cursor: default;
   cursor: not-allowed; }
-
-.ie button {
-  width: auto;
-  overflow: visible; }
 
 input, select {
   vertical-align: top; }
@@ -264,6 +274,13 @@ input[type="file"] {
   height: auto;
   border: none;
   line-height: normal; }
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+  input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; }
 
 select {
   height: 1.5em;
@@ -287,7 +304,8 @@ select {
   height: 1.375em; }
 
 textarea {
-  height: 14.875em; }
+  height: 14.875em;
+  overflow: auto; }
 
 @-o-keyframes focusPulse {
   0% {
@@ -342,7 +360,10 @@ hr {
   padding: 0;
   border-width: 1px 0;
   border-style: solid;
-  border-color: #c7ced6 black white; }
+  border-color: #c7ced6 black white;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
 
 /* Additional Decorative Styles */
 .alnLft {
@@ -391,33 +412,36 @@ hr {
   counter-increment: heading; }
 
 /* High DPI Typography */
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
+@media only screen and (min-resolution: 1.25dppx), only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min--moz-device-pixel-ratio: 1.25), only screen and (-o-min-device-pixel-ratio: 5 / 4), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi) {
   html {
     text-rendering: optimizelegibility; } }
 /* Phone Typography */
 @media handheld, only screen and (max-width: 720px) {
-  html {
-    -webkit-text-size-adjust: none; }
-
-  table {
-    display: block; }
-
-  tr {
-    border: 3px solid red; }
-
-  tr, th, td {
+  table, tr, th, td {
     display: block; } }
 /* Tablet Typography */
 /* Print Typography */
 @media print {
   @page {
-    margin: 0; }
+    margin: 0 0.5cm; }
+
+  body {
+    color: black;
+    background: white; }
 
   a, acronym, abbr, ins, del, var, input, select, textarea {
     border: none;
     color: black;
     text-decoration: none;
     outline: none; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: ""; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
 
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
@@ -428,7 +452,10 @@ hr {
     orphans: 3;
     widows: 3; }
 
-  blockquote, pre, img {
-    page-break-inside: avoid; } }
+  blockquote, pre, img, tr {
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group; } }
 
 /*@ sourceMappingURL=typography.css.map */
