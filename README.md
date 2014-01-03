@@ -25,7 +25,7 @@ Source: [https://github.com/uncleF/TemplateX](https://github.com/uncleF/Template
 
 ### Building with Grunt.JS
 
-Template X uses Grunt.JS[http://gruntjs.com/] as a primary task runner.
+Template X uses [Grunt.JS](http://gruntjs.com/) as a primary task runner.
 
 * [Getting started with Grunt.JS](http://gruntjs.com/getting-started).
 
