@@ -175,7 +175,7 @@
 			</fileset>
 			<replacefilter>
 				<replacetoken>@tx-js</replacetoken>
-				<replacevalue><![CDATA[<script type="text/javascript" src="res/js/@tx-filenameJS.min.js"></script>]]></replacevalue>
+				<replacevalue><![CDATA[<script type="text/javascript" src="res/js/@tx-filenameJS.min.js" defer></script>]]></replacevalue>
 			</replacefilter>
 			<replacefilter token="@tx-title" value="${project.title}"/>
 			<replacefilter token="@tx-language" value="${project.lng}"/>

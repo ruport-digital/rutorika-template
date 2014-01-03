@@ -232,7 +232,7 @@ module.exports = function(grunt) {
 						}.checkIE()
 					},{
 						pattern: /.!-- @tx-js -->(.|\t|\s|\n)*?!-- \/@tx-js -->/gi,
-						replacement: '<script type="text/javascript" src="' + project.res.js.dir.replace(project.dir, "") + project.res.js.filename + '.min.js"></script>'
+						replacement: '<script type="text/javascript" src="' + project.res.js.dir.replace(project.dir, "") + project.res.js.filename + '.min.js" defer></script>'
 					}]
 				}
 			}
@@ -243,6 +243,13 @@ module.exports = function(grunt) {
 				cwd: project.res.js.dir,
 				src: ["*.js", "!*.min.js"],
 				dest: project.res.js.dir,
+				expand: true,
+				flatten: true
+			},
+			jsDevClean: {
+				cwd: project.res.js.dev,
+				src: ["*.js"],
+				dest: project.res.js.dev,
 				expand: true,
 				flatten: true
 			}
@@ -368,14 +375,16 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.registerTask("lint", ["htmlhint", "jshint", "csslint"]);
+	grunt.registerTask("lint", ["htmlhint", "jshint", "csslint", "removelogging:jsDevClean"]);
 
 	grunt.registerTask("images", ["imagemin:images", "imagemin:res"]);
 
-	grunt.registerTask("build", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
+	grunt.registerTask("compile", ["concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb"]);
 
-	grunt.registerTask("build-share", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build", "copy:share"]);
+	grunt.registerTask("build", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
 
-	grunt.registerTask("build-exp", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
+	grunt.registerTask("build-share", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build", "copy:share"]);
+
+	grunt.registerTask("build-exp", ["htmlhint", "jshint", "concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
 
 };

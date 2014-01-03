@@ -49,12 +49,14 @@
 
 
 
-=tx-scroll-bar($cond)
+=tx-scroll-bar($cond: false, $autohide: true)
 	@if $cond
 		overflow-x: auto
 		overflow-y: scroll
 	@else
 		overflow: auto
+	@if $autohide
+		-ms-overflow-style: -ms-autohiding-scrollbar
 
 
 
