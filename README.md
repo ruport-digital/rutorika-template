@@ -33,24 +33,24 @@ To be able to use Grunt.JS in your project, first run `npm install`, to install
 all the dependencies and check `gruntfile.js` for basic project configuration
 options like CSS files order, directory structure, etc.
 
-#### Build Project - grunt build
+#### Build Project – grunt build
 
 Run `grunt build` to check, compile and compress CSS and JavaScript,
 optimize meta images, collect built project into `/build` and update
 paths in all the HTML files.
 
-#### Compile JavaScript and CSS resources - grunt compile
+#### Compile JavaScript and CSS resources – grunt compile
 
 Run `grunt compile` to concatenate, remove logging from and minify
 JavaScript; and to concatenate, remove Sass debug info from, optimize,
 sort rules in and minify CSS. Uses [UglifyJS](http://lisperator.net/uglifyjs/)
 and [CSScomb](http://csscomb.com/).
 
-#### Optimize images - grunt images
+#### Optimize images – grunt images
 
 Run `grunt images` to optimize all the images.
 
-#### Check HTML, JavaScript and CSS - grunt lint.
+#### Check HTML, JavaScript and CSS – grunt lint
 
 Run `grunt lint` to check HTML ([HTMLHint](http://htmlhint.com/)),
 JavaScript ([JSHint](http://jshint.com)) and CSS ([CSS Lint](http://csslint.net))
