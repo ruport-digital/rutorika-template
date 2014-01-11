@@ -2,20 +2,24 @@
 /* Lists Reset */
 .u-listReset, .u-descriptionListReset {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .u-listReset {
-  list-style: none outside; }
-  .u-listReset > li {
-    margin: 0;
-    padding: 0;
-    background: none; }
+  list-style: none outside;
+}
+.u-listReset > li {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
 
 .u-descriptionListReset > dt, .u-descriptionListReset > dd {
   margin: 0;
   padding: 0;
   font-weight: normal;
-  font-style: normal; }
+  font-style: normal;
+}
 
 /* Visually Hidden */
 .u-visuallyHidden {
@@ -27,6 +31,7 @@
   border: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  clip: rect(0 0 0 0); }
+  clip: rect(0 0 0 0);
+}
 
 /*@ sourceMappingURL=utilities.css.map */

@@ -10,6 +10,7 @@
 		"grunt-string-replace": "*",
 		"grunt-remove-logging": "*",
 		"grunt-contrib-uglify": "*",
+		"grunt-contrib-sass": "*",
 		"grunt-csscomb": "*",
 		"grunt-cssc": "*",
 		"grunt-contrib-cssmin": "*",

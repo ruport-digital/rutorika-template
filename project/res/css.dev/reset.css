@@ -9,37 +9,47 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, a
   font-style: inherit;
   line-height: inherit;
   vertical-align: baseline;
-  outline: none; }
+  outline: none;
+}
 
 html {
-  -webkit-overflow-scrolling: touch; }
+  -webkit-overflow-scrolling: touch;
+}
 
 blockquote, q {
-  quotes: none; }
-  blockquote:before, blockquote:after, q:before, q:after {
-    content: "";
-    content: none; }
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 caption, th, td {
   font-weight: normal;
   text-align: left;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 ul, ol {
-  list-style: none; }
+  list-style: none;
+}
 
 article, aside, figure, figcaption, footer, header, hgroup, nav, section {
-  display: block; }
+  display: block;
+}
 
 input, button, select, textarea {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 button, select {
-  text-transform: none; }
+  text-transform: none;
+}
 
 /*@ sourceMappingURL=reset.css.map */
