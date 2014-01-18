@@ -161,3 +161,11 @@
 		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'))")
 	@else
 		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))")
+
+
+
+=tx-extend-image($class, $ie: $tx-ie)
+	@if not $ie
+		@extend #{"%images-" + $class}
+	@else
+		@extend #{"%ie-images-" + $class}

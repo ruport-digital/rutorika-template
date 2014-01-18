@@ -18,6 +18,9 @@
 		"grunt-contrib-clean": "*",
 		"grunt-contrib-copy": "*",
 		"grunt-contrib-imagemin": "*",
+		"grunt-imageoptim": "*",
+		"grunt-datauri": "*",
+		"grunt-svgmin": "*",
 		"grunt-contrib-compress": "*"
 	}
 }

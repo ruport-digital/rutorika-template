@@ -15,10 +15,6 @@ body {
   font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
-body {
-  z-index: 1;
-}
-
 ::-webkit-selection {
   color: white;
   background: blue;

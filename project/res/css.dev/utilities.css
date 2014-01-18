@@ -21,6 +21,11 @@
   font-style: normal;
 }
 
+/* Image Blocker */
+.u-imageBlocker {
+  background-image: none !important;
+}
+
 /* Visually Hidden */
 .u-visuallyHidden {
   position: absolute;

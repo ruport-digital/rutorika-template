@@ -9,13 +9,16 @@
   -moz-background-size: 100% 1.5em;
   -o-background-size: 100% 1.5em;
   background-size: 100% 1.5em;
-  background-position: left top; }
+  background-position: left top;
+}
 
 .is-debug-responsiveGuide {
-  background: url(../images/txdebug.responsiveGuide.jpg); }
+  background: url(../images/txdebug-responsiveGuide.jpg);
+}
 
 .is-debug-rhythmLines .content, .is-debug-responsiveGuide .content {
-  background: none; }
+  background: none;
+}
 
 /* TX.Debug Console */
 .debugConsole {
@@ -35,10 +38,12 @@
   font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
   font-size: 16px;
   line-height: 1.5em;
-  pointer-events: none; }
+  pointer-events: none;
+}
 
 .is-debug-showConsole .debugConsole {
-  display: block; }
+  display: block;
+}
 
 /* TX.Debug Controls */
 .debugTools {
@@ -64,23 +69,29 @@
   -moz-transform: translate(290px, 0);
   -ms-transform: translate(290px, 0);
   -o-transform: translate(290px, 0);
-  transform: translate(290px, 0); }
-  .debugTools ul {
-    position: relative;
-    z-index: 2; }
-  .debugTools li {
-    margin: 0em 0 1.5em 25px; }
-  .debugTools label {
-    border: none; }
-  .debugTools input {
-    margin: 0 0.5em 0 0; }
+  transform: translate(290px, 0);
+}
+.debugTools ul {
+  position: relative;
+  z-index: 2;
+}
+.debugTools li {
+  margin: 0em 0 1.5em 25px;
+}
+.debugTools label {
+  border: none;
+}
+.debugTools input {
+  margin: 0 0.5em 0 0;
+}
 
 .is-debug-on .debugTools {
   -webkit-transform: translate(0, 0);
   -moz-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   -o-transform: translate(0, 0);
-  transform: translate(0, 0); }
+  transform: translate(0, 0);
+}
 
 .debugToolsToggle {
   position: absolute;
@@ -100,7 +111,8 @@
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-  opacity: 0.85; }
+  opacity: 0.85;
+}
 
 .is-debug-on .debugToolsToggle {
   top: 5px;
@@ -109,6 +121,7 @@
   height: 30px;
   margin: 0;
   background: white;
-  opacity: 1; }
+  opacity: 1;
+}
 
 /*@ sourceMappingURL=txdebug.debugtools.css.map */

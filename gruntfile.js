@@ -1,49 +1,52 @@
 //Client-side Grunt Build File for TemplateX Project
 
 var
-	title					= "TemplateX",	//Project Title
-	language			= "ru",					//Project Language
-	dir						= "project",		//Project Directory
-	images				= "images",			//Project Images Directory
-	meta					= "meta",				//Meta Resources Directory
-	res						= "res",				//Resources Directory
+	title						= "TemplateX",	//Project Title
+	language				= "ru",					//Project Language
+	dir							= "project",		//Project Directory
+	images					= "images",			//Project Images Directory
+	meta						= "meta",				//Meta Resources Directory
+	res							= "res",				//Resources Directory
 
-	resImages			= "images",			//Resource Images Directory
-	css						= "css",				//CSS Production Directory
-	cssDev				= "css.dev",		//CSS Development Directory
-	sass					= "sass.dev",		//Sass Development Directory
-	cssFilename		= "styles",			//CSS Production Filename
-	cssDevFiles		= [							//CSS Files
-									"reset.css",
-									"typography.css",
-									"utilities.css",
-									"layout.css",
-									"ui.css",
+	resImages				= "images",			//Graphic Resources Directory
+	resImagesFiles	= [							//Images to Convert to Data URI
+										"sprites.png"
 	],
-	cssDevFilesIE = [							//CSS Files (IE)
-									"reset-IE.css",
-									"typography-IE.css",
-									"utilities-IE.css",
-									"layout-IE.css",
-									"ui-IE.css",
+	css							= "css",				//CSS Production Directory
+	cssDev					= "css.dev",		//CSS Development Directory
+	sass						= "sass.dev",		//Sass Development Directory
+	cssFilename			= "styles",			//CSS Production Filename
+	cssDevFiles			= [							//CSS Files
+										"reset.css",
+										"typography.css",
+										"utilities.css",
+										"layout.css",
+										"ui.css"
 	],
-	js						= "js",					//JS Production Directory
-	jsDev					= "js.dev",			//JS Development Directory
-	jsFilename		= "scripts",		//JS Production Filename
-	jsDevFiles		= [							//JS Order
-									"utilites.js",
-									"ui.js",
+	cssDevFilesIE		= [							//CSS Files (IE)
+										"reset-IE.css",
+										"typography-IE.css",
+										"utilities-IE.css",
+										"layout-IE.css",
+										"ui-IE.css"
+	],
+	js							= "js",					//JS Production Directory
+	jsDev						= "js.dev",			//JS Development Directory
+	jsFilename			= "scripts",		//JS Production Filename
+	jsDevFiles			= [							//JS Order
+										"utilites.js",
+										"ui.js"
 	],
 
-	buildDir			= "build",			//Build Directory
-	shareDir			= "build";			//Shared Build Directory
+	buildDir				= "build",			//Build Directory
+	shareDir				= "build";			//Shared Build Directory
 
-function fillAnArray(arr, path) {
-	var resultArr = [];
-	for (var i in arr) {
-		resultArr.push(path + "/" + arr[i]);
+function fillAnArray(ARRAY, PATH) {
+	var RESULT = [];
+	for (var ELEMENT in ARRAY) {
+		RESULT.push(PATH + ARRAY[ELEMENT]);
 	}
-	return resultArr;
+	return RESULT;
 }
 
 var project = {
@@ -56,7 +59,8 @@ var project = {
 		this.resDir = this.dir + res + "/";
 		this.res = {
 			images: {
-				dir: this.resDir + resImages + "/"
+				dir: this.resDir + resImages + "/",
+				files: fillAnArray(resImagesFiles, dir + "/" + res + "/" + resImages + "/")
 			},
 			css: {
 				dir: this.resDir + css + "/",
@@ -90,6 +94,16 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON("package.json"),
 
 		buildEnv: grunt.file.readJSON(process.env.buildJSON),
+
+		datauri: {
+			resImages: {
+				options: {
+					classPrefix: "image-"
+				},
+				src: project.res.images.files,
+				dest: project.res.css.sass + "tx/_tx.project.images-base64.sass"
+			}
+		},
 
 		htmlhint: {
 			htmlHint: {
@@ -187,9 +201,16 @@ module.exports = function(grunt) {
 		},
 
 		concat: {
+			datauri: {
+				options: {
+					separator: "\n\n"
+				},
+				src: [project.res.css.sass + "tx/_tx.project.images-base64.sass", project.res.css.sass + "tx/_tx.project.images-IE.sass"],
+				dest: project.res.css.sass + "tx/_tx.project.images.sass",
+			},
 			js: {
 				options: {
-					separator: "\n\n",
+					separator: "\n\n"
 				},
 				src: project.res.js.dev,
 				dest: project.res.js.dir + project.res.js.filename + ".js",
@@ -336,7 +357,7 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 				cwd: project.dir,
-				src: ["**", "!**/tx.*.*", "!**/txdebug.*.*", "!**/**.dev/**", "!**/txdebug/**"],
+				src: ["**", "!**/tx-*.*", "!**/txdebug-*.*", "!**/**.dev/**", "!**/txdebug/**"],
 				dest: project.build.dir,
 				expand: true
 			},
@@ -358,14 +379,14 @@ module.exports = function(grunt) {
 		imagemin: {
 			images: {
 				cwd: project.images,
-				src: ["**/*.{png,jpg,gif}", "!**/tx.*.*", "!**/txdebug.*.*"],
+				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!**/txdebug-*.*"],
 				dest: project.images,
 				expand: true,
 				flatten: true
 			},
 			res: {
 				cwd: project.res.images.dir,
-				src: ["**/*.{png,jpg,gif}", "!**/tx.*.*", "!**/txdebug.*.*"],
+				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!**/txdebug-*.*"],
 				dest: project.res.images.dir,
 				expand: true,
 				flatten: true
@@ -378,6 +399,51 @@ module.exports = function(grunt) {
 				flatten: true
 			}
 		},
+		imageoptim: {
+			images: {
+				options: {
+					jpegMini: true,
+					quitAfter: true
+				},
+				cwd: project.images,
+				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!**/txdebug-*.*"],
+				dest: project.images,
+				expand: true,
+				flatten: true
+			},
+			res: {
+				options: {
+					jpegMini: true,
+					quitAfter: true
+				},
+				cwd: project.res.images.dir,
+				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!**/txdebug-*.*"],
+				dest: project.res.images.dir,
+				expand: true,
+				flatten: true
+			},
+			meta: {
+				options: {
+					jpegMini: true,
+					imageAlpha: true,
+					quitAfter: true
+				},
+				cwd: project.build.dir,
+				src: ["*.{png,jpg,gif}"],
+				dest: project.build.dir,
+				expand: true,
+				flatten: true
+			}
+		},
+		svgmin: {
+			svg: {
+				cwd: project.res.images.dir,
+				src: ["**/*.svg"],
+				dest: project.res.images.dir,
+				expand: true,
+			}
+		},
+
 		compress: {
 			gzip: {
 				options: {
@@ -392,16 +458,41 @@ module.exports = function(grunt) {
 
 	});
 
+	grunt.registerTask("datauri-fallback", "Provide Fallbacks for the Images that were Converted in base64", function() {
+		var IE_SASS = "";
+		for (var FILE in project.res.images.files) {
+			if (grunt.file.isFile(project.res.images.files[FILE])) {
+				IE_SASS += "%ie-image-" + project.res.images.files[FILE].split(".")[0].replace(project.res.images.dir, "") + "\n\t" + "background-image: url(" + project.res.images.files[FILE].replace(project.resDir, "../") + ")\n\n";
+			}
+		}
+		if (IE_SASS !== "") {
+			grunt.file.write(project.res.css.sass + "tx/_tx.project.images-IE.sass", IE_SASS);
+		}
+	});
+
+	grunt.registerTask("datauri-cleanup", "Cleanup After datauri-fallback", function() {
+		if (grunt.file.isFile(project.res.css.sass + "tx/_tx.project.images-base64.sass")) {
+			grunt.file.delete(project.res.css.sass + "tx/_tx.project.images-base64.sass");
+		}
+		if (grunt.file.isFile(project.res.css.sass + "tx/_tx.project.images-IE.sass")) {
+			grunt.file.delete(project.res.css.sass + "tx/_tx.project.images-IE.sass");
+		}
+	});
+
 	grunt.registerTask("lint", ["htmlhint", "jshint", "sass", "csslint", "removelogging:jsDevClean"]);
 
-	grunt.registerTask("images", ["imagemin:images", "imagemin:res"]);
+	grunt.registerTask("images-datauri", ["datauri", "datauri-fallback", "concat:datauri", "datauri-cleanup"]);
 
-	grunt.registerTask("compile", ["sass", "concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb"]);
+	grunt.registerTask("images", ["imagemin:images", "imagemin:res", "images-datauri", "svgmin"]);
 
-	grunt.registerTask("build", ["htmlhint", "jshint", "sass", "concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
+	grunt.registerTask("compile", ["concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb"]);
 
-	grunt.registerTask("build-share", ["htmlhint", "jshint", "sass", "concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build", "copy:share"]);
+	grunt.registerTask("build", ["htmlhint", "jshint", "compile", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
 
-	grunt.registerTask("build-exp", ["htmlhint", "jshint", "sass", "concat", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
+	grunt.registerTask("build-sass", ["sass", "build"]);
+
+	grunt.registerTask("build-share", ["build", "copy:share"]);
+
+	grunt.registerTask("build-experimental", ["htmlhint", "jshint", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean", "copy:build", "copy:meta", "imagemin:meta", "compress", "string-replace:build"]);
 
 };
