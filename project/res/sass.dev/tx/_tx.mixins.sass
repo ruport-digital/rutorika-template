@@ -101,7 +101,7 @@
 
 
 =tx-table-borders($wdt: 1px, $lines: 1, $fz: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
-	$calculated-width: $font-unit * $wdt / $fz
+	$calculated-width: $wdt / $fz + 0em
 	$calculated-vertical-padding: rhythm($lines, $fz, $offset: $wdt)
 	border: $wdt $bstyle $bcolor
 	@if $lines != 0
@@ -166,6 +166,6 @@
 
 =tx-extend-image($class, $ie: $tx-ie)
 	@if not $ie
-		@extend #{"%images-" + $class}
+		@extend #{"%image-" + $class}
 	@else
-		@extend #{"%ie-images-" + $class}
+		@extend #{"%ie-image-" + $class}

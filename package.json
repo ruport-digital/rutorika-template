@@ -15,6 +15,7 @@
 		"grunt-cssc": "*",
 		"grunt-contrib-cssmin": "*",
 		"grunt-uncss": "*",
+		"grunt-contrib-htmlmin": "*",
 		"grunt-contrib-clean": "*",
 		"grunt-contrib-copy": "*",
 		"grunt-contrib-imagemin": "*",

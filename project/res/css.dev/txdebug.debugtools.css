@@ -1,13 +1,12 @@
 /* TX.Debug Styles */
 .is-debug-rhythmLines {
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 102, 255, 0.25)), color-stop(5%, rgba(0, 102, 255, 0)));
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
   background-image: -moz-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
   background-image: -o-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
-  background-image: linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
-  -webkit-background-size: 100% 1.5em;
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
+  background-image: linear-gradient(to top, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
   -moz-background-size: 100% 1.5em;
   -o-background-size: 100% 1.5em;
+  -webkit-background-size: 100% 1.5em;
   background-size: 100% 1.5em;
   background-position: left top;
 }
@@ -27,8 +26,8 @@
   left: 0;
   z-index: 99;
   display: none;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -54,21 +53,19 @@
   z-index: 100;
   margin: 6em 0 0em;
   padding: 4.5em 0 0em;
-  -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
-  -ms-border-radius: 18px;
-  -o-border-radius: 18px;
+  -webkit-border-radius: 18px;
   border-radius: 18px;
   color: white;
   background: rgba(0, 0, 0, 0.75);
-  -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  -webkit-transform: translate(290px, 0);
   -moz-transform: translate(290px, 0);
   -ms-transform: translate(290px, 0);
   -o-transform: translate(290px, 0);
+  -webkit-transform: translate(290px, 0);
   transform: translate(290px, 0);
 }
 .debugTools ul {
@@ -86,10 +83,10 @@
 }
 
 .is-debug-on .debugTools {
-  -webkit-transform: translate(0, 0);
   -moz-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   -o-transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
 }
 
@@ -101,15 +98,13 @@
   height: 140px;
   margin: -70px 0 0;
   z-index: 1;
-  -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
   background: black;
-  -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   opacity: 0.85;
 }
@@ -124,4 +119,4 @@
   opacity: 1;
 }
 
-/*@ sourceMappingURL=txdebug.debugtools.css.map */
+/*# sourceMappingURL=txdebug.debugtools.css.map */
