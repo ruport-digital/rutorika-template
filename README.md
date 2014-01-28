@@ -35,20 +35,19 @@ options like CSS files order, directory structure, etc.
 
 #### Build Project – grunt build
 
-Run `grunt build` to check, compile and compress CSS and JavaScript,
-optimize meta images, collect built project into `/build` and update
-paths in all the HTML files.
+Run `grunt build`, compile and compress CSS and JavaScript, collect built project
+into `/build` and update paths in all the HTML files.
 
 #### Compile JavaScript and CSS resources – grunt compile
 
-Run `grunt compile` to concatenate, remove logging from and minify
-JavaScript; and to concatenate, remove Sass debug info from, optimize,
-sort rules in and minify CSS. Uses [UglifyJS](http://lisperator.net/uglifyjs/)
+Run `grunt compile` to just concatenate, remove logging from and minify
+JavaScript files; and to concatenate, remove Sass debug info from, optimize,
+sort rules in and minify CSS files. Uses [UglifyJS](http://lisperator.net/uglifyjs/)
 and [CSScomb](http://csscomb.com/).
 
 #### Optimize images – grunt images
 
-Run `grunt images` to optimize all the images.
+Run `grunt images` to optimize all the images, and convert specific ones to DataURI.
 
 #### Check HTML, JavaScript and CSS – grunt lint
 
