@@ -42,6 +42,22 @@
 
 
 
+=tx-no-select($cond: true)
+	@if $cond != true
+		-webkit-touch-callout: default
+		-webkit-user-select: all
+		-moz-user-select: all
+		-ms-user-select: all
+		user-select: all
+	@else
+		-webkit-touch-callout: none
+		-webkit-user-select: none
+		-moz-user-select: none
+		-ms-user-select: none
+		user-select: none
+
+
+
 =tx-font-adjustment($cond: true)
 	@if $cond != true
 		-webkit-text-size-adjust: 100%
