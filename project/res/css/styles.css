@@ -847,22 +847,22 @@ hr
 /* Layout */
 html
 {
-    overflow-x: auto;
-    overflow-y: scroll;
-
     min-height: 100%;
-
-    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 body
 {
     position: relative;
 
+    overflow-x: auto;
+    overflow-y: scroll;
+
     min-width: 980px;
     max-width: 1400px;
     min-height: 100%;
     margin: 0 auto;
+
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 /* Header */
