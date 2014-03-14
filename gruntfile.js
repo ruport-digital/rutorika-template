@@ -12,6 +12,7 @@ var
 	resImagesFiles	= [							//Images to Convert to Data URI
 										"sprites.png"
 	],
+
 	css							= "css",				//CSS Production Directory
 	cssDev					= "css.dev",		//CSS Development Directory
 	sass						= "sass.dev",		//Sass Development Directory
@@ -30,6 +31,7 @@ var
 										"layout-IE.css",
 										"ui-IE.css"
 	],
+
 	js							= "js",					//JS Production Directory
 	jsDev						= "js.dev",			//JS Development Directory
 	jsFilename			= "scripts",		//JS Production Filename
@@ -183,6 +185,23 @@ module.exports = function(grunt) {
 				flatten: true
 			}
 		},
+		yslow: {
+			options: {
+				thresholds: {
+					weight: 180,
+					speed: 1000,
+					score: 80,
+					requests: 15
+				}
+			},
+			pages: {
+				files: [
+					{
+						src: "http://localhost:8000"
+					}
+				]
+			}
+		},
 
 		sass: {
 			options: {
@@ -192,11 +211,11 @@ module.exports = function(grunt) {
 			},
 			generateCSS: {
 				cwd: project.res.css.sass,
-				src: ["*.sass", "!txdebug.*.sass"],
+				src: ["*.sass"],
 				dest: project.res.css.devDir,
+				ext: ".css",
 				expand: true,
-				flatten: true,
-				ext: ".css"
+				flatten: true
 			}
 		},
 
@@ -271,7 +290,7 @@ module.exports = function(grunt) {
 						}.checkIE()
 					},{
 						pattern: /.!-- @tx-js -->(.|\t|\s|\n)*?!-- \/@tx-js -->/gi,
-						replacement: '<script type="text/javascript" src="' + project.res.js.dir.replace(project.dir, "") + project.res.js.filename + '.min.js" defer></script>'
+						replacement: '<script type="text/javascript" src="' + project.res.js.dir.replace(project.dir, "") + project.res.js.filename + '.min.js"></script>'
 					}]
 				}
 			}
@@ -412,19 +431,28 @@ module.exports = function(grunt) {
 				cwd: project.images,
 				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!**/txdebug-*.*"],
 				dest: project.images,
-				expand: true
+				expand: true,
+				options: {
+					cache: false
+				}
 			},
 			res: {
 				cwd: project.res.images.dir,
 				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!**/txdebug-*.*"],
 				dest: project.res.images.dir,
-				expand: true
+				expand: true,
+				options: {
+					cache: false
+				}
 			},
 			meta: {
 				cwd: project.meta,
 				src: ["*.{png,jpg,gif}"],
 				dest: project.meta,
-				expand: true
+				expand: true,
+				options: {
+					cache: false
+				}
 			}
 		},
 		imageoptim: {
@@ -505,6 +533,8 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask("lint", ["htmlhint", "jshint", "sass", "csslint", "removelogging:jsDevClean"]);
+
+	grunt.registerTask("test", ["yslow"]);
 
 	grunt.registerTask("images-datauri", ["datauri", "datauri-fallback", "concat:datauri", "datauri-cleanup"]);
 

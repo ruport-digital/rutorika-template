@@ -10,10 +10,11 @@ function whichDevice() {
 
 function whichTransitionEndEvent() {
 	var TRANSITION;
-	var ELEMENT = document.createElement("fakeelement");
+	var ELEMENT = document.createElement("element");
 	var TRANSITIONS = {
 		"transition": "transitionend",
-		"OTransition": "oTransitionEnd",
+		"oTransition": "oTransitionEnd",
+		"MSTransitionEnd": "MSTransitionEnd",
 		"MozTransition": "transitionend",
 		"WebkitTransition": 'webkitTransitionEnd'
 	};
