@@ -9,9 +9,7 @@ var
 	template				= "index",			// Basic Template Filename
 	res							= "res",				// Resources Directory
 	resImages				= "images",			// Graphic Resources Directory
-	dataURI					= [							// Images to Convert to DataURI
-										"sprites.png"
-	],
+	dataURI					= [],							// Images to Convert to DataURI
 	css							= "css",				// CSS Production Directory
 	cssDev					= "css.dev",		// CSS Development Directory
 	sass						= "sass.dev",		// Sass Development Directory
