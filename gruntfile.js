@@ -626,6 +626,8 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("images", ["imagemin", "images-datauri", "svgmin"]);
 
+	grunt.registerTask("watchSass", ["concurrent"]);
+
 	grunt.registerTask("compile", ["clean:res", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb"]);
 
 	grunt.registerTask("build", ["compile", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup", "compress:build"]);
