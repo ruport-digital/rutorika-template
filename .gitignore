@@ -4,6 +4,7 @@
 
 build/
 node_modules/
+/*.zip
 
 #################
 ## Compass

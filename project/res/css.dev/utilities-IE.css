@@ -1,20 +1,20 @@
 /* Utilities (Internet Explorer < 8) */
 /* Lists Reset */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
-  margin: 0;
-  padding: 0;
+	padding: 0;
+	margin: 0;
 }
 .ie6 .u-listReset li {
-  margin: 0;
-  padding: 0;
-  background: none;
-  list-style: none outside;
+	padding: 0;
+	margin: 0;
+	background: none;
+	list-style: none outside;
 }
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  font-style: normal;
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	font-style: normal;
 }
 
 /*# sourceMappingURL=utilities-IE.css.map */

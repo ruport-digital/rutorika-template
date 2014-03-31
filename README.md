@@ -18,7 +18,7 @@ Source: [https://github.com/uncleF/TemplateX](https://github.com/uncleF/Template
 * Default print CSS.
 * Handfull of CSS utility classes.
 * Very basic debuging JavaScript script.
-* 2 building tools based on Grunt.JS and Apache ANT.
+* Building tool based on Grunt.JS.
 
 
 ## Building project
@@ -54,23 +54,3 @@ Run `grunt images` to optimize all the images, and convert specific ones to Data
 Run `grunt lint` to check HTML ([HTMLHint](http://htmlhint.com/)),
 JavaScript ([JSHint](http://jshint.com)) and CSS ([CSS Lint](http://csslint.net))
 files for bad code, potencial bugs and syntax inconsistencies.
-
-
-### Building with Apache ANT
-
-As an option Template X also includes `build.xml` for building project
-using [Apache ANT](http://ant.apache.org/).
-
-* [Getting started with Apache ANT](http://ant.apache.org/manual/index.html).
-
-Before using this builder you'll have to update `build.xml`, to include
-relevant paths to [YUI Compressor](http://yui.github.io/yuicompressor/),
-[Rhino](https://developer.mozilla.org/en/docs/Rhino) and [JSHint](http://jshint.com).
-
-`build.xml` also contains basic project configuration options like CSS
-files order, directory structure, etc.
-
-Run `ant` to check JavaScript, compile and compress CSS and JavaScript,
-copy newly built project into `/build` and update paths in all the
-HTML files. USES [YUI Compressor](http://yui.github.io/yuicompressor/),
-[Rhino](https://developer.mozilla.org/en/docs/Rhino) and [JSHint](http://jshint.com).

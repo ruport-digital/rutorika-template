@@ -1,122 +1,122 @@
-/* TX.Debug Styles */
+/* TX Debug Styles */
 .is-debug-rhythmLines {
-  background-image: -moz-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
-  background-image: -o-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
-  background-image: linear-gradient(to top, rgba(0, 102, 255, 0.25) 5%, rgba(0, 102, 255, 0) 5%);
-  -moz-background-size: 100% 1.5em;
-  -o-background-size: 100% 1.5em;
-  -webkit-background-size: 100% 1.5em;
-  background-size: 100% 1.5em;
-  background-position: left top;
+	background-image: -moz-linear-gradient(bottom, rgba(0, 102, 255, .25) 5%, rgba(0, 102, 255, 0) 5%);
+	background-image: -o-linear-gradient(bottom, rgba(0, 102, 255, .25) 5%, rgba(0, 102, 255, 0) 5%);
+	background-image: -webkit-linear-gradient(bottom, rgba(0, 102, 255, .25) 5%, rgba(0, 102, 255, 0) 5%);
+	background-image: linear-gradient(to top, rgba(0, 102, 255, .25) 5%, rgba(0, 102, 255, 0) 5%);
+	background-position: left top;
+	-webkit-background-size: 100% 1.5em;
+	-moz-background-size: 100% 1.5em;
+	-o-background-size: 100% 1.5em;
+	background-size: 100% 1.5em;
 }
 
 .is-debug-responsiveGuide {
-  background: url(../images/txdebug-responsiveGuide.jpg);
+	background: url(../images/txdebug-responsiveGuide.jpg);
 }
 
 .is-debug-rhythmLines .content, .is-debug-responsiveGuide .content {
-  background: none;
+	background: none;
 }
 
-/* TX.Debug Console */
+/* TX Debug Console */
 .debugConsole {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  display: none;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  padding: 50px;
-  color: white;
-  background: rgba(0, 0, 0, 0.75);
-  font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
-  font-size: 16px;
-  line-height: 1.5em;
-  pointer-events: none;
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	display: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: white;
+	background: rgba(0, 0, 0, .75);
+	font-size: 16px;
+	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+	line-height: 1.5em;
+	pointer-events: none;
 }
 
 .is-debug-showConsole .debugConsole {
-  display: block;
+	display: block;
 }
 
-/* TX.Debug Controls */
+/* TX Debug Controls */
 .debugTools {
-  position: fixed;
-  top: 0;
-  right: -10px;
-  width: 300px;
-  z-index: 100;
-  margin: 6em 0 0em;
-  padding: 4.5em 0 0em;
-  -moz-border-radius: 18px;
-  -webkit-border-radius: 18px;
-  border-radius: 18px;
-  color: white;
-  background: rgba(0, 0, 0, 0.75);
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  -moz-transform: translate(290px, 0);
-  -ms-transform: translate(290px, 0);
-  -o-transform: translate(290px, 0);
-  -webkit-transform: translate(290px, 0);
-  transform: translate(290px, 0);
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	right: -10px;
+	width: 300px;
+	padding: 4.5em 0 0;
+	margin: 6em 0 0;
+	color: white;
+	background: rgba(0, 0, 0, .75);
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	-webkit-transform: translate(290px, 0);
+	-moz-transform: translate(290px, 0);
+	-ms-transform: translate(290px, 0);
+	-o-transform: translate(290px, 0);
+	transform: translate(290px, 0);
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
 }
 .debugTools ul {
-  position: relative;
-  z-index: 2;
+	position: relative;
+	z-index: 2;
 }
 .debugTools li {
-  margin: 0em 0 1.5em 25px;
+	margin: 0 0 1.5em 25px;
 }
 .debugTools label {
-  border: none;
+	border: none;
 }
 .debugTools input {
-  margin: 0 0.5em 0 0;
+	margin: 0 .5em 0 0;
 }
 
 .is-debug-on .debugTools {
-  -moz-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
 }
 
 .debugToolsToggle {
-  position: absolute;
-  top: 50%;
-  left: -70px;
-  width: 140px;
-  height: 140px;
-  margin: -70px 0 0;
-  z-index: 1;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  background: black;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  opacity: 0.85;
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: -70px;
+	width: 140px;
+	height: 140px;
+	margin: -70px 0 0;
+	background: black;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	opacity: .85;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
 }
 
 .is-debug-on .debugToolsToggle {
-  top: 5px;
-  left: 5px;
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  background: white;
-  opacity: 1;
+	top: 5px;
+	left: 5px;
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	background: white;
+	opacity: 1;
 }
 
 /*# sourceMappingURL=txdebug.debugtools.css.map */

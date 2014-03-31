@@ -1,47 +1,26 @@
 //Client-side Grunt Build File for TemplateX Project
 
 var
-	title						= "TemplateX",	//Project Title
-	language				= "ru",					//Project Language
-	dir							= "project",		//Project Directory
-	images					= "images",			//Project Images Directory
-	meta						= "meta",				//Meta Resources Directory
-	res							= "res",				//Resources Directory
-
-	resImages				= "images",			//Graphic Resources Directory
-	resImagesFiles	= [							//Images to Convert to Data URI
+	title						= "TemplateX",	// Project Title
+	language				= "ru",					// Project Language
+	dir							= "project",		// Project Directory
+	images					= "images",			// Project Images Directory
+	meta						= "meta",				// Meta Resources Directory
+	template				= "index",			// Basic Template Filename
+	res							= "res",				// Resources Directory
+	resImages				= "images",			// Graphic Resources Directory
+	dataURI					= [							// Images to Convert to DataURI
 										"sprites.png"
 	],
-
-	css							= "css",				//CSS Production Directory
-	cssDev					= "css.dev",		//CSS Development Directory
-	sass						= "sass.dev",		//Sass Development Directory
-	cssFilename			= "styles",			//CSS Production Filename
-	cssDevFiles			= [							//CSS Files
-										"reset.css",
-										"typography.css",
-										"utilities.css",
-										"layout.css",
-										"ui.css"
-	],
-	cssDevFilesIE		= [							//CSS Files (IE)
-										"reset-IE.css",
-										"typography-IE.css",
-										"utilities-IE.css",
-										"layout-IE.css",
-										"ui-IE.css"
-	],
-
-	js							= "js",					//JS Production Directory
-	jsDev						= "js.dev",			//JS Development Directory
-	jsFilename			= "scripts",		//JS Production Filename
-	jsDevFiles			= [							//JS Order
-										"utilites.js",
-										"ui.js"
-	],
-
-	buildDir				= "build",			//Build Directory
-	shareDir				= "build";			//Shared Build Directory
+	css							= "css",				// CSS Production Directory
+	cssDev					= "css.dev",		// CSS Development Directory
+	sass						= "sass.dev",		// Sass Development Directory
+	cssFilename			= "styles",			// CSS Production Filename
+	js							= "js",					// JS Production Directory
+	jsDev						= "js.dev",			// JS Development Directory
+	jsFilename			= "scripts",		// JS Production Filename
+	buildDir				= "build",			// Build Directory
+	shareDir				= "build";			// Shared Build Directory
 
 function fillAnArray(ARRAY, PATH) {
 	var RESULT = [];
@@ -58,25 +37,23 @@ var project = {
 		this.dir = dir + "/";
 		this.images = this.dir + images + "/";
 		this.meta = meta;
+		this.template = template;
 		this.resDir = this.dir + res + "/";
 		this.res = {
 			images: {
 				dir: this.resDir + resImages + "/",
-				files: fillAnArray(resImagesFiles, dir + "/" + res + "/" + resImages + "/")
+				dataURI: fillAnArray(dataURI, dir + "/" + res + "/" + resImages + "/")
 			},
 			css: {
 				dir: this.resDir + css + "/",
 				devDir: this.resDir + cssDev + "/",
 				sass: this.resDir + sass + "/",
-				filename: cssFilename,
-				dev: fillAnArray(cssDevFiles, dir + "/" + res + "/" + cssDev + "/"),
-				devIE: fillAnArray(cssDevFilesIE, dir + "/" + res + "/" + cssDev + "/")
+				filename: cssFilename
 			},
 			js: {
 				dir: this.resDir + js + "/",
 				devDir: this.resDir + jsDev + "/",
-				filename: jsFilename,
-				dev: fillAnArray(jsDevFiles, dir + "/" + res + "/" + jsDev + "/")
+				filename: jsFilename
 			}
 		};
 		this.build = {
@@ -102,7 +79,7 @@ module.exports = function(grunt) {
 				options: {
 					classPrefix: "image-"
 				},
-				src: project.res.images.files,
+				src: project.res.images.dataURI,
 				dest: project.res.css.sass + "tx/_tx.project.images-base64.sass"
 			}
 		},
@@ -211,11 +188,19 @@ module.exports = function(grunt) {
 			},
 			generateCSS: {
 				cwd: project.res.css.sass,
-				src: ["*.sass"],
+				src: ["*.sass", "!txdebug.*.sass"],
 				dest: project.res.css.devDir,
 				ext: ".css",
-				expand: true,
-				flatten: true
+				expand: true
+			},
+			generateDebugCSS: {
+				files: {
+					debugCSSFileNames: function() {
+						var FILES = {};
+						FILES[project.res.css.devDir + "txdebug.debugtools.css"] = project.res.css.sass + "txdebug.debugtools.sass";
+						return FILES;
+					}
+				}.debugCSSFileNames()
 			}
 		},
 
@@ -228,35 +213,96 @@ module.exports = function(grunt) {
 				dest: project.res.css.sass + "tx/_tx.project.images.sass",
 			},
 			js: {
-				options: {
-					separator: "\n\n"
-				},
-				src: project.res.js.dev,
-				dest: project.res.js.dir + project.res.js.filename + ".js",
-			},
-			css: {
-				src: project.res.css.dev,
-				dest: project.res.css.dir + project.res.css.filename + ".css"
-			},
-			cssIE: {
-				checkIE: function() {
-					var task = {};
-					if (project.res.css.devIE.length !== 0) {
-						task = {
-							src: project.res.css.devIE,
-							dest: project.res.css.dir + project.res.css.filename + "-IE.css"
-						};
+				getJSFiles: function() {
+					var JS_DIR_REGEX = new RegExp("<script(.)*src=\"" + project.res.js.devDir.replace(project.dir, ""), "g"),
+							JS = grunt.file.read(project.dir + project.template + ".html")
+								.replace(/(.|\t|\s|\n)*?<!-- @tx-js -->/, "")
+								.replace(/<!-- \/@tx-js -->(.|\t|\s|\n)*/, "")
+								.replace(/^\t(.)*txdebug(.)*/gm, "")
+								.replace(/[\t]/g, "")
+								.replace(/<!--(.|\t|\s|\n)*/, "")
+								.replace(JS_DIR_REGEX, "")
+								.replace(/[\n]/g, "")
+								.replace(/"><\/script>$/, "");
+					var TASK = {};
+					if (JS !== "") {
+						JS_ARRAY = JS.split("\"></script>");
+						if (JS_ARRAY.length === grunt.file.expand([project.res.js.devDir + "*.js"]).length) {
+							TASK = {
+								options: {
+									separator: "\n\n"
+								},
+								src: fillAnArray(JS_ARRAY, project.res.js.devDir),
+								dest: project.res.js.dir + project.res.js.filename + ".js",
+							};
+						} else {
+							console.error("Ammount of JS-files Referenced in Base Template is not Equal to the Amount of JS-files in Dev Directory");
+						}
 					}
-					return task;
+					return TASK;
 				}
-			}.checkIE()
+			}.getJSFiles(),
+			css: {
+				getCSSFiles: function() {
+					var CSS_DIR_REGEX = new RegExp("<link(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
+							CSS_ALL = grunt.file.read(project.dir + project.template + ".html")
+								.replace(/(.|\t|\s|\n)*?<!-- @tx-css -->/, "")
+								.replace(/<!-- \/@tx-css -->(.|\t|\s|\n)*/, "")
+								.replace(/^\t(.)*txdebug(.)*/gm, "")
+								.replace(/[\t]/g, ""),
+							CSS = CSS_ALL
+								.replace(/<!--(.|\t|\s|\n)*/, "")
+								.replace(CSS_DIR_REGEX, "")
+								.replace(/[\n]/g, "")
+								.replace(/">$/, ""),
+							CSS_ARRAY = CSS.split("\">");
+					var TASK = {};
+					if (CSS_ARRAY.length === grunt.file.expand([project.res.css.devDir + "*.css", "!" + project.res.css.devDir + "txdebug.*.css", "!" + project.res.css.devDir + "*-IE.css"]).length) {
+						TASK = {
+							src: fillAnArray(CSS_ARRAY, project.res.css.devDir),
+							dest: project.res.css.dir + project.res.css.filename + ".css"
+						};
+					} else {
+						console.error("Ammount of CSS-files Referenced in Base Template is not Equal to the Amount of CSS-files in Dev Directory");
+					}
+					return TASK;
+				}
+			}.getCSSFiles(),
+			cssIE: {
+				getCSSIEFiles: function() {
+					var CSS_IE_DIR_REGEX = new RegExp("<!--(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
+							CSS_ALL = grunt.file.read(project.dir + project.template + ".html")
+								.replace(/(.|\t|\s|\n)*?<!-- @tx-css -->/, "")
+								.replace(/<!-- \/@tx-css -->(.|\t|\s|\n)*/, "")
+								.replace(/^\t(.)*txdebug(.)*/gm, "")
+								.replace(/[\t]/g, ""),
+							CSS_IE = CSS_ALL
+								.replace(/^<link(.)*/gm, "")
+								.replace(CSS_IE_DIR_REGEX, "")
+								.replace(/[\n]/g, "")
+								.replace(/"> <\!\[endif\]-->$/, "");
+					var TASK = {};
+					if (CSS_IE !== "") {
+						var CSS_IE_ARRAY = CSS_IE.split("\"> <![endif]-->");
+						if (CSS_IE_ARRAY.length === grunt.file.expand([project.res.css.devDir + "*-IE.css"]).length) {
+							TASK = {
+								src: fillAnArray(CSS_IE_ARRAY, project.res.css.devDir),
+								dest: project.res.css.dir + project.res.css.filename + "-IE.css"
+							};
+						} else {
+							console.error("Ammount of CSS-files (IE) Referenced in Base Template is not Equal to the Amount of CSS-files (IE) in Dev Directory");
+						}
+					}
+					return TASK;
+				}
+			}.getCSSIEFiles()
 		},
 
 		"string-replace": {
 			sassDebug: {
 				options: {
 					replacements: [{
-						pattern: /\/\*@ sourceMappingURL(.|\t|\s|\n)*?\*\/|.media \-sass\-debug\-info(.|\t|\s|\n)*?\}\}/gi,
+						pattern: /\/\*# sourceMappingURL(.|\t|\s|\n)*?\*\/|.media \-sass\-debug\-info(.|\t|\s|\n)*?\}\}/gi,
 						replacement: ""
 					}]
 				},
@@ -362,12 +408,19 @@ module.exports = function(grunt) {
 
 		csscomb: {
 			options: {
-				sortOrder: "cssorder.json"
+				config: "csscombConfig.json"
 			},
-			cssSort: {
+			cssSortBuild: {
 				cwd: project.res.css.dir,
 				src: ["*.css", "!*.min.css"],
 				dest: project.res.css.dir,
+				expand: true,
+				flatten: true
+			},
+			cssSortSource: {
+				cwd: project.res.css.devDir,
+				src: ["*.css", "!*.min.css"],
+				dest: project.res.css.devDir,
 				expand: true,
 				flatten: true
 			}
@@ -506,16 +559,51 @@ module.exports = function(grunt) {
 				src: ["**/*.min.js", "**/*.min.css",],
 				dest: project.build.dir,
 				expand: true
+			},
+			build: {
+				options: {
+					mode: "zip",
+					archive: project.title + ".build.zip"
+				},
+				cwd: project.build.dir,
+				src: ["**"],
+				dest: ".",
+				expand: true
 			}
+		},
+
+		watch: {
+			sassPrimary: {
+				files: [project.res.css.sass + "**/*.sass", "!" + project.res.css.sass + "/**/_*.sass"],
+				tasks: ["newer:sass"],
+				options: {
+					spawn: false,
+					interrupt: true
+				}
+			},
+			sassPartials: {
+				files: [project.res.css.sass + "**/_*.sass"],
+				tasks: ["sass"],
+				options: {
+					spawn: false,
+					interrupt: true
+				}
+			}
+		},
+		concurrent: {
+			options: {
+				logConcurrentOutput: true
+			},
+			generateCSS: ["watch:sassPrimary", "watch:sassPartials"]
 		}
 
 	});
 
 	grunt.registerTask("datauri-fallback", "Provide Fallbacks Classes for the Background Images that were Converted in DataURI", function() {
 		var IE_SASS = "";
-		for (var FILE in project.res.images.files) {
-			if (grunt.file.isFile(project.res.images.files[FILE])) {
-				IE_SASS += "%ie-image-" + project.res.images.files[FILE].split(".")[0].replace(project.res.images.dir, "") + "\n\t" + "background-image: url(" + project.res.images.files[FILE].replace(project.resDir, "../") + ")\n\n";
+		for (var FILE in project.res.images.dataURI) {
+			if (grunt.file.isFile(project.res.images.dataURI[FILE])) {
+				IE_SASS += "%ie-image-" + project.res.images.dataURI[FILE].split(".")[0].replace(project.res.images.dir, "") + "\n\t" + "background-image: url(" + project.res.images.dataURI[FILE].replace(project.resDir, "../") + ")\n\n";
 			}
 		}
 		if (IE_SASS !== "") {
@@ -542,12 +630,12 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("compile", ["clean:res", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb"]);
 
-	grunt.registerTask("build", ["compile", "clean:build", "copy:build", "copy:meta", "compress", "string-replace:build", "htmlmin:cleanup"]);
+	grunt.registerTask("build", ["compile", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup", "compress:build"]);
 
 	grunt.registerTask("build-sass", ["sass", "build"]);
 
 	grunt.registerTask("build-share", ["sass", "build", "copy:share"]);
 
-	grunt.registerTask("build-experimental", ["clean:res", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean:build", "copy:build", "copy:meta", "compress", "string-replace:build", "htmlmin:cleanup"]);
+	grunt.registerTask("build-experimental", ["clean:res", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup"]);
 
 };

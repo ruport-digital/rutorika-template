@@ -1,17 +1,17 @@
 /* Layout (Internet Explorer < 8) */
 /* inline-block */
 fieldset {
-  display: inline;
-  zoom: 1;
+	display: inline;
+	zoom: 1;
 }
 
 /* zoom */
 .ie6 .content {
-  zoom: 1;
+	zoom: 1;
 }
 
 .footer {
-  zoom: 1;
+	zoom: 1;
 }
 
 /*# sourceMappingURL=layout-IE.css.map */

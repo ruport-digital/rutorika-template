@@ -1,7 +1,7 @@
 {
 	"private" : true,
 	"devDependencies" : {
-		"grunt": "~0.4.2",
+		"grunt": "~0.4.4",
 		"load-grunt-tasks": "*",
 		"grunt-htmlhint": "*",
 		"grunt-contrib-jshint": "*",
@@ -20,6 +20,9 @@
 		"grunt-contrib-imagemin": "*",
 		"grunt-imageoptim": "*",
 		"grunt-svgmin": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-concurrent": "*",
+		"grunt-newer": "*",
 		"grunt-string-replace": "*",
 		"grunt-contrib-clean": "*",
 		"grunt-contrib-copy": "*",
