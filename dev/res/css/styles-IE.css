@@ -1,0 +1,86 @@
+/* CSS-Reset (Internet Explorer < 8) */
+html.ie6 {
+	filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+
+/* Image Interpolation */
+img {
+	-ms-interpolation-mode: bicubic;
+}
+
+
+/* Utilities (Internet Explorer < 8) */
+/* Lists Reset */
+.ie6 .u-listReset, .ie6 .u-descriptionListReset {
+	padding: 0;
+	margin: 0;
+}
+.ie6 .u-listReset li {
+	padding: 0;
+	margin: 0;
+	background: none;
+	list-style: none outside;
+}
+.ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* Base Typography & Rhythm (Internet Explorer < 8) */
+dfn {
+	font-style: normal;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	width: 13px;
+	height: 13px;
+}
+
+.ie6 label, .ie6 button, .ie6 .button {
+	cursor: hand;
+}
+.ie6 pre {
+	zoom: 1;
+}
+.ie6 ul, .ie6 .u-listReset ul {
+	list-style: disc outside;
+}
+.ie6 ol, .ie6 .u-listReset ol {
+	list-style: decimal outside;
+}
+.ie6 .u-listReset li li {
+	margin: rhythm(1, 16px) 0;
+}
+.ie6 .u-descriptionListReset dl dt {
+	margin: rhythm(1, 16px) 0 rhythm(0, 16px);
+}
+.ie6 .u-descriptionListReset dl dd {
+	margin: rhythm(0, 16px) 0 rhythm(1, 16px) 1.5em;
+	font-style: italic;
+}
+.ie6 input {
+	vertical-align: text-bottom;
+}
+
+
+/* Layout (Internet Explorer < 8) */
+/* inline-block */
+fieldset {
+	display: inline;
+	zoom: 1;
+}
+
+/* zoom */
+.ie6 .content {
+	zoom: 1;
+}
+
+.footer {
+	zoom: 1;
+}
+
+
+/* UI (Internet Explorer < 8) */
