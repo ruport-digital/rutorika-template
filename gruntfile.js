@@ -216,89 +216,20 @@ module.exports = function(grunt) {
 				dest: project.res.css.sass + "tx/_tx-projectImages.sass",
 			},
 			js: {
-				getJSFiles: function() {
-					var JS_DIR_REGEX = new RegExp("<script(.)*src=\"" + project.res.js.devDir.replace(project.dir, ""), "g"),
-							JS = grunt.file.read(project.templates.js)
-								.replace(/(.|\t|\s|\n)*?<!-- @tx-js -->/, "")
-								.replace(/<!-- \/@tx-js -->(.|\t|\s|\n)*/, "")
-								.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
-								.replace(/[\t]/g, "")
-								.replace(/<!--(.|\t|\s|\n)*/, "")
-								.replace(JS_DIR_REGEX, "")
-								.replace(/[\n]/g, "")
-								.replace(/"><\/script>$/, "");
-					var TASK = {};
-					if (JS !== "") {
-						var JS_ARRAY = JS.split("\"></script>");
-						if (JS_ARRAY.length === grunt.file.expand([project.res.js.devDir + "*.js"]).length) {
-							TASK = {
-								options: {
-									separator: "\n\n"
-								},
-								src: fillAnArray(JS_ARRAY, project.res.js.devDir),
-								dest: project.res.js.dir + project.res.js.filename + ".js",
-							};
-						} else {
-							console.error("Ammount of JS-files Referenced in Base Template is not Equal to the Amount of JS-files in Dev Directory");
-						}
-					}
-					return TASK;
-				}
-			}.getJSFiles(),
+				options: {
+					separator: "\n\n"
+				},
+				src: "<%= TASK.JS_ARRAY %>",
+				dest: project.res.js.dir + project.res.js.filename + ".js",
+			},
 			css: {
-				getCSSFiles: function() {
-					var CSS_DIR_REGEX = new RegExp("<link(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
-							CSS_ALL = grunt.file.read(project.templates.css)
-								.replace(/(.|\t|\s|\n)*?<!-- @tx-css -->/, "")
-								.replace(/<!-- \/@tx-css -->(.|\t|\s|\n)*/, "")
-								.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
-								.replace(/[\t]/g, ""),
-							CSS = CSS_ALL
-								.replace(/<!--(.|\t|\s|\n)*/, "")
-								.replace(CSS_DIR_REGEX, "")
-								.replace(/[\n]/g, "")
-								.replace(/">$/, ""),
-							CSS_ARRAY = CSS.split("\">");
-					var TASK = {};
-					if (CSS_ARRAY.length === grunt.file.expand([project.res.css.devDir + "*.css", "!" + project.res.css.devDir + "*-IE.css"]).length) {
-						TASK = {
-							src: fillAnArray(CSS_ARRAY, project.res.css.devDir),
-							dest: project.res.css.dir + project.res.css.filename + ".css"
-						};
-					} else {
-						console.error("Ammount of CSS-files Referenced in Base Template is not Equal to the Amount of CSS-files in Dev Directory");
-					}
-					return TASK;
-				}
-			}.getCSSFiles(),
+				src: "<%= TASK.CSS_ARRAY %>",
+				dest: project.res.css.dir + project.res.css.filename + ".css"
+			},
 			cssIE: {
-				getCSSIEFiles: function() {
-					var CSS_IE_DIR_REGEX = new RegExp("<!--(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
-							CSS_ALL = grunt.file.read(project.templates.css)
-								.replace(/(.|\t|\s|\n)*?<!-- @tx-css -->/, "")
-								.replace(/<!-- \/@tx-css -->(.|\t|\s|\n)*/, "")
-								.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
-								.replace(/[\t]/g, ""),
-							CSS_IE = CSS_ALL
-								.replace(/^<link(.)*/gm, "")
-								.replace(CSS_IE_DIR_REGEX, "")
-								.replace(/[\n]/g, "")
-								.replace(/"> <\!\[endif\]-->$/, "");
-					var TASK = {};
-					if (CSS_IE !== "") {
-						var CSS_IE_ARRAY = CSS_IE.split("\"> <![endif]-->");
-						if (CSS_IE_ARRAY.length === grunt.file.expand([project.res.css.devDir + "*-IE.css"]).length) {
-							TASK = {
-								src: fillAnArray(CSS_IE_ARRAY, project.res.css.devDir),
-								dest: project.res.css.dir + project.res.css.filename + "-IE.css"
-							};
-						} else {
-							console.error("Ammount of CSS-files (IE) Referenced in Base Template is not Equal to the Amount of CSS-files (IE) in Dev Directory");
-						}
-					}
-					return TASK;
-				}
-			}.getCSSIEFiles()
+				src: "<%= TASK.CSS_IE_ARRAY %>",
+				dest: project.res.css.dir + project.res.css.filename + "-IE.css"
+			}
 		},
 
 		"string-replace": {
@@ -533,7 +464,7 @@ module.exports = function(grunt) {
 					quitAfter: true
 				},
 				cwd: project.images,
-				src: ["**/*.{png, jpg, gif}", "!**/tx-*.*", "!tx/*.*"],
+				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!tx/*.*"],
 				dest: project.images,
 				expand: true
 			},
@@ -543,7 +474,7 @@ module.exports = function(grunt) {
 					quitAfter: true
 				},
 				cwd: project.res.images.dir,
-				src: ["**/*.{png, jpg, gif}", "!**/tx-*.*", "!tx/*.*"],
+				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!tx/*.*"],
 				dest: project.res.images.dir,
 				expand: true
 			},
@@ -554,7 +485,7 @@ module.exports = function(grunt) {
 					quitAfter: true
 				},
 				cwd: project.meta,
-				src: ["*.{png, jpg, gif}"],
+				src: ["*.{png,jpg,gif}"],
 				dest: project.meta,
 				expand: true
 			}
@@ -595,8 +526,8 @@ module.exports = function(grunt) {
 				files: [project.templates.dir + "*.html"],
 				tasks: ["processhtml"]
 			},
-			sassPrimary: {
-				files: [project.res.css.sass + "**/*.sass", "!" + project.res.css.sass + "**/_*.sass"],
+			sassStyles: {
+				files: [project.res.css.sass + "*.sass", "!" + project.res.css.sass + "**/_*.sass"],
 				tasks: ["newer:sass"]
 			},
 			sassPartials: {
@@ -608,7 +539,7 @@ module.exports = function(grunt) {
 			options: {
 				logConcurrentOutput: true
 			},
-			projectWatch: ["watch:htmlPartials", "watch:sassPrimary", "watch:sassPartials"]
+			projectWatch: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials"]
 		}
 
 	});
@@ -634,7 +565,91 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask("lint", ["htmlhint", "jshint", "sass", "csslint", "removelogging:jsDevClean"]);
+	grunt.registerTask("process-css", "Concatenating of the .css files", function() {
+		var CSS_DIR_REGEX = new RegExp("<link(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
+				CSS_IE_DIR_REGEX = new RegExp("<!--(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
+				CSS_ALL = grunt.file.read(project.templates.css)
+					.replace(/(.|\t|\s|\n)*?<!-- @tx-css -->/, "")
+					.replace(/<!-- \/@tx-css -->(.|\t|\s|\n)*/, "")
+					.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
+					.replace(/[\t]/g, ""),
+				CSS = CSS_ALL
+					.replace(/<!--(.|\t|\s|\n)*/, "")
+					.replace(CSS_DIR_REGEX, "")
+					.replace(/[\n]/g, "")
+					.replace(/">$/, ""),
+				CSS_IE = CSS_ALL
+					.replace(/^<link(.)*/gm, "")
+					.replace(CSS_IE_DIR_REGEX, "")
+					.replace(/[\n]/g, "")
+					.replace(/"> <\!\[endif\]-->$/, ""),
+				CSS_ARRAY = CSS.split("\">"),
+				CSS_IE_ARRAY = CSS_IE.split("\"> <![endif]-->"),
+				CSS_EXPECTED = CSS_ARRAY.length,
+				CSS_ACTUAL = grunt.file.expand([project.res.css.devDir + "*.css", "!" + project.res.css.devDir + "*-IE.css"]).length,
+				CSS_IE_EXPECTED = CSS_IE_ARRAY.length,
+				CSS_IE_ACTUAL = grunt.file.expand([project.res.css.devDir + "*-IE.css"]).length;
+		if ((CSS_EXPECTED === CSS_ACTUAL || CSS_ARRAY[0] === "" && CSS_ACTUAL === 0) && (CSS_IE_EXPECTED === CSS_IE_ACTUAL || CSS_IE_ARRAY[0] === "" && CSS_IE_ACTUAL === 0)) {
+			if (CSS_ACTUAL === 0) {
+				grunt.log.writeln("No .css files to process.");
+			} else {
+				var PROCESS_TASKS = [];
+				PROCESS_TASKS.push("concat:css");
+				grunt.config.set("TASK.CSS_ARRAY", fillAnArray(CSS_ARRAY, project.res.css.devDir));
+				if (CSS_IE_ACTUAL !== 0) {
+					PROCESS_TASKS.push("concat:cssIE");
+					grunt.config.set("TASK.CSS_IE_ARRAY", fillAnArray(CSS_IE_ARRAY, project.res.css.devDir));
+				}
+				PROCESS_TASKS = PROCESS_TASKS.concat(["string-replace:sassDebug", "cssc", "cssmin", "csscomb"]);
+				grunt.task.run(PROCESS_TASKS);
+			}
+		} else {
+			var ERROR_MESSAGE = "";
+			if (CSS_EXPECTED > CSS_ACTUAL) {
+				ERROR_MESSAGE += "There's got to be more .css files.";
+			} else if (CSS_EXPECTED < CSS_ACTUAL) {
+				ERROR_MESSAGE += "Not all of the .css files has been referenced.";
+			}
+			if (CSS_IE_EXPECTED > CSS_IE_ACTUAL) {
+				ERROR_MESSAGE += "There's got to be more .css files (IE).";
+			} else if (CSS_IE_EXPECTED < CSS_IE_ACTUAL) {
+				ERROR_MESSAGE += "Not all of the .css files (IE) has been referenced.";
+			}
+			grunt.fail.warn(ERROR_MESSAGE);
+		}
+	});
+
+	grunt.registerTask("process-js", "Concatenating of the .js files", function() {
+		var JS_DIR_REGEX = new RegExp("<script(.)*src=\"" + project.res.js.devDir.replace(project.dir, ""), "g"),
+				JS = grunt.file.read(project.templates.js)
+					.replace(/(.|\t|\s|\n)*?<!-- @tx-js -->/, "")
+					.replace(/<!-- \/@tx-js -->(.|\t|\s|\n)*/, "")
+					.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
+					.replace(/[\t]/g, "")
+					.replace(/<!--(.|\t|\s|\n)*/, "")
+					.replace(JS_DIR_REGEX, "")
+					.replace(/[\n]/g, "")
+					.replace(/"><\/script>$/, ""),
+				JS_ARRAY = JS.split("\"></script>"),
+				JS_EXPECTED = JS_ARRAY.length,
+				JS_ACTUAL = grunt.file.expand([project.res.js.devDir + "*.js"]).length;
+		if (JS_EXPECTED === JS_ACTUAL || JS_ARRAY[0] === "" && JS_ACTUAL === 0) {
+			if (JS_ACTUAL === 0) {
+				grunt.log.writeln("No .js files to process.");
+			} else {
+				grunt.config.set("TASK.JS_ARRAY", fillAnArray(JS_ARRAY, project.res.js.devDir));
+				grunt.task.run(["concat:js", "removelogging:jsClean", "uglify"]);
+			}
+		} else {
+			if (JS_EXPECTED > JS_ACTUAL) {
+				grunt.fail.warn("There's got to be more .js files.");
+			} else if (JS_EXPECTED < JS_ACTUAL) {
+				grunt.fail.warn("Not all of the .js files has been referenced.");
+			}
+		}
+	});
+
+	grunt.registerTask("lint", ["htmlhint", "jshint", "csslint"]);
 
 	grunt.registerTask("test", ["yslow"]);
 
@@ -642,9 +657,9 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("images", ["imagemin", "images-datauri", "svgmin"]);
 
-	grunt.registerTask("watchProject", ["concurrent"]);
+	grunt.registerTask("watch-project", ["concurrent"]);
 
-	grunt.registerTask("compile", ["clean:res", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "cssmin", "csscomb"]);
+	grunt.registerTask("compile", ["clean:res", "processhtml", "process-css", "process-js"]);
 
 	grunt.registerTask("build", ["compile", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup", "compress:build"]);
 
