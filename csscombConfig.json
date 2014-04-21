@@ -247,6 +247,7 @@
 		"-webkit-hyphens",
 		"-moz-hyphens",
 		"-ms-hyphens",
+		"-o-hyphens",
 		"hyphens",
 		"-ms-writing-mode",
 		"unicode-bidi",

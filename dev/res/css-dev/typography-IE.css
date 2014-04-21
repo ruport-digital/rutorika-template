@@ -21,17 +21,16 @@ input[type="checkbox"], input[type="radio"] {
 	list-style: decimal outside;
 }
 .ie6 .u-listReset li li {
-	margin: rhythm(1, 16px) 0;
+	margin: 1.5em 0;
 }
 .ie6 .u-descriptionListReset dl dt {
-	margin: rhythm(1, 16px) 0 rhythm(0, 16px);
+	margin: 1.5em 0 0;
 }
 .ie6 .u-descriptionListReset dl dd {
-	margin: rhythm(0, 16px) 0 rhythm(1, 16px) 1.5em;
+	margin: 0 0 1.5em 1.5em;
 	font-style: italic;
 }
 .ie6 input {
 	vertical-align: text-bottom;
 }
-
 /*# sourceMappingURL=typography-IE.css.map */

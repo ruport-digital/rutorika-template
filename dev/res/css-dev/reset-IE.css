@@ -1,5 +1,6 @@
 /* CSS-Reset (Internet Explorer < 8) */
 html.ie6 {
+	-webkit-filter: expression(document.execCommand("BackgroundImageCache", false, true));
 	filter: expression(document.execCommand("BackgroundImageCache", false, true));
 }
 
@@ -7,5 +8,4 @@ html.ie6 {
 img {
 	-ms-interpolation-mode: bicubic;
 }
-
 /*# sourceMappingURL=reset-IE.css.map */

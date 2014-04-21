@@ -1,67 +1,56 @@
+=tx-baseline($fz: $base-font-size)
+	font-size: 100% * $fz / $browser-font-size
+	line-height: rhythm($fz: $fz)
+
+
+
+=tx-font-size($fzn, $ln: 1, $fzo: $font-size)
+	font-size: $font-unit * $fzn / $fzo
+	line-height: rhythm($ln, $fz: $fzn)
+
+
+
+=tx-hyphens($val: "manual")
+	@each $prefix in -webkit-, -moz-, -o-, ""
+		#{$prefix}hyphens: $val
+
+
+
 =tx-selection-style($bg: #00f, $cl: #fff, $sw: none)
-	::-webkit-selection 
-		color: $cl
-		background: $bg
-		@if $sw != none
-			text-shadow: $sw
-
-	::-moz-selection 
-		color: $cl
-		background: $bg
-		@if $sw != none
-			text-shadow: $sw
-
-	::selection 
-		color: $cl
-		background: $bg
-		@if $sw != none
-			text-shadow: $sw
+	@each $prefix in -webkit-, -moz-, ""
+		::#{$prefix}selection
+			color: $cl
+			background: $bg
+			@if $sw != none
+				text-shadow: $sw
 
 
 
 =tx-placeholder($cl: #999, $fz: 1em, $fw: normal)
-	&::-webkit-input-placeholder
-		color: $cl
-		font-size: $fz
-		font-weight: $fw
-
-	&:-moz-placeholder
-		color: $cl
-		font-size: $fz
-		font-weight: $fw
-
-	&::-moz-placeholder
-		color: $cl
-		font-size: $fz
-		font-weight: $fw
-
-	&:-ms-input-placeholder
-		color: $cl
-		font-size: $fz
-		font-weight: $fw
+	@each $prefix in ":-webkit-input-", -moz-, ":-moz-", -ms-input-
+		&:#{$prefix}placeholder
+			color: $cl
+			font-size: $fz
+			font-weight: $fw
 
 
 
 =tx-no-select($cond: true)
 	@if $cond != true
 		-webkit-touch-callout: default
-		-webkit-user-select: all
-		-moz-user-select: all
-		-ms-user-select: all
-		user-select: all
+		@each $prefix in -webkit-, -moz-, -ms-, ""
+			#{$prefix}user-select: all
 	@else
 		-webkit-touch-callout: none
-		-webkit-user-select: none
-		-moz-user-select: none
-		-ms-user-select: none
-		user-select: none
+		@each $prefix in -webkit-, -moz-, -ms-, ""
+			#{$prefix}user-select: none
 
 
 
 =tx-font-adjustment($cond: true)
 	@if $cond != true
-		-webkit-text-size-adjust: 100%
-		-ms-text-size-adjust: 100%
+		@each $prefix in -webkit-, -ms-
+			#{$prefix}text-size-adjust: 100%
 
 
 
@@ -116,10 +105,10 @@
 
 
 
-=tx-table-borders($wdt: 1px, $lines: 1, $fz: $base-font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
-	$calculated-width: $wdt / $fz + 0em
-	$calculated-vertical-padding: rhythm($lines, $fz, $offset: $wdt)
-	border: $wdt $bstyle $bcolor
+=tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em)
+	$calculated-width: $font-unit * $brdw / $fz
+	$calculated-vertical-padding: rhythm($lines, $fz, $offset: $brdw)
+	border: $brdw $bstyle $bcolor
 	@if $lines != 0
 		@if $prgt == $plft and $prgt != 0
 			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width)
@@ -138,7 +127,7 @@
 
 
 
-=tx-form-height($lines: 1, $brdw: 1px, $fz: $base-font-size)
+=tx-form-height($lines: 1, $brdw: 1px, $fz: $font-size)
 	height: rhythm($lines, $fz, $offset: 2 * $brdw)
 
 
@@ -158,12 +147,8 @@
 		+tx-inline-block
 	@else
 		display: $dsp
-	@if $cnt != ""
-		@if $cnt and not $ie
-			content: "" + $cnt
-	@else
-		@if not $ie
-			content: ""
+	@if not $ie
+		content: "" + $cnt
 	position: $pos
 
 
@@ -185,3 +170,21 @@
 		@extend #{"%image-" + $class}
 	@else
 		@extend #{"%ie-image-" + $class}
+
+
+
+=tx-force-wrap
+	white-space: pre
+	white-space: pre-wrap
+	white-space: pre-line
+	white-space: -pre-wrap
+	white-space: -o-pre-wrap
+	white-space: -moz-pre-wrap
+	white-space: -hp-pre-wrap
+	word-wrap: break-word
+
+
+
+@function rhythm($ln: 1, $fz: $font-size, $offset: 0)
+	$result: $font-unit * ($ln * $base-line-height - $offset) / $fz
+	@return $result

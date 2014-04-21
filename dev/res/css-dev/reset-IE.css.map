@@ -1,6 +1,1 @@
-{
-"version": 3,
-"mappings": ";AAMC,QAAK;EACJ,MAAM,EAAE,qEAAqE;;;;AAM/E,GAAG;EACF,sBAAsB,EAAE,OAAO",
-"sources": ["../sass-dev/reset-IE.sass"],
-"file": "reset-IE.css"
-}
+{"version":3,"file":"reset-IE.css","sources":["reset-IE.css","../sass-dev/reset-IE.sass"],"names":[],"mappings":"AAAA,wCAAA;ACMC;EACC,uFAAA;EAAA,+EAAA;EDHD;;AACD,0BAAA;ACQA;EACC,iCAAA;EDLA"}

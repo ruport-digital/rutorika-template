@@ -188,21 +188,24 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 				sourcemap: true,
-				compass: true,
 				style: "expanded"
 			},
 			generateCSS: {
 				cwd: project.res.css.sass,
-				src: ["*.sass", "!**/tx"],
+				src: ["**/*.sass", "!**/_*.sass"],
 				dest: project.res.css.devDir,
 				ext: ".css",
 				expand: true
+			}
+		},
+		autoprefixer: {
+			options: {
+				browsers: ["> 1%", "last 2 versions", "Firefox ESR", "Opera 12.1", "Explorer >= 7"]
 			},
-			generateTXCSS: {
-				cwd: project.res.css.sass,
-				src: ["tx/*.sass"],
+			prefixCSS: {
+				cwd: project.res.css.devDir,
+				src: ["**/*.css"],
 				dest: project.res.css.devDir,
-				ext: ".css",
 				expand: true
 			}
 		},
@@ -223,10 +226,16 @@ module.exports = function(grunt) {
 				dest: project.res.js.dir + project.res.js.filename + ".js",
 			},
 			css: {
+				options: {
+					separator: "\n"
+				},
 				src: "<%= TASK.CSS_ARRAY %>",
 				dest: project.res.css.dir + project.res.css.filename + ".css"
 			},
 			cssIE: {
+				options: {
+					separator: "\n"
+				},
 				src: "<%= TASK.CSS_IE_ARRAY %>",
 				dest: project.res.css.dir + project.res.css.filename + "-IE.css"
 			}
@@ -527,12 +536,12 @@ module.exports = function(grunt) {
 				tasks: ["processhtml"]
 			},
 			sassStyles: {
-				files: [project.res.css.sass + "*.sass", "!" + project.res.css.sass + "**/_*.sass"],
-				tasks: ["newer:sass"]
+				files: [project.res.css.sass + "**/*.sass", "!" + project.res.css.sass + "**/_*.sass"],
+				tasks: ["newer:sass", "newer:autoprefixer"]
 			},
 			sassPartials: {
 				files: [project.res.css.sass + "**/_*.sass"],
-				tasks: ["sass"]
+				tasks: ["sass", "newer:autoprefixer"]
 			}
 		},
 		concurrent: {
