@@ -147,7 +147,7 @@
 
 
 
-@mixin tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: black, $prgt: 0.5em, $plft: 0.5em) {
+@mixin tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: black, $prgt: .5em, $plft: .5em) {
 	$calculated-width: $font-unit * $brdw / $fz;
 	$calculated-vertical-padding: rhythm($lines, $fz, $offset: $brdw);
 	border: $brdw $bstyle $bcolor;

@@ -162,7 +162,7 @@ module.exports = function(grunt) {
 					"zero-units": false
 				},
 				cwd: project.res.css.devDir,
-				src: ["*.css", "!reset.css", "!typography.css", "!*-IE.css"],
+				src: ["*.css"],
 				expand: true,
 				flatten: true
 			}
@@ -199,7 +199,6 @@ module.exports = function(grunt) {
 		},
 		autoprefixer: {
 			options: {
-				cascade: true,
 				browsers: ["> 1%", "last 2 versions", "Firefox ESR", "Opera 12.1", "Explorer >= 7"]
 			},
 			prefixCSS: {
@@ -598,7 +597,7 @@ module.exports = function(grunt) {
 				CSS_ACTUAL = grunt.file.expand([project.res.css.devDir + "*.css", "!" + project.res.css.devDir + "*-IE.css"]).length,
 				CSS_IE_EXPECTED = CSS_IE_ARRAY.length,
 				CSS_IE_ACTUAL = grunt.file.expand([project.res.css.devDir + "*-IE.css"]).length;
-		if ((CSS_EXPECTED === CSS_ACTUAL || CSS_ARRAY[0] === "" && CSS_ACTUAL === 0) && (CSS_IE_EXPECTED === CSS_IE_ACTUAL || CSS_IE_ARRAY[0] === "" && CSS_IE_ACTUAL === 0)) {
+		if ((CSS_EXPECTED === CSS_ACTUAL || (CSS_ARRAY[0] === "" && CSS_ACTUAL === 0)) && (CSS_IE_EXPECTED === CSS_IE_ACTUAL || (CSS_IE_ARRAY[0] === "" && CSS_IE_ACTUAL === 0))) {
 			if (CSS_ACTUAL === 0) {
 				grunt.log.writeln("No .css files to process.");
 			} else {
@@ -666,9 +665,11 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("images", ["imagemin", "images-datauri", "svgmin"]);
 
+	grunt.registerTask("generate-css", ["sass", "autoprefixer"]);
+
 	grunt.registerTask("watch-project", ["concurrent"]);
 
-	grunt.registerTask("compile", ["clean:res", "processhtml", "process-css", "process-js"]);
+	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js"]);
 
 	grunt.registerTask("build", ["compile", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup", "compress:build"]);
 

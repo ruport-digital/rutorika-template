@@ -1,3 +1,3 @@
-@mixin tx-block-debug($cl: #f00, $alpha: 0.25) {
+@mixin tx-block-debug($cl: #f00, $alpha: .25) {
 	background: rgba($cl, $alpha) !important;
 }
