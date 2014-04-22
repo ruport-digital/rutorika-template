@@ -602,14 +602,14 @@ module.exports = function(grunt) {
 			if (CSS_ACTUAL === 0) {
 				grunt.log.writeln("No .css files to process.");
 			} else {
-				var PROCESS_TASKS = [];
+				var PROCESS_TASKS = ["sass", "autoprefixer"];
 				PROCESS_TASKS.push("concat:css");
 				grunt.config.set("TASK.CSS_ARRAY", fillAnArray(CSS_ARRAY, project.res.css.devDir));
 				if (CSS_IE_ACTUAL !== 0) {
 					PROCESS_TASKS.push("concat:cssIE");
 					grunt.config.set("TASK.CSS_IE_ARRAY", fillAnArray(CSS_IE_ARRAY, project.res.css.devDir));
 				}
-				PROCESS_TASKS = PROCESS_TASKS.concat(["sass", "string-replace:sassDebug", "cssc", "cssmin", "csscomb"]);
+				PROCESS_TASKS = PROCESS_TASKS.concat(["string-replace:sassDebug", "cssc", "cssmin", "csscomb"]);
 				grunt.task.run(PROCESS_TASKS);
 			}
 		} else {
