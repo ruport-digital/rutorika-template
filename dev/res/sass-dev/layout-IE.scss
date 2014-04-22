@@ -1,0 +1,31 @@
+@import "tx/tx";
+@import "tx/tx-project";
+@import "tx/tx-projectImages";
+
+$tx-ie: true;
+
+
+
+// Layout (Internet Explorer < 8)
+
+
+
+/* inline-block */
+
+fieldset {
+	@include tx-inline-block;
+}
+
+
+
+/* zoom */
+
+.ie6 {
+	.content {
+		zoom: 1;
+	}
+}
+
+.footer {
+	zoom: 1;
+}

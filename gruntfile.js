@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 					classPrefix: "image-"
 				},
 				src: project.res.images.dataURI,
-				dest: project.res.css.sass + "tx/_tx-projectImages-base64.sass"
+				dest: project.res.css.sass + "tx/_tx-projectImages-base64.scss"
 			}
 		},
 
@@ -187,12 +187,11 @@ module.exports = function(grunt) {
 
 		sass: {
 			options: {
-				sourcemap: true,
-				style: "expanded"
+				sourceComments: "map"
 			},
 			generateCSS: {
 				cwd: project.res.css.sass,
-				src: ["**/*.sass", "!**/_*.sass"],
+				src: ["**/*.scss", "**/*.sass", "!**/_*.scss", "!**/_*.sass"],
 				dest: project.res.css.devDir,
 				ext: ".css",
 				expand: true
@@ -200,6 +199,7 @@ module.exports = function(grunt) {
 		},
 		autoprefixer: {
 			options: {
+				cascade: true,
 				browsers: ["> 1%", "last 2 versions", "Firefox ESR", "Opera 12.1", "Explorer >= 7"]
 			},
 			prefixCSS: {
@@ -215,8 +215,8 @@ module.exports = function(grunt) {
 				options: {
 					separator: "\n\n"
 				},
-				src: [project.res.css.sass + "tx/_tx-projectImages-base64.sass", project.res.css.sass + "tx/_tx-projectImages-IE.sass"],
-				dest: project.res.css.sass + "tx/_tx-projectImages.sass",
+				src: [project.res.css.sass + "tx/_tx-projectImages-base64.scss", project.res.css.sass + "tx/_tx-projectImages-IE.scss"],
+				dest: project.res.css.sass + "tx/_tx-projectImages.scss",
 			},
 			js: {
 				options: {
@@ -360,7 +360,7 @@ module.exports = function(grunt) {
 				expand: true,
 				flatten: true
 			},
-			cssSortSource: {
+			cssSortDev: {
 				cwd: project.res.css.devDir,
 				src: ["*.css"],
 				dest: project.res.css.devDir,
@@ -536,11 +536,11 @@ module.exports = function(grunt) {
 				tasks: ["processhtml"]
 			},
 			sassStyles: {
-				files: [project.res.css.sass + "**/*.sass", "!" + project.res.css.sass + "**/_*.sass"],
+				files: [project.res.css.sass + "**/*.scss", project.res.css.sass + "**/*.sass", "!" + project.res.css.sass + "**/_*.scss", "!" + project.res.css.sass + "**/_*.sass"],
 				tasks: ["newer:sass", "newer:autoprefixer"]
 			},
 			sassPartials: {
-				files: [project.res.css.sass + "**/_*.sass"],
+				files: [project.res.css.sass + "**/_*.scss", project.res.css.sass + "**/_*.sass"],
 				tasks: ["sass", "newer:autoprefixer"]
 			}
 		},
@@ -557,20 +557,20 @@ module.exports = function(grunt) {
 		var IE_SASS = "";
 		for (var FILE in project.res.images.dataURI) {
 			if (grunt.file.isFile(project.res.images.dataURI[FILE])) {
-				IE_SASS += "%ie-image-" + project.res.images.dataURI[FILE].split(".")[0].replace(project.res.images.dir, "") + "\n\t" + "background-image: url(" + project.res.images.dataURI[FILE].replace(project.res.dir, "../") + ")\n\n";
+				IE_SASS += "%ie-image-" + project.res.images.dataURI[FILE].split(".")[0].replace(project.res.images.dir, "") + " {\n\t" + "background-image: url(" + project.res.images.dataURI[FILE].replace(project.res.dir, "../") + ");\n}\n";
 			}
 		}
 		if (IE_SASS !== "") {
-			grunt.file.write(project.res.css.sass + "tx/_tx-projectImages-IE.sass", IE_SASS);
+			grunt.file.write(project.res.css.sass + "tx/_tx-projectImages-IE.scss", IE_SASS);
 		}
 	});
 
 	grunt.registerTask("datauri-cleanup", "Cleanup After datauri-fallback", function() {
-		if (grunt.file.isFile(project.res.css.sass + "tx/_tx-projectImages-base64.sass")) {
-			grunt.file.delete(project.res.css.sass + "tx/_tx-projectImages-base64.sass");
+		if (grunt.file.isFile(project.res.css.sass + "tx/_tx-projectImages-base64.scss")) {
+			grunt.file.delete(project.res.css.sass + "tx/_tx-projectImages-base64.scss");
 		}
-		if (grunt.file.isFile(project.res.css.sass + "tx/_tx-projectImages-IE.sass")) {
-			grunt.file.delete(project.res.css.sass + "tx/_tx-projectImages-IE.sass");
+		if (grunt.file.isFile(project.res.css.sass + "tx/_tx-projectImages-IE.scss")) {
+			grunt.file.delete(project.res.css.sass + "tx/_tx-projectImages-IE.scss");
 		}
 	});
 
@@ -609,7 +609,7 @@ module.exports = function(grunt) {
 					PROCESS_TASKS.push("concat:cssIE");
 					grunt.config.set("TASK.CSS_IE_ARRAY", fillAnArray(CSS_IE_ARRAY, project.res.css.devDir));
 				}
-				PROCESS_TASKS = PROCESS_TASKS.concat(["string-replace:sassDebug", "cssc", "cssmin", "csscomb"]);
+				PROCESS_TASKS = PROCESS_TASKS.concat(["sass", "string-replace:sassDebug", "cssc", "cssmin", "csscomb"]);
 				grunt.task.run(PROCESS_TASKS);
 			}
 		} else {
@@ -672,9 +672,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("build", ["compile", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup", "compress:build"]);
 
-	grunt.registerTask("build-sass", ["sass", "build"]);
-
-	grunt.registerTask("build-share", ["sass", "build", "copy:share"]);
+	grunt.registerTask("build-share", ["build", "copy:share"]);
 
 	grunt.registerTask("build-experimental", ["clean:res", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup"]);
 

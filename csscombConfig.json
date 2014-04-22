@@ -1,4 +1,5 @@
 {
+	"always-semicolon": true,
 	"block-indent": "\t",
 	"colon-space": [0, 1],
 	"color-case": "lower",

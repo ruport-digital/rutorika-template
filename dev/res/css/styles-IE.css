@@ -1,7 +1,6 @@
-/* CSS-Reset (Internet Explorer < 8) */
 html.ie6 {
-	-webkit-filter: expression(document.execCommand("BackgroundImageCache", false, true));
-	filter: expression(document.execCommand("BackgroundImageCache", false, true));
+	-webkit-filter: expression(document.execCommand('BackgroundImageCache', false, true));
+	filter: expression(document.execCommand('BackgroundImageCache', false, true));
 }
 
 /* Image Interpolation */
@@ -9,7 +8,6 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
-/* Utilities (Internet Explorer < 8) */
 /* Lists Reset */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
 	padding: 0;
@@ -28,7 +26,6 @@ img {
 	font-style: normal;
 }
 
-/* Base Typography & Rhythm (Internet Explorer < 8) */
 dfn {
 	font-style: normal;
 }
@@ -64,11 +61,10 @@ input[type="checkbox"], input[type="radio"] {
 	vertical-align: text-bottom;
 }
 
-/* Layout (Internet Explorer < 8) */
 /* inline-block */
 fieldset {
-	display: inline;
-	zoom: 1;
+	display: -moz-inline-box;
+	display: inline-block;
 }
 
 /* zoom */
@@ -79,5 +75,3 @@ fieldset {
 .footer {
 	zoom: 1;
 }
-
-/* UI (Internet Explorer < 8) */

@@ -1,4 +1,3 @@
-/* CSS-Reset */
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, acronym, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, form, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, applet, object, iframe, article, aside, figure, figcaption, footer, header, hgroup, menu, nav, section, time, mark, audio, video, canvas {
 	padding: 0;
 	border: none;
@@ -52,7 +51,6 @@ button, select {
 	text-transform: none;
 }
 
-/* Utilities */
 /* Lists Reset */
 .u-listReset, .u-descriptionListReset {
 	padding: 0;
@@ -93,7 +91,6 @@ button, select {
 	margin: -1px;
 }
 
-/* Base Typography & Rhythm */
 html {
 	font-size: 100%;
 	line-height: 1.5em;
@@ -101,8 +98,8 @@ html {
 
 body {
 	counter-reset: heading;
-	color: black;
-	background: white;
+	color: #000000;
+	background: #ffffff;
 	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
@@ -121,25 +118,21 @@ body {
 	background: blue;
 }
 
-a:focus, select:focus {
-	outline: 1px dotted #939393;
-}
-
 a {
 	color: #003b9e;
 	text-decoration: underline;
 }
 a:visited {
-	color: black;
+	color: #000000;
 }
 a:hover {
-	color: red;
+	color: #ff0000;
 }
 a:active {
-	color: red;
+	color: #ff0000;
 }
 a:focus {
-	color: black;
+	color: #000000;
 	outline: 1px dotted #939393;
 }
 
@@ -438,6 +431,9 @@ select {
 	height: 1.5em;
 	border: 1px solid #9a9a9a;
 }
+select:focus {
+	outline: 1px dotted #939393;
+}
 select[multiple] {
 	height: 7.525em;
 }
@@ -495,6 +491,7 @@ textarea {
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 }
+
 hr {
 	display: block;
 	-webkit-box-sizing: content-box;
@@ -568,62 +565,67 @@ hr {
 }
 
 /* High DPI Typography */
-@media only screen and (min-resolution: 1.25dppx), only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min--moz-device-pixel-ratio: 1.25), only screen and (-o-min-device-pixel-ratio: 5 / 4), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi) {
+@media only screen and (min-resolution: 1.25dppx), only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min--moz-device-pixel-ratio: 1.25), only screen and (-o-min-device-pixel-ratio: 5/4), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi) {
 	html {
 		text-rendering: optimizelegibility;
 	}
 }
+
 /* Phone Typography */
 @media handheld, only screen and (max-width: 720px) {
 	table, tr, th, td {
 		display: block;
 	}
 }
+
+@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx), only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3/2), only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {
+}
+
 /* Tablet Typography */
+@media only screen and (min-width: 721px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3/2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
+}
+
 /* Print Typography */
 @media print {
   @page {
 		margin: 0 .5cm;
 	}
+
 	a, acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
 		color: black;
 		outline: none;
 		text-decoration: none;
 	}
-
 	a[href]:after {
 		content: " (" attr(href) ")";
 	}
 	a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: "";
 	}
-
 	abbr[title]:after {
 		content: " (" attr(title) ")";
 	}
-
 	h1, h2, h3, h4, h5, h6 {
 		page-break-after: avoid;
 		orphans: 3;
 		widows: 3;
 	}
-
 	p {
 		orphans: 3;
 		widows: 3;
 	}
-
 	blockquote, pre, img, tr {
 		page-break-inside: avoid;
 	}
-
 	thead {
 		display: table-header-group;
 	}
 }
 
-/* Layout */
 html {
 	min-height: 100%;
 }
@@ -666,9 +668,27 @@ body {
 }
 
 /* High DPI Layout */
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+}
+
 /* Large Resolution Layout */
+@media only screen and (min-width: 1382px) {
+}
+
 /* Phone Layout */
+@media handheld, only screen and (max-width: 720px) {
+}
+
+@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx), only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3/2), only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {
+}
+
 /* Tablet Layout */
+@media only screen and (min-width: 721px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3/2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
+}
+
 /* Print Layout */
 @media print {
 	body {
@@ -678,12 +698,15 @@ body {
 		color: black;
 		background: white;
 	}
-
 	.header, .footer {
 		display: none;
 	}
 }
-/* TV Layout */
-/* Audio Layout */
 
-/* UI */
+/* TV Layout */
+@media projection, tv {
+}
+
+/* Audio Layout */
+@media aural {
+}

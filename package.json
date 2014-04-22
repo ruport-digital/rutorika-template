@@ -10,7 +10,7 @@
 		"grunt-contrib-concat": "*",
 		"grunt-remove-logging": "*",
 		"grunt-contrib-uglify": "*",
-		"grunt-contrib-sass": "*",
+		"grunt-sass": "*",
 		"grunt-autoprefixer": "*",
 		"grunt-csscomb": "*",
 		"grunt-cssc": "*",

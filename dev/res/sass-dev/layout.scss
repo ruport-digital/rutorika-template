@@ -1,0 +1,114 @@
+@import "tx/tx";
+@import "tx/tx-project";
+@import "tx/tx-projectImages";
+
+
+
+// Layout
+
+
+
+html {
+	min-height: 100%;
+}
+
+body {
+	position: relative;
+	@include tx-set-boundaries;
+	@include tx-scroll-bar(true);
+}
+
+
+
+/* Header */
+
+.header {
+	position: relative;
+	z-index: 0;
+}
+
+
+
+/* Content */
+
+.content {
+	padding: 0 $gap;
+
+	&:after {
+		@include tx-pseudo($pos: relative);
+		height: 0;
+		font-size: 0;
+		clear: both;
+	}
+
+}
+
+
+
+/* Footer */
+
+.footer {
+	position: relative;
+	clear: both;
+	z-index: 0;
+}
+
+
+
+/* High DPI Layout */
+
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {}
+
+
+
+/* Large Resolution Layout */
+
+@media only screen and (min-width: 1382px) {}
+
+
+
+/* Phone Layout */
+
+@media handheld, only screen and (max-width: 720px) {}
+
+@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {}
+
+
+
+/* Tablet Layout */
+
+@media only screen and (min-width: 721px) and (max-width: 1024px) {}
+
+@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {}
+
+
+
+/* Print Layout */
+
+@media print {
+
+	body {
+		max-width: none;
+		margin: 0 10px;
+		padding: 0;
+		color: black;
+		background: white;
+	}
+
+	.header, .footer {
+		display: none;
+	}
+
+}
+
+
+
+/* TV Layout */
+
+@media projection, tv {}
+
+
+
+/* Audio Layout */
+
+@media aural {}
