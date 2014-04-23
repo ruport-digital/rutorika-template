@@ -541,13 +541,19 @@ module.exports = function(grunt) {
 			sassPartials: {
 				files: [project.res.css.sass + "**/_*.scss", project.res.css.sass + "**/_*.sass"],
 				tasks: ["sass", "newer:autoprefixer"]
+			},
+			livereloadWatch: {
+				options: {
+					livereload: true
+				},
+				files: ["*.html", project.res.css.devDir + "**/*.css", project.res.js.devDir + "**/*.js"]
 			}
 		},
 		concurrent: {
 			options: {
 				logConcurrentOutput: true
 			},
-			projectWatch: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials"]
+			projectWatch: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials", "watch:livereloadWatch"]
 		}
 
 	});
