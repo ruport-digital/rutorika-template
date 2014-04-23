@@ -553,7 +553,8 @@ module.exports = function(grunt) {
 			options: {
 				logConcurrentOutput: true
 			},
-			projectWatch: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials", "watch:livereloadWatch"]
+			projectWatch: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials"],
+			projectWatchReload: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials", "watch:livereloadWatch"]
 		}
 
 	});
