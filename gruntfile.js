@@ -546,7 +546,7 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				},
-				files: ["*.html", project.res.css.devDir + "**/*.css", project.res.js.devDir + "**/*.js"]
+				files: [project.dir + "*.html", project.res.css.devDir + "**/*.css", project.res.js.devDir + "**/*.js"]
 			}
 		},
 		concurrent: {
