@@ -608,7 +608,7 @@ module.exports = function(grunt) {
 			if (CSS_ACTUAL === 0) {
 				grunt.log.writeln("No .css files to process.");
 			} else {
-				var PROCESS_TASKS = ["sass", "autoprefixer"];
+				var PROCESS_TASKS = [];
 				PROCESS_TASKS.push("concat:css");
 				grunt.config.set("TASK.CSS_ARRAY", fillAnArray(CSS_ARRAY, project.res.css.devDir));
 				if (CSS_IE_ACTUAL !== 0) {

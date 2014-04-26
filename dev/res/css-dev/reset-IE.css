@@ -1,8 +1,10 @@
 html.ie6 {
-  filter: expression(document.execCommand('BackgroundImageCache', false, true)); }
+	-webkit-filter: expression(document.execCommand('BackgroundImageCache', false, true));
+	filter: expression(document.execCommand('BackgroundImageCache', false, true));
+}
 
 /* Image Interpolation */
 img {
-  -ms-interpolation-mode: bicubic; }
-
+	-ms-interpolation-mode: bicubic;
+}
 /*# sourceMappingURL=reset-IE.css.map */

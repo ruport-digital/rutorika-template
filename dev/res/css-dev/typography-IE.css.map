@@ -1,7 +1,1 @@
-{
-  "version": 3,
-  "file": "",
-  "sources": ["../sass-dev/typography-IE.scss","../sass-dev/tx/_tx.scss","../sass-dev/tx/_tx-project.scss","../sass-dev/tx/_tx-projectImages.scss"],
-  "names": [],
-  "mappings": "AAQA;EAKC,YAAY;;AAGb,KAAK,mBAAmB,KAAK;EAG3B,OAAO;EACP,QAAQ;;AAKV,KAAK,OAAO,KAAK,QAAQ,KAAK;EAG5B,QAAQ;AACV,KAAK;EAGH,MAAM;AACR,KAAK,IAAI,KAAK,aAAa;EAGzB,YAAY;AACd,KAAK,IAAI,KAAK,aAAa;EAGzB,YAAY;AAKd,KAAK,aAAa,GAAG;ECiElB,QAA2B;ADrD9B,KAAK,wBAAwB,GAAG;EC6D7B,QAA2B;ADzD9B,KAAK,wBAAwB,GAAG;EC4D7B,QAA2B;EDxD1B,YAAY;AAKhB,KAAK;EAGH,gBAAgB"
-}
+{"version":3,"file":"typography-IE.css","sources":["../sass-dev/typography-IE.scss","../sass-dev/tx/_tx.scss"],"names":[],"mappings":"AAQA;EAKC,oBAAY,EAAA;;AAGb;EAGE,aAAO;EACP,cAAQ,EAAA;;AAKV;EAGE,cAAQ,EAAA;AACV;EAGE,SAAM,EAAA;AACR;EAGE,0BAAY,EAAA;AACd;EAGE,6BAAY,EAAA;AAKd;ECiEG,iBAA2B,EAAA;ADrD9B;EC6DG,qBAA2B,EAAA;ADzD9B;EC4DG,2BAA2B;EDxD1B,oBAAY,EAAA;AAKhB;EAGE,6BAAgB,EAAA"}
