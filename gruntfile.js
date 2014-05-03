@@ -287,7 +287,7 @@ module.exports = function(grunt) {
 		removelogging: {
 			jsClean: {
 				cwd: project.res.js.dir,
-				src: ["*.js", "!*.min.js"],
+				src: ["*.js"],
 				dest: project.res.js.dir,
 				expand: true,
 				flatten: true
@@ -306,7 +306,7 @@ module.exports = function(grunt) {
 			},
 			jsMin: {
 				cwd: project.res.js.dir,
-				src: ["*.js", "!*.min.js"],
+				src: ["*.js"],
 				dest: project.res.js.dir,
 				ext: ".min.js",
 				expand: true,
@@ -339,7 +339,7 @@ module.exports = function(grunt) {
 			},
 			cssOptimize: {
 				cwd: project.res.css.dir,
-				src: ["*.css", "!*.min.css"],
+				src: ["*.css"],
 				dest: project.res.css.dir,
 				ext: ".min.css",
 				expand: true,
