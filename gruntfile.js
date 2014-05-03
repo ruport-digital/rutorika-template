@@ -314,6 +314,25 @@ module.exports = function(grunt) {
 			}
 		},
 
+		csscomb: {
+			options: {
+				config: "csscombConfig.json"
+			},
+			cssSortBuild: {
+				cwd: project.res.css.dir,
+				src: ["*.css"],
+				dest: project.res.css.dir,
+				expand: true,
+				flatten: true
+			},
+			cssSortDev: {
+				cwd: project.res.css.devDir,
+				src: ["*.css"],
+				dest: project.res.css.devDir,
+				expand: true,
+				flatten: true
+			}
+		},
 		cssc: {
 			options: {
 					consolidateViaSelectors: true
@@ -343,26 +362,6 @@ module.exports = function(grunt) {
 				cwd: project.res.css.dir,
 				src: ["*.min.css"],
 				dest: project.res.css.dir,
-				expand: true,
-				flatten: true
-			}
-		},
-
-		csscomb: {
-			options: {
-				config: "csscombConfig.json"
-			},
-			cssSortBuild: {
-				cwd: project.res.css.dir,
-				src: ["*.css", "!*.min.css"],
-				dest: project.res.css.dir,
-				expand: true,
-				flatten: true
-			},
-			cssSortDev: {
-				cwd: project.res.css.devDir,
-				src: ["*.css"],
-				dest: project.res.css.devDir,
 				expand: true,
 				flatten: true
 			}
@@ -615,7 +614,7 @@ module.exports = function(grunt) {
 					PROCESS_TASKS.push("concat:cssIE");
 					grunt.config.set("TASK.CSS_IE_ARRAY", fillAnArray(CSS_IE_ARRAY, project.res.css.devDir));
 				}
-				PROCESS_TASKS = PROCESS_TASKS.concat(["string-replace:sassDebug", "cssc", "cssmin", "csscomb"]);
+				PROCESS_TASKS = PROCESS_TASKS.concat(["string-replace:sassDebug", "csscomb", "cssc", "cssmin"]);
 				grunt.task.run(PROCESS_TASKS);
 			}
 		} else {
@@ -682,6 +681,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("build-share", ["build", "copy:share"]);
 
-	grunt.registerTask("build-experimental", ["clean:res", "concat:js", "concat:css", "concat:cssIE", "string-replace:sassDebug", "removelogging:jsClean", "uglify", "cssc", "uncss:cssOptimize", "cssmin", "csscomb", "clean:build", "copy:build", "copy:meta", "compress:gzip", "string-replace:build", "htmlmin:cleanup"]);
+	grunt.registerTask("build-uncss", ["uncss"]);
 
 };
