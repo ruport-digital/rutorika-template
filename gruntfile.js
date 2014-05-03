@@ -587,16 +587,16 @@ module.exports = function(grunt) {
 					.replace(/(.|\t|\s|\n)*?<!-- @tx-css -->/, "")
 					.replace(/<!-- \/@tx-css -->(.|\t|\s|\n)*/, "")
 					.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
-					.replace(/[\t]/g, ""),
+					.replace(/\t/g, ""),
 				CSS = CSS_ALL
 					.replace(/<!--(.|\t|\s|\n)*/, "")
 					.replace(CSS_DIR_REGEX, "")
-					.replace(/[\n]/g, "")
+					.replace(/\r?\n|\r/g, "")
 					.replace(/">$/, ""),
 				CSS_IE = CSS_ALL
 					.replace(/^<link(.)*/gm, "")
 					.replace(CSS_IE_DIR_REGEX, "")
-					.replace(/[\n]/g, "")
+					.replace(/\r?\n|\r/g, "")
 					.replace(/"> <\!\[endif\]-->$/, ""),
 				CSS_ARRAY = CSS.split("\">"),
 				CSS_IE_ARRAY = CSS_IE.split("\"> <![endif]-->"),
@@ -640,10 +640,10 @@ module.exports = function(grunt) {
 					.replace(/(.|\t|\s|\n)*?<!-- @tx-js -->/, "")
 					.replace(/<!-- \/@tx-js -->(.|\t|\s|\n)*/, "")
 					.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
-					.replace(/[\t]/g, "")
+					.replace(/\t/g, "")
 					.replace(/<!--(.|\t|\s|\n)*/, "")
 					.replace(JS_DIR_REGEX, "")
-					.replace(/[\n]/g, "")
+					.replace(/\r?\n|\r/g, "")
 					.replace(/"><\/script>$/, ""),
 				JS_ARRAY = JS.split("\"></script>"),
 				JS_EXPECTED = JS_ARRAY.length,

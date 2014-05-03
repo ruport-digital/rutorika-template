@@ -1,6 +1,5 @@
 /* inline-block */
 fieldset {
-	display: -moz-inline-box;
 	display: inline-block;
 }
 
