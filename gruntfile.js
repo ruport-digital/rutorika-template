@@ -550,7 +550,8 @@ module.exports = function(grunt) {
 		},
 		concurrent: {
 			options: {
-				logConcurrentOutput: true
+				logConcurrentOutput: true,
+				limit: 4
 			},
 			projectWatch: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials"],
 			projectWatchReload: ["watch:htmlTemplates", "watch:sassStyles", "watch:sassPartials", "watch:livereloadWatch"]
