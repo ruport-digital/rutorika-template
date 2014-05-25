@@ -89,13 +89,13 @@
 
 
 @mixin tx-set-boundaries($minw: 980px, $maxw: 1400px, $center: true, $minh: 100%) {
-	@if $minw != none or $minw != 0 {
+	@if $minw != none and $minw != 0 {
 		min-width: $minw;
 	}
-	@if $maxw != none or $maxw != 0 {
+	@if $maxw != none and $maxw != 0 {
 		max-width: $maxw;
 	}
-	@if $minh != none or $minh != 0 {
+	@if $minh != none and $minh != 0 {
 		min-height: $minh;
 	}
 	@if $center {
