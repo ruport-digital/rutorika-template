@@ -4,7 +4,6 @@
 	"colon-space": [0, 1],
 	"color-case": "lower",
 	"color-shorthand": false,
-	"combinator-space": [1, 1],
 	"element-case": "lower",
 	"eof-newline": false,
 	"leading-zero": false,
