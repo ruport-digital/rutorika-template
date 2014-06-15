@@ -120,7 +120,7 @@ pre, code, samp, del {
 }
 
 pre {
-	overflow: hidden;
+	overflow: hidden; 
 	padding: 0 1.5em;
 	white-space: pre;
 	white-space: pre-wrap;
@@ -256,7 +256,7 @@ table {
 }
 
 td, th {
-	padding: .6875em .5em .75em;
+	padding: .6875em .5em .75em; 
 	border: 1px solid black;
 }
 
@@ -292,7 +292,7 @@ input, button {
 	border: none;
 }
 input::-moz-focus-inner, button::-moz-focus-inner {
-	padding: 0;
+	padding: 0; 
 	border: 0;
 }
 
@@ -326,7 +326,7 @@ input[type="file"] {
 input[type="search"] {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
-	box-sizing: content-box;
+	box-sizing: content-box; 
 	-webkit-appearance: textfield;
 }
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
@@ -360,7 +360,7 @@ select[multiple] {
 }
 
 textarea {
-	overflow: auto;
+	overflow: auto; 
 	height: 14.875em;
 }
 
@@ -402,7 +402,7 @@ hr {
 	display: block;
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
-	box-sizing: content-box;
+	box-sizing: content-box; 
 	height: 1px;
 	padding: 0;
 	border-width: 1px 0;
@@ -465,7 +465,7 @@ hr {
 .hNumber:before {
 	position: relative;
 	content: counter(heading) ". ";
-	counter-increment: heading;
+	counter-increment: heading; 
 	display: inline-block;
 }
 
@@ -495,14 +495,14 @@ hr {
 
 /* Print Typography */
 @media print {
-  @page {
+	@page {
 		margin: 0 .5cm;
 	}
 
 	a, acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
 		color: black;
-		outline: none;
+		outline: none; 
 		text-decoration: none;
 	}
 	a[href]:after {

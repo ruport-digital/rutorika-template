@@ -1,6 +1,6 @@
 /* Lists Reset */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
-	padding: 0;
+	padding: 0; 
 	margin: 0;
 }
 .ie6 .u-listReset li {
