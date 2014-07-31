@@ -187,7 +187,7 @@ module.exports = function(grunt) {
 
 		sass: {
 			options: {
-				sourceComments: "map"
+				sourceMap: true
 			},
 			generateCSS: {
 				cwd: project.res.css.sass,
@@ -199,7 +199,9 @@ module.exports = function(grunt) {
 		},
 		autoprefixer: {
 			options: {
-				browsers: ["> 1%", "last 2 versions", "Firefox ESR", "Opera 12.1", "Explorer >= 7"]
+				browsers: ["> 1%", "last 2 versions", "Firefox ESR", "Opera 12.1", "Explorer >= 7"],
+				map: true,
+				cascade: false
 			},
 			prefixCSS: {
 				cwd: project.res.css.devDir,
@@ -225,16 +227,10 @@ module.exports = function(grunt) {
 				dest: project.res.js.dir + project.res.js.filename + ".js",
 			},
 			css: {
-				options: {
-					separator: "\n"
-				},
 				src: "<%= TASK.CSS_ARRAY %>",
 				dest: project.res.css.dir + project.res.css.filename + ".css"
 			},
 			cssIE: {
-				options: {
-					separator: "\n"
-				},
 				src: "<%= TASK.CSS_IE_ARRAY %>",
 				dest: project.res.css.dir + project.res.css.filename + "-IE.css"
 			}
