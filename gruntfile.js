@@ -451,7 +451,7 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			res: [project.res.css.dir + "*.css", project.res.js.dir + "*.js"],
+			res: [project.res.css.dir, project.res.js.dir],
 			build: [project.build.dir]
 		},
 		copy: {
