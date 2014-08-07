@@ -20,20 +20,20 @@ $(document).ready(function() {
 	var BODY = $("body");
 
 	$(".dTls-VRCheck").on("change", function(event) {
-		BODY.toggleClass("is-debug-rhythmLines");
+		BODY.toggleClass("page-is-showingRhythmLines");
 	});
 
 	$(".dTls-RGCheck").on("change", function(event) {
-		BODY.toggleClass("is-debug-responsiveGuide");
+		BODY.toggleClass("page-is-showingResponsiveGuide");
 	});
 
 	$(".dTls-CNSLCheck").on("change", function(event) {
-		BODY.toggleClass("is-debug-showConsole");
+		BODY.toggleClass("page-is-showingConsole");
 	});
 
 	$(".debugToolsToggle").on("click", function(event) {
 		event.preventDefault();
-		BODY.toggleClass("is-debug-on");
+		BODY.toggleClass("page-is-showingDebugTools");
 	});
 
 });

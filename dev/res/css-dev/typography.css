@@ -191,10 +191,8 @@ kbd {
 	padding: 0 .5em;
 	color: #333333;
 	background: #ededed;
-	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
 	border-radius: 3px;
-	-webkit-box-shadow: -2px -2px 2px #dadada inset;
 	box-shadow: -2px -2px 2px #dadada inset;
 	font-weight: bold;
 	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
@@ -313,7 +311,6 @@ input, select {
 }
 
 input[type="radio"], input[type="checkbox"] {
-	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	vertical-align: top;
@@ -324,7 +321,6 @@ input[type="file"] {
 	line-height: normal;
 }
 input[type="search"] {
-	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box; 
 	-webkit-appearance: textfield;
@@ -346,7 +342,6 @@ select[multiple] {
 
 .field, textarea {
 	border: 1px solid #9a9a9a;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset;
 }
 .field:focus, textarea:focus {
@@ -366,41 +361,34 @@ textarea {
 
 @-webkit-keyframes focusPulse {
 	0% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 
 	50% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 	}
 
 	100% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 }
 
 @keyframes focusPulse {
 	0% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 
 	50% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 	}
 
 	100% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 }
 
 hr {
 	display: block;
-	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box; 
 	height: 1px;

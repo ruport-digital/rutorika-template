@@ -6,16 +6,16 @@
 
 /* TX Debuging Styles */
 
-.is-debug-rhythmLines {
+.page-is-showingRhythmLines {
 	background: linear-gradient(to bottom, transparent, transparent $base-line-height - 1, #f00);
 	background-size: 100% $base-line-height;
 }
 
-.is-debug-responsiveGuide {
+.page-is-showingResponsiveGuide {
 	background: url(../../images/tx/tx-responsiveGuide.jpg);
 }
 
-.is-debug-rhythmLines, .is-debug-responsiveGuide {
+.page-is-showingRhythmLines, .page-is-showingResponsiveGuide {
 	.content {
 		background: none;
 	}
@@ -43,7 +43,7 @@
 	pointer-events: none;
 }
 
-.is-debug-showConsole {
+.page-is-showingConsole {
 
 	.debugConsole {
 		display: block;
@@ -88,14 +88,6 @@
 
 }
 
-.is-debug-on {
-
-	.debugTools {
-		transform: translate(0, 0);
-	}
-
-}
-
 .debugToolsToggle {
 	position: absolute;
 	top: 50%;
@@ -110,7 +102,11 @@
 	opacity: .75;
 }
 
-.is-debug-on {
+.page-is-showingDebugTools {
+
+	.debugTools {
+		transform: translate(0, 0);
+	}
 
 	.debugToolsToggle {
 		top: 5px;

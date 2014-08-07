@@ -1,9 +1,9 @@
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, acronym, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, form, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, applet, object, iframe, article, aside, figure, figcaption, footer, header, hgroup, menu, nav, section, time, mark, audio, video, canvas {
+html, body, div, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, acronym, big, cite, code, del, dfn, em, ins, kbd, small, strong, sub, sup, var, dl, dt, dd, ol, ul, li, form, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, section {
 	padding: 0;
 	border: none;
 	margin: 0;
 	background: none;
-	outline: none; 
+	outline: none;
 	font-weight: inherit;
 	font-style: inherit;
 	font-family: inherit;
@@ -15,16 +15,17 @@ html {
 	-webkit-overflow-scrolling: touch;
 }
 
-blockquote, q {
+blockquote {
 	quotes: none;
 }
-blockquote:before, blockquote:after, q:before, q:after {
+
+blockquote:before, blockquote:after {
 	content: "";
 	content: none;
 }
 
 table {
-	border-spacing: 0; 
+	border-spacing: 0;
 	border-collapse: collapse;
 }
 
@@ -38,58 +39,20 @@ ul, ol {
 	list-style: none;
 }
 
-article, aside, figure, figcaption, footer, header, hgroup, nav, section {
+section {
 	display: block;
 }
 
-input, button, select, textarea {
-	padding: 0; 
+input, select, textarea {
+	padding: 0;
 	margin: 0;
 }
 
-button, select {
+select {
 	text-transform: none;
 }
 
-/* Lists Reset */
-.u-listReset, .u-descriptionListReset {
-	padding: 0; 
-	margin: 0;
-}
 
-.u-listReset {
-	list-style: none outside;
-}
-.u-listReset > li {
-	padding: 0;
-	margin: 0;
-	background: none;
-}
-
-.u-descriptionListReset > dt, .u-descriptionListReset > dd {
-	padding: 0;
-	margin: 0;
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* Image Blocker */
-.u-imageBlocker {
-	background-image: none !important;
-}
-
-/* Visually Hidden */
-.u-visuallyHidden {
-	position: absolute;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	clip: rect(0 0 0 0); 
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	border: 0;
-	margin: -1px;
-}
 
 html {
 	font-size: 100%;
@@ -122,21 +85,25 @@ a {
 	color: #003b9e;
 	text-decoration: underline;
 }
+
 a:visited {
 	color: #000000;
 }
+
 a:hover {
 	color: #ff0000;
 }
+
 a:active {
 	color: #ff0000;
 }
+
 a:focus {
 	color: #000000;
 	outline: 1px dotted #939393;
 }
 
-label, button, .button {
+label, .button {
 	cursor: pointer;
 }
 
@@ -145,6 +112,7 @@ label {
 	border-style: dotted;
 	border-color: #939393;
 }
+
 label:focus {
 	border: none;
 	outline: 1px dotted #939393;
@@ -192,7 +160,7 @@ h6 {
 	line-height: 1.5em;
 }
 
-p, pre, dl, ul, ol, li, address, video, table {
+p, pre, dl, ul, ol, li, address, table {
 	margin: 1.5em 0;
 }
 
@@ -204,16 +172,16 @@ p, blockquote, li, dd {
 	hyphens: auto;
 }
 
-pre, code, samp, var, tt {
+pre, code, var {
 	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 }
 
-pre, code, samp, del {
+pre, code, del {
 	color: #686868;
 }
 
 pre {
-	overflow: hidden; 
+	overflow: hidden;
 	padding: 0 1.5em;
 	white-space: pre;
 	white-space: pre-wrap;
@@ -225,7 +193,7 @@ pre {
 	word-wrap: break-word;
 }
 
-blockquote, em, cite, q, i {
+blockquote, em, cite {
 	font-style: italic;
 }
 
@@ -256,15 +224,15 @@ ol {
 	list-style-type: decimal;
 }
 
-li ul, li ol {
+li ul {
 	margin: 1.5em 0 1.5em 1.5em;
 }
 
-strong, dfn, b, kbd, acronym, abbr, var {
+strong, dfn, kbd, acronym, abbr, var {
 	font-weight: bold;
 }
 
-acronym, abbr, ins, mark, del {
+acronym, abbr, ins, del {
 	border-width: 0 0 1px;
 	border-style: dotted;
 	border-color: #488dc6;
@@ -284,10 +252,8 @@ kbd {
 	padding: 0 .5em;
 	color: #333333;
 	background: #ededed;
-	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
 	border-radius: 3px;
-	-webkit-box-shadow: -2px -2px 2px #dadada inset;
 	box-shadow: -2px -2px 2px #dadada inset;
 	font-weight: bold;
 	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
@@ -301,7 +267,7 @@ var {
 	font-style: normal;
 }
 
-del, strike, s {
+del {
 	text-decoration: line-through;
 }
 
@@ -329,15 +295,6 @@ small {
 	line-height: 0;
 }
 
-u {
-	text-decoration: underline;
-}
-
-img {
-	max-width: 100%;
-	vertical-align: top;
-}
-
 caption {
 	padding: 0 0 .75em;
 	font-weight: bold;
@@ -349,7 +306,7 @@ table {
 }
 
 td, th {
-	padding: .6875em .5em .75em; 
+	padding: .6875em .5em .75em;
 	border: 1px solid black;
 }
 
@@ -370,35 +327,30 @@ legend {
 	font-weight: bold;
 }
 
-input, select, button, textarea {
+input, select, textarea {
 	font-size: 1em;
 	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 	line-height: 1.5em;
 }
 
-input, button, textarea {
+input, textarea {
 	padding: 0 .5em;
 }
 
-input, button {
+input {
 	height: 1.5em;
 	border: none;
 }
+
 input::-moz-focus-inner, button::-moz-focus-inner {
-	padding: 0; 
+	padding: 0;
 	border: 0;
 }
 
-input[type="reset"], input[type="submit"], button {
+input[type="reset"], input[type="submit"] {
 	overflow: visible;
 	width: auto;
 	cursor: pointer;
-}
-
-input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly] {
-	opacity: .5;
-	cursor: default;
-	cursor: not-allowed;
 }
 
 input, select {
@@ -406,42 +358,29 @@ input, select {
 }
 
 input[type="radio"], input[type="checkbox"] {
-	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	vertical-align: top;
-}
-input[type="file"] {
-	height: auto;
-	border: none;
-	line-height: normal;
-}
-input[type="search"] {
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box; 
-	-webkit-appearance: textfield;
-}
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
 }
 
 select {
 	height: 1.5em;
 	border: 1px solid #9a9a9a;
 }
+
 select:focus {
 	outline: 1px dotted #939393;
 }
+
 select[multiple] {
 	height: 7.525em;
 }
 
 .field, textarea {
 	border: 1px solid #9a9a9a;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset;
 }
+
 .field:focus, textarea:focus {
 	outline: none;
 	-webkit-animation: focusPulse 1.5s infinite;
@@ -453,116 +392,49 @@ select[multiple] {
 }
 
 textarea {
-	overflow: auto; 
+	overflow: auto;
 	height: 14.875em;
 }
 
 @-webkit-keyframes focusPulse {
 	0% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 
 	50% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 	}
 
 	100% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 }
 
 @keyframes focusPulse {
 	0% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 
 	50% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
 	}
 
 	100% {
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
 	}
 }
 
-hr {
-	display: block;
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box; 
-	height: 1px;
-	padding: 0;
-	border-width: 1px 0;
-	border-style: solid;
-	border-color: #c7ced6 black white;
-	margin: 1.5em 0 -1px;
-}
-
-/* Additional Decorative Styles */
-.alnLft {
-	text-align: left;
-}
-
-.alnRgt {
-	text-align: right;
-}
-
-.alnCnt {
-	text-align: center;
-}
-
-.alnJst {
-	text-align: justify;
-}
-
-.alnTop {
-	vertical-align: top;
-}
-
-.alnMdl {
-	vertical-align: middle;
-}
-
-.alnBtm {
-	vertical-align: bottom;
-}
-
-.fntBld {
-	font-weight: bold;
-}
-
-.fntItl {
-	font-style: italic;
-}
-
-.fntNrm {
-	font-weight: normal;
-	font-style: normal;
-}
-
-.blkClr {
-	clear: both;
-}
-
-.blkNClr {
-	clear: none;
-}
-
 /* Headings Counter */
+
 .hNumber:before {
 	position: relative;
 	content: counter(heading) ". ";
-	counter-increment: heading; 
+	counter-increment: heading;
 	display: inline-block;
 }
 
 /* High DPI Typography */
+
 @media only screen and (min-resolution: 1.25dppx), only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min--moz-device-pixel-ratio: 1.25), only screen and (-o-min-device-pixel-ratio: 5/4), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi) {
 	html {
 		text-rendering: optimizelegibility;
@@ -570,23 +442,15 @@ hr {
 }
 
 /* Phone Typography */
+
 @media handheld, only screen and (max-width: 720px) {
 	table, tr, th, td {
 		display: block;
 	}
 }
 
-@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx), only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3/2), only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {
-}
-
-/* Tablet Typography */
-@media only screen and (min-width: 721px) and (max-width: 1024px) {
-}
-
-@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3/2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
-}
-
 /* Print Typography */
+
 @media print {
 	@page {
 		margin: 0 .5cm;
@@ -595,99 +459,72 @@ hr {
 	a, acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
 		color: black;
-		outline: none; 
+		outline: none;
 		text-decoration: none;
 	}
+
 	a[href]:after {
 		content: " (" attr(href) ")";
 	}
-	a[href^="javascript:"]:after, a[href^="#"]:after {
-		content: "";
-	}
+
 	abbr[title]:after {
 		content: " (" attr(title) ")";
 	}
+
 	h1, h2, h3, h4, h5, h6 {
 		page-break-after: avoid;
 		orphans: 3;
 		widows: 3;
 	}
+
 	p {
 		orphans: 3;
 		widows: 3;
 	}
-	blockquote, pre, img, tr {
+
+	blockquote, pre, tr {
 		page-break-inside: avoid;
 	}
+
 	thead {
 		display: table-header-group;
 	}
 }
 
+
+
 html {
-	min-height: 90%;
+	min-height: 100%;
 }
 
 body {
 	position: relative;
 	overflow-x: auto;
 	overflow-y: scroll;
-	-ms-overflow-style: -ms-autohiding-scrollbar; 
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 	min-width: 980px;
 	min-height: 100%;
 	max-width: 1400px;
 	margin: 0 auto;
 }
 
-/* Header */
-.header {
-	position: relative;
-	z-index: 0;
-}
-
 /* Content */
+
 .content {
 	padding: 0 30px;
 }
+
 .content:after {
 	position: relative;
 	content: "";
 	display: block;
-	clear: both; 
+	clear: both;
 	height: 0;
 	font-size: 0;
 }
 
-/* Footer */
-.footer {
-	position: relative;
-	z-index: 0; 
-	clear: both;
-}
-
-/* High DPI Layout */
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
-}
-
-/* Large Resolution Layout */
-@media only screen and (min-width: 1382px) {
-}
-
-/* Phone Layout */
-@media handheld, only screen and (max-width: 720px) {
-}
-
-@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx), only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3/2), only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {
-}
-
-/* Tablet Layout */
-@media only screen and (min-width: 721px) and (max-width: 1024px) {
-}
-
-@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3/2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
-}
-
 /* Print Layout */
+
 @media print {
 	body {
 		max-width: none;
@@ -696,15 +533,4 @@ body {
 		color: black;
 		background: white;
 	}
-	.header, .footer {
-		display: none;
-	}
-}
-
-/* TV Layout */
-@media projection, tv {
-}
-
-/* Audio Layout */
-@media aural {
 }

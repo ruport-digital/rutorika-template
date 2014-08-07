@@ -16,6 +16,7 @@
 		"grunt-cssc": "*",
 		"grunt-contrib-cssmin": "*",
 		"grunt-uncss": "*",
+		"grunt-penthouse": "*",
 		"grunt-processhtml": "*",
 		"grunt-contrib-htmlmin": "*",
 		"grunt-datauri": "*",

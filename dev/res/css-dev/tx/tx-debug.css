@@ -1,15 +1,13 @@
 /* TX Debuging Styles */
-.is-debug-rhythmLines {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(23px, transparent), to(#f00));
+.page-is-showingRhythmLines {
   background: -webkit-linear-gradient(top, transparent, transparent 23px, #f00);
   background: linear-gradient(to bottom, transparent, transparent 23px, #f00);
-  -webkit-background-size: 100% 24px;
   background-size: 100% 24px; }
 
-.is-debug-responsiveGuide {
+.page-is-showingResponsiveGuide {
   background: url(../../images/tx/tx-responsiveGuide.jpg); }
 
-.is-debug-rhythmLines .content, .is-debug-responsiveGuide .content {
+.page-is-showingRhythmLines .content, .page-is-showingResponsiveGuide .content {
   background: none; }
 
 /* TX Debuging Console */
@@ -19,7 +17,6 @@
   left: 0;
   z-index: 99;
   display: none;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
@@ -32,7 +29,7 @@
   line-height: 1.5em;
   pointer-events: none; }
 
-.is-debug-showConsole .debugConsole {
+.page-is-showingConsole .debugConsole {
   display: block; }
 
 /* TX Debuging Controls */
@@ -41,8 +38,8 @@
   top: 0;
   right: -10px;
   width: 300px;
-  margin: 6em 0 0em;
-  padding: 4.5em 0 0em;
+  margin: 6em 0 0;
+  padding: 4.5em 0 0;
   color: white;
   background: rgba(0, 0, 0, 0.75);
   border-radius: 18px;
@@ -56,16 +53,11 @@
     position: relative;
     z-index: 2; }
   .debugTools li {
-    margin: 0em 0 1.5em 25px; }
+    margin: 0 0 1.5em 25px; }
   .debugTools label {
     border: none; }
   .debugTools input {
     margin: 0 0.5em 0 0; }
-
-.is-debug-on .debugTools {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0); }
 
 .debugToolsToggle {
   position: absolute;
@@ -81,7 +73,11 @@
   transition: all 0.5s;
   opacity: 0.75; }
 
-.is-debug-on .debugToolsToggle {
+.page-is-showingDebugTools .debugTools {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0); }
+.page-is-showingDebugTools .debugToolsToggle {
   top: 5px;
   left: 5px;
   width: 30px;
