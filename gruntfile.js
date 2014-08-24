@@ -33,55 +33,55 @@ function fillAnArray(ARRAY, PATH) {
 	return RESULT;
 }
 
-var project = {
-	init: function() {
-		this.title = TITLE;
-		this.language = LANGUAGE;
-		this.url = URL;
-		this.dir = DEVELOPMENT + "/";
-		this.images = this.dir + IMAGES + "/";
-		this.meta = META;
-		var TEMPLATES_DIR = this.dir + TEMPLATES + "/",
-				RESOURCES_DIR = this.dir + RESOURCES + "/";
-		this.templates = {
-			dir: TEMPLATES_DIR,
-			css: TEMPLATES_DIR + CSS_TEMPLATE,
-			js: TEMPLATES_DIR + JS_TEMPLATE
-		};
-		this.res = {
-			dir: RESOURCES_DIR + "/",
-			images: {
-				dir: RESOURCES_DIR + IMAGE_RESOURCES + "/",
-				dataURI: fillAnArray(DATA_URI, RESOURCES_DIR + IMAGE_RESOURCES + "/")
-			},
-			css: {
-				dir: RESOURCES_DIR + CSS + "/",
-				devDir: RESOURCES_DIR + CSS_DEV + "/",
-				sass: RESOURCES_DIR + SASS + "/",
-				filename: CSS_FILENAME,
-				critical: CSS_CRITICAL
-			},
-			js: {
-				dir: RESOURCES_DIR + JS + "/",
-				devDir: RESOURCES_DIR + JS_DEV + "/",
-				filename: JS_FILENAME
-			}
-		};
-		this.build = {
-			dir: BUILD + "/",
-			critical: {
-				page: CRITICAL_PAGE,
-				width: CRITICAL_WIDTH,
-				height: CRITICAL_HEIGHT
-			}
-		};
-		return this;
-	}
-}.init();
-
 module.exports = function(grunt) {
 
-	require('load-grunt-tasks')(grunt);
+	var project = {
+		init: function() {
+			this.title = TITLE;
+			this.language = LANGUAGE;
+			this.url = URL;
+			this.dir = DEVELOPMENT + "/";
+			this.images = this.dir + IMAGES + "/";
+			this.meta = META;
+			var TEMPLATES_DIR = this.dir + TEMPLATES + "/",
+					RESOURCES_DIR = this.dir + RESOURCES + "/";
+			this.templates = {
+				dir: TEMPLATES_DIR,
+				css: TEMPLATES_DIR + CSS_TEMPLATE,
+				js: TEMPLATES_DIR + JS_TEMPLATE
+			};
+			this.res = {
+				dir: RESOURCES_DIR,
+				images: {
+					dir: RESOURCES_DIR + IMAGE_RESOURCES + "/",
+					dataURI: fillAnArray(DATA_URI, RESOURCES_DIR + IMAGE_RESOURCES + "/")
+				},
+				css: {
+					dir: RESOURCES_DIR + CSS + "/",
+					devDir: RESOURCES_DIR + CSS_DEV + "/",
+					sass: RESOURCES_DIR + SASS + "/",
+					filename: CSS_FILENAME,
+					critical: CSS_CRITICAL
+				},
+				js: {
+					dir: RESOURCES_DIR + JS + "/",
+					devDir: RESOURCES_DIR + JS_DEV + "/",
+					filename: JS_FILENAME
+				}
+			};
+			this.build = {
+				dir: BUILD + "/",
+				critical: {
+					page: CRITICAL_PAGE,
+					width: CRITICAL_WIDTH,
+					height: CRITICAL_HEIGHT
+				}
+			};
+			return this;
+		}
+	}.init();
+
+	require("load-grunt-tasks")(grunt);
 
 	grunt.initConfig({
 		
@@ -293,13 +293,14 @@ module.exports = function(grunt) {
 						pattern: /.!-- @tx-css -->(.|\t|\s|\n)*?!-- \/@tx-css -->/gi,
 						replacement: {
 							checkIE: function() {
-								var cssfiles;
+								var CSS_FILES,
+										CSS_PATH = project.res.css.dir.replace(project.dir, "");
 								if (grunt.file.exists(project.res.css.dir + project.res.css.filename + "-IE.css")) {
-									cssfiles = '<link rel="stylesheet" type="text/css" href="' + project.res.css.dir.replace(project.dir, "") + project.res.css.filename + '.min.css">\n\t\t<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="' + project.res.css.dir.replace(project.dir, "") + project.res.css.filename + '-IE.min.css"> <![endif]-->';
+									CSS_FILES = '<link rel="stylesheet" type="text/css" href="' + CSS_PATH + project.res.css.filename + '.min.css">\n\t\t<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="' + CSS_PATH + project.res.css.filename + '-IE.min.css"> <![endif]-->';
 								} else {
-									cssfiles = '<link rel="stylesheet" type="text/css" href="' + project.res.css.dir.replace(project.dir, "") + project.res.css.filename + '.min.css">';
+									CSS_FILES = '<link rel="stylesheet" type="text/css" href="' + CSS_PATH + project.res.css.filename + '.min.css">';
 								}
-								return cssfiles;
+								return CSS_FILES;
 							}
 						}.checkIE()
 					},{
@@ -457,7 +458,7 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 				cwd: project.dir,
-				src: ["**", "!**/tx-*.*", "!**/templates/**", "!**/**-dev/**", "!**/tx/**"],
+				src: ["**/*.*", "!**/tx-*.*", "!**/templates/**", "!**/**-dev/**", "!**/tx/**"],
 				dest: project.build.dir,
 				expand: true
 			},
@@ -680,9 +681,9 @@ module.exports = function(grunt) {
 		} else {
 			var ERROR_MESSAGE = "";
 			if (CSS_EXPECTED > CSS_ACTUAL) {
-				ERROR_MESSAGE += "There's got to be more .css-files.";
+				ERROR_MESSAGE += "There's got to be more .css-files. ";
 			} else if (CSS_EXPECTED < CSS_ACTUAL) {
-				ERROR_MESSAGE += "Not all of the .css-files has been referenced.";
+				ERROR_MESSAGE += "Not all of the .css-files has been referenced. ";
 			}
 			if (CSS_IE_EXPECTED > CSS_IE_ACTUAL) {
 				ERROR_MESSAGE += "There's got to be more .css-files (IE).";
