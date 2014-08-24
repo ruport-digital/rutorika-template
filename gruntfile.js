@@ -745,7 +745,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("watch-project", ["concurrent"]);
 
-	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js"]);
+	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js", "imagemin:meta"]);
 
 	grunt.registerTask("critical", ["penthouse", "cssmin:cssMinCritical", "critical-cssInline"]);
 
