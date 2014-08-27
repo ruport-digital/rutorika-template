@@ -379,7 +379,7 @@ module.exports = function(grunt) {
 		uncss: {
 			cssOptimize: {
 				options: {
-					ignore: /(.)*-is-(.)*|(.)*-has-(.)*|(.)*-are-(.)*/,
+					ignore: [/(.)*-is-(.)*/, /(.)*-has-(.)*/, /(.)*-are-(.)*/],
 					stylesheets: [project.res.css.dir.replace(project.dir, "") + project.res.css.filename + ".css"]
 				},
 				files: {
