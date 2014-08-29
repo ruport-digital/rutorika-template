@@ -250,16 +250,16 @@ module.exports = function(grunt) {
 			commentsFirst: {
 				options: {
 					replacements: [{
-						pattern: /\/\*# sourceMappingURL(.|\t|\s|\n)*?\*\//gi,
+						pattern: /\/\*# sourceMappingURL(.|\t|\s|\r?\n|\r)*?\*\//gi,
 						replacement: ""
 					},{
-						pattern: /.media \-sass\-debug\-info(.|\t|\s|\n)*?\}\}/gi,
+						pattern: /.media \-sass\-debug\-info(.|\t|\s|\r?\n|\r)*?\}\}/gi,
 						replacement: ""
 					},{
-						pattern: /\*\s(.)*\*\/(\n)*$/g,
+						pattern: /\*\s(.)*\*\/(\r?\n|\r)*$/g,
 						replacement: ""
 					},{
-						pattern: /\*\s(.)*\*\/(\n)*\//g,
+						pattern: /\*\s(.)*\*\/(\r?\n|\r)*\//g,
 						replacement: ""
 					}]
 				},
@@ -270,10 +270,10 @@ module.exports = function(grunt) {
 			commentsSecond: {
 				options: {
 					replacements: [{
-						pattern: /(\n)*\/$/g,
+						pattern: /(\r?\n|\r)*\/$/g,
 						replacement: ""
 					},{
-						pattern: /\/\*(.)*\n{4}/g,
+						pattern: /\/\*(.)*(\r?\n|\r){4}/g,
 						replacement: ""
 					}]
 				},
@@ -290,7 +290,7 @@ module.exports = function(grunt) {
 						pattern: /@tx-language/gi,
 						replacement: project.language
 					},{
-						pattern: /.!-- @tx-css -->(.|\t|\s|\n)*?!-- \/@tx-css -->/gi,
+						pattern: /.!-- @tx-css -->(.|\t|\s|\r?\n|\r)*?!-- \/@tx-css -->/gi,
 						replacement: {
 							checkIE: function() {
 								var CSS_FILES,
@@ -304,7 +304,7 @@ module.exports = function(grunt) {
 							}
 						}.checkIE()
 					},{
-						pattern: /.!-- @tx-js -->(.|\t|\s|\n)*?!-- \/@tx-js -->/gi,
+						pattern: /.!-- @tx-js -->(.|\t|\s|\r?\n|\r)*?!-- \/@tx-js -->/gi,
 						replacement: '<script type="text/javascript" src="' + project.res.js.dir.replace(project.dir, "") + project.res.js.filename + '.min.js"></script>'
 					}]
 				},
@@ -644,12 +644,12 @@ module.exports = function(grunt) {
 		var CSS_DIR_REGEX = new RegExp("<link(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
 				CSS_IE_DIR_REGEX = new RegExp("<!--(.)*href=\"" + project.res.css.devDir.replace(project.dir, ""), "g"),
 				CSS_ALL = grunt.file.read(project.templates.css)
-					.replace(/(.|\t|\s|\n)*?<!-- @tx-css -->/, "")
-					.replace(/<!-- \/@tx-css -->(.|\t|\s|\n)*/, "")
+					.replace(/(.|\t|\s|\r?\n|\r)*?<!-- @tx-css -->/, "")
+					.replace(/<!-- \/@tx-css -->(.|\t|\s|\r?\n|\r)*/, "")
 					.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
 					.replace(/\t/g, ""),
 				CSS = CSS_ALL
-					.replace(/<!--(.|\t|\s|\n)*/, "")
+					.replace(/<!--(.|\t|\s|\r?\n|\r)*/, "")
 					.replace(CSS_DIR_REGEX, "")
 					.replace(/\r?\n|\r/g, "")
 					.replace(/">$/, ""),
@@ -697,11 +697,11 @@ module.exports = function(grunt) {
 	grunt.registerTask("process-js", "JS processing", function() {
 		var JS_DIR_REGEX = new RegExp("<script(.)*src=\"" + project.res.js.devDir.replace(project.dir, ""), "g"),
 				JS = grunt.file.read(project.templates.js)
-					.replace(/(.|\t|\s|\n)*?<!-- @tx-js -->/, "")
-					.replace(/<!-- \/@tx-js -->(.|\t|\s|\n)*/, "")
+					.replace(/(.|\t|\s|\r?\n|\r)*?<!-- @tx-js -->/, "")
+					.replace(/<!-- \/@tx-js -->(.|\t|\s|\r?\n|\r)*/, "")
 					.replace(/^\t(.)*tx\/tx-debug(.)*/gm, "")
 					.replace(/\t/g, "")
-					.replace(/<!--(.|\t|\s|\n)*/, "")
+					.replace(/<!--(.|\t|\s|\r?\n|\r)*/, "")
 					.replace(JS_DIR_REGEX, "")
 					.replace(/\r?\n|\r/g, "")
 					.replace(/"><\/script>$/, ""),
@@ -745,7 +745,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("watch-project", ["concurrent"]);
 
-	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js", "imagemin:meta"]);
+	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js"]);
 
 	grunt.registerTask("critical", ["penthouse", "cssmin:cssMinCritical", "critical-cssInline"]);
 
