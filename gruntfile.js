@@ -483,31 +483,22 @@ module.exports = function(grunt) {
 
 		imagemin: {
 			images: {
-				cwd: project.images,
-				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!tx/*.*"],
-				dest: project.images,
-				expand: true,
 				options: {
 					cache: false
-				}
-			},
-			res: {
-				cwd: project.res.images.dir,
+				},
+				cwd: project.dir,
 				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!tx/*.*"],
-				dest: project.res.images.dir,
-				expand: true,
-				options: {
-					cache: false
-				}
+				dest: project.dir,
+				expand: true
 			},
 			meta: {
-				cwd: project.meta,
-				src: ["*.{png,jpg,gif}"],
-				dest: project.meta,
-				expand: true,
 				options: {
 					cache: false
-				}
+				},
+				cwd: project.build.dir,
+				src: ["*.{png,jpg,gif}"],
+				dest: project.build.dir,
+				expand: true
 			}
 		},
 		imageoptim: {
@@ -516,19 +507,9 @@ module.exports = function(grunt) {
 					jpegMini: true,
 					quitAfter: true
 				},
-				cwd: project.images,
+				cwd: project.dir,
 				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!tx/*.*"],
-				dest: project.images,
-				expand: true
-			},
-			res: {
-				options: {
-					jpegMini: true,
-					quitAfter: true
-				},
-				cwd: project.res.images.dir,
-				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!tx/*.*"],
-				dest: project.res.images.dir,
+				dest: project.dir,
 				expand: true
 			},
 			meta: {
@@ -537,17 +518,17 @@ module.exports = function(grunt) {
 					imageAlpha: true,
 					quitAfter: true
 				},
-				cwd: project.meta,
+				cwd: project.build.dir,
 				src: ["*.{png,jpg,gif}"],
-				dest: project.meta,
+				dest: project.build.dir,
 				expand: true
 			}
 		},
 		svgmin: {
 			svg: {
-				cwd: project.res.images.dir,
+				cwd: project.dir,
 				src: ["**/*.svg"],
-				dest: project.res.images.dir,
+				dest: project.dir,
 				expand: true,
 			}
 		},
@@ -751,7 +732,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("build-commonFirst", ["compile", "clean:build", "copy:build", "copy:meta", "compress:cssGzip:", "compress:jsGzip:", "string-replace:build"]);
 
-	grunt.registerTask("build-commonSecond", ["htmlmin:cleanup", "compress:build"]);
+	grunt.registerTask("build-commonSecond", ["htmlmin:cleanup", "imagemin:meta", "compress:build"]);
 
 	grunt.registerTask("build", ["build-commonFirst", "build-commonSecond"]);
 
