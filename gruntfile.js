@@ -85,10 +85,6 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		
-		pkg: grunt.file.readJSON("package.json"),
-
-		buildEnv: grunt.file.readJSON(process.env.buildJSON),
-
 		datauri: {
 			options: {
 				classPrefix: "image-"
@@ -227,14 +223,14 @@ module.exports = function(grunt) {
 					separator: "\n\n"
 				},
 				src: [project.res.css.sass + "tx/_tx-projectImages-base64.scss", project.res.css.sass + "tx/_tx-projectImages-IE.scss"],
-				dest: project.res.css.sass + "tx/_tx-projectImages.scss",
+				dest: project.res.css.sass + "tx/_tx-projectImages.scss"
 			},
 			js: {
 				options: {
 					separator: "\n\n"
 				},
 				src: "<%= TASK.JS_ARRAY %>",
-				dest: project.res.js.dir + project.res.js.filename + ".js",
+				dest: project.res.js.dir + project.res.js.filename + ".js"
 			},
 			css: {
 				src: "<%= TASK.CSS_ARRAY %>",
@@ -405,7 +401,7 @@ module.exports = function(grunt) {
 			options: {
 				includeBase: project.templates.dir,
 				commentMarker: "@tx-process",
-				recursive: true,
+				recursive: true
 			},
 			templates: {
 				cwd: project.templates.dir,
@@ -514,7 +510,7 @@ module.exports = function(grunt) {
 				cwd: project.dir,
 				src: ["**/*.svg"],
 				dest: project.dir,
-				expand: true,
+				expand: true
 			}
 		},
 
