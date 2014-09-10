@@ -90,30 +90,30 @@ module.exports = function(grunt) {
 		buildEnv: grunt.file.readJSON(process.env.buildJSON),
 
 		datauri: {
+			options: {
+				classPrefix: "image-"
+			},
 			resImages: {
-				options: {
-					classPrefix: "image-"
-				},
 				src: project.res.images.dataURI,
 				dest: project.res.css.sass + "tx/_tx-projectImages-base64.scss"
 			}
 		},
 
 		htmlhint: {
+			options: {
+				"tagname-lowercase": true,
+				"attr-lowercase": true,
+				"attr-value-double-quotes": true,
+				"doctype-first": true,
+				"tag-pair": true,
+				"spec-char-escape": true,
+				"id-unique": true,
+				"src-not-empty": true,
+				"id-class-value": true,
+				"style-disabled": true,
+				"img-alt-require": true
+			},
 			htmlHint: {
-				options: {
-					"tagname-lowercase": true,
-					"attr-lowercase": true,
-					"attr-value-double-quotes": true,
-					"doctype-first": true,
-					"tag-pair": true,
-					"spec-char-escape": true,
-					"id-unique": true,
-					"src-not-empty": true,
-					"id-class-value": true,
-					"style-disabled": true,
-					"img-alt-require": true
-				},
 				cwd: project.dir,
 				src: ["*.html"],
 				expand: true,
@@ -121,15 +121,15 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint: {
+			options: {
+				"evil": true,
+				"regexdash": true,
+				"browser": true,
+				"wsh": true,
+				"trailing": true,
+				"sub": true
+			},
 			jsHint: {
-				options: {
-					"evil": true,
-					"regexdash": true,
-					"browser": true,
-					"wsh": true,
-					"trailing": true,
-					"sub": true
-				},
 				cwd: project.res.js.devDir,
 				src: ["*.js"],
 				expand: true,
@@ -137,40 +137,40 @@ module.exports = function(grunt) {
 			}
 		},
 		csslint: {
+			options: {
+				"adjoining-classes": false,
+				"box-model": false,
+				"box-sizing": false,
+				"compatible-vendor-prefixes": "warning",
+				"display-property-grouping": true,
+				"duplicate-background-images": false,
+				"duplicate-properties": true,
+				"empty-rules": true,
+				"errors": true,
+				"fallback-colors": false,
+				"floats": "warning",
+				"font-faces": "warning",
+				"font-sizes": "warning",
+				"gradients": "warning",
+				"ids": "warning",
+				"import": "warning",
+				"important": "warning",
+				"known-properties": true,
+				"outline-none": "warning",
+				"overqualified-elements": "warning",
+				"qualified-headings": "warning",
+				"regex-selectors": "warning",
+				"rules-count": "warning",
+				"shorthand": "warning",
+				"star-property-hack": "warning",
+				"text-indent": "warning",
+				"underscore-property-hack": "warning",
+				"unique-headings": "warning",
+				"universal-selector": "warning",
+				"vendor-prefix": true,
+				"zero-units": false
+			},
 			cssLint: {
-				options: {
-					"adjoining-classes": false,
-					"box-model": false,
-					"box-sizing": false,
-					"compatible-vendor-prefixes": "warning",
-					"display-property-grouping": true,
-					"duplicate-background-images": false,
-					"duplicate-properties": true,
-					"empty-rules": true,
-					"errors": true,
-					"fallback-colors": false,
-					"floats": "warning",
-					"font-faces": "warning",
-					"font-sizes": "warning",
-					"gradients": "warning",
-					"ids": "warning",
-					"import": "warning",
-					"important": "warning",
-					"known-properties": true,
-					"outline-none": "warning",
-					"overqualified-elements": "warning",
-					"qualified-headings": "warning",
-					"regex-selectors": "warning",
-					"rules-count": "warning",
-					"shorthand": "warning",
-					"star-property-hack": "warning",
-					"text-indent": "warning",
-					"underscore-property-hack": "warning",
-					"unique-headings": "warning",
-					"universal-selector": "warning",
-					"vendor-prefix": true,
-					"zero-units": false
-				},
 				cwd: project.res.css.devDir,
 				src: ["*.css"],
 				expand: true,
@@ -319,15 +319,13 @@ module.exports = function(grunt) {
 				cwd: project.res.js.dir,
 				src: ["*.js"],
 				dest: project.res.js.dir,
-				expand: true,
-				flatten: true
+				expand: true
 			},
 			jsDevClean: {
-				cwd: project.res.js.dev,
+				cwd: project.res.js.devDir,
 				src: ["*.js"],
-				dest: project.res.js.dev,
-				expand: true,
-				flatten: true
+				dest: project.res.js.devDir,
+				expand: true
 			}
 		},
 		uglify: {
@@ -339,8 +337,7 @@ module.exports = function(grunt) {
 				src: ["*.js"],
 				dest: project.res.js.dir,
 				ext: ".min.js",
-				expand: true,
-				flatten: true
+				expand: true
 			}
 		},
 
@@ -352,15 +349,13 @@ module.exports = function(grunt) {
 				cwd: project.res.css.dir,
 				src: ["*.css"],
 				dest: project.res.css.dir,
-				expand: true,
-				flatten: true
+				expand: true
 			},
 			cssSortDev: {
 				cwd: project.res.css.devDir,
 				src: ["*.css"],
 				dest: project.res.css.devDir,
-				expand: true,
-				flatten: true
+				expand: true
 			}
 		},
 		cssc: {
@@ -372,8 +367,7 @@ module.exports = function(grunt) {
 				src: ["*.css"],
 				dest: project.res.css.dir,
 				ext: ".min.css",
-				expand: true,
-				flatten: true
+				expand: true
 			}
 		},
 		uncss: {
@@ -396,16 +390,14 @@ module.exports = function(grunt) {
 				cwd: project.res.css.dir,
 				src: ["*.min.css"],
 				dest: project.res.css.dir,
-				expand: true,
-				flatten: true
+				expand: true
 			},
 			cssMinCritical: {
 				cwd: project.res.css.dir,
 				src: [project.res.css.critical + ".css"],
 				dest: project.res.css.dir,
 				ext: ".min.css",
-				expand: true,
-				flatten: true
+				expand: true
 			}
 		},
 
@@ -419,8 +411,8 @@ module.exports = function(grunt) {
 				cwd: project.templates.dir,
 				src: ["*.tmp.html", "!_*.html"],
 				dest: project.dir,
-				expand: true,
-				ext: ".html"
+				ext: ".html",
+				expand: true
 			}
 		},
 
@@ -466,8 +458,7 @@ module.exports = function(grunt) {
 				cwd: project.meta,
 				src: ["**/*.{ico,png,jpg,gif,txt}"],
 				dest: project.build.dir,
-				expand: true,
-				flatten: true
+				expand: true
 			}
 		},
 
@@ -483,18 +474,12 @@ module.exports = function(grunt) {
 
 		imagemin: {
 			images: {
-				options: {
-					cache: false
-				},
 				cwd: project.dir,
 				src: ["**/*.{png,jpg,gif}", "!**/tx-*.*", "!tx/*.*"],
 				dest: project.dir,
 				expand: true
 			},
 			meta: {
-				options: {
-					cache: false
-				},
 				cwd: project.build.dir,
 				src: ["*.{png,jpg,gif}"],
 				dest: project.build.dir,
@@ -694,7 +679,7 @@ module.exports = function(grunt) {
 				grunt.log.writeln("No .js-files to process.");
 			} else {
 				grunt.config.set("TASK.JS_ARRAY", fillAnArray(JS_ARRAY, project.res.js.devDir));
-				grunt.task.run(["concat:js", "removelogging:jsClean", "uglify"]);
+				grunt.task.run(["concat:js", "removelogging", "uglify"]);
 			}
 		} else {
 			if (JS_EXPECTED > JS_ACTUAL) {
