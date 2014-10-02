@@ -112,8 +112,7 @@ module.exports = function(grunt) {
 			htmlHint: {
 				cwd: project.dir,
 				src: ["*.html"],
-				expand: true,
-				flatten: true
+				expand: true
 			}
 		},
 		jshint: {
@@ -126,10 +125,9 @@ module.exports = function(grunt) {
 				"sub": true
 			},
 			jsHint: {
-				cwd: project.res.js.devDir,
-				src: ["*.js"],
-				expand: true,
-				flatten: true
+				cwd: project.res.js.dir,
+				src: ["*.js", "!*.min.js"],
+				expand: true
 			}
 		},
 		csslint: {
@@ -137,13 +135,13 @@ module.exports = function(grunt) {
 				"adjoining-classes": false,
 				"box-model": false,
 				"box-sizing": false,
-				"compatible-vendor-prefixes": "warning",
+				"compatible-vendor-prefixes": false,
 				"display-property-grouping": true,
 				"duplicate-background-images": false,
 				"duplicate-properties": true,
 				"empty-rules": true,
 				"errors": true,
-				"fallback-colors": false,
+				"fallback-colors": true,
 				"floats": "warning",
 				"font-faces": "warning",
 				"font-sizes": "warning",
@@ -161,16 +159,57 @@ module.exports = function(grunt) {
 				"star-property-hack": "warning",
 				"text-indent": "warning",
 				"underscore-property-hack": "warning",
-				"unique-headings": "warning",
+				"unique-headings": false,
 				"universal-selector": "warning",
 				"vendor-prefix": true,
 				"zero-units": false
 			},
 			cssLint: {
-				cwd: project.res.css.devDir,
-				src: ["*.css"],
-				expand: true,
-				flatten: true
+				cwd: project.res.css.dir,
+				src: ["*.min.css", "!*-IE.min.css"],
+				expand: true
+			}
+		},
+		analyzecss: {
+			options: {
+				outputMetrics: "error",
+				softFail: true,
+				thresholds: {
+					"base64Length": 9308,
+					"redundantBodySelectors": 0,
+					"comments": 1,
+					"commentsLength": 68,
+					"complexSelectors": 32,
+					"complexSelectorsByAttribute": 3,
+					"duplicatedSelectors": 7,
+					"emptyRules": 0,
+					"expressions": 0,
+					"oldIEFixes": 51,
+					"imports": 0,
+					"importants": 3,
+					"mediaQueries": 4,
+					"oldPropertyPrefixes": 65,
+					"qualifiedSelectors": 28,
+					"specificityIdAvg": 0.05,
+					"specificityIdTotal": 35,
+					"specificityClassAvg": 1.25,
+					"specificityClassTotal": 872,
+					"specificityTagAvg": 0.78,
+					"specificityTagTotal": 548,
+					"selectorsByAttribute": 93,
+					"selectorsByClass": 568,
+					"selectorsById": 35,
+					"selectorsByPseudo": 166,
+					"selectorsByTag": 519,
+					"universalSelectors": 4,
+					"length": 51665,
+					"rules": 422,
+					"selectors": 699,
+					"declarations": 1240
+				}
+			},
+			ananlyzeCSS: {
+				sources: [project.res.css.dir + project.res.css.filename + ".min.css"]
 			}
 		},
 		yslow: {
@@ -211,7 +250,7 @@ module.exports = function(grunt) {
 			},
 			prefixCSS: {
 				cwd: project.res.css.devDir,
-				src: ["**/*.css"],
+				src: ["**/*.css", "!**/*-IE.css"],
 				dest: project.res.css.devDir,
 				expand: true
 			}
@@ -355,9 +394,6 @@ module.exports = function(grunt) {
 			}
 		},
 		cssc: {
-			options: {
-					consolidateViaSelectors: true
-			},
 			cssOptimize: {
 				cwd: project.res.css.dir,
 				src: ["*.css"],
@@ -695,7 +731,7 @@ module.exports = function(grunt) {
 		grunt.file.write(PAGE_PATH, PAGE);
 	});
 
-	grunt.registerTask("lint", ["htmlhint", "jshint", "csslint"]);
+	grunt.registerTask("lint", ["htmlhint", "jshint", "csslint", "analyzecss"]);
 
 	grunt.registerTask("test", ["yslow"]);
 

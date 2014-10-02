@@ -64,6 +64,9 @@ label {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	text-rendering: optimizelegibility;
+	page-break-after: avoid;
+	orphans: 3;
+	widows: 3;
 }
 
 h1 {
@@ -284,6 +287,9 @@ input[type="reset"], input[type="submit"], button {
 	width: auto;
 	overflow: visible;
 	cursor: pointer;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
 input, select, textarea {
@@ -314,11 +320,15 @@ input {
 	}
 
 	&[type="search"] {
+		-moz-appearance: textfield;
 		-webkit-appearance: textfield;
+		appearance: textfield;
 		box-sizing: content-box;
 
 		&::-webkit-search-cancel-button, &::-webkit-search-decoration {
+			-moz-appearance: none;
 			-webkit-appearance: none;
+			appearance: none;
 		}
 
 	}
@@ -428,19 +438,34 @@ hr {
 		margin: 0 .5cm;
 	}
 
+	body {
+		width: 100%;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+		color: #000;
+		background: #fff;
+		font-size: 16pt;
+	}
+
 	a, acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
 		color: black;
 		text-decoration: none;
-		outline: none;
 	}
 
 	a {
+		color: #000;
+
+		&:visited {
+			color: #000;
+		}
 
 		&[href] {
 
 			&:after {
 				content: " (" attr(href) ")";
+				font-size: 90%;
 			}
 
 		}
@@ -461,12 +486,6 @@ hr {
 			content: " (" attr(title) ")";
 		}
 
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		page-break-after: avoid;
-		orphans: 3;
-		widows: 3;
 	}
 
 	p {

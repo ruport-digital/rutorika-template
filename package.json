@@ -6,6 +6,7 @@
 		"grunt-htmlhint": "*",
 		"grunt-contrib-jshint": "*",
 		"grunt-contrib-csslint": "*",
+		"grunt-contrib-analyze-css": "*",
 		"grunt-yslow": "*",
 		"grunt-contrib-concat": "*",
 		"grunt-remove-logging": "*",

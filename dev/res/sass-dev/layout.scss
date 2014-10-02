@@ -87,14 +87,6 @@ body {
 
 @media print {
 
-	body {
-		max-width: none;
-		margin: 0 10px;
-		padding: 0;
-		color: black;
-		background: white;
-	}
-
 	.header, .footer {
 		display: none;
 	}

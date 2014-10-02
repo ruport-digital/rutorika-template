@@ -3,7 +3,6 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, a
 	border: none;
 	margin: 0;
 	background: none;
-	outline: none;
 	font-weight: inherit;
 	font-style: inherit;
 	font-family: inherit;
@@ -120,6 +119,9 @@ label:focus {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
+	page-break-after: avoid;
+	orphans: 3;
+	widows: 3;
 
 	text-rendering: optimizelegibility;
 }
@@ -351,6 +353,9 @@ input[type="reset"], input[type="submit"] {
 	overflow: visible;
 	width: auto;
 	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 input, select {
@@ -456,25 +461,37 @@ textarea {
 		margin: 0 .5cm;
 	}
 
+	body {
+		width: 100%;
+		max-width: none;
+		padding: 0;
+		margin: 0;
+		color: #000000;
+		background: #ffffff;
+		font-size: 16pt;
+	}
+
 	a, acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
 		color: black;
-		outline: none;
 		text-decoration: none;
+	}
+
+	a {
+		color: #000000;
+	}
+
+	a:visited {
+		color: #000000;
 	}
 
 	a[href]:after {
 		content: " (" attr(href) ")";
+		font-size: 90%;
 	}
 
 	abbr[title]:after {
 		content: " (" attr(title) ")";
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		page-break-after: avoid;
-		orphans: 3;
-		widows: 3;
 	}
 
 	p {
@@ -521,16 +538,4 @@ body {
 	clear: both;
 	height: 0;
 	font-size: 0;
-}
-
-/* Print Layout */
-
-@media print {
-	body {
-		max-width: none;
-		padding: 0;
-		margin: 0 10px;
-		color: black;
-		background: white;
-	}
 }
