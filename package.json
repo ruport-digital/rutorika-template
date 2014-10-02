@@ -11,7 +11,7 @@
 		"grunt-contrib-concat": "*",
 		"grunt-remove-logging": "*",
 		"grunt-contrib-uglify": "*",
-		"grunt-sass": "~0.12.1",
+		"grunt-sass": "*",
 		"grunt-autoprefixer": "*",
 		"grunt-csscomb": "*",
 		"grunt-cssc": "*",

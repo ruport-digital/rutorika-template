@@ -232,7 +232,8 @@ module.exports = function(grunt) {
 
 		sass: {
 			options: {
-				sourceMap: true
+				sourceMap: true,
+				precision: 5
 			},
 			generateCSS: {
 				cwd: project.res.css.sass,
