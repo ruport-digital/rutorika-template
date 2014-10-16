@@ -478,16 +478,7 @@ hr {
 	}
 }
 
-@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx), only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3/2), only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {
-}
-
 /* Tablet Typography */
-@media only screen and (min-width: 721px) and (max-width: 1024px) {
-}
-
-@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3/2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
-}
-
 /* Print Typography */
 @media print {
 	@page {
@@ -503,11 +494,13 @@ hr {
 		background: #ffffff;
 		font-size: 16pt;
 	}
+
 	a, acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
 		color: black;
 		text-decoration: none;
 	}
+
 	a {
 		color: #000000;
 	}
@@ -521,16 +514,20 @@ hr {
 	a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: "";
 	}
+
 	abbr[title]:after {
 		content: " (" attr(title) ")";
 	}
+
 	p {
 		orphans: 3;
 		widows: 3;
 	}
+
 	blockquote, pre, img, tr {
 		page-break-inside: avoid;
 	}
+
 	thead {
 		display: table-header-group;
 	}

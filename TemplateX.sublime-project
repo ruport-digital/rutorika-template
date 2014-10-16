@@ -8,14 +8,7 @@
 			],
 			"folder_exclude_patterns":
 			[
-				"build",
-				"design",
-				"dev",
-				"sources",
-				"meta",
-				".git",
-				"node_modules",
-				".sass-cache"
+				"*"
 			],
 			"file_exclude_patterns":
 			[
