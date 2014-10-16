@@ -317,7 +317,6 @@ input, select {
 }
 
 input[type="radio"], input[type="checkbox"] {
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	vertical-align: top;
 }
@@ -327,7 +326,6 @@ input[type="file"] {
 	line-height: normal;
 }
 input[type="search"] {
-	-moz-box-sizing: content-box;
 	box-sizing: content-box; 
 	-webkit-appearance: textfield;
 	-moz-appearance: textfield;
@@ -399,7 +397,6 @@ textarea {
 
 hr {
 	display: block;
-	-moz-box-sizing: content-box;
 	box-sizing: content-box; 
 	height: 1px;
 	padding: 0;
@@ -538,4 +535,5 @@ hr {
 		display: table-header-group;
 	}
 }
+
 /*# sourceMappingURL=typography.css.map */

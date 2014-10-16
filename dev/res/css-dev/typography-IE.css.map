@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "file": "",
-  "sources": ["dev/res/sass-dev/typography-IE.scss","dev/res/sass-dev/tx/_tx.scss","dev/res/sass-dev/tx/_tx-project.scss","dev/res/sass-dev/tx/_tx-projectImages.scss"],
-  "names": [],
-  "mappings": "AAQA;EAKC,YAAY;;AAGb,KAAK,mBAAmB,KAAK;EAG3B,OAAO;EACP,QAAQ;;AAKV,KAAK,OAAO,KAAK,QAAQ,KAAK;EAG5B,QAAQ;AACV,KAAK;EAGH,MAAM;AACR,KAAK,IAAI,KAAK,aAAa;EAGzB,YAAY;AACd,KAAK,IAAI,KAAK,aAAa;EAGzB,YAAY;AAKd,KAAK,aAAa,GAAG;ECiElB,QAA2B;ADrD9B,KAAK,wBAAwB,GAAG;ECyE7B,QAAQ;ADrEX,KAAK,wBAAwB,GAAG;ECwE7B,QAAQ;EDpEP,YAAY;AAKhB,KAAK;EAGH,gBAAgB"
-}

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "file": "",
-  "sources": ["dev/res/sass-dev/layout-IE.scss","dev/res/sass-dev/tx/_tx.scss","dev/res/sass-dev/tx/_tx-project.scss","dev/res/sass-dev/tx/_tx-projectImages.scss"],
-  "names": [],
-  "mappings": ";AAcA;ECqME,SAAS;;;AD7LX,KAAK;EAEH,MAAM;;AAIR;EACC,MAAM"
-}

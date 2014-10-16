@@ -7,7 +7,6 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
-
 /* Lists Reset */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
 	padding: 0; 
@@ -25,7 +24,6 @@ img {
 	font-weight: normal;
 	font-style: normal;
 }
-
 
 dfn {
 	font-style: normal;
@@ -61,7 +59,6 @@ input[type="checkbox"], input[type="radio"] {
 .ie6 input {
 	vertical-align: text-bottom;
 }
-
 
 /* inline-block */
 fieldset {

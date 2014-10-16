@@ -1,0 +1,58 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				".gitignore"
+			],
+			"folder_exclude_patterns":
+			[
+				"build",
+				"design",
+				"dev",
+				"sources",
+				"meta",
+				".git",
+				"node_modules",
+				".sass-cache"
+			],
+			"file_exclude_patterns":
+			[
+				"*.zip",
+				"*.sublime-project"
+			],
+			"follow_symlinks": true,
+			"name": "TemplateX: Project",
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"name": "TemplateX: HTML",
+			"path": "dev/templates"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "TemplateX: Sass",
+			"path": "dev/res/sass-dev"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "TemplateX: JavaScript",
+			"path": "dev/res/js-dev"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				"*.jpg",
+				"*.gif",
+				"*.png",
+				"*.ico",
+				"*.svg"
+			],
+			"follow_symlinks": true,
+			"name": "TemplateX: Meta",
+			"path": "meta"
+		}
+	]
+}

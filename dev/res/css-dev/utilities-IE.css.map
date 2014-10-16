@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "file": "",
-  "sources": ["dev/res/sass-dev/utilities-IE.scss"],
-  "names": [],
-  "mappings": ";AAMA,KAAK,cAAc,KAAK;EAGtB,QAAQ;EACR,SAAS;AAGX,KAAK,aAAa;EAGf,QAAQ;EACR,SAAS;EACT,YAAY;EACZ,YAAY;AAKf,KAAK,wBAAwB,IAAI,KAAK,wBAAwB;EAG3D,QAAQ;EACR,SAAS;EACT,aAAa;EACb,YAAY"
-}
