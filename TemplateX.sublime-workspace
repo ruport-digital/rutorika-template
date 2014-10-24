@@ -11,23 +11,35 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 312.0,
 		"selected_items":
 		[
 			[
-				"remo",
-				"Package Control: Remove Package"
+				"insta",
+				"Package Control: Install Package"
 			],
 			[
-				"ins",
+				"add",
+				"Package Control: Add Repository"
+			],
+			[
+				"pac",
 				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
 			],
 			[
 				"remove",
 				"Package Control: Remove Package"
 			],
 			[
-				"insta",
+				"ins",
 				"Package Control: Install Package"
 			],
 			[
@@ -51,15 +63,11 @@
 				"Package Control: List Packages"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"packa",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 528.0
+		"width": 514.0
 	},
 	"console":
 	{
@@ -83,28 +91,39 @@
 	],
 	"file_history":
 	[
+		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/Projects/Projects/TemplateX/dev/templates/_script.html",
+		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/Origami/Default (Windows).sublime-keymap",
+		"/D/Projects/Projects/TemplateX/dev/templates/typographyGuide.tmp.html",
+		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/User/reg_replace.sublime-settings",
+		"/D/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss",
+		"/D/Projects/Projects/TemplateX/README.md",
+		"/D/Projects/Projects/TemplateX/meta/robots.txt",
+		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/AutoFileName/autofilename.sublime-settings",
+		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/RegReplace/reg_replace.sublime-settings",
+		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/User/GitGutter.sublime-settings",
+		"/D/Projects/Projects/TemplateX/TemplateX.sublime-project",
+		"/D/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss",
+		"/D/Projects/Projects/TemplateX/LICENSE.md",
 		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/User/Side Bar.sublime-settings",
 		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
 		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
 		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
 		"/D/Projects/Projects/TemplateX/dev/res/sass-dev/tx/_tx-project.scss",
 		"/D/Projects/Projects/TemplateX/dev/res/sass-dev/typography.scss",
-		"/D/Projects/Projects/TemplateX/TemplateX.sublime-project",
 		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/User/GutterColor.sublime-settings",
 		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/Gutter Color/GutterColor.sublime-settings",
 		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/D/Projects/Projects/TemplateX/dev/res/js-dev/ui.js",
 		"/D/Projects/Projects/TemplateX/dev/res/js-dev/utilites.js",
 		"/D/Projects/Projects/TemplateX/csscombConfig.json",
-		"/C/Users/uncle Fucka/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/D/Projects/Projects/TemplateX/meta/humans.txt",
-		"/D/Projects/Projects/TemplateX/README.md",
-		"/D/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss",
 		"/D/Projects/Projects/TemplateX/package.json"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -143,7 +162,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -179,7 +198,7 @@
 	"project": "TemplateX.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
