@@ -6,6 +6,7 @@ build
 design
 node_modules
 /*.zip
+*.sublime-workspace
 
 
 #################

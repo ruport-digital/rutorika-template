@@ -1,13 +1,18 @@
 /* inline-block */
+/* line 15, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout-IE.scss */
 fieldset {
 	display: inline-block;
 }
 
 /* zoom */
+/* line 24, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout-IE.scss */
 .ie6 .content {
 	zoom: 1;
 }
 
+/* line 29, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout-IE.scss */
 .footer {
 	zoom: 1;
 }
+
+/*# sourceMappingURL=layout-IE.css.map */

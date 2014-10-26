@@ -1,8 +1,12 @@
+/* line 7, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/reset-IE.scss */
 html.ie6 {
 	filter: expression(document.execCommand('BackgroundImageCache', false, true));
 }
 
 /* Image Interpolation */
+/* line 17, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/reset-IE.scss */
 img {
 	-ms-interpolation-mode: bicubic;
 }
+
+/*# sourceMappingURL=reset-IE.css.map */

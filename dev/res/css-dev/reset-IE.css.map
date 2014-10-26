@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "file": "reset-IE.css",
+  "sources": ["..\/sass-dev\/reset-IE.scss"],
+  "names": [],
+  "mappings": ";AAIA,IAAI;EAGF,QAAQ;;;;AASV;EACC,wBAAwB"
+}
