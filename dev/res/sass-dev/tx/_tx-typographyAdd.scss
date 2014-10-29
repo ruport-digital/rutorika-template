@@ -1,7 +1,5 @@
 /* Additional Decorative Styles */
 
-
-
 .alnLft {
 	text-align: left;
 }
@@ -60,8 +58,7 @@
 	&:before {
 		position: relative;
 		@include tx-inline-block;
-		content: counter(heading) ". ";
-		counter-increment: heading;
+		@include tx-counter(heading);
 	}
 
 }

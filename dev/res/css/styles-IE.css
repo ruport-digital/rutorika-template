@@ -1,27 +1,25 @@
-/* line 7, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/reset-IE.scss */
+/* Image Flicker Fix */
 html.ie6 {
 	filter: expression(document.execCommand('BackgroundImageCache', false, true));
 }
 
-/* line 17, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/reset-IE.scss */
+/* Image Interpolation */
 img {
 	-ms-interpolation-mode: bicubic;
 }
 
 
-/* line 9, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
+/* Lists Reset (Internet Explorer < 8) */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
 	padding: 0; 
 	margin: 0;
 }
-/* line 16, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
 .ie6 .u-listReset li {
 	padding: 0;
 	margin: 0;
 	background: none;
 	list-style: none outside;
 }
-/* line 27, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
 	padding: 0;
 	margin: 0;
@@ -30,63 +28,54 @@ img {
 }
 
 
-/* line 13, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
+/* Typography & Rhythm (Internet Explorer < 8) */
 dfn {
 	font-style: normal;
 }
 
-/* line 19, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 input[type="checkbox"], input[type="radio"] {
 	width: 13px;
 	height: 13px;
 }
 
-/* line 28, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 label, .ie6 button, .ie6 .button {
 	cursor: hand;
 }
-/* line 32, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 pre {
 	zoom: 1;
 }
-/* line 36, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 ul, .ie6 .u-listReset ul {
 	list-style: disc outside;
 }
-/* line 40, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 ol, .ie6 .u-listReset ol {
 	list-style: decimal outside;
 }
-/* line 48, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-listReset li li {
 	margin: 1.5em 0;
 }
-/* line 60, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-descriptionListReset dl dt {
 	margin: 1.5em 0 0;
 }
-/* line 64, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-descriptionListReset dl dd {
 	margin: 0 0 1.5em 1.5em;
 	font-style: italic;
 }
-/* line 73, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 input {
 	vertical-align: text-bottom;
 }
 
 
-/* line 15, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout-IE.scss */
+/* inline-block */
 fieldset {
 	display: inline-block;
 }
 
-/* line 24, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout-IE.scss */
+/* zoom */
 .ie6 .content {
 	zoom: 1;
 }
 
-/* line 29, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout-IE.scss */
 .footer {
 	zoom: 1;
 }
+

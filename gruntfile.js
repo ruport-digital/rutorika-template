@@ -246,7 +246,6 @@ module.exports = function(grunt) {
 		autoprefixer: {
 			options: {
 				browsers: ["> 1%", "last 2 versions", "Firefox ESR", "Opera 12.1", "Explorer >= 7"],
-				map: true,
 				cascade: false
 			},
 			prefixCSS: {
@@ -286,6 +285,9 @@ module.exports = function(grunt) {
 			commentsFirst: {
 				options: {
 					replacements: [{
+						pattern: /\/\* line \d*, .* \*\/(\r?\n|\r)*/g,
+						replacement: ""
+					},{
 						pattern: /\/\*# sourceMappingURL(.|\t|\s|\r?\n|\r)*?\*\//gi,
 						replacement: ""
 					},{
@@ -346,6 +348,20 @@ module.exports = function(grunt) {
 				},
 				files: {
 					"./": [project.build.dir + "*.html"],
+				}
+			},
+			critical: {
+				options: {
+					replacements: [{
+						pattern: /(\r?\n|\r)$/g,
+						replacement: ""
+					},{
+						pattern: /(\r?\n|\r){5}/g,
+						replacement: "\n\n"
+					}]
+				},
+				files: {
+					"./": [project.res.css.dir + project.res.css.critical + ".css"],
 				}
 			}
 		},
@@ -746,7 +762,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js"]);
 
-	grunt.registerTask("critical", ["penthouse", "cssmin:cssMinCritical", "critical-cssInline"]);
+	grunt.registerTask("critical", ["penthouse", "string-replace:critical", "cssmin:cssMinCritical", "critical-cssInline"]);
 
 	grunt.registerTask("build-commonFirst", ["compile", "clean:build", "copy:build", "copy:meta", "compress:cssGzip:", "compress:jsGzip:", "string-replace:build"]);
 

@@ -1,24 +1,39 @@
-// Project Variables
-
-$font-size: 16px;
-$line-height: 24px;
+// Base Properties
 
 $sans-font: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 $serif-font: Cambria, Georgia, Times, "Times New Roman", serif;
 $monospace-font: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 
-$text: #000;
-$text-alt: #333;
-$text-ins: #488dc6;
-$text-code: #d00837;
-$link: #003b9e;
-$visited: #000;
-$hover: #f00;
-$active: #f00;
-$focus: #000;
-$focus-outline: #939393;
+$white: #fff;
+$black: #000;
+$gray: #333;
+$grayLight: #939393;
+$red: #f00;
+$redDark: #d00837;
+$blue: #003b9e;
+$blueLight: #488dc6;
 
-$background: #fff;
+// Project Properties
+
+$font-size: 16px;
+$line-height: 24px;
+
+$font: $sans-font;
+$font-alt: $serif-font;
+$font-mono: $monospace-font;
+
+$text: $black;
+$text-alt: $gray;
+$text-ins: $blueLight;
+$text-code: $redDark;
+$link: $blue;
+$visited: $link;
+$hover: $red;
+$active: $red;
+$focus: $text;
+$focus-outline: $grayLight;
+
+$background: $white;
 
 $h1-font-size: $font-size * 2;
 $h2-font-size: $font-size * 1.5;
@@ -35,10 +50,10 @@ $tx-ie: false;
 
 
 
-// TX Variables
+// TX Properties
 
 $browser-font-size: 16px;
 $font-unit: 1em;
 $base-font-size: $font-size;
 $base-line-height: $line-height;
-$grid-background-baseline-color: rgba(0, 102, 255, .25);
+$grid-background-baseline-color: rgba($blue, .25);

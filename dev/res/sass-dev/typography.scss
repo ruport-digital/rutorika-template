@@ -8,16 +8,18 @@
 
 
 
+/* Typography & Rhythm */
+
 html {
 	@include tx-baseline;
 	@include tx-font-adjustment;
 }
 
 body {
-	counter-reset: heading;
+	@include tx-counter-reset(heading);
 	color: $text;
 	background: $background;
-	font-family: $sans-font;
+	font-family: $font;
 }
 
 @include tx-selection-style;
@@ -99,7 +101,7 @@ h6 {
 	@include tx-font-size($h6-font-size, 1);
 }
 
-p, pre, dl, ul, ol, li, address, video, table {
+p, pre, dl, ul, ol, li, address, video, audio, table {
 	@include tx-rhythm(1, 1);
 }
 
@@ -108,11 +110,11 @@ p, blockquote, li, dd {
 }
 
 pre, code, samp, var, tt {
-	font-family: $monospace-font;
+	font-family: $font-mono;
 }
 
 pre, code, samp, del {
-	color: #686868;
+	color: $text-code;
 }
 
 pre {
@@ -127,7 +129,7 @@ blockquote, em, cite, q, i {
 
 blockquote {
 	@include tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em);
-	font-family: $serif-font;
+	font-family: $font-alt;
 }
 
 address {
@@ -179,15 +181,16 @@ acronym, abbr {
 }
 
 kbd {
+	$kbd-bg: $grayLight;
+
 	@include tx-inline-block;
 	@include tx-grid-height(1);
 	padding: 0 .5em;
 	border-radius: 3px;
 	background-clip: padding-box;
-	box-shadow: -2px -2px 2px #dadada inset;
 	color: $text-alt;
-	background: #ededed;
-	font-family: $monospace-font;
+	background: $kbd-bg;
+	font-family: $font-mono;
 	font-weight: bold;
 	letter-spacing: .1em;
 	vertical-align: top;
@@ -232,6 +235,66 @@ img {
 	vertical-align: top;
 }
 
+video {
+
+	&::-webkit-media-controls-play-button {
+
+	}
+
+	&::-webkit-media-controls-timeline {
+
+	}
+
+	&::-webkit-media-controls-current-time-display{
+
+	}
+
+	&::-webkit-media-controls-time-remaining-display {
+
+	}
+
+	&::-webkit-media-controls-fullscreen-button {
+
+	}
+
+	&::-webkit-media-controls-toggle-closed-captions-button {
+
+	}
+
+	&::-webkit-media-controls-mute-button {
+
+	}
+
+	&::-webkit-media-controls-volume-slider {
+
+	}
+
+}
+
+audio {
+
+	&::-webkit-media-controls-play-button {
+
+	}
+
+	&::-webkit-media-controls-timeline {
+
+	}
+
+	&::-webkit-media-controls-current-time-display{
+
+	}
+
+	&::-webkit-media-controls-time-remaining-display {
+
+	}
+
+	&::-webkit-media-controls-volume-slider {
+
+	}
+
+}
+
 caption {
 	@include tx-rhythm-padding(0, .5);
 	font-weight: bold;
@@ -264,7 +327,7 @@ legend {
 }
 
 input, select, button, textarea {
-	font-family: $sans-font;
+	font-family: $font;
 	@include tx-font-size($font-size, 1);
 }
 
@@ -281,15 +344,6 @@ input, button {
 		padding: 0;
 	}
 
-}
-
-input[type="reset"], input[type="submit"], button {
-	width: auto;
-	overflow: visible;
-	cursor: pointer;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
 }
 
 input, select, textarea {
@@ -335,23 +389,34 @@ input {
 
 }
 
-select {
-	@include tx-form-height(1, 0);
-	border: 1px solid #9a9a9a;
 
-	&:focus {
-		outline: 1px dotted $focus-outline;
-	}
+input[type="reset"], input[type="submit"], button {
+	width: auto;
+	overflow: visible;
+	cursor: pointer;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
 
-	&[multiple] {
-		@include tx-form-height(5.1);
+input[type="number"] {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
 	}
 
 }
 
+.field, textarea, select {
+	$field-border: $grayLight;
+
+	border: 1px solid $field-border;
+}
+
 .field, textarea {
-	border: 1px solid #9a9a9a;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset;
 
 	&:focus {
 		outline: none;
@@ -370,15 +435,31 @@ textarea {
 }
 
 @keyframes focusPulse {
+	$focusPulse-shadow: $blueLight;
+
 	0% {
-		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
+		box-shadow: 0 0 4px 1px $focusPulse-shadow;
 	}
 	50% {
-		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 8px 1px #8ac7ff;
+		box-shadow: 0 0 8px 1px $focusPulse-shadow;
 	}
 	100% {
-		box-shadow: 0 1px 2px rgba(0, 0, 0, .25) inset, 0 0 4px 1px #8ac7ff;
+		box-shadow: 0 0 4px 1px $focusPulse-shadow;
 	}
+
+}
+
+select {
+	@include tx-form-height(1, 0);
+
+	&:focus {
+		outline: 1px dotted $focus-outline;
+	}
+
+	&[multiple] {
+		@include tx-form-height(5.1);
+	}
+
 }
 
 hr {
@@ -388,7 +469,7 @@ hr {
 	padding: 0;
 	border-width: 1px 0;
 	border-style: solid;
-	border-color: #c7ced6 black white;
+	border-color: $text;
 	box-sizing: content-box;
 }
 
@@ -398,7 +479,7 @@ hr {
 
 /* High DPI Typography */
 
-@media only screen and (min-resolution: 1.25dppx), only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min--moz-device-pixel-ratio: 1.25), only screen and (-o-min-device-pixel-ratio: 5 / 4), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi) {
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {
 
 	html {
 		text-rendering: optimizelegibility;
@@ -418,7 +499,7 @@ hr {
 
 }
 
-@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {}
+@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min-resolution: 150dpi) {}
 
 
 
@@ -426,13 +507,16 @@ hr {
 
 @media only screen and (min-width: 721px) and (max-width: 1024px) {}
 
-@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {}
+@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 150dpi) {}
 
 
 
 /* Print Typography */
 
 @media print {
+
+	$print-color: $black;
+	$print-bg: $white;
 
 	@page {
 		margin: 0 .5cm;
@@ -443,22 +527,22 @@ hr {
 		max-width: none;
 		margin: 0;
 		padding: 0;
-		color: #000;
-		background: #fff;
+		color: $print-color;
+		background: $print-bg;
 		font-size: 16pt;
 	}
 
 	a, acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
-		color: black;
+		color: $print-color;
 		text-decoration: none;
 	}
 
 	a {
-		color: #000;
+		color: $print-color;
 
 		&:visited {
-			color: #000;
+			color: $print-color;
 		}
 
 		&[href] {

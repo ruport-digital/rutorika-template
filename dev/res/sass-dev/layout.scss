@@ -8,6 +8,8 @@
 
 
 
+/* Layout Base */
+
 html {
 	min-height: 100%;
 }
@@ -57,7 +59,7 @@ body {
 
 /* High DPI Layout */
 
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {}
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {}
 
 
 
@@ -71,7 +73,7 @@ body {
 
 @media handheld, only screen and (max-width: 720px) {}
 
-@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5) {}
+@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min-resolution: 150dpi) {}
 
 
 
@@ -79,7 +81,7 @@ body {
 
 @media only screen and (min-width: 721px) and (max-width: 1024px) {}
 
-@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {}
+@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 150dpi) {}
 
 
 

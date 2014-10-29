@@ -1,17 +1,17 @@
-/* Lists Reset */
-/* line 9, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
+/* Lists Reset (Internet Explorer < 8) */
+/* line 9, D:/Projects/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
 	padding: 0; 
 	margin: 0;
 }
-/* line 16, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
+/* line 16, D:/Projects/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
 .ie6 .u-listReset li {
 	padding: 0;
 	margin: 0;
 	background: none;
 	list-style: none outside;
 }
-/* line 27, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
+/* line 27, D:/Projects/Projects/TemplateX/dev/res/sass-dev/utilities-IE.scss */
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
 	padding: 0;
 	margin: 0;

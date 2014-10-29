@@ -274,6 +274,19 @@
 
 
 
+@mixin tx-counter-reset($cntr) {
+	counter-reset: $cntr;
+}
+
+
+
+@mixin tx-counter($cntr, $divider: ". ") {
+	content: counter($cntr) quote($divider);
+	counter-increment: $cntr;
+}
+
+
+
 @function rhythm($ln: 1, $fz: $font-size, $offset: 0) {
 	$result: $font-unit * ($ln * $base-line-height - $offset) / $fz;
 	@return $result;
