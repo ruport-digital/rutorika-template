@@ -3,5 +3,5 @@
   "file": "reset-IE.css",
   "sources": ["..\/sass-dev\/reset-IE.scss"],
   "names": [],
-  "mappings": ";;AAMA,IAAI;EAGF,QAAQ;;;;AASV;EACC,wBAAwB"
+  "mappings": ";AAMA,IAAI;EAGF,QAAQ;;;AASV;EACC,wBAAwB"
 }

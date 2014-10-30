@@ -77,11 +77,6 @@ body {
 	background: blue;
 }
 
-::-moz-selection {
-	color: white;
-	background: blue;
-}
-
 ::selection {
 	color: white;
 	background: blue;
@@ -237,7 +232,7 @@ li ul {
 	margin: 1.5em 0 1.5em 1.5em;
 }
 
-strong, dfn, b, kbd, acronym, abbr, var {
+strong, dfn, kbd, acronym, abbr, var {
 	font-weight: bold;
 }
 
@@ -547,9 +542,4 @@ body {
 	clear: both;
 	height: 0;
 	font-size: 0;
-}
-
-/* Print Layout */
-
-@media print {
 }

@@ -741,8 +741,8 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("critical-cssInline", "Injecting critical CSS", function() {
 		var CRITICAL_CSS_REGEX = new RegExp("<(.)*" + project.res.css.filename + ".min.css(.)*>", "g"),
-				CRITICAL_CSS = "<style>" + grunt.file.read(project.res.css.dir + project.res.css.critical + ".min.css") + "</style>",
-				CSS_LOAD = '\t<script>function loadCSS(FILE) { var LINK = window.document.createElement("link"), HEAD = window.document.getElementsByTagName("head")[0]; LINK.rel = "stylesheet"; LINK.href = FILE; LINK.media = "only x"; HEAD.parentNode.insertBefore(LINK, HEAD); setTimeout( function(){ LINK.media = "all"; }, 0); } loadCSS("' + project.res.css.dir.replace(project.dir, "") + project.res.css.filename + '.min.css");</script>\n\t</body>',
+				CRITICAL_CSS = "<style type=\"text/css\">" + grunt.file.read(project.res.css.dir + project.res.css.critical + ".min.css") + "</style>",
+				CSS_LOAD = '\t<script type="text/javascript">function loadCSS(a){function e(){for(var d,f=0,g=c.length,f=0;g>f;f++)c[f].href&&c[f].href.indexOf(a)>-1&&(d=!0);d?b.media="all":setTimeout(e)}var b=window.document.createElement("link"),c=window.document.styleSheets,d=window.document.getElementsByTagName("style")[0];return b.rel="stylesheet",b.type="text/css",b.href=a,b.media="only x",d.parentNode.insertBefore(b,d.nextSibling),e(),b}loadCSS("' + project.res.css.dir.replace(project.dir, "") + project.res.css.filename + '.min.css");</script>\n\t</body>',
 				PAGE_PATH = project.build.dir + project.build.critical.page,
 				PAGE = grunt.file.read(PAGE_PATH).replace(CRITICAL_CSS_REGEX, CRITICAL_CSS).replace("</body>", CSS_LOAD);
 		grunt.file.write(PAGE_PATH, PAGE);

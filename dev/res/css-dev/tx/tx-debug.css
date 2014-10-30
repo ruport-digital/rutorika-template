@@ -1,20 +1,16 @@
 /* TX Debuging Styles */
-/* line 9, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingRhythmLines {
   background: -webkit-linear-gradient(top, transparent, transparent 23px, #f00);
   background: linear-gradient(to bottom, transparent, transparent 23px, #f00);
   background-size: 100% 24px; }
 
-/* line 14, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingResponsiveGuide {
   background: url(../../images/tx/tx-responsiveGuide.jpg); }
 
-/* line 19, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingRhythmLines .content, .page-is-showingResponsiveGuide .content {
   background: none; }
 
 /* TX Debuging Console */
-/* line 28, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .debugConsole {
   position: fixed;
   top: 0;
@@ -32,12 +28,10 @@
   line-height: 1.5em;
   pointer-events: none; }
 
-/* line 48, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingConsole .debugConsole {
   display: block; }
 
 /* TX Debuging Controls */
-/* line 58, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .debugTools {
   position: fixed;
   top: 0;
@@ -54,21 +48,16 @@
   -webkit-transform: translate(290px, 0);
   -ms-transform: translate(290px, 0);
   transform: translate(290px, 0); }
-  /* line 72, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools ul {
     position: relative;
     z-index: 2; }
-  /* line 77, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools li {
     margin: 0 0 1.5em 25px; }
-  /* line 81, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools label {
     border: none; }
-  /* line 85, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools input {
     margin: 0 0.5em 0 0; }
 
-/* line 91, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .debugToolsToggle {
   position: absolute;
   top: 50%;
@@ -83,12 +72,10 @@
   transition: all 0.5s;
   opacity: 0.75; }
 
-/* line 107, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingDebugTools .debugTools {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0); }
-/* line 111, D:/Projects/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingDebugTools .debugToolsToggle {
   top: 5px;
   left: 5px;

@@ -1,45 +1,35 @@
 /* Typography & Rhythm (Internet Explorer < 8) */
-/* line 15, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 dfn {
 	font-style: normal;
 }
 
-/* line 21, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 input[type="checkbox"], input[type="radio"] {
 	width: 13px;
 	height: 13px;
 }
 
-/* line 30, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 label, .ie6 button, .ie6 .button {
 	cursor: hand;
 }
-/* line 34, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 pre {
 	zoom: 1;
 }
-/* line 38, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 ul, .ie6 .u-listReset ul {
 	list-style: disc outside;
 }
-/* line 42, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 ol, .ie6 .u-listReset ol {
 	list-style: decimal outside;
 }
-/* line 50, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-listReset li li {
 	margin: 1.5em 0;
 }
-/* line 62, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-descriptionListReset dl dt {
 	margin: 1.5em 0 0;
 }
-/* line 66, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-descriptionListReset dl dd {
 	margin: 0 0 1.5em 1.5em;
 	font-style: italic;
 }
-/* line 75, D:/Projects/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 input {
 	vertical-align: text-bottom;
 }

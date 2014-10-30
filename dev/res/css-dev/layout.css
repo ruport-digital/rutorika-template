@@ -1,10 +1,8 @@
 /* Layout Base */
-/* line 13, D:/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 html {
 	min-height: 100%;
 }
 
-/* line 17, D:/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 body {
 	position: relative;
 	overflow-x: auto;
@@ -17,18 +15,15 @@ body {
 }
 
 /* Header */
-/* line 27, D:/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 .header {
 	position: relative;
 	z-index: 0;
 }
 
 /* Content */
-/* line 36, D:/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 .content {
 	padding: 0 30px;
 }
-/* line 39, D:/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 .content:after {
 	position: relative;
 	content: "";
@@ -39,7 +34,6 @@ body {
 }
 
 /* Footer */
-/* line 52, D:/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 .footer {
 	position: relative;
 	z-index: 0; 
@@ -52,7 +46,6 @@ body {
 /* Tablet Layout */
 /* Print Layout */
 @media print {
-	/* line 92, D:/Projects/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 	.header, .footer {
 		display: none;
 	}
