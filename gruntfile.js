@@ -475,19 +475,8 @@ module.exports = function(grunt) {
 					removeEmptyAttributes: true
 				},
 				cwd: project.build.dir,
-				src: ["*.html", "!*.min.html"],
+				src: ["*.html"],
 				dest: project.build.dir,
-				expand: true
-			},
-			minify: {
-				options: {
-					collapseWhitespace: true,
-					removeAttributeQuotes: true,
-				},
-				cwd: project.build.dir,
-				src: ["*.html", "!_*.html", "!*.min.html"],
-				dest: project.build.dir,
-				ext: ".min.html",
 				expand: true
 			}
 		},
