@@ -1,6 +1,6 @@
 //Gruntfile for the TemplateX Project
 
-var TITLE							= "TemplateX Project",			// Title
+var TITLE							= "TemplateX",							// Title
 		LANGUAGE					= "ru",											// Language
 		BUILD_DIR					= "build",									// Project Build
 		META_DIR					= "meta",										// Meta Content
@@ -241,7 +241,7 @@ module.exports = function(grunt) {
 				options: {
 					replacements: [{
 						pattern: /@tx-title/gi,
-						replacement: project.title
+						replacement: project.title + " Project"
 					},{
 						pattern: /@tx-language/gi,
 						replacement: project.language
