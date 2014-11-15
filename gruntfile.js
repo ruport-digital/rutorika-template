@@ -356,9 +356,7 @@ module.exports = function(grunt) {
 			}
 		},
 		cssc: {
-			options: {
-				consolidateViaSelectors: false
-			},
+			options: grunt.file.readJSON(".csscrc"),
 			cssOptimize: {
 				cwd: project.res.css.dir,
 				src: ["*.css"],
