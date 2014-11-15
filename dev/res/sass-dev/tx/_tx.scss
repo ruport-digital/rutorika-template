@@ -7,7 +7,9 @@
 
 @mixin tx-font-size($fzn, $ln: 1, $fzo: $font-size) {
 	font-size: $font-unit * $fzn / $fzo;
-	line-height: rhythm($ln, $fz: $fzn);
+	@if $ln != none {
+		line-height: rhythm($ln, $fz: $fzn);
+	}
 }
 
 

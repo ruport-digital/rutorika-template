@@ -1,7 +1,1 @@
-{
-  "version": 3,
-  "file": "ui.css",
-  "sources": ["..\/sass-dev\/ui.scss","..\/sass-dev\/tx\/_tx.scss","..\/sass-dev\/tx\/_tx-project.scss","..\/sass-dev\/tx\/_tx-projectImages.scss"],
-  "names": [],
-  "mappings": ""
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"ui.css"}
