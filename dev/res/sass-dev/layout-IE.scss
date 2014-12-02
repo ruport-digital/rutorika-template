@@ -10,22 +10,12 @@ $tx-ie: true;
 
 
 
-/* inline-block */
-
-fieldset {
-	@include tx-inline-block;
-}
-
-
-
 /* zoom */
 
 .ie6 {
+
 	.content {
 		zoom: 1;
 	}
-}
 
-.footer {
-	zoom: 1;
 }

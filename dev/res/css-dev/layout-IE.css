@@ -1,14 +1,5 @@
-/* inline-block */
-fieldset {
-	display: inline-block;
-}
-
 /* zoom */
 .ie6 .content {
-	zoom: 1;
-}
-
-.footer {
 	zoom: 1;
 }
 

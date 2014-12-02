@@ -5,35 +5,37 @@ $serif-font: Cambria, Georgia, Times, "Times New Roman", serif;
 $monospace-font: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 
 $white: #fff;
-$black: #000;
-$gray: #333;
-$grayLight: #939393;
 $red: #f00;
 $redDark: #d00837;
 $blue: #003b9e;
 $blueLight: #488dc6;
+$gray: #333;
+$grayLight: #939393;
+$black: #000;
 
-// Project Properties
 
-$font-size: 16px;
-$line-height: 24px;
 
-$font: $sans-font;
-$font-alt: $serif-font;
-$font-mono: $monospace-font;
+// Project Base Properties
+
+$min-width: 980px;
 
 $text: $black;
-$text-alt: $gray;
-$text-ins: $blueLight;
-$text-code: $redDark;
 $link: $blue;
 $visited: $link;
 $hover: $red;
 $active: $red;
-$focus: $text;
 $focus-outline: $grayLight;
 
 $background: $white;
+
+$font: $sans-font;
+$font-mono: $monospace-font;
+$font-size: 16px;
+$line-height: 24px;
+
+
+
+// Project Properties
 
 $h1-font-size: $font-size * 2;
 $h2-font-size: $font-size * 1.5;
@@ -42,7 +44,8 @@ $h4-font-size: $font-size * 1.25;
 $h5-font-size: $font-size * 1.125;
 $h6-font-size: $font-size;
 
-$spts: url(../images/sprites.png) no-repeat;
+$spts-image: url(../images/sprites.png);
+$spts: $spts-image no-repeat;
 
 $gap: 30px;
 

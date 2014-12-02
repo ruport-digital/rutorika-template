@@ -12,8 +12,16 @@ $tx-ie: true;
 
 /* Typography & Rhythm (Internet Explorer < 8) */
 
+.ie6 {
+	filter: unquote("expression(document.execCommand('BackgroundImageCache', false, true))");
+}
+
 dfn {
 	font-style: normal;
+}
+
+img {
+	-ms-interpolation-mode: bicubic;
 }
 
 input {

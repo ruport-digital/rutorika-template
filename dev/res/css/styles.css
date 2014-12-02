@@ -1,60 +1,3 @@
-/* CSS Baseline */
-
-html, body, div, h1, h2, h3, h4, h5, h6, p, address, blockquote, pre, a, abbr, acronym, big, cite, code, del, dfn, em, ins, kbd, small, strong, sub, sup, var, dl, dt, dd, ol, ul, li, form, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, section {
-	padding: 0;
-	border: none;
-	margin: 0;
-	background: none;
-	font-weight: inherit;
-	font-style: inherit;
-	font-family: inherit;
-	line-height: inherit;
-	vertical-align: baseline;
-}
-
-html {
-	-webkit-overflow-scrolling: touch;
-}
-
-blockquote {
-	quotes: none;
-}
-
-blockquote:before, blockquote:after {
-	content: "";
-	content: none;
-}
-
-table {
-	border-spacing: 0;
-	border-collapse: collapse;
-}
-
-caption, th, td {
-	font-weight: normal;
-	text-align: left;
-	vertical-align: middle;
-}
-
-ul, ol {
-	list-style: none;
-}
-
-section {
-	display: block;
-}
-
-input, select, textarea {
-	padding: 0;
-	margin: 0;
-}
-
-select {
-	text-transform: none;
-}
-
-
-
 /* Typography & Rhythm */
 
 html {
@@ -63,25 +6,28 @@ html {
 }
 
 body {
-	counter-reset: heading;
 	color: #000000;
 	background: #ffffff;
 	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
 ::-webkit-selection {
-	color: white;
-	background: blue;
+	color: #ffffff;
+	background: #0000ff;
 }
 
 ::-moz-selection {
-	color: white;
-	background: blue;
+	color: #ffffff;
+	background: #0000ff;
 }
 
 ::selection {
-	color: white;
-	background: blue;
+	color: #ffffff;
+	background: #0000ff;
+}
+
+section {
+	display: block;
 }
 
 a {
@@ -102,7 +48,6 @@ a:active {
 }
 
 a:focus {
-	color: #000000;
 	outline: 1px dotted #939393;
 }
 
@@ -111,9 +56,7 @@ label, .button {
 }
 
 label {
-	border-width: 0 0 1px;
-	border-style: dotted;
-	border-color: #939393;
+	border-bottom: 1px dotted #939393;
 }
 
 label:focus {
@@ -182,7 +125,7 @@ pre, code, var {
 	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 }
 
-pre, code, del {
+pre, code, var {
 	color: #d00837;
 }
 
@@ -204,8 +147,16 @@ blockquote, em, cite {
 }
 
 blockquote {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after {
+	content: "";
+	content: none;
+}
+
+blockquote {
 	margin: 1.5em 3em;
-	font-family: Cambria, Georgia, Times, "Times New Roman", serif;
 }
 
 address {
@@ -239,17 +190,23 @@ strong, dfn, kbd, acronym, abbr, var {
 }
 
 acronym, abbr, ins, del {
-	border-width: 0 0 1px;
-	border-style: dotted;
-	border-color: #488dc6;
-	color: #488dc6;
 	text-decoration: none;
 	cursor: help;
+}
+
+acronym, abbr, ins {
+	border-bottom: 1px dotted #488dc6;
+	color: #488dc6;
 }
 
 acronym, abbr {
 	margin: 0 -.075em 0 0;
 	letter-spacing: .075em;
+}
+
+del {
+	border-bottom: 1px dotted #d00837;
+	color: #d00837;
 }
 
 kbd {
@@ -303,42 +260,47 @@ small {
 caption {
 	padding: 0 0 .75em;
 	font-weight: bold;
+	text-align: left;
 }
 
 table {
 	width: 100%;
-	table-layout: fixed;
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 td, th {
 	padding: .6875em .5em .75em;
-	border: 1px solid black;
+	border: 1px solid #939393;
 }
 
 th {
 	font-weight: bold;
+	text-align: left;
 }
 
 fieldset {
-	padding: .75em 0 0;
+	padding: 0;
+	border: none;
 }
 
 legend {
 	position: relative;
 	left: -1.5em;
 	padding: 0 1.5em;
-	color: white;
-	background: black;
+	background: #939393;
 	font-weight: bold;
 }
 
 input, select, textarea {
+	margin: 0;
 	font-size: 1em;
 	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 	line-height: 1.5em;
 }
 
 input, textarea {
+	box-sizing: content-box;
 	padding: 0 .5em;
 }
 
@@ -356,38 +318,21 @@ input, select {
 	vertical-align: top;
 }
 
-input[type="radio"], input[type="checkbox"] {
-	box-sizing: border-box;
-	vertical-align: top;
-}
-
-input[type="reset"], input[type="submit"] {
-	overflow: visible;
-	width: auto;
-	cursor: pointer;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-input[type="number"] {
-	-webkit-appearance: textfield;
-	-moz-appearance: textfield;
-	appearance: textfield;
+select {
+	text-transform: none;
 }
 
 .field, textarea, select {
+	display: block;
 	border: 1px solid #939393;
-}
-
-.field:focus, textarea:focus {
-	outline: none;
-	-webkit-animation: focusPulse 1.5s infinite;
-	animation: focusPulse 1.5s infinite;
 }
 
 .field {
 	height: 1.375em;
+}
+
+.field-search {
+	height: 2.875em;
 }
 
 textarea {
@@ -395,53 +340,12 @@ textarea {
 	height: 14.875em;
 }
 
-@-webkit-keyframes focusPulse {
-	0% {
-		box-shadow: 0 0 4px 1px #488dc6;
-	}
-
-	50% {
-		box-shadow: 0 0 8px 1px #488dc6;
-	}
-
-	100% {
-		box-shadow: 0 0 4px 1px #488dc6;
-	}
-}
-
-@keyframes focusPulse {
-	0% {
-		box-shadow: 0 0 4px 1px #488dc6;
-	}
-
-	50% {
-		box-shadow: 0 0 8px 1px #488dc6;
-	}
-
-	100% {
-		box-shadow: 0 0 4px 1px #488dc6;
-	}
-}
-
 select {
 	height: 1.5em;
 }
 
-select:focus {
-	outline: 1px dotted #939393;
-}
-
 select[multiple] {
 	height: 7.525em;
-}
-
-/* Headings Counter */
-
-.hNumber:before {
-	position: relative;
-	content: counter(heading) ". ";
-	counter-increment: heading;
-	display: inline-block;
 }
 
 /* High DPI Typography */
@@ -477,23 +381,24 @@ select[multiple] {
 		font-size: 16pt;
 	}
 
-	a, acronym, abbr, ins, del, var, input, select, textarea {
-		border: none;
+	a {
 		color: #000000;
 		text-decoration: none;
 	}
 
-	a {
-		color: #000000;
+	a:after {
+		content: " (" attr(href) ")";
+		font-size: 90%;
 	}
 
 	a:visited {
 		color: #000000;
 	}
 
-	a[href]:after {
-		content: " (" attr(href) ")";
-		font-size: 90%;
+	acronym, abbr, ins, del, var, input, select, textarea {
+		border: none;
+		color: #000000;
+		text-decoration: none;
 	}
 
 	abbr[title]:after {
@@ -520,6 +425,8 @@ select[multiple] {
 
 html {
 	min-height: 100%;
+
+	-webkit-overflow-scrolling: touch;
 }
 
 body {

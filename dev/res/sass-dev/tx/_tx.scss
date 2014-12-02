@@ -1,79 +1,23 @@
-@mixin tx-baseline($fz: $base-font-size) {
-	font-size: 100% * $fz / $browser-font-size;
-	line-height: rhythm($fz: $fz);
-}
+// Page Boundaries
 
-
-
-@mixin tx-font-size($fzn, $ln: 1, $fzo: $font-size) {
-	font-size: $font-unit * $fzn / $fzo;
-	@if $ln != none {
-		line-height: rhythm($ln, $fz: $fzn);
+@mixin tx-set-boundaries($minw: 980px, $maxw: 1400px, $minh: 100%, $center: true) {
+	@if $minw != none and $minw != 0 {
+		min-width: $minw;
+	}
+	@if $maxw != none and $maxw != 0 {
+		max-width: $maxw;
+	}
+	@if $minh != none and $minh != 0 {
+		min-height: $minh;
+	}
+	@if $center {
+		margin: 0 auto;
 	}
 }
 
 
 
-@mixin tx-hyphens($val: "manual") {
-	@each $prefix in -webkit-, -moz-, -o-, "" {
-		#{$prefix}hyphens: $val;
-	}
-}
-
-
-
-@mixin tx-selection-style($bg: blue, $cl: white, $sw: none) {
-	@each $prefix in -webkit-, -moz-, "" {
-		::#{$prefix}selection {
-			color: $cl;
-			background: $bg;
-			@if $sw != none {
-				text-shadow: $sw;
-			}
-		}
-	}
-}
-
-
-
-@mixin tx-placeholder($cl: #999999, $fz: 1em, $fw: normal) {
-	@each $prefix in ":-webkit-input-", -moz-, ":-moz-", -ms-input- {
-		&:#{$prefix}placeholder {
-			color: $cl;
-			font-size: $fz;
-			font-weight: $fw;
-		}
-	}
-}
-
-
-
-@mixin tx-no-select($cond: true) {
-	@if $cond != true {
-		-webkit-touch-callout: default;
-		@each $prefix in -webkit-, -moz-, -ms-, "" {
-			#{$prefix}user-select: all;
-		}
-	}
-	@else {
-		-webkit-touch-callout: none;
-		@each $prefix in -webkit-, -moz-, -ms-, "" {
-			#{$prefix}user-select: none;
-		}
-	}
-}
-
-
-
-@mixin tx-font-adjustment($cond: true) {
-	@if $cond != true {
-		@each $prefix in -webkit-, -ms- {
-			#{$prefix}text-size-adjust: 100%;
-		}
-	}
-}
-
-
+// Page Scroll
 
 @mixin tx-scroll-bar($cond: false, $autohide: true) {
 	@if $cond {
@@ -90,22 +34,133 @@
 
 
 
-@mixin tx-set-boundaries($minw: 980px, $maxw: 1400px, $center: true, $minh: 100%) {
-	@if $minw != none and $minw != 0 {
-		min-width: $minw;
-	}
-	@if $maxw != none and $maxw != 0 {
-		max-width: $maxw;
-	}
-	@if $minh != none and $minh != 0 {
-		min-height: $minh;
-	}
-	@if $center {
-		margin: 0 auto;
+// Selection
+
+@mixin tx-selection-style($bg: #00f, $cl: #fff, $sw: none) {
+	@each $prefix in -webkit-, -moz-, "" {
+		::#{$prefix}selection {
+			color: $cl;
+			background: $bg;
+			@if $sw != none {
+				text-shadow: $sw;
+			}
+		}
 	}
 }
 
 
+
+// Typography Baseline
+
+@mixin tx-baseline($fz: $base-font-size) {
+	font-size: 100% * $fz / $browser-font-size;
+	line-height: rhythm($fz: $fz);
+}
+
+
+
+// Font Adjustment
+
+@mixin tx-font-adjustment($cond: true) {
+	@if $cond != true {
+		@each $prefix in -webkit-, -ms- {
+			#{$prefix}text-size-adjust: 100%;
+		}
+	}
+}
+
+
+
+// Inline Block
+
+@mixin tx-inline-block($ie: $tx-ie) {
+	@if not $ie {
+		display: inline-block;
+	}
+	@else {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+
+
+// Pseudo Element
+
+@mixin tx-pseudo($dsp: block, $pos: absolute, $cnt: "", $ie: $tx-ie) {
+	@if $dsp == "inline-block" {
+		@include tx-inline-block;
+	}
+	@else {
+		display: $dsp;
+	}
+	@if not $ie {
+		content: "" + $cnt;
+	}
+	position: $pos;
+}
+
+
+
+// Pseudo Element (IE Hack)
+
+@mixin tx-pseudo-ie($before: true, $after: true, $class: "", $beforeContent: "", $afterContent: "") {
+	$beforeClass: ieBefore + $class;
+	$afterClass: ieAfter + $class;
+	@if $before and $after {
+		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'), insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))");
+	}
+	@else if $before {
+		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'))");
+	}
+	@else {
+		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))");
+	}
+}
+
+
+
+// Counter
+
+@mixin tx-counter-reset($cntr) {
+	counter-reset: $cntr;
+}
+
+@mixin tx-counter($cntr, $divider: ". ") {
+	content: counter($cntr) quote($divider);
+	counter-increment: $cntr;
+}
+
+
+
+//  Height in Grid Units
+
+@mixin tx-grid-height($lines: 1, $lh: true, $pd: false) {
+	@if $pd {
+		padding: $lines * $base-line-height 0 0;
+	}
+	@else {
+		height: $lines * $base-line-height;
+	}
+	@if $lh {
+		line-height: $lines * $base-line-height;
+	}
+}
+
+
+
+// Font Size
+
+@mixin tx-font-size($fzn, $ln: 1, $fzo: $font-size) {
+	font-size: $font-unit * $fzn / $fzo;
+	@if $ln != none {
+		line-height: rhythm($ln, $fz: $fzn);
+	}
+}
+
+
+
+// Rhythm (Margin)
 
 @mixin tx-rhythm($leader: 0, $trailer: 0, $fz: $base-font-size, $mrgt: 0, $mlft: 0) {
 	@if $leader == $trailer {
@@ -140,6 +195,8 @@
 
 
 
+// Rhythm (Padding)
+
 @mixin tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $fz: $base-font-size, $prgt: 0, $plft: 0) {
 	@if $padding-leader == $padding-trailer {
 		@if $prgt == $plft {
@@ -173,7 +230,85 @@
 
 
 
-@mixin tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: black, $prgt: .5em, $plft: .5em) {
+// Hyphens
+
+@mixin tx-hyphens($val: manual) {
+	@each $prefix in -webkit-, -moz-, -o-, "" {
+		#{$prefix}hyphens: $val;
+	}
+}
+
+
+
+// Force Wrap
+
+@mixin tx-force-wrap {
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: pre-line;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -hp-pre-wrap;
+	word-wrap: break-word;
+}
+
+
+
+// No Select
+
+@mixin tx-no-select($cond: true) {
+	@if $cond != true {
+		-webkit-touch-callout: default;
+		@each $prefix in -webkit-, -moz-, -ms-, "" {
+			#{$prefix}user-select: all;
+		}
+	}
+	@else {
+		-webkit-touch-callout: none;
+		@each $prefix in -webkit-, -moz-, -ms-, "" {
+			#{$prefix}user-select: none;
+		}
+	}
+}
+
+
+
+// Form Element Height in Grid Units
+
+@mixin tx-form-height($lines: 1, $brdw: 1px, $fz: $font-size) {
+	height: rhythm($lines, $fz, $offset: 2 * $brdw);
+}
+
+
+
+// Form Element Placeholder
+
+@mixin tx-placeholder($cl: #999, $fz: 1em, $fw: normal) {
+	@each $prefix in ":-webkit-input-", -moz-, ":-moz-", -ms-input- {
+		&:#{$prefix}placeholder {
+			color: $cl;
+			font-size: $fz;
+			font-weight: $fw;
+		}
+	}
+}
+
+
+
+// Form Element Appearance
+
+@mixin tx-appearance($ap: none) {
+	@each $prefix in -webkit-, -moz-, "" {
+		#{$prefix}appearance: $ap;
+	}
+}
+
+
+
+// Table Borders with Adjustment
+
+@mixin tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em) {
 	$calculated-width: $font-unit * $brdw / $fz;
 	$calculated-vertical-padding: rhythm($lines, $fz, $offset: $brdw);
 	border: $brdw $bstyle $bcolor;
@@ -189,68 +324,7 @@
 
 
 
-@mixin tx-grid-height($lines: 1, $lh: true, $pd: false) {
-	@if $pd {
-		padding: $lines * $base-line-height 0 0;
-	}
-	@else {
-		height: $lines * $base-line-height;
-	}
-	@if $lh {
-		line-height: $lines * $base-line-height;
-	}
-}
-
-
-
-@mixin tx-form-height($lines: 1, $brdw: 1px, $fz: $font-size) {
-	height: rhythm($lines, $fz, $offset: 2 * $brdw);
-}
-
-
-
-@mixin tx-inline-block($ie: $tx-ie) {
-	@if not $ie {
-		display: inline-block;
-	}
-	@else {
-		display: inline;
-		zoom: 1;
-	}
-}
-
-
-
-@mixin tx-pseudo($dsp: block, $pos: absolute, $cnt: "", $ie: $tx-ie) {
-	@if $dsp == "inline-block" {
-		@include tx-inline-block;
-	}
-	@else {
-		display: $dsp;
-	}
-	@if not $ie {
-		content: "" + $cnt;
-	}
-	position: $pos;
-}
-
-
-
-@mixin tx-pseudo-ie($before: true, $after: true, $class: "", $beforeContent: "", $afterContent: "") {
-	$beforeClass: ieBefore + $class;
-	$afterClass: ieAfter + $class;
-	@if $before and $after {
-		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'), insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))");
-	}
-	@else if $before {
-		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'))");
-	}
-	@else {
-		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))");
-	}
-}
-
-
+// Extend Data URI Image
 
 @mixin tx-extend-image($class, $ie: $tx-ie) {
 	@if not $ie {
@@ -263,31 +337,7 @@
 
 
 
-@mixin tx-force-wrap {
-	white-space: pre;
-	white-space: pre-wrap;
-	white-space: pre-line;
-	white-space: -pre-wrap;
-	white-space: -o-pre-wrap;
-	white-space: -moz-pre-wrap;
-	white-space: -hp-pre-wrap;
-	word-wrap: break-word;
-}
-
-
-
-@mixin tx-counter-reset($cntr) {
-	counter-reset: $cntr;
-}
-
-
-
-@mixin tx-counter($cntr, $divider: ". ") {
-	content: counter($cntr) quote($divider);
-	counter-increment: $cntr;
-}
-
-
+// Functions
 
 @function rhythm($ln: 1, $fz: $font-size, $offset: 0) {
 	$result: $font-unit * ($ln * $base-line-height - $offset) / $fz;

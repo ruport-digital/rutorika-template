@@ -1,7 +1,7 @@
 /* TX Debuging Styles */
 .page-is-showingRhythmLines {
-  background: -webkit-linear-gradient(top, transparent, transparent 23px, #f00);
-  background: linear-gradient(to bottom, transparent, transparent 23px, #f00);
+  background: -webkit-linear-gradient(top, transparent, transparent 23px, rgba(0, 59, 158, 0.25));
+  background: linear-gradient(to bottom, transparent, transparent 23px, rgba(0, 59, 158, 0.25));
   background-size: 100% 24px; }
 
 .page-is-showingResponsiveGuide {
@@ -12,39 +12,38 @@
 
 /* TX Debuging Console */
 .debugConsole {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
   display: none;
-  box-sizing: border-box;
+  position: fixed;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   padding: 50px;
   color: white;
   background: rgba(0, 0, 0, 0.75);
   font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
   font-size: 16px;
   line-height: 1.5em;
-  pointer-events: none; }
-
-.page-is-showingConsole .debugConsole {
-  display: block; }
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 998; }
+  .page-is-showingConsole .debugConsole {
+    display: block; }
 
 /* TX Debuging Controls */
 .debugTools {
+  margin: 6em 0 0;
+  padding: 4.5em 0 0;
   position: fixed;
   top: 0;
   right: -10px;
   width: 300px;
-  margin: 6em 0 0;
-  padding: 4.5em 0 0;
   color: white;
   background: rgba(0, 0, 0, 0.75);
   border-radius: 18px;
-  z-index: 100;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  z-index: 999;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   -webkit-transform: translate(290px, 0);
   -ms-transform: translate(290px, 0);
   transform: translate(290px, 0); }
@@ -60,28 +59,30 @@
 
 .debugToolsToggle {
   position: absolute;
-  top: 50%;
-  left: -70px;
   width: 140px;
   height: 140px;
+  top: 50%;
+  left: -70px;
   margin: -70px 0 0;
-  z-index: 1;
-  border-radius: 50%;
   background: black;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  opacity: 0.75; }
+  border-radius: 50%;
+  opacity: 0.75;
+  z-index: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s; }
+  .debugToolsToggle:focus {
+    outline: none; }
 
 .page-is-showingDebugTools .debugTools {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0); }
 .page-is-showingDebugTools .debugToolsToggle {
-  top: 5px;
-  left: 5px;
   width: 30px;
   height: 30px;
+  top: 5px;
+  left: 5px;
   margin: 0;
-  background: white;
+  background: #fff;
   opacity: 1; }
 /*# sourceMappingURL=tx-debug.css.map */

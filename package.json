@@ -32,7 +32,6 @@
 		"grunt-contrib-copy": "*",
 		"grunt-contrib-compress": "*",
 		"grunt-contrib-watch": "*",
-		"grunt-concurrent": "*",
-		"grunt-newer": "*"
+		"grunt-concurrent": "*"
 	}
 }

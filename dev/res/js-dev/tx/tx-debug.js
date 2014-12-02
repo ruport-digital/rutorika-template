@@ -1,4 +1,7 @@
-var DEBUG_TOOLS = '<div class="debugTools"><ul class="u-listReset"><li><label class="dTls-VR"><input type="checkbox" class="dTls-VRCheck"> Vertical Rhythm</label></li><li><label class="dTls-RG"><input type="checkbox" class="dTls-RGCheck"> Responsive Guide</label></li><li><label class="dTls-VR"><input type="checkbox" class="dTls-CNSLCheck"> Console</label></li></ul><a href="#" class="debugToolsToggle"></a></div><div class="debugConsole"></div>';
+/* global $:false */
+/* global log:false */
+
+var DEBUG_TOOLS = "<div class=\"debugTools\"><ul class=\"u-listReset\"><li><label class=\"dTls-VR\"><input type=\"checkbox\" class=\"dTls-VRCheck\"> Vertical Rhythm</label></li><li><label class=\"dTls-RG\"><input type=\"checkbox\" class=\"dTls-RGCheck\"> Responsive Guide</label></li><li><label class=\"dTls-VR\"><input type=\"checkbox\" class=\"dTls-CNSLCheck\"> Console</label></li></ul><a href=\"#\" class=\"debugToolsToggle\"></a></div><div class=\"debugConsole\"></div>";
 
 function initDebug() {
 	$(DEBUG_TOOLS).appendTo("body");

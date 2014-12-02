@@ -12,12 +12,11 @@
 	}
 
 	.u-listReset {
+		list-style: none outside;
 
 		li {
 			margin: 0;
 			padding: 0;
-			background: none;
-			list-style: none outside;
 		}
 
 	}

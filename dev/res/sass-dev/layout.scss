@@ -12,21 +12,13 @@
 
 html {
 	min-height: 100%;
+	-webkit-overflow-scrolling: touch;
 }
 
 body {
-	position: relative;
-	@include tx-set-boundaries;
+	@include tx-set-boundaries($min-width);
 	@include tx-scroll-bar(true);
-}
-
-
-
-/* Header */
-
-.header {
 	position: relative;
-	z-index: 0;
 }
 
 
@@ -43,16 +35,6 @@ body {
 		clear: both;
 	}
 
-}
-
-
-
-/* Footer */
-
-.footer {
-	position: relative;
-	clear: both;
-	z-index: 0;
 }
 
 
@@ -79,21 +61,15 @@ body {
 
 /* Tablet Layout */
 
-@media only screen and (min-width: 721px) and (max-width: 1024px) {}
+@media only screen and (min-width: 721px) and (max-width: $min-width) {}
 
-@media only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 721px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: 1024px) and (min-resolution: 150dpi) {}
+@media only screen and (min-width: 721px) and (max-width: $min-width) and (min-resolution: 1.5dppx), only screen and (min-width: 721px) and (max-width: $min-width) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: $min-width) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: $min-width) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 721px) and (max-width: $min-width) and (min-device-pixel-ratio: 1.5), only screen and (min-width: 721px) and (max-width: $min-width) and (min-resolution: 150dpi) {}
 
 
 
 /* Print Layout */
 
-@media print {
-
-	.header, .footer {
-		display: none;
-	}
-
-}
+@media print {}
 
 
 

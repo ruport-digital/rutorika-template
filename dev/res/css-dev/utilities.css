@@ -8,9 +8,8 @@
 	list-style: none outside;
 }
 .u-listReset > li {
-	padding: 0;
+	padding: 0; 
 	margin: 0;
-	background: none;
 }
 
 .u-descriptionListReset > dt, .u-descriptionListReset > dd {

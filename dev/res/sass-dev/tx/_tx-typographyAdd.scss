@@ -48,17 +48,3 @@
 .blkNClr {
 	clear: none;
 }
-
-
-
-/* Headings Counter */
-
-.hNumber {
-
-	&:before {
-		position: relative;
-		@include tx-inline-block;
-		@include tx-counter(heading);
-	}
-
-}

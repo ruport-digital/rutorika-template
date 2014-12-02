@@ -1,6 +1,14 @@
 /* Typography & Rhythm (Internet Explorer < 8) */
+.ie6 {
+	filter: expression(document.execCommand('BackgroundImageCache', false, true));
+}
+
 dfn {
 	font-style: normal;
+}
+
+img {
+	-ms-interpolation-mode: bicubic;
 }
 
 input[type="checkbox"], input[type="radio"] {
