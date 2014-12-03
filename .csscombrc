@@ -61,6 +61,7 @@
 		"overflow-x",
 		"overflow-y",
 		"-ms-overflow-style",
+		"-webkit-overflow-scrolling",
 		"clip",
 		"-webkit-box-sizing",
 		"-moz-box-sizing",

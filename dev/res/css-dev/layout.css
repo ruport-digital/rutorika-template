@@ -1,10 +1,11 @@
 /* Layout Base */
+/* line 13, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 html {
+	-webkit-overflow-scrolling: touch; 
 	min-height: 100%;
-
-	-webkit-overflow-scrolling: touch;
 }
 
+/* line 18, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 body {
 	position: relative; 
 	overflow-x: auto;
@@ -17,9 +18,11 @@ body {
 }
 
 /* Content */
+/* line 28, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 .content {
 	padding: 0 30px;
 }
+/* line 31, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/layout.scss */
 .content:after {
 	position: relative;
 	content: "";

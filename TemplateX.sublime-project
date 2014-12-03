@@ -2,16 +2,13 @@
 	"folders":
 	[
 		{
-			"file_exclude_patterns":
-			[
-				".gitignore"
-			],
 			"folder_exclude_patterns":
 			[
 				"*"
 			],
 			"file_exclude_patterns":
 			[
+				".gitignore",
 				"*.zip",
 				"*.sublime-project"
 			],

@@ -21,6 +21,11 @@ body {
 	background: #0000ff;
 }
 
+::-moz-selection {
+	color: #ffffff;
+	background: #0000ff;
+}
+
 ::selection {
 	color: #ffffff;
 	background: #0000ff;
@@ -424,9 +429,8 @@ select[multiple] {
 /* Layout Base */
 
 html {
-	min-height: 100%;
-
 	-webkit-overflow-scrolling: touch;
+	min-height: 100%;
 }
 
 body {

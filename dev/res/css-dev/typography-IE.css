@@ -1,43 +1,55 @@
 /* Typography & Rhythm (Internet Explorer < 8) */
+/* line 15, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 {
 	filter: expression(document.execCommand('BackgroundImageCache', false, true));
 }
 
+/* line 19, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 dfn {
 	font-style: normal;
 }
 
+/* line 23, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 img {
 	-ms-interpolation-mode: bicubic;
 }
 
+/* line 29, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 input[type="checkbox"], input[type="radio"] {
 	width: 13px;
 	height: 13px;
 }
 
+/* line 38, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 label, .ie6 button, .ie6 .button {
 	cursor: hand;
 }
+/* line 42, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 pre {
 	zoom: 1;
 }
+/* line 46, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 ul, .ie6 .u-listReset ul {
 	list-style: disc outside;
 }
+/* line 50, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 ol, .ie6 .u-listReset ol {
 	list-style: decimal outside;
 }
+/* line 58, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-listReset li li {
 	margin: 1.5em 0;
 }
+/* line 70, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-descriptionListReset dl dt {
 	margin: 1.5em 0 0;
 }
+/* line 74, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 .u-descriptionListReset dl dd {
 	margin: 0 0 1.5em 1.5em;
 	font-style: italic;
 }
+/* line 83, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography-IE.scss */
 .ie6 input {
 	vertical-align: text-bottom;
 }
