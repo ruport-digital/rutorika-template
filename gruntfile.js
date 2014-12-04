@@ -7,7 +7,7 @@ var TITLE							= "TemplateX",							// Title
 		DEVELOPMENT_DIR		= "dev",										// Project Development
 		IMAGES_DIR				= "images",									// Images
 		RESOURCES_DIR			= "res",										// Resources (CSS, JavaScript, Fonts etc.)
-		CRITICAL_PAGE			= "index.html",							// Page That Should Contain CRP CSS Styles
+		INDEX_PAGE				= "index.html"							// Index Page (Should Contain CRP CSS Styles)
 		CRITICAL_WIDTH		= 1200,											// Horizontal Fold
 		CRITICAL_HEIGHT		= 900,											// Vertical Fold
 		TEMPLATES_DIR			= "templates",							// Templates
@@ -37,6 +37,7 @@ module.exports = function(grunt) {
 	var project = {
 		init: function() {
 			this.title = TITLE;
+			this.index = INDEX_PAGE;
 			this.language = LANGUAGE;
 			this.meta = META_DIR;
 			this.dir = DEVELOPMENT_DIR + "/";
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
 			this.build = {
 				dir: BUILD_DIR + "/",
 				critical: {
-					page: CRITICAL_PAGE,
+					page: INDEX_PAGE,
 					width: CRITICAL_WIDTH,
 					height: CRITICAL_HEIGHT
 				}
@@ -245,6 +246,9 @@ module.exports = function(grunt) {
 					},{
 						pattern: /@tx-language/gi,
 						replacement: project.language
+					},{
+						pattern: /@tx-launch/gi,
+						replacement: project.index
 					},{
 						pattern: /.!-- @tx-css -->(.|\t|\s|\r?\n|\r)*?!-- \/@tx-css -->/gi,
 						replacement: {

@@ -16,7 +16,7 @@
 		"name": "",
 		"url": ""
 	},
-	"launch_path": "/index.html",
+	"launch_path": "/@tx-launch",
 	"installs_allowed_from": [
 		"*"
 	],
