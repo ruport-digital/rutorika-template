@@ -1,0 +1,24 @@
+{
+	"name": "@tx-title",
+	"version": "1.0.0",
+	"description": "",
+	"default_locale": "@tx-language",
+	"locales": {
+		"@tx-language": {
+			"name": "@tx-title",
+			"description": ""
+		}
+	},
+	"icons": {
+		"128": "/chromeWebStore.png"
+	},
+	"developer": {
+		"name": "",
+		"url": ""
+	},
+	"launch_path": "/index.html",
+	"installs_allowed_from": [
+		"*"
+	],
+	"permissions": {}
+}

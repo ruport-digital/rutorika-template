@@ -1,62 +1,36 @@
-Template X is a basic template for developing web sites.
+# [Template X](https://github.com/uncleF/TemplateX)
 
-Designed specifically to improve front-end developer's workflow, by providing basic
-structure, foundtation and customizable building tools for your project. You'll be
-able to start develop right away, just clone the repo.
+## Overview
 
-`git clone https://github.com/uncleF/TemplateX.git`
+Template X is a boilerplate for web development.
 
-Source: [https://github.com/uncleF/TemplateX](https://github.com/uncleF/TemplateX)
+Designed to improve front-end developer's workflow, by providing basic
+structure, solid foundtation and highly customizable building tools for
+your project. You'll be able to start develop right away, just clone
+the repo or simply download it.
 
+*`git clone https://github.com/uncleF/TemplateX.git`
+*[download](https://github.com/uncleF/TemplateX/releases/latest)
+
+Template X uses [Grunt](http://gruntjs.com/) as its task runner
+([Getting started with Grunt.JS](http://gruntjs.com/getting-started)).
+Check the [INSTALL.md](docs/INSTALL.md) to verify if your development
+environment is ready and [COMMANDS.md](docs/COMMANDS.md) for available
+commands.
 
 ## Features
 
 * HTML5 ready.
-* Cross-browser compatible (Chrome, Firefox, IE7+, Opera, Safari).
+* Cross-browser compatible.
 * Includes [jQuery](http://jquery.com/).
 * Uses [Modernizr](http://modernizr.com/) for feature detection.
 * Basic placeholder CSS Media Queries.
-* Default basic print CSS.
-* Handfull of CSS utility classes.
-* Very basic debuging JavaScript script.
-* Development, testing & building tool based on Grunt.JS.
+* Default basic print stylesheets.
+* Handfull of practical CSS utility classes.
+* Very basic debuging script.
+* Development, testing & building tool based upon Grunt.
 
+## Inspiration
 
-## Building project
-
-### Building with Grunt.JS
-
-Template X uses [Grunt.JS](http://gruntjs.com/) as a primary task runner.
-
-* [Getting started with Grunt.JS](http://gruntjs.com/getting-started).
-
-To be able to use Grunt.JS in your project, first run `npm install`, to install
-all the dependencies and check `gruntfile.js` for basic project configuration
-options.
-
-#### Build Project – grunt build
-
-Run `grunt build`, compile and compress CSS and JavaScript, collect built project
-into `/build` and update paths in all the HTML files.
-
-#### Compile JavaScript and CSS resources – grunt compile
-
-Run `grunt compile` to just concatenate, remove logging from and minify
-JavaScript files; and to generate CSS, concatenate it, remove Sass debug info from it,
-optimize, sort rules in and minify CSS files.
-Uses [UglifyJS](http://lisperator.net/uglifyjs/), [grunt-sass](https://github.com/sindresorhus/grunt-sass),
-[autoprefixer](https://github.com/ai/autoprefixer) and [CSScomb](http://csscomb.com/).
-
-#### Optimize all and generate Data URIs from selected images – grunt images
-
-Run `grunt images` to optimize all the images, and convert specific ones to Data URIs.
-
-#### Check HTML, JavaScript and CSS – grunt lint
-
-Run `grunt lint` to check HTML ([HTMLHint](http://htmlhint.com/)),
-JavaScript ([JSHint](http://jshint.com)) and CSS ([CSS Lint](http://csslint.net))
-files for bad code, potencial bugs and syntax inconsistencies.
-
-#### Test page performance – grunt test
-
-Run `grunt test` to test page performance. Uses [grunt-yslow](https://github.com/andyshora/grunt-yslow)
+TemplateX was inspired by
+[Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/).

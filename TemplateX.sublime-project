@@ -43,6 +43,11 @@
 			"follow_symlinks": true,
 			"name": "TemplateX: Meta",
 			"path": "meta"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "TemplateX: Docs",
+			"path": "docs"
 		}
 	]
 }

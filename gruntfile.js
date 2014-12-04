@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 	require("load-grunt-tasks")(grunt);
 
 	grunt.initConfig({
-		
+
 		htmlhint: {
 			options: {
 				"htmlhintrc": ".htmlhintrc"
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
 			jsInspect: {
 				cwd: project.res.js.devDir,
 				src: ["*.js"],
-				expand: true	
+				expand: true
 			}
 		},
 		csslint: {
@@ -265,7 +265,7 @@ module.exports = function(grunt) {
 					}]
 				},
 				files: {
-					"./": [project.build.dir + "*.html"]
+					"./": [project.build.dir + "*.{html,webapp}"]
 				}
 			},
 			critical: {
@@ -488,7 +488,7 @@ module.exports = function(grunt) {
 			},
 			meta: {
 				cwd: project.meta,
-				src: ["**/*.{ico,png,jpg,gif,txt}"],
+				src: ["**/*.{ico,png,jpg,gif,txt,webapp}"],
 				dest: project.build.dir,
 				expand: true
 			}
@@ -687,7 +687,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("watch-project", ["concurrent"]);
 
-	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js", "process-svg"]);
+	grunt.registerTask("compile", ["clean:res", "processhtml", "generate-css", "process-css", "process-js", "images"]);
 
 	grunt.registerTask("critical", ["penthouse", "string-replace:critical", "cssmin:cssMinCritical", "critical-cssInline"]);
 
