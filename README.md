@@ -9,8 +9,8 @@ structure, solid foundtation and highly customizable building tools for
 your project. You'll be able to start develop right away, just clone
 the repo or simply download it.
 
-*`git clone https://github.com/uncleF/TemplateX.git`
-*[download](https://github.com/uncleF/TemplateX/releases/latest)
+* `git clone https://github.com/uncleF/TemplateX.git`
+* [download](https://github.com/uncleF/TemplateX/releases/latest)
 
 Template X uses [Grunt](http://gruntjs.com/) as its task runner
 ([Getting started with Grunt.JS](http://gruntjs.com/getting-started)).

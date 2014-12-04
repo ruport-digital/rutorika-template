@@ -6,7 +6,7 @@ To be able to use Grunt within your project first run `npm install -g grunt`
 
 Here are the main commands:
 
-## Build project – grunt build
+## Build project
 
 Run `grunt build` to compile current project, collect it into `/build`
 and prepare for development.
@@ -14,20 +14,19 @@ and prepare for development.
 Run `grunt build-critical` to build project and optimize its critical
 rendering path.
 
-## Process images, scripts, stylesheets and HTML – grunt compile
+## Process images, scripts, stylesheets and HTML
 
 Run `grunt compile` to generate, optimize and minify images, scripts
 ([UglifyJS](http://lisperator.net/uglifyjs/)), stylesheets
 ([autoprefixer](https://github.com/ai/autoprefixer),
 [CSScomb](http://csscomb.com/), etc.) and HTML.
 
-## Optimize all and generate Data URIs from selected images – grunt images
+## Optimize all and generate Data URIs from selected images
 
 Run `grunt images` to optimize all the project images and generate Data URIs
 from specified ones.
 
-## Lint scripts, stylesheets, HTML and general accessibility of the
-current project – grunt quality
+## Lint scripts, stylesheets, HTML and general accessibility.
 
 Run `grunt quality` to lint stylesheets ([CSS Lint](http://csslint.net) and
 [CSS Colorguard](https://github.com/SlexAxton/css-colorguard)),
