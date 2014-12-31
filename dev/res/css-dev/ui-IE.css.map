@@ -1,7 +1,13 @@
 {
-  "version": 3,
-  "file": "ui-IE.css",
-  "sources": ["..\/sass-dev\/ui-IE.scss","..\/sass-dev\/tx\/_tx.scss","..\/sass-dev\/tx\/_tx-project.scss","..\/sass-dev\/tx\/_tx-projectImages.scss"],
-  "names": [],
-  "mappings": ""
+	"version": 3,
+	"file": "ui-IE.css",
+	"sources": [
+		"../sass-dev/ui-IE.scss",
+		"../sass-dev/tx/_tx.scss",
+		"../sass-dev/tx/_tx-project.scss",
+		"../sass-dev/tx/_tx-projectImages.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "",
+	"names": []
 }

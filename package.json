@@ -10,7 +10,7 @@
 		"grunt-csscss": "*",
 		"grunt-colorguard": "*",
 		"grunt-arialinter": "*",
-		"grunt-contrib-analyze-css": "*",
+		"grunt-analyze-css": "*",
 		"grunt-sass": "*",
 		"grunt-autoprefixer": "*",
 		"grunt-contrib-concat": "*",

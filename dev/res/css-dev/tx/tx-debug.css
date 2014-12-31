@@ -1,20 +1,16 @@
 /* TX Debuging Styles */
-/* line 9, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingRhythmLines {
   background: -webkit-linear-gradient(top, transparent, transparent 23px, rgba(0, 59, 158, 0.25));
   background: linear-gradient(to bottom, transparent, transparent 23px, rgba(0, 59, 158, 0.25));
   background-size: 100% 24px; }
 
-/* line 14, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingResponsiveGuide {
   background: url(../../images/tx/tx-responsiveGuide.jpg); }
 
-/* line 20, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingRhythmLines .content, .page-is-showingResponsiveGuide .content {
   background: none; }
 
 /* TX Debuging Console */
-/* line 30, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .debugConsole {
   display: none;
   position: fixed;
@@ -31,12 +27,10 @@
   box-sizing: border-box;
   pointer-events: none;
   z-index: 998; }
-  /* line 47, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .page-is-showingConsole .debugConsole {
     display: block; }
 
 /* TX Debuging Controls */
-/* line 57, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .debugTools {
   margin: 6em 0 0;
   padding: 4.5em 0 0;
@@ -53,21 +47,16 @@
   -webkit-transform: translate(290px, 0);
   -ms-transform: translate(290px, 0);
   transform: translate(290px, 0); }
-  /* line 71, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools ul {
     position: relative;
     z-index: 2; }
-  /* line 76, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools li {
     margin: 0 0 1.5em 25px; }
-  /* line 80, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools label {
     border: none; }
-  /* line 84, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugTools input {
     margin: 0 0.5em 0 0; }
 
-/* line 90, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .debugToolsToggle {
   position: absolute;
   width: 140px;
@@ -81,16 +70,13 @@
   z-index: 1;
   -webkit-transition: 0.5s;
   transition: 0.5s; }
-  /* line 105, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
   .debugToolsToggle:focus {
     outline: none; }
 
-/* line 113, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingDebugTools .debugTools {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0); }
-/* line 117, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-debug.scss */
 .page-is-showingDebugTools .debugToolsToggle {
   width: 30px;
   height: 30px;

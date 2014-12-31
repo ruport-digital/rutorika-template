@@ -1,82 +1,63 @@
 /* Typography & Rhythm */
-/* line 13, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 html {
 	font-size: 100%;
 	line-height: 1.5em;
 }
 
-/* line 18, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 body {
 	color: #000000;
 	background: #ffffff;
 	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
-/* line 41, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx */
 ::-webkit-selection {
 	color: #ffffff;
 	background: #0000ff;
 }
 
-/* line 41, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx */
 ::-moz-selection {
 	color: #ffffff;
 	background: #0000ff;
 }
 
-/* line 41, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx */
-::-moz-selection {
-	color: #ffffff;
-	background: #0000ff;
-}
 ::selection {
 	color: #ffffff;
 	background: #0000ff;
 }
 
-/* line 26, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 article, aside, figure, figcaption, footer, header, hgroup, nav, section {
 	display: block;
 }
 
-/* line 30, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 a {
 	color: #003b9e;
 	text-decoration: underline;
 }
-/* line 34, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 a:visited {
 	color: #003b9e;
 }
-/* line 38, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 a:hover {
 	color: #ff0000;
 }
-/* line 42, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 a:active {
 	color: #ff0000;
 }
-/* line 46, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 a:focus {
 	outline: 1px dotted #939393;
 }
 
-/* line 52, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 label, button, .button {
 	cursor: pointer;
 }
 
-/* line 56, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 label {
 	border-bottom: 1px dotted #939393;
 }
-/* line 59, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 label:focus {
 	border: none;
 	outline: 1px dotted #939393;
 }
 
-/* line 66, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	page-break-after: avoid;
@@ -86,54 +67,46 @@ h1, h2, h3, h4, h5, h6 {
 	text-rendering: optimizelegibility;
 }
 
-/* line 74, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 h1 {
 	margin: .75em 0 1.5em;
 	font-size: 2em;
 	line-height: 1.5em;
 }
 
-/* line 79, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 h2 {
 	margin: 1em 0;
 	font-size: 1.5em;
 	line-height: 2em;
 }
 
-/* line 84, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 h3 {
 	margin: 1.09091em 0;
 	font-size: 1.375em;
 	line-height: 1.09091em;
 }
 
-/* line 89, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 h4 {
 	margin: 1.2em 0;
 	font-size: 1.25em;
 	line-height: 1.2em;
 }
 
-/* line 94, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 h5 {
 	margin: 1.33333em 0;
 	font-size: 1.125em;
 	line-height: 1.33333em;
 }
 
-/* line 99, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 h6 {
 	margin: 1.5em 0;
 	font-size: 1em;
 	line-height: 1.5em;
 }
 
-/* line 104, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 p, pre, dl, ul, ol, li, address, video, audio, table {
 	margin: 1.5em 0;
 }
 
-/* line 108, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 p, blockquote, li, dd {
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
@@ -142,17 +115,14 @@ p, blockquote, li, dd {
 	hyphens: auto;
 }
 
-/* line 112, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 pre, code, samp, var, tt {
 	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 }
 
-/* line 116, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 pre, code, samp, var {
 	color: #d00837;
 }
 
-/* line 122, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 pre {
 	overflow: hidden; 
 	padding: 0 1.5em;
@@ -166,88 +136,72 @@ pre {
 	word-wrap: break-word;
 }
 
-/* line 128, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 blockquote, em, cite, q, i {
 	font-style: italic;
 }
 
-/* line 132, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 blockquote, q {
 	quotes: none;
 }
-/* line 135, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 blockquote:before, blockquote:after, q:before, q:after {
 	content: "";
 	content: none;
 }
 
-/* line 142, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 blockquote {
 	margin: 1.5em 3em;
 }
 
-/* line 146, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 address {
 	font-style: normal;
 }
 
-/* line 150, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 dt {
 	margin: 1.5em 0 0;
 	font-weight: bold;
 }
 
-/* line 155, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 dd {
 	margin: 0 0 1.5em 1.5em;
 	font-style: italic;
 }
 
-/* line 160, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 ul {
 	list-style-type: disc;
 }
 
-/* line 164, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 ol {
 	list-style-type: decimal;
 }
 
-/* line 170, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 li ul, li ol {
 	margin: 1.5em 0 1.5em 1.5em;
 }
 
-/* line 176, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 strong, dfn, b, kbd, acronym, abbr, var {
 	font-weight: bold;
 }
 
-/* line 180, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 acronym, abbr, ins, mark, del {
 	text-decoration: none;
 	cursor: help;
 }
 
-/* line 185, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 acronym, abbr, ins, mark {
 	border-bottom: 1px dotted #488dc6; 
 	color: #488dc6;
 }
 
-/* line 192, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 acronym, abbr {
 	margin: 0 -.075em 0 0;
 	letter-spacing: .075em;
 }
 
-/* line 197, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 del {
 	border-bottom: 1px dotted #d00837; 
 	color: #d00837;
 }
 
-/* line 204, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 kbd {
 	display: inline-block;
 	height: 24px;
@@ -263,90 +217,75 @@ kbd {
 	vertical-align: top;
 }
 
-/* line 221, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 var {
 	color: #d00837;
 	font-style: normal;
 }
 
-/* line 228, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 del, strike, s {
 	text-decoration: line-through;
 }
 
-/* line 232, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 sup, sub {
 	position: relative; 
 	font-size: .75em;
 	line-height: 0;
 }
 
-/* line 237, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 sup {
 	top: -.65em;
 }
 
-/* line 241, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 sub {
 	bottom: -.25em;
 }
 
-/* line 245, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 big {
 	font-size: 1.5em;
 	line-height: 0;
 }
 
-/* line 249, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 small {
 	font-size: .75em;
 	line-height: 0;
 }
 
-/* line 253, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 u {
 	text-decoration: underline;
 }
 
-/* line 257, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 img {
 	max-width: 100%;
 	vertical-align: top;
 }
 
-/* line 322, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 caption {
 	padding: 0 0 .75em;
 	font-weight: bold;
 	text-align: left;
 }
 
-/* line 328, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 table {
 	width: 100%;
 	border-spacing: 0; 
 	border-collapse: collapse;
 }
 
-/* line 334, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 td, th {
 	padding: .6875em .5em .75em; 
 	border: 1px solid #939393;
 }
 
-/* line 340, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 th {
 	font-weight: bold;
 	text-align: left;
 }
 
-/* line 345, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 fieldset {
 	padding: 0;
 	border: none;
 }
 
-/* line 350, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 legend {
 	position: relative;
 	left: -1.5em;
@@ -355,7 +294,6 @@ legend {
 	font-weight: bold;
 }
 
-/* line 362, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 input, select, button, textarea {
 	margin: 0; 
 	font-size: 1em;
@@ -363,102 +301,84 @@ input, select, button, textarea {
 	line-height: 1.5em;
 }
 
-/* line 368, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 input, button, textarea {
 	box-sizing: content-box; 
 	padding: 0 .5em;
 }
 
-/* line 375, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly] {
 	opacity: .5;
 	cursor: default;
 	cursor: not-allowed;
 }
 
-/* line 383, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 input, button {
 	height: 1.5em;
 	border: none;
 }
-/* line 387, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 input::-moz-focus-inner, button::-moz-focus-inner {
 	padding: 0; 
 	border: 0;
 }
 
-/* line 394, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 input, select {
 	vertical-align: top;
 }
 
-/* line 398, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 button, select {
 	text-transform: none;
 }
 
-/* line 402, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .inputRadio, .inputCheckbox {
 	box-sizing: border-box;
 	vertical-align: top;
 }
 
-/* line 407, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .inputFile {
 	height: auto;
 	border: none;
 	line-height: normal;
 }
 
-/* line 413, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .inputSearch {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
 
-/* line 420, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .inputNumber {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
-/* line 423, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .inputNumber::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
 
-/* line 429, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .field, textarea, select {
 	display: block;
 	border: 1px solid #939393;
 }
 
-/* line 436, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .field {
 	height: 1.375em;
 }
-/* line 439, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 .field-search {
 	height: 2.875em;
 }
 
-/* line 445, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 textarea {
 	overflow: auto; 
 	height: 14.875em;
 }
 
-/* line 450, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 select {
 	height: 1.5em;
 }
-/* line 453, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 select[multiple] {
 	height: 7.525em;
 }
 
-/* line 459, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 hr {
 	display: block;
 	height: 0;
@@ -468,70 +388,57 @@ hr {
 }
 
 /* Additional Decorative Styles */
-/* line 3, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .alnLft {
 	text-align: left;
 }
 
-/* line 7, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .alnRgt {
 	text-align: right;
 }
 
-/* line 11, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .alnCnt {
 	text-align: center;
 }
 
-/* line 15, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .alnJst {
 	text-align: justify;
 }
 
-/* line 19, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .alnTop {
 	vertical-align: top;
 }
 
-/* line 23, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .alnMdl {
 	vertical-align: middle;
 }
 
-/* line 27, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .alnBtm {
 	vertical-align: bottom;
 }
 
-/* line 31, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .fntBld {
 	font-weight: bold;
 }
 
-/* line 35, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .fntItl {
 	font-style: italic;
 }
 
-/* line 39, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .fntNrm {
 	font-weight: normal;
 	font-style: normal;
 }
 
-/* line 44, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .blkClr {
 	clear: both;
 }
 
-/* line 48, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/tx/tx-typographyAdd */
 .blkNClr {
 	clear: none;
 }
 
 /* High DPI Typography */
 @media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {
-	/* line 477, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	html {
 		text-rendering: optimizelegibility;
 	}
@@ -539,7 +446,6 @@ hr {
 
 /* Phone Typography */
 @media handheld, only screen and (max-width: 720px) {
-	/* line 489, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	table, tr, th, td {
 		display: block;
 	}
@@ -552,7 +458,6 @@ hr {
 		margin: 0 .5cm;
 	}
 
-	/* line 518, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	body {
 		width: 100%;
 		max-width: none;
@@ -563,49 +468,40 @@ hr {
 		font-size: 16pt;
 	}
 
-	/* line 528, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	a {
 		color: #000000;
 		text-decoration: none;
 	}
-	/* line 532, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	a:after {
 		content: " (" attr(href) ")";
 		font-size: 90%;
 	}
-	/* line 537, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	a:visited {
 		color: #000000;
 	}
-	/* line 543, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: "";
 	}
 
-	/* line 551, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	acronym, abbr, ins, del, var, input, select, textarea {
 		border: none; 
 		color: #000000;
 		text-decoration: none;
 	}
 
-	/* line 559, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	abbr[title]:after {
 		content: " (" attr(title) ")";
 	}
 
-	/* line 565, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	p {
 		orphans: 3;
 		widows: 3;
 	}
 
-	/* line 570, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	blockquote, pre, img, tr {
 		page-break-inside: avoid;
 	}
 
-	/* line 574, /Users/uncleFucka/Projects/TemplateX/dev/res/sass-dev/typography.scss */
 	thead {
 		display: table-header-group;
 	}
