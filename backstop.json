@@ -6,15 +6,13 @@
 				"width": 320,
 				"height": 480
 			}
-		}
-		,{
+		}, {
 		 "name": "Tablet Vertical Orientation",
 		 "viewport": {
 		 		"width": 768,
 		 		"height": 1024
 		 	}
-		}
-		,{
+		}, {
 		 "name": "Tablet Horizontal Orientation",
 		 "viewport": {"width": 1024, "height": 768}
 		}

@@ -4,7 +4,7 @@ function checkRAF() {
 	return typeof(window.requestAnimationFrame) === "function" ? true : false;
 }
 
-function translate(DISTANCE) {
+function translateY(DISTANCE) {
 	var CSS;
 	if (Modernizr.csstransforms) {
 		CSS = {
@@ -28,7 +28,7 @@ function whichTransitionEndEvent() {
 	var TRANSITIONS = {
 		"transition": "transitionend",
 		"oTransition": "oTransitionEnd",
-		"MSTransitionEnd": "MSTransitionEnd",
+		"MSTransition": "MSTransitionEnd",
 		"MozTransition": "transitionend",
 		"WebkitTransition": "webkitTransitionEnd"
 	};

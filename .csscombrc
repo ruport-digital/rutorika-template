@@ -54,7 +54,7 @@
 		"-moz-flex-pack",
 		"-ms-flex-pack",
 		"-o-flex-pack",
-		"flex-pack",	
+		"flex-pack",
 		"overflow",
 		"-ms-overflow-x",
 		"-ms-overflow-y",
