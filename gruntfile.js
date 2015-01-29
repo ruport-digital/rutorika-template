@@ -307,8 +307,7 @@ module.exports = function(grunt) {
 		},
 		fixmyjs: {
 			options: {
-				config: ".jshintrc",
-				indentpref: "tabs"
+				config: ".jshintrc"
 			},
 			fixMyJS: {
 				cwd: project.res.js.dir,
