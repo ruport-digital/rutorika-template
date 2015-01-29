@@ -17,6 +17,7 @@
 		"grunt-string-replace": "*",
 		"grunt-remove-logging": "*",
 		"grunt-fixmyjs": "*",
+		"grunt-closure-compiler": "*",
 		"grunt-contrib-uglify": "*",
 		"grunt-uncss": "*",
 		"grunt-csscomb": "*",

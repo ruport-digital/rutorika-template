@@ -209,7 +209,7 @@ module.exports = function(grunt) {
 		},
 
 		"string-replace": {
-			commentsFirst: {
+			cssComments: {
 				options: {
 					replacements: [{
 						pattern: /\/\* line \d*, .* \*\/(\r?\n|\r)*/g,
@@ -221,20 +221,15 @@ module.exports = function(grunt) {
 						pattern: /.media \-sass\-debug\-info(.|\t|\s|\r?\n|\r)*?\}\}/gi,
 						replacement: ""
 					},{
+						pattern: /\/\*\*\* uncss>.*\*\*\*\/(\r?\n|\r)*/g,
+						replacement: ""
+					},{
 						pattern: /\*\s(.)*\*\/(\r?\n|\r)*$/g,
 						replacement: ""
 					},{
 						pattern: /\*\s(.)*\*\/(\r?\n|\r)*\//g,
 						replacement: ""
-					}]
-				},
-				files: {
-					"./": [project.res.css.dir + "*.css"]
-				}
-			},
-			commentsSecond: {
-				options: {
-					replacements: [{
+					},{
 						pattern: /(\r?\n|\r)*\/$/g,
 						replacement: ""
 					},{
@@ -319,7 +314,16 @@ module.exports = function(grunt) {
 				cwd: project.res.js.dir,
 				src: ["*.js"],
 				dest: project.res.js.dir,
+				ext: ".min.js",
 				expand: true
+			}
+		},
+		"closure-compiler": {
+			frontend: {
+				cwd: project.res.js.dir,
+				js: ["*.js", "!*.min.js"],
+				jsOutputFile: project.res.js.dir + project.res.js.filename + ".min.js",
+				options: {}
 			}
 		},
 		uglify: {
@@ -328,9 +332,8 @@ module.exports = function(grunt) {
 			},
 			jsMin: {
 				cwd: project.res.js.dir,
-				src: ["*.js"],
+				src: ["*.min.js"],
 				dest: project.res.js.dir,
-				ext: ".min.js",
 				expand: true
 			}
 		},
@@ -339,7 +342,8 @@ module.exports = function(grunt) {
 			cssOptimize: {
 				options: {
 					ignore: [/.*-is-.*/, /.*-has-.*/, /.*-are-.*/, /js-.*/],
-					stylesheets: [project.res.css.dir.replace(project.dir, "") + project.res.css.filename + ".css"]
+					stylesheets: [project.res.css.dir.replace(project.dir, "") + project.res.css.filename + ".css"],
+					timeout: 1000
 				},
 				files: {
 					cssMinFiles: function() {
@@ -489,6 +493,7 @@ module.exports = function(grunt) {
 
 		clean: {
 			res: [project.res.css.dir, project.res.js.dir + "*.js"],
+			reports: [project.res.js.dir + "*.txt"],
 			build: [project.build.dir]
 		},
 		copy: {
@@ -627,7 +632,7 @@ module.exports = function(grunt) {
 					PROCESS_TASKS.push("concat:cssIE");
 					grunt.config.set("TASK.CSS_IE_ARRAY", fillAnArray(CSS_IE_ARRAY, project.res.css.devDir));
 				}
-				PROCESS_TASKS = PROCESS_TASKS.concat(["uncss", "string-replace:commentsFirst", "string-replace:commentsSecond", "csscomb", "cssc", "cssmin:cssMin"]);
+				PROCESS_TASKS = PROCESS_TASKS.concat(["uncss", "string-replace:cssComments", "csscomb", "cssc", "cssmin:cssMin"]);
 				grunt.task.run(PROCESS_TASKS);
 			}
 		} else {
@@ -665,7 +670,7 @@ module.exports = function(grunt) {
 				grunt.log.writeln("No .js-files to process.");
 			} else {
 				grunt.config.set("TASK.JS_ARRAY", fillAnArray(JS_ARRAY, project.res.js.devDir));
-				grunt.task.run(["concat:js", "removelogging", "fixmyjs", "uglify"]);
+				grunt.task.run(["concat:js", "removelogging", "fixmyjs", "closure-compiler", "uglify"]);
 			}
 		} else {
 			if (JS_EXPECTED > JS_ACTUAL) {
@@ -678,7 +683,9 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("critical-cssInline", "Injecting critical CSS", function() {
 		var CRITICAL_CSS_REGEX = new RegExp("<(.)*" + project.res.css.filename + ".min.css(.)*>", "g"),
-				CRITICAL_CSS = "<style type=\"text/css\">" + grunt.file.read(project.res.css.dir + project.res.css.critical + ".min.css") + "</style>",
+				CRITICAL_CSS_NOSCRIPT = "<noscript><link rel=\"stylesheet\" type=\"text/css\" href=\"" + project.res.css.dir + project.res.css.filename + ".min.css" + "\"></noscript>",
+				CRITICAL_CSS_CRITICAL = "<style type=\"text/css\">" + grunt.file.read(project.res.css.dir + project.res.css.critical + ".min.css") + "</style>",
+				CRITICAL_CSS = CRITICAL_CSS_CRITICAL + "\n\t\t" + CRITICAL_CSS_NOSCRIPT,
 				CSS_LOAD = "\t<script type=\"text/javascript\">function loadCSS(a){function e(){for(var d,f=0,g=c.length,f=0;g>f;f++)c[f].href&&c[f].href.indexOf(a)>-1&&(d=!0);d?b.media=\"all\":setTimeout(e)}var b=window.document.createElement(\"link\"),c=window.document.styleSheets,d=window.document.getElementsByTagName(\"style\")[0];return b.rel=\"stylesheet\",b.type=\"text/css\",b.href=a,b.media=\"only x\",d.parentNode.insertBefore(b,d.nextSibling),e(),b}loadCSS(\"" + project.res.css.dir.replace(project.dir, "") + project.res.css.filename + ".min.css\");</script>\n\t</body>",
 				PAGE_PATH = project.build.dir + project.build.critical.page,
 				PAGE = grunt.file.read(PAGE_PATH).replace(CRITICAL_CSS_REGEX, CRITICAL_CSS).replace("</body>", CSS_LOAD);
@@ -703,7 +710,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("critical", ["penthouse", "string-replace:critical", "cssmin:cssMinCritical", "critical-cssInline"]);
 
-	grunt.registerTask("build-commonFirst", ["compile", "clean:build", "copy:build", "copy:meta", "compress:cssGzip:", "compress:jsGzip:", "string-replace:build"]);
+	grunt.registerTask("build-commonFirst", ["compile", "clean:build", "clean:reports", "copy:build", "copy:meta", "compress:cssGzip:", "compress:jsGzip:", "string-replace:build"]);
 
 	grunt.registerTask("build-commonSecond", ["htmlmin:cleanup", "imagemin:meta"]);
 
