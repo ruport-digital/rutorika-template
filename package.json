@@ -6,6 +6,7 @@
 		"grunt-htmlhint": "*",
 		"grunt-contrib-jshint": "*",
 		"grunt-jsinspect": "*",
+		"grunt-scss-lint": "*",
 		"grunt-contrib-csslint": "*",
 		"grunt-csscss": "*",
 		"grunt-colorguard": "*",

@@ -111,6 +111,13 @@ module.exports = function(grunt) {
 				expand: true
 			}
 		},
+		scsslint: {
+			scssLint: {
+				cwd: project.res.css.sass,
+				src: ["*.scss"],
+				expand: true
+			}
+		},
 		csslint: {
 			option: {
 				"csslintrc": ".csslintrc"
