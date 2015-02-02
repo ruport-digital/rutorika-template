@@ -699,7 +699,7 @@ module.exports = function(grunt) {
 		grunt.file.write(PAGE_PATH, PAGE);
 	});
 
-	grunt.registerTask("quality", ["htmlhint", "jshint", "jsinspect", "csslint", "csscss", "colorguard", "arialinter"]);
+	grunt.registerTask("quality", ["htmlhint", "jshint", "jsinspect", "scsslint", "csslint", "csscss", "colorguard", "arialinter"]);
 
 	grunt.registerTask("performance", ["analyzecss"]);
 
