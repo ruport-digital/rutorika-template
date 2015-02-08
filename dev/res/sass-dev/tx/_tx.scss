@@ -10,7 +10,7 @@
 	@if $minh != none and $minh != 0 {
 		min-height: $minh;
 	}
-	@if $center {
+	@if $center == true {
 		margin: 0 auto;
 	}
 }
@@ -20,14 +20,14 @@
 // Page Scroll
 
 @mixin tx-scroll-bar($cond: false, $autohide: true) {
-	@if $cond {
+	@if $cond == true {
 		overflow-x: auto;
 		overflow-y: scroll;
 	}
 	@else {
 		overflow: auto;
 	}
-	@if $autohide {
+	@if $autohide == true {
 		-ms-overflow-style: -ms-autohiding-scrollbar;
 	}
 }
@@ -74,7 +74,7 @@
 // Inline Block
 
 @mixin tx-inline-block($ie: $tx-ie) {
-	@if not $ie {
+	@if $ie != true {
 		display: inline-block;
 	}
 	@else {
@@ -107,10 +107,10 @@
 @mixin tx-pseudo-ie($before: true, $after: true, $class: "", $beforeContent: "", $afterContent: "") {
 	$beforeClass: ieBefore + $class;
 	$afterClass: ieAfter + $class;
-	@if $before and $after {
+	@if $before == true and $after == true {
 		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'), insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))");
 	}
-	@else if $before {
+	@else if $before == true {
 		zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'))");
 	}
 	@else {
@@ -136,13 +136,13 @@
 //  Height in Grid Units
 
 @mixin tx-grid-height($lines: 1, $lh: true, $pd: false) {
-	@if $pd {
+	@if $pd == true {
 		padding: $lines * $base-line-height 0 0;
 	}
 	@else {
 		height: $lines * $base-line-height;
 	}
-	@if $lh {
+	@if $lh == true {
 		line-height: $lines * $base-line-height;
 	}
 }
