@@ -1,21 +1,18 @@
-// Base Properties
+// General Properties
 
-$sans-font: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+$sansSerif-font: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 $serif-font: Cambria, Georgia, Times, "Times New Roman", serif;
 $monospace-font: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 
 $white: #fff;
 $red: #f00;
-$redDark: #d00837;
 $blue: #003b9e;
-$blueLight: #488dc6;
 $gray: #333;
-$grayLight: #939393;
 $black: #000;
 
 
 
-// Project Base Properties
+// Project Basic Properties
 
 $min-width: 980px;
 
@@ -23,12 +20,17 @@ $text: $black;
 $link: $blue;
 $visited: $link;
 $hover: $red;
-$active: $redDark;
-$focus-outline: $grayLight;
+$active: $red;
+$focus-outline: $gray;
+$selection-color: $white;
+$selection-bg: $blue;
 
 $background: $white;
 
-$font: $sans-font;
+$print-color: $black;
+$print-bg: $white;
+
+$font: $sansSerif-font;
 $font-mono: $monospace-font;
 $font-size: 16px;
 $line-height: $font-size * 1.5;
@@ -44,14 +46,15 @@ $spts: $spts-image no-repeat;
 
 $gap: 30px;
 
-$transitionUIInstant: .000001s linear;
+$UITransition: .25s;
+$UITransitionInstant: .000001s linear;
 
-$h1-font-size: $font-size * 2;
-$h2-font-size: $font-size * 1.5;
-$h3-font-size: $font-size * 1.375;
-$h4-font-size: $font-size * 1.25;
-$h5-font-size: $font-size * 1.125;
-$h6-font-size: $font-size;
+$h1-fontSize: $font-size * 2;
+$h2-fontSize: $font-size * 1.5;
+$h3-fontSize: $font-size * 1.375;
+$h4-fontSize: $font-size * 1.25;
+$h5-fontSize: $font-size * 1.125;
+$h6-fontSize: $font-size;
 
 
 
@@ -61,4 +64,4 @@ $browser-font-size: 16px;
 $font-unit: 1em;
 $base-font-size: $font-size;
 $base-line-height: $line-height;
-$grid-background-baseline-color: rgba($blue, .25);
+$grid-background-baseline-color: $blue;

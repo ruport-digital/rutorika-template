@@ -29,7 +29,3 @@
             clearTimeout(id);
         };
 }());
-
-/* global $:false */
-
-$(document).ready(function() {});

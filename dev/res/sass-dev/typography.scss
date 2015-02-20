@@ -1,10 +1,12 @@
 @import "tx/tx";
-@import "tx/tx-project";
 @import "tx/tx-projectImages";
 
+@import "project";
+@import "project-global";
 
 
-// Base Typography & Rhythm
+
+// Basic Typography & Rhythm
 
 
 
@@ -12,12 +14,11 @@
 
 html {
 	@include tx-baseline;
-	@include tx-font-adjustment;
+	text-size-adjust: 100%;
 }
 
 body {
 	color: $text;
-	background: $background;
 	font-family: $font;
 }
 
@@ -49,11 +50,8 @@ a {
 
 }
 
-label, button, .button {
-	cursor: pointer;
-}
-
 label {
+	cursor: pointer;
 	border-bottom: 1px dotted $focus-outline;
 
 	&:focus {
@@ -65,40 +63,39 @@ label {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
-	text-rendering: optimizelegibility;
 	page-break-after: avoid;
 	orphans: 3;
 	widows: 3;
 }
 
 h1 {
-	@include tx-rhythm(1, 2, $h1-font-size);
-	@include tx-font-size($h1-font-size, 2);
+	@include tx-rhythm(1, 2, $h1-fontSize);
+	@include tx-font-size($h1-fontSize, 2);
 }
 
 h2 {
-	@include tx-rhythm(1, 1, $h2-font-size);
-	@include tx-font-size($h2-font-size, 2);
+	@include tx-rhythm(1, 1, $h2-fontSize);
+	@include tx-font-size($h2-fontSize, 2);
 }
 
 h3 {
-	@include tx-rhythm(1, 1, $h3-font-size);
-	@include tx-font-size($h3-font-size, 1);
+	@include tx-rhythm(1, 1, $h3-fontSize);
+	@include tx-font-size($h3-fontSize, 1);
 }
 
 h4 {
-	@include tx-rhythm(1, 1, $h4-font-size);
-	@include tx-font-size($h4-font-size, 1);
+	@include tx-rhythm(1, 1, $h4-fontSize);
+	@include tx-font-size($h4-fontSize, 1);
 }
 
 h5 {
-	@include tx-rhythm(1, 1, $h5-font-size);
-	@include tx-font-size($h5-font-size, 1);
+	@include tx-rhythm(1, 1, $h5-fontSize);
+	@include tx-font-size($h5-fontSize, 1);
 }
 
 h6 {
-	@include tx-rhythm(1, 1, $h6-font-size);
-	@include tx-font-size($h6-font-size, 1);
+	@include tx-rhythm(1, 1, $h6-fontSize);
+	@include tx-font-size($h6-fontSize, 1);
 }
 
 p, pre, dl, ul, ol, li, address, video, audio, table {
@@ -106,7 +103,7 @@ p, pre, dl, ul, ol, li, address, video, audio, table {
 }
 
 p, blockquote, li, dd {
-	@include tx-hyphens(auto);
+	hyphens: manual;
 }
 
 pre, code, samp, var, tt {
@@ -114,9 +111,9 @@ pre, code, samp, var, tt {
 }
 
 pre, code, samp, var {
-	$text-code: $redDark;
+	$pre-color: $red;
 
-	color: $text-code;
+	color: $pre-color;
 }
 
 pre {
@@ -183,7 +180,7 @@ acronym, abbr, ins, mark, del {
 }
 
 acronym, abbr, ins, mark {
-	$acronym-color: $blueLight;
+	$acronym-color: $blue;
 
 	color: $acronym-color;
 	border-bottom: 1px dotted $acronym-color;
@@ -195,20 +192,19 @@ acronym, abbr {
 }
 
 del {
-	$del-color: $redDark;
+	$del-color: $red;
+	$del-borderWidth: 1px;
 
 	color: $del-color;
-	border-bottom: 1px dotted $del-color;
+	border-bottom: $del-borderWidth dotted $del-color;
 }
 
 kbd {
-	$kbd-color: $gray;
-	$kbd-bg: $grayLight;
+	$kbd-bg: $gray;
 
 	@include tx-inline-block;
 	@include tx-grid-height(1);
 	padding: 0 .5em;
-	color: $kbd-color;
 	background: $kbd-bg;
 	background-clip: padding-box;
 	font-family: $font-mono;
@@ -219,7 +215,7 @@ kbd {
 }
 
 var {
-	$var-color: $redDark;
+	$var-color: $red;
 
 	color: $var-color;
 	font-style: normal;
@@ -257,66 +253,7 @@ u {
 img {
 	max-width: 100%;
 	vertical-align: top;
-}
-
-video {
-
-	&::-webkit-media-controls-play-button {
-
-	}
-
-	&::-webkit-media-controls-timeline {
-
-	}
-
-	&::-webkit-media-controls-current-time-display{
-
-	}
-
-	&::-webkit-media-controls-time-remaining-display {
-
-	}
-
-	&::-webkit-media-controls-fullscreen-button {
-
-	}
-
-	&::-webkit-media-controls-toggle-closed-captions-button {
-
-	}
-
-	&::-webkit-media-controls-mute-button {
-
-	}
-
-	&::-webkit-media-controls-volume-slider {
-
-	}
-
-}
-
-audio {
-
-	&::-webkit-media-controls-play-button {
-
-	}
-
-	&::-webkit-media-controls-timeline {
-
-	}
-
-	&::-webkit-media-controls-current-time-display{
-
-	}
-
-	&::-webkit-media-controls-time-remaining-display {
-
-	}
-
-	&::-webkit-media-controls-volume-slider {
-
-	}
-
+	border: none;
 }
 
 caption {
@@ -332,7 +269,7 @@ table {
 }
 
 td, th {
-	$cell-borderColor: $grayLight;
+	$cell-borderColor: $gray;
 
 	@include tx-table-borders(1px, .5, $bcolor: $cell-borderColor);
 }
@@ -349,111 +286,11 @@ fieldset {
 
 legend {
 	$legend-padding: 1.5em;
-	$legend-bg: $grayLight;
 
 	position: relative;
 	left: -$legend-padding;
 	padding: 0 $legend-padding;
-	background: $legend-bg;
 	font-weight: bold;
-}
-
-
-input, select, button, textarea {
-	@include tx-font-size($font-size, 1);
-	font-family: $font;
-	margin: 0;
-}
-
-input, button, textarea {
-	padding: 0 .5em;
-	box-sizing: content-box;
-}
-
-input, select, textarea {
-
-	&[disabled], &[readonly] {
-		opacity: .5;
-		cursor: default;
-		cursor: not-allowed;
-	}
-
-}
-
-input, button {
-	@include tx-form-height(1, 0);
-	border: none;
-
-	&::-moz-focus-inner {
-		border: 0;
-		padding: 0;
-	}
-
-}
-
-input, select {
-	vertical-align: top;
-}
-
-button, select {
-	text-transform: none;
-}
-
-.inputRadio, .inputCheckbox {
-	box-sizing: border-box;
-	vertical-align: top;
-}
-
-.inputFile {
-	height: auto;
-	border: none;
-	line-height: normal;
-}
-
-.inputSearch {
-	@include tx-appearance;
-
-
-
-}
-
-.inputNumber {
-	@include tx-appearance;
-
-	&::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-	}
-
-}
-
-.field, textarea, select {
-	$field-border: $grayLight;
-
-	display: block;
-	border: 1px solid $field-border;
-}
-
-.field {
-	@include tx-form-height(1);
-
-	&-search {
-		@include tx-form-height(2);
-	}
-
-}
-
-textarea {
-	@include tx-form-height(10);
-	overflow: auto;
-}
-
-select {
-	@include tx-form-height(1, 0);
-
-	&[multiple] {
-		@include tx-form-height(5.1);
-	}
-
 }
 
 hr {
@@ -465,8 +302,6 @@ hr {
 	padding: 0;
 	border-top: 1px solid $hr-borderColor;
 }
-
-@import "tx/tx-typographyAdd";
 
 
 
@@ -486,9 +321,7 @@ hr {
 
 @media handheld, only screen and (max-width: 720px) {
 
-	table, tr, th, td {
-		display: block;
-	}
+	@import "phone/typography-phone";
 
 }
 
@@ -508,71 +341,19 @@ hr {
 
 @media print {
 
-	$print-color: $black;
-	$print-bg: $white;
-
-	@page {
-		margin: 0 .5cm;
-	}
-
-	body {
-		width: 100%;
-		max-width: none;
-		margin: 0;
-		padding: 0;
-		color: $print-color;
-		background: $print-bg;
-		font-size: 16pt;
-	}
-
-	a {
-		color: $print-color;
-		text-decoration: none;
-
-		&:after {
-			content: " (" attr(href) ")";
-			font-size: 90%;
-		}
-
-		&:visited {
-			color: $print-color;
-		}
-
-		&[href^="javascript:"], &[href^="#"] {
-
-			&:after {
-				content: "";
-			}
-
-		}
-
-	}
-
-	acronym, abbr, ins, del, var, input, select, textarea {
-		color: $print-color;
-		text-decoration: none;
-		border: none;
-	}
-
-	abbr[title] {
-
-		&:after {
-			content: " (" attr(title) ")";
-		}
-
-	}
-
-	p {
-		orphans: 3;
-		widows: 3;
-	}
-
-	blockquote, pre, img, tr {
-		page-break-inside: avoid;
-	}
-
-	thead {
-		display: table-header-group;
-	}
+	@import "print/typography-print";
 
 }
+
+
+
+/* TV Typography */
+
+@media projection, tv {}
+
+
+
+/* Audio Typography */
+
+@media aural {}
+

@@ -4,10 +4,11 @@
 	"sources": [
 		"../sass-dev/layout-IE.scss",
 		"../sass-dev/tx/_tx.scss",
-		"../sass-dev/tx/_tx-project.scss",
-		"../sass-dev/tx/_tx-projectImages.scss"
+		"../sass-dev/tx/_tx-projectImages.scss",
+		"../sass-dev/_project.scss",
+		"../sass-dev/_project-global.scss"
 	],
 	"sourcesContent": [],
-	"mappings": ";AAcA,KAAK;EAGH,MAAM",
+	"mappings": "",
 	"names": []
 }

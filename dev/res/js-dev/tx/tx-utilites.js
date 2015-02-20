@@ -1,16 +1,12 @@
 /* global Modernizr:false */
 
-function checkRAF() {
-	return typeof(window.requestAnimationFrame) === "function" ? true : false;
-}
-
 function translateY(DISTANCE) {
 	var CSS;
 	if (Modernizr.csstransforms) {
 		CSS = {
 			"-webkit-transform": "translateY(" + DISTANCE + ") translateZ(0)",
 			"-moz-transform": "translateY(" + DISTANCE + ") translateZ(0)",
-			"-ms-transform": "translateY(" + DISTANCE + ") translateZ(0)",
+			"-ms-transform": "translateY(" + DISTANCE + ")",
 			"-o-transform": "translateY(" + DISTANCE + ")",
 			"transform": "translateY(" + DISTANCE + ") translateZ(0)"
 		};

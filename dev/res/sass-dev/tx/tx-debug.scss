@@ -1,24 +1,30 @@
 @import "tx";
 @import "tx-debugMixins";
-@import "tx-project";
+
+@import "../project";
 
 
 
 /* TX Debuging Styles */
 
 .page-is-showingRhythmLines {
+	position: relative;
+	padding: 1px 0 0;
+	top: -1px;
+}
+
+.debugToolsRhythm {
+	position: absolute;
+	display: none;
+	width: 100%;
+	top: 1px;
+	left: 0;
 	background: linear-gradient(to bottom, transparent, transparent $base-line-height - 1, $grid-background-baseline-color);
 	background-size: 100% $base-line-height;
-}
+	pointer-events: none;
 
-.page-is-showingResponsiveGuide {
-	background: url(../../images/tx/tx-responsiveGuide.jpg);
-}
-
-.page-is-showingRhythmLines, .page-is-showingResponsiveGuide {
-
-	.content {
-		background: none;
+	.page-is-showingRhythmLines & {
+		display: block;
 	}
 
 }

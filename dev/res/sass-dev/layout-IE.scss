@@ -1,21 +1,11 @@
 @import "tx/tx";
-@import "tx/tx-project";
 @import "tx/tx-projectImages";
+
+@import "project";
+@import "project-global";
 
 $tx-ie: true;
 
 
 
 // Layout (Internet Explorer < 8)
-
-
-
-/* zoom */
-
-.ie6 {
-
-	.content {
-		zoom: 1;
-	}
-
-}

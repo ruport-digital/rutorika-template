@@ -1,6 +1,8 @@
 @import "tx/tx";
-@import "tx/tx-project";
 @import "tx/tx-projectImages";
+
+@import "project";
+@import "project-global";
 
 
 
@@ -19,22 +21,7 @@ body {
 	@include tx-set-boundaries($min-width);
 	@include tx-scroll-bar(true);
 	position: relative;
-}
-
-
-
-/* Content */
-
-.content {
-	padding: 0 $gap;
-
-	&:after {
-		@include tx-pseudo($pos: relative);
-		height: 0;
-		font-size: 0;
-		clear: both;
-	}
-
+	background: $background;
 }
 
 
@@ -53,7 +40,11 @@ body {
 
 /* Phone Layout */
 
-@media handheld, only screen and (max-width: 720px) {}
+@media handheld, only screen and (max-width: 720px) {
+
+	@import "phone/layout-phone";
+
+}
 
 @media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min-resolution: 150dpi) {}
 
@@ -69,7 +60,11 @@ body {
 
 /* Print Layout */
 
-@media print {}
+@media print {
+
+	@import "print/layout-print";
+
+}
 
 
 

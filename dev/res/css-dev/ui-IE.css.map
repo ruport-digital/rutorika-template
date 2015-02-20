@@ -4,10 +4,11 @@
 	"sources": [
 		"../sass-dev/ui-IE.scss",
 		"../sass-dev/tx/_tx.scss",
-		"../sass-dev/tx/_tx-project.scss",
-		"../sass-dev/tx/_tx-projectImages.scss"
+		"../sass-dev/tx/_tx-projectImages.scss",
+		"../sass-dev/_project.scss",
+		"../sass-dev/_project-global.scss"
 	],
 	"sourcesContent": [],
-	"mappings": "",
+	"mappings": ";AAgBA,KAAK,mBAAmB,KAAK;EAG3B,OAAO;EACP,QAAQ;;AAKM,KAAK,QAAQ,KAAK;EACjC,QAAQ;ECwFP,QAAQ;;ADpFV,KAAK;EAGH,gBAAgB",
 	"names": []
 }

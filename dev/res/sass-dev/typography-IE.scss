@@ -1,12 +1,14 @@
 @import "tx/tx";
-@import "tx/tx-project";
 @import "tx/tx-projectImages";
+
+@import "project";
+@import "project-global";
 
 $tx-ie: true;
 
 
 
-// Base Typography & Rhythm (Internet Explorer < 8)
+// Basic Typography & Rhythm (Internet Explorer < 8)
 
 
 
@@ -24,18 +26,9 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
-input {
-
-	&[type="checkbox"], &[type="radio"] {
-		width: 13px;
-		height: 13px;
-	}
-
-}
-
 .ie6 {
 
-	label, button, .button {
+	label {
 		cursor: hand;
 	}
 
@@ -78,10 +71,6 @@ input {
 
 		}
 
-	}
-
-	input {
-		vertical-align: text-bottom;
 	}
 
 }

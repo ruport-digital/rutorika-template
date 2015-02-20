@@ -1,14 +1,21 @@
 /* TX Debuging Styles */
 .page-is-showingRhythmLines {
-  background: -webkit-linear-gradient(top, transparent, transparent 23px, rgba(0, 59, 158, 0.25));
-  background: linear-gradient(to bottom, transparent, transparent 23px, rgba(0, 59, 158, 0.25));
-  background-size: 100% 24px; }
+  position: relative;
+  padding: 1px 0 0;
+  top: -1px; }
 
-.page-is-showingResponsiveGuide {
-  background: url(../../images/tx/tx-responsiveGuide.jpg); }
-
-.page-is-showingRhythmLines .content, .page-is-showingResponsiveGuide .content {
-  background: none; }
+.debugToolsRhythm {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 1px;
+  left: 0;
+  background: -webkit-linear-gradient(top, transparent, transparent 23px, #003b9e);
+  background: linear-gradient(to bottom, transparent, transparent 23px, #003b9e);
+  background-size: 100% 24px;
+  pointer-events: none; }
+  .page-is-showingRhythmLines .debugToolsRhythm {
+    display: block; }
 
 /* TX Debuging Console */
 .debugConsole {

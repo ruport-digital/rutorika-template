@@ -1,2 +1,103 @@
+/* Video */
+/* Audio */
+/* Forms */
+input, select, button, textarea {
+	margin: 0; 
+	font-size: 1em;
+	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+}
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1aS5jc3MifQ== */
+input, button, textarea {
+	box-sizing: content-box; 
+	padding: 0 .5em;
+}
+
+input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly] {
+	opacity: .5;
+	cursor: default;
+	cursor: not-allowed;
+}
+
+input, button {
+	border: none;
+}
+input::-moz-focus-inner, button::-moz-focus-inner {
+	padding: 0; 
+	border: 0;
+}
+
+input, select {
+	vertical-align: baseline;
+}
+
+button, select {
+	text-transform: none;
+}
+
+select, textarea, .field {
+	display: block;
+	border: 1px solid #333333;
+}
+
+select {
+	height: 1.5em;
+}
+select[multiple] {
+	height: 7.5em;
+}
+
+button, .button {
+	height: 1.5em; 
+	cursor: pointer;
+}
+
+textarea {
+	overflow: auto; 
+	height: 14.875em;
+	line-height: 1.5em;
+}
+
+/* Custom Forms */
+.input-radio, .input-checkbox {
+	box-sizing: border-box;
+	vertical-align: top;
+}
+
+.input-file {
+	height: auto;
+	border: none;
+}
+
+.input-search {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.input-number {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input-number::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+.field {
+	height: 1.375em;
+	line-height: 1.375em;
+}
+.field-search {
+	height: 2.875em;
+	line-height: 2.875em;
+}
+
+/* Buttons */
+/* High DPI UI */
+/* Large Resolution UI */
+/* Phone UI */
+/* Tablet UI */
+/* Print UI */
+/* TV UI */
+/* Audio UI */
+/*# sourceMappingURL=ui.css.map */

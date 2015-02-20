@@ -11,12 +11,7 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
-input[type="checkbox"], input[type="radio"] {
-	width: 13px;
-	height: 13px;
-}
-
-.ie6 label, .ie6 button, .ie6 .button {
+.ie6 label {
 	cursor: hand;
 }
 .ie6 pre {
@@ -37,9 +32,6 @@ input[type="checkbox"], input[type="radio"] {
 .ie6 .u-descriptionListReset dl dd {
 	margin: 0 0 1.5em 1.5em;
 	font-style: italic;
-}
-.ie6 input {
-	vertical-align: text-bottom;
 }
 
 /*# sourceMappingURL=typography-IE.css.map */

@@ -36,14 +36,11 @@
 
 // Selection
 
-@mixin tx-selection-style($bg: #00f, $cl: #fff, $sw: none) {
+@mixin tx-selection-style($bg: $selection-bg, $cl: $selection-color) {
 	@each $prefix in -webkit-, -moz-, "" {
 		::#{$prefix}selection {
 			color: $cl;
 			background: $bg;
-			@if $sw != none {
-				text-shadow: $sw;
-			}
 		}
 	}
 }
@@ -55,18 +52,6 @@
 @mixin tx-baseline($fz: $base-font-size) {
 	font-size: 100% * $fz / $browser-font-size;
 	line-height: rhythm($fz: $fz);
-}
-
-
-
-// Font Adjustment
-
-@mixin tx-font-adjustment($cond: true) {
-	@if $cond != true {
-		@each $prefix in -webkit-, -ms- {
-			#{$prefix}text-size-adjust: 100%;
-		}
-	}
 }
 
 
@@ -120,30 +105,17 @@
 
 
 
-// Counter
-
-@mixin tx-counter-reset($cntr) {
-	counter-reset: $cntr;
-}
-
-@mixin tx-counter($cntr, $divider: ". ") {
-	content: counter($cntr) quote($divider);
-	counter-increment: $cntr;
-}
-
-
-
 //  Height in Grid Units
 
-@mixin tx-grid-height($lines: 1, $lh: true, $pd: false) {
+@mixin tx-grid-height($lines: 1, $brdw: 0, $fz: $base-font-size, $lh: true, $pd: false) {
 	@if $pd == true {
-		padding: $lines * $base-line-height 0 0;
+		padding: rhythm($lines, $fz, $offset: 2 * $brdw) 0 0;
 	}
 	@else {
-		height: $lines * $base-line-height;
+		height: rhythm($lines, $fz, $offset: 2 * $brdw);
 	}
 	@if $lh == true {
-		line-height: $lines * $base-line-height;
+		line-height: rhythm($lines, $fz, $offset: 2 * $brdw);
 	}
 }
 
@@ -230,16 +202,6 @@
 
 
 
-// Hyphens
-
-@mixin tx-hyphens($val: manual) {
-	@each $prefix in -webkit-, -moz-, -o-, "" {
-		#{$prefix}hyphens: $val;
-	}
-}
-
-
-
 // Force Wrap
 
 @mixin tx-force-wrap {
@@ -260,15 +222,11 @@
 @mixin tx-no-select($cond: true) {
 	@if $cond != true {
 		-webkit-touch-callout: default;
-		@each $prefix in -webkit-, -moz-, -ms-, "" {
-			#{$prefix}user-select: all;
-		}
+		user-select: all;
 	}
 	@else {
 		-webkit-touch-callout: none;
-		@each $prefix in -webkit-, -moz-, -ms-, "" {
-			#{$prefix}user-select: none;
-		}
+		user-select: none;
 	}
 }
 
@@ -276,8 +234,15 @@
 
 // Form Element Height in Grid Units
 
-@mixin tx-form-height($lines: 1, $brdw: 1px, $fz: $font-size) {
-	height: rhythm($lines, $fz, $offset: 2 * $brdw);
+@mixin tx-form-height($lines: 1, $brdw: 1px, $fz: $font-size, $lh: true) {
+	@if $lh == true {
+		height: rhythm($lines, $fz, $offset: 2 * $brdw);
+		line-height: rhythm($lines, $fz, $offset: 2 * $brdw);
+	}
+	@else {
+		height: rhythm($lines, $fz, $offset: 2 * $brdw);
+		line-height: rhythm(1, $fz, 0);
+	}
 }
 
 
@@ -314,10 +279,10 @@
 	border: $brdw $bstyle $bcolor;
 	@if $lines != 0 {
 		@if $prgt == $plft and $prgt != 0 {
-			padding: $calculated-vertical-padding $prgt $calculated-vertical-padding + $calculated-width;
+			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width);
 		}
 		@else {
-			padding: $calculated-vertical-padding $prgt $calculated-vertical-padding + $calculated-width $plft;
+			padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width) $plft;
 		}
 	}
 }

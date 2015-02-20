@@ -5,7 +5,7 @@ html {
 }
 
 body {
-	position: relative; 
+	position: relative;
 	overflow-x: auto;
 	overflow-y: scroll;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
@@ -13,19 +13,7 @@ body {
 	min-height: 100%;
 	max-width: 1400px;
 	margin: 0 auto;
-}
-
-/* Content */
-.content {
-	padding: 0 30px;
-}
-.content:after {
-	position: relative;
-	content: "";
-	display: block;
-	clear: both; 
-	height: 0;
-	font-size: 0;
+	background: #ffffff;
 }
 
 /* High DPI Layout */
@@ -33,6 +21,13 @@ body {
 /* Phone Layout */
 /* Tablet Layout */
 /* Print Layout */
+@media print {
+	/* Layout Base */
+	html, body {
+		background: #ffffff;
+	}
+}
+
 /* TV Layout */
 /* Audio Layout */
 /*# sourceMappingURL=layout.css.map */

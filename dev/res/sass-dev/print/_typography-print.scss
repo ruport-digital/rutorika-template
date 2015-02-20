@@ -1,0 +1,64 @@
+/* Typography & Rhythm */
+
+@page {
+	margin: 0 .5cm;
+}
+
+body {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	color: $print-color;
+	font-size: 16pt;
+}
+
+a {
+	color: $print-color;
+	text-decoration: none;
+
+	&:after {
+		content: " (" attr(href) ")";
+		font-size: 90%;
+	}
+
+	&:visited {
+		color: $print-color;
+	}
+
+	&[href^="javascript:"], &[href^="#"] {
+
+		&:after {
+			content: "";
+		}
+
+	}
+
+}
+
+acronym, abbr, ins, del, var, input, select, textarea {
+	color: $print-color;
+	text-decoration: none;
+	border: none;
+}
+
+abbr[title] {
+
+	&:after {
+		content: " (" attr(title) ")";
+	}
+
+}
+
+p {
+	orphans: 3;
+	widows: 3;
+}
+
+blockquote, pre, img, tr {
+	page-break-inside: avoid;
+}
+
+thead {
+	display: table-header-group;
+}
