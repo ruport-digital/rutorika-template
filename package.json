@@ -1,6 +1,7 @@
 {
 	"private" : true,
 	"devDependencies" : {
+		"backstopjs": "*",
 		"grunt": "~0.4.5",
 		"load-grunt-tasks": "*",
 		"grunt-htmlhint": "*",
