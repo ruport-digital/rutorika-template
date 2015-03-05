@@ -5,27 +5,30 @@ $serif-font: Cambria, Georgia, Times, "Times New Roman", serif;
 $monospace-font: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 
 $white: #fff;
-$red: #f00;
-$blue: #003b9e;
-$gray: #333;
-$black: #000;
+$red: #d9534f;
+$blue: #337ab7;
+$blueDark: #23527c;
+$purple: #6f5499;
+$gray: #ccc;
+$black: #333;
 
 
 
-// Project Basic Properties
+// Project Defaults
 
 $min-width: 980px;
 
 $text: $black;
 $link: $blue;
-$visited: $link;
-$hover: $red;
-$active: $red;
+$visited: $purple;
+$hover: $blueDark;
+$active: $blueDark;
 $focus-outline: $gray;
-$selection-color: $white;
-$selection-bg: $blue;
 
 $background: $white;
+
+$selection-color: $white;
+$selection-bg: $blue;
 
 $print-color: $black;
 $print-bg: $white;
@@ -37,27 +40,6 @@ $line-height: $font-size * 1.5;
 
 
 
-// Project Properties
-
-$tx-ie: false;
-
-$spts-image: url(../images/sprites.png);
-$spts: $spts-image no-repeat;
-
-$gap: 30px;
-
-$UITransition: .25s;
-$UITransitionInstant: .000001s linear;
-
-$h1-fontSize: $font-size * 2;
-$h2-fontSize: $font-size * 1.5;
-$h3-fontSize: $font-size * 1.375;
-$h4-fontSize: $font-size * 1.25;
-$h5-fontSize: $font-size * 1.125;
-$h6-fontSize: $font-size;
-
-
-
 // TX Properties
 
 $browser-font-size: 16px;
@@ -65,3 +47,4 @@ $font-unit: 1em;
 $base-font-size: $font-size;
 $base-line-height: $line-height;
 $grid-background-baseline-color: $blue;
+$tx-ie: false;

@@ -22,8 +22,6 @@ body {
 	font-family: $font;
 }
 
-@include tx-selection-style;
-
 article, aside, figure, figcaption, footer, header, hgroup, nav, section {
 	display: block;
 }
@@ -51,8 +49,10 @@ a {
 }
 
 label {
+	$label-borderColor: $gray;
+
 	cursor: pointer;
-	border-bottom: 1px dotted $focus-outline;
+	border-bottom: 1px dotted $label-borderColor;
 
 	&:focus {
 		border: none;
@@ -192,7 +192,7 @@ acronym, abbr {
 }
 
 del {
-	$del-color: $red;
+	$del-color: $gray;
 	$del-borderWidth: 1px;
 
 	color: $del-color;
@@ -271,7 +271,7 @@ table {
 td, th {
 	$cell-borderColor: $gray;
 
-	@include tx-table-borders(1px, .5, $bcolor: $cell-borderColor);
+	@include tx-table-borders(1px, .5, $bcolor: $cell-borderColor, $prgt: ($gap / 2), $plft: ($gap / 2));
 }
 
 th {
@@ -280,6 +280,8 @@ th {
 }
 
 fieldset {
+	display: block;
+	margin: 0;
 	padding: 0;
 	border: none;
 }

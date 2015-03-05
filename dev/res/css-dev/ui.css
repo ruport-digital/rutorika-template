@@ -1,3 +1,19 @@
+/* Selection */
+::-webkit-selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
+::-moz-selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
+::selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
 /* Video */
 /* Audio */
 /* Forms */
@@ -8,8 +24,7 @@ input, select, button, textarea {
 }
 
 input, button, textarea {
-	box-sizing: content-box; 
-	padding: 0 .5em;
+	box-sizing: content-box;
 }
 
 input[disabled], input[readonly], select[disabled], select[readonly], textarea[disabled], textarea[readonly] {
@@ -35,32 +50,35 @@ button, select {
 }
 
 select, textarea, .field {
-	display: block;
-	border: 1px solid #333333;
+	border: 1px solid #cccccc;
 }
 
 select {
-	height: 1.5em;
+	height: 2.25em;
+	vertical-align: top;
 }
 select[multiple] {
 	height: 7.5em;
 }
 
 button, .button {
-	height: 1.5em; 
+	height: 2.25em;
+	padding: 0 15px; 
 	cursor: pointer;
 }
 
 textarea {
+	display: block;
 	overflow: auto; 
-	height: 14.875em;
+	height: 13.375em;
+	padding: .75em 15px;
 	line-height: 1.5em;
 }
 
 /* Custom Forms */
 .input-radio, .input-checkbox {
 	box-sizing: border-box;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 .input-file {
@@ -84,12 +102,10 @@ textarea {
 }
 
 .field {
-	height: 1.375em;
-	line-height: 1.375em;
-}
-.field-search {
-	height: 2.875em;
-	line-height: 2.875em;
+	height: 2.125em;
+	padding: 0 15px;
+	line-height: 2.125em;
+	vertical-align: top;
 }
 
 /* Buttons */

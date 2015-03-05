@@ -10,54 +10,39 @@ html {
 }
 
 body {
-	color: #000000;
+	color: #333333;
 	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
-::-webkit-selection {
-	color: #ffffff;
-	background: #003b9e;
-}
-
-::-moz-selection {
-	color: #ffffff;
-	background: #003b9e;
-}
-
-::selection {
-	color: #ffffff;
-	background: #003b9e;
-}
-
 a {
-	color: #003b9e;
+	color: #337ab7;
 	text-decoration: underline;
 }
 
 a:visited {
-	color: #003b9e;
+	color: #6f5499;
 }
 
 a:hover {
-	color: #ff0000;
+	color: #23527c;
 }
 
 a:active {
-	color: #ff0000;
+	color: #23527c;
 }
 
 a:focus {
-	outline: 1px dotted #333333;
+	outline: 1px dotted #cccccc;
 }
 
 label {
-	border-bottom: 1px dotted #333333;
+	border-bottom: 1px dotted #cccccc;
 	cursor: pointer;
 }
 
 label:focus {
 	border: none;
-	outline: 1px dotted #333333;
+	outline: 1px dotted #cccccc;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -119,7 +104,7 @@ pre, code, var {
 }
 
 pre, code, var {
-	color: #ff0000;
+	color: #d9534f;
 }
 
 pre {
@@ -188,8 +173,8 @@ acronym, abbr, ins, del {
 }
 
 acronym, abbr, ins {
-	border-bottom: 1px dotted #003b9e;
-	color: #003b9e;
+	border-bottom: 1px dotted #337ab7;
+	color: #337ab7;
 }
 
 acronym, abbr {
@@ -198,15 +183,15 @@ acronym, abbr {
 }
 
 del {
-	border-bottom: 1px dotted #ff0000;
-	color: #ff0000;
+	border-bottom: 1px dotted #cccccc;
+	color: #cccccc;
 }
 
 kbd {
 	display: inline-block;
 	height: 1.5em;
 	padding: 0 .5em;
-	background: #333333;
+	background: #cccccc;
 	background-clip: padding-box;
 	border-radius: 3px;
 	font-weight: bold;
@@ -217,7 +202,7 @@ kbd {
 }
 
 var {
-	color: #ff0000;
+	color: #d9534f;
 	font-style: normal;
 }
 
@@ -262,8 +247,8 @@ table {
 }
 
 td, th {
-	padding: .6875em .5em .75em;
-	border: 1px solid #333333;
+	padding: .6875em 15px .75em;
+	border: 1px solid #cccccc;
 }
 
 th {
@@ -272,8 +257,10 @@ th {
 }
 
 fieldset {
+	display: block;
 	padding: 0;
 	border: none;
+	margin: 0;
 }
 
 legend {
@@ -315,12 +302,12 @@ legend {
 		max-width: none;
 		padding: 0;
 		margin: 0;
-		color: #000000;
+		color: #333333;
 		font-size: 16pt;
 	}
 
 	a {
-		color: #000000;
+		color: #333333;
 		text-decoration: none;
 	}
 
@@ -330,12 +317,12 @@ legend {
 	}
 
 	a:visited {
-		color: #000000;
+		color: #333333;
 	}
 
 	acronym, abbr, ins, del, var, input, select, textarea {
 		border: none;
-		color: #000000;
+		color: #333333;
 		text-decoration: none;
 	}
 
@@ -372,6 +359,7 @@ body {
 	min-width: 980px;
 	min-height: 100%;
 	max-width: 1400px;
+	padding: 0 30px;
 	margin: 0 auto;
 	background: #ffffff;
 }
@@ -386,6 +374,23 @@ body {
 	}
 }
 
+/* Selection */
+
+::-webkit-selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
+::-moz-selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
+::selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
 /* Forms */
 
 input, select, textarea {
@@ -396,7 +401,6 @@ input, select, textarea {
 
 input, textarea {
 	box-sizing: content-box;
-	padding: 0 .5em;
 }
 
 input {
@@ -417,12 +421,12 @@ select {
 }
 
 select, textarea, .field {
-	display: block;
-	border: 1px solid #333333;
+	border: 1px solid #cccccc;
 }
 
 select {
-	height: 1.5em;
+	height: 2.25em;
+	vertical-align: top;
 }
 
 select[multiple] {
@@ -430,24 +434,24 @@ select[multiple] {
 }
 
 .button {
-	height: 1.5em;
+	height: 2.25em;
+	padding: 0 15px;
 	cursor: pointer;
 }
 
 textarea {
+	display: block;
 	overflow: auto;
-	height: 14.875em;
+	height: 13.375em;
+	padding: .75em 15px;
 	line-height: 1.5em;
 }
 
 /* Custom Forms */
 
 .field {
-	height: 1.375em;
-	line-height: 1.375em;
-}
-
-.field-search {
-	height: 2.875em;
-	line-height: 2.875em;
+	height: 2.125em;
+	padding: 0 15px;
+	line-height: 2.125em;
+	vertical-align: top;
 }

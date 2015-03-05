@@ -1,0 +1,28 @@
+// Sprites
+
+$spts-image: url(../images/sprites.png);
+$spts: $spts-image no-repeat;
+
+
+
+// Headers
+
+$h1-fontSize: $font-size * 2;
+$h2-fontSize: $font-size * 1.5;
+$h3-fontSize: $font-size * 1.375;
+$h4-fontSize: $font-size * 1.25;
+$h5-fontSize: $font-size * 1.125;
+$h6-fontSize: $font-size;
+
+
+
+// Layout
+
+$gap: 30px;
+
+
+
+// UI
+
+$UITransition: .25s;
+$UITransitionInstant: .0001s;

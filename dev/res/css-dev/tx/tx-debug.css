@@ -1,7 +1,7 @@
 /* TX Debuging Styles */
 .page-is-showingRhythmLines {
   position: relative;
-  padding: 1px 0 0;
+  padding: 1px 30px 0;
   top: -1px; }
 
 .debugToolsRhythm {
@@ -10,8 +10,8 @@
   width: 100%;
   top: 1px;
   left: 0;
-  background: -webkit-linear-gradient(top, transparent, transparent 23px, #003b9e);
-  background: linear-gradient(to bottom, transparent, transparent 23px, #003b9e);
+  background: -webkit-linear-gradient(top, transparent, transparent 23px, #337ab7);
+  background: linear-gradient(to bottom, transparent, transparent 23px, #337ab7);
   background-size: 100% 24px;
   pointer-events: none; }
   .page-is-showingRhythmLines .debugToolsRhythm {

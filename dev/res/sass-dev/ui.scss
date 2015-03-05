@@ -10,6 +10,12 @@
 
 
 
+/* Selection */
+
+@include tx-selection-style;
+
+
+
 /* Video */
 
 video {
@@ -87,7 +93,6 @@ input, select, button, textarea {
 }
 
 input, button, textarea {
-	padding: 0 .5em;
 	box-sizing: content-box;
 }
 
@@ -119,20 +124,20 @@ button, select {
 	text-transform: none;
 }
 
-%textFieldStyle {
+%formStyle {
 	$field-borderWidth: 1px;
 	$field-borderColor: $gray;
 
-	display: block;
 	border: $field-borderWidth solid $field-borderColor;
 }
 
 select, textarea {
-	@extend %textFieldStyle;
+	@extend %formStyle;
 }
 
 select {
-	@include tx-grid-height(1, $lh: false);
+	@include tx-grid-height(1.5, $lh: false);
+	vertical-align: top;
 
 	&[multiple] {
 		@include tx-grid-height(5, $lh: false);
@@ -142,7 +147,8 @@ select {
 
 %buttonStyle {
 	cursor: pointer;
-	@include tx-grid-height(1, $lh: false);
+	@include tx-grid-height(1.5, $lh: false);
+	padding: 0 ($gap / 2);
 }
 
 button {
@@ -150,7 +156,9 @@ button {
 }
 
 textarea {
-	@include tx-form-height(10, 1, $lh: false);
+	@include tx-form-height(9, 1, $lh: false);
+	@include tx-rhythm-padding(.5, .5, $prgt: ($gap / 2), $plft: ($gap / 2));
+	display: block;
 	overflow: auto;
 }
 
@@ -160,7 +168,7 @@ textarea {
 
 .input-radio, .input-checkbox {
 	box-sizing: border-box;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 .input-file {
@@ -182,13 +190,10 @@ textarea {
 }
 
 .field {
-	@extend %textFieldStyle;
-	@include tx-form-height(1);
-
-	&-search {
-		@include tx-form-height(2);
-	}
-
+	@extend %formStyle;
+	@include tx-form-height(1.5);
+	padding: 0 ($gap / 2);
+	vertical-align: top;
 }
 
 
