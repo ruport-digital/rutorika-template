@@ -234,7 +234,7 @@ module.exports = function(grunt) {
 						pattern: /\*\s(.)*\*\/(\r?\n|\r)*$/g,
 						replacement: ""
 					},{
-						pattern: /\*\s(.)*\*\/(\r?\n|\r)*\//g,
+						pattern: /\*\s(.)*\*\/(\r?\n\t*|\r\t*)*\//g,
 						replacement: ""
 					},{
 						pattern: /(\r?\n|\r)*\/$/g,
@@ -639,7 +639,7 @@ module.exports = function(grunt) {
 					PROCESS_TASKS.push("concat:cssIE");
 					grunt.config.set("TASK.CSS_IE_ARRAY", fillAnArray(CSS_IE_ARRAY, project.res.css.devDir));
 				}
-				PROCESS_TASKS = PROCESS_TASKS.concat(["uncss", "string-replace:cssComments", "csscomb", "cssc", "cssmin:cssMin"]);
+				PROCESS_TASKS = PROCESS_TASKS.concat(["uncss", "csscomb", "string-replace:cssComments", "cssc", "cssmin:cssMin"]);
 				grunt.task.run(PROCESS_TASKS);
 			}
 		} else {
