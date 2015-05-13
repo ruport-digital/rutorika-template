@@ -35,12 +35,8 @@ a:focus {
 }
 
 label {
-	border-bottom: 1px dotted #cccccc; 
+	border-bottom: 1px dotted #cccccc;
 	cursor: pointer;
-}
-label:focus {
-	border: none;
-	outline: 1px dotted #cccccc;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -106,8 +102,8 @@ pre, code, samp, var {
 }
 
 pre {
-	overflow: hidden; 
-	padding: 0 1.5em;
+	overflow: hidden;
+	padding: 0 1.5em; 
 	white-space: pre;
 	white-space: pre-wrap;
 	white-space: pre-line;
@@ -126,7 +122,6 @@ blockquote, q {
 	quotes: none;
 }
 blockquote:before, blockquote:after, q:before, q:after {
-	content: "";
 	content: none;
 }
 
@@ -170,7 +165,7 @@ acronym, abbr, ins, mark, del {
 }
 
 acronym, abbr, ins, mark {
-	border-bottom: 1px dotted #337ab7; 
+	border-bottom: 1px dotted #337ab7;
 	color: #337ab7;
 }
 
@@ -180,7 +175,7 @@ acronym, abbr {
 }
 
 del {
-	border-bottom: 1px dotted #cccccc; 
+	border-bottom: 1px dotted #cccccc;
 	color: #cccccc;
 }
 
@@ -188,9 +183,9 @@ kbd {
 	display: inline-block;
 	height: 1.5em;
 	padding: 0 .5em;
+	border-radius: 3px;
 	background: #cccccc;
 	background-clip: padding-box;
-	border-radius: 3px; 
 	font-weight: bold;
 	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 	letter-spacing: .1em;
@@ -237,7 +232,7 @@ u {
 
 img {
 	max-width: 100%;
-	border: none; 
+	border: 0;
 	vertical-align: top;
 }
 
@@ -249,7 +244,7 @@ caption {
 
 table {
 	width: 100%;
-	border-spacing: 0; 
+	border-spacing: 0;
 	border-collapse: collapse;
 }
 
@@ -266,7 +261,7 @@ th {
 fieldset {
 	display: block;
 	padding: 0;
-	border: none; 
+	border: 0;
 	margin: 0;
 }
 
@@ -286,7 +281,7 @@ hr {
 }
 
 /* High DPI Typography */
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min-device-pixel-ratio: 1.5), only screen and (-webkit-min-device-pixel-ratio: 1.5625), only screen and (min-resolution: 150dpi) {
 	html {
 		text-rendering: optimizelegibility;
 	}
@@ -307,7 +302,6 @@ hr {
 	@page {
 		margin: 0 .5cm;
 	}
-
 	body {
 		width: 100%;
 		max-width: none;
@@ -316,7 +310,6 @@ hr {
 		color: #333333;
 		font-size: 16pt;
 	}
-
 	a {
 		color: #333333;
 		text-decoration: none;
@@ -331,26 +324,21 @@ hr {
 	a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: "";
 	}
-
 	acronym, abbr, ins, del, var, input, select, textarea {
 		border: none; 
 		color: #333333;
 		text-decoration: none;
 	}
-
 	abbr[title]:after {
 		content: " (" attr(title) ")";
 	}
-
 	p {
 		orphans: 3;
 		widows: 3;
 	}
-
 	blockquote, pre, img, tr {
 		page-break-inside: avoid;
 	}
-
 	thead {
 		display: table-header-group;
 	}

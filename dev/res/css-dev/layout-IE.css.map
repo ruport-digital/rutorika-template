@@ -3,10 +3,14 @@
 	"file": "layout-IE.css",
 	"sources": [
 		"../sass-dev/layout-IE.scss",
-		"../sass-dev/tx/_tx.scss",
-		"../sass-dev/tx/_tx-projectImages.scss",
-		"../sass-dev/_project.scss",
-		"../sass-dev/_project-global.scss"
+		"../sass-dev/project/_project.scss",
+		"../sass-dev/project/tx/_tx.scss",
+		"../sass-dev/project/tx/_tx-projectImages.scss",
+		"../sass-dev/project/_project-colors.scss",
+		"../sass-dev/project/_project-typography.scss",
+		"../sass-dev/project/_project-layout.scss",
+		"../sass-dev/project/_project-sprites.scss",
+		"../sass-dev/project/_project-ui.scss"
 	],
 	"sourcesContent": [],
 	"mappings": "",

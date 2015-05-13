@@ -1,8 +1,4 @@
-@import "tx/tx";
-@import "tx/tx-projectImages";
-
-@import "project";
-@import "project-global";
+@import "project/project";
 
 $tx-ie: true;
 
@@ -16,38 +12,34 @@ $tx-ie: true;
 
 input {
 
-	&[type="checkbox"], &[type="radio"] {
-		width: 13px;
-		height: 13px;
-	}
+  &[type="checkbox"], &[type="radio"] {
+    width: 13px;
+    height: 13px;
+  }
 
 }
+
+
+
+/* Internet Explorer 6 */
 
 %buttonStyleIE {
-	cursor: hand;
-	@include tx-grid-height(1, $lh: false);
+  @include tx-grid-height(1, $lh: false);
+  cursor: hand;
 }
 
 .ie6 {
 
-	input {
-		vertical-align: text-bottom;
-	}
+  input {
+    vertical-align: text-bottom;
+  }
 
-	button {
-		@extend %buttonStyleIE;
-	}
+  button {
+    @extend %buttonStyleIE;
+  }
 
-}
-
-
-
-/* Custom Forms */
-
-.ie6 {
-
-	.button {
-		@extend %buttonStyleIE;
-	}
+  .button {
+    @extend %buttonStyleIE;
+  }
 
 }

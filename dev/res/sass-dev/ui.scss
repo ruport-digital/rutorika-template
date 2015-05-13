@@ -1,8 +1,4 @@
-@import "tx/tx";
-@import "tx/tx-projectImages";
-
-@import "project";
-@import "project-global";
+@import "project/project";
 
 
 
@@ -16,150 +12,82 @@
 
 
 
-/* Video */
-
-video {
-
-	&::-webkit-media-controls-play-button {
-
-	}
-
-	&::-webkit-media-controls-timeline {
-
-	}
-
-	&::-webkit-media-controls-current-time-display{
-
-	}
-
-	&::-webkit-media-controls-time-remaining-display {
-
-	}
-
-	&::-webkit-media-controls-fullscreen-button {
-
-	}
-
-	&::-webkit-media-controls-toggle-closed-captions-button {
-
-	}
-
-	&::-webkit-media-controls-mute-button {
-
-	}
-
-	&::-webkit-media-controls-volume-slider {
-
-	}
-
-}
-
-
-
-/* Audio */
-
-audio {
-
-	&::-webkit-media-controls-play-button {
-
-	}
-
-	&::-webkit-media-controls-timeline {
-
-	}
-
-	&::-webkit-media-controls-current-time-display{
-
-	}
-
-	&::-webkit-media-controls-time-remaining-display {
-
-	}
-
-	&::-webkit-media-controls-volume-slider {
-
-	}
-
-}
-
-
-
 /* Forms */
 
 input, select, button, textarea {
-	@include tx-font-size($font-size, none);
-	font-family: $font;
-	margin: 0;
+  @include tx-font-size($font-size, none);
+  margin: 0;
+  font-family: $font;
 }
 
 input, button, textarea {
-	box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 input, select, textarea {
 
-	&[disabled], &[readonly] {
-		opacity: .5;
-		cursor: default;
-		cursor: not-allowed;
-	}
+  &[disabled], &[readonly] {
+    opacity: .5;
+    cursor: default;
+    cursor: not-allowed;
+  }
 
 }
 
 input, button {
-	border: none;
+  border: 0;
 
-	&::-moz-focus-inner {
-		border: 0;
-		padding: 0;
-	}
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
 
 }
 
 input, select {
-	vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 button, select {
-	text-transform: none;
+  text-transform: none;
 }
 
 %formStyle {
-	$field-borderWidth: 1px;
-	$field-borderColor: $gray;
+  $field-borderWidth: 1px;
+  $field-borderColor: $gray;
 
-	border: $field-borderWidth solid $field-borderColor;
+  border: $field-borderWidth solid $field-borderColor;
 }
 
 select, textarea {
-	@extend %formStyle;
+  @extend %formStyle;
 }
 
 select {
-	@include tx-grid-height(1.5, $lh: false);
-	vertical-align: top;
+  @include tx-grid-height(1.5, $lh: false);
+  vertical-align: top;
 
-	&[multiple] {
-		@include tx-grid-height(5, $lh: false);
-	}
+  &[multiple] {
+    @include tx-grid-height(5, $lh: false);
+  }
 
 }
 
 %buttonStyle {
-	cursor: pointer;
-	@include tx-grid-height(1.5, $lh: false);
-	padding: 0 ($gap / 2);
+  @include tx-grid-height(1.5, $lh: false);
+  padding: 0 ($gap / 2);
+  cursor: pointer;
 }
 
 button {
-	@extend %buttonStyle;
+  @extend %buttonStyle;
 }
 
 textarea {
-	@include tx-form-height(9, 1, $lh: false);
-	@include tx-rhythm-padding(.5, .5, $prgt: ($gap / 2), $plft: ($gap / 2));
-	display: block;
-	overflow: auto;
+  @include tx-form-height(9, 1, $lh: false);
+  @include tx-rhythm-padding(.5, .5, $prgt: ($gap / 2), $plft: ($gap / 2));
+  display: block;
+  overflow: auto;
 }
 
 
@@ -167,33 +95,37 @@ textarea {
 /* Custom Forms */
 
 .input-radio, .input-checkbox {
-	box-sizing: border-box;
-	vertical-align: middle;
+  box-sizing: border-box;
+  vertical-align: middle;
 }
 
 .input-file {
-	height: auto;
-	border: none;
+  height: auto;
+  border: 0;
+}
+
+%inputSearchStyle {
+  @include tx-appearance;
 }
 
 .input-search {
-	@include tx-appearance;
+  @extend %inputSearchStyle;
 }
 
 .input-number {
-	@include tx-appearance;
+  @extend %inputSearchStyle;
 
-	&::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-	}
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 
 }
 
 .field {
-	@extend %formStyle;
-	@include tx-form-height(1.5);
-	padding: 0 ($gap / 2);
-	vertical-align: top;
+  @extend %formStyle;
+  @include tx-form-height(1.5);
+  padding: 0 ($gap / 2);
+  vertical-align: top;
 }
 
 
@@ -201,7 +133,7 @@ textarea {
 /* Buttons */
 
 .button {
-	@extend %buttonStyle;
+  @extend %buttonStyle;
 }
 
 
@@ -222,11 +154,11 @@ textarea {
 
 @media handheld, only screen and (max-width: 720px) {
 
-	@import "phone/ui-phone";
+  @import "phone/ui-phone";
 
 }
 
-@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min-resolution: 150dpi) {}
+@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),  only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),  only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),  only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min-resolution: 150dpi) {}
 
 
 
@@ -242,7 +174,7 @@ textarea {
 
 @media print {
 
-	@import "print/ui-print";
+  @import "print/ui-print";
 
 }
 

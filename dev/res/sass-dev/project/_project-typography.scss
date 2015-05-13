@@ -1,0 +1,21 @@
+// Font
+
+$sansSerif-font: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+$serif-font: Cambria, Georgia, Times, "Times New Roman", serif;
+$monospace-font: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+
+$font: $sansSerif-font;
+$font-mono: $monospace-font;
+$font-size: 16px;
+$line-height: $font-size * 1.5;
+
+
+
+// Typography
+
+$h1-fontSize: $font-size * 2;
+$h2-fontSize: $font-size * 1.5;
+$h3-fontSize: $font-size * 1.375;
+$h4-fontSize: $font-size * 1.25;
+$h5-fontSize: $font-size * 1.125;
+$h6-fontSize: $font-size;

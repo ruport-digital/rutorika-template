@@ -1,0 +1,14 @@
+// Debug Background
+
+@mixin tx-block-debug($cl: #f00, $alpha: .25) {
+  background: rgba($cl, $alpha) !important;
+}
+
+
+
+// Background Image Placeholder
+
+@mixin tx-bgi-debug($img: "../images/placeholder.svg") {
+  background: url($img) no-repeat 0 0;
+  background-size: 100% 100%;
+}

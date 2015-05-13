@@ -1,8 +1,4 @@
 /* Typography & Rhythm (Internet Explorer < 8) */
-.ie6 {
-	filter: expression(document.execCommand('BackgroundImageCache', false, true));
-}
-
 dfn {
 	font-style: normal;
 }
@@ -11,6 +7,9 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
+.ie6 {
+	filter: expression(document.execCommand('BackgroundImageCache', false, true));
+}
 .ie6 label {
 	cursor: hand;
 }
@@ -37,16 +36,18 @@ img {
 
 /* Lists Reset (Internet Explorer < 8) */
 .ie6 .u-listReset, .ie6 .u-descriptionListReset {
-	padding: 0; 
+	padding: 0;
 	margin: 0;
 }
+
 .ie6 .u-listReset {
 	list-style: none outside;
 }
 .ie6 .u-listReset li {
-	padding: 0; 
+	padding: 0;
 	margin: 0;
 }
+
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
 	padding: 0;
 	margin: 0;
@@ -63,11 +64,13 @@ input[type="checkbox"], input[type="radio"] {
 	height: 13px;
 }
 
+/* Internet Explorer 6 */
 .ie6 button, .ie6 .button {
-	height: 1.5em; 
+	height: 1.5em;
 	cursor: hand;
 }
 
 .ie6 input {
 	vertical-align: text-bottom;
 }
+

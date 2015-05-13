@@ -3,12 +3,16 @@
 	"file": "typography-IE.css",
 	"sources": [
 		"../sass-dev/typography-IE.scss",
-		"../sass-dev/tx/_tx.scss",
-		"../sass-dev/tx/_tx-projectImages.scss",
-		"../sass-dev/_project.scss",
-		"../sass-dev/_project-global.scss"
+		"../sass-dev/project/_project.scss",
+		"../sass-dev/project/tx/_tx.scss",
+		"../sass-dev/project/tx/_tx-projectImages.scss",
+		"../sass-dev/project/_project-colors.scss",
+		"../sass-dev/project/_project-typography.scss",
+		"../sass-dev/project/_project-layout.scss",
+		"../sass-dev/project/_project-sprites.scss",
+		"../sass-dev/project/_project-ui.scss"
 	],
 	"sourcesContent": [],
-	"mappings": ";AAgBA;EACC,QAAQ;;AAGT;EACC,YAAY;;AAGb;EACC,wBAAwB;;AAGzB,KAAK;EAGH,QAAQ;AACV,KAAK;EAGH,MAAM;AACR,KAAK,IAAI,KAAK,aAAa;EAGzB,YAAY;AACd,KAAK,IAAI,KAAK,aAAa;EAGzB,YAAY;AAKd,KAAK,aAAa,GAAG;EC2FlB,QAA2B;AD/E9B,KAAK,wBAAwB,GAAG;ECmG7B,QAAQ;AD/FX,KAAK,wBAAwB,GAAG;ECkG7B,QAAQ;ED9FP,YAAY",
+	"mappings": "AAUA,iDAAiD;AAEjD,GAAG,CAAC;EACF,UAAU,EAAE,MAAO,GADhB;;AAIL,GAAG,CAAC;EACF,sBAAsB,EAAE,OAAQ,GAD7B;;AAIL,IAAI,CAAC;EACH,MAAM,EAAE,qEAAO,GADX;EAGJ,IAAI,CAAC,KAAK,CAAJ;IACJ,MAAM,EAAE,IAAK,GADR;EAIP,IAAI,CAAC,GAAG,CAAJ;IACF,IAAI,EAAE,CAAE,GADL;EAIY,IAAI,CAAC,EAAE,EAAE,IAAI,CAAC,YAAY,CAAC,EAAE,CAA1B;IAClB,UAAU,EAAE,YAAa,GADN;EAIJ,IAAI,CAAC,EAAE,EAAE,IAAI,CAAC,YAAY,CAAC,EAAE,CAA1B;IAClB,UAAU,EAAE,eAAgB,GADT;EAQjB,IAAI,CAAC,YAAY,CAAC,EAAE,CAAC,EAAE,CAApB;IE4FH,MAAM,EA2JD,KAAU,CA9JkD,CAAC,GFzF9D;EAYJ,IAAI,CAAC,uBAAuB,CAAC,EAAE,CAAC,EAAE,CAA/B;IEgGH,MAAM,EA2ID,KAAU,CA9JkD,CAAC,CAgB3D,CAAC,GF7FJ;EAIJ,IAAI,CAAC,uBAAuB,CAAC,EAAE,CAAC,EAAE,CAA/B;IE8FH,MAAM,EAVC,CAAC,CAXyD,CAAC,CA8J7D,KAAU,CFtOmB,KAAK;IACrC,UAAU,EAAE,MAAO,GAFjB",
 	"names": []
 }

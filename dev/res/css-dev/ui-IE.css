@@ -4,15 +4,14 @@ input[type="checkbox"], input[type="radio"] {
 	height: 13px;
 }
 
+/* Internet Explorer 6 */
 .ie6 button, .ie6 .button {
-	height: 1.5em; 
+	height: 1.5em;
 	cursor: hand;
 }
 
 .ie6 input {
 	vertical-align: text-bottom;
 }
-
-/* Custom Forms */
 
 /*# sourceMappingURL=ui-IE.css.map */

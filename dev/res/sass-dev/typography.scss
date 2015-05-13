@@ -1,8 +1,4 @@
-@import "tx/tx";
-@import "tx/tx-projectImages";
-
-@import "project";
-@import "project-global";
+@import "project/project";
 
 
 
@@ -13,296 +9,292 @@
 /* Typography & Rhythm */
 
 html {
-	@include tx-baseline;
-	text-size-adjust: 100%;
+  @include tx-baseline;
+  text-size-adjust: 100%;
 }
 
 body {
-	color: $text;
-	font-family: $font;
+  color: $text;
+  font-family: $font;
 }
 
 article, aside, figure, figcaption, footer, header, hgroup, nav, section {
-	display: block;
+  display: block;
 }
 
 a {
-	color: $link;
-	text-decoration: underline;
+  $linkFocus-outlineWidth: 1px;
 
-	&:visited {
-		color: $visited;
-	}
+  color: $link;
+  text-decoration: underline;
 
-	&:hover {
-		color: $hover;
-	}
+  &:visited {
+    color: $visited;
+  }
 
-	&:active {
-		color: $active;
-	}
+  &:hover {
+    color: $hover;
+  }
 
-	&:focus {
-		outline: 1px dotted $focus-outline;
-	}
+  &:active {
+    color: $active;
+  }
+
+  &:focus {
+    outline: $linkFocus-outlineWidth dotted $focus-outlineColor;
+  }
 
 }
 
 label {
-	$label-borderColor: $gray;
+  $label-borderWidth: 1px;
+  $label-borderColor: $gray;
 
-	cursor: pointer;
-	border-bottom: 1px dotted $label-borderColor;
-
-	&:focus {
-		border: none;
-		outline: 1px dotted $focus-outline;
-	}
-
+  border-bottom: $label-borderWidth dotted $label-borderColor;
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: bold;
-	page-break-after: avoid;
-	orphans: 3;
-	widows: 3;
+  font-weight: bold;
+  page-break-after: avoid;
+  orphans: 3;
+  widows: 3;
 }
 
 h1 {
-	@include tx-rhythm(1, 2, $h1-fontSize);
-	@include tx-font-size($h1-fontSize, 2);
+  @include tx-rhythm(1, 2, $h1-fontSize);
+  @include tx-font-size($h1-fontSize, 2);
 }
 
 h2 {
-	@include tx-rhythm(1, 1, $h2-fontSize);
-	@include tx-font-size($h2-fontSize, 2);
+  @include tx-rhythm(1, 1, $h2-fontSize);
+  @include tx-font-size($h2-fontSize, 2);
 }
 
 h3 {
-	@include tx-rhythm(1, 1, $h3-fontSize);
-	@include tx-font-size($h3-fontSize, 1);
+  @include tx-rhythm(1, 1, $h3-fontSize);
+  @include tx-font-size($h3-fontSize, 1);
 }
 
 h4 {
-	@include tx-rhythm(1, 1, $h4-fontSize);
-	@include tx-font-size($h4-fontSize, 1);
+  @include tx-rhythm(1, 1, $h4-fontSize);
+  @include tx-font-size($h4-fontSize, 1);
 }
 
 h5 {
-	@include tx-rhythm(1, 1, $h5-fontSize);
-	@include tx-font-size($h5-fontSize, 1);
+  @include tx-rhythm(1, 1, $h5-fontSize);
+  @include tx-font-size($h5-fontSize, 1);
 }
 
 h6 {
-	@include tx-rhythm(1, 1, $h6-fontSize);
-	@include tx-font-size($h6-fontSize, 1);
+  @include tx-rhythm(1, 1, $h6-fontSize);
+  @include tx-font-size($h6-fontSize, 1);
 }
 
 p, pre, dl, ul, ol, li, address, video, audio, table {
-	@include tx-rhythm(1, 1);
+  @include tx-rhythm(1, 1);
 }
 
 p, blockquote, li, dd {
-	hyphens: manual;
+  hyphens: manual;
 }
 
 pre, code, samp, var, tt {
-	font-family: $font-mono;
+  font-family: $font-mono;
 }
 
 pre, code, samp, var {
-	$pre-color: $red;
+  $pre-color: $red;
 
-	color: $pre-color;
+  color: $pre-color;
 }
 
 pre {
-	@include tx-force-wrap;
-	padding: 0 1.5em;
-	overflow: hidden;
+  @include tx-force-wrap;
+  overflow: hidden;
+  padding: 0 1.5em;
 }
 
 blockquote, em, cite, q, i {
-	font-style: italic;
+  font-style: italic;
 }
 
 blockquote, q {
-	quotes: none;
+  quotes: none;
 
-	&:before, &:after {
-		content: "";
-		content: none;
-	}
+  &:before, &:after {
+    content: none;
+  }
 
 }
 
 blockquote {
-	@include tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em);
+  @include tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em);
 }
 
 address {
-	font-style: normal;
+  font-style: normal;
 }
 
 dt {
-	@include tx-rhythm(1);
-	font-weight: bold;
+  @include tx-rhythm(1);
+  font-weight: bold;
 }
 
 dd {
-	@include tx-rhythm(0, 1, $mlft: 1.5em);
-	font-style: italic;
+  @include tx-rhythm(0, 1, $mlft: 1.5em);
+  font-style: italic;
 }
 
 ul {
-	list-style-type: disc;
+  list-style-type: disc;
 }
 
 ol {
-	list-style-type: decimal;
+  list-style-type: decimal;
 }
 
 li {
 
-	ul, ol {
-		@include tx-rhythm(1, 1, $mlft: 1.5em);
-	}
+  ul, ol {
+    @include tx-rhythm(1, 1, $mlft: 1.5em);
+  }
 
 }
 
 strong, dfn, b, kbd, acronym, abbr, var {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 acronym, abbr, ins, mark, del {
-	text-decoration: none;
-	cursor: help;
+  text-decoration: none;
+  cursor: help;
 }
 
 acronym, abbr, ins, mark {
-	$acronym-color: $blue;
+  $acronym-color: $blue;
 
-	color: $acronym-color;
-	border-bottom: 1px dotted $acronym-color;
+  border-bottom: 1px dotted $acronym-color;
+  color: $acronym-color;
 }
 
 acronym, abbr {
-	margin: 0 -.075em 0 0;
-	letter-spacing: .075em;
+  margin: 0 -.075em 0 0;
+  letter-spacing: .075em;
 }
 
 del {
-	$del-color: $gray;
-	$del-borderWidth: 1px;
+  $del-color: $gray;
+  $del-borderWidth: 1px;
 
-	color: $del-color;
-	border-bottom: $del-borderWidth dotted $del-color;
+  border-bottom: $del-borderWidth dotted $del-color;
+  color: $del-color;
 }
 
 kbd {
-	$kbd-bg: $gray;
+  $kbd-bg: $gray;
 
-	@include tx-inline-block;
-	@include tx-grid-height(1);
-	padding: 0 .5em;
-	background: $kbd-bg;
-	background-clip: padding-box;
-	font-family: $font-mono;
-	font-weight: bold;
-	letter-spacing: .1em;
-	vertical-align: top;
-	border-radius: 3px;
+  @include tx-inline-block;
+  @include tx-grid-height(1);
+  padding: 0 .5em;
+  border-radius: 3px;
+  background: $kbd-bg;
+  background-clip: padding-box;
+  font-weight: bold;
+  font-family: $font-mono;
+  letter-spacing: .1em;
+  vertical-align: top;
 }
 
 var {
-	$var-color: $red;
+  $var-color: $red;
 
-	color: $var-color;
-	font-style: normal;
+  color: $var-color;
+  font-style: normal;
 }
 
 del, strike, s {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 sup, sub {
-	@include tx-font-size($font-size * .75, 0);
-	position: relative;
+  @include tx-font-size($font-size * .75, 0);
+  position: relative;
 }
 
 sup {
-	top: -.65em;
+  top: -.65em;
 }
 
 sub {
-	bottom: -.25em;
+  bottom: -.25em;
 }
 
 big {
-	@include tx-font-size($font-size * 1.5, 0);
+  @include tx-font-size($font-size * 1.5, 0);
 }
 
 small {
-	@include tx-font-size($font-size * .75, 0);
+  @include tx-font-size($font-size * .75, 0);
 }
 
 u {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 img {
-	max-width: 100%;
-	vertical-align: top;
-	border: none;
+  max-width: 100%;
+  border: 0;
+  vertical-align: top;
 }
 
 caption {
-	@include tx-rhythm-padding(0, .5);
-	font-weight: bold;
-	text-align: left;
+  @include tx-rhythm-padding(0, .5);
+  font-weight: bold;
+  text-align: left;
 }
 
 table {
-	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
 td, th {
-	$cell-borderColor: $gray;
+  $cell-borderColor: $gray;
 
-	@include tx-table-borders(1px, .5, $bcolor: $cell-borderColor, $prgt: ($gap / 2), $plft: ($gap / 2));
+  @include tx-table-borders(1px, .5, $bcolor: $cell-borderColor, $prgt: ($gap / 2), $plft: ($gap / 2));
 }
 
 th {
-	font-weight: bold;
-	text-align: left;
+  font-weight: bold;
+  text-align: left;
 }
 
 fieldset {
-	display: block;
-	margin: 0;
-	padding: 0;
-	border: none;
+  display: block;
+  padding: 0;
+  border: 0;
+  margin: 0;
 }
 
 legend {
-	$legend-padding: 1.5em;
+  $legend-padding: 1.5em;
 
-	position: relative;
-	left: -$legend-padding;
-	padding: 0 $legend-padding;
-	font-weight: bold;
+  position: relative;
+  left: -$legend-padding;
+  padding: 0 $legend-padding;
+  font-weight: bold;
 }
 
 hr {
-	$hr-borderColor: $black;
+  $hr-borderColor: $black;
 
-	@include tx-rhythm(1, 1);
-	display: block;
-	height: 0;
-	padding: 0;
-	border-top: 1px solid $hr-borderColor;
+  @include tx-rhythm(1, 1);
+  display: block;
+  height: 0;
+  padding: 0;
+  border-top: 1px solid $hr-borderColor;
 }
 
 
@@ -311,9 +303,9 @@ hr {
 
 @media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {
 
-	html {
-		text-rendering: optimizelegibility;
-	}
+  html {
+    text-rendering: optimizelegibility;
+  }
 
 }
 
@@ -323,11 +315,11 @@ hr {
 
 @media handheld, only screen and (max-width: 720px) {
 
-	@import "phone/typography-phone";
+  @import "phone/typography-phone";
 
 }
 
-@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),	only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),	only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),	only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min-resolution: 150dpi) {}
+@media only screen and (max-width: 720px) and (min-resolution: 1.5dppx),  only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min--moz-device-pixel-ratio: 1.5),  only screen and (max-width: 720px) and (-o-min-device-pixel-ratio: 3 / 2),  only screen and (max-width: 720px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 720px) and (min-resolution: 150dpi) {}
 
 
 
@@ -343,7 +335,7 @@ hr {
 
 @media print {
 
-	@import "print/typography-print";
+  @import "print/typography-print";
 
 }
 

@@ -1,8 +1,4 @@
-@import "tx/tx";
-@import "tx/tx-projectImages";
-
-@import "project";
-@import "project-global";
+@import "project/project";
 
 $tx-ie: true;
 
@@ -14,63 +10,60 @@ $tx-ie: true;
 
 /* Typography & Rhythm (Internet Explorer < 8) */
 
-.ie6 {
-	filter: unquote("expression(document.execCommand('BackgroundImageCache', false, true))");
-}
-
 dfn {
-	font-style: normal;
+  font-style: normal;
 }
 
 img {
-	-ms-interpolation-mode: bicubic;
+  -ms-interpolation-mode: bicubic;
 }
 
 .ie6 {
+  filter: unquote("expression(document.execCommand('BackgroundImageCache', false, true))");
 
-	label {
-		cursor: hand;
-	}
+  label {
+    cursor: hand;
+  }
 
-	pre {
-		zoom: 1;
-	}
+  pre {
+    zoom: 1;
+  }
 
-	ul, .u-listReset ul {
-		list-style: disc outside;
-	}
+  ul, .u-listReset ul {
+    list-style: disc outside;
+  }
 
-	ol, .u-listReset ol {
-		list-style: decimal outside;
-	}
+  ol, .u-listReset ol {
+    list-style: decimal outside;
+  }
 
-	.u-listReset {
+  .u-listReset {
 
-		li {
+    li {
 
-			li {
-				@include tx-rhythm(1, 1);
-			}
+      li {
+        @include tx-rhythm(1, 1);
+      }
 
-		}
+    }
 
-	}
+  }
 
-	.u-descriptionListReset {
+  .u-descriptionListReset {
 
-		dl {
+    dl {
 
-			dt {
-				@include tx-rhythm(1);
-			}
+      dt {
+        @include tx-rhythm(1);
+      }
 
-			dd {
-				@include tx-rhythm(0, 1, $mlft: 1.5em);
-				font-style: italic;
-			}
+      dd {
+        @include tx-rhythm(0, 1, $mlft: 1.5em);
+        font-style: italic;
+      }
 
-		}
+    }
 
-	}
+  }
 
 }

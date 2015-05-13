@@ -40,11 +40,6 @@ label {
 	cursor: pointer;
 }
 
-label:focus {
-	border: none;
-	outline: 1px dotted #cccccc;
-}
-
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	page-break-after: avoid;
@@ -129,7 +124,6 @@ blockquote {
 }
 
 blockquote:before, blockquote:after {
-	content: "";
 	content: none;
 }
 
@@ -191,9 +185,9 @@ kbd {
 	display: inline-block;
 	height: 1.5em;
 	padding: 0 .5em;
+	border-radius: 3px;
 	background: #cccccc;
 	background-clip: padding-box;
-	border-radius: 3px;
 	font-weight: bold;
 	font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 	letter-spacing: .1em;
@@ -259,7 +253,7 @@ th {
 fieldset {
 	display: block;
 	padding: 0;
-	border: none;
+	border: 0;
 	margin: 0;
 }
 
@@ -272,7 +266,7 @@ legend {
 
 /* High DPI Typography */
 
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min-device-pixel-ratio: 1.5), only screen and (-webkit-min-device-pixel-ratio: 1.5625), only screen and (min-resolution: 150dpi) {
 	html {
 		text-rendering: optimizelegibility;
 	}
@@ -344,6 +338,22 @@ legend {
 	}
 }
 
+/* Lists Reset */
+
+.u-listReset {
+	padding: 0;
+	margin: 0;
+}
+
+.u-listReset {
+	list-style: none outside;
+}
+
+.u-listReset > li {
+	padding: 0;
+	margin: 0;
+}
+
 /* Layout Base */
 
 html {
@@ -404,7 +414,7 @@ input, textarea {
 }
 
 input {
-	border: none;
+	border: 0;
 }
 
 input::-moz-focus-inner, button::-moz-focus-inner {

@@ -14,11 +14,9 @@
 	background: #337ab7;
 }
 
-/* Video */
-/* Audio */
 /* Forms */
 input, select, button, textarea {
-	margin: 0; 
+	margin: 0;
 	font-size: 1em;
 	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
@@ -34,10 +32,10 @@ input[disabled], input[readonly], select[disabled], select[readonly], textarea[d
 }
 
 input, button {
-	border: none;
+	border: 0;
 }
 input::-moz-focus-inner, button::-moz-focus-inner {
-	padding: 0; 
+	padding: 0;
 	border: 0;
 }
 
@@ -63,7 +61,7 @@ select[multiple] {
 
 button, .button {
 	height: 2.25em;
-	padding: 0 15px; 
+	padding: 0 15px;
 	cursor: pointer;
 }
 
@@ -83,20 +81,15 @@ textarea {
 
 .input-file {
 	height: auto;
-	border: none;
+	border: 0;
 }
 
-.input-search {
+.input-search, .input-number {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
 
-.input-number {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
 .input-number::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }

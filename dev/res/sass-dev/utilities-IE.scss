@@ -6,30 +6,30 @@
 
 .ie6 {
 
-	.u-listReset, .u-descriptionListReset {
-		margin: 0;
-		padding: 0;
-	}
+  .u-listReset, .u-descriptionListReset {
+    padding: 0;
+    margin: 0;
+  }
 
-	.u-listReset {
-		list-style: none outside;
+  .u-listReset {
+    list-style: none outside;
 
-		li {
-			margin: 0;
-			padding: 0;
-		}
+    li {
+      padding: 0;
+      margin: 0;
+    }
 
-	}
+  }
 
-	.u-descriptionListReset {
+  .u-descriptionListReset {
 
-		dt, dd {
-			margin: 0;
-			padding: 0;
-			font-weight: normal;
-			font-style: normal;
-		}
+    dt, dd {
+      padding: 0;
+      margin: 0;
+      font-weight: normal;
+      font-style: normal;
+    }
 
-	}
+  }
 
 }
