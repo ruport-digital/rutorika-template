@@ -1,0 +1,58 @@
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	line-height: 1.5em;
+
+	text-size-adjust: 100%;
+}
+
+body {
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+}
+
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (-webkit-min-device-pixel-ratio: 1.5625), only screen and (min-resolution: 150dpi) {
+	html {
+		text-rendering: optimizelegibility;
+	}
+}
+
+
+
+html {
+	-webkit-overflow-scrolling: touch;
+	min-height: 100%;
+}
+
+body {
+	position: relative;
+	overflow-x: auto;
+	overflow-y: scroll;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	min-width: 980px;
+	min-height: 100%;
+	max-width: 1400px;
+	padding: 0 30px;
+	margin: 0 auto;
+	background: #ffffff;
+}
+
+
+
+::-webkit-selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
+::-moz-selection {
+	color: #ffffff;
+	background: #337ab7;
+}
+
+::selection {
+	color: #ffffff;
+	background: #337ab7;
+}

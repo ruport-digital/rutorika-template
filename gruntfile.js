@@ -6,31 +6,31 @@ var BUILD_DIR       = 'build';          // Project Build
 var META_DIR        = 'meta';           // Meta Content
 var DEVELOPMENT_DIR = 'dev';            // Project Development
 var IMAGES_DIR      = 'images';         // Images
-var RESOURCES_DIR   = 'res';            // Resources (CSS, JavaScript, Fonts etc.)
+var RESOURCES_DIR   = 'res';            // Resources (css, JavaScript, Fonts etc.)
 var INDEX_PAGE      = 'index.html';     // Index Page
 var CRITICAL_PAGE   = 'critical.html';  // Page Containing Critical Elements
 var CRITICAL_WIDTH  = 10000;            // Horizontal Fold
 var CRITICAL_HEIGHT = 10000;            // Vertical Fold
 var TEMPLATES_DIR   = 'templates';      // Templates
-var CSS_TEMPLATE    = '_head.html';     // Template Containing CSS Declarations
+var CSS_TEMPLATE    = '_head.html';     // Template Containing css Declarations
 var JS_TEMPLATE     = '_scripts.html';  // Template Containing JavaScript Declarations
-var CSS_IMAGES_DIR  = 'images';         // CSS Images
-var DATA_URI        = [];               // Array of Images (Relative to the CSS Images Directory) to Convert to DataURI
-var CSS_DIR         = 'css';            // Production CSS
+var CSS_IMAGES_DIR  = 'images';         // css Images
+var DATA_URI        = [];               // Array of Images (Relative to the css Images Directory) to Convert to DataURI
+var CSS_DIR         = 'css';            // Production css
 var SASS_DIR        = 'sass-dev';       // Sass
-var CSS_DEV_DIR     = 'css-dev';        // Generated CSS
-var CSS_FILENAME    = 'styles';         // Production CSS Filename
-var CSS_CRITICAL    = 'critical';       // Critical CSS Filename
+var CSS_DEV_DIR     = 'css-dev';        // Generated css
+var CSS_FILENAME    = 'styles';         // Production css Filename
+var CSS_CRITICAL    = 'critical';       // Critical css Filename
 var JS_DIR          = 'js';             // Production JavaScript
 var JS_DEV_DIR      = 'js-dev';         // JavaScript
 var JS_FILENAME     = 'scripts';        // Production JavaScript Filename
 
-function fillAnArray(ARRAY, PATH) {
-  var RESULT = [];
-  for (var ELEMENT in ARRAY) {
-    RESULT.push(PATH + ARRAY[ELEMENT]);
+function fillAnArray(array, path) {
+  var result = [];
+  for (var element in array) {
+    result.push(path + array[element]);
   }
-  return RESULT;
+  return result;
 }
 
 module.exports = function(grunt) {
@@ -43,29 +43,29 @@ module.exports = function(grunt) {
       this.meta = META_DIR;
       this.dir = DEVELOPMENT_DIR + '/';
       this.images = this.dir + IMAGES_DIR + '/';
-      var TEMPLATES_DIR_COMPILED = this.dir + TEMPLATES_DIR + '/';
-      var RESOURCES_DIR_COMPILED = this.dir + RESOURCES_DIR + '/';
+      var templatesDirCompiled = this.dir + TEMPLATES_DIR + '/';
+      var resourcesDirCompiled = this.dir + RESOURCES_DIR + '/';
       this.templates = {
-        dir: TEMPLATES_DIR_COMPILED,
-        css: TEMPLATES_DIR_COMPILED + CSS_TEMPLATE,
-        js: TEMPLATES_DIR_COMPILED + JS_TEMPLATE
+        dir: templatesDirCompiled,
+        css: templatesDirCompiled + CSS_TEMPLATE,
+        js: templatesDirCompiled + JS_TEMPLATE
       };
       this.res = {
-        dir: RESOURCES_DIR_COMPILED,
+        dir: resourcesDirCompiled,
         images: {
-          dir: RESOURCES_DIR_COMPILED + CSS_IMAGES_DIR + '/',
-          dataURI: fillAnArray(DATA_URI, RESOURCES_DIR_COMPILED + CSS_IMAGES_DIR + '/')
+          dir: resourcesDirCompiled + CSS_IMAGES_DIR + '/',
+          dataURI: fillAnArray(DATA_URI, resourcesDirCompiled + CSS_IMAGES_DIR + '/')
         },
         css: {
-          dir: RESOURCES_DIR_COMPILED + CSS_DIR + '/',
-          devDir: RESOURCES_DIR_COMPILED + CSS_DEV_DIR + '/',
-          sass: RESOURCES_DIR_COMPILED + SASS_DIR + '/',
+          dir: resourcesDirCompiled + CSS_DIR + '/',
+          devDir: resourcesDirCompiled + CSS_DEV_DIR + '/',
+          sass: resourcesDirCompiled + SASS_DIR + '/',
           filename: CSS_FILENAME,
           critical: CSS_CRITICAL
         },
         js: {
-          dir: RESOURCES_DIR_COMPILED + JS_DIR + '/',
-          devDir: RESOURCES_DIR_COMPILED + JS_DEV_DIR + '/',
+          dir: resourcesDirCompiled + JS_DIR + '/',
+          devDir: resourcesDirCompiled + JS_DEV_DIR + '/',
           filename: JS_FILENAME
         }
       };
@@ -182,7 +182,7 @@ module.exports = function(grunt) {
         softFail: true,
         thresholds: grunt.file.readJSON('.analyzecssrc')
       },
-      ananlyzeCSS: {
+      ananlyzecss: {
         cwd: project.res.css.dir,
         src: [project.res.css.filename + '.min.css'],
         expand: true
@@ -194,14 +194,14 @@ module.exports = function(grunt) {
         sourceMap: true,
         precision: 5
       },
-      generateCSS: {
+      generatecss: {
         cwd: project.res.css.sass,
         src: ['*.scss', '*.sass'],
         dest: project.res.css.devDir,
         ext: '.css',
         expand: true
       },
-      generateDebugCSS: {
+      generateDebugcss: {
         cwd: project.res.css.sass + 'project/tx/',
         src: ['*.scss', '*.sass'],
         dest: project.res.css.devDir + '/tx',
@@ -215,7 +215,7 @@ module.exports = function(grunt) {
         browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'Explorer >= 7'],
         cascade: false
       },
-      prefixCSS: {
+      prefixcss: {
         cwd: project.res.css.devDir,
         src: ['**/*.css', '!**/*-IE.css'],
         dest: project.res.css.devDir,
@@ -235,15 +235,15 @@ module.exports = function(grunt) {
         options: {
           separator: '\n\n'
         },
-        src: '<%= TASK.JS_ARRAY %>',
+        src: '<%= task.jsArray %>',
         dest: project.res.js.dir + project.res.js.filename + '.js'
       },
       css: {
-        src: '<%= TASK.CSS_ARRAY %>',
+        src: '<%= task.cssArray %>',
         dest: project.res.css.dir + project.res.css.filename + '.css'
       },
       cssIE: {
-        src: '<%= TASK.CSS_IE_ARRAY %>',
+        src: '<%= task.cssArrayIE %>',
         dest: project.res.css.dir + project.res.css.filename + '-IE.css'
       }
     },
@@ -296,14 +296,14 @@ module.exports = function(grunt) {
             pattern: /.!-- @tx-css -->(.|\t|\s|\r?\n|\r)*?!-- \/@tx-css -->/gi,
             replacement: {
               checkIE: function() {
-                var CSS_FILES;
-                var CSS_PATH = project.res.css.dir.replace(project.dir, '');
+                var cssFiles;
+                var cssPath = project.res.css.dir.replace(project.dir, '');
                 if (grunt.file.exists(project.res.css.dir + project.res.css.filename + '-IE.css')) {
-                  CSS_FILES = '<link rel="stylesheet" type="text/css" href="' + CSS_PATH + project.res.css.filename + '.min.css">\n    <!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="' + CSS_PATH + project.res.css.filename + '-IE.min.css"> <![endif]-->';
+                  cssFiles = '<link rel="stylesheet" type="text/css" href="' + cssPath + project.res.css.filename + '.min.css">\n    <!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="' + cssPath + project.res.css.filename + '-IE.min.css"> <![endif]-->';
                 } else {
-                  CSS_FILES = '<link rel="stylesheet" type="text/css" href="' + CSS_PATH + project.res.css.filename + '.min.css">';
+                  cssFiles = '<link rel="stylesheet" type="text/css" href="' + cssPath + project.res.css.filename + '.min.css">';
                 }
-                return CSS_FILES;
+                return cssFiles;
               }
             }.checkIE()
           }, {
@@ -610,14 +610,14 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('datauri-fallback', 'Provide Fallbacks Classes for the Background Images that were Converted in DataURI', function() {
-    var IE_SASS = '';
-    for (var FILE in project.res.images.dataURI) {
-      if (grunt.file.isFile(project.res.images.dataURI[FILE])) {
-        IE_SASS += '%ie-image-' + project.res.images.dataURI[FILE].split('.')[0].replace(project.res.images.dir, '') + ' {\n\t' + 'background-image: url(' + project.res.images.dataURI[FILE].replace(project.res.dir, '../') + ');\n}\n';
+    var sassIE = '';
+    for (var file in project.res.images.dataURI) {
+      if (grunt.file.isFile(project.res.images.dataURI[file])) {
+        sassIE += '%ie-image-' + project.res.images.dataURI[file].split('.')[0].replace(project.res.images.dir, '') + ' {\n\t' + 'background-image: url(' + project.res.images.dataURI[file].replace(project.res.dir, '../') + ');\n}\n';
       }
     }
-    if (IE_SASS !== '') {
-      grunt.file.write(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss', IE_SASS);
+    if (sassIE !== '') {
+      grunt.file.write(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss', sassIE);
     }
   });
 
@@ -630,104 +630,104 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('process-css', 'CSS processing', function() {
-    var CSS_DIR_REGEX = new RegExp('<link(.)*href="' + project.res.css.devDir.replace(project.dir, ''), 'g');
-    var CSS_IE_DIR_REGEX = new RegExp('<!--(.)*href="' + project.res.css.devDir.replace(project.dir, ''), 'g');
-    var CSS_ALL = grunt.file.read(project.templates.css)
+  grunt.registerTask('process-css', 'css processing', function() {
+    var cssDirRegEx = new RegExp('<link(.)*href="' + project.res.css.devDir.replace(project.dir, ''), 'g');
+    var cssDirRegExIE = new RegExp('<!--(.)*href="' + project.res.css.devDir.replace(project.dir, ''), 'g');
+    var cssAll = grunt.file.read(project.templates.css)
         .replace(/(.|\t|\s|\r?\n|\r)*?<!-- @tx-css -->/, '')
         .replace(/<!-- \/@tx-css -->(.|\t|\s|\r?\n|\r)*/, '')
         .replace(/^\s(.)*tx\/tx-debug(.)*/gm, '');
-    var CSS = CSS_ALL
+    var css = cssAll
         .replace(/<!--(.|\t|\s|\r?\n|\r)*/, '')
-        .replace(CSS_DIR_REGEX, '')
+        .replace(cssDirRegEx, '')
         .replace(/\r?\n|\r/g, '')
         .replace(/\s/g, '')
         .replace(/">$/, '');
-    var CSS_IE = CSS_ALL
+    var cssIE = cssAll
         .replace(/^\s*<link(.)*/gm, '')
-        .replace(CSS_IE_DIR_REGEX, '')
+        .replace(cssDirRegExIE, '')
         .replace(/\r?\n|\r/g, '')
         .replace(/\s/g, '')
         .replace(/"><\!\[endif\]-->$/, '');
-    var CSS_ARRAY = CSS.split('">');
-    var CSS_IE_ARRAY = CSS_IE.split('"><![endif]-->');
-    var CSS_EXPECTED = CSS_ARRAY.length;
-    var CSS_ACTUAL = grunt.file.expand([project.res.css.devDir + '*.css', '!' + project.res.css.devDir + '*-IE.css']).length;
-    var CSS_IE_EXPECTED = CSS_IE_ARRAY.length;
-    var CSS_IE_ACTUAL = grunt.file.expand([project.res.css.devDir + '*-IE.css']).length;
-    if ((CSS_EXPECTED === CSS_ACTUAL || (CSS_ARRAY[0] === '' && CSS_ACTUAL === 0)) && (CSS_IE_EXPECTED === CSS_IE_ACTUAL || (CSS_IE_ARRAY[0] === '' && CSS_IE_ACTUAL === 0))) {
-      if (CSS_ACTUAL === 0) {
+    var cssArray = css.split('">');
+    var cssArrayIE = cssIE.split('"><![endif]-->');
+    var cssExpected = cssArray.length;
+    var cssActual = grunt.file.expand([project.res.css.devDir + '*.css', '!' + project.res.css.devDir + '*-IE.css']).length;
+    var cssExpectedIE = cssArrayIE.length;
+    var cssActualIE = grunt.file.expand([project.res.css.devDir + '*-IE.css']).length;
+    if ((cssExpected === cssActual || (cssArray[0] === '' && cssActual === 0)) && (cssExpectedIE === cssActualIE || (cssArrayIE[0] === '' && cssActualIE === 0))) {
+      if (cssActual === 0) {
         grunt.log.writeln('No .css-files to process.');
       } else {
-        var PROCESS_TASKS = [];
-        PROCESS_TASKS.push('concat:css');
-        grunt.config.set('TASK.CSS_ARRAY', fillAnArray(CSS_ARRAY, project.res.css.devDir));
-        if (CSS_IE_ACTUAL !== 0) {
-          PROCESS_TASKS.push('concat:cssIE');
-          grunt.config.set('TASK.CSS_IE_ARRAY', fillAnArray(CSS_IE_ARRAY, project.res.css.devDir));
+        var processTasks = [];
+        processTasks.push('concat:css');
+        grunt.config.set('task.cssArray', fillAnArray(cssArray, project.res.css.devDir));
+        if (cssActualIE !== 0) {
+          processTasks.push('concat:cssIE');
+          grunt.config.set('task.cssArrayIE', fillAnArray(cssArrayIE, project.res.css.devDir));
         }
-        PROCESS_TASKS = PROCESS_TASKS.concat(['uncss', 'csscomb', 'string-replace:cssComments', 'cssc', 'cssmin:cssMin']);
-        grunt.task.run(PROCESS_TASKS);
+        processTasks = processTasks.concat(['uncss', 'csscomb', 'string-replace:cssComments', 'cssc', 'cssmin:cssMin']);
+        grunt.task.run(processTasks);
       }
     } else {
-      var ERROR_MESSAGE = '';
-      if (CSS_EXPECTED > CSS_ACTUAL) {
-        ERROR_MESSAGE += 'There is got to be more .css-files. ';
-      } else if (CSS_EXPECTED < CSS_ACTUAL) {
-        ERROR_MESSAGE += 'Not all of the .css-files has been referenced. ';
+      var errorMessage = '';
+      if (cssExpected > cssActual) {
+        errorMessage += 'There is got to be more .css-files. ';
+      } else if (cssExpected < cssActual) {
+        errorMessage += 'Not all of the .css-files has been referenced. ';
       }
-      if (CSS_IE_EXPECTED > CSS_IE_ACTUAL) {
-        ERROR_MESSAGE += 'There is got to be more .css-files (IE).';
-      } else if (CSS_IE_EXPECTED < CSS_IE_ACTUAL) {
-        ERROR_MESSAGE += 'Not all of the .css-files (IE) has been referenced.';
+      if (cssExpectedIE > cssActualIE) {
+        errorMessage += 'There is got to be more .css-files (IE).';
+      } else if (cssExpectedIE < cssActualIE) {
+        errorMessage += 'Not all of the .css-files (IE) has been referenced.';
       }
-      grunt.fail.warn(ERROR_MESSAGE);
+      grunt.fail.warn(errorMessage);
     }
   });
 
   grunt.registerTask('process-js', 'JS processing', function() {
-    var JS_DIR_REGEX = new RegExp('<script(.)*src="' + project.res.js.devDir.replace(project.dir, ''), 'g');
-    var JS = grunt.file.read(project.templates.js)
+    var jsDirRegEx = new RegExp('<script(.)*src="' + project.res.js.devDir.replace(project.dir, ''), 'g');
+    var js = grunt.file.read(project.templates.js)
         .replace(/(.|\t|\s|\r?\n|\r)*?<!-- @tx-js -->/, '')
         .replace(/<!-- \/@tx-js -->(.|\t|\s|\r?\n|\r)*/, '')
         .replace(/^\s(.)*tx\/tx-debug(.)*/gm, '')
         .replace(/<!--(.|\t|\s|\r?\n|\r)*/, '')
-        .replace(JS_DIR_REGEX, '')
+        .replace(jsDirRegEx, '')
         .replace(/\r?\n|\r/g, '')
         .replace(/\s/g, '')
         .replace(/"><\/script>$/, '');
-    var JS_ARRAY = JS.split('"></script>');
-    var JS_EXPECTED = JS_ARRAY.length;
-    var JS_ACTUAL = grunt.file.expand([project.res.js.devDir + '*.js']).length;
-    if (JS_EXPECTED === JS_ACTUAL || JS_ARRAY[0] === '' && JS_ACTUAL === 0) {
-      if (JS_ACTUAL === 0) {
+    var jsArray = js.split('"></script>');
+    var jsExpected = jsArray.length;
+    var jsActual = grunt.file.expand([project.res.js.devDir + '*.js']).length;
+    if (jsExpected === jsActual || jsArray[0] === '' && jsActual === 0) {
+      if (jsActual === 0) {
         grunt.log.writeln('No .js-files to process.');
       } else {
-        grunt.config.set('TASK.JS_ARRAY', fillAnArray(JS_ARRAY, project.res.js.devDir));
+        grunt.config.set('task.jsArray', fillAnArray(jsArray, project.res.js.devDir));
         grunt.task.run(['concat:js', 'removelogging', 'fixmyjs', 'closure-compiler', 'uglify']);
       }
     } else {
-      if (JS_EXPECTED > JS_ACTUAL) {
+      if (jsExpected > jsActual) {
         grunt.fail.warn('There is got to be more .js-files.');
-      } else if (JS_EXPECTED < JS_ACTUAL) {
+      } else if (jsExpected < jsActual) {
         grunt.fail.warn('Not all of the .js-files has been referenced.');
       }
     }
   });
 
-  grunt.registerTask('critical-cssInline', 'Injecting critical CSS', function() {
-    var CRITICAL_CSS_REGEX = new RegExp('<(.)*' + project.res.css.filename + '.min.css(.)*>', 'g');
-    var CRITICAL_CSS_NOSCRIPT = '<noscript><link rel="stylesheet" type="text/css" href="' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css' + '"></noscript>';
-    var CRITICAL_CSS_CRITICAL = '<style type="text/css">' + grunt.file.read(project.res.css.dir + project.res.css.critical + '.min.css') + '</style>';
-    var CRITICAL_CSS = CRITICAL_CSS_CRITICAL + '\n    ' + CRITICAL_CSS_NOSCRIPT;
-    var CSS_LOAD = '<script type="text/javascript" async>function loadCSS(a){function e(){for(var d,f=0,g=c.length,f=0;g>f;f++)c[f].href&&c[f].href.indexOf(a)>-1&&(d=!0);d?b.media="all":setTimeout(e)}var b=window.document.createElement("link"),c=window.document.styleSheets,d=window.document.getElementsByTagName("style")[0];return b.rel="stylesheet",b.type="text/css",b.href=a,b.media="only x",d.parentNode.insertBefore(b,d.nextSibling),e(),b}loadCSS("' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css");</script>';
-    grunt.file.recurse(project.build.dir, function(ABS_PATH, ROOT, SUB_DIR, FILENAME) {
-      if (!SUB_DIR && FILENAME.indexOf('.html') > -1) {
-        var PAGE_PATH = ABS_PATH;
-        var PAGE = grunt.file.read(PAGE_PATH);
-        if (PAGE.search(CRITICAL_CSS_REGEX) > 0) {
-          PAGE = PAGE.replace(CRITICAL_CSS_REGEX, CRITICAL_CSS).replace('<!-- @tx-critical -->', CSS_LOAD);
-          grunt.file.write(PAGE_PATH, PAGE);
+  grunt.registerTask('critical-cssInline', 'Injecting critical css', function() {
+    var criticalCssRegEx = new RegExp('<(.)*' + project.res.css.filename + '.min.css(.)*>', 'g');
+    var criticalCssNoScript = '<noscript><link rel="stylesheet" type="text/css" href="' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css' + '"></noscript>';
+    var criticalCssCritical = '<style type="text/css">' + grunt.file.read(project.res.css.dir + project.res.css.critical + '.min.css') + '</style>';
+    var criticalCss = criticalCssCritical + '\n    ' + criticalCssNoScript;
+    var cssLoad = '<script type="text/javascript" async>function loadcss(a){function e(){for(var d,f=0,g=c.length,f=0;g>f;f++)c[f].href&&c[f].href.indexOf(a)>-1&&(d=!0);d?b.media="all":setTimeout(e)}var b=window.document.createElement("link"),c=window.document.styleSheets,d=window.document.getElementsByTagName("style")[0];return b.rel="stylesheet",b.type="text/css",b.href=a,b.media="only x",d.parentNode.insertBefore(b,d.nextSibling),e(),b}loadcss("' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css");</script>';
+    grunt.file.recurse(project.build.dir, function(absPath, root, subDir, filename) {
+      if (!subDir && filename.indexOf('.html') > -1) {
+        var pagePath = absPath;
+        var page = grunt.file.read(pagePath);
+        if (page.search(criticalCssRegEx) > 0) {
+          page = page.replace(criticalCssRegEx, criticalCss).replace('<!-- @tx-critical -->', cssLoad);
+          grunt.file.write(pagePath, page);
         }
       }
     });
