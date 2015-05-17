@@ -735,6 +735,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('quality', ['htmlhint', 'jscs', 'jshint', 'jsinspect', 'scsslint', 'csslint', 'csscss', 'colorguard', 'arialinter']);
 
+  grunt.registerTask('test', ['backstop']);
+
   grunt.registerTask('performance', ['analyzecss']);
 
   grunt.registerTask('images-datauri', ['datauri', 'datauri-fallback', 'concat:datauri', 'datauri-cleanup']);
