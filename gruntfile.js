@@ -6,21 +6,21 @@ var BUILD_DIR       = 'build';          // Project Build
 var META_DIR        = 'meta';           // Meta Content
 var DEVELOPMENT_DIR = 'dev';            // Project Development
 var IMAGES_DIR      = 'images';         // Images
-var RESOURCES_DIR   = 'res';            // Resources (css, JavaScript, Fonts etc.)
+var RESOURCES_DIR   = 'res';            // Resources (CSS, JavaScript, Fonts etc.)
 var INDEX_PAGE      = 'index.html';     // Index Page
 var CRITICAL_PAGE   = 'critical.html';  // Page Containing Critical Elements
 var CRITICAL_WIDTH  = 10000;            // Horizontal Fold
 var CRITICAL_HEIGHT = 10000;            // Vertical Fold
 var TEMPLATES_DIR   = 'templates';      // Templates
-var CSS_TEMPLATE    = '_head.html';     // Template Containing css Declarations
+var CSS_TEMPLATE    = '_head.html';     // Template Containing CSS Declarations
 var JS_TEMPLATE     = '_scripts.html';  // Template Containing JavaScript Declarations
-var CSS_IMAGES_DIR  = 'images';         // css Images
-var DATA_URI        = [];               // Array of Images (Relative to the css Images Directory) to Convert to DataURI
-var CSS_DIR         = 'css';            // Production css
+var CSS_IMAGES_DIR  = 'images';         // CSS Images
+var DATA_URI        = [];               // Array of Images (Relative to the CSS Images Directory) to Convert to DataURI
+var CSS_DIR         = 'css';            // Production CSS
 var SASS_DIR        = 'sass-dev';       // Sass
-var CSS_DEV_DIR     = 'css-dev';        // Generated css
-var CSS_FILENAME    = 'styles';         // Production css Filename
-var CSS_CRITICAL    = 'critical';       // Critical css Filename
+var CSS_DEV_DIR     = 'css-dev';        // Generated CSS
+var CSS_FILENAME    = 'styles';         // Production CSS Filename
+var CSS_CRITICAL    = 'critical';       // Critical CSS Filename
 var JS_DIR          = 'js';             // Production JavaScript
 var JS_DEV_DIR      = 'js-dev';         // JavaScript
 var JS_FILENAME     = 'scripts';        // Production JavaScript Filename
@@ -182,7 +182,7 @@ module.exports = function(grunt) {
         softFail: true,
         thresholds: grunt.file.readJSON('.analyzecssrc')
       },
-      ananlyzecss: {
+      ananlyzeCSS: {
         cwd: project.res.css.dir,
         src: [project.res.css.filename + '.min.css'],
         expand: true
@@ -194,14 +194,14 @@ module.exports = function(grunt) {
         sourceMap: true,
         precision: 5
       },
-      generatecss: {
+      generateCSS: {
         cwd: project.res.css.sass,
         src: ['*.scss', '*.sass'],
         dest: project.res.css.devDir,
         ext: '.css',
         expand: true
       },
-      generateDebugcss: {
+      generateDebugCSS: {
         cwd: project.res.css.sass + 'project/tx/',
         src: ['*.scss', '*.sass'],
         dest: project.res.css.devDir + '/tx',
@@ -215,7 +215,7 @@ module.exports = function(grunt) {
         browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'Explorer >= 7'],
         cascade: false
       },
-      prefixcss: {
+      prefixCSS: {
         cwd: project.res.css.devDir,
         src: ['**/*.css', '!**/*-IE.css'],
         dest: project.res.css.devDir,

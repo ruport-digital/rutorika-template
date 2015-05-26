@@ -4,9 +4,8 @@ html {
 	font-size: 100%;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	line-height: 1.5em;
-
 	text-size-adjust: 100%;
+	line-height: 1.5em;
 }
 
 body {
@@ -17,32 +16,28 @@ body {
 a {
 	color: #337ab7;
 	text-decoration: underline;
+	-moz-text-decoration-color: rgba(51, 122, 183, .5);
 	text-decoration-color: rgba(51, 122, 183, .5);
 	-webkit-transition: .25s;
 	transition: .25s;
-
-	-moz-text-decoration-color: rgba(51, 122, 183, .5);
 }
 
 a:visited {
 	color: #6f5499;
-	text-decoration-color: rgba(111, 84, 153, .5);
-
 	-moz-text-decoration-color: rgba(111, 84, 153, .5);
+	text-decoration-color: rgba(111, 84, 153, .5);
 }
 
 a:hover {
 	color: #23527c;
-	text-decoration-color: rgba(35, 82, 124, .5);
-
 	-moz-text-decoration-color: rgba(35, 82, 124, .5);
+	text-decoration-color: rgba(35, 82, 124, .5);
 }
 
 a:active {
 	color: #23527c;
-	text-decoration-color: rgba(35, 82, 124, .5);
-
 	-moz-text-decoration-color: rgba(35, 82, 124, .5);
+	text-decoration-color: rgba(35, 82, 124, .5);
 }
 
 a:focus {
@@ -56,7 +51,7 @@ label {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
-	text-rendering: optimizelegibility;
+	text-rendering: auto;
 	page-break-after: avoid;
 	orphans: 3;
 	widows: 3;

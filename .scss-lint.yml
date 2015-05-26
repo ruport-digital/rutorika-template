@@ -275,7 +275,11 @@ linters:
       - -ms-text-align-last
       - text-align-last
       - text-decoration
+      - -webkit-text-decoration-color
+      - -moz-text-decoration-color
       - text-decoration-color
+      - -webkit-text-decoration-style
+      - -moz-text-decoration-style
       - text-decoration-style
       - text-emphasis
       - text-emphasis-position
@@ -293,6 +297,7 @@ linters:
       - text-overflow-mode
       - -webkit-text-size-adjust
       - -ms-text-size-adjust
+      - text-size-adjust
       - text-shadow
       - text-rendering
       - letter-spacing

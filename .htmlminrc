@@ -1,7 +1,7 @@
 {
-	"removeComments": true,
-	"removeCommentsFromCDATA": true,
-	"collapseBooleanAttributes": true,
-	"removeRedundantAttributes": true,
-	"removeEmptyAttributes": true
+  "removeComments": true,
+  "removeCommentsFromCDATA": true,
+  "collapseBooleanAttributes": true,
+  "removeRedundantAttributes": true,
+  "removeEmptyAttributes": true
 }
