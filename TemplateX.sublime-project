@@ -23,6 +23,10 @@
 			"name": "TemplateX: Sass",
 			"path": "dev/res/sass-dev"
 		}, {
+      "follow_symlinks": true,
+      "name": "TemplateX: CSS",
+      "path": "dev/res/css-dev"
+    }, {
 			"follow_symlinks": true,
 			"name": "TemplateX: JavaScript",
 			"path": "dev/res/js-dev"

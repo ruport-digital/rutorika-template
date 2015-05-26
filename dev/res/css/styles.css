@@ -17,18 +17,32 @@ body {
 a {
 	color: #337ab7;
 	text-decoration: underline;
+	text-decoration-color: rgba(51, 122, 183, .5);
+	-webkit-transition: .25s;
+	transition: .25s;
+
+	-moz-text-decoration-color: rgba(51, 122, 183, .5);
 }
 
 a:visited {
 	color: #6f5499;
+	text-decoration-color: rgba(111, 84, 153, .5);
+
+	-moz-text-decoration-color: rgba(111, 84, 153, .5);
 }
 
 a:hover {
 	color: #23527c;
+	text-decoration-color: rgba(35, 82, 124, .5);
+
+	-moz-text-decoration-color: rgba(35, 82, 124, .5);
 }
 
 a:active {
 	color: #23527c;
+	text-decoration-color: rgba(35, 82, 124, .5);
+
+	-moz-text-decoration-color: rgba(35, 82, 124, .5);
 }
 
 a:focus {
@@ -42,6 +56,7 @@ label {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
+	text-rendering: optimizelegibility;
 	page-break-after: avoid;
 	orphans: 3;
 	widows: 3;
@@ -262,14 +277,6 @@ legend {
 	left: -1.5em;
 	padding: 0 1.5em;
 	font-weight: bold;
-}
-
-/* High DPI Typography */
-
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (-webkit-min-device-pixel-ratio: 1.5625), only screen and (min-resolution: 150dpi) {
-	html {
-		text-rendering: optimizelegibility;
-	}
 }
 
 /* Phone Typography */

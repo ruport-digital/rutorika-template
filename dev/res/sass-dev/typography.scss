@@ -27,17 +27,22 @@ a {
 
   color: $link;
   text-decoration: underline;
+  text-decoration-color: rgba($link, $underlineOpacity);
+  transition: $UITransition;
 
   &:visited {
     color: $visited;
+    text-decoration-color: rgba($visited, $underlineOpacity);
   }
 
   &:hover {
     color: $hover;
+    text-decoration-color: rgba($hover, $underlineOpacity);
   }
 
   &:active {
     color: $active;
+    text-decoration-color: rgba($active, $underlineOpacity);
   }
 
   &:focus {
@@ -56,6 +61,7 @@ label {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
+  text-rendering: optimizelegibility;
   page-break-after: avoid;
   orphans: 3;
   widows: 3;
@@ -301,13 +307,7 @@ hr {
 
 /* High DPI Typography */
 
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {
-
-  html {
-    text-rendering: optimizelegibility;
-  }
-
-}
+@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {}
 
 
 
