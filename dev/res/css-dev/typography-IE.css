@@ -1,36 +1,36 @@
 /* Typography & Rhythm (Internet Explorer < 8) */
 dfn {
-	font-style: normal;
+  font-style: normal;
 }
 
 img {
-	-ms-interpolation-mode: bicubic;
+  -ms-interpolation-mode: bicubic;
 }
 
 .ie6 {
-	filter: expression(document.execCommand('BackgroundImageCache', false, true));
+  filter: expression(document.execCommand('BackgroundImageCache', false, true));
 }
 .ie6 label {
-	cursor: hand;
+  cursor: hand;
 }
 .ie6 pre {
-	zoom: 1;
+  zoom: 1;
 }
 .ie6 ul, .ie6 .u-listReset ul {
-	list-style: disc outside;
+  list-style: disc outside;
 }
 .ie6 ol, .ie6 .u-listReset ol {
-	list-style: decimal outside;
+  list-style: decimal outside;
 }
 .ie6 .u-listReset li li {
-	margin: 1.5em 0;
+  margin: 1.5em 0;
 }
 .ie6 .u-descriptionListReset dl dt {
-	margin: 1.5em 0 0;
+  margin: 1.5em 0 0;
 }
 .ie6 .u-descriptionListReset dl dd {
-	margin: 0 0 1.5em 1.5em;
-	font-style: italic;
+  margin: 0 0 1.5em 1.5em;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=typography-IE.css.map */
