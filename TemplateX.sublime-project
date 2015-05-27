@@ -1,51 +1,47 @@
 {
-	"folders":
-	[
-		{
-			"folder_exclude_patterns":
-			[
-				"*"
-			],
-			"file_exclude_patterns":
-			[
-				"*.zip",
-				"*.sublime-project"
-			],
-			"follow_symlinks": true,
-			"name": "TemplateX: Project",
-			"path": "."
-		}, {
-			"follow_symlinks": true,
-			"name": "TemplateX: HTML",
-			"path": "dev/templates"
-		}, {
-			"follow_symlinks": true,
-			"name": "TemplateX: Sass",
-			"path": "dev/res/sass-dev"
-		}, {
+  "folders":
+  [
+    {
+      "folder_exclude_patterns":
+      [
+        "*"
+      ],
+      "file_exclude_patterns":
+      [
+        "*.zip",
+        "*.sublime-project"
+      ],
       "follow_symlinks": true,
-      "name": "TemplateX: CSS",
-      "path": "dev/res/css-dev"
-    }, {
-			"follow_symlinks": true,
-			"name": "TemplateX: JavaScript",
-			"path": "dev/res/js-dev"
-		}, {
-			"file_exclude_patterns":
-			[
-				"*.jpg",
-				"*.gif",
-				"*.png",
-				"*.ico",
-				"*.svg"
-			],
-			"follow_symlinks": true,
-			"name": "TemplateX: Meta",
-			"path": "meta"
-		}, {
-			"follow_symlinks": true,
-			"name": "TemplateX: Docs",
-			"path": "docs"
-		}
-	]
+      "name": "TemplateX: Project",
+      "path": "."
+    },{
+      "follow_symlinks": true,
+      "name": "TemplateX: HTML",
+      "path": "dev/templates"
+    },{
+      "follow_symlinks": true,
+      "name": "TemplateX: Sass",
+      "path": "dev/res/sass-dev"
+    },{
+      "follow_symlinks": true,
+      "name": "TemplateX: JavaScript",
+      "path": "dev/res/js-dev"
+    },{
+      "file_exclude_patterns":
+      [
+        "*.jpg",
+        "*.gif",
+        "*.png",
+        "*.ico",
+        "*.svg"
+      ],
+      "follow_symlinks": true,
+      "name": "TemplateX: Meta",
+      "path": "meta"
+    },{
+      "follow_symlinks": true,
+      "name": "TemplateX: Docs",
+      "path": "docs"
+    }
+  ]
 }

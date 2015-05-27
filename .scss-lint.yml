@@ -464,10 +464,13 @@ linters:
       - -webkit-appearance
       - -moz-appearance
       - appearance
+      - -premailer-width
+      - -premailer-cellpadding
+      - -premailer-cellspacing
 
   PropertySpelling:
     enabled: true
-    extra_properties: ["text-size-adjust"]
+    extra_properties: ["text-size-adjust", "-premailer-width", "-premailer-cellpadding", "-premailer-cellspacing"]
 
   SelectorDepth:
     enabled: true
