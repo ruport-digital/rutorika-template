@@ -118,7 +118,7 @@ module.exports = function(grunt) {
     jsinspect: {
       jsInspect: {
         cwd: project.res.js.devDir,
-        src: ['*.js'],
+        src: ['*.js', '!*.min.js'],
         expand: true
       }
     },
@@ -399,7 +399,7 @@ module.exports = function(grunt) {
       },
       cssSortBuild: {
         cwd: project.res.css.dir,
-        src: ['*.css'],
+        src: ['*.css', '!*-IE.css'],
         dest: project.res.css.dir,
         expand: true
       },

@@ -24,7 +24,7 @@
     "grunt-closure-compiler": "*",
     "grunt-contrib-uglify": "*",
     "grunt-uncss": "*",
-    "grunt-csscomb": "*",
+    "grunt-csscomb": "3.0.0",
     "grunt-cssc": "*",
     "grunt-penthouse": "*",
     "grunt-contrib-cssmin": "*",

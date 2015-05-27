@@ -367,8 +367,8 @@ linters:
       - empty-cells
       - visibility
       - opacity
-      - -ms-filter:'progid:DXImageTransform.Microsoft.Alpha
-      - filter:progid:DXImageTransform.Microsoft.Alpha(Opacity
+      - -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha
+      - filter: progid:DXImageTransform.Microsoft.Alpha(Opacity
       - -ms-interpolation-mode
       - -webkit-filter
       - -ms-filter
