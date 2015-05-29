@@ -721,16 +721,16 @@ module.exports = function(grunt) {
     var criticalCssCritical = '<style type="text/css">' + grunt.file.read(project.res.css.dir + project.res.css.critical + '.min.css') + '</style>';
     var criticalCss = criticalCssCritical + '\n    ' + criticalCssNoScript;
     var cssLoad = '<script type="text/javascript" async>function loadcss(a){function e(){for(var d,f=0,g=c.length,f=0;g>f;f++)c[f].href&&c[f].href.indexOf(a)>-1&&(d=!0);d?b.media="all":setTimeout(e)}var b=window.document.createElement("link"),c=window.document.styleSheets,d=window.document.getElementsByTagName("style")[0];return b.rel="stylesheet",b.type="text/css",b.href=a,b.media="only x",d.parentNode.insertBefore(b,d.nextSibling),e(),b}loadcss("' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css");</script>';
-    grunt.file.recurse(project.build.dir, function(absPath, root, subDir, filename) {
-      if (!subDir && filename.indexOf('.html') > -1) {
-        var pagePath = absPath;
-        var page = grunt.file.read(pagePath);
-        if (page.search(criticalCssRegEx) > 0) {
-          page = page.replace(criticalCssRegEx, criticalCss).replace('<!-- @tx-critical -->', cssLoad);
-          grunt.file.write(pagePath, page);
-        }
+    var files = grunt.file.expand([project.build.dir + '*.html']);
+    var filesLength = files.length;
+    var fileIndex = 0;
+    for (fileIndex; fileIndex < filesLength; fileIndex++) {
+      var page = grunt.file.read(files[fileIndex]);
+      if (page.search(criticalCssRegEx) > 0) {
+        page = page.replace(criticalCssRegEx, criticalCss).replace('<!-- @tx-critical -->', cssLoad);
+        grunt.file.write(files[fileIndex], page);
       }
-    });
+    }
   });
 
   grunt.registerTask('quality', ['htmlhint', 'jscs', 'jshint', 'jsinspect', 'scsslint', 'csslint', 'csscss', 'colorguard', 'arialinter']);
