@@ -14,19 +14,19 @@
       "follow_symlinks": true,
       "name": "TemplateX: Project",
       "path": "."
-    },{
+    }, {
       "follow_symlinks": true,
       "name": "TemplateX: HTML",
       "path": "dev/templates"
-    },{
+    }, {
       "follow_symlinks": true,
       "name": "TemplateX: Sass",
       "path": "dev/res/sass-dev"
-    },{
+    }, {
       "follow_symlinks": true,
       "name": "TemplateX: JavaScript",
       "path": "dev/res/js-dev"
-    },{
+    }, {
       "file_exclude_patterns":
       [
         "*.jpg",
@@ -38,7 +38,7 @@
       "follow_symlinks": true,
       "name": "TemplateX: Meta",
       "path": "meta"
-    },{
+    }, {
       "follow_symlinks": true,
       "name": "TemplateX: Docs",
       "path": "docs"
