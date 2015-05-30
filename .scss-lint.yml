@@ -517,7 +517,7 @@ linters:
     enabled: true
 
   UrlQuotes:
-    enabled: true
+    enabled: false
 
   ZeroUnit:
     enabled: true
