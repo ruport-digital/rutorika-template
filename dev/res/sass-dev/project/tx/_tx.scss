@@ -46,6 +46,17 @@
 
 
 
+// Focus
+
+@mixin tx-focus-outline($wd: 1px, $st: dotted, $cl: $focus-outline, $off: 3px) {
+  outline: $wd $st $cl;
+  @if $off != none and $off != 0 {
+    outline-offset: $off;
+  }
+}
+
+
+
 // Typography Baseline
 
 @mixin tx-baseline($fz: $base-font-size) {

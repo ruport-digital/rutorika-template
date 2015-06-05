@@ -8,7 +8,6 @@
 
 // Background Image Placeholder
 
-@mixin tx-bgi-debug($img: "../images/placeholder.svg") {
-  background: url($img) no-repeat 0 0;
-  background-size: 100% 100%;
+@mixin tx-bgi-debug($img: "../images/placeholder.png") {
+  background: url($img);
 }
