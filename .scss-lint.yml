@@ -350,8 +350,11 @@ linters:
       - -webkit-column-rule-color
       - -moz-column-rule-color
       - column-rule-color
+      - -webkit-column-break-before
       - break-before
+      - -webkit-column-break-inside
       - break-inside
+      - -webkit-column-break-after
       - break-after
       - page-break-before
       - page-break-inside
@@ -367,7 +370,6 @@ linters:
       - empty-cells
       - visibility
       - opacity
-      - -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha
       - filter: progid:DXImageTransform.Microsoft.Alpha(Opacity
       - -ms-interpolation-mode
       - -webkit-filter

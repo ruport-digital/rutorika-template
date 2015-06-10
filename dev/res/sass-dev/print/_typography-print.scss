@@ -1,64 +1,64 @@
 /* Typography & Rhythm */
 
 @page {
-	margin: 0 .5cm;
+  margin: 0 .5cm;
 }
 
 body {
-	width: 100%;
-	max-width: none;
-	margin: 0;
-	padding: 0;
-	color: $print-color;
-	font-size: 16pt;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  color: $print-color;
+  font-size: 16pt;
 }
 
 a {
-	color: $print-color;
-	text-decoration: none;
+  color: $print-color;
+  text-decoration: none;
 
-	&:after {
-		content: " (" attr(href) ")";
-		font-size: 90%;
-	}
+  &:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
 
-	&:visited {
-		color: $print-color;
-	}
+  &:visited {
+    color: $print-color;
+  }
 
-	&[href^="javascript:"], &[href^="#"] {
+  &[href^="javascript:"], &[href^="#"] {
 
-		&:after {
-			content: "";
-		}
+    &:after {
+      content: "";
+    }
 
-	}
+  }
 
 }
 
 acronym, abbr, ins, del, var, input, select, textarea {
-	color: $print-color;
-	text-decoration: none;
-	border: none;
+  border: 0;
+  color: $print-color;
+  text-decoration: none;
 }
 
 abbr[title] {
 
-	&:after {
-		content: " (" attr(title) ")";
-	}
+  &:after {
+    content: " (" attr(title) ")";
+  }
 
 }
 
 p {
-	orphans: 3;
-	widows: 3;
+  orphans: 3;
+  widows: 3;
 }
 
 blockquote, pre, img, tr {
-	page-break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 thead {
-	display: table-header-group;
+  display: table-header-group;
 }

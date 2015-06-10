@@ -6,6 +6,7 @@ html {
 
 body {
   position: relative;
+  display: block;
   overflow-x: auto;
   overflow-y: scroll;
   -ms-overflow-style: -ms-autohiding-scrollbar;

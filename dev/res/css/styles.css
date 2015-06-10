@@ -273,7 +273,7 @@ legend {
 
 /* Phone Typography */
 
-@media handheld, only screen and (max-width: 720px) {
+@media handheld, only screen and (max-width: 719px) {
   /* Typography & Rhythm */
 
   table, tr, th, td {
@@ -314,7 +314,7 @@ legend {
   }
 
   acronym, abbr, ins, del, var, input, select, textarea {
-    border: none;
+    border: 0;
     color: #333333;
     text-decoration: none;
   }
@@ -362,6 +362,7 @@ html {
 
 body {
   position: relative;
+  display: block;
   overflow-x: auto;
   overflow-y: scroll;
   -ms-overflow-style: -ms-autohiding-scrollbar;
