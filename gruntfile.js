@@ -717,8 +717,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('critical-cssInline', 'Injecting critical css', function() {
     var criticalCssRegEx = new RegExp('<(.)*' + project.res.css.filename + '.min.css(.)*>', 'g');
-    var criticalCssNoScript = '<noscript><link rel="stylesheet" type="text/css" href="' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css' + '"></noscript>';
     var criticalCssCritical = '<style type="text/css">' + grunt.file.read(project.res.css.dir + project.res.css.critical + '.min.css') + '</style>';
+    var criticalCssNoScript = '<noscript><link rel="stylesheet" type="text/css" href="' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css' + '"></noscript>';
+    criticalCssCritical = criticalCssCritical.replace(/\.\.\//g, project.res.dir.replace(project.dir, ''));
     var criticalCss = criticalCssCritical + '\n    ' + criticalCssNoScript;
     var cssLoad = '<script type="text/javascript" async>function loadcss(a){function e(){for(var d,f=0,g=c.length,f=0;g>f;f++)c[f].href&&c[f].href.indexOf(a)>-1&&(d=!0);d?b.media="all":setTimeout(e)}var b=window.document.createElement("link"),c=window.document.styleSheets,d=window.document.getElementsByTagName("style")[0];return b.rel="stylesheet",b.type="text/css",b.href=a,b.media="only x",d.parentNode.insertBefore(b,d.nextSibling),e(),b}loadcss("' + project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.min.css");</script>';
     var files = grunt.file.expand([project.build.dir + '*.html']);
