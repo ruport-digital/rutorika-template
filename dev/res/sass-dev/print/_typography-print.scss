@@ -26,14 +26,23 @@ a {
     color: $print-color;
   }
 
-  &[href^="javascript:"], &[href^="#"] {
+}
 
-    &:after {
-      content: "";
-    }
+%javascriptHREFStyle {
 
+  &:after {
+    content: "";
   }
 
+}
+
+[href^="javascript:"] {
+  @extend %javascriptHREFStyle;
+}
+
+
+[href^="#"] {
+  @extend %javascriptHREFStyle;
 }
 
 acronym, abbr, ins, del, var, input, select, textarea {
@@ -42,7 +51,7 @@ acronym, abbr, ins, del, var, input, select, textarea {
   text-decoration: none;
 }
 
-abbr[title] {
+[title] {
 
   &:after {
     content: " (" attr(title) ")";

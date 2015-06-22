@@ -16,6 +16,7 @@ article, aside, canvas, figure, figcaption, footer, header, hgroup, nav, main, p
 a {
   color: #337ab7;
   text-decoration: underline;
+  -webkit-text-decoration-color: rgba(51, 122, 183, .5);
   -moz-text-decoration-color: rgba(51, 122, 183, .5);
   text-decoration-color: rgba(51, 122, 183, .5);
   -webkit-transition: .25s;
@@ -23,16 +24,19 @@ a {
 }
 a:visited {
   color: #6f5499;
+  -webkit-text-decoration-color: rgba(111, 84, 153, .5);
   -moz-text-decoration-color: rgba(111, 84, 153, .5);
   text-decoration-color: rgba(111, 84, 153, .5);
 }
 a:hover {
   color: #d9534f;
+  -webkit-text-decoration-color: rgba(217, 83, 79, .5);
   -moz-text-decoration-color: rgba(217, 83, 79, .5);
   text-decoration-color: rgba(217, 83, 79, .5);
 }
 a:active {
   color: #23527c;
+  -webkit-text-decoration-color: rgba(35, 82, 124, .5);
   -moz-text-decoration-color: rgba(35, 82, 124, .5);
   text-decoration-color: rgba(35, 82, 124, .5);
 }
@@ -322,7 +326,7 @@ hr {
   a:visited {
     color: #333333;
   }
-  a[href^="javascript:"]:after, a[href^="#"]:after {
+  [href^="javascript:"]:after, [href^="#"]:after {
     content: "";
   }
   acronym, abbr, ins, del, var, input, select, textarea {
@@ -330,7 +334,7 @@ hr {
     color: #333333;
     text-decoration: none;
   }
-  abbr[title]:after {
+  [title]:after {
     content: " (" attr(title) ")";
   }
   p {
