@@ -9,7 +9,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
-article, aside, figure, figcaption, footer, header, hgroup, nav, section {
+article, aside, canvas, figure, figcaption, footer, header, hgroup, nav, main, progress, section, summary {
   display: block;
 }
 
@@ -27,9 +27,9 @@ a:visited {
   text-decoration-color: rgba(111, 84, 153, .5);
 }
 a:hover {
-  color: #23527c;
-  -moz-text-decoration-color: rgba(35, 82, 124, .5);
-  text-decoration-color: rgba(35, 82, 124, .5);
+  color: #d9534f;
+  -moz-text-decoration-color: rgba(217, 83, 79, .5);
+  text-decoration-color: rgba(217, 83, 79, .5);
 }
 a:active {
   color: #23527c;

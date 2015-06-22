@@ -26,9 +26,9 @@ a:visited {
 }
 
 a:hover {
-  color: #23527c;
-  -moz-text-decoration-color: rgba(35, 82, 124, .5);
-  text-decoration-color: rgba(35, 82, 124, .5);
+  color: #d9534f;
+  -moz-text-decoration-color: rgba(217, 83, 79, .5);
+  text-decoration-color: rgba(217, 83, 79, .5);
 }
 
 a:active {

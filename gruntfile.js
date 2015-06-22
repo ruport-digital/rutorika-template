@@ -130,8 +130,8 @@ module.exports = function(grunt) {
       }
     },
     csslint: {
-      option: {
-        'csslintrc': '.csslintrc'
+      options: {
+        csslintrc: '.csslintrc'
       },
       cssLint: {
         cwd: project.res.css.devDir,
@@ -141,6 +141,7 @@ module.exports = function(grunt) {
     },
     csscss: {
       options: {
+        shorthand: false,
         verbose: true
       },
       csscssTest: {
@@ -380,7 +381,7 @@ module.exports = function(grunt) {
     uncss: {
       cssOptimize: {
         options: {
-          ignore: [/.*-is-.*/, /.*-has-.*/, /.*-are-.*/, /js-.*/],
+          ignore: [/.*-is-.*/, /.*-has-.*/, /.*-are-.*/, /mdz-.*/, /js-.*/],
           stylesheets: [project.res.css.dir.replace(project.dir, '') + project.res.css.filename + '.css'],
           timeout: 1000
         },

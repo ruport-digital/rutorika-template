@@ -244,12 +244,15 @@
 
 // Form Element Placeholder
 
-@mixin tx-placeholder($cl: #999, $fz: 1em, $fw: normal) {
+$placeholderDefault-color: #999;
+
+@mixin tx-placeholder($cl: $placeholderDefault-color, $fz: 1em, $fw: normal, $op: 1) {
   @each $prefix in ":-webkit-input-", -moz-, ":-moz-", -ms-input- {
     &:#{$prefix}placeholder {
       color: $cl;
       font-weight: $fw;
       font-size: $fz;
+      opacity: $op;
     }
   }
 }
@@ -268,7 +271,9 @@
 
 // Table Borders with Adjustment
 
-@mixin tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: #000, $prgt: .5em, $plft: .5em) {
+$tableBorder-defaultColor: #000;
+
+@mixin tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: $tableBorder-defaultColor, $prgt: .5em, $plft: .5em) {
   $calculated-width: $font-unit * $brdw / $fz;
   $calculated-vertical-padding: rhythm($lines, $fz, $offset: $brdw);
   border: $brdw $bstyle $bcolor;
