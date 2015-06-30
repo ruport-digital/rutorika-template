@@ -351,14 +351,14 @@ linters:
       - -moz-column-rule-color
       - column-rule-color
       - -webkit-column-break-before
+      - page-break-before
       - break-before
       - -webkit-column-break-inside
+      - page-break-inside
       - break-inside
       - -webkit-column-break-after
-      - break-after
-      - page-break-before
-      - page-break-inside
       - page-break-after
+      - break-after
       - orphans
       - widows
       - list-style
