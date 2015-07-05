@@ -400,7 +400,7 @@ module.exports = function(grunt) {
       },
       cssSortBuild: {
         cwd: project.res.css.dir,
-        src: ['*.css', '!*-IE.css'],
+        src: ['*.css'],
         dest: project.res.css.dir,
         expand: true
       },
