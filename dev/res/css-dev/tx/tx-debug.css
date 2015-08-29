@@ -1,4 +1,4 @@
-/* TX Debuging Styles */
+/* TX Rhythm Lines */
 .page-is-showingRhythmLines {
   position: relative;
   top: -1px;
@@ -16,6 +16,33 @@
   pointer-events: none; }
   .page-is-showingRhythmLines .debugToolsRhythm {
     display: block; }
+
+/* TX Developer Note */
+[data-dev-note] {
+  position: relative;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 2px;
+  border-radius: 2px;
+  color: #fff;
+  background: #d9534f; }
+  [data-dev-note]:hover {
+    background: rgba(217, 83, 79, 0.5); }
+    [data-dev-note]:hover:after {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      content: "Dev Note:\a" attr(data-dev-note);
+      display: block;
+      width: 195px;
+      padding: 5px;
+      border-radius: 2px;
+      margin: 0 0 5px -100px;
+      color: #fff;
+      background: #d9534f;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 1.2; }
 
 /* TX Debuging Console */
 .debugConsole {
@@ -39,8 +66,10 @@
 
 /* TX Debuging Controls */
 .debugTools {
-  margin: 6em 0 0;
-  padding: 4.5em 0 0;
+  margin: 96px 0 0;
+  margin: 6rem 0 0;
+  padding: 72px 0 0;
+  padding: 4.5rem 0 0;
   position: fixed;
   z-index: 999;
   top: 0;
@@ -58,7 +87,8 @@
     position: relative;
     z-index: 2; }
   .debugTools li {
-    margin: 0 0 1.5em 25px; }
+    margin: 0 0 24px 25px;
+    margin: 0 0 1.5rem 25px; }
   .debugTools label {
     border: 0; }
   .debugTools input {

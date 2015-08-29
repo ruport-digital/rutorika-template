@@ -1,4 +1,4 @@
-@import "project/project";
+@import 'project/project';
 
 
 
@@ -14,8 +14,9 @@ html {
 }
 
 body {
-  @include tx-set-boundaries($min-width);
+  @include tx-set-boundaries(($desktop-min - $gap * 2));
   @include tx-scroll-bar(true);
+
   position: relative;
   display: block;
   padding: 0 $gap;
@@ -32,27 +33,27 @@ body {
 
 /* Large Resolution Layout */
 
-@media only screen and (min-width: 1382px) {}
+@media only screen and (min-width: $desktop-wide-rem) {}
 
 
 
 /* Phone Layout */
 
-@media handheld, only screen and (max-width: 719px) {
+@media handheld, only screen and (max-width: $phone-max-rem) {
 
-  @import "phone/layout-phone";
+  @import 'phone/layout-phone';
 
 }
 
-@media only screen and (max-width: 719px) and (min-resolution: 1.5dppx), only screen and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: 719px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (min-resolution: 150dpi) {}
+@media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
 
 
 
 /* Tablet Layout */
 
-@media only screen and (min-width: 720px) and (max-width: $min-width) {}
+@media only screen and (min-width: ($phone-max-rem + 1px)) and (max-width: $desktop-min-rem) {}
 
-@media only screen and (min-width: 720px) and (max-width: $min-width) and (min-resolution: 1.5dppx), only screen and (min-width: 720px) and (max-width: $min-width) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 720px) and (max-width: $min-width) and (min-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (min-resolution: 150dpi) {}
+@media only screen and (min-width: ($phone-max-rem + 1px)) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: ($phone-max-rem + 1px)) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1px)) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1px)) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: ($phone-max-rem + 1px)) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1px)) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 
@@ -60,7 +61,7 @@ body {
 
 @media print {
 
-  @import "print/layout-print";
+  @import 'print/layout-print';
 
 }
 

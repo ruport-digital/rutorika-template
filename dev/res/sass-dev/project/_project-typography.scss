@@ -1,21 +1,24 @@
 // Font
 
-$sansSerif-font: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
-$serif-font: Cambria, Georgia, Times, "Times New Roman", serif;
-$monospace-font: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+$sansSerifFontStack: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+$serifFontStack: Cambria, Georgia, Times, "Times New Roman", serif;
+$monospaceFontStack: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 
-$font: $sansSerif-font;
-$font-mono: $monospace-font;
-$font-size: 16px;
-$line-height: $font-size * 1.5;
+$font-sans: $sansSerifFontStack;
+$font-mono: $monospaceFontStack;
+$fontSize: 16px;
+$lineHeight: $fontSize * 1.5;
 
 
 
 // Typography
 
-$h1-fontSize: $font-size * 2;
-$h2-fontSize: $font-size * 1.5;
-$h3-fontSize: $font-size * 1.375;
-$h4-fontSize: $font-size * 1.25;
-$h5-fontSize: $font-size * 1.125;
-$h6-fontSize: $font-size;
+$h1-fontSize: $fontSize * 2;
+$h2-fontSize: $fontSize * 1.5;
+$h3-fontSize: $fontSize * 1.375;
+$h4-fontSize: $fontSize * 1.25;
+$h5-fontSize: $fontSize * 1.125;
+$h6-fontSize: $fontSize;
+
+$fontSizeSmall: $fontSize * .75;
+$fontSizeLarge: $fontSize * 1.5;

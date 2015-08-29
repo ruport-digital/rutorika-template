@@ -1,12 +1,13 @@
 /* Forms */
-input[type="checkbox"], input[type="radio"] {
+[type="checkbox"], [type="radio"] {
   width: 13px;
   height: 13px;
 }
 
 /* Internet Explorer 6 */
 .ie6 button, .ie6 .button {
-  height: 1.5em;
+  height: 24px;
+  height: 1.5rem;
   cursor: hand;
 }
 

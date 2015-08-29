@@ -4,30 +4,38 @@
 
 /* Lists Reset (Internet Explorer < 8) */
 
+%listResetStyleIE {
+  padding: 0;
+  margin: 0;
+}
+
+%dlItemResetStyleIE {
+  padding: 0;
+  margin: 0;
+}
+
 .ie6 {
 
-  .u-listReset, .u-descriptionListReset {
-    padding: 0;
-    margin: 0;
-  }
-
   .u-listReset {
-    list-style: none outside;
+    @extend %listResetStyleIE;
 
     li {
-      padding: 0;
-      margin: 0;
+      @extend %listResetStyleIE;
     }
 
   }
 
   .u-descriptionListReset {
+    @extend %listResetStyleIE;
 
-    dt, dd {
-      padding: 0;
-      margin: 0;
-      font-weight: normal;
-      font-style: normal;
+    dt {
+      @extend %listResetStyleIE;
+      @extend %dlItemResetStyleIE;
+    }
+
+    dd {
+      @extend %listResetStyleIE;
+      @extend %dlItemResetStyleIE;
     }
 
   }

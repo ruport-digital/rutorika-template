@@ -1,10 +1,8 @@
-/* global $:false */
-/* global log:false */
+/* jshint browser:true, jquery:true */
+/* global log */
 
-var DEBUG_TOOLS = '<div class="debugTools"><ul class="u-listReset"><li><label class="dTls-VR"><input type="checkbox" class="dTls-VRCheck"> Vertical Rhythm</label></li><li><label class="dTls-VR"><input type="checkbox" class="dTls-CNSLCheck"> Console</label></li></ul><a href="#" class="debugToolsToggle"></a></div><div class="debugConsole"></div><div class="debugToolsRhythm"></div>';
-
-function initDebug(BODY) {
-  $(DEBUG_TOOLS).appendTo(BODY);
+function initDebug(tools, body) {
+  $(tools).appendTo(body);
 }
 
 window.log = function() {
@@ -18,13 +16,14 @@ window.log = function() {
 
 $(document).ready(function() {
 
+  var DEBUG_TOOLS = '<div class="debugTools"><ul class="u-listReset"><li><label class="dTls-VR"><input type="checkbox" class="dTls-VRCheck"> Vertical Rhythm</label></li><li><label class="dTls-VR"><input type="checkbox" class="dTls-CNSLCheck"> Console</label></li></ul><a href="#" class="debugToolsToggle"></a></div><div class="debugConsole"></div><div class="debugToolsRhythm"></div>';
   var BODY = $('body');
 
-  initDebug(BODY);
+  initDebug(DEBUG_TOOLS, BODY);
 
   $('.dTls-VRCheck').on('change', function(event) {
-    var HEIGHT = BODY.height();
-    $('.debugToolsRhythm').height(HEIGHT);
+    var height = BODY.height();
+    $('.debugToolsRhythm').height(height);
     BODY.toggleClass('page-is-showingRhythmLines');
   });
 

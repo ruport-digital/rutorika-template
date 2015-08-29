@@ -1,13 +1,5 @@
 /* Lists Reset (Internet Explorer < 8) */
-.ie6 .u-listReset, .ie6 .u-descriptionListReset {
-  padding: 0;
-  margin: 0;
-}
-
-.ie6 .u-listReset {
-  list-style: none outside;
-}
-.ie6 .u-listReset li {
+.ie6 .u-listReset, .ie6 .u-listReset li, .ie6 .u-descriptionListReset, .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
   padding: 0;
   margin: 0;
 }
@@ -15,8 +7,6 @@
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
   padding: 0;
   margin: 0;
-  font-weight: normal;
-  font-style: normal;
 }
 
 /*# sourceMappingURL=utilities-IE.css.map */

@@ -1,6 +1,6 @@
 // Page Boundaries
 
-@mixin tx-set-boundaries($minw: 980px, $maxw: 1400px, $minh: 100%, $center: true) {
+@mixin tx-set-boundaries($minw: $desktop-min, $maxw: $desktop-max, $minh: 100%, $center: true) {
   @if $minw != none and $minw != 0 {
     min-width: $minw;
   }
@@ -33,19 +33,6 @@
 
 
 
-// Selection
-
-@mixin tx-selection-style($bg: $selection-background, $cl: $selection-color) {
-  @each $prefix in -webkit-, -moz-, "" {
-    ::#{$prefix}selection {
-      color: $cl;
-      background: $bg;
-    }
-  }
-}
-
-
-
 // Focus
 
 @mixin tx-focus-outline($wd: 1px, $st: dotted, $cl: $focus-outline, $off: 3px) {
@@ -59,16 +46,19 @@
 
 // Typography Baseline
 
-@mixin tx-baseline($fz: $base-font-size) {
-  font-size: 100% * $fz / $browser-font-size;
-  line-height: rhythm($fz: $fz);
+@mixin tx-baseline($fz: $fontSize, $fall: $tx-remFallback) {
+  font-size: 100% * $fz / 16px;
+  @if $fall == true {
+    line-height: rhythm-fallback();
+  }
+  line-height: rhythm();
 }
 
 
 
 // Inline Block
 
-@mixin tx-inline-block($ie: $tx-ie) {
+@mixin tx-inline-block($ie: $tx-IE) {
   @if $ie != true {
     display: inline-block;
   } @else {
@@ -81,14 +71,14 @@
 
 // Pseudo Element
 
-@mixin tx-pseudo($dsp: block, $pos: absolute, $cnt: "", $ie: $tx-ie) {
-  @if $dsp == "inline-block" {
+@mixin tx-pseudo($pos: absolute, $dsp: block, $cnt: '', $ie: $tx-IE) {
+  @if $dsp == 'inline-block' {
     @include tx-inline-block;
   } @else {
     display: $dsp;
   }
   @if not $ie {
-    content: "" + $cnt;
+    content: '' + $cnt;
   }
   position: $pos;
 }
@@ -97,17 +87,15 @@
 
 // Pseudo Element (IE Hack)
 
-@mixin tx-pseudo-ie($before: true, $after: true, $class: "", $beforeContent: "", $afterContent: "") {
+@mixin tx-pseudo-ie($before: true, $after: true, $class: '', $beforeContent: '', $afterContent: '') {
   $beforeClass: ieBefore + $class;
   $afterClass: ieAfter + $class;
   @if $before == true and $after == true {
-    zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'), insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))");
-  }
-  @else if $before == true {
-    zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('afterBegin', '<i class=\"" + $beforeClass + "\">" + $beforeContent + "</i>'))");
-  }
-  @else {
-    zoom: unquote("expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML('beforeEnd', '<i class=\"" + $afterClass + "\">" + $afterContent + "</i>'))");
+    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' + $beforeClass + '">' + $beforeContent + '</i>"), insertAdjacentHTML("beforeEnd", "<i class="' + $afterClass + '">' + $afterContent + '</i>"))');
+  } @else if $before == true {
+    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' + $beforeClass + '">' + $beforeContent + '</i>"))');
+  } @else {
+    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("beforeEnd", "<i class="' + $afterClass + '">' + $afterContent + '</i>"))');
   }
 }
 
@@ -115,14 +103,23 @@
 
 //  Height in Grid Units
 
-@mixin tx-grid-height($lines: 1, $brdw: 0, $fz: $base-font-size, $lh: true, $pd: false) {
+@mixin tx-grid-height($lines: 1, $brdw: 0, $lh: true, $pd: false, $fall: $tx-remFallback) {
   @if $pd == true {
-    padding: rhythm($lines, $fz, $offset: 2 * $brdw) 0 0;
+    @if $fall == true {
+      padding: rhythm-fallback($lines, 2 * $brdw) 0 0;
+    }
+    padding: rhythm($lines, 2 * $brdw) 0 0;
   } @else {
-    height: rhythm($lines, $fz, $offset: 2 * $brdw);
+    @if $fall == true {
+      height: rhythm-fallback($lines, 2 * $brdw);
+    }
+    height: rhythm($lines, 2 * $brdw);
   }
   @if $lh == true {
-    line-height: rhythm($lines, $fz, $offset: 2 * $brdw);
+    @if $fall == true {
+      line-height: rhythm-fallback($lines, 2 * $brdw);
+    }
+    line-height: rhythm($lines, 2 * $brdw);
   }
 }
 
@@ -130,69 +127,120 @@
 
 // Font Size
 
-@mixin tx-font-size($fzn, $ln: 1, $fzo: $font-size) {
-  font-size: $font-unit * $fzn / $fzo;
-  @if $ln != none {
-    line-height: rhythm($ln, $fz: $fzn);
+@mixin tx-font-size($fzn, $ln: 1, $fall: $tx-remFallback) {
+  @if $fall == true {
+    font-size: $fzn;
   }
+  font-size: #{$fzn / $fontSize}rem;
+  @if $ln != none {
+    @if $fall == true and $ln != 0 {
+      line-height: rhythm-fallback($ln);
+    }
+    line-height: rhythm($ln);
+  }
+}
+
+
+
+// Hyphens
+
+@mixin tx-hyphens($hp: manual) {
+  -epub-hyphens: $hp;
+  hyphens: $hp;
 }
 
 
 
 // Rhythm (Margin)
 
-@mixin tx-rhythm($leader: 0, $trailer: 0, $fz: $base-font-size, $mrgt: 0, $mlft: 0) {
+@mixin tx-rhythm($leader: 0, $trailer: 0, $mrgt: 0, $mlft: 0, $fall: $tx-remFallback) {
   @if $leader == $trailer {
+    $vertical-px: rhythm-fallback($leader);
+    $vertical-rem: rhythm($leader);
     @if $mrgt == $mlft {
-      margin: rhythm($leader, $fz) $mrgt;
+      @if $fall == true {
+        margin: $vertical-px $mrgt;
+      }
+      margin: $vertical-rem $mrgt;
     } @else {
-      margin: rhythm($leader, $fz) $mrgt rhythm($trailer, $fz) $mlft;
+      @if $fall == true {
+        margin: $vertical-px $mrgt $vertical-px $mlft;
+      }
+      margin: $vertical-rem $mrgt $vertical-rem $mlft;
     }
   } @else {
     @if $leader != 0 {
-      $mtop: rhythm($leader, $fz);
+      $mtop-px: rhythm-fallback($leader);
+      $mtop-rem: rhythm($leader);
     } @else {
-      $mtop: 0;
+      $mtop-px: 0;
+      $mtop-rem: 0;
     }
     @if $trailer != 0 {
-      $mbtm: rhythm($trailer, $fz);
+      $mbtm-px: rhythm-fallback($trailer);
+      $mbtm-rem: rhythm($trailer);
     } @else {
-      $mbtm: 0;
+      $mbtm-px: 0;
+      $mbtm-rem: 0;
     }
     @if $mrgt == $mlft {
-      margin: $mtop $mrgt $mbtm;
+      @if $fall == true {
+        margin: $mtop-px $mrgt $mbtm-px;
+      }
+      margin: $mtop-rem $mrgt $mbtm-rem;
     } @else {
-      margin: $mtop $mrgt $mbtm $mlft;
+      @if $fall == true {
+        margin: $mtop-px $mrgt $mbtm-px $mlft;
+      }
+      margin: $mtop-rem $mrgt $mbtm-rem $mlft;
     }
   }
 }
 
 
 
-// Rhythm (Padding)
+// Rhythm Padding
 
-@mixin tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $fz: $base-font-size, $prgt: 0, $plft: 0) {
+@mixin tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $prgt: 0, $plft: 0, $fall: $tx-remFallback) {
   @if $padding-leader == $padding-trailer {
+    $vertical-px: rhythm-fallback($padding-leader);
+    $vertical-rem: rhythm($padding-leader);
     @if $prgt == $plft {
-      padding: rhythm($padding-leader, $fz) $prgt;
+      @if $fall == true {
+        padding: $vertical-px $prgt;
+      }
+      padding: $vertical-rem $prgt;
     } @else {
-      padding: rhythm($padding-leader, $fz) $prgt rhythm($padding-trailer, $fz) $plft;
+      @if $fall == true {
+        padding: $vertical-px $prgt $vertical-px $plft;
+      }
+      padding: $vertical-rem $prgt $vertical-rem $plft;
     }
   } @else {
     @if $padding-leader != 0 {
-      $ptop: rhythm($padding-leader, $fz);
+      $ptop-px: rhythm-fallback($padding-leader);
+      $ptop-rem: rhythm($padding-leader);
     } @else {
-      $ptop: 0;
+      $ptop-px: 0;
+      $ptop-rem: 0;
     }
     @if $padding-trailer != 0 {
-      $pbtm: rhythm($padding-trailer, $fz);
+      $pbtm-px: rhythm-fallback($padding-trailer);
+      $pbtm-rem: rhythm($padding-trailer);
     } @else {
-      $pbtm: 0;
+      $pbtm-px: 0;
+      $pbtm-rem: 0;
     }
     @if $prgt == $plft {
-      padding: $ptop $prgt $pbtm;
+      @if $fall == true {
+        padding: $ptop-px $prgt $pbtm-px;
+      }
+      padding: $ptop-rem $prgt $pbtm-rem;
     } @else {
-      padding: $ptop $prgt $pbtm $plft;
+      @if $fall == true {
+        padding: $ptop-px $prgt $pbtm-px $plft;
+      }
+      padding: $ptop-rem $prgt $pbtm-rem $plft;
     }
   }
 }
@@ -230,40 +278,17 @@
 
 // Form Element Height in Grid Units
 
-@mixin tx-form-height($lines: 1, $brdw: 1px, $fz: $font-size, $lh: true) {
+@mixin tx-form-height($lines: 1, $brdw: 1px, $lh: false, $fall: $tx-remFallback) {
   @if $lh == true {
-    height: rhythm($lines, $fz, $offset: 2 * $brdw);
-    line-height: rhythm($lines, $fz, $offset: 2 * $brdw);
-  } @else {
-    height: rhythm($lines, $fz, $offset: 2 * $brdw);
-    line-height: rhythm(1, $fz, 0);
-  }
-}
-
-
-
-// Form Element Placeholder
-
-$placeholderDefault-color: #999;
-
-@mixin tx-placeholder($cl: $placeholderDefault-color, $fz: 1em, $fw: normal, $op: 1) {
-  @each $prefix in ":-webkit-input-", -moz-, ":-moz-", -ms-input- {
-    &:#{$prefix}placeholder {
-      color: $cl;
-      font-weight: $fw;
-      font-size: $fz;
-      opacity: $op;
+    @if $fall == true {
+      line-height: rhythm-fallback($lines, $offset: 2 * $brdw);
     }
-  }
-}
-
-
-
-// Form Element Appearance
-
-@mixin tx-appearance($ap: none) {
-  @each $prefix in -webkit-, -moz-, "" {
-    #{$prefix}appearance: $ap;
+    line-height: rhythm($lines, $offset: 2 * $brdw);
+  } @else {
+    @if $fall == true {
+      height: rhythm-fallback($lines, $offset: 2 * $brdw);
+    }
+    height: rhythm($lines, $offset: 2 * $brdw);
   }
 }
 
@@ -271,31 +296,36 @@ $placeholderDefault-color: #999;
 
 // Table Borders with Adjustment
 
-$tableBorder-defaultColor: #000;
-
-@mixin tx-table-borders($brdw: 1px, $lines: 1, $fz: $font-size, $bstyle: solid, $bcolor: $tableBorder-defaultColor, $prgt: .5em, $plft: .5em) {
-  $calculated-width: $font-unit * $brdw / $fz;
-  $calculated-vertical-padding: rhythm($lines, $fz, $offset: $brdw);
-  border: $brdw $bstyle $bcolor;
+@mixin tx-table-borders($brdw: 1px, $lines: 1, $bstyle: solid, $bcolor: $black, $prgt: .5em, $plft: .5em, $fall: $tx-remFallback) {
+  $calculated-borderWidth-fallback: $brdw;
+  $calculated-borderWidth: $brdw / $fontSize * 1rem;
+  $calculated-verticalPadding-fallback: rhythm-fallback($lines, $brdw);
+  $calculated-verticalPadding: rhythm($lines, $brdw);
   @if $lines != 0 {
     @if $prgt == $plft and $prgt != 0 {
-      padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width);
-    }
-    @else {
-      padding: $calculated-vertical-padding $prgt ($calculated-vertical-padding + $calculated-width) $plft;
+      @if $fall == true {
+        padding: ($calculated-verticalPadding-fallback) ($prgt) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback);
+      }
+      padding: ($calculated-verticalPadding) ($prgt) ($calculated-verticalPadding + $calculated-borderWidth);
+    } @else {
+      @if $fall == true {
+        padding: ($calculated-verticalPadding-fallback) ($prgt) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback) ($plft);
+      }
+      padding: ($calculated-verticalPadding) ($prgt) ($calculated-verticalPadding + $calculated-borderWidth) ($plft);
     }
   }
+  border: $brdw $bstyle $bcolor;
 }
 
 
 
 // Extend Data URI Image
 
-@mixin tx-extend-image($class, $ie: $tx-ie) {
+@mixin tx-extend-image($class, $ie: $tx-IE) {
   @if not $ie {
-    @extend #{"%image-" + $class};
+    @extend #{'%image-' + $class};
   } @else {
-    @extend #{"%ie-image-" + $class};
+    @extend #{'%ie-image-' + $class};
   }
 }
 
@@ -303,7 +333,20 @@ $tableBorder-defaultColor: #000;
 
 // Functions
 
-@function rhythm($ln: 1, $fz: $font-size, $offset: 0) {
-  $result: $font-unit * ($ln * $base-line-height - $offset) / $fz;
-  @return $result;
+@function rhythm($ln: 1, $offset: 0) {
+  $result: ($ln * $lineHeight - $offset) / $fontSize * 1rem;
+  @if #{$result} == '0rem' {
+    @return 0;
+  } @else {
+    @return $result;
+  }
+}
+
+@function rhythm-fallback($ln: 1, $offset: 0) {
+  $result: ($ln * $lineHeight - $offset);
+  @if #{$result} == '0px' {
+    @return 0;
+  } @else {
+    @return $result;
+  }
 }

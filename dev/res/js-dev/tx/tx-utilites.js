@@ -1,4 +1,5 @@
-/* global Modernizr:false */
+/* jshint browser:true, jquery:true */
+/* global Modernizr */
 
 function translateY(DISTANCE) {
   var CSS;
@@ -42,5 +43,33 @@ function whichDevice() {
     if (USER_AGENT_STRING.indexOf(MOBILE_LIST[DEVICE]) >= 0) {
       return MOBILE_LIST[DEVICE];
     }
+  }
+}
+
+function placeholderPolyfill() {
+  if (!Modernizr.input.placeholder) {
+    $('input[placeholder]').each(function() {
+      var input = $(this);
+      var value = input.val();
+      var placeholder = input.attr('placeholder');
+      if (value === '') {
+        input.addClass('u-input-is-showingPlaceholder').val(placeholder);
+      }
+    });
+    $(document).on('focus', 'input[placeholder]', function() {
+      var input = $(this);
+      var value = input.val();
+      var placeholder = input.attr('placeholder');
+      if (value === placeholder) {
+        input.removeClass('u-input-is-showingPlaceholder').val('');
+      }
+    }).on('blur', 'input[placeholder]', function() {
+      var input = $(this);
+      var value = input.val();
+      var placeholder = input.attr('placeholder');
+      if (value === '' || value === placeholder) {
+        input.addClass('u-input-is-showingPlaceholder').val(placeholder);
+      }
+    });
   }
 }

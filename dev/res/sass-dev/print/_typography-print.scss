@@ -1,62 +1,29 @@
 /* Typography & Rhythm */
 
 @page {
-  margin: 0 .5cm;
+  size: A4;
+  margin: .5cm;
+}
+
+%printBackground {
+  background: $print-background;
+}
+
+html {
+  @extend %printBackground;
 }
 
 body {
-  width: 100%;
-  max-width: none;
-  padding: 0;
-  margin: 0;
+  @extend %printBackground;
   color: $print-color;
-  font-size: 16pt;
+  font-size: 12pt;
+  line-height: 1.5;
 }
 
-a {
-  color: $print-color;
-  text-decoration: none;
-
-  &:after {
-    content: " (" attr(href) ")";
-    font-size: 90%;
-  }
-
-  &:visited {
-    color: $print-color;
-  }
-
-}
-
-%javascriptHREFStyle {
-
-  &:after {
-    content: "";
-  }
-
-}
-
-[href^="javascript:"] {
-  @extend %javascriptHREFStyle;
-}
-
-
-[href^="#"] {
-  @extend %javascriptHREFStyle;
-}
-
-acronym, abbr, ins, del, var, input, select, textarea {
+%printResetStyle {
   border: 0;
   color: $print-color;
   text-decoration: none;
-}
-
-[title] {
-
-  &:after {
-    content: " (" attr(title) ")";
-  }
-
 }
 
 p {
@@ -64,10 +31,79 @@ p {
   widows: 3;
 }
 
-blockquote, pre, img, tr {
+pre {
+  @extend %printResetStyle;
+}
+
+code {
+  @extend %printResetStyle;
+}
+
+var {
+  @extend %printResetStyle;
+}
+
+acronym {
+  @extend %printResetStyle;
+}
+
+abbr {
+  @extend %printResetStyle;
+}
+
+ins {
+  @extend %printResetStyle;
+}
+
+del {
+  @extend %printResetStyle;
+}
+
+input {
+  @extend %printResetStyle;
+}
+
+select {
+  @extend %printResetStyle;
+}
+
+textarea {
+  @extend %printResetStyle;
+}
+
+%pageBreakPreventStyle {
   page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+blockquote {
+  @extend %pageBreakPreventStyle;
+}
+
+img {
+  @extend %pageBreakPreventStyle;
+}
+
+tr {
+  @extend %pageBreakPreventStyle;
+}
+
+table {
+  @extend %pageBreakPreventStyle;
 }
 
 thead {
   display: table-header-group;
+}
+
+form {
+  display: none;
+}
+
+[title] {
+
+  &:after {
+    content: ' (' attr(title) ')';
+  }
+
 }

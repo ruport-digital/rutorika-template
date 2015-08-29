@@ -1,6 +1,6 @@
-@import "project/project";
+@import 'project/project';
 
-$tx-ie: true;
+$tx-IE: true;
 
 
 
@@ -10,13 +10,17 @@ $tx-ie: true;
 
 /* Forms */
 
-input {
+%formRadioCheckboxStyleIE {
+  width: 13px;
+  height: 13px;
+}
 
-  &[type="checkbox"], &[type="radio"] {
-    width: 13px;
-    height: 13px;
-  }
+&[type='checkbox'] {
+  @extend %formRadioCheckboxStyleIE;
+}
 
+&[type='radio'] {
+  @extend %formRadioCheckboxStyleIE;
 }
 
 

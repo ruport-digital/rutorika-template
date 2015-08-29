@@ -1,5 +1,21 @@
 /* Typography & Rhythm */
 
-table, tr, th, td {
+%tablePhoneStyle {
   display: block;
+}
+
+table {
+  @extend %tablePhoneStyle;
+}
+
+tr {
+  @extend %tablePhoneStyle;
+}
+
+th {
+  @extend %tablePhoneStyle;
+}
+
+td {
+  @extend %tablePhoneStyle;
 }

@@ -1,4 +1,4 @@
-@import "project/project";
+@import 'project/project';
 
 
 
@@ -8,33 +8,59 @@
 
 /* Selection */
 
-@include tx-selection-style;
+::selection {
+  color: $selection-color;
+  color: $selection-background;
+}
+
+
+
+/* Links */
+
+a {
+  $linkFocus-outlineWidth: 1px;
+
+  color: $link;
+  text-decoration: underline;
+  text-decoration-color: rgba($link, $underlineOpacity);
+  transition: $UITransition;
+
+  &:visited {
+    color: $visited;
+    text-decoration-color: rgba($visited, $underlineOpacity);
+  }
+
+  &:hover {
+    color: $hover;
+    text-decoration-color: rgba($hover, $underlineOpacity);
+  }
+
+  &:active {
+    color: $active;
+    text-decoration-color: rgba($active, $underlineOpacity);
+  }
+
+  &:focus {
+    outline: $linkFocus-outlineWidth dotted $focus-outlineColor;
+  }
+
+}
 
 
 
 /* Forms */
 
-input, select, button, textarea {
-  @include tx-font-size($font-size, none);
+%formBaselineStyle {
+  @include tx-font-size($fontSize, none);
   margin: 0;
-  font-family: $font;
+  font-family: $font-sans;
 }
 
-input, button, textarea {
+%formBoxSizingStyle {
   box-sizing: content-box;
 }
 
-input, select, textarea {
-
-  &[disabled], &[readonly] {
-    opacity: .5;
-    cursor: default;
-    cursor: not-allowed;
-  }
-
-}
-
-input, button {
+%formBorderResetStyle {
   border: 0;
 
   &::-moz-focus-inner {
@@ -44,26 +70,80 @@ input, button {
 
 }
 
-input, select {
-  vertical-align: baseline;
-}
-
-button, select {
+%formTextResetStyle {
   text-transform: none;
 }
 
-%formStyle {
-  $field-borderWidth: 1px;
-  $field-borderColor: $gray;
+%formAlignStyle {
+  vertical-align: top;
+}
 
+%formStyle {
   border: $field-borderWidth solid $field-borderColor;
 }
 
-select, textarea {
-  @extend %formStyle;
+%formRadioCheckboxStyle {
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+%formAppearanceResetStyle {
+  appearance: none;
+}
+
+%formInactiveStyle {
+  opacity: .5;
+  cursor: default;
+  cursor: not-allowed;
+}
+
+input {
+  @extend %formBaselineStyle;
+  @extend %formBoxSizingStyle;
+  @extend %formBorderResetStyle;
+  @extend %formAlignStyle;
+
+  &[type="radio"] {
+    @extend %formRadioCheckboxStyle;
+  }
+
+  &[type="checkbox"] {
+    @extend %formRadioCheckboxStyle;
+  }
+
+  &[type="file"] {
+    height: auto;
+    border: 0;
+  }
+
+  &[type="search"] {
+    @extend %formAppearanceResetStyle;
+  }
+
+  &[type="number"] {
+    @extend %formAppearanceResetStyle;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+  }
+
+  &[disabled] {
+    @extend %formInactiveStyle;
+  }
+
+  &[readonly] {
+    @extend %formInactiveStyle;
+  }
+
 }
 
 select {
+  @extend %formBaselineStyle;
+  @extend %formTextResetStyle;
+  @extend %formAlignStyle;
+  @extend %formStyle;
   @include tx-grid-height(1.5, $lh: false);
   vertical-align: top;
 
@@ -80,52 +160,45 @@ select {
 }
 
 button {
+  @extend %formBaselineStyle;
+  @extend %formBoxSizingStyle;
+  @extend %formBorderResetStyle;
+  @extend %formTextResetStyle;
   @extend %buttonStyle;
+
+  &[disabled] {
+    @extend %formInactiveStyle;
+  }
+
 }
 
 textarea {
+  @extend %formBaselineStyle;
+  @extend %formBoxSizingStyle;
+  @extend %formStyle;
   @include tx-form-height(9, 1, $lh: false);
   @include tx-rhythm-padding(.5, .5, $prgt: ($gap / 2), $plft: ($gap / 2));
   display: block;
   overflow: auto;
+
+  &[disabled] {
+    @extend %formInactiveStyle;
+  }
+
+  &[readonly] {
+    @extend %formInactiveStyle;
+  }
+
 }
 
 
 
 /* Custom Forms */
 
-.input-radio, .input-checkbox {
-  box-sizing: border-box;
-  vertical-align: middle;
-}
-
-.input-file {
-  height: auto;
-  border: 0;
-}
-
-%inputSearchStyle {
-  @include tx-appearance;
-}
-
-.input-search {
-  @extend %inputSearchStyle;
-}
-
-.input-number {
-  @extend %inputSearchStyle;
-
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-
-}
-
 .field {
   @extend %formStyle;
   @include tx-form-height(1.5);
   padding: 0 ($gap / 2);
-  vertical-align: top;
 }
 
 
@@ -146,35 +219,35 @@ textarea {
 
 /* Large Resolution UI */
 
-@media only screen and (min-width: 1382px) {}
+@media only screen and (min-width: $desktop-wide-rem) {}
 
 
 
 /* Phone UI */
 
-@media handheld, only screen and (max-width: 719px) {
+@media handheld, only screen and (max-width: $phone-max-rem) {
 
-  @import "phone/ui-phone";
+  @import 'phone/ui-phone';
 
 }
 
-@media only screen and (max-width: 719px) and (min-resolution: 1.5dppx), only screen and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: 719px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (min-resolution: 150dpi) {}
+@media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
 
 
 
 /* Tablet UI */
 
-@media only screen and (min-width: 720px) and (max-width: $min-width) {}
+@media only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) {}
 
-@media only screen and (min-width: 720px) and (max-width: $min-width) and (min-resolution: 1.5dppx), only screen and (min-width: 720px) and (max-width: $min-width) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 720px) and (max-width: $min-width) and (min-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (min-resolution: 150dpi) {}
+@media only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 
-/* Print UI */
+/* Print Typography */
 
 @media print {
 
-  @import "print/ui-print";
+  @import 'print/ui-print';
 
 }
 

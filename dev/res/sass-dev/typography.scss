@@ -1,4 +1,4 @@
-@import "project/project";
+@import 'project/project';
 
 
 
@@ -13,41 +13,66 @@ html {
 }
 
 body {
+  @include tx-hyphens;
   color: $text;
-  font-family: $font;
+  font-family: $font-sans;
+  font-feature-settings: 'liga';
 }
 
-article, aside, canvas, figure, figcaption, footer, header, hgroup, nav, main, progress, section, summary {
+%HTML5BlocksStyle {
   display: block;
 }
 
-a {
-  $linkFocus-outlineWidth: 1px;
+article {
+  @extend %HTML5BlocksStyle;
+}
 
-  color: $link;
-  text-decoration: underline;
-  text-decoration-color: rgba($link, $underlineOpacity);
-  transition: $UITransition;
+aside {
+  @extend %HTML5BlocksStyle;
+}
 
-  &:visited {
-    color: $visited;
-    text-decoration-color: rgba($visited, $underlineOpacity);
-  }
+canvas {
+  @extend %HTML5BlocksStyle;
+}
 
-  &:hover {
-    color: $hover;
-    text-decoration-color: rgba($hover, $underlineOpacity);
-  }
+figure {
+  @extend %HTML5BlocksStyle;
+}
 
-  &:active {
-    color: $active;
-    text-decoration-color: rgba($active, $underlineOpacity);
-  }
+figcaption {
+  @extend %HTML5BlocksStyle;
+}
 
-  &:focus {
-    outline: $linkFocus-outlineWidth dotted $focus-outlineColor;
-  }
+footer {
+  @extend %HTML5BlocksStyle;
+}
 
+header {
+  @extend %HTML5BlocksStyle;
+}
+
+hgroup {
+  @extend %HTML5BlocksStyle;
+}
+
+nav {
+  @extend %HTML5BlocksStyle;
+}
+
+main {
+  @extend %HTML5BlocksStyle;
+}
+
+progress {
+  @extend %HTML5BlocksStyle;
+}
+
+section {
+  @extend %HTML5BlocksStyle;
+}
+
+summary {
+  @extend %HTML5BlocksStyle;
 }
 
 label {
@@ -58,87 +83,66 @@ label {
   cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
+%headerStyle {
   font-weight: bold;
   text-rendering: auto;
   page-break-after: avoid;
+  break-after: avoid;
   orphans: 3;
   widows: 3;
 }
 
 h1 {
-  @include tx-rhythm(1, 2, $h1-fontSize);
+  @extend %headerStyle;
+  @include tx-rhythm(1, 2);
   @include tx-font-size($h1-fontSize, 2);
 }
 
 h2 {
-  @include tx-rhythm(1, 1, $h2-fontSize);
+  @extend %headerStyle;
+  @include tx-rhythm(1, 1);
   @include tx-font-size($h2-fontSize, 2);
 }
 
 h3 {
-  @include tx-rhythm(1, 1, $h3-fontSize);
+  @extend %headerStyle;
+  @include tx-rhythm(1, 1);
   @include tx-font-size($h3-fontSize, 1);
 }
 
 h4 {
-  @include tx-rhythm(1, 1, $h4-fontSize);
+  @extend %headerStyle;
+  @include tx-rhythm(1, 1);
   @include tx-font-size($h4-fontSize, 1);
 }
 
 h5 {
-  @include tx-rhythm(1, 1, $h5-fontSize);
+  @extend %headerStyle;
+  @include tx-rhythm(1, 1);
   @include tx-font-size($h5-fontSize, 1);
 }
 
 h6 {
-  @include tx-rhythm(1, 1, $h6-fontSize);
+  @extend %headerStyle;
+  @include tx-rhythm(1, 1);
   @include tx-font-size($h6-fontSize, 1);
 }
 
-p, pre, dl, ul, ol, li, address, video, audio, table {
+%marginStyle {
   @include tx-rhythm(1, 1);
 }
 
-p, blockquote, li, dd {
-  hyphens: manual;
-}
-
-pre, code, samp, var, tt {
+%monoStyle {
   font-family: $font-mono;
 }
 
-pre, code, samp, var {
-  $pre-color: $red;
-
-  color: $pre-color;
+p {
+  @extend %marginStyle;
+  @extend %hyphenStyle;
 }
 
-pre {
-  @include tx-force-wrap;
-  overflow: hidden;
-  padding: 0 1.5em;
-}
-
-blockquote, em, cite, q, i {
-  font-style: italic;
-}
-
-blockquote, q {
-  quotes: none;
-
-  &:before, &:after {
-    content: none;
-  }
-
-}
-
-blockquote {
-  @include tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em);
-}
-
-address {
-  font-style: normal;
+dl {
+  @extend %marginStyle;
 }
 
 dt {
@@ -152,53 +156,198 @@ dd {
 }
 
 ul {
+  @extend %marginStyle;
   list-style-type: disc;
 }
 
 ol {
+  @extend %marginStyle;
   list-style-type: decimal;
 }
 
-li {
+%nestedListsStyle {
+  @include tx-rhythm(1, 1, $mlft: 1.5em);
+}
 
-  ul, ol {
-    @include tx-rhythm(1, 1, $mlft: 1.5em);
+li {
+  @extend %marginStyle;
+
+  >ul {
+    @extend %nestedListsStyle;
+  }
+
+  >ol {
+    @extend %nestedListsStyle;
   }
 
 }
 
-strong, dfn, b, kbd, acronym, abbr, var {
+%quoteEmphasisStyle {
+  font-style: italic;
+}
+
+%attentionStyle {
   font-weight: bold;
 }
 
-acronym, abbr, ins, mark, del {
+%highlightedStyle {
+  $highlighted-color: $red;
+
+  color: $highlighted-color;
+}
+
+pre {
+  @extend %marginStyle;
+  @extend %monoStyle;
+  @extend %highlightedStyle;
+  @include tx-force-wrap;
+  overflow: hidden;
+  padding: 0 1.5em;
+}
+
+code {
+  @extend %monoStyle;
+  @extend %highlightedStyle;
+}
+
+samp {
+  @extend %monoStyle;
+  @extend %highlightedStyle;
+}
+
+var {
+  @extend %monoStyle;
+  @extend %highlightedStyle;
+  @extend %attentionStyle;
+  font-style: normal;
+}
+
+tt {
+  @extend %monoStyle;
+}
+
+%quotesStyle {
+  quotes: none;
+
+  &:before {
+    @extend %quotesPseudoStyle;
+  }
+
+  &:after {
+    @extend %quotesPseudoStyle;
+  }
+
+}
+
+strong {
+  @extend %attentionStyle;
+}
+
+%quotesPseudoStyle {
+  content: none;
+}
+
+b {
+  @extend %attentionStyle;
+}
+
+blockquote {
+  @extend %quoteEmphasisStyle;
+  @extend %quotesStyle;
+  @include tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em);
+}
+
+em {
+  @extend %quoteEmphasisStyle;
+}
+
+cite {
+  @extend %quoteEmphasisStyle;
+}
+
+q {
+  @extend %quoteEmphasisStyle;
+  @extend %quotesStyle;
+}
+
+i {
+  @extend %quoteEmphasisStyle;
+}
+
+%interactiveStyle {
   text-decoration: none;
   cursor: help;
 }
 
-acronym, abbr, ins, mark {
-  $acronym-color: $blue;
+%interactiveHighlightStyle {
+  $interactiveHighlight-color: $blue;
 
-  border-bottom: 1px dotted $acronym-color;
-  color: $acronym-color;
+  border-bottom: 1px dotted $interactiveHighlight-color;
+  color: $interactiveHighlight-color;
 }
 
-acronym, abbr {
+%removedStyle {
+  text-decoration: line-through;
+}
+
+%acronymAbbrStyle {
   margin: 0 -.075em 0 0;
   letter-spacing: .075em;
+}
+
+address {
+  @extend %marginStyle;
+  font-style: normal;
+}
+
+dfn {
+  @extend %attentionStyle;
+}
+
+acronym {
+  @extend %attentionStyle;
+  @extend %interactiveStyle;
+  @extend %interactiveHighlightStyle;
+  @extend %acronymAbbrStyle;
+}
+
+abbr {
+  @extend %attentionStyle;
+  @extend %interactiveStyle;
+  @extend %interactiveHighlightStyle;
+  @extend %acronymAbbrStyle;
+}
+
+ins {
+  @extend %interactiveStyle;
+  @extend %interactiveHighlightStyle;
+}
+
+mark {
+  @extend %interactiveHighlightStyle;
 }
 
 del {
   $del-color: $gray;
   $del-borderWidth: 1px;
 
+  @extend %removedStyle;
   border-bottom: $del-borderWidth dotted $del-color;
   color: $del-color;
+}
+
+strike {
+  @extend %removedStyle;
+}
+
+s {
+  @extend %removedStyle;
 }
 
 kbd {
   $kbd-bg: $gray;
 
+  @extend %attentionStyle;
   @include tx-inline-block;
   @include tx-grid-height(1);
   padding: 0 .5em;
@@ -211,36 +360,27 @@ kbd {
   vertical-align: top;
 }
 
-var {
-  $var-color: $red;
-
-  color: $var-color;
-  font-style: normal;
-}
-
-del, strike, s {
-  text-decoration: line-through;
-}
-
-sup, sub {
-  @include tx-font-size($font-size * .75, 0);
+%supSubStyle {
+  @include tx-font-size($fontSizeSmall, 0);
   position: relative;
 }
 
 sup {
+  @extend %supSubStyle;
   top: -.65em;
 }
 
 sub {
+  @extend %supSubStyle;
   bottom: -.25em;
 }
 
 big {
-  @include tx-font-size($font-size * 1.5, 0);
+  @include tx-font-size($fontSizeLarge, 0);
 }
 
 small {
-  @include tx-font-size($font-size * .75, 0);
+  @include tx-font-size($fontSizeSmall, 0);
 }
 
 u {
@@ -253,26 +393,40 @@ img {
   vertical-align: top;
 }
 
+audio {
+  @extend %marginStyle;
+}
+
+video {
+  @extend %marginStyle;
+}
+
 caption {
   @include tx-rhythm-padding(0, .5);
   font-weight: bold;
   text-align: left;
 }
 
+%tableCellStyle {
+  $tableCell-borderColor: $gray;
+
+  @include tx-table-borders(1px, 1, $bcolor: $tableCell-borderColor, $prgt: ($gap / 2), $plft: ($gap / 2));
+}
+
 table {
+  @extend %marginStyle;
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 }
 
-td, th {
-  $cell-borderColor: $gray;
-
-  @include tx-table-borders(1px, .5, $bcolor: $cell-borderColor, $prgt: ($gap / 2), $plft: ($gap / 2));
+td {
+  @extend %tableCellStyle;
 }
 
 th {
-  font-weight: bold;
+  @extend %attentionStyle;
+  @extend %tableCellStyle;
   text-align: left;
 }
 
@@ -310,23 +464,29 @@ hr {
 
 
 
+/* Large Resolution Typography */
+
+@media only screen and (min-width: $desktop-wide-rem) {}
+
+
+
 /* Phone Typography */
 
-@media handheld, only screen and (max-width: 719px) {
+@media handheld, only screen and (max-width: $phone-max-rem) {
 
-  @import "phone/typography-phone";
+  @import 'phone/typography-phone';
 
 }
 
-@media only screen and (max-width: 719px) and (min-resolution: 1.5dppx), only screen and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: 719px) and (min-device-pixel-ratio: 1.5), only screen and (max-width: 719px) and (min-resolution: 150dpi) {}
+@media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
 
 
 
 /* Tablet Typography */
 
-@media only screen and (min-width: 720px) and (max-width: $min-width) {}
+@media only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) {}
 
-@media only screen and (min-width: 720px) and (max-width: $min-width) and (min-resolution: 1.5dppx), only screen and (min-width: 720px) and (max-width: $min-width) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: 720px) and (max-width: $min-width) and (min-device-pixel-ratio: 1.5), only screen and (min-width: 720px) and (max-width: $min-width) and (min-resolution: 150dpi) {}
+@media only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 
@@ -334,7 +494,7 @@ hr {
 
 @media print {
 
-  @import "print/typography-print";
+  @import 'print/typography-print';
 
 }
 
@@ -349,4 +509,3 @@ hr {
 /* Audio Typography */
 
 @media aural {}
-

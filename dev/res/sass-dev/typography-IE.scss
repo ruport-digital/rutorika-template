@@ -1,6 +1,6 @@
-@import "project/project";
+@import 'project/project';
 
-$tx-ie: true;
+$tx-IE: true;
 
 
 
@@ -18,6 +18,14 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+%unorderedListStyleIE {
+  list-style: disc outside;
+}
+
+%orderedListStyleIE {
+  list-style: decimal outside;
+}
+
 .ie6 {
   filter: unquote("expression(document.execCommand('BackgroundImageCache', false, true))");
 
@@ -29,15 +37,23 @@ img {
     zoom: 1;
   }
 
-  ul, .u-listReset ul {
-    list-style: disc outside;
+  ul {
+    @extend %unorderedListStyleIE;
   }
 
-  ol, .u-listReset ol {
-    list-style: decimal outside;
+  ol {
+    @extend %orderedListStyleIE;
   }
 
   .u-listReset {
+
+    ul {
+      @extend %unorderedListStyleIE;
+    }
+
+    ol {
+      @extend %orderedListStyleIE;
+    }
 
     li {
 

@@ -1,19 +1,16 @@
-@import "tx/tx";
-@import "tx/tx-projectImages";
+@import 'tx/tx';
+@import 'tx/tx-debugMixins';
+@import 'tx/tx-projectImages';
 
-@import "project-colors";
-@import "project-typography";
-@import "project-layout";
-@import "project-sprites";
-@import "project-ui";
+@import 'project-colors';
+@import 'project-typography';
+@import 'project-layout';
+@import 'project-sprites';
+@import 'project-ui';
 
 
 
-// TX Properties
+// Project Properties
 
-$browser-font-size: 16px;
-$font-unit: 1em;
-$base-font-size: $font-size;
-$base-line-height: $line-height;
-$grid-background-baseline-color: $blue;
-$tx-ie: false;
+$tx-IE: false;
+$tx-remFallback: true;

@@ -1,5 +1,5 @@
 // Block Placeholder
 
-@mixin tx-block-placeholder($img: "../images/tx/tx-placeholder.png") {
+@mixin tx-block-placeholder($img: '../images/tx/tx-placeholder.png') {
   background: url($img);
 }

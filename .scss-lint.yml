@@ -20,9 +20,9 @@ linters:
   DuplicateProperty:
     enabled: false
 
-  EmptyLineBetweenBlocks:
+  ElsePlacement:
     enabled: true
-    ignore_single_line_blocks: true
+    style: same_line
 
   EmptyRule:
     enabled: true
@@ -33,13 +33,16 @@ linters:
 
   HexLength:
     enabled: true
-    style: short # or 'long'
+    style: short
 
   HexNotation:
     enabled: true
-    style: lowercase # or 'uppercase'
+    style: lowercase
 
   HexValidation:
+    enabled: true
+
+  IdSelector:
     enabled: true
 
   IdWithExtraneousSelector:
@@ -52,7 +55,7 @@ linters:
 
   LeadingZero:
     enabled: true
-    style: exclude_zero # or 'include_zero'
+    style: exclude_zero
 
   MergeableSelector:
     enabled: true
@@ -81,6 +84,9 @@ linters:
       - counter-increment
       - counter-reset
       - quotes
+      - -webkit-appearance
+      - -moz-appearance
+      - appearance
       - display
       - float
       - clear
@@ -115,6 +121,8 @@ linters:
       - -webkit-box-sizing
       - -moz-box-sizing
       - box-sizing
+      - -webkit-box-decoration-break
+      - box-decoration-break
       - width
       - height
       - min-width
@@ -268,6 +276,9 @@ linters:
       - font-stretch
       - font-size
       - font-family
+      - -webkit-font-feature-settings
+      - -moz-font-feature-settings
+      - font-feature-settings
       - src
       - text-align
       - -webkit-text-align-last
@@ -312,6 +323,7 @@ linters:
       - -moz-tab-size
       - -o-tab-size
       - tab-size
+      - -epub-hyphens
       - -webkit-hyphens
       - -moz-hyphens
       - -ms-hyphens
@@ -463,16 +475,24 @@ linters:
       - -ms-animation-direction
       - -o-animation-direction
       - animation-direction
-      - -webkit-appearance
-      - -moz-appearance
-      - appearance
+      - stroke
+      - stroke-width
+      - stroke-dasharray
+      - fill
       - -premailer-width
       - -premailer-cellpadding
       - -premailer-cellspacing
 
   PropertySpelling:
     enabled: true
-    extra_properties: ["text-size-adjust", "-premailer-width", "-premailer-cellpadding", "-premailer-cellspacing"]
+    extra_properties: ["appearance", "text-size-adjust", "stroke", "stroke-width", "stroke-dasharray", "fill", "-premailer-width", "-premailer-cellpadding", "-premailer-cellspacing"]
+
+
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: false
+    allow_element_with_class: false
+    allow_element_with_id: false
 
   SelectorDepth:
     enabled: true
@@ -480,13 +500,12 @@ linters:
 
   SelectorFormat:
     enabled: false
-    # convention: camel_case
 
   Shorthand:
     enabled: true
 
-  SingleLinePerSelector:
-    enabled: false
+  SingleLinePerProperty:
+    enabled: true
 
   SpaceAfterComma:
     enabled: true
@@ -507,7 +526,7 @@ linters:
 
   StringQuotes:
     enabled: true
-    style: double_quotes
+    style: single_quotes
 
   TrailingSemicolonAfterPropertyValue:
     enabled: true
@@ -520,6 +539,12 @@ linters:
 
   UrlQuotes:
     enabled: false
+
+  VendorPrefixes:
+    enabled: true
+    identifier_list: base
+    include: []
+    exclude: []
 
   ZeroUnit:
     enabled: true

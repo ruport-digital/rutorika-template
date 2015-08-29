@@ -1,4 +1,11 @@
 // UI
 
 $UITransition: .25s;
-$UITransitionInstant: .0001s;
+$UITransition-instant: .0001s;
+
+
+
+// Fields
+
+$field-borderWidth: 1px;
+$field-borderColor: $gray;

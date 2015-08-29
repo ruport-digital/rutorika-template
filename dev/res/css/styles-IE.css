@@ -7,6 +7,14 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+.ie6 ul, .ie6 .u-listReset ul {
+  list-style: disc outside;
+}
+
+.ie6 ol, .ie6 .u-listReset ol {
+  list-style: decimal outside;
+}
+
 .ie6 {
   filter: expression(document.execCommand('BackgroundImageCache', false, true));
 }
@@ -16,34 +24,23 @@ img {
 .ie6 pre {
   zoom: 1;
 }
-.ie6 ul, .ie6 .u-listReset ul {
-  list-style: disc outside;
-}
-.ie6 ol, .ie6 .u-listReset ol {
-  list-style: decimal outside;
-}
 .ie6 .u-listReset li li {
-  margin: 1.5em 0;
+  margin: 24px 0;
+  margin: 1.5rem 0;
 }
 .ie6 .u-descriptionListReset dl dt {
-  margin: 1.5em 0 0;
+  margin: 24px 0 0;
+  margin: 1.5rem 0 0;
 }
 .ie6 .u-descriptionListReset dl dd {
-  margin: 0 0 1.5em 1.5em;
+  margin: 0 0 24px 1.5em;
+  margin: 0 0 1.5rem 1.5em;
   font-style: italic;
 }
 
 
 /* Lists Reset (Internet Explorer < 8) */
-.ie6 .u-listReset, .ie6 .u-descriptionListReset {
-  padding: 0;
-  margin: 0;
-}
-
-.ie6 .u-listReset {
-  list-style: none outside;
-}
-.ie6 .u-listReset li {
+.ie6 .u-listReset, .ie6 .u-listReset li, .ie6 .u-descriptionListReset, .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
   padding: 0;
   margin: 0;
 }
@@ -51,22 +48,21 @@ img {
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
   padding: 0;
   margin: 0;
-  font-weight: normal;
-  font-style: normal;
 }
 
 
 
 
 /* Forms */
-input[type="checkbox"], input[type="radio"] {
+[type="checkbox"], [type="radio"] {
   width: 13px;
   height: 13px;
 }
 
 /* Internet Explorer 6 */
 .ie6 button, .ie6 .button {
-  height: 1.5em;
+  height: 24px;
+  height: 1.5rem;
   cursor: hand;
 }
 

@@ -1,5 +1,8 @@
 /* Layout Base */
 
-html, body {
-  background: $print-background;
+body {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  padding: 2.54cm;
 }

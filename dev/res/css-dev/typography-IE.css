@@ -7,6 +7,14 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+.ie6 ul, .ie6 .u-listReset ul {
+  list-style: disc outside;
+}
+
+.ie6 ol, .ie6 .u-listReset ol {
+  list-style: decimal outside;
+}
+
 .ie6 {
   filter: expression(document.execCommand('BackgroundImageCache', false, true));
 }
@@ -16,20 +24,17 @@ img {
 .ie6 pre {
   zoom: 1;
 }
-.ie6 ul, .ie6 .u-listReset ul {
-  list-style: disc outside;
-}
-.ie6 ol, .ie6 .u-listReset ol {
-  list-style: decimal outside;
-}
 .ie6 .u-listReset li li {
-  margin: 1.5em 0;
+  margin: 24px 0;
+  margin: 1.5rem 0;
 }
 .ie6 .u-descriptionListReset dl dt {
-  margin: 1.5em 0 0;
+  margin: 24px 0 0;
+  margin: 1.5rem 0 0;
 }
 .ie6 .u-descriptionListReset dl dd {
-  margin: 0 0 1.5em 1.5em;
+  margin: 0 0 24px 1.5em;
+  margin: 0 0 1.5rem 1.5em;
   font-style: italic;
 }
 

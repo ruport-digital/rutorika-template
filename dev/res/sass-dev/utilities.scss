@@ -4,12 +4,13 @@
 
 /* Lists Reset */
 
-.u-listReset, .u-descriptionListReset {
+%u-listResetStyle {
   padding: 0;
   margin: 0;
 }
 
 .u-listReset {
+  @extend %u-listResetStyle;
   list-style: none outside;
 
   >li {
@@ -19,13 +20,22 @@
 
 }
 
-.u-descriptionListReset {
+%dlResetStyle {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  font-style: normal;
+}
 
-  >dt, >dd {
-    padding: 0;
-    margin: 0;
-    font-weight: normal;
-    font-style: normal;
+.u-descriptionListReset {
+  @extend %u-listResetStyle;
+
+  >dt {
+    @extend %dlResetStyle;
+  }
+
+  >dd {
+    @extend %dlResetStyle;
   }
 
 }
