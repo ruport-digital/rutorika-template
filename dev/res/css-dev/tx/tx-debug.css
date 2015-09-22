@@ -10,9 +10,9 @@
   left: 0;
   display: none;
   width: 100%;
-  background: -webkit-linear-gradient(top, transparent, transparent 23px, #337ab7);
-  background: linear-gradient(to bottom, transparent, transparent 23px, #337ab7);
-  background-size: 100% 24px;
+  background: -webkit-linear-gradient(top, transparent, transparent 29px, #337ab7);
+  background: linear-gradient(to bottom, transparent, transparent 29px, #337ab7);
+  background-size: 100% 30px;
   pointer-events: none; }
   .page-is-showingRhythmLines .debugToolsRhythm {
     display: block; }
@@ -57,7 +57,7 @@
   padding: 50px;
   color: #fff;
   background: rgba(0, 0, 0, 0.75);
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
   line-height: 1.5em;
   pointer-events: none; }
@@ -66,9 +66,9 @@
 
 /* TX Debuging Controls */
 .debugTools {
-  margin: 96px 0 0;
+  margin: 120px 0 0;
   margin: 6rem 0 0;
-  padding: 72px 0 0;
+  padding: 90px 0 0;
   padding: 4.5rem 0 0;
   position: fixed;
   z-index: 999;
@@ -78,16 +78,15 @@
   border-radius: 18px;
   color: #fff;
   background: rgba(0, 0, 0, 0.75);
-  -webkit-transform: translate(290px, 0);
-  -ms-transform: translate(290px, 0);
-  transform: translate(290px, 0);
+  -webkit-transform: translateX(290px) translateZ(0);
+  transform: translateX(290px) translateZ(0);
   -webkit-transition: .5s;
   transition: .5s; }
   .debugTools ul {
     position: relative;
     z-index: 2; }
   .debugTools li {
-    margin: 0 0 24px 25px;
+    margin: 0 0 30px 25px;
     margin: 0 0 1.5rem 25px; }
   .debugTools label {
     border: 0; }

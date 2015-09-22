@@ -237,9 +237,9 @@ textarea {
 
 /* Tablet UI */
 
-@media only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) {}
+@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) {}
 
-@media only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: ($phone-max-rem + 1)) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
+@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 

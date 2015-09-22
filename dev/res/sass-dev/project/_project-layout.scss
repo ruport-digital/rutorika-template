@@ -4,12 +4,12 @@ $desktop-min: 980px;
 $desktop-wide: 1366px;
 $desktop-max: 1920px;
 
-$desktop-min-rem: #{$desktop-min / $fontSize}em;
-$desktop-wide-rem: #{$desktop-wide / $fontSize}em;
-$desktop-max-rem: #{$desktop-max / $fontSize}em;
+$desktop-min-rem: #{($desktop-min / $fontSize) * $fontSizeQuotient}em;
+$desktop-wide-rem: #{($desktop-wide / $fontSize) * $fontSizeQuotient}em;
+$desktop-max-rem: #{($desktop-max / $fontSize) * $fontSizeQuotient}em;
 
 $phone-max: 720px;
 
-$phone-max-rem: #{$phone-max / $fontSize}em;
+$phone-max-rem: #{($phone-max / $fontSize) * $fontSizeQuotient}em;
 
 $gap: 30px;

@@ -43,7 +43,7 @@ a:focus {
 /* Forms */
 input, select, button, textarea {
   margin: 0;
-  font-size: 16px;
+  font-size: 20px;
   font-size: 1rem;
   font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
@@ -99,17 +99,17 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 select {
-  height: 36px;
+  height: 45px;
   height: 2.25rem;
   vertical-align: top;
 }
 select[multiple] {
-  height: 120px;
+  height: 150px;
   height: 7.5rem;
 }
 
 button, .button {
-  height: 36px;
+  height: 45px;
   height: 2.25rem;
   padding: 0 15px;
   cursor: pointer;
@@ -118,16 +118,16 @@ button, .button {
 textarea {
   display: block;
   overflow: auto; 
-  height: 214px;
-  height: 13.375rem;
-  padding: 12px 15px;
+  height: 268px;
+  height: 13.4rem;
+  padding: 15px 15px;
   padding: .75rem 15px;
 }
 
 /* Custom Forms */
 .field {
-  height: 34px;
-  height: 2.125rem;
+  height: 43px;
+  height: 2.15rem;
   padding: 0 15px;
 }
 

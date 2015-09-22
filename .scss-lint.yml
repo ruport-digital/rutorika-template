@@ -477,7 +477,9 @@ linters:
       - animation-direction
       - stroke
       - stroke-width
+      - stroke-linecap
       - stroke-dasharray
+      - stroke-dashoffset
       - fill
       - -premailer-width
       - -premailer-cellpadding

@@ -6,8 +6,9 @@ $monospaceFontStack: "Courier New", Courier, Freemono, "Nimbus Mono L", monospac
 
 $font-sans: $sansSerifFontStack;
 $font-mono: $monospaceFontStack;
-$fontSize: 16px;
+$fontSize: 20px;
 $lineHeight: $fontSize * 1.5;
+$fontSizeQuotient: $fontSize / 16px;
 
 
 

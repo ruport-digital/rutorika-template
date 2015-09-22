@@ -119,7 +119,7 @@
   border-radius: 18px;
   color: $debugTools-color;
   background: rgba(0, 0, 0, .75);
-  transform: translate(290px, 0);
+  transform: translateX(290px) translateZ(0);
   transition: .5s;
 
   ul {

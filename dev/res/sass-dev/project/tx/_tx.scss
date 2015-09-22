@@ -47,11 +47,9 @@
 // Typography Baseline
 
 @mixin tx-baseline($fz: $fontSize, $fall: $tx-remFallback) {
-  font-size: 100% * $fz / 16px;
-  @if $fall == true {
-    line-height: rhythm-fallback();
-  }
-  line-height: rhythm();
+  font-size: $fz;
+  line-height: $lineHeight;
+  line-height: ($lineHeight / $fontSize) * $fontSizeQuotient * 1rem;
 }
 
 
@@ -81,6 +79,16 @@
     content: '' + $cnt;
   }
   position: $pos;
+}
+
+
+
+// Inline-Block Vertical Aligner
+
+@mixin tx-pseudo-middle() {
+  @include tx-pseudo(relative, inline-block);
+  height: 100%;
+  vertical-align: middle;
 }
 
 
@@ -315,6 +323,24 @@
     }
   }
   border: $brdw $bstyle $bcolor;
+}
+
+
+
+// Layers
+
+@mixin tx-layer($lr: content, $shift: 0) {
+  @if $lr == 'over' {
+    z-index: (200 + $shift);
+  } @else if $lr == 'top' {
+    z-index: (100 + $shift);
+  } @else if $lr == 'content' {
+    z-index: (50 + $shift);
+  } @else if $lr == 'bottom' {
+    z-index: (0 + $shift);
+  } @else if $lr == 'under' {
+    z-index: (-1 + $shift);
+  }
 }
 
 

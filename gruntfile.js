@@ -500,6 +500,11 @@ module.exports = function(grunt) {
       }
     },
     svgmin: {
+      options: {
+        plugins: [
+          { removeViewBox: false }
+        ]
+      },
       svg: {
         cwd: project.dir,
         src: ['**/*.svg', '!**/fonts/**/*.svg'],
