@@ -279,6 +279,8 @@ linters:
       - -webkit-font-feature-settings
       - -moz-font-feature-settings
       - font-feature-settings
+      - -webkit-font-smoothing
+      - -moz-osx-font-smoothing
       - src
       - text-align
       - -webkit-text-align-last
@@ -477,9 +479,9 @@ linters:
       - animation-direction
       - stroke
       - stroke-width
-      - stroke-linecap
       - stroke-dasharray
       - stroke-dashoffset
+      - stroke-linecap
       - fill
       - -premailer-width
       - -premailer-cellpadding

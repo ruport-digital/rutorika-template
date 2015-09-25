@@ -460,7 +460,7 @@ module.exports = function(grunt) {
       },
       templates: {
         cwd: project.templates.dir,
-        src: ['*.html', '!_*.html'],
+        src: ['*.tmp.html', '!_*.html'],
         dest: project.dir,
         ext: '.html',
         expand: true
