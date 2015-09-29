@@ -431,6 +431,7 @@
     "stroke-dashoffset",
     "stroke-linecap",
     "fill",
+    "vector-effect",
     "-premailer-width",
     "-premailer-cellpadding",
     "-premailer-cellspacing"
