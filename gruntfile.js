@@ -240,34 +240,34 @@ module.exports = function(grunt) {
       cssComments: {
         options: {
           replacements: [{
-            pattern: /\/\* line \d*, .* \*\/(\r?\n|\r)*/g,
+            pattern: /\/\* line \d*, .* \*\/(?:\r?\n|\r)*/g,
             replacement: ''
           }, {
-            pattern: /\/\*# sourceMappingURL(.|\t|\s|\r?\n|\r)*?\*\//gi,
+            pattern: /\/\*# sourceMappingURL(?:.|\t|\s|\r?\n|\r)*?\*\//gi,
             replacement: ''
           }, {
-            pattern: /.media \-sass\-debug\-info(.|\t|\s|\r?\n|\r)*?\}\}/gi,
+            pattern: /.media \-sass\-debug\-info(?:.|\t|\s|\r?\n|\r)*?\}\}/gi,
             replacement: ''
           }, {
-            pattern: /\/\*\*\* uncss>.*\*\*\*\/(\r?\n|\r)*/g,
+            pattern: /\/\*\*\* uncss>.*\*\*\*\/(?:\r?\n|\r)*/g,
             replacement: ''
           }, {
-            pattern: /\*\s(.)*\*\/(\r?\n|\r)*$/g,
+            pattern: /\*\s(?:.)*\*\/(?:\r?\n|\r)*$/g,
             replacement: ''
           }, {
-            pattern: /\*\s(.)*\*\/(\r?\n\t*|\r\t*)*\//g,
+            pattern: /\*\s(?:.)*\*\/(?:\r?\n\t*|\r\t*)*\//g,
             replacement: ''
           }, {
-            pattern: /(\r?\n|\r)*\/$/g,
+            pattern: /(?:\r?\n|\r)*\/$/g,
             replacement: ''
           }, {
-            pattern: /\/\*(.)*(\r?\n|\r){4}/g,
+            pattern: /\/\*(?:.)*(?:\r?\n|\r){4}/g,
             replacement: ''
           }, {
-            pattern: /\{(\r?\n|\r)\s*\/\*/g,
+            pattern: /\{(?:\r?\n|\r)\s*\/\*/g,
             replacement: '{\n\n  /*'
           }, {
-            pattern: /\}(\r?\n|\r)\}/g,
+            pattern: /\}(?:\r?\n|\r)\}/g,
             replacement: '}\n\n}'
           }]
         },
@@ -284,7 +284,7 @@ module.exports = function(grunt) {
             pattern: /@tx-language/gi,
             replacement: project.language
           }, {
-            pattern: /.!-- @tx-css -->(.|\t|\s|\r?\n|\r)*?!-- \/@tx-css -->/gi,
+            pattern: /.!-- @tx-css -->(?:.|\t|\s|\r?\n|\r)*?!-- \/@tx-css -->/gi,
             replacement: {
               checkIE: function() {
                 var cssFiles;
@@ -300,6 +300,12 @@ module.exports = function(grunt) {
           }, {
             pattern: /.!-- @tx-js -->(.|\t|\s|\r?\n|\r)*?!-- \/@tx-js -->/gi,
             replacement: '<script type="text/javascript" src="' + project.res.js.dir.replace(project.dir, '') + project.res.js.filename + '.min.js" defer></script>'
+          }, {
+            pattern: /(?:\<span data-dev-note=".*?"\>)(.*)(?:\<\/span\>)/gi,
+            replacement: '$1'
+          }, {
+            pattern: /\sdata-dev-note=".*?"/gi,
+            replacement: ''
           }]
         },
         files: {
@@ -309,16 +315,16 @@ module.exports = function(grunt) {
       critical: {
         options: {
           replacements: [{
-            pattern: /<style type="text\/css">(\r?\n|\r)/g,
+            pattern: /<style type="text\/css">(?:\r?\n|\r)/g,
             replacement: '<style type="text/css">'
           },{
-            pattern: /(\r?\n|\r)<\/style>(\r?\n|\r)<script>(\r?\n|\r)/g,
+            pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script>(?:\r?\n|\r)/g,
             replacement: '</style>\n    <script>'
           }, {
-            pattern: /(\r?\n|\r)<\/script>(\r?\n|\r)<noscript>(\r?\n|\r)/g,
+            pattern: /(?:\r?\n|\r)<\/script>(?:\r?\n|\r)<noscript>(?:\r?\n|\r)/g,
             replacement: '</script>\n    <noscript>'
           }, {
-            pattern: /(\r?\n|\r)<\/noscript>/g,
+            pattern: /(?:\r?\n|\r)<\/noscript>/g,
             replacement: '</noscript>'
           }]
         },

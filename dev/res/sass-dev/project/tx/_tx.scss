@@ -85,8 +85,9 @@
 
 // Inline-Block Vertical Aligner
 
-@mixin tx-pseudo-middle() {
+@mixin tx-pseudo-va() {
   @include tx-pseudo(relative, inline-block);
+  width: 0;
   height: 100%;
   vertical-align: middle;
 }
@@ -105,6 +106,15 @@
   } @else {
     zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("beforeEnd", "<i class="' + $afterClass + '">' + $afterContent + '</i>"))');
   }
+}
+
+
+
+// Max Width
+
+@mixin tx-max-width($width) {
+  max-width: $width;
+  max-width: ($width / $fontSize) * 1rem;
 }
 
 
