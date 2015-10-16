@@ -1,18 +1,15 @@
 /* Forms */
-[type="checkbox"], [type="radio"] {
+[type='checkbox'], [type='radio'] {
   width: 13px;
-  height: 13px;
-}
+  height: 13px; }
 
 /* Internet Explorer 6 */
 .ie6 button, .ie6 .button {
-  height: 30px;
+  height: 24px;
   height: 1.5rem;
-  cursor: hand;
-}
+  cursor: hand; }
 
 .ie6 input {
-  vertical-align: text-bottom;
-}
+  vertical-align: text-bottom; }
 
 /*# sourceMappingURL=ui-IE.css.map */

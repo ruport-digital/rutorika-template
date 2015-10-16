@@ -1,16 +1,16 @@
 {
 	"version": 3,
-	"file": "typography-IE.css",
+	"file": "baseline-IE.css",
 	"sources": [
-		"../sass-dev/typography-IE.scss",
+		"../sass-dev/baseline-IE.scss",
 		"../sass-dev/project/_project.scss",
 		"../sass-dev/project/tx/_tx.scss",
 		"../sass-dev/project/tx/_tx-debugMixins.scss",
 		"../sass-dev/project/tx/_tx-projectImages.scss",
 		"../sass-dev/project/_project-colors.scss",
-		"../sass-dev/project/_project-typography.scss",
-		"../sass-dev/project/_project-layout.scss",
 		"../sass-dev/project/_project-sprites.scss",
+		"../sass-dev/project/_project-baseline.scss",
+		"../sass-dev/project/_project-layout.scss",
 		"../sass-dev/project/_project-ui.scss"
 	],
 	"sourcesContent": [],

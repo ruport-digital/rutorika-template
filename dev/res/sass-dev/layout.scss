@@ -14,9 +14,10 @@ html {
 }
 
 body {
-  @include tx-set-boundaries(($desktop-min - $gap * 2));
-  @include tx-scroll-bar(true);
+  $body-minWidth: ($desktop-min - $gap * 2);
 
+  @include tx-set-boundaries($body-minWidth);
+  @include tx-scroll-bar(true);
   position: relative;
   display: block;
   padding: 0 $gap;
@@ -25,7 +26,7 @@ body {
 
 
 
-/* High DPI Layout */
+/* HDPI Layout */
 
 @media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {}
 
@@ -34,6 +35,14 @@ body {
 /* Large Resolution Layout */
 
 @media only screen and (min-width: $desktop-wide-rem) {}
+
+
+
+/* Tablet Layout */
+
+@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) {}
+
+@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 
@@ -46,14 +55,6 @@ body {
 }
 
 @media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
-
-
-
-/* Tablet Layout */
-
-@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) {}
-
-@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 

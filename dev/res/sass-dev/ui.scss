@@ -10,7 +10,7 @@
 
 ::selection {
   color: $selection-color;
-  color: $selection-background;
+  background: $selection-background;
 }
 
 
@@ -49,6 +49,14 @@ a {
 
 
 /* Forms */
+
+label {
+  $label-borderWidth: 1px;
+  $label-borderColor: $gray;
+
+  border-bottom: $label-borderWidth dotted $label-borderColor;
+  cursor: pointer;
+}
 
 %formBaselineStyle {
   @include tx-font-size($fontSize, none);
@@ -103,24 +111,24 @@ input {
   @extend %formBorderResetStyle;
   @extend %formAlignStyle;
 
-  &[type="radio"] {
+  &[type='radio'] {
     @extend %formRadioCheckboxStyle;
   }
 
-  &[type="checkbox"] {
+  &[type='checkbox'] {
     @extend %formRadioCheckboxStyle;
   }
 
-  &[type="file"] {
+  &[type='file'] {
     height: auto;
     border: 0;
   }
 
-  &[type="search"] {
+  &[type='search'] {
     @extend %formAppearanceResetStyle;
   }
 
-  &[type="number"] {
+  &[type='number'] {
     @extend %formAppearanceResetStyle;
 
     &::-webkit-inner-spin-button {
@@ -211,7 +219,7 @@ textarea {
 
 
 
-/* High DPI UI */
+/* HDPI UI */
 
 @media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {}
 
@@ -220,6 +228,14 @@ textarea {
 /* Large Resolution UI */
 
 @media only screen and (min-width: $desktop-wide-rem) {}
+
+
+
+/* Tablet UI */
+
+@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) {}
+
+@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 
@@ -232,14 +248,6 @@ textarea {
 }
 
 @media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
-
-
-
-/* Tablet UI */
-
-@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) {}
-
-@media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
 
 
 

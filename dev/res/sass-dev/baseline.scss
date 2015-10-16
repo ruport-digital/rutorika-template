@@ -2,11 +2,11 @@
 
 
 
-// Basic Typography & Rhythm
+// Baseline
 
 
 
-/* Typography & Rhythm */
+/* Baseline Styles, Typography & Rhythm */
 
 html {
   @include tx-baseline;
@@ -75,14 +75,6 @@ section {
 
 summary {
   @extend %HTML5BlocksStyle;
-}
-
-label {
-  $label-borderWidth: 1px;
-  $label-borderColor: $gray;
-
-  border-bottom: $label-borderWidth dotted $label-borderColor;
-  cursor: pointer;
 }
 
 %headerStyle {
@@ -461,31 +453,19 @@ hr {
 
 
 
-/* High DPI Typography */
+/* HDPI Baseline */
 
 @media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {}
 
 
 
-/* Large Resolution Typography */
+/* Large Resolution Baseline */
 
 @media only screen and (min-width: $desktop-wide-rem) {}
 
 
 
-/* Phone Typography */
-
-@media handheld, only screen and (max-width: $phone-max-rem) {
-
-  @import 'phone/typography-phone';
-
-}
-
-@media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
-
-
-
-/* Tablet Typography */
+/* Tablet Baseline */
 
 @media only screen and (min-width: $phone-max-rem) and (max-width: $desktop-min-rem) {}
 
@@ -493,22 +473,34 @@ hr {
 
 
 
-/* Print Typography */
+/* Phone Baseline */
+
+@media handheld, only screen and (max-width: $phone-max-rem) {
+
+  @import 'phone/baseline-phone';
+
+}
+
+@media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
+
+
+
+/* Print Baseline */
 
 @media print {
 
-  @import 'print/typography-print';
+  @import 'print/baseline-print';
 
 }
 
 
 
-/* TV Typography */
+/* TV Baseline */
 
 @media projection, tv {}
 
 
 
-/* Audio Typography */
+/* Audio Baseline */
 
 @media aural {}
