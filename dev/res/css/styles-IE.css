@@ -1,72 +1,57 @@
 /* Typography & Rhythm (Internet Explorer < 8) */
 dfn {
-  font-style: normal;
-}
+  font-style: normal; }
 
 img {
-  -ms-interpolation-mode: bicubic;
-}
+  -ms-interpolation-mode: bicubic; }
 
 .ie6 ul, .ie6 .u-listReset ul {
-  list-style: disc outside;
-}
+  list-style: disc outside; }
 
 .ie6 ol, .ie6 .u-listReset ol {
-  list-style: decimal outside;
-}
+  list-style: decimal outside; }
 
 .ie6 {
-  filter: expression(document.execCommand('BackgroundImageCache', false, true));
-}
-.ie6 label {
-  cursor: hand;
-}
-.ie6 pre {
-  zoom: 1;
-}
-.ie6 .u-listReset li li {
-  margin: 30px 0;
-  margin: 1.5rem 0;
-}
-.ie6 .u-descriptionListReset dl dt {
-  margin: 30px 0 0;
-  margin: 1.5rem 0 0;
-}
-.ie6 .u-descriptionListReset dl dd {
-  margin: 0 0 30px 1.5em;
-  margin: 0 0 1.5rem 1.5em;
-  font-style: italic;
-}
+  filter: expression(document.execCommand('BackgroundImageCache', false, true)); }
+  .ie6 label {
+    cursor: hand; }
+  .ie6 pre {
+    zoom: 1; }
+  .ie6 .u-listReset li li {
+    margin: 24px 0;
+    margin: 1.5rem 0; }
+  .ie6 .u-descriptionListReset dl dt {
+    margin: 24px 0 0;
+    margin: 1.5rem 0 0; }
+  .ie6 .u-descriptionListReset dl dd {
+    margin: 0 0 24px 1.5em;
+    margin: 0 0 1.5rem 1.5em;
+    font-style: italic; }
 
 
 /* Lists Reset (Internet Explorer < 8) */
 .ie6 .u-listReset, .ie6 .u-listReset li, .ie6 .u-descriptionListReset, .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
   padding: 0;
-  margin: 0;
-}
+  margin: 0; }
 
 .ie6 .u-descriptionListReset dt, .ie6 .u-descriptionListReset dd {
   padding: 0;
-  margin: 0;
-}
+  margin: 0; }
 
 
 
 
 /* Forms */
-[type="checkbox"], [type="radio"] {
+[type='checkbox'], [type='radio'] {
   width: 13px;
-  height: 13px;
-}
+  height: 13px; }
 
 /* Internet Explorer 6 */
 .ie6 button, .ie6 .button {
-  height: 30px;
+  height: 24px;
   height: 1.5rem;
-  cursor: hand;
-}
+  cursor: hand; }
 
 .ie6 input {
-  vertical-align: text-bottom;
-}
+  vertical-align: text-bottom; }
 

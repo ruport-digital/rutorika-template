@@ -1,20 +1,22 @@
 /* Layout Base */
 html {
+  -webkit-overflow-scrolling: touch; 
   min-height: 100%;
-  -webkit-overflow-scrolling: touch; }
+}
 
 body {
-  min-width: 920px;
-  max-width: 1920px;
-  min-height: 100%;
-  margin: 0 auto;
+  position: relative;
+  display: block;
   overflow-x: auto;
   overflow-y: scroll;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  position: relative;
-  display: block;
+  min-width: 920px;
+  min-height: 100%;
+  max-width: 1920px;
   padding: 0 30px;
-  background: #fff; }
+  margin: 0 auto;
+  background: #ffffff;
+}
 
 /* HDPI Layout */
 /* Large Resolution Layout */
@@ -23,7 +25,9 @@ body {
 @media handheld, only screen and (max-width: 45em) {
   /* Layout Base */
   body {
-    min-width: 0; } }
+    min-width: 0;
+  }
+}
 
 /* Print Layout */
 @media print {
@@ -32,7 +36,9 @@ body {
     width: auto;
     min-width: 0;
     max-width: none;
-    padding: 2.54cm; } }
+    padding: 2.54cm;
+  }
+}
 
 /* TV Layout */
 /* Audio Layout */
