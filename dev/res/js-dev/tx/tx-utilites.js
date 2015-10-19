@@ -1,47 +1,47 @@
 /* jshint browser:true, jquery:true */
 /* global Modernizr */
 
-function translateY(DISTANCE) {
-  var CSS;
+function translateY(distance) {
+  var css;
   if (Modernizr.csstransforms) {
-    CSS = {
-      '-webkit-transform': 'translateY(' + DISTANCE + ') translateZ(0)',
-      '-moz-transform': 'translateY(' + DISTANCE + ') translateZ(0)',
-      '-ms-transform': 'translateY(' + DISTANCE + ')',
-      '-o-transform': 'translateY(' + DISTANCE + ')',
-      'transform': 'translateY(' + DISTANCE + ') translateZ(0)'
+    css = {
+      '-webkit-transform': 'translateY(' + distance + ') translateZ(0)',
+      '-moz-transform': 'translateY(' + distance + ') translateZ(0)',
+      '-ms-transform': 'translateY(' + distance + ')',
+      '-o-transform': 'translateY(' + distance + ')',
+      'transform': 'translateY(' + distance + ') translateZ(0)'
     };
   } else {
-    CSS = {
-      'margin-top': DISTANCE
+    css = {
+      'margin-top': distance
     };
   }
-  return CSS;
+  return css;
 }
 
 function whichTransitionEndEvent() {
-  var TRANSITION;
-  var ELEMENT = document.createElement('element');
-  var TRANSITIONS = {
+  var transition;
+  var element = document.createElement('element');
+  var transitions = {
     'transition': 'transitionend',
     'oTransition': 'oTransitionEnd',
     'MSTransition': 'MSTransitionEnd',
     'MozTransition': 'transitionend',
     'WebkitTransition': 'webkitTransitionEnd'
   };
-  for (TRANSITION in TRANSITIONS) {
-    if (ELEMENT.style[TRANSITION] !== undefined) {
-      return TRANSITIONS[TRANSITION];
+  for (transition in transitions) {
+    if (element.style[transition] !== undefined) {
+      return transitions[transition];
     }
   }
 }
 
 function whichDevice() {
-  var USER_AGENT_STRING = navigator.userAgent.toLowerCase();
-  var MOBILE_LIST = new Array('iphone os 5', 'ipad; cpu os 5', 'iphone', 'ipad', 'android 2', 'android', 'blackberry', 'palmos');
-  for (var DEVICE in MOBILE_LIST) {
-    if (USER_AGENT_STRING.indexOf(MOBILE_LIST[DEVICE]) >= 0) {
-      return MOBILE_LIST[DEVICE];
+  var userAgentString = navigator.userAgent.toLowerCase();
+  var devices = new Array('iphone os 5', 'ipad; cpu os 5', 'iphone', 'ipad', 'android 2', 'android', 'blackberry', 'palmos');
+  for (var device in devices) {
+    if (userAgentString.indexOf(devices[device]) >= 0) {
+      return devices[device];
     }
   }
 }
