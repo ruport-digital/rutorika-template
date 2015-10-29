@@ -1,7 +1,7 @@
 {
   "name": "templatex",
   "version": "1.0.0",
-  "description": "Template X",
+  "description": "TemplateX",
   "main": "build/index.html",
   "private": true,
   "dependencies": {},
