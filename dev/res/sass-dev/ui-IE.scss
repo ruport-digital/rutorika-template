@@ -15,11 +15,11 @@ $tx-IE: true;
   height: 13px;
 }
 
-&[type='checkbox'] {
+[type='checkbox'] {
   @extend %formRadioCheckboxStyleIE;
 }
 
-&[type='radio'] {
+[type='radio'] {
   @extend %formRadioCheckboxStyleIE;
 }
 
