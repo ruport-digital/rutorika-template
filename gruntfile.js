@@ -434,7 +434,8 @@ module.exports = function(grunt) {
             width: project.build.critical.widthPhone,
             height: project.build.critical.heightPhone,
           }],
-          minify: true
+          minify: true,
+          extract: false
         },
         cwd: project.build.dir,
         src: ['*.html'],
@@ -556,7 +557,7 @@ module.exports = function(grunt) {
       },
       meta: {
         cwd: project.meta,
-        src: ['**/*.{ico,png,jpg,gif,txt,webapp}'],
+        src: ['**/*.{ico,png,jpg,gif,txt}'],
         dest: project.build.dir,
         expand: true
       }
@@ -567,7 +568,7 @@ module.exports = function(grunt) {
           mode: 'gzip'
         },
         cwd: project.build.dir,
-        src: ['**/*.min.css', '!**/' + project.res.css.critical + '.min.css'],
+        src: ['**/*.min.css'],
         dest: project.build.dir,
         ext: '.min.css.gz',
         expand: true
@@ -735,8 +736,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('quality', ['htmlhint', 'jscs', 'jshint', 'jsinspect', 'scsslint', 'csslint', 'csscss', 'colorguard', 'arialinter']);
 
-  grunt.registerTask('test', ['backstop']);
-
   grunt.registerTask('performance', ['analyzecss']);
 
   grunt.registerTask('images-datauri', ['datauri', 'datauri-fallback', 'concat:datauri', 'datauri-cleanup']);
@@ -753,7 +752,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('compile-critical', ['critical', 'string-replace:critical']);
 
-  grunt.registerTask('build-commonFirst', ['compile', 'clean:build', 'clean:reports', 'copy:build', 'copy:meta', 'compress:cssGzip:', 'compress:jsGzip:', 'string-replace:build']);
+  grunt.registerTask('build-commonFirst', ['compile', 'clean:build', 'clean:reports', 'copy:build', 'copy:meta', 'compress:cssGzip', 'compress:jsGzip', 'string-replace:build']);
 
   grunt.registerTask('build-commonSecond', ['htmlmin:cleanup', 'imagemin:meta']);
 
