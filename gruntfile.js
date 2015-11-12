@@ -184,7 +184,7 @@ module.exports = function(grunt) {
       },
       generateCSS: {
         cwd: project.res.css.sass,
-        src: ['*.scss', '*.sass'],
+        src: ['**/*.{scss,sass}', '!**/tx/*.{scss,sass}'],
         dest: project.res.css.devDir,
         ext: '.css',
         expand: true
@@ -317,7 +317,7 @@ module.exports = function(grunt) {
           replacements: [{
             pattern: /<style type="text\/css">(?:\r?\n|\r)/g,
             replacement: '<style type="text/css">'
-          },{
+          }, {
             pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script>(?:\r?\n|\r)/g,
             replacement: '</style>\n    <script>'
           }, {

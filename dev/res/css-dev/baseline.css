@@ -1,8 +1,9 @@
 /* Baseline Styles, Typography & Rhythm */
 html {
   font-size: 16px;
-  -webkit-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%; 
   line-height: 24px;
   line-height: 1.5rem;
 }
@@ -156,7 +157,6 @@ var {
 blockquote, q {
   quotes: none;
 }
-
 blockquote:before, q:before, blockquote:after, q:after {
   content: none;
 }
@@ -246,6 +246,7 @@ img {
   max-width: 100%;
   border: 0;
   vertical-align: top;
+  -ms-interpolation-mode: bicubic;
 }
 
 caption {

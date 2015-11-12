@@ -253,6 +253,7 @@ linters:
       - empty-cells
       - visibility
       - opacity
+      - -ms-interpolation-mode
       - filter
       - cursor
       - pointer-events

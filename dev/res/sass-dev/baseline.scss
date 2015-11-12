@@ -10,8 +10,7 @@
 
 html {
   @include tx-baseline;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -220,29 +219,22 @@ tt {
   @extend %monoStyle;
 }
 
-%quotesStyle {
-  quotes: none;
-
-  &:before {
-    @extend %quotesPseudoStyle;
-  }
-
-  &:after {
-    @extend %quotesPseudoStyle;
-  }
-
-}
-
 strong {
   @extend %attentionStyle;
 }
 
-%quotesPseudoStyle {
-  content: none;
-}
-
 b {
   @extend %attentionStyle;
+}
+
+%quotesStyle {
+  quotes: none;
+
+  &:before,
+  &:after {
+    content: none;
+  }
+
 }
 
 blockquote {
@@ -382,10 +374,11 @@ u {
 }
 
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
   border: 0;
   vertical-align: top;
+  -ms-interpolation-mode: bicubic;
 }
 
 audio {
