@@ -1,5 +1,9 @@
 {
+  "name": "TemplateX",
   "dependencies": {
-    "jquery": "~1.11.3"
+    "dominus": "~5.0.6",
+    "fontfaceobserver": "~1.5.4",
+    "jquery": "~1.11.3",
+    "modernizr": "3.2.0"
   }
 }
