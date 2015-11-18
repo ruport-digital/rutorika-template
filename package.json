@@ -40,6 +40,7 @@
     "grunt-remove-logging": "^0.2.0",
     "grunt-sass": "^1.0.0",
     "grunt-scss-lint": "^0.3.6",
+    "grunt-spritesmith": "^6.0.0",
     "grunt-string-replace": "^1.2.0",
     "grunt-svgmin": "^2.0.1",
     "grunt-uncss": "^0.4.3",

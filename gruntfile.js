@@ -1,29 +1,30 @@
 //Gruntfile for the TemplateX Project
 
-var TITLE            = 'TemplateX';      // Title
-var LANGUAGE         = 'ru';             // Language
-var BUILD_DIR        = 'build';          // Project Build
-var META_DIR         = 'meta';           // Meta Content
-var DEVELOPMENT_DIR  = 'dev';            // Project Development
-var IMAGES_DIR       = 'images';         // Images
-var RESOURCES_DIR    = 'res';            // Resources (CSS, JavaScript, Fonts etc.)
-var INDEX_PAGE       = 'index.html';     // Index Page
-var CRITICAL_DESK_W  = 1280;             // Horizontal Fold on the Desktop
-var CRITICAL_DESK_H  = 800;              // Vertical Fold on the Desktop
-var CRITICAL_PHONE_W = 320;              // Horizontal Fold on the Phone
-var CRITICAL_PHONE_H = 640;              // Vertical Fold on the Phone
-var TEMPLATES_DIR    = 'templates';      // Templates
-var CSS_TEMPLATE     = '_head.html';     // Template Containing CSS Declarations
-var JS_TEMPLATE      = '_scripts.html';  // Template Containing JavaScript Declarations
-var CSS_IMAGES_DIR   = 'images';         // CSS Images
-var DATA_URI         = [];               // Array of Images (Relative to the CSS Images Directory) to Convert to DataURI
-var CSS_DIR          = 'css';            // Production CSS
-var SASS_DIR         = 'sass-dev';       // Sass
-var CSS_DEV_DIR      = 'css-dev';        // Generated CSS
-var CSS_FILENAME     = 'styles';         // Production CSS Filename
-var JS_DIR           = 'js';             // Production JavaScript
-var JS_DEV_DIR       = 'js-dev';         // JavaScript
-var JS_FILENAME      = 'scripts';        // Production JavaScript Filename
+var TITLE            = 'TemplateX';       // Title
+var LANGUAGE         = 'ru';              // Language
+var BUILD_DIR        = 'build';           // Project Build
+var META_DIR         = 'meta';            // Meta Content
+var DEVELOPMENT_DIR  = 'dev';             // Project Development
+var IMAGES_DIR       = 'images';          // Images
+var RESOURCES_DIR    = 'res';             // Resources (CSS, JavaScript, Fonts etc.)
+var INDEX_PAGE       = 'index.html';      // Index Page
+var CRITICAL_DESK_W  = 1280;              // Horizontal Fold on the Desktop
+var CRITICAL_DESK_H  = 800;               // Vertical Fold on the Desktop
+var CRITICAL_PHONE_W = 320;               // Horizontal Fold on the Phone
+var CRITICAL_PHONE_H = 640;               // Vertical Fold on the Phone
+var TEMPLATES_DIR    = 'templates';       // Templates
+var CSS_TEMPLATE     = '_head.html';      // Template Containing CSS Declarations
+var JS_TEMPLATE      = '_scripts.html';   // Template Containing JavaScript Declarations
+var CSS_IMAGES_DIR   = 'images';          // CSS Images
+var SPRITES          = ['sprites.png']    // Array of CSS Images to Compile into Sprite Sheets
+var DATA_URI         = [];                // Array of Images (Relative to the CSS Images Directory) to Convert to DataURI
+var CSS_DIR          = 'css';             // Production CSS
+var SASS_DIR         = 'sass-dev';        // Sass
+var CSS_DEV_DIR      = 'css-dev';         // Generated CSS
+var CSS_FILENAME     = 'styles';          // Production CSS Filename
+var JS_DIR           = 'js';              // Production JavaScript
+var JS_DEV_DIR       = 'js-dev';          // JavaScript
+var JS_FILENAME      = 'scripts';         // Production JavaScript Filename
 
 function fillAnArray(array, path) {
   var result = [];
@@ -54,6 +55,7 @@ module.exports = function(grunt) {
         dir: resourcesDirCompiled,
         images: {
           dir: resourcesDirCompiled + CSS_IMAGES_DIR + '/',
+          sprites: SPRITES,
           dataURI: fillAnArray(DATA_URI, resourcesDirCompiled + CSS_IMAGES_DIR + '/')
         },
         css: {
@@ -492,6 +494,59 @@ module.exports = function(grunt) {
         dest: project.res.css.sass + 'project/tx/_tx-projectImages-base64.scss'
       }
     },
+    sprite: {
+      checkSprites: function() {
+        var tasks = {};
+        var spritePath = project.res.images.dir;
+        var imgPath = '../' + spritePath.replace(project.res.dir, '');
+        var name;
+        var ext;
+        project.res.images.sprites.forEach(function(sprite) {
+          name = sprite.split('.')[0];
+          ext = sprite.split('.')[1];
+          if (grunt.file.exists(spritePath + name + '/')) {
+            tasks[name] = {
+              src: spritePath + name + '/*.' + ext,
+              dest: spritePath + sprite,
+              destCss: project.res.css.sass + 'project/tx/_' + name + '.scss',
+              imgPath: imgPath + sprite,
+              padding: 5,
+              cssSpritesheetName: name,
+              cssOpts: {
+                functions: false
+              }
+            }
+          }
+          if (grunt.file.exists(spritePath + name + '@2x/')) {
+            tasks[name + '2x'] = {
+              src: spritePath + name + '@2x/*@2x.' + ext,
+              dest: spritePath + (name + '@2x.' + ext),
+              destCss: project.res.css.sass + 'project/tx/_' + name + '@2x.scss',
+              imgPath: imgPath + name + '@2x.' + ext,
+              padding: 10,
+              cssSpritesheetName: name + '2x',
+              cssOpts: {
+                functions: false
+              }
+            }
+          }
+          if (grunt.file.exists(spritePath + name + '@3x/')) {
+            tasks[name + '3x'] = {
+              src: spritePath + name + '@3x/*@3x.' + ext,
+              dest: spritePath + (name + '@3x.' + ext),
+              destCss: project.res.css.sass + 'project/tx/_' + name + '@3x.scss',
+              imgPath: imgPath + name + '@3x.' + ext,
+              padding: 15,
+              cssSpritesheetName: name + '3x',
+              cssOpts: {
+                functions: false
+              }
+            }
+          }
+        });
+        return tasks;
+      }
+    }.checkSprites(),
     imagemin: {
       images: {
         cwd: project.dir,
@@ -629,14 +684,14 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('datauri-fallback', 'Provide Fallbacks Classes for the Background Images that were Converted in DataURI', function() {
-    var sassIE = '';
+    var scssIE = '';
     for (var file in project.res.images.dataURI) {
       if (grunt.file.isFile(project.res.images.dataURI[file])) {
-        sassIE += '%ie-image-' + project.res.images.dataURI[file].split('.')[0].replace(project.res.images.dir, '') + ' {\n\t' + 'background-image: url(' + project.res.images.dataURI[file].replace(project.res.dir, '../') + ');\n}\n';
+        scssIE += '%ie-image-' + project.res.images.dataURI[file].split('.')[0].replace(project.res.images.dir, '') + ' {\n\t' + 'background-image: url(' + project.res.images.dataURI[file].replace(project.res.dir, '../') + ');\n}\n';
       }
     }
-    if (sassIE !== '') {
-      grunt.file.write(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss', sassIE);
+    if (scssIE !== '') {
+      grunt.file.write(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss', scssIE);
     }
   });
 
@@ -647,6 +702,37 @@ module.exports = function(grunt) {
     if (grunt.file.isFile(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss')) {
       grunt.file.delete(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss');
     }
+  });
+
+  grunt.registerTask('spritesSCSS', 'processing sprites styles', function() {
+    var scss = '';
+    grunt.file.delete(project.res.css.sass + 'project/_project-sprites.scss');
+    project.res.images.sprites.forEach(function(sprite) {
+      var name = sprite.split('.')[0];
+      var scssPath = project.res.css.sass + 'project/tx/_' + name;
+      var scssBlock = '';
+      if (grunt.file.isFile(scssPath + '.scss')) {
+        scssBlock = grunt.file.read(scssPath + '.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
+        scssBlock = '// ' + name + '\n\n' + scssBlock + '\n\n\n\n';
+        scss += scssBlock;
+        grunt.file.delete(scssPath + '.scss');
+      }
+      if (grunt.file.isFile(scssPath + '@2x.scss')) {
+        scssBlock = grunt.file.read(scssPath + '@2x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
+        scssBlock = '// ' + name + '@2x\n\n' + scssBlock + '\n\n\n\n';
+        scss += scssBlock;
+        grunt.file.delete(scssPath + '@2x.scss');
+      }
+      if (grunt.file.isFile(scssPath + '@3x.scss')) {
+        scssBlock = grunt.file.read(scssPath + '@3x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
+        scssBlock = '// ' + name + '@3x\n\n' + scssBlock + '\n\n\n\n';
+        scss += scssBlock;
+        grunt.file.delete(scssPath + '@3x.scss');
+      }
+      scss = scss.replace(/\/\*[^*]*\*+([^/*][^*]*\*+)*\/(?:\r?\n|\r)/gm, '').replace(/\, \)/gm, ')').replace(/(\s|\()0px/gm, '$1' + '0') + '//eof';
+      scss = scss.replace('\n\n\n\n//eof', '\n');
+      grunt.file.write(project.res.css.sass + 'project/_project-sprites.scss', scss);
+    });
   });
 
   grunt.registerTask('process-css', 'css processing', function() {
@@ -734,11 +820,21 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('compileTasks', 'compiling', function() {
+    if (grunt.file.exists(project.res.images.dir + project.res.images.sprites[0])) {
+        grunt.task.run(['clean:res', 'process-sprites', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
+      } else {
+        grunt.task.run(['clean:res', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
+      }
+  });
+
   grunt.registerTask('quality', ['htmlhint', 'jscs', 'jshint', 'jsinspect', 'scsslint', 'csslint', 'csscss', 'colorguard', 'arialinter']);
 
   grunt.registerTask('performance', ['analyzecss']);
 
   grunt.registerTask('images-datauri', ['datauri', 'datauri-fallback', 'concat:datauri', 'datauri-cleanup']);
+
+  grunt.registerTask('process-sprites', ['sprite', 'spritesSCSS']);
 
   grunt.registerTask('process-svg', ['svgmin']);
 
@@ -748,7 +844,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('watch-project', ['concurrent']);
 
-  grunt.registerTask('compile', ['clean:res', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
+  grunt.registerTask('compile', ['compileTasks']);
 
   grunt.registerTask('compile-critical', ['critical', 'string-replace:critical']);
 

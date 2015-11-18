@@ -124,20 +124,20 @@
 @mixin tx-grid-height($lines: 1, $brdw: 0, $lh: true, $pd: false, $fall: $tx-remFallback) {
   @if $pd == true {
     @if $fall == true {
-      padding: rhythm-fallback($lines, 2 * $brdw) 0 0;
+      padding: txf-rhythm-fallback($lines, 2 * $brdw) 0 0;
     }
-    padding: rhythm($lines, 2 * $brdw) 0 0;
+    padding: txf-rhythm($lines, 2 * $brdw) 0 0;
   } @else {
     @if $fall == true {
-      height: rhythm-fallback($lines, 2 * $brdw);
+      height: txf-rhythm-fallback($lines, 2 * $brdw);
     }
-    height: rhythm($lines, 2 * $brdw);
+    height: txf-rhythm($lines, 2 * $brdw);
   }
   @if $lh == true {
     @if $fall == true {
-      line-height: rhythm-fallback($lines, 2 * $brdw);
+      line-height: txf-rhythm-fallback($lines, 2 * $brdw);
     }
-    line-height: rhythm($lines, 2 * $brdw);
+    line-height: txf-rhythm($lines, 2 * $brdw);
   }
 }
 
@@ -152,9 +152,9 @@
   font-size: #{$fzn / $fontSize}rem;
   @if $ln != none {
     @if $fall == true and $ln != 0 {
-      line-height: rhythm-fallback($ln);
+      line-height: txf-rhythm-fallback($ln);
     }
-    line-height: rhythm($ln);
+    line-height: txf-rhythm($ln);
   }
 }
 
@@ -173,8 +173,8 @@
 
 @mixin tx-rhythm($leader: 0, $trailer: 0, $mrgt: 0, $mlft: 0, $fall: $tx-remFallback) {
   @if $leader == $trailer {
-    $vertical-px: rhythm-fallback($leader);
-    $vertical-rem: rhythm($leader);
+    $vertical-px: txf-rhythm-fallback($leader);
+    $vertical-rem: txf-rhythm($leader);
     @if $mrgt == $mlft {
       @if $fall == true {
         margin: $vertical-px $mrgt;
@@ -188,15 +188,15 @@
     }
   } @else {
     @if $leader != 0 {
-      $mtop-px: rhythm-fallback($leader);
-      $mtop-rem: rhythm($leader);
+      $mtop-px: txf-rhythm-fallback($leader);
+      $mtop-rem: txf-rhythm($leader);
     } @else {
       $mtop-px: 0;
       $mtop-rem: 0;
     }
     @if $trailer != 0 {
-      $mbtm-px: rhythm-fallback($trailer);
-      $mbtm-rem: rhythm($trailer);
+      $mbtm-px: txf-rhythm-fallback($trailer);
+      $mbtm-rem: txf-rhythm($trailer);
     } @else {
       $mbtm-px: 0;
       $mbtm-rem: 0;
@@ -221,8 +221,8 @@
 
 @mixin tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $prgt: 0, $plft: 0, $fall: $tx-remFallback) {
   @if $padding-leader == $padding-trailer {
-    $vertical-px: rhythm-fallback($padding-leader);
-    $vertical-rem: rhythm($padding-leader);
+    $vertical-px: txf-rhythm-fallback($padding-leader);
+    $vertical-rem: txf-rhythm($padding-leader);
     @if $prgt == $plft {
       @if $fall == true {
         padding: $vertical-px $prgt;
@@ -236,15 +236,15 @@
     }
   } @else {
     @if $padding-leader != 0 {
-      $ptop-px: rhythm-fallback($padding-leader);
-      $ptop-rem: rhythm($padding-leader);
+      $ptop-px: txf-rhythm-fallback($padding-leader);
+      $ptop-rem: txf-rhythm($padding-leader);
     } @else {
       $ptop-px: 0;
       $ptop-rem: 0;
     }
     @if $padding-trailer != 0 {
-      $pbtm-px: rhythm-fallback($padding-trailer);
-      $pbtm-rem: rhythm($padding-trailer);
+      $pbtm-px: txf-rhythm-fallback($padding-trailer);
+      $pbtm-rem: txf-rhythm($padding-trailer);
     } @else {
       $pbtm-px: 0;
       $pbtm-rem: 0;
@@ -299,14 +299,14 @@
 @mixin tx-form-height($lines: 1, $brdw: 1px, $lh: false, $fall: $tx-remFallback) {
   @if $lh == true {
     @if $fall == true {
-      line-height: rhythm-fallback($lines, $offset: 2 * $brdw);
+      line-height: txf-rhythm-fallback($lines, $offset: 2 * $brdw);
     }
-    line-height: rhythm($lines, $offset: 2 * $brdw);
+    line-height: txf-rhythm($lines, $offset: 2 * $brdw);
   } @else {
     @if $fall == true {
-      height: rhythm-fallback($lines, $offset: 2 * $brdw);
+      height: txf-rhythm-fallback($lines, $offset: 2 * $brdw);
     }
-    height: rhythm($lines, $offset: 2 * $brdw);
+    height: txf-rhythm($lines, $offset: 2 * $brdw);
   }
 }
 
@@ -317,8 +317,8 @@
 @mixin tx-table-borders($brdw: 1px, $lines: 1, $bstyle: solid, $bcolor: $black, $prgt: .5em, $plft: .5em, $fall: $tx-remFallback) {
   $calculated-borderWidth-fallback: $brdw;
   $calculated-borderWidth: $brdw / $fontSize * 1rem;
-  $calculated-verticalPadding-fallback: rhythm-fallback($lines, $brdw);
-  $calculated-verticalPadding: rhythm($lines, $brdw);
+  $calculated-verticalPadding-fallback: txf-rhythm-fallback($lines, $brdw);
+  $calculated-verticalPadding: txf-rhythm($lines, $brdw);
   @if $lines != 0 {
     @if $prgt == $plft and $prgt != 0 {
       @if $fall == true {
@@ -355,6 +355,46 @@
 
 
 
+// Sprites
+
+@mixin tx-sprite($name, $pos: true) {
+  display: block;
+  @if $pos {
+    background: url(#{nth($name, 9)}) nth($name, 3) nth($name, 4);
+  } @else {
+    background: url(#{nth($name, 9)});
+  }
+}
+
+@mixin tx-sprite-block($name, $pd: false) {
+  width: nth($name, 5);
+  @if $pd {
+    height: 0;
+    padding: nth($name, 6) 0 0;
+  } @else {
+    height: nth($name, 6);
+  }
+}
+
+@mixin tx-sprite-position($name) {
+  background-position: nth($name, 3) nth($name, 4);
+}
+
+@mixin tx-sprite-dpi($sptsX, $spts) {
+  background-image: url(#{nth($sptsX, 3)});
+  background-size: nth($spts, 1) nth($spts, 2);
+}
+
+@function txf-sprite-width($name) {
+  @return nth($name, 5);
+}
+
+@function txf-sprite-height($name) {
+  @return nth($name, 6);
+}
+
+
+
 // Extend Data URI Image
 
 @mixin tx-extend-image($class, $ie: $tx-IE) {
@@ -369,7 +409,7 @@
 
 // Functions
 
-@function rhythm($ln: 1, $offset: 0) {
+@function txf-rhythm($ln: 1, $offset: 0) {
   $result: ($ln * $lineHeight - $offset) / $fontSize * 1rem;
   @if #{$result} == '0rem' {
     @return 0;
@@ -378,7 +418,7 @@
   }
 }
 
-@function rhythm-fallback($ln: 1, $offset: 0) {
+@function txf-rhythm-fallback($ln: 1, $offset: 0) {
   $result: ($ln * $lineHeight - $offset);
   @if #{$result} == '0px' {
     @return 0;
