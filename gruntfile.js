@@ -350,24 +350,23 @@ module.exports = function(grunt) {
         expand: true
       }
     },
+    'closure-compiler': {
+      frontend: {
+        cwd: project.res.js.dir,
+        js: ['*.js'],
+        jsOutputFile: project.res.js.dir + project.res.js.filename + '.min.js',
+        options: {}
+      }
+    },
     fixmyjs: {
       options: {
         config: '.jshintrc'
       },
       fixMyJS: {
         cwd: project.res.js.dir,
-        src: ['*.js'],
+        src: ['*.min.js'],
         dest: project.res.js.dir,
-        ext: '.min.js',
         expand: true
-      }
-    },
-    'closure-compiler': {
-      frontend: {
-        cwd: project.res.js.dir,
-        js: ['*.js', '!*.min.js'],
-        jsOutputFile: project.res.js.dir + project.res.js.filename + '.min.js',
-        options: {}
       }
     },
     uglify: {
@@ -809,7 +808,7 @@ module.exports = function(grunt) {
         grunt.log.writeln('No .js-files to process.');
       } else {
         grunt.config.set('task.jsArray', fillAnArray(jsArray, project.res.js.devDir));
-        grunt.task.run(['concat:js', 'removelogging', 'fixmyjs', 'closure-compiler', 'uglify']);
+        grunt.task.run(['concat:js', 'removelogging', 'closure-compiler', 'fixmyjs', 'uglify']);
       }
     } else {
       if (jsExpected > jsActual) {

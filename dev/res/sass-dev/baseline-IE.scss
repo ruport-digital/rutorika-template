@@ -27,7 +27,6 @@ img {
 }
 
 .ie6 {
-  filter: unquote("expression(document.execCommand('BackgroundImageCache', false, true))");
 
   label {
     cursor: hand;
