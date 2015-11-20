@@ -1,5 +1,5 @@
 {
-  "name": "TemplateX",
+  "name": "templatex",
   "dependencies": {
     "dominus": "~5.0.6",
     "fontfaceobserver": "~1.5.4",
