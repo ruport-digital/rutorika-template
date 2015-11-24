@@ -1,30 +1,30 @@
 //Gruntfile for the TemplateX Project
 
-var TITLE            = 'TemplateX';       // Title
-var LANGUAGE         = 'ru';              // Language
-var BUILD_DIR        = 'build';           // Project Build
-var META_DIR         = 'meta';            // Meta Content
-var DEVELOPMENT_DIR  = 'dev';             // Project Development
-var IMAGES_DIR       = 'images';          // Images
-var RESOURCES_DIR    = 'res';             // Resources (CSS, JavaScript, Fonts etc.)
-var INDEX_PAGE       = 'index.html';      // Index Page
-var CRITICAL_DESK_W  = 1280;              // Horizontal Fold on the Desktop
-var CRITICAL_DESK_H  = 800;               // Vertical Fold on the Desktop
-var CRITICAL_PHONE_W = 320;               // Horizontal Fold on the Phone
-var CRITICAL_PHONE_H = 640;               // Vertical Fold on the Phone
-var TEMPLATES_DIR    = 'templates';       // Templates
-var CSS_TEMPLATE     = '_head.html';      // Template Containing CSS Declarations
-var JS_TEMPLATE      = '_scripts.html';   // Template Containing JavaScript Declarations
-var CSS_IMAGES_DIR   = 'images';          // CSS Images
-var SPRITES          = ['sprites.png']    // Array of CSS Images to Compile into Sprite Sheets
-var DATA_URI         = [];                // Array of Images (Relative to the CSS Images Directory) to Convert to DataURI
-var CSS_DIR          = 'css';             // Production CSS
-var SASS_DIR         = 'sass-dev';        // Sass
-var CSS_DEV_DIR      = 'css-dev';         // Generated CSS
-var CSS_FILENAME     = 'styles';          // Production CSS Filename
-var JS_DIR           = 'js';              // Production JavaScript
-var JS_DEV_DIR       = 'js-dev';          // JavaScript
-var JS_FILENAME      = 'scripts';         // Production JavaScript Filename
+var TITLE            = 'TemplateX';      // Title
+var LANGUAGE         = 'ru';             // Language
+var BUILD_DIR        = 'build';          // Project Build
+var META_DIR         = 'meta';           // Meta Content
+var DEVELOPMENT_DIR  = 'dev';            // Project Development
+var IMAGES_DIR       = 'images';         // Images
+var RESOURCES_DIR    = 'res';            // Resources (CSS, JavaScript, Fonts etc.)
+var INDEX_PAGE       = 'index.html';     // Index Page
+var CRITICAL_DESK_W  = 1280;             // Horizontal Fold on the Desktop
+var CRITICAL_DESK_H  = 800;              // Vertical Fold on the Desktop
+var CRITICAL_PHONE_W = 320;              // Horizontal Fold on the Phone
+var CRITICAL_PHONE_H = 640;              // Vertical Fold on the Phone
+var TEMPLATES_DIR    = 'templates';      // Templates
+var CSS_TEMPLATE     = '_head.html';     // Template Containing CSS Declarations
+var JS_TEMPLATE      = '_scripts.html';  // Template Containing JavaScript Declarations
+var CSS_IMAGES_DIR   = 'images';         // CSS Images
+var SPRITES          = ['sprites.png']   // Array of CSS Images to Compile into Sprite Sheets
+var DATA_URI         = [];               // Array of Images (Relative to the CSS Images Directory) to Convert to DataURI
+var CSS_DIR          = 'css';            // Production CSS
+var SASS_DIR         = 'sass-dev';       // Sass
+var CSS_DEV_DIR      = 'css-dev';        // Generated CSS
+var CSS_FILENAME     = 'styles';         // Production CSS Filename
+var JS_DIR           = 'js';             // Production JavaScript
+var JS_DEV_DIR       = 'js-dev';         // JavaScript
+var JS_FILENAME      = 'scripts';        // Production JavaScript Filename
 
 function fillAnArray(array, path) {
   var result = [];
@@ -350,22 +350,15 @@ module.exports = function(grunt) {
         expand: true
       }
     },
-    'closure-compiler': {
-      frontend: {
-        cwd: project.res.js.dir,
-        js: ['*.js'],
-        jsOutputFile: project.res.js.dir + project.res.js.filename + '.min.js',
-        options: {}
-      }
-    },
     fixmyjs: {
       options: {
         config: '.jshintrc'
       },
       fixMyJS: {
         cwd: project.res.js.dir,
-        src: ['*.min.js'],
+        src: ['*.js'],
         dest: project.res.js.dir,
+        ext: '.min.js',
         expand: true
       }
     },
@@ -484,15 +477,6 @@ module.exports = function(grunt) {
       }
     },
 
-    datauri: {
-      options: {
-        classPrefix: 'image-'
-      },
-      resImages: {
-        src: project.res.images.dataURI,
-        dest: project.res.css.sass + 'project/tx/_tx-projectImages-base64.scss'
-      }
-    },
     sprite: {
       checkSprites: function() {
         var tasks = {};
@@ -546,6 +530,15 @@ module.exports = function(grunt) {
         return tasks;
       }
     }.checkSprites(),
+    datauri: {
+      options: {
+        classPrefix: 'image-'
+      },
+      resImages: {
+        src: project.res.images.dataURI,
+        dest: project.res.css.sass + 'project/tx/_tx-projectImages-base64.scss'
+      }
+    },
     imagemin: {
       images: {
         cwd: project.dir,
@@ -570,29 +563,6 @@ module.exports = function(grunt) {
         cwd: project.dir,
         src: ['**/*.svg', '!**/fonts/**/*.svg'],
         dest: project.dir,
-        expand: true
-      }
-    },
-    imageoptim: {
-      images: {
-        options: {
-          jpegMini: true,
-          quitAfter: true
-        },
-        cwd: project.dir,
-        src: ['**/*.{png,jpg,gif}', '!**/tx-*.*', '!tx/*.*'],
-        dest: project.dir,
-        expand: true
-      },
-      meta: {
-        options: {
-          jpegMini: true,
-          imageAlpha: true,
-          quitAfter: true
-        },
-        cwd: project.build.dir,
-        src: ['*.{png,jpg,gif}'],
-        dest: project.build.dir,
         expand: true
       }
     },
@@ -808,7 +778,7 @@ module.exports = function(grunt) {
         grunt.log.writeln('No .js-files to process.');
       } else {
         grunt.config.set('task.jsArray', fillAnArray(jsArray, project.res.js.devDir));
-        grunt.task.run(['concat:js', 'removelogging', 'closure-compiler', 'fixmyjs', 'uglify']);
+        grunt.task.run(['concat:js', 'removelogging', 'fixmyjs', 'uglify']);
       }
     } else {
       if (jsExpected > jsActual) {
@@ -820,7 +790,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('compileTasks', 'compiling', function() {
-    if (grunt.file.exists(project.res.images.dir + project.res.images.sprites[0])) {
+    if (project.res.images.sprites.length > 0) {
         grunt.task.run(['clean:res', 'process-sprites', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
       } else {
         grunt.task.run(['clean:res', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
