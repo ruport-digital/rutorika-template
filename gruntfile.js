@@ -326,12 +326,23 @@ module.exports = function(grunt) {
             pattern: /(?:\r?\n|\r)<\/script>(?:\r?\n|\r)<noscript>(?:\r?\n|\r)/g,
             replacement: '</script>\n    <noscript>'
           }, {
-            pattern: /(?:\r?\n|\r)<\/noscript>/g,
+            pattern: /(?:\r?\n|\r)/g,
             replacement: '</noscript>'
           }]
         },
         files: {
           './': [project.build.dir + '*.html']
+        }
+      },
+      indentation: {
+        options: {
+          replacements: [{
+            pattern: /(?:\r?\n|\r)(<html.*>)(?:\r?\n|\r)*(?:\s*)/g,
+            replacement: '$1'
+          }]
+        },
+        files: {
+          './': [project.build.dir + '*.html', project.dir + '*.html']
         }
       }
     },
@@ -470,6 +481,17 @@ module.exports = function(grunt) {
     htmlmin: {
       options: grunt.file.readJSON('.htmlminrc'),
       cleanup: {
+        cwd: project.build.dir,
+        src: ['*.html'],
+        dest: project.build.dir,
+        expand: true
+      }
+    },
+    prettify: {
+      options: {
+        config: '.jsbeautifyrc'
+      },
+      format: {
         cwd: project.build.dir,
         src: ['*.html'],
         dest: project.build.dir,
@@ -819,7 +841,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build-commonFirst', ['compile', 'clean:build', 'clean:reports', 'copy:build', 'copy:meta', 'compress:cssGzip', 'compress:jsGzip', 'string-replace:build']);
 
-  grunt.registerTask('build-commonSecond', ['htmlmin:cleanup', 'imagemin:meta']);
+  grunt.registerTask('build-commonSecond', ['htmlmin', 'prettify', 'string-replace:indentation', 'imagemin:meta']);
 
   grunt.registerTask('build', ['build-commonFirst', 'build-commonSecond']);
 

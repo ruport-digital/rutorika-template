@@ -1,0 +1,9 @@
+{
+  "indent": 2,
+  "condense": false,
+  "unformatted": [
+    "a",
+    "code",
+    "pre"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dominus",
+  "description": "Lean DOM Manipulation",
+  "version": "5.0.6",
+  "homepage": "https://github.com/bevacqua/dominus",
+  "author": {
+    "name": "Nicolas Bevacqua",
+    "email": "ng@bevacqua.io",
+    "url": "http://bevacqua.io"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bevacqua/dominus.git"
+  },
+  "main": "dist/dominus.js",
+  "ignore": [
+    ".*",
+    "package.json",
+    "node_modules",
+    "src",
+    "test",
+    "gulpfile.js"
+  ],
+  "dependencies": {},
+  "_release": "5.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v5.0.6",
+    "commit": "23fd80438920d09e53cd0119dbca592addcc1072"
+  },
+  "_source": "git://github.com/bevacqua/dominus.git",
+  "_target": "~5.0.6",
+  "_originalSource": "dominus"
+}

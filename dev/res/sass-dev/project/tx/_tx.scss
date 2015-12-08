@@ -357,18 +357,22 @@
 
 // Sprites
 
-@mixin tx-sprite($name, $pos: true) {
+@mixin tx-sprite($name, $pos: true, $block: false, $pd: false) {
   display: block;
   @if $pos {
     background: url(#{nth($name, 9)}) nth($name, 3) nth($name, 4);
   } @else {
     background: url(#{nth($name, 9)});
   }
+  @if $block {
+    @include tx-sprite-block($name, $pd);
+  }
 }
 
 @mixin tx-sprite-block($name, $pd: false) {
   width: nth($name, 5);
   @if $pd {
+    overflow: hidden;
     height: 0;
     padding: nth($name, 6) 0 0;
   } @else {
