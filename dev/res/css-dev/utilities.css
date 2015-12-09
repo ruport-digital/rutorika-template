@@ -1,20 +1,14 @@
 /* Lists Reset */
-.u-listReset, .u-descriptionListReset {
+.u-listReset, .u-listReset > li, .u-descriptionListReset, .u-descriptionListReset > dt, .u-descriptionListReset > dd {
   padding: 0;
   margin: 0;
 }
 
 .u-listReset {
-  list-style: none outside;
-}
-.u-listReset > li {
-  padding: 0;
-  margin: 0;
+  list-style: none;
 }
 
 .u-descriptionListReset > dt, .u-descriptionListReset > dd {
-  padding: 0;
-  margin: 0;
   font-weight: normal;
   font-style: normal;
 }

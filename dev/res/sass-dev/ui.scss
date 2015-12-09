@@ -59,9 +59,12 @@ label {
 }
 
 %formBaselineStyle {
-  @include tx-font-size($fontSize, none);
   margin: 0;
   font-family: $font-sans;
+}
+
+%formFontStyle {
+  @include tx-font-size($fontSize, none);
 }
 
 %formBoxSizingStyle {
@@ -107,6 +110,7 @@ label {
 
 input {
   @extend %formBaselineStyle;
+  @extend %formFontStyle;
   @extend %formBoxSizingStyle;
   @extend %formBorderResetStyle;
   @extend %formAlignStyle;
@@ -149,6 +153,7 @@ input {
 
 select {
   @extend %formBaselineStyle;
+  @extend %formFontStyle;
   @extend %formTextResetStyle;
   @extend %formAlignStyle;
   @extend %formStyle;
@@ -169,6 +174,7 @@ select {
 
 button {
   @extend %formBaselineStyle;
+  @extend %formFontStyle;
   @extend %formBoxSizingStyle;
   @extend %formBorderResetStyle;
   @extend %formTextResetStyle;
@@ -185,7 +191,8 @@ textarea {
   @extend %formBoxSizingStyle;
   @extend %formStyle;
   @include tx-form-height(9, 1, $lh: false);
-  @include tx-rhythm-padding(.5, .5, $prgt: ($gap / 2), $plft: ($gap / 2));
+  @include tx-rhythm-padding(.25, .25, $prgt: ($gap / 2), $plft: ($gap / 2));
+  @include tx-font-size($fontSize, 1);
   display: block;
   overflow: auto;
 

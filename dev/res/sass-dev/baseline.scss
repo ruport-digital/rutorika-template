@@ -150,6 +150,7 @@ dd {
 
 ul {
   @extend %marginStyle;
+  @extend %u-listResetStyle;
   list-style-type: disc;
 }
 

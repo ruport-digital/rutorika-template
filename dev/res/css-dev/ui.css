@@ -48,9 +48,12 @@ label {
 
 input, select, button, textarea {
   margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+}
+
+input, select, button {
   font-size: 16px;
   font-size: 1rem;
-  font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
 input, button, textarea {
@@ -125,8 +128,12 @@ textarea {
   overflow: auto; 
   height: 214px;
   height: 13.375rem;
-  padding: 12px 15px;
-  padding: .75rem 15px;
+  padding: 6px 15px;
+  padding: .375rem 15px;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  line-height: 1.5rem;
 }
 
 /* Custom Forms */

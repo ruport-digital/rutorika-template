@@ -516,9 +516,13 @@ module.exports = function(grunt) {
               destCss: project.res.css.sass + 'project/tx/_' + name + '.scss',
               imgPath: imgPath + sprite,
               padding: 5,
-              cssSpritesheetName: name,
+              cssSpritesheetName: 'ssh-' + name,
+              cssVarMap: function(sprite) {
+                sprite.name = 'spt-' + sprite.name;
+              },
               cssOpts: {
-                functions: false
+                functions: false,
+                variableNameTransforms: []
               }
             }
           }
@@ -529,9 +533,13 @@ module.exports = function(grunt) {
               destCss: project.res.css.sass + 'project/tx/_' + name + '@2x.scss',
               imgPath: imgPath + name + '@2x.' + ext,
               padding: 10,
-              cssSpritesheetName: name + '2x',
+              cssSpritesheetName: 'ssh-' + name + '-2x',
+              cssVarMap: function(sprite) {
+                sprite.name = 'spt-' + sprite.name;
+              },
               cssOpts: {
-                functions: false
+                functions: false,
+                variableNameTransforms: []
               }
             }
           }
@@ -542,9 +550,13 @@ module.exports = function(grunt) {
               destCss: project.res.css.sass + 'project/tx/_' + name + '@3x.scss',
               imgPath: imgPath + name + '@3x.' + ext,
               padding: 15,
-              cssSpritesheetName: name + '3x',
+              cssSpritesheetName: 'ssh-' + name + '-3x',
+              cssVarMap: function(sprite) {
+                sprite.name = 'spt-' + sprite.name;
+              },
               cssOpts: {
-                functions: false
+                functions: false,
+                variableNameTransforms: []
               }
             }
           }
@@ -700,23 +712,28 @@ module.exports = function(grunt) {
     grunt.file.delete(project.res.css.sass + 'project/_project-sprites.scss');
     project.res.images.sprites.forEach(function(sprite) {
       var name = sprite.split('.')[0];
+      var ext = sprite.split('.')[1];
       var scssPath = project.res.css.sass + 'project/tx/_' + name;
       var scssBlock = '';
       if (grunt.file.isFile(scssPath + '.scss')) {
         scssBlock = grunt.file.read(scssPath + '.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
-        scssBlock = '// ' + name + '\n\n' + scssBlock + '\n\n\n\n';
-        scss += scssBlock;
+        scssBlock = '// ' + name + '.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
+        if (scss === '') {
+          scss += scssBlock;
+        } else {
+          scss += '\n\n\n' + scssBlock;
+        }
         grunt.file.delete(scssPath + '.scss');
       }
       if (grunt.file.isFile(scssPath + '@2x.scss')) {
         scssBlock = grunt.file.read(scssPath + '@2x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
-        scssBlock = '// ' + name + '@2x\n\n' + scssBlock + '\n\n\n\n';
+        scssBlock = '// ' + name + '@2x.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
         scss += scssBlock;
         grunt.file.delete(scssPath + '@2x.scss');
       }
       if (grunt.file.isFile(scssPath + '@3x.scss')) {
         scssBlock = grunt.file.read(scssPath + '@3x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
-        scssBlock = '// ' + name + '@3x\n\n' + scssBlock + '\n\n\n\n';
+        scssBlock = '// ' + name + '@3x.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
         scss += scssBlock;
         grunt.file.delete(scssPath + '@3x.scss');
       }

@@ -4,38 +4,29 @@
 
 /* Lists Reset */
 
-%u-listResetStyle {
+%u-resetStyle {
   padding: 0;
   margin: 0;
 }
 
 .u-listReset {
-  @extend %u-listResetStyle;
-  list-style: none outside;
+  @extend %u-resetStyle;
+  list-style: none;
 
-  >li {
-    padding: 0;
-    margin: 0;
+  > li {
+    @extend %u-resetStyle;
   }
 
-}
-
-%dlResetStyle {
-  padding: 0;
-  margin: 0;
-  font-weight: normal;
-  font-style: normal;
 }
 
 .u-descriptionListReset {
-  @extend %u-listResetStyle;
+  @extend %u-resetStyle;
 
-  >dt {
-    @extend %dlResetStyle;
-  }
-
-  >dd {
-    @extend %dlResetStyle;
+  > dt,
+  > dd {
+    @extend %u-resetStyle;
+    font-weight: normal;
+    font-style: normal;
   }
 
 }
