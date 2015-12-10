@@ -407,6 +407,12 @@ body {
   background: #337ab7;
 }
 
+/* Focus */
+
+a:focus, input:focus, select:focus, textarea:focus {
+  outline: 1px dotted #cccccc;
+}
+
 /* Links */
 
 a {
@@ -438,10 +444,6 @@ a:active {
   -webkit-text-decoration-color: rgba(35, 82, 124, .5);
   -moz-text-decoration-color: rgba(35, 82, 124, .5);
   text-decoration-color: rgba(35, 82, 124, .5);
-}
-
-a:focus {
-  outline: 1px dotted #cccccc;
 }
 
 /* Forms */

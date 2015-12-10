@@ -7,6 +7,7 @@ var META_DIR         = 'meta';           // Meta Content
 var DEVELOPMENT_DIR  = 'dev';            // Project Development
 var IMAGES_DIR       = 'images';         // Images
 var RESOURCES_DIR    = 'res';            // Resources (CSS, JavaScript, Fonts etc.)
+var COMPONENTS_DIR   = 'components';     // Templates
 var INDEX_PAGE       = 'index.html';     // Index Page
 var CRITICAL_DESK_W  = 1280;             // Horizontal Fold on the Desktop
 var CRITICAL_DESK_H  = 800;              // Vertical Fold on the Desktop
@@ -48,6 +49,7 @@ module.exports = function(grunt) {
       var resourcesDirCompiled = this.dir + RESOURCES_DIR + '/';
       this.templates = {
         dir: templatesDirCompiled,
+        comp: templatesDirCompiled + COMPONENTS_DIR + '/',
         css: templatesDirCompiled + CSS_TEMPLATE,
         js: templatesDirCompiled + JS_TEMPLATE
       };
@@ -62,11 +64,13 @@ module.exports = function(grunt) {
           dir: resourcesDirCompiled + CSS_DIR + '/',
           devDir: resourcesDirCompiled + CSS_DEV_DIR + '/',
           sass: resourcesDirCompiled + SASS_DIR + '/',
+          comp: resourcesDirCompiled + SASS_DIR + '/' + COMPONENTS_DIR + '/',
           filename: CSS_FILENAME
         },
         js: {
           dir: resourcesDirCompiled + JS_DIR + '/',
           devDir: resourcesDirCompiled + JS_DEV_DIR + '/',
+          comp: resourcesDirCompiled + JS_DEV_DIR + '/' + COMPONENTS_DIR + '/',
           filename: JS_FILENAME
         }
       };
