@@ -661,19 +661,19 @@ module.exports = function(grunt) {
       options: {
         spawn: false
       },
-      htmlTemplates: {
-        files: [project.templates.dir + '*.html'],
-        tasks: ['processhtml']
-      },
       sass: {
         files: [project.res.css.sass + '**/*.scss', project.res.css.sass + '**/*.sass'],
         tasks: ['sass', 'autoprefixer']
       },
-      sassImages: {
+      images: {
         files: [project.res.images.dir + '**/*.{png,jpg,gif,svg}'],
         tasks: ['sass', 'autoprefixer', 'processhtml']
       },
-      livereloadWatch: {
+      html: {
+        files: [project.templates.dir + '*.html'],
+        tasks: ['processhtml']
+      },
+      livereload: {
         options: {
           livereload: true
         },
@@ -683,9 +683,9 @@ module.exports = function(grunt) {
     concurrent: {
       options: {
         logConcurrentOutput: true,
-        limit: 4
+        limit: 5
       },
-      projectWatch: ['watch:htmlTemplates', 'watch:sass', 'watch:sassImages', 'watch:livereloadWatch']
+      projectWatch: ['watch:sass', 'watch:images', 'watch:html', 'watch:livereload']
     }
 
   });
