@@ -4,7 +4,12 @@
   "description": "TemplateX",
   "main": "build/index.html",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "dominus": "^5.0.6",
+    "fontfaceobserver": "^1.5.4",
+    "jquery": "^1.11.3",
+    "lodash": "^3.10.1"
+  },
   "devDependencies": {
     "backstopjs": "git://github.com/garris/backstopjs.git#master",
     "grunt": "^0.4.5",
