@@ -511,10 +511,16 @@ module.exports = function(grunt) {
       options: {
         config: '.jsbeautifyrc'
       },
-      format: {
+      formatBuild: {
         cwd: project.build.dir,
         src: ['*.html'],
         dest: project.build.dir,
+        expand: true
+      },
+      formatDev: {
+        cwd: project.dir,
+        src: ['*.html'],
+        dest: project.dir,
         expand: true
       }
     },
