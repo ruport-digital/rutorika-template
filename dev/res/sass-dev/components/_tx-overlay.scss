@@ -1,0 +1,32 @@
+/* Overlay */
+
+$tx-overlay-background: $black;
+$tx-overlay-opacity: .75;
+
+%tx-overlay {
+  @include tx-layer(top);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($tx-overlay-background, $tx-overlay-opacity);
+  text-align: center;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-100%) translateZ(0);
+  transition: opacity $UITransition, visibility $UITransition-instant $UITransition, transform $UITransition-instant $UITransition;
+
+  &:before {
+    @include tx-pseudo-va;
+  }
+
+  &-is-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+    transition: opacity $UITransition, visibility $UITransition-instant, transform $UITransition-instant;
+  }
+
+}

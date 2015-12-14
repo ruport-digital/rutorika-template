@@ -16,6 +16,7 @@
     "grunt-analyze-css": "^1.0.0",
     "grunt-arialinter": "^0.2.1",
     "grunt-autoprefixer": "^3.0.3",
+    "grunt-browserify": "^4.0.1",
     "grunt-colorguard": "^0.2.0",
     "grunt-concurrent": "^2.0.0",
     "grunt-contrib-clean": "^0.6.0",

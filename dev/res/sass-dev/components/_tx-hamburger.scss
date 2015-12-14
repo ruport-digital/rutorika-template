@@ -1,0 +1,79 @@
+/* Hamburger */
+
+$tx-hamburger-width: 25px;
+$tx-hamburger-height: 19px;
+$tx-hamburger-lineWidth: 3px;
+$tx-hamburger-lineColor: $red;
+
+%tx-hamburger {
+  height: $tx-hamburger-height;
+  color: $tx-hamburger-lineColor;
+  text-decoration: none;
+  line-height: $tx-hamburger-height;
+
+  &:before,
+  &:after {
+    @extend %tx-hamburgerLine;
+    left: 0;
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  &:visited,
+  &:hover,
+  &:active {
+    color: $tx-hamburger-lineColor;
+  }
+
+  &-is-active {
+
+    &:before {
+      transform: translateY($tx-hamburger-height / 2 - $tx-hamburger-lineWidth / 2) rotate(-45deg);
+    }
+
+    &:after {
+      transform: translateY($tx-hamburger-height / -2 + $tx-hamburger-lineWidth / 2) rotate(-135deg);
+    }
+
+  }
+
+}
+
+%tx-hamburgerleLabel {
+  position: relative;
+  top: 0;
+  display: block;
+  padding: 0 0 0 ($tx-hamburger-width + 5px);
+
+  &:before {
+    @extend %tx-hamburgerLine;
+    top: 50%;
+    left: 0;
+    margin: ($tx-hamburger-lineWidth / -2) 0 0;
+  }
+
+  &-is-active {
+
+    &:before {
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+
+  }
+
+}
+
+%tx-hamburgerLine {
+  @include tx-pseudo;
+  width: $tx-hamburger-width;
+  height: $tx-hamburger-lineWidth;
+  background: $tx-hamburger-lineColor;
+  transform-origin: 50% 50%;
+  transition: $UITransition * 2;
+}

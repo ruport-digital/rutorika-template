@@ -1,0 +1,12 @@
+/* Hightlight */
+
+$tx-hightlight-color: $white;
+$tx-hightlight-background: $red;
+$tx-hightlight-width: 5px;
+
+%tx-hightlight {
+  box-decoration-break: clone;
+  border: $tx-hightlight-width solid $tx-hightlight-background;
+  color: $tx-hightlight-color;
+  background: $tx-hightlight-background;
+}

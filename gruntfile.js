@@ -50,8 +50,8 @@ module.exports = function(grunt) {
       this.templates = {
         dir: templatesDirCompiled,
         comp: templatesDirCompiled + COMPONENTS_DIR + '/',
-        css: templatesDirCompiled + CSS_TEMPLATE,
-        js: templatesDirCompiled + JS_TEMPLATE
+        css: templatesDirCompiled + COMPONENTS_DIR + '/' + CSS_TEMPLATE,
+        js: templatesDirCompiled + COMPONENTS_DIR + '/' + JS_TEMPLATE
       };
       this.res = {
         dir: resourcesDirCompiled,
@@ -223,7 +223,7 @@ module.exports = function(grunt) {
           separator: '\n\n'
         },
         src: [project.res.css.sass + 'project/tx/_tx-projectImages-base64.scss', project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss'],
-        dest: project.res.css.sass + 'project/tx/_tx-projectImages.scss'
+        dest: project.res.css.sass + 'project/_project-images.scss'
       },
       js: {
         options: {
@@ -348,20 +348,36 @@ module.exports = function(grunt) {
         files: {
           './': [project.build.dir + '*.html', project.dir + '*.html']
         }
+      },
+      jshint: {
+        options: {
+          replacements: [{
+            pattern: /(?:\r?\n|\r)(?:\s)*\/\* (?:jshint|global|exports).*\*\//g,
+            replacement: ''
+          }]
+        },
+        files: {
+          './': [project.res.js.dir + project.res.js.filename + '.js']
+        }
       }
     },
 
+    browserify: {
+      bundle: {
+        files: {
+          bundleFiles: function() {
+            var bundleFilesObject = {};
+            bundleFilesObject[project.res.js.dir + project.res.js.filename + '.js'] = [project.res.js.devDir + project.res.js.filename + '.js'];
+            return bundleFilesObject;
+          }
+        }.bundleFiles()
+      }
+    },
     removelogging: {
       jsClean: {
         cwd: project.res.js.dir,
         src: ['*.js'],
         dest: project.res.js.dir,
-        expand: true
-      },
-      jsDevClean: {
-        cwd: project.res.js.devDir,
-        src: ['*.js'],
-        dest: project.res.js.devDir,
         expand: true
       }
     },
@@ -373,7 +389,6 @@ module.exports = function(grunt) {
         cwd: project.res.js.dir,
         src: ['*.js'],
         dest: project.res.js.dir,
-        ext: '.min.js',
         expand: true
       }
     },
@@ -383,8 +398,9 @@ module.exports = function(grunt) {
       },
       jsMin: {
         cwd: project.res.js.dir,
-        src: ['*.min.js'],
+        src: ['*.js'],
         dest: project.res.js.dir,
+        ext: '.min.js',
         expand: true
       }
     },
@@ -470,13 +486,13 @@ module.exports = function(grunt) {
 
     processhtml: {
       options: {
-        includeBase: project.templates.dir,
+        includeBase: project.templates.comp,
         commentMarker: '@tx-process',
         recursive: true
       },
       templates: {
         cwd: project.templates.dir,
-        src: ['*.tmp.html', '!_*.html'],
+        src: ['*.html', '!* copy.html'],
         dest: project.dir,
         ext: '.html',
         expand: true
@@ -661,8 +677,12 @@ module.exports = function(grunt) {
       options: {
         spawn: false
       },
+      javascript: {
+        files: [project.res.js.devDir + '**/*.js'],
+        tasks: ['browserify']
+      },
       sass: {
-        files: [project.res.css.sass + '**/*.scss', project.res.css.sass + '**/*.sass'],
+        files: [project.res.css.sass + '**/*.{scss,sass}'],
         tasks: ['sass', 'autoprefixer']
       },
       images: {
@@ -670,14 +690,14 @@ module.exports = function(grunt) {
         tasks: ['sass', 'autoprefixer', 'processhtml']
       },
       html: {
-        files: [project.templates.dir + '*.html'],
+        files: [project.templates.dir + '**/*.html'],
         tasks: ['processhtml']
       },
       livereload: {
         options: {
           livereload: true
         },
-        files: [project.dir + '*.html', project.res.css.devDir + '**/*.css', project.res.js.devDir + '**/*.js', project.images + '**/*.{png,jpg,gif,svg}']
+        files: [project.dir + '*.html', project.res.css.devDir + '**/*.css', project.res.js.dir + '**/*.js', project.images + '**/*.{png,jpg,gif,svg}']
       }
     },
     concurrent: {
@@ -685,7 +705,7 @@ module.exports = function(grunt) {
         logConcurrentOutput: true,
         limit: 5
       },
-      projectWatch: ['watch:sass', 'watch:images', 'watch:html', 'watch:livereload']
+      projectWatch: ['watch:javascript', 'watch:sass', 'watch:images', 'watch:html', 'watch:livereload']
     }
 
   });
@@ -714,37 +734,39 @@ module.exports = function(grunt) {
   grunt.registerTask('spritesSCSS', 'processing sprites styles', function() {
     var scss = '';
     grunt.file.delete(project.res.css.sass + 'project/_project-sprites.scss');
-    project.res.images.sprites.forEach(function(sprite) {
-      var name = sprite.split('.')[0];
-      var ext = sprite.split('.')[1];
-      var scssPath = project.res.css.sass + 'project/tx/_' + name;
-      var scssBlock = '';
-      if (grunt.file.isFile(scssPath + '.scss')) {
-        scssBlock = grunt.file.read(scssPath + '.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
-        scssBlock = '// ' + name + '.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
-        if (scss === '') {
-          scss += scssBlock;
-        } else {
-          scss += '\n\n\n' + scssBlock;
+    if (sprites.lingth > 0) {
+      project.res.images.sprites.forEach(function(sprite) {
+        var name = sprite.split('.')[0];
+        var ext = sprite.split('.')[1];
+        var scssPath = project.res.css.sass + 'project/tx/_' + name;
+        var scssBlock = '';
+        if (grunt.file.isFile(scssPath + '.scss')) {
+          scssBlock = grunt.file.read(scssPath + '.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
+          scssBlock = '// ' + name + '.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
+          if (scss === '') {
+            scss += scssBlock;
+          } else {
+            scss += '\n\n\n' + scssBlock;
+          }
+          grunt.file.delete(scssPath + '.scss');
         }
-        grunt.file.delete(scssPath + '.scss');
-      }
-      if (grunt.file.isFile(scssPath + '@2x.scss')) {
-        scssBlock = grunt.file.read(scssPath + '@2x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
-        scssBlock = '// ' + name + '@2x.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
-        scss += scssBlock;
-        grunt.file.delete(scssPath + '@2x.scss');
-      }
-      if (grunt.file.isFile(scssPath + '@3x.scss')) {
-        scssBlock = grunt.file.read(scssPath + '@3x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
-        scssBlock = '// ' + name + '@3x.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
-        scss += scssBlock;
-        grunt.file.delete(scssPath + '@3x.scss');
-      }
-      scss = scss.replace(/\/\*[^*]*\*+([^/*][^*]*\*+)*\/(?:\r?\n|\r)/gm, '').replace(/\, \)/gm, ')').replace(/(\s|\()0px/gm, '$1' + '0') + '//eof';
-      scss = scss.replace('\n\n\n\n//eof', '\n');
-      grunt.file.write(project.res.css.sass + 'project/_project-sprites.scss', scss);
-    });
+        if (grunt.file.isFile(scssPath + '@2x.scss')) {
+          scssBlock = grunt.file.read(scssPath + '@2x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
+          scssBlock = '// ' + name + '@2x.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
+          scss += scssBlock;
+          grunt.file.delete(scssPath + '@2x.scss');
+        }
+        if (grunt.file.isFile(scssPath + '@3x.scss')) {
+          scssBlock = grunt.file.read(scssPath + '@3x.scss').replace(/(?:\r?\n|\r){2,}/gm, '');
+          scssBlock = '// ' + name + '@3x.' + ext + '\n\n' + scssBlock + '\n\n\n\n';
+          scss += scssBlock;
+          grunt.file.delete(scssPath + '@3x.scss');
+        }
+        scss = scss.replace(/\/\*[^*]*\*+([^/*][^*]*\*+)*\/(?:\r?\n|\r)/gm, '').replace(/\, \)/gm, ')').replace(/(\s|\()0px/gm, '$1' + '0') + '//eof';
+        scss = scss.replace('\n\n\n\n//eof', '\n');
+        grunt.file.write(project.res.css.sass + 'project/_project-sprites.scss', scss);
+      });
+    }
   });
 
   grunt.registerTask('process-css', 'css processing', function() {
@@ -802,7 +824,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('process-js', 'JS processing', function() {
+  grunt.registerTask('process-js-files', 'JS processing', function() {
     var jsDirRegEx = new RegExp('<script(.)*src="' + project.res.js.devDir.replace(project.dir, ''), 'g');
     var js = grunt.file.read(project.templates.js)
         .replace(/(.|\t|\s|\r?\n|\r)*?<!-- @tx-js -->/, '')
@@ -838,6 +860,7 @@ module.exports = function(grunt) {
       } else {
         grunt.task.run(['clean:res', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
       }
+    grunt.log.writeln(project.build.dir + project.res.js.dir.replace(project.dir, '') + project.res.js.filename + '.js');
   });
 
   grunt.registerTask('quality', ['htmlhint', 'jscs', 'jshint', 'jsinspect', 'scsslint', 'csslint', 'csscss', 'colorguard', 'arialinter']);
@@ -851,6 +874,8 @@ module.exports = function(grunt) {
   grunt.registerTask('process-svg', ['svgmin']);
 
   grunt.registerTask('images', ['imagemin', 'images-datauri', 'process-svg']);
+
+  grunt.registerTask('process-js', ['browserify', 'removelogging', 'fixmyjs', 'string-replace:jshint', 'uglify']);
 
   grunt.registerTask('generate-css', ['sass', 'autoprefixer']);
 
