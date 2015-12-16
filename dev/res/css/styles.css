@@ -11,7 +11,7 @@ html {
 
 body {
   color: #333333;
-  font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+  font-family: "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
   -webkit-font-feature-settings: "liga";
   -moz-font-feature-settings: "liga";
   font-feature-settings: "liga";
@@ -94,7 +94,7 @@ p, dl, ul, ol, li, pre, address, table {
 }
 
 pre, code, var {
-  font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
 }
 
 dt {
@@ -201,7 +201,7 @@ kbd {
   background: #cccccc;
   background-clip: padding-box;
   font-weight: bold;
-  font-family: "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
   letter-spacing: .1em;
   line-height: 24px;
   line-height: 1.5rem;
@@ -455,7 +455,7 @@ label {
 
 input, select, textarea {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+  font-family: "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
 input, select {

@@ -50,7 +50,7 @@ label {
 
 input, select, button, textarea {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+  font-family: "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
 }
 
 input, select, button {
