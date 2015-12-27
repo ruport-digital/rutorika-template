@@ -88,7 +88,7 @@ summary {
 h1 {
   @extend %headerStyle;
   @include tx-rhythm(1, 2);
-  @include tx-font-size($h1-fontSize, 3);
+  @include tx-font-size($h1-fontSize, 2);
 }
 
 h2 {
