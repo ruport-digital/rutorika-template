@@ -265,21 +265,6 @@
 
 
 
-// Force Wrap
-
-@mixin tx-force-wrap {
-  white-space: pre;
-  white-space: pre-wrap;
-  white-space: pre-line;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -hp-pre-wrap;
-  word-wrap: break-word;
-}
-
-
-
 // No Select
 
 @mixin tx-no-select($cond: true) {

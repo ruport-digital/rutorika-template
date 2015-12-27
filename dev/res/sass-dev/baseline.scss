@@ -194,9 +194,10 @@ pre {
   @extend %marginStyle;
   @extend %monoStyle;
   @extend %highlightedStyle;
-  @include tx-force-wrap;
   overflow: hidden;
   padding: 0 1.5em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 code {
