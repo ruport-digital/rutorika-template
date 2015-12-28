@@ -862,9 +862,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('compileTasks', 'compiling', function() {
     if (project.res.images.sprites.length > 0) {
-        grunt.task.run(['clean:res', 'process-sprites', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
+        grunt.task.run(['clean:res', 'process-sprites', 'images', 'processhtml', 'generate-css', 'process-css', 'process-js']);
       } else {
-        grunt.task.run(['clean:res', 'processhtml', 'generate-css', 'process-css', 'process-js', 'images']);
+        grunt.task.run(['clean:res', 'images', 'processhtml', 'generate-css', 'process-css', 'process-js']);
       }
     grunt.log.writeln(project.build.dir + project.res.js.dir.replace(project.dir, '') + project.res.js.filename + '.js');
   });
