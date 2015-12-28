@@ -720,7 +720,7 @@ module.exports = function(grunt) {
     var scssIE = '';
     for (var file in project.res.images.dataURI) {
       if (grunt.file.isFile(project.res.images.dataURI[file])) {
-        scssIE += '%ie-image-' + project.res.images.dataURI[file].split('.')[0].replace(project.res.images.dir, '') + ' {\n\t' + 'background-image: url(' + project.res.images.dataURI[file].replace(project.res.dir, '../') + ');\n}\n';
+        scssIE += '%ie-image-' + project.res.images.dataURI[file].split('.')[0].replace(project.res.images.dir, '') + ' {\n  ' + 'background-image: url(' + project.res.images.dataURI[file].replace(project.res.dir, '../') + ');\n}\n\n';
       }
     }
     if (scssIE !== '') {
@@ -879,7 +879,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('process-svg', ['svgmin']);
 
-  grunt.registerTask('images', ['imagemin', 'images-datauri', 'process-svg']);
+  grunt.registerTask('images', ['imagemin', 'process-svg', 'images-datauri']);
 
   grunt.registerTask('process-js', ['browserify', 'removelogging', 'fixmyjs', 'string-replace:jshint', 'uglify']);
 
