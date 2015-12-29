@@ -5,10 +5,7 @@
   "main": "build/index.html",
   "private": true,
   "dependencies": {
-    "dominus": "*",
-    "fontfaceobserver": "*",
-    "jquery": "1.11",
-    "lodash": "*"
+    "fontfaceobserver": "*"
   },
   "devDependencies": {
     "babelify": "*",

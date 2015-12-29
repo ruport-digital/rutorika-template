@@ -487,11 +487,9 @@ module.exports = function(grunt) {
         var tasks = {};
         var spritePath = project.res.images.dir;
         var imgPath = '../' + spritePath.replace(project.res.dir, '');
-        var name;
-        var ext;
         project.res.images.sprites.forEach(function(sprite) {
-          name = sprite.split('.')[0];
-          ext = sprite.split('.')[1];
+          var name = sprite.split('.')[0];
+          var ext = sprite.split('.')[1];
           if (grunt.file.exists(spritePath + name + '/')) {
             tasks[name] = {
               src: spritePath + name + '/*.' + ext,
@@ -682,7 +680,7 @@ module.exports = function(grunt) {
         logConcurrentOutput: true,
         limit: 5
       },
-      projectWatch: ['watch:javascript', 'watch:sass', 'watch:images', 'watch:html', 'watch:livereload']
+      projectWatch: ['watch:html', 'watch:images', 'watch:javascript', 'watch:sass', 'watch:livereload']
     }
 
   });
@@ -747,16 +745,16 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('inlineModernizr', 'inlining Modernizr', function() {
-    var html = grunt.file.read(project.dir + project.index);
+    var html = grunt.file.read(project.build.dir + project.index);
     var modernizr;
-    var path = project.build.dir + html.match(/src=".*Modernizr\/.*?"/);
-    path = path.replace(/"|'/gm, '').replace('src=', '');
-    modernizr = '\n    <script id="modernizr" type="text/javascript">' + grunt.file.read(path) + '</script>';
+    var modernizrPath = project.build.dir + html.match(/src=".*Modernizr\/.*?"/gm);
+    modernizrPath = modernizrPath.replace(/"|'/gm, '').replace('src=', '');
+    modernizr = '\n    <script id="modernizr" type="text/javascript">' + grunt.file.read(modernizrPath) + '</script>';
     modernizr = modernizr.replace(/\/\*(?:\r?\n|\r|.)*\*\/(?:\r?\n|\r)/gm, '');
     grunt.file.recurse(project.build.dir, function(path, root, sub, filename) {
       var file;
       var filenameArray = filename.split('.');
-      ext = filenameArray[(filenameArray.length - 1)];
+      var ext = filenameArray[(filenameArray.length - 1)];
       if (ext === 'html') {
         file = grunt.file.read(path);
         file = file.replace(/(?:\s|\t)*.*src=".*Modernizr\/.*(?=\r?\n|\r)/gm, modernizr);
@@ -856,7 +854,7 @@ module.exports = function(grunt) {
     'inlineModernizr'
   ]);
 
-  grunt.registerTask('build-firstStep', [
+  grunt.registerTask('build', [
     'compile',
     'clean:build',
     'clean:reports',
@@ -872,17 +870,9 @@ module.exports = function(grunt) {
     'compress:jsGzip'
   ]);
 
-  grunt.registerTask('build-secondStep', [
-
-  ]);
-
-  grunt.registerTask('build', [
-    'build-firstStep',
-  ]);
-
   grunt.registerTask('build-critical', [
-    'build-firstStep',
-    'compile-critical',
+    'build',
+    'compile-critical'
   ]);
 
   grunt.registerTask('compress-build', [
