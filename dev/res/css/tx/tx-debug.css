@@ -10,7 +10,6 @@
   left: 0;
   display: none;
   width: 100%;
-  background: -webkit-linear-gradient(top, transparent, transparent 23px, #337ab7);
   background: linear-gradient(to bottom, transparent, transparent 23px, #337ab7);
   background-size: 100% 24px;
   pointer-events: none; }
@@ -20,7 +19,6 @@
 /* TX Developer Note */
 [data-dev-note] {
   position: relative;
-  -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   padding: 0 2px;
   border-radius: 2px;
@@ -78,9 +76,7 @@
   border-radius: 18px;
   color: #fff;
   background: rgba(0, 0, 0, 0.75);
-  -webkit-transform: translateX(290px) translateZ(0);
   transform: translateX(290px) translateZ(0);
-  -webkit-transition: .5s;
   transition: .5s; }
   .debugTools ul {
     position: relative;
@@ -104,14 +100,11 @@
   margin: -70px 0 0;
   background: #333;
   opacity: .75;
-  -webkit-transition: .5s;
   transition: .5s; }
   .debugToolsToggle:focus {
     outline: none; }
 
 .page-is-showingDebugTools .debugTools {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
   transform: translate(0, 0); }
 
 .page-is-showingDebugTools .debugToolsToggle {
@@ -122,4 +115,5 @@
   margin: 0;
   background: #fff;
   opacity: 1; }
+
 /*# sourceMappingURL=tx-debug.css.map */

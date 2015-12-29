@@ -361,6 +361,7 @@
     "filter",
     "cursor",
     "pointer-events",
+    "touch-action",
     "nav-index",
     "nav-up",
     "nav-right",

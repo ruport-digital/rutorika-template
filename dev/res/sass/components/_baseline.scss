@@ -1,11 +1,3 @@
-@import 'project/project';
-
-
-
-// Baseline
-
-
-
 /* Baseline Styles, Typography & Rhythm */
 
 html {
@@ -472,7 +464,7 @@ hr {
 
 @media handheld, only screen and (max-width: $phone-max-rem) {
 
-  @import 'phone/baseline-phone';
+  @import 'phone/_baseline-phone';
 
 }
 
@@ -484,7 +476,7 @@ hr {
 
 @media print {
 
-  @import 'print/baseline-print';
+  @import 'print/_baseline-print';
 
 }
 

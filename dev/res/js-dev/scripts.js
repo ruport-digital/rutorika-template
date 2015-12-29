@@ -1,5 +1,5 @@
 /* jshint browser:true */
 
-var rAF = require('./components/tx-rAF.js');
+'use strict';
 
-rAF.polyfill();
+(function() {}());

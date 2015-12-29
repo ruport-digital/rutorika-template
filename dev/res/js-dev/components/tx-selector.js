@@ -6,7 +6,6 @@ var TX_QUERY_SELECTOR_ALL = (function() {
     document.querySelectorAll = document.body.querySelectorAll = Object.querySelectorAll = function querySelectorAllPolyfill(r, c, i, j, a) {
       var d = document;
       var s = d.createStyleSheet();
-      var l;
       a = d.all;
       c = [];
       r = r.replace(/\[for\b/gi, '[htmlFor').split(',');

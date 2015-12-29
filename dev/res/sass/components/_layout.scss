@@ -1,11 +1,3 @@
-@import 'project/project';
-
-
-
-// Layout
-
-
-
 /* Layout Base */
 
 html {
@@ -49,7 +41,7 @@ body {
 
 @media handheld, only screen and (max-width: $phone-max-rem) {
 
-  @import 'phone/layout-phone';
+  @import 'phone/_layout-phone';
 
 }
 
@@ -61,7 +53,7 @@ body {
 
 @media print {
 
-  @import 'print/layout-print';
+  @import 'print/_layout-print';
 
 }
 

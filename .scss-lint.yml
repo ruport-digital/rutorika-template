@@ -48,6 +48,9 @@ linters:
   IdWithExtraneousSelector:
     enabled: true
 
+  ImportPath
+    leading_underscore: true
+
   Indentation:
     enabled: true
     width: 2
@@ -257,6 +260,7 @@ linters:
       - filter
       - cursor
       - pointer-events
+      - touch-action
       - nav-index
       - nav-up
       - nav-right

@@ -407,6 +407,14 @@ a:focus, input:focus, select:focus, textarea:focus {
   outline: 1px dotted #cccccc;
 }
 
+/* Fast Touch */
+
+a, label, select, .button {
+  touch-action: manipulation;
+
+  -ms-touch-action: manipulation;
+}
+
 /* Links */
 
 a {
@@ -415,8 +423,8 @@ a {
   -webkit-text-decoration-color: rgba(51, 122, 183, .5);
   -moz-text-decoration-color: rgba(51, 122, 183, .5);
   text-decoration-color: rgba(51, 122, 183, .5);
-  -webkit-transition: .15s;
-  transition: .15s;
+  -webkit-transition: color .15s, text-decoration-color .15s;
+  transition: color .15s, text-decoration-color .15s;
 }
 
 a:visited {
@@ -443,7 +451,6 @@ a:active {
 /* Forms */
 
 label {
-  border-bottom: 1px dotted #cccccc;
   cursor: pointer;
 }
 
@@ -557,3 +564,70 @@ textarea {
   }
 
 }
+
+/* TX Rhythm Lines */
+
+.page-is-showingRhythmLines {
+  position: relative;
+  top: -1px;
+  padding: 1px 30px 0;
+}
+
+.page-is-showingRhythmLines .debugToolsRhythm {
+  display: block;
+}
+
+/* TX Developer Note */
+
+[data-dev-note] {
+  position: relative;
+  padding: 0 2px;
+  border-radius: 2px;
+  color: #ffffff;
+  background: #d9534f;
+  box-decoration-break: clone;
+}
+
+[data-dev-note]:hover {
+  background: rgba(217, 83, 79, .5);
+}
+
+[data-dev-note]:hover:after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  content: "Dev Note:\a" attr(data-dev-note);
+  display: block;
+  width: 195px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 0 0 5px -100px;
+  color: #ffffff;
+  background: #d9534f;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+/* TX Debuging Console */
+
+.page-is-showingConsole .debugConsole {
+  display: block;
+}
+
+/* TX Debuging Controls */
+
+.page-is-showingDebugTools .debugTools {
+  transform: translate(0, 0);
+}
+
+.page-is-showingDebugTools .debugToolsToggle {
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  background: #ffffff;
+  opacity: 1;
+}
+

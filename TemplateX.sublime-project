@@ -17,11 +17,11 @@
     }, {
       "follow_symlinks": true,
       "name": "TemplateX: HTML",
-      "path": "dev/templates"
+      "path": "dev/res/templates"
     }, {
       "follow_symlinks": true,
       "name": "TemplateX: Sass",
-      "path": "dev/res/sass-dev"
+      "path": "dev/res/sass"
     }, {
       "follow_symlinks": true,
       "name": "TemplateX: JavaScript",
