@@ -12,7 +12,8 @@
   },
   "devDependencies": {
     "babelify": "*",
-    "backstopjs": "git://github.com/garris/backstopjs.git#master",
+    "babel-preset-es2015": "*",
+    "backstopjs": "*",
     "grunt": "~0.4.5",
     "grunt-analyze-css": "*",
     "grunt-arialinter": "*",

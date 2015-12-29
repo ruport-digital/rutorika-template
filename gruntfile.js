@@ -255,13 +255,13 @@ module.exports = function(grunt) {
             pattern: /<style type="text\/css">(?:\r?\n|\r)/g,
             replacement: '<style type="text/css">'
           }, {
-            pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script>(?:\r?\n|\r)/g,
-            replacement: '</style>\n    <script>'
+            pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script id="loadcss">(?:\r?\n|\r)/g,
+            replacement: '</style>\n    <script type="text/javascript" id="loadcss">'
           }, {
             pattern: /(?:\r?\n|\r)<\/script>(?:\r?\n|\r)<noscript>(?:\r?\n|\r)/g,
             replacement: '</script>\n    <noscript>'
           }, {
-            pattern: /(?:\r?\n|\r)/g,
+            pattern: /(?:\r?\n|\r)<\/noscript>/g,
             replacement: '</noscript>'
           }]
         },
@@ -746,6 +746,25 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('inlineModernizr', 'inlining Modernizr', function() {
+    var html = grunt.file.read(project.dir + project.index);
+    var modernizr;
+    var path = project.build.dir + html.match(/src=".*Modernizr\/.*?"/);
+    path = path.replace(/"|'/gm, '').replace('src=', '');
+    modernizr = '\n    <script id="modernizr" type="text/javascript">' + grunt.file.read(path) + '</script>';
+    modernizr = modernizr.replace(/\/\*(?:\r?\n|\r|.)*\*\/(?:\r?\n|\r)/gm, '');
+    grunt.file.recurse(project.build.dir, function(path, root, sub, filename) {
+      var file;
+      var filenameArray = filename.split('.');
+      ext = filenameArray[(filenameArray.length - 1)];
+      if (ext === 'html') {
+        file = grunt.file.read(path);
+        file = file.replace(/(?:\s|\t)*.*src=".*Modernizr\/.*(?=\r?\n|\r)/gm, modernizr);
+        grunt.file.write(path, file);
+      }
+    });
+  });
+
   grunt.registerTask('compileTasks', 'compiling', function() {
     if (project.res.images.sprites.length > 0) {
       grunt.task.run([
@@ -765,7 +784,6 @@ module.exports = function(grunt) {
         'process-js'
       ]);
     }
-    grunt.log.writeln(project.build.dir + project.res.js.dir.replace(project.dir, '') + project.res.js.filename + '.js');
   });
 
   grunt.registerTask('quality', [
@@ -834,7 +852,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('compile-critical', [
     'critical',
-    'string-replace:critical'
+    'string-replace:critical',
+    'inlineModernizr'
   ]);
 
   grunt.registerTask('build-firstStep', [
@@ -846,9 +865,6 @@ module.exports = function(grunt) {
     'imagemin:meta',
     'svgmin:meta',
     'string-replace:build',
-  ]);
-
-  grunt.registerTask('build-secondStep', [
     'htmlmin',
     'prettify',
     'string-replace:indentation',
@@ -856,15 +872,17 @@ module.exports = function(grunt) {
     'compress:jsGzip'
   ]);
 
+  grunt.registerTask('build-secondStep', [
+
+  ]);
+
   grunt.registerTask('build', [
     'build-firstStep',
-    'build-secondStep'
   ]);
 
   grunt.registerTask('build-critical', [
     'build-firstStep',
     'compile-critical',
-    'build-secondStep'
   ]);
 
   grunt.registerTask('compress-build', [
