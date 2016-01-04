@@ -14,7 +14,7 @@ Thumbs.db
 .tmp
 node_modules
 bower_components
-.npm-debug.log
+npm-debug.log
 
 #TX
 
