@@ -171,7 +171,7 @@
 
 // Rhythm (Margin)
 
-@mixin tx-rhythm($leader: 0, $trailer: 0, $mrgt: 0, $mlft: 0, $fall: $tx-remFallback) {
+@mixin tx-rhythm($leader: 0, $trailer: 0, $mrgt: 0, $mlft: 0, $fall: $tx-remFallback, $px: false) {
   @if $leader == $trailer {
     $vertical-px: txf-rhythm-fallback($leader);
     $vertical-rem: txf-rhythm($leader);
@@ -179,12 +179,16 @@
       @if $fall == true {
         margin: $vertical-px $mrgt;
       }
-      margin: $vertical-rem $mrgt;
+      @if $px == false {
+        margin: $vertical-rem $mrgt;
+      }
     } @else {
       @if $fall == true {
         margin: $vertical-px $mrgt $vertical-px $mlft;
       }
-      margin: $vertical-rem $mrgt $vertical-rem $mlft;
+      @if $px == false {
+        margin: $vertical-rem $mrgt $vertical-rem $mlft;
+      }
     }
   } @else {
     @if $leader != 0 {
@@ -205,12 +209,16 @@
       @if $fall == true {
         margin: $mtop-px $mrgt $mbtm-px;
       }
-      margin: $mtop-rem $mrgt $mbtm-rem;
+      @if $px == false {
+        margin: $mtop-rem $mrgt $mbtm-rem;
+      }
     } @else {
       @if $fall == true {
         margin: $mtop-px $mrgt $mbtm-px $mlft;
       }
-      margin: $mtop-rem $mrgt $mbtm-rem $mlft;
+      @if $px == false {
+        margin: $mtop-rem $mrgt $mbtm-rem $mlft;
+      }
     }
   }
 }
@@ -219,7 +227,7 @@
 
 // Rhythm Padding
 
-@mixin tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $prgt: 0, $plft: 0, $fall: $tx-remFallback) {
+@mixin tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $prgt: 0, $plft: 0, $fall: $tx-remFallback, $px: false) {
   @if $padding-leader == $padding-trailer {
     $vertical-px: txf-rhythm-fallback($padding-leader);
     $vertical-rem: txf-rhythm($padding-leader);
@@ -227,12 +235,16 @@
       @if $fall == true {
         padding: $vertical-px $prgt;
       }
-      padding: $vertical-rem $prgt;
+      @if $px == false {
+        padding: $vertical-rem $prgt;
+      }
     } @else {
       @if $fall == true {
         padding: $vertical-px $prgt $vertical-px $plft;
       }
-      padding: $vertical-rem $prgt $vertical-rem $plft;
+      @if $px == false {
+        padding: $vertical-rem $prgt $vertical-rem $plft;
+      }
     }
   } @else {
     @if $padding-leader != 0 {
@@ -253,12 +265,16 @@
       @if $fall == true {
         padding: $ptop-px $prgt $pbtm-px;
       }
-      padding: $ptop-rem $prgt $pbtm-rem;
+      @if $px == false {
+        padding: $ptop-rem $prgt $pbtm-rem;
+      }
     } @else {
       @if $fall == true {
         padding: $ptop-px $prgt $pbtm-px $plft;
       }
-      padding: $ptop-rem $prgt $pbtm-rem $plft;
+      @if $px == false {
+        padding: $ptop-rem $prgt $pbtm-rem $plft;
+      }
     }
   }
 }

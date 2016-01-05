@@ -25,13 +25,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   text-rendering: auto;
+  -webkit-break-after: avoid;
+  -moz-break-after: avoid;
   page-break-after: avoid;
   break-after: avoid;
   orphans: 3;
   widows: 3;
-
-  -webkit-break-after: avoid;
-  -moz-break-after: avoid;
 }
 
 h1 {
