@@ -560,7 +560,7 @@ module.exports = function(grunt) {
           }
           return config;
         }
-      }
+      }.checkDataURI()
     },
     imagemin: {
       images: {
