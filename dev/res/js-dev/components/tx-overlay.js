@@ -2,6 +2,8 @@
 
 var TX_OVERLAY = (function() {
 
+  var event = require('./tx-event');
+
   var object;
   var activeClassName;
 
@@ -11,7 +13,7 @@ var TX_OVERLAY = (function() {
     object.className = currentClassName.indexOf(activeClassName) > -1 ? currentClassName.replace(activeClassName, '') : currentClassName + activeClassName;
   }
 
-  function clickHandler() {
+  function clicked() {
     var target = (event.currentTarget) ? event.currentTarget : event.srcElement;
     if (target.className.indexOf(activeClassName) > -1) {
       toggle();
@@ -22,11 +24,7 @@ var TX_OVERLAY = (function() {
     if (node) {
       object = node;
       activeClassName = ' ' + object.className + '-is-active';
-      if (document.addEventListener) {
-        object.addEventListener('click', clickHandler);
-      } else {
-        object.attachEvent('onclick', clickHandler);
-      }
+      event(object, 'click', clicked);
     }
   }
 

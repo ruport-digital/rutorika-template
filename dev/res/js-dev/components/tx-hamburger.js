@@ -2,6 +2,8 @@
 
 var TX_HAMBURGER = (function() {
 
+  var event = require('./tx-event');
+
   var object;
   var activeClassName;
 
@@ -15,11 +17,7 @@ var TX_HAMBURGER = (function() {
     if (node) {
       object = node;
       activeClassName = ' ' + object.className + '-is-active';
-      if (document.addEventListener) {
-        object.addEventListener('click', toggle);
-      } else {
-        object.attachEvent('onclick', toggle);
-      }
+      event(object, 'click', toggle);
     }
   }
 
