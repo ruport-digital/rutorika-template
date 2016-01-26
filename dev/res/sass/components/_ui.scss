@@ -66,11 +66,11 @@ label {
 %formBaselineStyle {
   @extend %focusStyle;
   margin: 0;
-  font-family: $font-sans;
+  font-family: inherit;
 }
 
 %formFontStyle {
-  @include tx-font-size($fontSize, none);
+  font-size: inherit;
 }
 
 %formBoxSizingStyle {
@@ -114,12 +114,27 @@ label {
   cursor: not-allowed;
 }
 
+%formPlaceholderStyle {
+  $formPlaceholderStyle-color: $gray;
+
+  &::placeholder {
+    color: $formPlaceholderStyle-color;
+    opacity: 1;
+  }
+
+  &:placeholder-shown {
+
+  }
+
+}
+
 input {
   @extend %formBaselineStyle;
   @extend %formFontStyle;
   @extend %formBoxSizingStyle;
   @extend %formBorderResetStyle;
   @extend %formAlignStyle;
+  @extend %formPlaceholderStyle;
 
   &[type='radio'] {
     @extend %formRadioCheckboxStyle;
@@ -198,11 +213,12 @@ textarea {
   @extend %formBaselineStyle;
   @extend %formBoxSizingStyle;
   @extend %formStyle;
+  @extend %formPlaceholderStyle;
   @include tx-form-height(9, 1, $lh: false);
   @include tx-rhythm-padding(.25, .25, $prgt: ($gap / 2), $plft: ($gap / 2));
-  @include tx-font-size($fontSize, 1);
   display: block;
   overflow: auto;
+  font-size: inherit;
 
   &[disabled] {
     @extend %formInactiveStyle;
