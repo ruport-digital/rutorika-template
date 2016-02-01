@@ -5,8 +5,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  line-height: 24px;
-  line-height: 1.5rem;
+  line-height: 1.5;
 }
 
 body {
@@ -36,46 +35,41 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin: 24px 0 48px;
   margin: 1.5rem 0 3rem;
-  font-size: 32px;
-  font-size: 2rem;
-  line-height: 48px;
-  line-height: 3rem;
+  font-size: 39.81312px;
+  font-size: 2.48832rem;
+  line-height: 1.20563;
 }
 
 h2 {
   margin: 24px 0;
   margin: 1.5rem 0;
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 48px;
-  line-height: 3rem;
+  font-size: 33.1776px;
+  font-size: 2.0736rem;
+  line-height: 1.44676;
 }
 
 h3 {
   margin: 24px 0;
   margin: 1.5rem 0;
-  font-size: 22px;
-  font-size: 1.375rem;
-  line-height: 24px;
-  line-height: 1.5rem;
+  font-size: 27.648px;
+  font-size: 1.728rem;
+  line-height: 1.73611;
 }
 
 h4 {
   margin: 24px 0;
   margin: 1.5rem 0;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 24px;
-  line-height: 1.5rem;
+  font-size: 23.04px;
+  font-size: 1.44rem;
+  line-height: 1.04167;
 }
 
 h5 {
   margin: 24px 0;
   margin: 1.5rem 0;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 24px;
-  line-height: 1.5rem;
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  line-height: 1.25;
 }
 
 h6 {
@@ -83,11 +77,10 @@ h6 {
   margin: 1.5rem 0;
   font-size: 16px;
   font-size: 1rem;
-  line-height: 24px;
-  line-height: 1.5rem;
+  line-height: 1.5;
 }
 
-p, dl, ul, ol, li, pre, address, table {
+p, dl, ul, ol, pre, address, table {
   margin: 24px 0;
   margin: 1.5rem 0;
 }
@@ -119,6 +112,11 @@ ol {
 li > ul {
   margin: 24px 0 24px 1.5em;
   margin: 1.5rem 0 1.5rem 1.5em;
+}
+
+li {
+  margin: 12px 0;
+  margin: .75rem 0;
 }
 
 blockquote, em, cite {
@@ -217,8 +215,8 @@ sub {
 }
 
 big {
-  font-size: 24px;
-  font-size: 1.5rem;
+  font-size: 33.1776px;
+  font-size: 2.0736rem;
   line-height: 0;
 }
 
@@ -353,7 +351,7 @@ body {
   overflow-x: auto;
   overflow-y: scroll;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  min-width: 920px;
+  min-width: 61.25em-60px;
   min-height: 100%;
   max-width: 1920px;
   padding: 0 30px;

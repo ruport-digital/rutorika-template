@@ -7,19 +7,21 @@ $monospaceFontStack: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Fr
 $font-sans: $sansSerifFontStack;
 $font-mono: $monospaceFontStack;
 $fontSize: 16px;
-$lineHeight: $fontSize * 1.5;
+$lineHeight: 1.5;
+$fontRatio: 1.2;
 $fontSizeQuotient: $fontSize / 16px;
 
 
 
 // Typography
 
-$h1-fontSize: $fontSize * 2;
-$h2-fontSize: $fontSize * 1.5;
-$h3-fontSize: $fontSize * 1.375;
-$h4-fontSize: $fontSize * 1.25;
-$h5-fontSize: $fontSize * 1.125;
-$h6-fontSize: $fontSize;
-
-$fontSizeSmall: $fontSize * .75;
-$fontSizeLarge: $fontSize * 1.5;
+$fontSizes: (
+  h1: $fontSize * txf-pow($fontRatio, 5),
+  h2: $fontSize * txf-pow($fontRatio, 4),
+  h3: $fontSize * txf-pow($fontRatio, 3),
+  h4: $fontSize * txf-pow($fontRatio, 2),
+  h5: $fontSize * $fontRatio,
+  h6: $fontSize,
+  small: $fontSize * .75,
+  large: $fontSize * txf-pow($fontRatio, 4)
+);

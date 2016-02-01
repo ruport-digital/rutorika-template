@@ -1,6 +1,6 @@
 // Page Boundaries
 
-@mixin tx-set-boundaries($minw: $desktop-min, $maxw: $desktop-max, $minh: 100%, $center: true) {
+@mixin tx-set-boundaries($minw: map-get($breakpoints, desktopMin), $maxw: map-get($breakpoints, desktopMax), $minh: 100%, $center: true) {
   @if $minw != none and $minw != 0 {
     min-width: $minw;
   }
@@ -49,7 +49,6 @@
 @mixin tx-baseline($fz: $fontSize, $fall: $tx-remFallback) {
   font-size: $fz;
   line-height: $lineHeight;
-  line-height: ($lineHeight / $fontSize) * $fontSizeQuotient * 1rem;
 }
 
 
@@ -145,16 +144,25 @@
 
 // Font Size
 
-@mixin tx-font-size($fzn, $ln: 1, $fall: $tx-remFallback) {
-  @if $fall == true {
-    font-size: $fzn;
+@mixin tx-font-size($fzn, $ln: approx, $fall: $tx-remFallback) {
+  @if type-of($fzn) == number {
+    $size: $fzn;
+  } @else {
+    $size: map-get($fontSizes, $fzn);
   }
-  font-size: #{$fzn / $fontSize}rem;
-  @if $ln != none {
+  @if $fall == true {
+    font-size: $size;
+  }
+  $fznRem: $size / $fontSize;
+  font-size: #{$fznRem}rem;
+  @if $ln != none and $ln != approx {
     @if $fall == true and $ln != 0 {
       line-height: txf-rhythm-fallback($ln);
     }
     line-height: txf-rhythm($ln);
+  }
+  @if $ln == approx {
+    line-height: 1 + (ceil($fznRem / $lineHeight) * $lineHeight - $fznRem) / $fznRem;
   }
 }
 
@@ -415,7 +423,7 @@
 // Functions
 
 @function txf-rhythm($ln: 1, $offset: 0) {
-  $result: ($ln * $lineHeight - $offset) / $fontSize * 1rem;
+  $result: ($ln * $fontSize * $lineHeight - $offset) / $fontSize * 1rem;
   @if #{$result} == '0rem' {
     @return 0;
   } @else {
@@ -424,10 +432,34 @@
 }
 
 @function txf-rhythm-fallback($ln: 1, $offset: 0) {
-  $result: ($ln * $lineHeight - $offset);
+  $result: ($ln * $fontSize * $lineHeight - $offset);
   @if #{$result} == '0px' {
     @return 0;
   } @else {
     @return $result;
   }
+}
+
+
+
+// Utilities
+
+@function txf-pow($base, $exp) {
+  $result: 1;
+  @if $exp == 0 {
+    @return 1;
+  } @else {
+    @for $i from 1 through $exp {
+      $result: $result * $base;
+    }
+    @return $result;
+  }
+}
+
+@function txf-breakpointRem($point) {
+  @return #{(map-get($breakpoints, $point) / $fontSize) * $fontSizeQuotient}em
+}
+
+@function txf-breakpoint($point) {
+  @return map-get($breakpointsRem, $point);
 }

@@ -1,13 +1,17 @@
 // Layout
 
-$desktop-min: 980px;
-$desktop-wide: 1366px;
-$desktop-max: 1920px;
-$phone-max: 720px;
+$breakpoints: (
+  desktopMin: 980px,
+  desktopWide: 1366px,
+  desktopMax: 1920px,
+  phoneMax: 720px
+);
 
-$desktop-min-rem: #{($desktop-min / $fontSize) * $fontSizeQuotient}em;
-$desktop-wide-rem: #{($desktop-wide / $fontSize) * $fontSizeQuotient}em;
-$desktop-max-rem: #{($desktop-max / $fontSize) * $fontSizeQuotient}em;
-$phone-max-rem: #{($phone-max / $fontSize) * $fontSizeQuotient}em;
+$breakpointsRem: (
+  desktopMin: txf-breakpointRem(desktopMin),
+  desktopWide: txf-breakpointRem(desktopWide),
+  desktopMax: txf-breakpointRem(desktopMax),
+  phoneMax: txf-breakpointRem(phoneMax)
+);
 
 $gap: 30px;

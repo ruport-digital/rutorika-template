@@ -80,37 +80,37 @@ summary {
 h1 {
   @extend %headerStyle;
   @include tx-rhythm(1, 2);
-  @include tx-font-size($h1-fontSize, 2);
+  @include tx-font-size(h1);
 }
 
 h2 {
   @extend %headerStyle;
   @include tx-rhythm(1, 1);
-  @include tx-font-size($h2-fontSize, 2);
+  @include tx-font-size(h2);
 }
 
 h3 {
   @extend %headerStyle;
   @include tx-rhythm(1, 1);
-  @include tx-font-size($h3-fontSize, 1);
+  @include tx-font-size(h3);
 }
 
 h4 {
   @extend %headerStyle;
   @include tx-rhythm(1, 1);
-  @include tx-font-size($h4-fontSize, 1);
+  @include tx-font-size(h4);
 }
 
 h5 {
   @extend %headerStyle;
   @include tx-rhythm(1, 1);
-  @include tx-font-size($h5-fontSize, 1);
+  @include tx-font-size(h5);
 }
 
 h6 {
   @extend %headerStyle;
   @include tx-rhythm(1, 1);
-  @include tx-font-size($h6-fontSize, 1);
+  @include tx-font-size(h6);
 }
 
 %marginStyle {
@@ -156,7 +156,7 @@ ol {
 }
 
 li {
-  @extend %marginStyle;
+  @include tx-rhythm(.5, .5);
 
   >ul {
     @extend %nestedListsStyle;
@@ -341,7 +341,7 @@ kbd {
 }
 
 %supSubStyle {
-  @include tx-font-size($fontSizeSmall, 0);
+  @include tx-font-size(small, 0);
   position: relative;
 }
 
@@ -356,11 +356,11 @@ sub {
 }
 
 big {
-  @include tx-font-size($fontSizeLarge, 0);
+  @include tx-font-size(large, 0);
 }
 
 small {
-  @include tx-font-size($fontSizeSmall, 0);
+  @include tx-font-size(small, 0);
 }
 
 u {
@@ -448,27 +448,27 @@ hr {
 
 /* Large Resolution Baseline */
 
-@media only screen and (min-width: $desktop-wide-rem) {}
+@media only screen and (min-width: txf-breakpoint(desktopWide)) {}
 
 
 
 /* Tablet Baseline */
 
-@media only screen and (max-width: $desktop-min-rem) {}
+@media only screen and (max-width: txf-breakpoint(desktopMin)) {}
 
-@media only screen and (max-width: $desktop-min-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $desktop-min-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $desktop-min-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $desktop-min-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $desktop-min-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $desktop-min-rem) and (min-resolution: 150dpi) {}
+@media only screen and (max-width: txf-breakpoint(desktopMin)) and (min-resolution: 1.5dppx), only screen and (max-width: txf-breakpoint(desktopMin)) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: txf-breakpoint(desktopMin)) and (min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (min-resolution: 150dpi) {}
 
 
 
 /* Phone Baseline */
 
-@media handheld, only screen and (max-width: $phone-max-rem) {
+@media handheld, only screen and (max-width: txf-breakpoint(phoneMax)) {
 
   @import 'phone/_baseline-phone';
 
 }
 
-@media only screen and (max-width: $phone-max-rem) and (min-resolution: 1.5dppx), only screen and (max-width: $phone-max-rem) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: $phone-max-rem) and (min-device-pixel-ratio: 1.5), only screen and (max-width: $phone-max-rem) and (min-resolution: 150dpi) {}
+@media only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 1.5dppx), only screen and (max-width: txf-breakpoint(phoneMax)) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 150dpi) {}
 
 
 

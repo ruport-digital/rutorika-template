@@ -10,8 +10,8 @@
   left: 0;
   display: none;
   width: 100%;
-  background: linear-gradient(to bottom, transparent, transparent 23px, #337ab7);
-  background-size: 100% 24px;
+  background: linear-gradient(to bottom, transparent, transparent 0.5, #337ab7);
+  background-size: 100% 1.5;
   pointer-events: none; }
   .page-is-showingRhythmLines .debugToolsRhythm {
     display: block; }
