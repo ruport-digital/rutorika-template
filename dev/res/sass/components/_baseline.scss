@@ -329,7 +329,7 @@ kbd {
 
   @extend %attentionStyle;
   @include tx-inline-block;
-  @include tx-grid-height(1);
+  @include tx-grid-height(1, 1);
   padding: 0 .5em;
   border-radius: 3px;
   background: $kbd-bg;

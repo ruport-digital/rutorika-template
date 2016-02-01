@@ -133,10 +133,7 @@
     height: txf-rhythm($lines, 2 * $brdw);
   }
   @if $lh == true {
-    @if $fall == true {
-      line-height: txf-rhythm-fallback($lines, 2 * $brdw);
-    }
-    line-height: txf-rhythm($lines, 2 * $brdw);
+    line-height: $lineHeight * $lines - ($brdw / ($fontSize / 1px)) * 2;
   }
 }
 
@@ -155,11 +152,11 @@
   }
   $fznRem: $size / $fontSize;
   font-size: #{$fznRem}rem;
-  @if $ln != none and $ln != approx {
-    @if $fall == true and $ln != 0 {
-      line-height: txf-rhythm-fallback($ln);
-    }
-    line-height: txf-rhythm($ln);
+  @if $ln != none and $ln != approx and $ln != 0 {
+    line-height: 1 + (ceil($fznRem / ($lineHeight * $ln)) * ($lineHeight * $ln) - $fznRem) / $fznRem;
+  }
+  @if $ln == 0 {
+    line-height: 0;
   }
   @if $ln == approx {
     line-height: 1 + (ceil($fznRem / $lineHeight) * $lineHeight - $fznRem) / $fznRem;
@@ -305,12 +302,9 @@
 
 // Form Element Height in Grid Units
 
-@mixin tx-form-height($lines: 1, $brdw: 1px, $lh: false, $fall: $tx-remFallback) {
+@mixin tx-form-height($lines: 1, $brdw: 1, $lh: false, $fall: $tx-remFallback) {
   @if $lh == true {
-    @if $fall == true {
-      line-height: txf-rhythm-fallback($lines, $offset: 2 * $brdw);
-    }
-    line-height: txf-rhythm($lines, $offset: 2 * $brdw);
+    line-height: $lineHeight * $lines - ($brdw / ($fontSize / 1px)) * 2;
   } @else {
     @if $fall == true {
       height: txf-rhythm-fallback($lines, $offset: 2 * $brdw);

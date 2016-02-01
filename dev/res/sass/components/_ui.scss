@@ -214,7 +214,7 @@ textarea {
   @extend %formBoxSizingStyle;
   @extend %formStyle;
   @extend %formPlaceholderStyle;
-  @include tx-form-height(9, 1, $lh: false);
+  @include tx-form-height(9, 1);
   @include tx-rhythm-padding(.25, .25, $prgt: ($gap / 2), $plft: ($gap / 2));
   display: block;
   overflow: auto;
