@@ -599,7 +599,8 @@ module.exports = function(grunt) {
     clean: {
       res: [project.res.css.dir, project.res.js.dir + '*.js'],
       reports: [project.res.js.dir + '*.txt'],
-      build: [project.build.dir]
+      images: [project.res.css.sass + 'project/tx/'],
+      build: [project.build.dir],
     },
     copy: {
       build: {
@@ -694,15 +695,6 @@ module.exports = function(grunt) {
     }
     if (scssIE !== '') {
       grunt.file.write(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss', scssIE);
-    }
-  });
-
-  grunt.registerTask('datauri-cleanup', 'Cleanup After datauri-fallback', function() {
-    if (grunt.file.isFile(project.res.css.sass + 'project/tx/_tx-projectImages-base64.scss')) {
-      grunt.file.delete(project.res.css.sass + 'project/tx/_tx-projectImages-base64.scss');
-    }
-    if (grunt.file.isFile(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss')) {
-      grunt.file.delete(project.res.css.sass + 'project/tx/_tx-projectImages-IE.scss');
     }
   });
 
@@ -804,7 +796,6 @@ module.exports = function(grunt) {
     'datauri',
     'datauri-fallback',
     'concat:datauri',
-    'datauri-cleanup'
   ]);
 
   grunt.registerTask('process-sprites', [
@@ -815,7 +806,8 @@ module.exports = function(grunt) {
   grunt.registerTask('images', [
     'imagemin:images',
     'svgmin:images',
-    'images-datauri'
+    'images-datauri',
+    'clean:images'
   ]);
 
   grunt.registerTask('process-html', [
