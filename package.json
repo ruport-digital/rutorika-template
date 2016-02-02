@@ -8,8 +8,8 @@
     "fontfaceobserver": "*"
   },
   "devDependencies": {
-    "babelify": "*",
     "babel-preset-es2015": "*",
+    "babelify": "*",
     "backstopjs": "*",
     "grunt": "~0.4.5",
     "grunt-analyze-css": "*",
