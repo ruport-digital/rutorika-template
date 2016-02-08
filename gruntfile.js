@@ -602,6 +602,14 @@ module.exports = function(grunt) {
       images: [project.res.css.sass + 'project/tx/'],
       build: [project.build.dir],
     },
+    cleanempty: {
+      options: {
+        noJunk: true
+      },
+      build: {
+        src: [project.build.dir + '**/*']
+      }
+    },
     copy: {
       build: {
         cwd: project.dir,
@@ -755,6 +763,14 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('reminder', 'Reminder', function() {
+    var list = grunt.file.readJSON('.reminderrc').reminders;
+    grunt.log.writeln('\nDon\'t Forget to Check:'['magenta']);
+    list.forEach(function(value) {
+      grunt.log.writeln('✔'['green'] + ' ' + value);
+    });
+  });
+
   grunt.registerTask('compileTasks', 'compiling', function() {
     if (project.res.images.sprites.length > 0) {
       grunt.task.run([
@@ -790,6 +806,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('performance', [
     'analyzecss'
+  ]);
+
+  grunt.registerTask('test', [
+    'quality',
+    'performance'
   ]);
 
   grunt.registerTask('images-datauri', [
@@ -858,7 +879,9 @@ module.exports = function(grunt) {
     'prettify',
     'string-replace:indentation',
     'compress:cssGzip',
-    'compress:jsGzip'
+    'compress:jsGzip',
+    'cleanempty:build',
+    'reminder'
   ]);
 
   grunt.registerTask('build-critical', [
