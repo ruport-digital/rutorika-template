@@ -6,6 +6,7 @@ var LANGUAGE          = 'ru';             // Language
 var DEVELOPMENT_DIR   = 'dev';            // Development
 var BUILD_DIR         = 'build';          // Build
 var META_DIR          = 'meta';           // Meta Content
+var TESTS_DIR         = 'tests';          // Tests
 var IMAGES_DIR        = 'images';         // Content Images
 var RESOURCES_DIR     = 'res';            // Resources (CSS, JavaScript, Fonts, etc.)
 var TEMPLATES_DIR     = 'templates';      // Templates
@@ -40,7 +41,8 @@ module.exports = function(grunt) {
         name: PROJECT,
         language: LANGUAGE,
         dir: developmentDirCompiled,
-        meta: META_DIR,
+        meta: META_DIR + '/',
+        tests: TESTS_DIR + '/',
         images: developmentDirCompiled + IMAGES_DIR + '/',
         index: INDEX_PAGE,
         res: {
@@ -175,6 +177,39 @@ module.exports = function(grunt) {
       ananlyzeCSS: {
         cwd: project.res.css.dir,
         src: ['*.css', '!*-IE.css'],
+        expand: true
+      }
+    },
+
+    backstop: {
+      options: {
+        'backstop_path': 'node_modules/backstopjs',
+        'test_path': project.tests + 'backstop'
+      },
+      test: {
+        options: {
+          setup: false,
+          configure: false,
+          'create_references': false,
+          'run_tests': true
+        }
+      },
+      ref: {
+        options: {
+          setup: false,
+          configure: false,
+          'create_references': true,
+          'run_tests': false
+        }
+      }
+    },
+    mochaTest: {
+      tests: {
+        options: {
+          quiet: false
+        },
+        cwd: project.tests,
+        src: ['**/*.js'],
         expand: true
       }
     },
@@ -657,6 +692,23 @@ module.exports = function(grunt) {
       }
     },
 
+    connect: {
+      options: {
+        keepalive: true,
+        port: 8000
+      },
+      dev: {
+        options: {
+          base: project.dir
+        }
+      },
+      build: {
+        options: {
+          base: project.build.dir
+        }
+      }
+    },
+
     watch: {
       options: {
         spawn: false
@@ -687,9 +739,9 @@ module.exports = function(grunt) {
     concurrent: {
       options: {
         logConcurrentOutput: true,
-        limit: 5
+        limit: 2
       },
-      projectWatch: ['watch:html', 'watch:images', 'watch:sass', 'watch:javascript', 'watch:livereload']
+      projectWatch: ['watch', 'connect:dev']
     }
 
   });
@@ -812,7 +864,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'quality',
-    'performance'
+    'performance',
+    'mochaTest',
+    'backstop:test'
   ]);
 
   grunt.registerTask('images-datauri', [

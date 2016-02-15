@@ -8,13 +8,15 @@
     "fontfaceobserver": "*"
   },
   "devDependencies": {
-    "babel-preset-es2015": "*",
     "babelify": "*",
+    "babel-preset-es2015": "*",
     "backstopjs": "*",
+    "chai": "*",
     "grunt": "~0.4.5",
     "grunt-analyze-css": "*",
     "grunt-arialinter": "*",
     "grunt-autoprefixer": "*",
+    "grunt-backstop": "*",
     "grunt-browserify": "*",
     "grunt-cleanempty": "*",
     "grunt-colorguard": "*",
@@ -22,6 +24,7 @@
     "grunt-contrib-clean": "*",
     "grunt-contrib-compress": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-connect": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-csslint": "*",
     "grunt-contrib-cssmin": "*",
@@ -36,9 +39,10 @@
     "grunt-csscss": "*",
     "grunt-datauri": "*",
     "grunt-fixmyjs": "*",
-    "grunt-htmlhint": "0.9.12",
+    "grunt-htmlhint": "*",
     "grunt-jscs": "*",
     "grunt-jsinspect": "*",
+    "grunt-mocha-test": "*",
     "grunt-prettify": "*",
     "grunt-processhtml": "*",
     "grunt-remove-logging": "*",
@@ -48,10 +52,10 @@
     "grunt-string-replace": "*",
     "grunt-svgmin": "*",
     "grunt-uncss": "*",
-    "load-grunt-tasks": "*"
+    "load-grunt-tasks": "*",
+    "mocha": "*"
   },
   "scripts": {
-    "preinstall": "npm cache clean",
     "build": "grunt build",
     "start": "grunt watch",
     "test": "grunt test"
