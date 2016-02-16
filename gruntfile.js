@@ -903,6 +903,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('process-js', [
     'browserify',
+    'removelogging',
     'fixmyjs',
     'string-replace:jshint',
     'uglify'
