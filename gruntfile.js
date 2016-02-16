@@ -635,7 +635,7 @@ module.exports = function(grunt) {
       res: [project.res.css.dir, project.res.js.dir + '*.js'],
       reports: [project.res.js.dir + '*.txt'],
       images: [project.res.css.sass + 'project/tx/'],
-      build: [project.build.dir],
+      build: [project.build.dir]
     },
     cleanempty: {
       options: {
@@ -872,7 +872,7 @@ module.exports = function(grunt) {
   grunt.registerTask('images-datauri', [
     'datauri',
     'datauri-fallback',
-    'concat:datauri',
+    'concat:datauri'
   ]);
 
   grunt.registerTask('process-sprites', [
