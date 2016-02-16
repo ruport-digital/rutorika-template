@@ -12,7 +12,7 @@ function toggle(event) {
 }
 
 function clicked(event) {
-  var target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+  var target = (event.target) ? event.target : event.srcElement;
   if (target.className.indexOf(activeClassName) > -1) {
     toggle(event);
   }
