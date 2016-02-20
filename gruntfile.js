@@ -292,7 +292,7 @@ module.exports = function(grunt) {
             pattern: /<style type="text\/css">(?:\r?\n|\r)/g,
             replacement: '<style type="text/css">'
           }, {
-            pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script id="loadcss">(?:\r?\n|\r)/g,
+            pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script>(?:\r?\n|\r)/g,
             replacement: '</style>\n    <script type="text/javascript" id="loadcss">'
           }, {
             pattern: /(?:\r?\n|\r)<\/script>(?:\r?\n|\r)<noscript>(?:\r?\n|\r)/g,

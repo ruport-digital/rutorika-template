@@ -33,7 +33,7 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
-    "grunt-critical": "*",
+    "grunt-critical": "0.1.7",
     "grunt-cssc": "*",
     "grunt-csscomb": "*",
     "grunt-csscss": "*",

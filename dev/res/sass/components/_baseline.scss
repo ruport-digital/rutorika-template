@@ -9,7 +9,7 @@ body {
   @include tx-hyphens;
   color: $text;
   font-family: $font-sans;
-  font-feature-settings: 'liga';
+  font-feature-settings: 'liga', 'kern';
 }
 
 %HTML5BlocksStyle {

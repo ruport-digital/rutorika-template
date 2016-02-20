@@ -11,9 +11,9 @@ html {
 body {
   color: #333333;
   font-family: "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
-  -webkit-font-feature-settings: "liga";
-  -moz-font-feature-settings: "liga";
-  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga", "kern";
+  -moz-font-feature-settings: "liga", "kern";
+  font-feature-settings: "liga", "kern";
   -epub-hyphens: manual;
   -webkit-hyphens: manual;
   -moz-hyphens: manual;
