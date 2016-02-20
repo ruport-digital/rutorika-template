@@ -54,21 +54,41 @@ function fixSlide() {
   }
 }
 
+function getData(event) {
+  pointStartX = event ? event.originalEvent.touches[0].pageX : 0;
+  pointShift = 1;
+  positionStart = object.offset().left;
+  linkActive = links.filter(`.${linkClassName}-is-active`);
+  index = links.index(linkActive);
+  if (index === 0) {
+    galleryStatus = 'start';
+  } else if (index === (links.size() - 1)) {
+    galleryStatus = 'end';
+  } else {
+    galleryStatus = 'middle';
+  }
+}
+
+function prev() {
+  getData();
+  if (galleryStatus !== 'start') {
+    pointDiffX = (NEXT_SHIFT + 1);
+    fixSlide();
+  }
+}
+
+function next() {
+  getData();
+  if (galleryStatus !== 'end') {
+    pointDiffX = (-NEXT_SHIFT - 1);
+    fixSlide();
+  }
+}
+
 function touchStart(event) {
   if (!object.is('.slides-are-fixing')) {
-    pointStartX = event.originalEvent.touches[0].pageX;
-    pointShift = 1;
     pointDiffX = 0;
-    positionStart = object.offset().left;
-    linkActive = links.filter(`.${linkClassName}-is-active`);
-    index = links.index(linkActive);
-    if (index === 0) {
-      galleryStatus = 'start';
-    } else if (index === (links.size() - 1)) {
-      galleryStatus = 'end';
-    } else {
-      galleryStatus = 'middle';
-    }
+    getData(event);
     doc
       .on('touchmove', touchMove)
       .on('touchend', touchEnd);
@@ -109,3 +129,5 @@ function dots(size, listClass, pageClass) {
 
 exports.init = init;
 exports.dots = dots;
+exports.prev = prev;
+exports.next = next;
