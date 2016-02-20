@@ -360,12 +360,11 @@
 
 // Sprites
 
-@mixin tx-sprite($name, $pos: true, $block: false, $pd: false) {
-  display: block;
+@mixin tx-sprite($name, $pos: true, $block: false, $pd: false, $color: null) {
   @if $pos {
-    background: url(#{nth($name, 9)}) nth($name, 3) nth($name, 4);
+    background: $color url(#{nth($name, 9)}) nth($name, 3) nth($name, 4);
   } @else {
-    background: url(#{nth($name, 9)});
+    background: $color url(#{nth($name, 9)});
   }
   @if $block {
     @include tx-sprite-block($name, $pd);

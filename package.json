@@ -53,7 +53,8 @@
     "grunt-svgmin": "*",
     "grunt-uncss": "*",
     "load-grunt-tasks": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "rewire": "*"
   },
   "scripts": {
     "build": "grunt build",
