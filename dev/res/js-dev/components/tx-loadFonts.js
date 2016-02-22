@@ -1,6 +1,8 @@
 /* jshint browser:true */
 /* global Promise */
 
+'use strict';
+
 var FontFaceObserver = require('fontfaceobserver');
 
 function load(fontCritical, fontClass, fonts, object) {
@@ -9,12 +11,12 @@ function load(fontCritical, fontClass, fonts, object) {
     var index = 0;
     var length = fonts.length;
     var restChecks = [];
-    object.className += ' ' + fontClass + 'Critical-is-loaded';
+    object.className += ` ${fontClass}Critical-is-loaded`;
     for (index; index < length; index += 1) {
       restChecks.push((new FontFaceObserver(fonts[index])).check());
     }
     Promise.all(restChecks).then(function () {
-      object.className += ' ' + fontClass + 'Rest-is-loaded';
+      object.className += ` ${fontClass}Rest-is-loaded`;
     });
   });
 }

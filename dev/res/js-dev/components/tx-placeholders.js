@@ -1,19 +1,18 @@
 /* jshint browser:true */
-/* global Modernizr */
+
+'use strict';
 
 var querySelectorPolyfill = require('./tx-selector.js');
+var addEvent = require('./tx-event');
 
 function selectFields() {
   var fields;
   var fieldsPlaceholders = [];
-  var index = 0;
-  var length;
   if (!document.querySelectorAll) {
     querySelectorPolyfill.polyfill();
   }
   fields = document.querySelectorAll('input, textarea');
-  length = fields.length;
-  for (index; index < length; index += 1) {
+  for (let index = 0, length = fields.length; index < length; index += 1) {
     if (fields[index].getAttribute('placeholder') !== null) {
       fieldsPlaceholders.push(fields[index]);
     }
@@ -21,51 +20,39 @@ function selectFields() {
   return fieldsPlaceholders;
 }
 
-function appPlaceholder(field) {
-  var value = field.value;
-  var placeholder = field.getAttribute('placeholder');
-  if (value === '') {
-    field.className = field.className + ' js-input-is-showingPlaceholder';
-    field.value = placeholder;
+function getTarget(event) {
+  return (event.currentTarget) ? event.currentTarget : event.srcElement;
+}
+
+function addPlaceholder(field) {
+  if (field.value === '') {
+    field.className = `${field.className} js-input-is-showingPlaceholder`;
+    field.value = field.getAttribute('placeholder');
   }
 }
 
 function removePlaceholder(field) {
-  var value = field.value;
-  var placeholder = field.getAttribute('placeholder');
-  if (value === placeholder) {
+  if (field.value === field.getAttribute('placeholder')) {
     field.className = field.className.replace(' js-input-is-showingPlaceholder', '');
     field.value = '';
   }
 }
 
-function focusHandler() {
-  var target = (event.currentTarget) ? event.currentTarget : event.srcElement;
-  removePlaceholder(target);
+function fieldFocus(event) {
+  removePlaceholder(getTarget(event));
 }
 
-function blurHandler() {
-  var target = (event.currentTarget) ? event.currentTarget : event.srcElement;
-  appPlaceholder(target);
+function fieldBlur(event) {
+  addPlaceholder(getTarget(event));
 }
 
 function polyfill() {
-  if (!Modernizr.input.placeholder) {
-    var fields = selectFields();
-    var field;
-    var index = 0;
-    var length = fields.length;
-    for (index; index < length; index += 1) {
-      field = fields[index];
-      appPlaceholder(field);
-      if (document.addEventListener) {
-        field.addEventListener('focus', focusHandler);
-        field.addEventListener('blur', blurHandler);
-      } else {
-        field.attachEvent('onfocusin', focusHandler);
-        field.attachEvent('onfocusout', blurHandler);
-      }
-    }
+  var fields = selectFields();
+  for (let index = 0, length = fields.length; index < length; index += 1) {
+    let field = fields[index];
+    addPlaceholder(field);
+    addEvent.bind(field, 'focus', fieldFocus);
+    addEvent.bind(field, 'blur', fieldBlur);
   }
 }
 

@@ -1,14 +1,12 @@
 /* jshint browser:true */
 
+'use strict';
+
 function properties(axis, distance) {
-  var property;
-  var propertyLayer;
-  axis = axis.toUpperCase();
-  property = 'translate' + axis + '(' + distance + ')';
-  propertyLayer = property + ' translateZ(0)';
+  var property = `translate${axis.toUpperCase()}(${distance})`;
   return {
     property: property,
-    propertyLayer: propertyLayer
+    propertyLayer: `${property} translateZ(0)`
   };
 }
 
@@ -25,7 +23,7 @@ function translateCSS(axis, distance) {
 
 function translateString(axis, distance) {
   var css = properties(axis, distance);
-  return '-webkit-transform:' + css.propertyLayer + '; -moz-transform:' + css.propertyLayer + '; -ms-transform:' + css.property + '; -o-transform' + css.property + '; transform:' + css.propertyLayer + ';';
+  return `-webkit-transform:${css.propertyLayer};-moz-transform:${css.propertyLayer};-ms-transform:${css.property};-o-transform:${css.property};transform:${css.propertyLayer};`;
 }
 
 exports.css = translateCSS;

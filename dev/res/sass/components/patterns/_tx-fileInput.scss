@@ -1,0 +1,35 @@
+/* Button */
+
+$tx-fileInput-height: 48px;
+$tx-fileInput-padding: ($gap / 2);
+$tx-fileInput-borderWidth: 2px;
+$tx-fileInput-borderColor: $gray;
+
+%tx-file {
+  $tx-fileInput-height: ($tx-fileInput-height - $tx-fileInput-borderWidth * 2);
+
+  position: relative;
+  height: $tx-fileInput-height;
+  padding: 0 $tx-fileInput-padding;
+  border: $tx-fileInput-borderWidth solid $tx-field-borderColor;
+
+  &-input {
+    position: absolute;
+    left: -10000px;
+    visibility: hidden;
+  }
+
+  &-value {
+    line-height: $tx-fileInput-height;
+  }
+
+  &-button {
+    @extend %tx-button-link;
+    @include tx-inline-block;
+    position: absolute;
+    right: -$tx-fileInput-borderWidth;
+    top: -$tx-fileInput-borderWidth;
+  }
+
+}
+

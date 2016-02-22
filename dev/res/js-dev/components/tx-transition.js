@@ -1,5 +1,7 @@
 /* jshint browser:true */
 
+'use strict';
+
 function which() {
   var transition;
   var element = document.createElement('element');
