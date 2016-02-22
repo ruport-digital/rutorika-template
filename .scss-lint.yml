@@ -48,7 +48,7 @@ linters:
   IdWithExtraneousSelector:
     enabled: true
 
-  ImportPath
+  ImportPath:
     leading_underscore: true
 
   Indentation:
