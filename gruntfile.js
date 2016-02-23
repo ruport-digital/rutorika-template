@@ -809,7 +809,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('reminder', 'Reminder', function() {
-    var list = grunt.file.readJSON('.reminderrc').reminders;
+    var list = grunt.file.readJSON('reminders.json').reminders;
     if (list.length > 0) {
       grunt.log.writeln('\nDon\'t Forget to Check:'['magenta']);
       list.forEach(function(value) {

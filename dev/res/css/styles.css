@@ -350,10 +350,9 @@ body {
   overflow-x: auto;
   overflow-y: scroll;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  min-width: 61.25em-60px;
+  min-width: 61.25em;
   min-height: 100%;
   max-width: 1920px;
-  padding: 0 30px;
   margin: 0 auto;
   background: #ffffff;
 }

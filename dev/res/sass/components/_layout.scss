@@ -6,12 +6,11 @@ html {
 }
 
 body {
-  $body-minWidth: (txf-breakpoint(desktopMin) - $gap * 2);
+  $body-minWidth: (txf-breakpoint(desktopMin));
 
   @include tx-set-boundaries($body-minWidth);
   @include tx-scroll-bar(true);
   position: relative;
-  padding: 0 $gap;
   background: $background;
 }
 
