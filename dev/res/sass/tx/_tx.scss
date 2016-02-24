@@ -153,13 +153,13 @@
   $fznRem: $size / $fontSize;
   font-size: #{$fznRem}rem;
   @if $ln != none and $ln != approx and $ln != 0 {
-    line-height: 1 + (ceil($fznRem / ($lineHeight * $ln)) * ($lineHeight * $ln) - $fznRem) / $fznRem;
+    line-height: ($lineHeight * $ln) * ($fontSize / $size);
   }
   @if $ln == 0 {
     line-height: 0;
   }
   @if $ln == approx {
-    line-height: 1 + (ceil($fznRem / $lineHeight) * $lineHeight - $fznRem) / $fznRem;
+    line-height: ($lineHeight * ceil($size / ($fontSize * $lineHeight))) * ($fontSize / $size);
   }
 }
 
@@ -382,13 +382,12 @@
   }
 }
 
-@mixin tx-sprite-position($name) {
-  background-position: nth($name, 3) nth($name, 4);
+@mixin tx-sprite-image($name) {
+  background-image: url(#{nth($name, 3)});
 }
 
-@mixin tx-sprite-dpi($sptsX, $spts) {
-  background-image: url(#{nth($sptsX, 3)});
-  background-size: nth($spts, 1) nth($spts, 2);
+@mixin tx-sprite-position($name) {
+  background-position: nth($name, 3) nth($name, 4);
 }
 
 @function txf-sprite-width($name) {
@@ -397,6 +396,11 @@
 
 @function txf-sprite-height($name) {
   @return nth($name, 6);
+}
+
+@mixin tx-sprite-dpi($sptsX, $spts) {
+  background-image: url(#{nth($sptsX, 3)});
+  background-size: nth($spts, 1) nth($spts, 2);
 }
 
 

@@ -309,8 +309,8 @@ module.exports = function(grunt) {
       indentation: {
         options: {
           replacements: [{
-            pattern: /(?:\r?\n|\r)(<html.*>)(?:\r?\n|\r)*(?:\s*)/g,
-            replacement: '$1'
+            pattern: /(<!-->)(?:\r?\n|\r)(<html.*>)(?:\r?\n|\r)*(?:\s*)(<!--<!\[endif\]-->)/g,
+            replacement: '$1 $2 $3'
           }]
         },
         files: {
@@ -487,7 +487,7 @@ module.exports = function(grunt) {
       },
       templates: {
         cwd: project.res.templates.dir,
-        src: ['*.html'],
+        src: ['*.html', '!* copy.html', '!* - Copy.html'],
         dest: project.dir,
         expand: true
       }
@@ -707,7 +707,7 @@ module.exports = function(grunt) {
         spawn: false
       },
       html: {
-        files: [project.res.templates.dir + '**/*.html', project.res.templates.dir + '!**/* copy.html', project.res.templates.dir + '!**/* - Copy.html'],
+        files: [project.res.templates.dir + '**/*.html'],
         tasks: ['processhtml']
       },
       images: {
