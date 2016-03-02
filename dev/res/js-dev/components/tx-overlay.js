@@ -11,7 +11,9 @@ function Overlay(element) {
 
   function toggle(event) {
     var currentClassName = object.className;
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     object.className = currentClassName.indexOf(activeClassName) > -1 ? currentClassName.replace(activeClassName, '') : `${currentClassName} ${activeClassName}`;
   }
 
