@@ -1,4 +1,4 @@
-/* Typography & Rhythm (Internet Explorer < 8) */
+/* Typography & Vertical Rhythm (Internet Explorer < 8) */
 
 dfn {
   font-style: normal;
@@ -14,6 +14,36 @@ img {
 
 %orderedListStyleIE {
   list-style: decimal outside;
+}
+
+
+
+/* Forms */
+
+%formRadioCheckboxStyleIE {
+  width: 13px;
+  height: 13px;
+}
+
+input {
+
+  &[type='checkbox'] {
+    @extend %formRadioCheckboxStyleIE;
+  }
+
+  &[type='radio'] {
+    @extend %formRadioCheckboxStyleIE;
+  }
+
+}
+
+
+
+/* Internet Explorer 6 */
+
+%buttonStyleIE6 {
+  @include tx-grid-height(1, $lh: false);
+  cursor: hand;
 }
 
 .ie6 {
@@ -69,6 +99,18 @@ img {
 
     }
 
+  }
+
+  input {
+    vertical-align: text-bottom;
+  }
+
+  button {
+    @extend %buttonStyleIE6;
+  }
+
+  .button {
+    @extend %buttonStyleIE6;
   }
 
 }

@@ -672,17 +672,6 @@ module.exports = function(grunt) {
         ext: '.gz',
         extDot: 'last',
         expand: true
-      },
-      build: {
-        options: {
-          mode: 'zip',
-          archive: project.name + '.build.zip'
-        },
-        cwd: project.build.dir,
-        src: ['**'],
-        dest: '.',
-        extDot: 'last',
-        expand: true
       }
     },
 
@@ -939,12 +928,21 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build-critical', [
-    'build',
-    'compile-critical'
-  ]);
-
-  grunt.registerTask('compress-build', [
-    'compress:build'
+    'compile',
+    'clean:build',
+    'clean:reports',
+    'copy:build',
+    'copy:meta',
+    'imagemin:meta',
+    'svgmin:meta',
+    'string-replace:build',
+    'htmlmin',
+    'prettify',
+    'string-replace:indentation',
+    'compress:res',
+    'compile-critical',
+    'cleanempty:build',
+    'reminder'
   ]);
 
 };

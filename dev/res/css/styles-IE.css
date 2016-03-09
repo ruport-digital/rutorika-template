@@ -1,4 +1,4 @@
-/* Typography & Rhythm (Internet Explorer < 8) */
+/* Typography & Vertical Rhythm (Internet Explorer < 8) */
 dfn {
   font-style: normal;
 }
@@ -13,6 +13,19 @@ img {
 
 .ie6 ol, .ie6 .u-listReset ol {
   list-style: decimal outside;
+}
+
+/* Forms */
+input[type="checkbox"], input[type="radio"] {
+  width: 13px;
+  height: 13px;
+}
+
+/* Internet Explorer 6 */
+.ie6 button, .ie6 .button {
+  height: 24px;
+  height: 1.5rem;
+  cursor: hand;
 }
 
 .ie6 label {
@@ -37,19 +50,6 @@ img {
   margin: 0 0 24px 1.5em;
   margin: 0 0 1.5rem 1.5em;
   font-style: italic;
-}
-
-/* Forms */
-input[type="checkbox"], input[type="radio"] {
-  width: 13px;
-  height: 13px;
-}
-
-/* Internet Explorer 6 */
-.ie6 button, .ie6 .button {
-  height: 24px;
-  height: 1.5rem;
-  cursor: hand;
 }
 
 .ie6 input {

@@ -1,4 +1,4 @@
-/* Baseline Styles, Typography & Rhythm */
+/* Typography & Vertical Rhythm */
 
 html {
   font-size: 16px;
@@ -90,14 +90,14 @@ pre, code, var {
 }
 
 dt {
-  margin: 24px 0 0;
-  margin: 1.5rem 0 0;
+  margin: 24px 0 12px;
+  margin: 1.5rem 0 .75rem;
   font-weight: bold;
 }
 
 dd {
-  margin: 0 0 24px 1.5em;
-  margin: 0 0 1.5rem 1.5em;
+  margin: 12px 0 12px 1.5em;
+  margin: .75rem 0 .75rem 1.5em;
   font-style: italic;
 }
 
@@ -262,128 +262,6 @@ legend {
   font-weight: bold;
 }
 
-/* Phone Baseline */
-
-@media handheld, only screen and (max-width: 45em) {
-
-  /* Typography & Rhythm */
-
-  table, tr, th, td {
-    display: block;
-  }
-
-}
-
-/* Print Baseline */
-
-@media print {
-
-  /* Typography & Rhythm */
-
-  @page {
-    margin: .5cm;
-
-    size: A4;
-  }
-
-  html, body {
-    background: #ffffff;
-  }
-
-  body {
-    color: #333333;
-    font-size: 12pt;
-    line-height: 1.5;
-  }
-
-  pre, code, var, acronym, abbr, ins, del, input, select, textarea {
-    border: 0;
-    color: #333333;
-    text-decoration: none;
-  }
-
-  p {
-    orphans: 3;
-    widows: 3;
-  }
-
-  blockquote, tr, table {
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group;
-  }
-
-  form {
-    display: none;
-  }
-
-  [title]:after {
-    content: " (" attr(title) ")";
-  }
-
-}
-
-/* Lists Reset */
-
-.u-listReset, .u-listReset > li {
-  padding: 0;
-  margin: 0;
-}
-
-.u-listReset {
-  list-style: none;
-}
-
-/* Layout Base */
-
-html {
-  -webkit-overflow-scrolling: touch;
-  min-height: 100%;
-}
-
-body {
-  position: relative;
-  overflow-x: auto;
-  overflow-y: scroll;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  min-width: 61.25em;
-  min-height: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  background: #ffffff;
-}
-
-/* Phone Layout */
-
-@media handheld, only screen and (max-width: 45em) {
-
-  /* Layout Base */
-
-  body {
-    min-width: 0;
-  }
-
-}
-
-/* Print Layout */
-
-@media print {
-
-  /* Layout Base */
-
-  body {
-    width: auto;
-    min-width: 0;
-    max-width: none;
-    padding: 2.54cm;
-  }
-
-}
-
 /* Selection */
 
 ::-moz-selection {
@@ -537,7 +415,61 @@ textarea {
   font-size: inherit;
 }
 
-/* Custom Forms */
+/* Phone Baseline */
+
+@media handheld, only screen and (max-width: 45em) {
+
+  /* Typography & Rhythm */
+
+  table, tr, th, td {
+    display: block;
+  }
+
+}
+
+/* Lists Reset */
+
+.u-listReset, .u-listReset > li {
+  padding: 0;
+  margin: 0;
+}
+
+.u-listReset {
+  list-style: none;
+}
+
+/* Layout Base */
+
+html {
+  -webkit-overflow-scrolling: touch;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: scroll;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  min-width: 61.25em;
+  min-height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+/* Phone Layout */
+
+@media handheld, only screen and (max-width: 45em) {
+
+  /* Layout Base */
+
+  body {
+    min-width: 0;
+  }
+
+}
+
+/* Field */
 
 .field {
   height: 34px;
@@ -545,9 +477,71 @@ textarea {
   padding: 0 15px;
 }
 
-/* Print Typography */
+/* Print */
 
 @media print {
+
+  /* Baseline */
+
+  /* Typography & Rhythm */
+
+  @page {
+    margin: .5cm;
+
+    size: A4;
+  }
+
+  html, body {
+    background: #ffffff;
+  }
+
+  body {
+    color: #333333;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  pre, code, var, acronym, abbr, ins, del, input, select, textarea {
+    border: 0;
+    color: #333333;
+    text-decoration: none;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  blockquote, tr, table {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  form {
+    display: none;
+  }
+
+  [title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* Layout */
+
+  /* Layout Base */
+
+  body {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    padding: 2.54cm;
+  }
+
+  /* UI */
 
   /* Links */
 
@@ -570,6 +564,8 @@ textarea {
   }
 
 }
+
+
 
 /* TX Rhythm Lines */
 
