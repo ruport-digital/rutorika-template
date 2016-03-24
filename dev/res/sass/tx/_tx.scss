@@ -417,6 +417,14 @@
 
 
 
+// Block Placeholder
+
+@mixin tx-block-placeholder($img: '../images/tx/tx-placeholder.png') {
+  background: url($img);
+}
+
+
+
 // Functions
 
 @function txf-rhythm($ln: 1, $offset: 0) {

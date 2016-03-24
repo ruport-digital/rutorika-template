@@ -453,6 +453,7 @@ body {
   min-width: 61.25em;
   min-height: 100%;
   max-width: 1920px;
+  padding: 0 30px;
   margin: 0 auto;
   background: #ffffff;
 }
@@ -475,6 +476,51 @@ body {
   height: 34px;
   height: 2.125rem;
   padding: 0 15px;
+}
+
+/* TX Rhythm Lines */
+
+.page-is-showingRhythmLines {
+  position: relative;
+  top: -1px;
+  padding: 1px 30px 0;
+}
+
+.page-is-showingRhythmLines .debugToolsRhythm {
+  display: block;
+}
+
+/* TX Developer Note */
+
+[data-dev-note] {
+  position: relative;
+  -webkit-box-decoration-break: clone;
+  padding: 0 2px;
+  border-radius: 2px;
+  color: #ffffff;
+  background: #d9534f;
+  box-decoration-break: clone;
+}
+
+[data-dev-note]:hover {
+  background: rgba(217, 83, 79, .5);
+}
+
+[data-dev-note]:hover:after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  content: "Dev Note:\a" attr(data-dev-note);
+  display: block;
+  width: 195px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 0 0 5px -100px;
+  color: #ffffff;
+  background: #d9534f;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 /* Print */
@@ -563,73 +609,5 @@ body {
     color: #333333;
   }
 
-}
-
-
-
-/* TX Rhythm Lines */
-
-.page-is-showingRhythmLines {
-  position: relative;
-  top: -1px;
-  padding: 1px 30px 0;
-}
-
-.page-is-showingRhythmLines .debugToolsRhythm {
-  display: block;
-}
-
-/* TX Developer Note */
-
-[data-dev-note] {
-  position: relative;
-  padding: 0 2px;
-  border-radius: 2px;
-  color: #ffffff;
-  background: #d9534f;
-  box-decoration-break: clone;
-}
-
-[data-dev-note]:hover {
-  background: rgba(217, 83, 79, .5);
-}
-
-[data-dev-note]:hover:after {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  content: "Dev Note:\a" attr(data-dev-note);
-  display: block;
-  width: 195px;
-  padding: 5px;
-  border-radius: 2px;
-  margin: 0 0 5px -100px;
-  color: #ffffff;
-  background: #d9534f;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 1.2;
-}
-
-/* TX Debuging Console */
-
-.page-is-showingConsole .debugConsole {
-  display: block;
-}
-
-/* TX Debuging Controls */
-
-.page-is-showingDebugTools .debugTools {
-  transform: translate(0, 0);
-}
-
-.page-is-showingDebugTools .debugToolsToggle {
-  top: 5px;
-  left: 5px;
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  background: #ffffff;
-  opacity: 1;
 }
 

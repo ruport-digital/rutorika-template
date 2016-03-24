@@ -27,8 +27,8 @@ $tx-fileInput-borderColor: $gray;
     @extend %tx-button-link;
     @include tx-inline-block;
     position: absolute;
-    right: -$tx-fileInput-borderWidth;
     top: -$tx-fileInput-borderWidth;
+    right: -$tx-fileInput-borderWidth;
   }
 
 }

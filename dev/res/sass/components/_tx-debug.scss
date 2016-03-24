@@ -1,0 +1,68 @@
+/* TX Rhythm Lines */
+
+.page-is-showingRhythmLines {
+  position: relative;
+  top: -1px;
+  padding: 1px 30px 0;
+}
+
+.debugToolsRhythm {
+  $debugGridColor: $blue;
+
+  position: absolute;
+  top: 1px;
+  left: 0;
+  display: none;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, transparent ($lineHeight - 1), $debugGridColor);
+  background-size: 100% $lineHeight;
+  pointer-events: none;
+
+  .page-is-showingRhythmLines & {
+    display: block;
+  }
+
+}
+
+
+
+/* TX Developer Note */
+
+[data-dev-note] {
+  $developerNote-width: 200px;
+  $developerNote-padding: 5px;
+  $developerNote-borderRadius: 2px;
+  $developerNote-color: $white;
+  $developerNote-background: $red;
+  $developerNote-fontSize: 12px;
+
+  position: relative;
+  box-decoration-break: clone;
+  padding: 0 2px;
+  border-radius: $developerNote-borderRadius;
+  color: $developerNote-color;
+  background: $developerNote-background;
+
+  &:hover {
+    background: rgba($developerNote-background, .5);
+
+    &:after {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      content: 'Dev Note:\A' attr(data-dev-note);
+      display: block;
+      width: ($developerNote-width - $developerNote-padding);
+      padding: $developerNote-padding;
+      border-radius: $developerNote-borderRadius;
+      margin: 0 0 5px ($developerNote-width / -2);
+      color: $developerNote-color;
+      background: $developerNote-background;
+      font-weight: normal;
+      font-size: $developerNote-fontSize;
+      line-height: 1.2;
+    }
+
+  }
+
+}

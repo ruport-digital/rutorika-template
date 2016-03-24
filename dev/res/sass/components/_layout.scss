@@ -11,6 +11,7 @@ body {
   @include tx-set-boundaries($body-minWidth);
   @include tx-scroll-bar(true);
   position: relative;
+  padding: 0 $gap;
   background: $background;
 }
 

@@ -4,6 +4,21 @@
   "unformatted": [
     "a",
     "code",
-    "pre"
+    "pre",
+    "kbd",
+    "strong",
+    "em",
+    "cite",
+    "ins",
+    "del",
+    "dfn",
+    "abbr",
+    "acronym",
+    "sub",
+    "sup",
+    "small",
+    "big",
+    "del",
+    "col"
   ]
 }
