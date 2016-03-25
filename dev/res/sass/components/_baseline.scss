@@ -340,8 +340,12 @@ kbd {
   vertical-align: top;
 }
 
-%supSubStyle {
+%smallStyle {
   @include tx-font-size(small, 0);
+}
+
+%supSubStyle {
+  @extend %smallStyle;
   position: relative;
 }
 
@@ -360,7 +364,7 @@ big {
 }
 
 small {
-  @include tx-font-size(small, 0);
+  @extend %smallStyle;
 }
 
 u {
@@ -562,10 +566,6 @@ label {
   &::placeholder {
     color: $formPlaceholderStyle-color;
     opacity: 1;
-  }
-
-  &:placeholder-shown {
-
   }
 
 }

@@ -2,7 +2,7 @@
 
 'use strict';
 
-function polyfill() {
+module.exports = _ => {
   if (Object.defineProperty && Object.getOwnPropertyDescriptor && Object.getOwnPropertyDescriptor(Element.prototype, 'textContent') && !Object.getOwnPropertyDescriptor(Element.prototype, 'textContent').get) {
     (function() {
       var innerText = Object.getOwnPropertyDescriptor(Element.prototype, 'innerText');
@@ -16,6 +16,4 @@ function polyfill() {
       });
     })();
   }
-}
-
-exports.polyfill = polyfill;
+};

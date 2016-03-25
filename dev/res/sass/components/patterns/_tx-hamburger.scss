@@ -47,6 +47,7 @@ $tx-hamburger-lineColor: $red;
 
 %tx-hamburgerleLabel {
   position: relative;
+  z-index: -1;
   top: 0;
   display: block;
   padding: 0 0 0 ($tx-hamburger-width + 5px);

@@ -10,6 +10,7 @@ $tx-overlay-opacity: .75;
   left: 0;
   width: 100%;
   height: 100%;
+  background: $tx-overlay-background;
   background: rgba($tx-overlay-background, $tx-overlay-opacity);
   text-align: center;
   white-space: nowrap;

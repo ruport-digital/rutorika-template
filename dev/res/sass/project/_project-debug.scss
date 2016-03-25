@@ -1,0 +1,58 @@
+// Rhythm Lines
+
+%debug-rhythm {
+  $debugGridColor: $blue;
+
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, transparent ($lineHeight - 1), $debugGridColor);
+  background-size: 100% $lineHeight;
+  pointer-events: none;
+}
+
+
+
+// Developer Note
+
+$debug-devNote-width: 200px;
+$debug-devNote-padding: 5px;
+$debug-devNote-borderRadius: 2px;
+$debug-devNote-color: $white;
+$debug-devNote-background: $red;
+$debug-devNote-fontSize: 12px;
+
+%debug-devNoteStyle {
+  border-radius: $debug-devNote-borderRadius;
+  color: $debug-devNote-color;
+  background: $debug-devNote-background;
+}
+
+[data-dev-note] {
+  @extend %debug-devNoteStyle;
+  position: relative;
+  box-decoration-break: clone;
+  padding: 0 $debug-devNote-padding;
+
+  &:hover {
+    background: rgba($debug-devNote-background, .5);
+
+    &:after {
+      @extend %debug-devNoteStyle;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      content: 'Dev Note:\A' attr(data-dev-note);
+      display: block;
+      width: ($debug-devNote-width - $debug-devNote-padding);
+      padding: $debug-devNote-padding;
+      margin: 0 0 5px ($debug-devNote-width / -2);
+      font-weight: normal;
+      font-size: $debug-devNote-fontSize;
+      line-height: 1.2;
+    }
+
+  }
+
+}

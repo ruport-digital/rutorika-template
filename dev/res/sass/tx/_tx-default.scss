@@ -1,0 +1,28 @@
+%tx-default-inline-block {
+  display: inline-block;
+}
+
+%tx-default-inline-block-IE {
+  display: inline;
+  zoom: 1;
+}
+
+%tx-default-pseudo {
+  position: absolute;
+  content: '';
+  display: block;
+}
+
+%tx-default-pseudo-va {
+  @extend %tx-default-inline-block;
+  position: relative;
+  content: '';
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+%tx-sprite-block {
+  overflow: hidden;
+  height: 0;
+}

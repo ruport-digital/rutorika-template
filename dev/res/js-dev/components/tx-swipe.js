@@ -2,13 +2,13 @@
 
 'use strict';
 
-var transition = require('./tx-transition').which();
+var transition = require('./tx-transition')();
 var translateGallery = require('./tx-translate').css;
 
 const SLIDE_THRESHOLD = 15;
 const NEXT_SHIFT = 50;
 
-function Swipe(gallery, navigation, navigationItemClassName, jQDocument) {
+function swipe(gallery, navigation, navigationItemClassName, jQDocument) {
 
   var doc;
   var object;
@@ -135,7 +135,7 @@ function Swipe(gallery, navigation, navigationItemClassName, jQDocument) {
 }
 
 function init(gallery, navigation, navigationItemClassName, jQDocument) {
-  return new Swipe(gallery, navigation, navigationItemClassName, jQDocument);
+  return swipe(gallery, navigation, navigationItemClassName, jQDocument);
 }
 
 function dots(size, listClass, pageClass) {

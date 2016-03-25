@@ -5,20 +5,16 @@
 
 var FontFaceObserver = require('fontfaceobserver');
 
-function load(fontCritical, fontClass, fonts, object) {
+module.exports = (fontCritical, fontsRest, className, object) => {
   var critical = new FontFaceObserver(fontCritical);
-  critical.check().then(function () {
-    var index = 0;
-    var length = fonts.length;
+  critical.check().then(_ => {
     var restChecks = [];
-    object.className += ` ${fontClass}Critical-is-loaded`;
-    for (index; index < length; index += 1) {
-      restChecks.push((new FontFaceObserver(fonts[index])).check());
+    object.className += ` ${className}Critical-is-loaded`;
+    for (let index, length = fontsRest.length; index < length; index += 1) {
+      restChecks.push((new FontFaceObserver(fontsRest[index])).check());
     }
-    Promise.all(restChecks).then(function () {
-      object.className += ` ${fontClass}Rest-is-loaded`;
+    Promise.all(restChecks).then(_ => {
+      object.className += ` ${className}Rest-is-loaded`;
     });
   });
-}
-
-exports.bind = load;
+};

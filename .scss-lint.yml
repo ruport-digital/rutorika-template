@@ -1,15 +1,29 @@
 linters:
+  BangFormat:
+    enabled: true
+    space_before_bang: true
+    space_after_bang: false
+
+  BemDepth:
+    enabled: false
+    max_elements: 1
+
   BorderZero:
     enabled: true
+    convention: zero
 
-  CapitalizationInSelector:
-    enabled: true
+  ChainedClasses:
+    enabled: false
 
   ColorKeyword:
     enabled: true
 
+  ColorVariable:
+    enabled: true
+
   Comment:
     enabled: false
+    style: silent
 
   DebugStatement:
     enabled: true
@@ -17,15 +31,26 @@ linters:
   DeclarationOrder:
     enabled: true
 
+  DisableLinterReason:
+    enabled: false
+
   DuplicateProperty:
     enabled: false
+    ignore_consecutive: true
 
   ElsePlacement:
     enabled: true
     style: same_line
 
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: true
+
   EmptyRule:
     enabled: true
+
+  ExtendDirective:
+    enabled: false
 
   FinalNewline:
     enabled: true
@@ -45,16 +70,19 @@ linters:
   IdSelector:
     enabled: true
 
-  IdWithExtraneousSelector:
+  ImportantRule:
     enabled: true
 
   ImportPath:
+    enabled: true
     leading_underscore: true
+    filename_extension: false
 
   Indentation:
     enabled: true
-    width: 2
+    allow_non_nested_indentation: false
     character: space
+    width: 2
 
   LeadingZero:
     enabled: true
@@ -66,16 +94,30 @@ linters:
 
   NameFormat:
     enabled: false
+    allow_leading_underscore: true
+    convention: hyphenated_lowercase
 
   NestingDepth:
     enabled: true
-    max_depth: 4
+    max_depth: 3
+    ignore_parent_selectors: false
 
   PlaceholderInExtend:
     enabled: true
 
+  PrivateNamingConvention:
+    enabled: false
+    prefix: _
+
+  PropertyCount:
+    enabled: false
+    include_nested: false
+    max_properties: 10
+
   PropertySortOrder:
     enabled: true
+    ignore_unspecified: false
+    min_properties: 2
     order:
       - position
       - z-index
@@ -124,6 +166,7 @@ linters:
       - min-height
       - max-width
       - max-height
+      - size
       - resize
       - padding
       - padding-top
@@ -308,9 +351,13 @@ linters:
       - -premailer-cellpadding
       - -premailer-cellspacing
 
-  PropertySpelling:
+  PropertyUnits:
     enabled: true
-    extra_properties: ["appearance", "text-size-adjust", "stroke", "stroke-width", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap", "fill", "vector-effect", "mask", "clip-path", "-premailer-width", "-premailer-cellpadding", "-premailer-cellspacing", "scroll-snap-points-y", "scroll-snap-points-x", "scroll-snap-type", "scroll-snap-destination"]
+    global: ["ch", "em", "ex", "rem", "cm", "in", "mm", "pc", "pt", "px", "q", "vh", "vw", "vmin", "vmax", "deg", "grad", "rad", "turn", "ms", "s", "Hz", "kHz", "dpi", "dpcm", "dppx", "%"]
+    properties: {}
+
+  PseudoElement:
+    enabled: true
 
   QualifyingElement:
     enabled: true
@@ -324,24 +371,44 @@ linters:
 
   SelectorFormat:
     enabled: false
+    convention: hyphenated_lowercase
 
   Shorthand:
     enabled: true
+    allowed_shorthands: [1, 2, 3]
 
   SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: true
+
+  SingleLinePerSelector:
     enabled: true
 
   SpaceAfterComma:
     enabled: true
+    style: one_space
 
   SpaceAfterPropertyColon:
     enabled: true
+    style: one_space
 
   SpaceAfterPropertyName:
     enabled: true
 
+  SpaceAfterVariableColon:
+    enabled: false
+    style: one_space
+
+  SpaceAfterVariableName:
+    enabled: true
+
+  SpaceAroundOperator:
+    enabled: true
+    style: one_space
+
   SpaceBeforeBrace:
     enabled: true
+    style: space
     allow_single_line_padding: false
 
   SpaceBetweenParens:
@@ -352,10 +419,22 @@ linters:
     enabled: true
     style: single_quotes
 
-  TrailingSemicolonAfterPropertyValue:
+  TrailingSemicolon:
     enabled: true
 
+  TrailingWhitespace:
+    enabled: true
+
+  TrailingZero:
+    enabled: false
+
+  TransitionAll:
+    enabled: false
+
   UnnecessaryMantissa:
+    enabled: true
+
+  UnnecessaryParentReference:
     enabled: true
 
   UrlFormat:
@@ -364,14 +443,15 @@ linters:
   UrlQuotes:
     enabled: false
 
-  VendorPrefixes:
+  VariableForProperty:
+    enabled: false
+    properties: []
+
+  VendorPrefix:
     enabled: true
     identifier_list: base
-    include: []
-    exclude: []
+    additional_identifiers: []
+    excluded_identifiers: ["hyphens"]
 
   ZeroUnit:
     enabled: true
-
-  Compass::*:
-    enabled: false

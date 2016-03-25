@@ -60,11 +60,13 @@ module.exports = function(grunt) {
       css: {
         dir: `${DEVELOPMENT_DIR}/${RESOURCES_DIR}/${CSS_DIR}/`,
         sass: `${DEVELOPMENT_DIR}/${RESOURCES_DIR}/${SASS_DIR}/`,
+        comp: `${DEVELOPMENT_DIR}/${RESOURCES_DIR}/${SASS_DIR}/${COMPONENTS_DIR}/`,
         filename: CSS_FILENAME
       },
       js: {
         dir: `${DEVELOPMENT_DIR}/${RESOURCES_DIR}/${JS_DIR}/`,
         devDir: `${DEVELOPMENT_DIR}/${RESOURCES_DIR}/${JS_DEV_DIR}/`,
+        comp: `${DEVELOPMENT_DIR}/${RESOURCES_DIR}/${JS_DEV_DIR}/${COMPONENTS_DIR}/`,
         bundle: JS_BUNDLE
       },
       fonts: {
@@ -107,7 +109,7 @@ module.exports = function(grunt) {
         'htmlhintrc': '.htmlhintrc'
       },
       test: {
-        cwd: project.dir,
+        cwd: project.build.dir,
         src: ['*.html'],
         expand: true
       }
@@ -125,7 +127,7 @@ module.exports = function(grunt) {
     scsslint: {
       test: {
         cwd: project.res.css.sass,
-        src: ['**/*.{scss,sass}'],
+        src: ['**/*.{scss,sass}', '!**/*-IE.{scss,sass}'],
         expand: true
       }
     },
@@ -135,7 +137,7 @@ module.exports = function(grunt) {
       },
       test: {
         cwd: project.res.css.dir,
-        src: ['*.min.css', '!*-IE.min.css'],
+        src: ['*.css', '!*.min.css', '!*-IE.css'],
         expand: true
       }
     },
@@ -146,14 +148,14 @@ module.exports = function(grunt) {
       },
       test: {
         cwd: project.res.css.dir,
-        src: ['*.css'],
+        src: ['*.css', '!*.min.css', '!*-IE.css'],
         expand: true
       }
     },
     colorguard: {
       files: {
         cwd: project.res.css.dir,
-        src: ['*.min.css', '!*-IE.min.css'],
+        src: ['*.css', '!*.min.css', '!*-IE.css'],
         expand: true
       }
     },
@@ -163,7 +165,7 @@ module.exports = function(grunt) {
       },
       test: {
         cwd: project.res.js.devDir,
-        src: ['*.js'],
+        src: ['*.js', `${project.res.js.comp.replace(project.dir, '')}/**/*.js`],
         expand: true
       }
     },
@@ -173,14 +175,14 @@ module.exports = function(grunt) {
       },
       test: {
         cwd: project.res.js.devDir,
-        src: ['*.js'],
+        src: ['*.js', `${project.res.js.comp.replace(project.dir, '')}/**/*.js`],
         expand: true
       }
     },
     jsinspect: {
       test: {
         cwd: project.res.js.devDir,
-        src: ['*.js'],
+        src: ['*.js', `${project.res.js.comp.replace(project.dir, '')}/**/*.js`],
         expand: true
       }
     },
@@ -321,9 +323,12 @@ module.exports = function(grunt) {
           './': [`${project.build.dir}*.html`, `${project.dir}*.html`]
         }
       },
-      cssComments: {
+      css: {
         options: {
           replacements: [{
+            pattern: /\[data-dev-note\](?:.|\r?\n|\r)*?\}(?:\r?\n|\r)*/g,
+            replacement: ''
+          }, {
             pattern: /\/\* line \d*, .* \*\/(?:\r?\n|\r)*/g,
             replacement: ''
           }, {
@@ -377,9 +382,10 @@ module.exports = function(grunt) {
         options: {
           transform: [['babelify', {'presets': ['es2015']}]]
         },
-        files: {
-          [`${project.res.js.dir}${project.res.js.bundle}.js`]: `${project.res.js.devDir}${project.res.js.bundle}.js`
-        }
+        cwd: project.res.js.devDir,
+        src: ['*.js'],
+        dest: project.res.js.dir,
+        expand: true
       }
     },
     removelogging: {
@@ -483,7 +489,7 @@ module.exports = function(grunt) {
       },
       templates: {
         cwd: project.res.templates.dir,
-        src: ['*.html', '!* copy.html', '!* - Copy.html'],
+        src: ['*.html', '!* copy*.html', '!* - Copy*.html'],
         dest: project.dir,
         expand: true
       }
@@ -584,6 +590,7 @@ module.exports = function(grunt) {
     clean: {
       res: [project.res.css.dir, `${project.res.js.dir}*.js`],
       images: [`${project.res.css.sass}${helpers.scss}${helpers.temp}`],
+      reports: [`*.css`],
       build: [project.build.dir]
     },
     cleanempty: {
@@ -787,7 +794,8 @@ module.exports = function(grunt) {
     'colorguard',
     'jscs',
     'jshint',
-    'jsinspect'
+    'jsinspect',
+    'clean:reports'
   ]);
 
   grunt.registerTask('performance', [
@@ -797,7 +805,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', [
     'quality',
     'performance',
-    'backstop:test',
     'mochaTest'
   ]);
 
@@ -826,7 +833,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'uncss',
     'csscomb',
-    'string-replace:cssComments',
+    'string-replace:css',
     'cssc',
     'cssmin'
   ]);
@@ -866,6 +873,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build-finalize', [
     'string-replace:build',
     'cleanempty',
+    'test',
     'reminder'
   ]);
 

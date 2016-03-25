@@ -2,7 +2,7 @@
 
 'use strict';
 
-function which() {
+module.exports = _ => {
   var transition;
   var element = document.createElement('element');
   var transitions = {
@@ -17,6 +17,4 @@ function which() {
       return transitions[transition];
     }
   }
-}
-
-exports.which = which;
+};

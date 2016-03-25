@@ -1,6 +1,8 @@
 /* jshint browser:true */
 
-function polyfill() {
+'use strict';
+
+module.exports = _ => {
   var lastTime = 0;
   var vendors = ['ms', 'moz', 'webkit', 'o'];
   for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -21,6 +23,4 @@ function polyfill() {
       clearTimeout(id);
     };
   }
-}
-
-exports.polyfill = polyfill;
+};

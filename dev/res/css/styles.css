@@ -1,3 +1,7 @@
+kbd {
+  display: inline-block;
+}
+
 /* Typography & Vertical Rhythm */
 
 html {
@@ -123,7 +127,7 @@ blockquote, em, cite {
   font-style: italic;
 }
 
-var, strong, b, dfn, acronym, abbr, kbd, th {
+var, strong, dfn, acronym, abbr, kbd, th {
   font-weight: bold;
 }
 
@@ -184,7 +188,6 @@ del {
 }
 
 kbd {
-  display: inline-block;
   height: 22px;
   height: 1.375rem;
   padding: 0 .5em;
@@ -198,11 +201,14 @@ kbd {
   vertical-align: top;
 }
 
-sup, sub {
-  position: relative;
+sup, sub, small {
   font-size: 12px;
   font-size: .75rem;
   line-height: 0;
+}
+
+sup, sub {
+  position: relative;
 }
 
 sup {
@@ -216,12 +222,6 @@ sub {
 big {
   font-size: 33.1776px;
   font-size: 2.0736rem;
-  line-height: 0;
-}
-
-small {
-  font-size: 12px;
-  font-size: .75rem;
   line-height: 0;
 }
 
@@ -283,9 +283,8 @@ a:focus, input:focus, select:focus, textarea:focus {
 /* Fast Touch */
 
 a, label, select, .button {
-  touch-action: manipulation;
-
   -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 /* Links */
@@ -478,63 +477,19 @@ body {
   padding: 0 15px;
 }
 
-/* TX Rhythm Lines */
-
-.page-is-showingRhythmLines {
-  position: relative;
-  top: -1px;
-  padding: 1px 30px 0;
-}
-
-.page-is-showingRhythmLines .debugToolsRhythm {
-  display: block;
-}
-
-/* TX Developer Note */
-
-[data-dev-note] {
-  position: relative;
-  -webkit-box-decoration-break: clone;
-  padding: 0 2px;
-  border-radius: 2px;
-  color: #ffffff;
-  background: #d9534f;
-  box-decoration-break: clone;
-}
-
-[data-dev-note]:hover {
-  background: rgba(217, 83, 79, .5);
-}
-
-[data-dev-note]:hover:after {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  content: "Dev Note:\a" attr(data-dev-note);
-  display: block;
-  width: 195px;
-  padding: 5px;
-  border-radius: 2px;
-  margin: 0 0 5px -100px;
-  color: #ffffff;
-  background: #d9534f;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 1.2;
-}
-
 /* Print */
 
 @media print {
+
+  /*csslint regex-selectors: false*/
 
   /* Baseline */
 
   /* Typography & Rhythm */
 
   @page {
-    margin: .5cm;
-
     size: A4;
+    margin: .5cm;
   }
 
   html, body {
@@ -547,7 +502,7 @@ body {
     line-height: 1.5;
   }
 
-  pre, code, var, acronym, abbr, ins, del, input, select, textarea {
+  pre, code, var, acronym, abbr, ins, del {
     border: 0;
     color: #333333;
     text-decoration: none;
@@ -558,36 +513,19 @@ body {
     widows: 3;
   }
 
-  blockquote, tr, table {
+  blockquote, table, tr {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  thead {
-    display: table-header-group;
-  }
-
-  form {
-    display: none;
-  }
-
-  [title]:after {
+  acronym[title]:after, abbr[title]:after, ins[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /* Layout */
-
-  /* Layout Base */
-
-  body {
-    width: auto;
-    min-width: 0;
-    max-width: none;
-    padding: 2.54cm;
+  thead {
+    display: table-header-group;
   }
-
-  /* UI */
 
   /* Links */
 
@@ -609,5 +547,25 @@ body {
     color: #333333;
   }
 
+  /* Forms */
+
+  form, input, select, textarea {
+    display: none;
+  }
+
+  /* Layout */
+
+  /* Layout Base */
+
+  body {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    padding: 2.54cm;
+  }
+
+  /* UI */
+
+  /*csslint regex-selectors: warning*/
 }
 

@@ -2,76 +2,72 @@
 
 'use strict';
 
-var selector = require('./tx-selector.js');
-var textContent = require('./tx-textContent.js');
-var addEvent = require('./tx-event');
+var querySelectorPolyfill = require('./tx-querySelectorAll.js');
+var textContentPolyfill = require('./tx-textContent.js');
+var eventTools = require('./tx-event');
 
-function FileInput(field, text) {
+module.exports = (selectors, text) => {
 
-  var input;
-  var className;
-  var activeClassName;
-  var wrapElement;
-  var valueElement;
-  var buttonElement;
-  var buttonText;
+  function fileInput(field, text) {
 
-  function fieldChange(event) {
-    valueElement.textContent = input.value.split('\\')[2];
-  }
+    var input;
+    var className;
+    var activeClassName;
+    var wrapElement;
+    var valueElement;
+    var buttonElement;
+    var buttonText;
 
-  function fieldClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    addEvent.trigger(input, 'click', false);
-  }
+    function fieldChange(event) {
+      valueElement.textContent = input.value.split('\\')[2];
+    }
 
-  function wrap() {
-    var parent = input.parentNode;
-    wrapElement = document.createElement('div');
-    wrapElement.className = `${className}-wrap`;
-    valueElement = document.createElement('div');
-    valueElement.className = `${className}-value`;
-    buttonElement = document.createElement('a');
-    buttonElement.href = '#';
-    buttonElement.textContent = buttonText;
-    buttonElement.className = `${className}-button`;
-    wrapElement.appendChild(valueElement);
-    wrapElement.appendChild(buttonElement);
-    parent.insertBefore(wrapElement, input);
-    wrapElement.appendChild(input);
-    input.className += ` ${className}-is-wrapped`;
-  }
+    function fieldClick(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      eventTools.trigger(input, 'click', false);
+    }
 
-  function setup() {
+    function wrap() {
+      var parent = input.parentNode;
+      wrapElement = document.createElement('div');
+      wrapElement.className = `${className}-wrap`;
+      valueElement = document.createElement('div');
+      valueElement.className = `${className}-value`;
+      buttonElement = document.createElement('a');
+      buttonElement.href = '#';
+      buttonElement.textContent = buttonText;
+      buttonElement.className = `${className}-button`;
+      wrapElement.appendChild(valueElement);
+      wrapElement.appendChild(buttonElement);
+      parent.insertBefore(wrapElement, input);
+      wrapElement.appendChild(input);
+      input.className += ` ${className}-is-wrapped`;
+    }
+
     input = field;
     buttonText = text || 'Browse';
     className = input.className.split(' ')[0];
     activeClassName = `${className}-is-active`;
     wrap(input);
-    addEvent.bind(input, 'change', fieldChange);
-    addEvent.bind(wrapElement, 'click', fieldClick);
-    addEvent.bind(buttonElement, 'click', fieldClick);
+    eventTools.bind(input, 'change', fieldChange);
+    eventTools.bind(wrapElement, 'click', fieldClick);
+    eventTools.bind(buttonElement, 'click', fieldClick);
+
   }
 
-  setup();
-
-}
-
-function selectFields(selectors) {
-  if (!document.querySelectorAll) {
-    selector.polyfill();
+  function selectFields(selectors) {
+    if (!document.querySelectorAll) {
+      querySelectorPolyfill();
+    }
+    return document.querySelectorAll(selectors);
   }
-  return document.querySelectorAll(selectors);
-}
 
-function init(selectors, text) {
   var fields = selectFields(selectors);
-  textContent.polyfill();
+  textContentPolyfill();
   for (let index = 0, length = fields.length; index < length; index += 1) {
     let field = fields[index];
-    new FileInput(field, text);
+    fileInput(field, text);
   }
-}
 
-exports.init = init;
+};

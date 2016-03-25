@@ -19,14 +19,13 @@ function unbind(object, type, callback) {
 }
 
 function trigger(object, event, propagate) {
-  var eventObj;
   propagate = propagate || false;
   if (document.createEvent) {
-    eventObj = document.createEvent('MouseEvents');
+    let eventObj = document.createEvent('MouseEvents');
     eventObj.initEvent(event, propagate, false);
     object.dispatchEvent(eventObj);
   } else {
-    eventObj = document.createEventObject();
+    let eventObj = document.createEventObject();
     object.fireEvent(`on${event}`, eventObj);
   }
 }

@@ -1,3 +1,5 @@
+@import '_tx-default';
+
 // Page Boundaries
 
 @mixin tx-set-boundaries($minw: map-get($breakpoints, desktopMin), $maxw: map-get($breakpoints, desktopMax), $minh: 100%, $center: true) {
@@ -57,10 +59,9 @@
 
 @mixin tx-inline-block($ie: $tx-IE) {
   @if $ie != true {
-    display: inline-block;
+    @extend %tx-default-inline-block;
   } @else {
-    display: inline;
-    zoom: 1;
+    @extend %tx-default-inline-block-IE;
   }
 }
 
@@ -69,15 +70,19 @@
 // Pseudo Element
 
 @mixin tx-pseudo($pos: absolute, $dsp: block, $cnt: '', $ie: $tx-IE) {
-  @if $dsp == 'inline-block' {
-    @include tx-inline-block;
+  @if $pos == 'absolute' and $dsp == 'block' and $cnt == '' {
+    @extend %tx-default-pseudo;
   } @else {
-    display: $dsp;
+    @if $dsp == 'inline-block' {
+      @include tx-inline-block;
+    } @else {
+      display: $dsp;
+    }
+    @if not $ie {
+      content: '' + $cnt;
+    }
+    position: $pos;
   }
-  @if not $ie {
-    content: '' + $cnt;
-  }
-  position: $pos;
 }
 
 
@@ -85,10 +90,7 @@
 // Inline-Block Vertical Aligner
 
 @mixin tx-pseudo-va() {
-  @include tx-pseudo(relative, inline-block);
-  width: 0;
-  height: 100%;
-  vertical-align: middle;
+  @extend %tx-default-pseudo-va;
 }
 
 
@@ -286,20 +288,6 @@
 
 
 
-// No Select
-
-@mixin tx-no-select($cond: true) {
-  @if $cond != true {
-    -webkit-touch-callout: default;
-    user-select: all;
-  } @else {
-    -webkit-touch-callout: none;
-    user-select: none;
-  }
-}
-
-
-
 // Form Element Height in Grid Units
 
 @mixin tx-form-height($lines: 1, $brdw: 1, $lh: false, $fall: $tx-remFallback) {
@@ -374,8 +362,7 @@
 @mixin tx-sprite-block($name, $pd: false) {
   width: nth($name, 5);
   @if $pd {
-    overflow: hidden;
-    height: 0;
+    @extend %tx-sprite-block;
     padding: nth($name, 6) 0 0;
   } @else {
     height: nth($name, 6);

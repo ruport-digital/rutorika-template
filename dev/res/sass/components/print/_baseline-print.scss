@@ -43,34 +43,6 @@ var {
   @extend %printResetStyle;
 }
 
-acronym {
-  @extend %printResetStyle;
-}
-
-abbr {
-  @extend %printResetStyle;
-}
-
-ins {
-  @extend %printResetStyle;
-}
-
-del {
-  @extend %printResetStyle;
-}
-
-input {
-  @extend %printResetStyle;
-}
-
-select {
-  @extend %printResetStyle;
-}
-
-textarea {
-  @extend %printResetStyle;
-}
-
 %pageBreakPreventStyle {
   page-break-inside: avoid;
   break-inside: avoid;
@@ -80,11 +52,39 @@ blockquote {
   @extend %pageBreakPreventStyle;
 }
 
-img {
-  @extend %pageBreakPreventStyle;
+%titleContentStyle {
+
+  &[title] {
+
+    &:after {
+      content: ' (' attr(title) ')';
+    }
+
+  }
+
 }
 
-tr {
+acronym {
+  @extend %printResetStyle;
+  @extend %titleContentStyle;
+}
+
+abbr {
+  @extend %printResetStyle;
+  @extend %titleContentStyle;
+}
+
+ins {
+  @extend %printResetStyle;
+  @extend %titleContentStyle;
+}
+
+del {
+  @extend %printResetStyle;
+  @extend %titleContentStyle;
+}
+
+img {
   @extend %pageBreakPreventStyle;
 }
 
@@ -96,14 +96,78 @@ thead {
   display: table-header-group;
 }
 
-form {
+tr {
+  @extend %pageBreakPreventStyle;
+}
+
+
+
+/* Links */
+
+%otherHREFStyle {
+
+  &:after {
+    content: '';
+  }
+
+}
+
+a {
+  color: $print-color;
+  text-decoration: none;
+
+  &:after {
+    content: ' (' attr(href) ')';
+    font-size: 90%;
+  }
+
+  &:visited {
+    color: $print-color;
+  }
+
+  &[href^='javascript:'] {
+    @extend %otherHREFStyle;
+  }
+
+
+  &[href^='#'] {
+    @extend %otherHREFStyle;
+  }
+
+  &[href^='mailto:'] {
+    @extend %otherHREFStyle;
+  }
+
+  &[href^='tel:'] {
+    @extend %otherHREFStyle;
+  }
+
+}
+
+
+
+/* Forms */
+
+%hideFormStyle {
   display: none;
 }
 
-[title] {
+form {
+  @extend %hideFormStyle;
+}
 
-  &:after {
-    content: ' (' attr(title) ')';
-  }
+input {
+  @extend %hideFormStyle;
+}
 
+select {
+  @extend %hideFormStyle;
+}
+
+button {
+  @extend %hideFormStyle;
+}
+
+textarea {
+  @extend %hideFormStyle;
 }

@@ -2,6 +2,8 @@
 
 @media print {
 
+  /*csslint regex-selectors: false*/
+
   /* Baseline */
 
   @import 'print/_baseline-print';
@@ -13,5 +15,7 @@
   /* UI */
 
   @import 'print/_ui-print';
+
+  /*csslint regex-selectors: warning*/
 
 }
