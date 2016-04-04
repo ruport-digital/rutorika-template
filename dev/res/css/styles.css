@@ -2,6 +2,13 @@ kbd {
   display: inline-block;
 }
 
+/* Fast Touch */
+
+a, label, select, .button {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
 /* Typography & Vertical Rhythm */
 
 html {
@@ -280,17 +287,11 @@ a:focus, input:focus, select:focus, textarea:focus {
   outline: 1px dotted #cccccc;
 }
 
-/* Fast Touch */
-
-a, label, select, .button {
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}
-
 /* Links */
 
 a {
   color: #337ab7;
+  -webkit-tap-highlight-color: rgba(35, 82, 124, .25);
   text-decoration: underline;
   -webkit-text-decoration-color: rgba(51, 122, 183, .5);
   -moz-text-decoration-color: rgba(51, 122, 183, .5);
@@ -365,7 +366,7 @@ input[type="radio"], input[type="checkbox"] {
   vertical-align: middle;
 }
 
-input[type="search"], input[type="number"] {
+input[type="submit"], input[type="search"], input[type="number"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -414,18 +415,6 @@ textarea {
   font-size: inherit;
 }
 
-/* Phone Baseline */
-
-@media handheld, only screen and (max-width: 45em) {
-
-  /* Typography & Rhythm */
-
-  table, tr, th, td {
-    display: block;
-  }
-
-}
-
 /* Lists Reset */
 
 .u-listReset, .u-listReset > li {
@@ -457,9 +446,27 @@ body {
   background: #ffffff;
 }
 
-/* Phone Layout */
+/* Field */
+
+.field {
+  height: 34px;
+  height: 2.125rem;
+  padding: 0 15px;
+}
+
+/* Phone */
 
 @media handheld, only screen and (max-width: 45em) {
+
+  /* Baseline */
+
+  /* Typography & Rhythm */
+
+  table, tr, th, td {
+    display: block;
+  }
+
+  /* Layout */
 
   /* Layout Base */
 
@@ -467,14 +474,7 @@ body {
     min-width: 0;
   }
 
-}
-
-/* Field */
-
-.field {
-  height: 34px;
-  height: 2.125rem;
-  padding: 0 15px;
+  /* UI */
 }
 
 /* Print */
@@ -568,4 +568,3 @@ body {
 
   /*csslint regex-selectors: warning*/
 }
-

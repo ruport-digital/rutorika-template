@@ -13,7 +13,7 @@ $tx-hamburger-lineColor: $red;
 
   &:before,
   &:after {
-    @extend %tx-hamburgerLine;
+    @extend %tx-hamburger-line;
     left: 0;
   }
 
@@ -43,9 +43,18 @@ $tx-hamburger-lineColor: $red;
 
   }
 
+  &-line {
+    @include tx-pseudo;
+    width: $tx-hamburger-width;
+    height: $tx-hamburger-lineWidth;
+    background: $tx-hamburger-lineColor;
+    transform-origin: 50% 50%;
+    transition: $UITransition * 2;
+  }
+
 }
 
-%tx-hamburgerleLabel {
+%tx-hamburger-label {
   position: relative;
   z-index: -1;
   top: 0;
@@ -53,7 +62,7 @@ $tx-hamburger-lineColor: $red;
   padding: 0 0 0 ($tx-hamburger-width + 5px);
 
   &:before {
-    @extend %tx-hamburgerLine;
+    @extend %tx-hamburger-line;
     top: 50%;
     left: 0;
     margin: ($tx-hamburger-lineWidth / -2) 0 0;
@@ -68,13 +77,4 @@ $tx-hamburger-lineColor: $red;
 
   }
 
-}
-
-%tx-hamburgerLine {
-  @include tx-pseudo;
-  width: $tx-hamburger-width;
-  height: $tx-hamburger-lineWidth;
-  background: $tx-hamburger-lineColor;
-  transform-origin: 50% 50%;
-  transition: $UITransition * 2;
 }

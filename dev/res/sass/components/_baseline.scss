@@ -1,3 +1,7 @@
+@import 'patterns/_tx-fastTouch';
+
+
+
 /* Typography & Vertical Rhythm */
 
 html {
@@ -465,20 +469,13 @@ hr {
 
 
 
-/* Fast Touch */
-
-%touchAction {
-  touch-action: manipulation;
-}
-
-
-
 /* Links */
 
 a {
   @extend %focusStyle;
-  @extend %touchAction;
+  @extend %tx-fastTouch;
   color: $link;
+  -webkit-tap-highlight-color: rgba($active, .25);
   text-decoration: underline;
   text-decoration-color: rgba($link, $underlineOpacity);
   transition: color $UITransition, text-decoration-color $UITransition;
@@ -505,7 +502,7 @@ a {
 /* Forms */
 
 label {
-  @extend %touchAction;
+  @extend %tx-fastTouch;
   cursor: pointer;
 }
 
@@ -586,6 +583,10 @@ input {
     @extend %formRadioCheckboxStyle;
   }
 
+  &[type='submit'] {
+    @extend %formAppearanceResetStyle;
+  }
+
   &[type='file'] {
     height: auto;
     border: 0;
@@ -620,7 +621,7 @@ select {
   @extend %formTextResetStyle;
   @extend %formAlignStyle;
   @extend %formStyle;
-  @extend %touchAction;
+  @extend %tx-fastTouch;
   @include tx-grid-height(1.5, $lh: false);
   vertical-align: top;
 
@@ -631,7 +632,7 @@ select {
 }
 
 %buttonStyle {
-  @extend %touchAction;
+  @extend %tx-fastTouch;
   @include tx-grid-height(1.5, $lh: false);
   padding: 0 ($gap / 2);
   cursor: pointer;
@@ -643,6 +644,7 @@ button {
   @extend %formBoxSizingStyle;
   @extend %formBorderResetStyle;
   @extend %formTextResetStyle;
+  @extend %formAppearanceResetStyle;
   @extend %buttonStyle;
 
   &[disabled] {
@@ -671,47 +673,3 @@ textarea {
   }
 
 }
-
-
-
-/* HDPI Baseline */
-
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {}
-
-
-
-/* Large Resolution Baseline */
-
-@media only screen and (min-width: txf-breakpoint(desktopWide)) {}
-
-
-
-/* Tablet Baseline */
-
-@media only screen and (max-width: txf-breakpoint(desktopMin)) {}
-
-@media only screen and (max-width: txf-breakpoint(desktopMin)) and (min-resolution: 1.5dppx), only screen and (max-width: txf-breakpoint(desktopMin)) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: txf-breakpoint(desktopMin)) and (min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (min-resolution: 150dpi) {}
-
-
-
-/* Phone Baseline */
-
-@media handheld, only screen and (max-width: txf-breakpoint(phoneMax)) {
-
-  @import 'phone/_baseline-phone';
-
-}
-
-@media only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 1.5dppx), only screen and (max-width: txf-breakpoint(phoneMax)) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 150dpi) {}
-
-
-
-/* TV Baseline */
-
-@media projection, tv {}
-
-
-
-/* Audio Baseline */
-
-@media aural {}

@@ -148,14 +148,10 @@ linters:
       - overflow
       - overflow-x
       - overflow-y
-      - -webkit-overflow-scrolling
-      - -ms-scroll-snap-points-y
-      - -ms-scroll-snap-points-x
+      - overflow-scrolling
       - scroll-snap-points-y
       - scroll-snap-points-x
-      - -ms-scroll-snap-type
       - scroll-snap-type
-      - -ms-scroll-snap-destination
       - scroll-snap-destination
       - clip
       - box-sizing
@@ -237,6 +233,7 @@ linters:
       - outline-style
       - outline-color
       - outline-offset
+      - tap-highlight-color
       - box-decoration-break
       - box-shadow
       - font
@@ -308,7 +305,7 @@ linters:
       - empty-cells
       - visibility
       - opacity
-      - -ms-interpolation-mode
+      - interpolation-mode
       - filter
       - cursor
       - pointer-events

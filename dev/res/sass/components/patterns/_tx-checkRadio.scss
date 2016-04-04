@@ -8,32 +8,33 @@ $tx-checkRadioBox-borderColor: $gray;
   position: absolute;
   z-index: -1;
   left: -10000px;
-}
 
-%tx-checkRadioLabel {
-  position: relative;
-  padding: 0 0 0 ($tx-checkRadioBox-size + 10px);
-  user-select: none;
-}
+  &-label {
+    position: relative;
+    padding: 0 0 0 ($tx-checkRadioBox-size + 10px);
+    user-select: none;
+  }
 
-%tx-checkRadioBox {
-  @include tx-pseudo;
-  top: 50%;
-  left: 0;
-  width: ($tx-checkRadioBox-size - $tx-checkRadioBox-borderWidth * 2);
-  height: ($tx-checkRadioBox-size - $tx-checkRadioBox-borderWidth * 2);
-  border: $tx-checkRadioBox-borderWidth solid $tx-checkRadioBox-borderColor;
-  margin: ($tx-checkRadioBox-size / -2) 0 0;
-}
+  &-box {
+    @include tx-pseudo;
+    top: 50%;
+    left: 0;
+    width: ($tx-checkRadioBox-size - $tx-checkRadioBox-borderWidth * 2);
+    height: ($tx-checkRadioBox-size - $tx-checkRadioBox-borderWidth * 2);
+    border: $tx-checkRadioBox-borderWidth solid $tx-checkRadioBox-borderColor;
+    margin: ($tx-checkRadioBox-size / -2) 0 0;
+  }
 
-%tx-checkRadioCheck {
-  @include tx-pseudo;
-  top: 50%;
-  left: ($tx-checkRadioBox-size / 2);
-}
+  &-check {
+    @include tx-pseudo;
+    top: 50%;
+    left: ($tx-checkRadioBox-size / 2);
+  }
 
-%tx-checkRadioFocus {
-  outline: $focus-outlineWidth dotted $focus-outlineColor;
+  &Focus {
+    outline: $focus-outlineWidth dotted $focus-outlineColor;
+  }
+
 }
 
 
@@ -48,15 +49,15 @@ $tx-checkboxCheck-background: $blue;
 %tx-checkbox {
   @extend %tx-checkRadio;
 
-  &:checked + %tx-checkboxLabel {
+  &:checked + %tx-checkbox-label {
 
     &:after {
-      @extend %tx-checkboxCheck;
+      @extend %tx-checkbox-check;
     }
 
   }
 
-  &:focus + %tx-checkboxLabel {
+  &:focus + %tx-checkbox-label {
 
     &:before {
       @extend %tx-checkboxFocus;
@@ -64,31 +65,31 @@ $tx-checkboxCheck-background: $blue;
 
   }
 
-}
+  &-label {
+    @extend %tx-checkRadio-label;
 
-%tx-checkboxLabel {
-  @extend %tx-checkRadioLabel;
+    &:before {
+      @extend %tx-checkbox-box;
+    }
 
-  &:before {
-    @extend %tx-checkboxBox;
   }
 
-}
+  &-box {
+    @extend %tx-checkRadio-box;
+  }
 
-%tx-checkboxBox {
-  @extend %tx-checkRadioBox;
-}
+  &-check {
+    @extend %tx-checkRadio-check;
+    width: $tx-checkboxCheck-width;
+    height: $tx-checkboxCheck-height;
+    margin: ($tx-checkboxCheck-height / -2) 0 0 ($tx-checkboxCheck-width / -2);
+    background: $tx-checkboxCheck-background;
+  }
 
-%tx-checkboxCheck {
-  @extend %tx-checkRadioCheck;
-  width: $tx-checkboxCheck-width;
-  height: $tx-checkboxCheck-height;
-  margin: ($tx-checkboxCheck-height / -2) 0 0 ($tx-checkboxCheck-width / -2);
-  background: $tx-checkboxCheck-background;
-}
+  &Focus {
+    @extend %tx-checkRadioFocus;
+  }
 
-%tx-checkboxFocus {
-  @extend %tx-checkRadioFocus;
 }
 
 
@@ -101,15 +102,15 @@ $tx-radioCheck-background: $blue;
 %tx-radio {
   @extend %tx-checkRadio;
 
-  &:checked + %tx-radioLabel {
+  &:checked + %tx-radio-label {
 
     &:after {
-      @extend %tx-radioCheck;
+      @extend %tx-radio-check;
     }
 
   }
 
-  &:focus + %tx-radioLabel {
+  &:focus + %tx-radio-label {
 
     &:before {
       @extend %tx-radioFocus;
@@ -117,31 +118,31 @@ $tx-radioCheck-background: $blue;
 
   }
 
-}
+  &-label {
+    @extend %tx-checkRadio-label;
 
-%tx-radioLabel {
-  @extend %tx-checkRadioLabel;
+    &:before {
+      @extend %tx-radio-box;
+    }
 
-  &:before {
-    @extend %tx-radioBox;
   }
 
-}
+  &-box {
+    @extend %tx-checkRadio-box;
+    border-radius: 50%;
+  }
 
-%tx-radioBox {
-  @extend %tx-checkRadioBox;
-  border-radius: 50%;
-}
+  &-check {
+    @extend %tx-checkRadio-check;
+    width: $tx-radioCheck-size;
+    height: $tx-radioCheck-size;
+    border-radius: 50%;
+    margin: ($tx-radioCheck-size / -2) 0 0 ($tx-radioCheck-size / -2);
+    background: $tx-radioCheck-background;
+  }
 
-%tx-radioCheck {
-  @extend %tx-checkRadioCheck;
-  width: $tx-radioCheck-size;
-  height: $tx-radioCheck-size;
-  border-radius: 50%;
-  margin: ($tx-radioCheck-size / -2) 0 0 ($tx-radioCheck-size / -2);
-  background: $tx-radioCheck-background;
-}
+  &Focus {
+    @extend %tx-checkRadioFocus;
+  }
 
-%tx-radioFocus {
-  @extend %tx-checkRadioFocus;
 }

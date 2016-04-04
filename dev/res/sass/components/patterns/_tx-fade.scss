@@ -1,0 +1,19 @@
+/* Simple Fade In and Out */
+
+%tx-fade {
+
+  &Out {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%) translateZ(0);
+    transition: opacity $UITransition, visibility $UITransition-instant $UITransition, transform $UITransition-instant $UITransition;
+  }
+
+  &In {
+    visibility: visible;
+    opacity: 1;
+    transform: translateZ(0);
+    transition: opacity $UITransition, transform $UITransition-instant, visibility $UITransition-instant;
+  }
+
+}

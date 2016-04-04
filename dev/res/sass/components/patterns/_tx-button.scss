@@ -10,7 +10,6 @@ $tx-button-borderWidth: 2px;
 $tx-button-borderColor: $tx-button-background;
 
 %tx-button {
-  @extend %tx-buttonHover;
   height: ($tx-button-height - $tx-button-borderWidth * 2);
   padding: 0 ($tx-button-padding - $tx-button-borderWidth);
   border: $tx-button-borderWidth solid $tx-button-borderColor;
@@ -24,19 +23,28 @@ $tx-button-borderColor: $tx-button-background;
     line-height: ($tx-button-height - $tx-button-borderWidth * 2);
 
     &:visited {
-      color: $tx-button-color;
-      background: $tx-button-background;
+      @extend %tx-buttonVisited;
     }
 
   }
 
   &-input {
     @extend %tx-button;
+    line-height: 1;
     cursor: pointer;
   }
 
   &:hover,
   &:active {
+    @extend %tx-buttonHover;
+  }
+
+  &Visited {
+    color: $tx-button-color;
+    background: $tx-button-background;
+  }
+
+  &Hover {
     color: $tx-button-hover;
     background: $tx-button-backgroundHover;
   }

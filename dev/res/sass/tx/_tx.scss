@@ -340,7 +340,7 @@
   } @else if $lr == 'bottom' {
     z-index: (0 + $shift);
   } @else if $lr == 'under' {
-    z-index: (-1 + $shift);
+    z-index: (-1 - $shift);
   }
 }
 
@@ -370,7 +370,7 @@
 }
 
 @mixin tx-sprite-image($name) {
-  background-image: url(#{nth($name, 3)});
+  background-image: url(#{nth($name, 9)});
 }
 
 @mixin tx-sprite-position($name) {

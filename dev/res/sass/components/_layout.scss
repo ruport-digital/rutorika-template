@@ -1,8 +1,8 @@
 /* Layout Base */
 
 html {
-  min-height: 100%;
   -webkit-overflow-scrolling: touch;
+  min-height: 100%;
 }
 
 body {
@@ -14,47 +14,3 @@ body {
   padding: 0 $gap;
   background: $background;
 }
-
-
-
-/* HDPI Layout */
-
-@media only screen and (min-resolution: 1.5dppx), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 150dpi) {}
-
-
-
-/* Large Resolution Layout */
-
-@media only screen and (min-width: txf-breakpoint(desktopWide)) {}
-
-
-
-/* Tablet Layout */
-
-@media only screen and (max-width: txf-breakpoint(desktopMin)) {}
-
-@media only screen and (max-width: txf-breakpoint(desktopMin)) and (min-resolution: 1.5dppx), only screen and (max-width: txf-breakpoint(desktopMin)) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: txf-breakpoint(desktopMin)) and (min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(desktopMin)) and (min-resolution: 150dpi) {}
-
-
-
-/* Phone Layout */
-
-@media handheld, only screen and (max-width: txf-breakpoint(phoneMax)) {
-
-  @import 'phone/_layout-phone';
-
-}
-
-@media only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 1.5dppx), only screen and (max-width: txf-breakpoint(phoneMax)) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 150dpi) {}
-
-
-
-/* TV Layout */
-
-@media projection, tv {}
-
-
-
-/* Audio Layout */
-
-@media aural {}

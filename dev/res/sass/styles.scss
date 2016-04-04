@@ -4,4 +4,10 @@
 @import 'components/_utilities';
 @import 'components/_layout';
 @import 'components/_ui';
-@import 'components/_print';
+
+@import 'components/media/_hdpi';
+@import 'components/media/_wide';
+@import 'components/media/_tablet';
+@import 'components/media/_phone';
+@import 'components/media/_print';
+@import 'components/media/_exotic';
