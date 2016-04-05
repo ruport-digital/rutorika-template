@@ -1,23 +1,14 @@
 {
-  "color_variables_files":
-  [
-    "/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss",
-    "D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"
-  ],
-  "folders":
-  [
-    {
-      "folder_exclude_patterns":
-      [
-        "*"
-      ],
-      "file_exclude_patterns":
-      [
-        "*.zip",
-        "*.sublime-project"
-      ],
+  "color_variables_files": ["/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss", "D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"],
+  "folders": [{
+      "folder_exclude_patterns": ["build", "design", "dev", "docs", "meta", "node_modules", "tests"],
+      "file_exclude_patterns": ["*.zip", "*.sublime-project"],
       "follow_symlinks": true,
       "name": "TemplateX: Project",
+      "path": "."
+    }, {
+      "follow_symlinks": true,
+      "name": "TemplateX: Grunt",
       "path": "."
     }, {
       "follow_symlinks": true,
@@ -32,22 +23,12 @@
       "name": "TemplateX: JavaScript",
       "path": "dev/res/js-dev"
     }, {
-      "folder_exclude_patterns":
-      [
-        "backstop"
-      ],
+      "folder_exclude_patterns": ["backstop"],
       "follow_symlinks": true,
       "name": "TemplateX: Tests",
       "path": "tests"
     }, {
-      "file_exclude_patterns":
-      [
-        "*.jpg",
-        "*.gif",
-        "*.png",
-        "*.ico",
-        "*.svg"
-      ],
+      "file_exclude_patterns": ["*.png", "*.jpg", "*.jpeg", "*.gif", "*.svg", "*.ico"],
       "follow_symlinks": true,
       "name": "TemplateX: Meta",
       "path": "meta"
@@ -55,6 +36,5 @@
       "follow_symlinks": true,
       "name": "TemplateX: Docs",
       "path": "docs"
-    }
-  ]
+    }]
 }
