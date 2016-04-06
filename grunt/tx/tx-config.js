@@ -68,7 +68,8 @@ module.exports = (config) => {
         /.*-has-.*/,
         /.*-are-.*/,
         /mdz-.*/,
-        /js-.*/
+        /js-.*/,
+        /ie\d/
       ],
       dontCopy: [
         '!**/*.map',

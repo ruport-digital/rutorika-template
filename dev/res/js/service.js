@@ -4,12 +4,12 @@
 
 'use strict';
 
-var CACHE_NAME = 'pt-cache-v10';
+var CACHE_NAME = 'tx-cache-v1';
 
 var offline = [
   '/',
-  '/res/css/styles.css',
-  '/res/js/scripts.js'
+  '/res/css/styles.min.css',
+  '/res/js/scripts.min.js'
 ];
 
 function addAllToCahche(cache) {
@@ -43,7 +43,7 @@ function onFetch(event) {
     return cached || networked;
   }
 
-  if (request.method !== 'GET' || request.url.match('trello') || request.url.match('download')) {
+  if (request.method !== 'GET') {
     event.respondWith(fetch(request));
     return;
   } else {

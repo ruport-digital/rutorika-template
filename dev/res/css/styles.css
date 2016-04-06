@@ -1,10 +1,15 @@
+/* Inline-block */
+
 kbd {
   display: inline-block;
 }
 
 /* Fast Touch */
 
-a, label, select, .button {
+a,
+label,
+select,
+.button {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
@@ -20,11 +25,11 @@ html {
 }
 
 body {
-  color: #333333;
-  font-family: "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
-  -webkit-font-feature-settings: "liga", "kern";
-  -moz-font-feature-settings: "liga", "kern";
-  font-feature-settings: "liga", "kern";
+  color: #333;
+  font-family: 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
+  -webkit-font-feature-settings: 'liga', 'kern';
+  -moz-font-feature-settings: 'liga', 'kern';
+  font-feature-settings: 'liga', 'kern';
   -epub-hyphens: manual;
   -webkit-hyphens: manual;
   -moz-hyphens: manual;
@@ -32,7 +37,12 @@ body {
   hyphens: manual;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
   text-rendering: auto;
   -webkit-break-after: avoid;
@@ -91,13 +101,21 @@ h6 {
   line-height: 1.5;
 }
 
-p, dl, ul, ol, pre, address, table {
+p,
+dl,
+ul,
+ol,
+pre,
+address,
+table {
   margin: 24px 0;
   margin: 1.5rem 0;
 }
 
-pre, code, var {
-  font-family: Consolas, Monaco, "Andale Mono", "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+pre,
+code,
+var {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
 }
 
 dt {
@@ -130,15 +148,25 @@ li {
   margin: .75rem 0;
 }
 
-blockquote, em, cite {
+blockquote,
+em,
+cite {
   font-style: italic;
 }
 
-var, strong, dfn, acronym, abbr, kbd, th {
+var,
+strong,
+dfn,
+acronym,
+abbr,
+kbd,
+th {
   font-weight: bold;
 }
 
-pre, code, var {
+pre,
+code,
+var {
   color: #d9534f;
 }
 
@@ -157,7 +185,8 @@ blockquote {
   quotes: none;
 }
 
-blockquote:before, blockquote:after {
+blockquote:before,
+blockquote:after {
   content: none;
 }
 
@@ -166,12 +195,16 @@ blockquote {
   margin: 1.5rem 3em;
 }
 
-acronym, abbr, ins {
+acronym,
+abbr,
+ins {
   text-decoration: none;
   cursor: help;
 }
 
-acronym, abbr, ins {
+acronym,
+abbr,
+ins {
   border-bottom: 1px dotted #337ab7;
   color: #337ab7;
 }
@@ -180,7 +213,8 @@ del {
   text-decoration: line-through;
 }
 
-acronym, abbr {
+acronym,
+abbr {
   margin: 0 -.075em 0 0;
   letter-spacing: .075em;
 }
@@ -190,8 +224,8 @@ address {
 }
 
 del {
-  border-bottom: 1px dotted #cccccc;
-  color: #cccccc;
+  border-bottom: 1px dotted #ccc;
+  color: #ccc;
 }
 
 kbd {
@@ -199,22 +233,25 @@ kbd {
   height: 1.375rem;
   padding: 0 .5em;
   border-radius: 3px;
-  background: #cccccc;
+  background: #ccc;
   background-clip: padding-box;
   font-weight: bold;
-  font-family: Consolas, Monaco, "Andale Mono", "Courier New", Courier, Freemono, "Nimbus Mono L", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
   letter-spacing: .1em;
   line-height: 1.375;
   vertical-align: top;
 }
 
-sup, sub, small {
+sup,
+sub,
+small {
   font-size: 12px;
   font-size: .75rem;
   line-height: 0;
 }
 
-sup, sub {
+sup,
+sub {
   position: relative;
 }
 
@@ -239,10 +276,11 @@ caption {
   text-align: left;
 }
 
-td, th {
+td,
+th {
   padding: 23px 15px 24px;
   padding: 1.4375rem 15px 1.5rem;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
 }
 
 table {
@@ -272,19 +310,22 @@ legend {
 /* Selection */
 
 ::-moz-selection {
-  color: #ffffff;
+  color: #fff;
   background: #337ab7;
 }
 
 ::selection {
-  color: #ffffff;
+  color: #fff;
   background: #337ab7;
 }
 
 /* Focus */
 
-a:focus, input:focus, select:focus, textarea:focus {
-  outline: 1px dotted #cccccc;
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px dotted #ccc;
 }
 
 /* Links */
@@ -327,16 +368,20 @@ label {
   cursor: pointer;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   margin: 0;
   font-family: inherit;
 }
 
-input, select {
+input,
+select {
   font-size: inherit;
 }
 
-input, textarea {
+input,
+textarea {
   box-sizing: content-box;
 }
 
@@ -344,7 +389,8 @@ input {
   border: 0;
 }
 
-input::-moz-focus-inner, button::-moz-focus-inner {
+input::-moz-focus-inner,
+button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
@@ -353,37 +399,46 @@ select {
   text-transform: none;
 }
 
-input, select {
+input,
+select {
   vertical-align: top;
 }
 
-select, textarea, .field {
-  border: 1px solid #cccccc;
+select,
+textarea,
+.field {
+  border: 1px solid #ccc;
 }
 
-input[type="radio"], input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   box-sizing: border-box;
   vertical-align: middle;
 }
 
-input[type="submit"], input[type="search"], input[type="number"] {
+input[type='submit'],
+input[type='search'],
+input[type='number'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #cccccc;
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #ccc;
   opacity: 1;
 }
 
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #cccccc;
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #ccc;
   opacity: 1;
 }
 
-input::placeholder, textarea::placeholder {
-  color: #cccccc;
+input::placeholder,
+textarea::placeholder {
+  color: #ccc;
   opacity: 1;
 }
 
@@ -417,7 +472,8 @@ textarea {
 
 /* Lists Reset */
 
-.u-listReset, .u-listReset > li {
+.u-listReset,
+.u-listReset > li {
   padding: 0;
   margin: 0;
 }
@@ -443,7 +499,7 @@ body {
   max-width: 1920px;
   padding: 0 30px;
   margin: 0 auto;
-  background: #ffffff;
+  background: #fff;
 }
 
 /* Field */
@@ -458,15 +514,14 @@ body {
 
 @media handheld, only screen and (max-width: 45em) {
 
-  /* Baseline */
-
   /* Typography & Rhythm */
 
-  table, tr, th, td {
+  table,
+  tr,
+  th,
+  td {
     display: block;
   }
-
-  /* Layout */
 
   /* Layout Base */
 
@@ -474,7 +529,6 @@ body {
     min-width: 0;
   }
 
-  /* UI */
 }
 
 /* Print */
@@ -483,8 +537,6 @@ body {
 
   /*csslint regex-selectors: false*/
 
-  /* Baseline */
-
   /* Typography & Rhythm */
 
   @page {
@@ -492,19 +544,26 @@ body {
     margin: .5cm;
   }
 
-  html, body {
-    background: #ffffff;
+  html,
+  body {
+    background: #fff;
   }
 
   body {
-    color: #333333;
+    color: #333;
     font-size: 12pt;
     line-height: 1.5;
   }
 
-  pre, code, var, acronym, abbr, ins, del {
+  pre,
+  code,
+  var,
+  acronym,
+  abbr,
+  ins,
+  del {
     border: 0;
-    color: #333333;
+    color: #333;
     text-decoration: none;
   }
 
@@ -513,14 +572,18 @@ body {
     widows: 3;
   }
 
-  blockquote, table, tr {
+  blockquote,
+  table,
+  tr {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  acronym[title]:after, abbr[title]:after, ins[title]:after {
-    content: " (" attr(title) ")";
+  acronym[title]:after,
+  abbr[title]:after,
+  ins[title]:after {
+    content: ' (' attr(title) ')';
   }
 
   thead {
@@ -529,31 +592,33 @@ body {
 
   /* Links */
 
-  a[href^="mailto:"]:after, a[href^="tel:"]:after {
-    content: "";
+  a[href^='mailto:']:after,
+  a[href^='tel:']:after {
+    content: '';
   }
 
   a {
-    color: #333333;
+    color: #333;
     text-decoration: none;
   }
 
   a:after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
     font-size: 90%;
   }
 
   a:visited {
-    color: #333333;
+    color: #333;
   }
 
   /* Forms */
 
-  form, input, select, textarea {
+  form,
+  input,
+  select,
+  textarea {
     display: none;
   }
-
-  /* Layout */
 
   /* Layout Base */
 
@@ -564,7 +629,6 @@ body {
     padding: 2.54cm;
   }
 
-  /* UI */
-
   /*csslint regex-selectors: warning*/
+
 }

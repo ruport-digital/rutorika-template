@@ -1,4 +1,5 @@
 /* Typography & Vertical Rhythm (Internet Explorer < 8) */
+
 dfn {
   font-style: normal;
 }
@@ -7,22 +8,28 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-.ie6 ul, .ie6 .u-listReset ul {
+.ie6 ul,
+.ie6 .u-listReset ul {
   list-style: disc outside;
 }
 
-.ie6 ol, .ie6 .u-listReset ol {
+.ie6 ol,
+.ie6 .u-listReset ol {
   list-style: decimal outside;
 }
 
 /* Forms */
-input[type="checkbox"], input[type="radio"] {
+
+input[type='checkbox'],
+input[type='radio'] {
   width: 13px;
   height: 13px;
 }
 
 /* Internet Explorer 6 */
-.ie6 button, .ie6 .button {
+
+.ie6 button,
+.ie6 .button {
   height: 24px;
   height: 1.5rem;
   cursor: hand;
@@ -55,4 +62,3 @@ input[type="checkbox"], input[type="radio"] {
 .ie6 input {
   vertical-align: text-bottom;
 }
-

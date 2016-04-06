@@ -15,7 +15,7 @@ module.exports = (grunt, options) => {
       src: [
         `**/*.${helpers.imageFiles}`,
         `!${project.res.fonts.dir.replace(project.dir, '')}**/*.svg`,
-        ...helpers.dontCopy
+        ...helpers.sprites
       ],
       dest: project.dir,
       expand: true

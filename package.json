@@ -4,9 +4,7 @@
   "description": "TemplateX",
   "main": "build/index.html",
   "private": true,
-  "dependencies": {
-    "fontfaceobserver": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": "*",
     "babelify": "*",

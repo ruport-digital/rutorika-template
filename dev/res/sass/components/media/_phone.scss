@@ -2,19 +2,9 @@
 
 @media handheld, only screen and (max-width: txf-breakpoint(phoneMax)) {
 
-  /* Baseline */
-
   @import 'phone/_baseline-phone';
 
-
-
-  /* Layout */
-
   @import 'phone/_layout-phone';
-
-
-
-  /* UI */
 
   @import 'phone/_ui-phone';
 

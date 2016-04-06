@@ -15,7 +15,7 @@ module.exports = (grunt, options) => {
           pattern: /(?:<span data-dev-note=".*?">)(.*)(?:<\/span>)/gi,
           replacement: '$1'
         }, {
-          pattern: /\sdata-dev-note=".*?"/gi,
+          pattern: / +data-dev-note=".*?"/gi,
           replacement: ''
         }, {
           pattern: new RegExp(`${project.res.css.dir.replace(project.dir, '')}${project.res.css.filename}(-IE)*.css`, 'gi'),
@@ -24,19 +24,16 @@ module.exports = (grunt, options) => {
           pattern: new RegExp(`${project.res.js.dir.replace(project.dir, '')}${project.res.js.bundle}.js`, 'gi'),
           replacement: `${project.res.js.dir.replace(project.dir, '')}${project.res.js.bundle}.min.js`
         }, {
-          pattern: /(?:\s|\t)*.*tx-debug.*(?:\r?\n|\r)/gi,
-          replacement: ''
-        }, {
-          pattern: /<style type="text\/css">(?:\r?\n|\r)/g,
+          pattern: /<style type="text\/css">(?:\r?\n|\r)/gi,
           replacement: '<style type="text/css">'
         }, {
-          pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script(?: id="loadcss")*>(?:\r?\n|\r)/g,
+          pattern: /(?:\r?\n|\r)<\/style>(?:\r?\n|\r)<script(?: id="loadcss")*>(?:\r?\n|\r)/gi,
           replacement: '</style>\n    <script type="text/javascript" id="loadcss">'
         }, {
-          pattern: /(?:\r?\n|\r)<\/script>(?:\r?\n|\r)<noscript>(?:\r?\n|\r)/g,
+          pattern: /(?:\r?\n|\r)<\/script>(?:\r?\n|\r)<noscript>(?:\r?\n|\r)/gi,
           replacement: '</script>\n    <noscript>'
         }, {
-          pattern: /(?:\r?\n|\r)<\/noscript>/g,
+          pattern: /(?:\r?\n|\r)<\/noscript>/gi,
           replacement: '</noscript>'
         }]
       },
@@ -47,7 +44,7 @@ module.exports = (grunt, options) => {
     indentation: {
       options: {
         replacements: [{
-          pattern: /(<!-->)(?:\r?\n|\r)(<html.*>)(?:\r?\n|\r)*(?:\s*)(<!--<!\[endif\]-->)/g,
+          pattern: /(<!-->)(?:\r?\n|\r)(<html.*>)(?:\r?\n|\r)*(?: |\t)*(<!--<!\[endif\]-->)/g,
           replacement: '$1 $2 $3'
         }]
       },
@@ -58,49 +55,37 @@ module.exports = (grunt, options) => {
     css: {
       options: {
         replacements: [{
-          pattern: /\[data-dev-note\](?:.|\r?\n|\r)*?\}(?:\r?\n|\r)*/g,
+          pattern: /\[data-dev-note\][\s\S]*?\}(?:\r?\n|\r)*/g,
           replacement: ''
         }, {
-          pattern: /\/\* line \d*, .* \*\/(?:\r?\n|\r)*/g,
+          pattern: /(?:^(?: |\t)*(?:\r?\n|\r)|\/\*(?!.*csslint)((?:[^\{\}]|\r?\n|\r)*?)\*\/(?:\r?\n|\r| |\t)*(?:\r?\n|\r)(?=\/\*((?:[^\{\}]|\r?\n|\r)*?)\*\/(?:\r?\n|\r| |\t)*(?:\r?\n|\r))|\/\*.*(?:# sourceMappingURL|uncss>)[\s\S]*?\*\/(?:\r?\n|\r)*)/g,
           replacement: ''
         }, {
-          pattern: /\/\*# sourceMappingURL(?:.|\t|\s|\r?\n|\r)*?\*\//gi,
+          pattern: /(@media.*\{|(?:\*\/|\})\n(?=\}))/g,
+          replacement: '$1\n'
+        }, {
+          pattern: /(?:\r?\n|\r)*((?: |\t)*)\/\*(?!.*csslint)([\s\S]*?)\*\/(?:\r?\n|\r)*(?:\r?\n|\r)/g,
+          replacement: '\n\n$1/*$2*/\n\n'
+        }, {
+          pattern: /^(( |\t)*(?:\r?\n|\r))+/g,
           replacement: ''
         }, {
-          pattern: /.media \-sass\-debug\-info(?:.|\t|\s|\r?\n|\r)*?\}\}/gi,
-          replacement: ''
-        }, {
-          pattern: /\/\*\*\* uncss>.*\*\*\*\/(?:\r?\n|\r)*/g,
-          replacement: ''
-        }, {
-          pattern: /\*\s(?:.)*\*\/(?:\r?\n|\r)*$/g,
-          replacement: ''
-        }, {
-          pattern: /\*\s(?:.)*\*\/(?:\r?\n\t*|\r\t*)*\//g,
-          replacement: ''
-        }, {
-          pattern: /(?:\r?\n|\r)*\/$/g,
-          replacement: ''
-        }, {
-          pattern: /\/\*(?:.)*(?:\r?\n|\r){4}/g,
-          replacement: ''
-        }, {
-          pattern: /\{(?:\r?\n|\r)\s*\/\*/g,
-          replacement: '{\n\n  /*'
-        }, {
-          pattern: /\}(?:\r?\n|\r)\}/g,
-          replacement: '}\n\n}'
+          pattern: /(( |\t)*(?:\r?\n|\r))+$/g,
+          replacement: '\n'
         }]
       },
       files: {
         './': [`${project.res.css.dir}*.css`, `!${project.res.css.dir}*.min.css`]
       }
     },
-    jsHint: {
+    js: {
       options: {
         replacements: [{
-          pattern: /(?:\r?\n|\r)(?:\s)*\/\* (?:jshint|global|exports).*\*\//g,
+          pattern: /(?:\r?\n|\r)(?: |\t)*\/\* (?:jshint|global|exports).*\*\//g,
           replacement: ''
+        }, {
+          pattern: /(.)$/g,
+          replacement: '$1\n'
         }]
       },
       files: {

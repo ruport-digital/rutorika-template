@@ -56,16 +56,17 @@ module.exports = (grunt, options) => {
     'autoprefixer',
     'uncss',
     'csscomb',
-    'string-replace:css',
     'cssc',
+    'string-replace:css',
     'cssmin'
   ]);
 
   grunt.registerTask('process-js', [
     'browserify',
     'copy:service',
+    'removelogging',
     'fixmyjs',
-    'string-replace:jsHint',
+    'string-replace:js',
     'uglify'
   ]);
 
