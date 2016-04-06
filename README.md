@@ -2,35 +2,30 @@
 
 ## Overview
 
-Template X is a boilerplate for web development.
+Template X was designed to improve front-end developer's workflow, by
+providing basic project structure and foundtation on top of the customizable
+building tools. You'll be able to start develop right away — clone the
+repo or just [download](https://github.com/uncleF/TemplateX/releases/latest) it.
 
-Designed to improve front-end developer's workflow, by providing basic
-structure, solid foundtation and highly customizable building tools for
-your project. You'll be able to start develop right away, just clone
-the repo or simply download it.
+```sh
+$ git clone https://github.com/uncleF/TemplateX.git
+```
 
-* `git clone https://github.com/uncleF/TemplateX.git`
-* [download](https://github.com/uncleF/TemplateX/releases/latest)
-
-Template X uses [Grunt](http://gruntjs.com/) as its task runner
-([Getting started with Grunt.JS](http://gruntjs.com/getting-started)).
-Check the [INSTALL.md](docs/INSTALL.md) to verify if your development
-environment is ready and [COMMANDS.md](docs/COMMANDS.md) for available
-commands.
+Check [INSTALL.md](docs/INSTALL.md) to verify if your development
+environment ready and [COMMANDS.md](docs/COMMANDS.md) for the list of
+available commands.
 
 ## Features
 
 * HTML5 ready.
-* Cross-browser compatible.
-* Includes [jQuery](http://jquery.com/).
+* Cross-browser compatible baseline CSS styles build using robust Sass framework.
+* Common basic Media Queries.
+* Basic print stylesheet.
+* Boilerplate Web Worker.
 * Uses [Modernizr](http://modernizr.com/) for feature detection.
-* Basic placeholder CSS Media Queries.
-* Default basic print stylesheets.
-* Handfull of practical CSS utility classes.
-* Very basic debuging script.
-* Development, testing & building tool based upon Grunt.
+* Uses [Grunt](http://gruntjs.com/) as it's task runner ([Getting started with Grunt.JS](http://gruntjs.com/getting-started)).
 
 ## Inspiration
 
-TemplateX was inspired by
+TemplateX was partly inspired by
 [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/).

@@ -8,13 +8,13 @@
 
 ### [Grunt](http://gruntjs.com/)
 
-To install Grunt globaly run this in terminal:
+To install Grunt globaly run this:
 
 ```sh
-$ npm install --g grunt
+$ npm install -g grunt grunt-cli
 ```
 
-To install local dependencies Template X requires run this in terminal:
+To install project's development dependencies run this:
 
 ```sh
 $ npm install
