@@ -1,26 +1,26 @@
 /* Lists Reset */
 
-%u-resetStyle {
+%u-reset {
   padding: 0;
   margin: 0;
 }
 
-.u-listReset {
-  @extend %u-resetStyle;
+%u-listReset {
+  @extend %u-reset;
   list-style: none;
 
   > li {
-    @extend %u-resetStyle;
+    @extend %u-reset;
   }
 
 }
 
-.u-descriptionListReset {
-  @extend %u-resetStyle;
+%u-descriptionListReset {
+  @extend %u-reset;
 
   > dt,
   > dd {
-    @extend %u-resetStyle;
+    @extend %u-reset;
     font-weight: normal;
     font-style: normal;
   }
@@ -31,7 +31,7 @@
 
 /* Image Blocker */
 
-.u-imageBlocker {
+%u-imageBlocker {
   background-image: none;
 }
 
@@ -39,7 +39,7 @@
 
 /* Visually Hidden */
 
-.u-visuallyHidden {
+%u-visuallyHidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);

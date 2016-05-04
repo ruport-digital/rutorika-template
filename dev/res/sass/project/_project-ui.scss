@@ -1,6 +1,6 @@
 // Transitions
 
-$UITransition: .15s;
+$UITransition: .25s;
 $UITransition-instant: .0001s;
 
 
@@ -16,3 +16,12 @@ $focus-outlineColor: $gray;
 
 $field-borderWidth: 1px;
 $field-borderColor: $gray;
+
+$placeholder-color: $gray;
+
+
+
+// Selection
+
+$selection-color: $white;
+$selection-background: $blue;

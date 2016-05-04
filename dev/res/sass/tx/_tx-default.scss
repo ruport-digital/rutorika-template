@@ -4,12 +4,16 @@
   display: inline-block;
 }
 
+
+
 /* Inline-block IE */
 
 %tx-default-inline-block-IE {
   display: inline;
   zoom: 1;
 }
+
+
 
 /* Pseudo Element */
 
@@ -18,6 +22,8 @@
   content: '';
   display: block;
 }
+
+
 
 /* Verticla Alignment */
 
@@ -29,6 +35,8 @@
   height: 100%;
   vertical-align: middle;
 }
+
+
 
 /* Sprite Block */
 

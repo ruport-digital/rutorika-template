@@ -1,0 +1,16 @@
+/* Link Touch State */
+
+$tx-linkTouchState-color: $link;
+
+%tx-linkTouchStates {
+
+  .mdz-touchevents & {
+
+    &:hover,
+    &:active {
+      color: $tx-linkTouchState-color;
+    }
+
+  }
+
+}

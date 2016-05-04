@@ -2,9 +2,10 @@
 
 'use strict';
 
-var eventTools = require('./tx-event');
-
 module.exports = (element, callback) => {
+
+  var eventTools = require('./tx-event');
+  var trigger = require('./tx-toggle');
 
   var object;
   var task;
@@ -15,12 +16,8 @@ module.exports = (element, callback) => {
     if (event) {
       event.preventDefault();
     }
-    if (active) {
-      object.className = object.className.replace(activeClassName, '');
-    } else {
-      object.className += ` ${activeClassName}`;
-    }
-    if (task) {
+    trigger.toggle(object, activeClassName, active);
+    if (typeof task === 'function') {
       task();
     }
     active = !active;
@@ -30,7 +27,7 @@ module.exports = (element, callback) => {
     object = element;
     task = callback;
     active = false;
-    activeClassName = `${object.className.split(' ')[0]}-is-active`;
+    activeClassName = `${object.className.split(' ').shift()}-is-active`;
     eventTools.bind(object, 'click', toggle);
   } else {
     return false;

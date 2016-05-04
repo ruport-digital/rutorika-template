@@ -1,16 +1,18 @@
 @import '_tx-default';
 
+
+
 // Page Boundaries
 
-@mixin tx-set-boundaries($minw: map-get($breakpoints, desktopMin), $maxw: map-get($breakpoints, desktopMax), $minh: 100%, $center: true) {
-  @if $minw != none and $minw != 0 {
-    min-width: $minw;
+@mixin tx-set-boundaries($minWidth: map-get($breakpoints, desktopMin), $maxWidth: map-get($breakpoints, desktopMax), $minHeight: 100%, $center: true) {
+  @if $minWidth != none and $minWidth != 0 {
+    min-width: $minWidth;
   }
-  @if $maxw != none and $maxw != 0 {
-    max-width: $maxw;
+  @if $maxWidth != none and $maxWidth != 0 {
+    max-width: $maxWidth;
   }
-  @if $minh != none and $minh != 0 {
-    min-height: $minh;
+  @if $minHeight != none and $minHeight != 0 {
+    min-height: $minHeight;
   }
   @if $center == true {
     margin: 0 auto;
@@ -21,8 +23,8 @@
 
 // Page Scroll
 
-@mixin tx-scroll-bar($cond: false, $autohide: true) {
-  @if $cond == true {
+@mixin tx-scroll-bar($condition: false, $autohide: true) {
+  @if $condition == true {
     overflow-x: auto;
     overflow-y: scroll;
   } @else {
@@ -37,10 +39,10 @@
 
 // Focus
 
-@mixin tx-focus-outline($wd: 1px, $st: dotted, $cl: $focus-outline, $off: 3px) {
-  outline: $wd $st $cl;
-  @if $off != none and $off != 0 {
-    outline-offset: $off;
+@mixin tx-focus-outline($width: 1px, $style: dotted, $color: $focus-outline, $offset: 3px) {
+  outline: $width $style $color;
+  @if $offset != none and $offset != 0 {
+    outline-offset: $offset;
   }
 }
 
@@ -48,8 +50,8 @@
 
 // Typography Baseline
 
-@mixin tx-baseline($fz: $fontSize, $fall: $tx-remFallback) {
-  font-size: $fz;
+@mixin tx-baseline {
+  font-size: $fontSize;
   line-height: $lineHeight;
 }
 
@@ -57,11 +59,17 @@
 
 // Inline Block
 
-@mixin tx-inline-block($ie: $tx-IE) {
-  @if $ie != true {
-    @extend %tx-default-inline-block;
+@mixin tx-inline-block($ie: $tx-IE, $extend: true) {
+  @if $extend == true {
+    @if $ie != true {
+      @extend %tx-default-inline-block;
+    } @else {
+      @extend %tx-default-inline-block-IE;
+    }
   } @else {
-    @extend %tx-default-inline-block-IE;
+    @if $ie != true {
+      display: inline-block;
+    }
   }
 }
 
@@ -69,33 +77,21 @@
 
 // Pseudo Element
 
-@mixin tx-pseudo($pos: absolute, $dsp: block, $cnt: '', $ie: $tx-IE) {
-  @if $pos == 'absolute' and $dsp == 'block' and $cnt == '' {
+@mixin tx-pseudo($position: absolute, $display: block, $content: '', $ie: $tx-IE, $extend: true) {
+  @if $position == 'absolute' and $display == 'block' and $content == '' and $extend == true {
     @extend %tx-default-pseudo;
   } @else {
-    @if $dsp == 'inline-block' {
+    @if $display == 'inline-block' {
       @include tx-inline-block;
     } @else {
-      display: $dsp;
+      display: $display;
     }
     @if not $ie {
-      content: '' + $cnt;
+      content: '' + $content;
     }
-    position: $pos;
+    position: $position;
   }
 }
-
-
-
-// Inline-Block Vertical Aligner
-
-@mixin tx-pseudo-va() {
-  @extend %tx-default-pseudo-va;
-}
-
-
-
-// Pseudo Element (IE Hack)
 
 @mixin tx-pseudo-ie($before: true, $after: true, $class: '', $beforeContent: '', $afterContent: '') {
   $beforeClass: ieBefore + $class;
@@ -109,59 +105,84 @@
   }
 }
 
+@mixin tx-pseudo-va {
+  @extend %tx-default-pseudo-va;
+}
+
 
 
 // Max Width
 
-@mixin tx-max-width($width) {
-  max-width: $width;
-  max-width: ($width / $fontSize) * 1rem;
+@mixin tx-max-width($width, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  @if $fallback == true {
+    max-width: $width;
+  }
+  @if $inPixels == false {
+    max-width: ($width / $fontSize) * 1rem;
+  }
+}
+
+
+
+//  Slide Down
+
+@mixin tx-slide-down($maxHeight, $activeClass: '-is-active') {
+  max-height: 0;
+
+  &-#{$activeClass} {
+    max-height: $maxHeight;
+  }
+
 }
 
 
 
 //  Height in Grid Units
 
-@mixin tx-grid-height($lines: 1, $brdw: 0, $lh: true, $pd: false, $fall: $tx-remFallback) {
-  @if $pd == true {
-    @if $fall == true {
-      padding: txf-rhythm-fallback($lines, 2 * $brdw) 0 0;
-    }
-    padding: txf-rhythm($lines, 2 * $brdw) 0 0;
-  } @else {
-    @if $fall == true {
-      height: txf-rhythm-fallback($lines, 2 * $brdw);
-    }
-    height: txf-rhythm($lines, 2 * $brdw);
+@mixin tx-grid-height($lines: 1, $borderWidth: 0, $setLineHeight: true, $setPadding: false, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
   }
-  @if $lh == true {
-    line-height: $lineHeight * $lines - ($brdw / ($fontSize / 1px)) * 2;
+  @if $setPadding == true {
+    @if $fallback == true {
+      padding: txf-rhythm-fallback($lines, 2 * $borderWidth) 0 0;
+    }
+    @if $inPixels == false {
+      padding: txf-rhythm($lines, 2 * $borderWidth) 0 0;
+    }
+  } @else {
+    @if $fallback == true {
+      height: txf-rhythm-fallback($lines, 2 * $borderWidth);
+    }
+    @if $inPixels == false {
+      height: txf-rhythm($lines, 2 * $borderWidth);
+    }
+  }
+  @if $setLineHeight == true {
+    line-height: $lines * $lineHeight - ($borderWidth / ($fontSize / 1px)) * 2;
   }
 }
 
 
 
-// Font Size
+// Form Element Height in Grid Units
 
-@mixin tx-font-size($fzn, $ln: approx, $fall: $tx-remFallback) {
-  @if type-of($fzn) == number {
-    $size: $fzn;
+@mixin tx-form-height($lines: 1, $borderWidth: 1, $setLineHeight: false, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  @if $setLineHeight == true {
+    line-height: $lines * $lineHeight - ($borderWidth / ($fontSize / 1px)) * 2;
   } @else {
-    $size: map-get($fontSizes, $fzn);
-  }
-  @if $fall == true {
-    font-size: $size;
-  }
-  $fznRem: $size / $fontSize;
-  font-size: #{$fznRem}rem;
-  @if $ln != none and $ln != approx and $ln != 0 {
-    line-height: ($lineHeight * $ln) * ($fontSize / $size);
-  }
-  @if $ln == 0 {
-    line-height: 0;
-  }
-  @if $ln == approx {
-    line-height: ($lineHeight * ceil($size / ($fontSize * $lineHeight))) * ($fontSize / $size);
+    @if $fallback == true {
+      height: txf-rhythm-fallback($lines, $offset: 2 * $borderWidth);
+    }
+    @if $inPixels == false {
+      height: txf-rhythm($lines, $offset: 2 * $borderWidth);
+    }
   }
 }
 
@@ -169,62 +190,90 @@
 
 // Hyphens
 
-@mixin tx-hyphens($hp: manual) {
-  -epub-hyphens: $hp;
-  hyphens: $hp;
+@mixin tx-hyphens($hyphens: manual) {
+  -epub-hyphens: $hyphens;
+  hyphens: $hyphens;
+}
+
+
+
+// Font Size
+
+@mixin tx-font-size($newFontSize, $lines: approx, $fallback: $remFallback) {
+  $size: 0;
+  @if type-of($newFontSize) == number {
+    $size: $newFontSize;
+  } @else {
+    $size: map-get($fontSizes, $newFontSize);
+  }
+  @if $fallback == true {
+    font-size: $size;
+  }
+  $newFontSizeRem: $size / $fontSize;
+  font-size: #{$newFontSizeRem}rem;
+  @if $lines != none and $lines != approx and $lines != 0 {
+    line-height: ($lines * $lineHeight) * ($fontSize / $size);
+  }
+  @if $lines == 0 {
+    line-height: 0;
+  }
+  @if $lines == approx {
+    line-height: ($lineHeight * ceil($size / ($fontSize * $lineHeight))) * ($fontSize / $size);
+  }
 }
 
 
 
 // Rhythm (Margin)
 
-@mixin tx-rhythm($leader: 0, $trailer: 0, $mrgt: 0, $mlft: 0, $fall: $tx-remFallback, $px: false) {
+@mixin tx-rhythm($leader: 0, $trailer: 0, $marginRight: 0, $marginLeft: 0, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  $mtop-px: 0;
+  $mtop-rem: 0;
+  $mbtm-px: 0;
+  $mbtm-rem: 0;
   @if $leader == $trailer {
     $vertical-px: txf-rhythm-fallback($leader);
     $vertical-rem: txf-rhythm($leader);
-    @if $mrgt == $mlft {
-      @if $fall == true {
-        margin: $vertical-px $mrgt;
+    @if $marginRight == $marginLeft {
+      @if $fallback == true {
+        margin: $vertical-px $marginRight;
       }
-      @if $px == false {
-        margin: $vertical-rem $mrgt;
+      @if $inPixels == false {
+        margin: $vertical-rem $marginRight;
       }
     } @else {
-      @if $fall == true {
-        margin: $vertical-px $mrgt $vertical-px $mlft;
+      @if $fallback == true {
+        margin: $vertical-px $marginRight $vertical-px $marginLeft;
       }
-      @if $px == false {
-        margin: $vertical-rem $mrgt $vertical-rem $mlft;
+      @if $inPixels == false {
+        margin: $vertical-rem $marginRight $vertical-rem $marginLeft;
       }
     }
   } @else {
     @if $leader != 0 {
       $mtop-px: txf-rhythm-fallback($leader);
       $mtop-rem: txf-rhythm($leader);
-    } @else {
-      $mtop-px: 0;
-      $mtop-rem: 0;
     }
     @if $trailer != 0 {
       $mbtm-px: txf-rhythm-fallback($trailer);
       $mbtm-rem: txf-rhythm($trailer);
-    } @else {
-      $mbtm-px: 0;
-      $mbtm-rem: 0;
     }
-    @if $mrgt == $mlft {
-      @if $fall == true {
-        margin: $mtop-px $mrgt $mbtm-px;
+    @if $marginRight == $marginLeft {
+      @if $fallback == true {
+        margin: $mtop-px $marginRight $mbtm-px;
       }
-      @if $px == false {
-        margin: $mtop-rem $mrgt $mbtm-rem;
+      @if $inPixels == false {
+        margin: $mtop-rem $marginRight $mbtm-rem;
       }
     } @else {
-      @if $fall == true {
-        margin: $mtop-px $mrgt $mbtm-px $mlft;
+      @if $fallback == true {
+        margin: $mtop-px $marginRight $mbtm-px $marginLeft;
       }
-      @if $px == false {
-        margin: $mtop-rem $mrgt $mbtm-rem $mlft;
+      @if $inPixels == false {
+        margin: $mtop-rem $marginRight $mbtm-rem $marginLeft;
       }
     }
   }
@@ -234,70 +283,56 @@
 
 // Rhythm Padding
 
-@mixin tx-rhythm-padding($padding-leader: 0, $padding-trailer: 0, $prgt: 0, $plft: 0, $fall: $tx-remFallback, $px: false) {
-  @if $padding-leader == $padding-trailer {
-    $vertical-px: txf-rhythm-fallback($padding-leader);
-    $vertical-rem: txf-rhythm($padding-leader);
-    @if $prgt == $plft {
-      @if $fall == true {
-        padding: $vertical-px $prgt;
-      }
-      @if $px == false {
-        padding: $vertical-rem $prgt;
-      }
-    } @else {
-      @if $fall == true {
-        padding: $vertical-px $prgt $vertical-px $plft;
-      }
-      @if $px == false {
-        padding: $vertical-rem $prgt $vertical-rem $plft;
-      }
-    }
-  } @else {
-    @if $padding-leader != 0 {
-      $ptop-px: txf-rhythm-fallback($padding-leader);
-      $ptop-rem: txf-rhythm($padding-leader);
-    } @else {
-      $ptop-px: 0;
-      $ptop-rem: 0;
-    }
-    @if $padding-trailer != 0 {
-      $pbtm-px: txf-rhythm-fallback($padding-trailer);
-      $pbtm-rem: txf-rhythm($padding-trailer);
-    } @else {
-      $pbtm-px: 0;
-      $pbtm-rem: 0;
-    }
-    @if $prgt == $plft {
-      @if $fall == true {
-        padding: $ptop-px $prgt $pbtm-px;
-      }
-      @if $px == false {
-        padding: $ptop-rem $prgt $pbtm-rem;
-      }
-    } @else {
-      @if $fall == true {
-        padding: $ptop-px $prgt $pbtm-px $plft;
-      }
-      @if $px == false {
-        padding: $ptop-rem $prgt $pbtm-rem $plft;
-      }
-    }
+@mixin tx-rhythm-padding($paddingLeader: 0, $paddingTrailer: 0, $paddingRight: 0, $paddingLeft: 0, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
   }
-}
-
-
-
-// Form Element Height in Grid Units
-
-@mixin tx-form-height($lines: 1, $brdw: 1, $lh: false, $fall: $tx-remFallback) {
-  @if $lh == true {
-    line-height: $lineHeight * $lines - ($brdw / ($fontSize / 1px)) * 2;
-  } @else {
-    @if $fall == true {
-      height: txf-rhythm-fallback($lines, $offset: 2 * $brdw);
+  $ptop-px: 0;
+  $ptop-rem: 0;
+  $pbtm-px: 0;
+  $pbtm-rem: 0;
+  @if $paddingLeader == $paddingTrailer {
+    $vertical-px: txf-rhythm-fallback($paddingLeader);
+    $vertical-rem: txf-rhythm($paddingLeader);
+    @if $paddingRight == $paddingLeft {
+      @if $fallback == true {
+        padding: $vertical-px $paddingRight;
+      }
+      @if $inPixels == false {
+        padding: $vertical-rem $paddingRight;
+      }
+    } @else {
+      @if $fallback == true {
+        padding: $vertical-px $paddingRight $vertical-px $paddingLeft;
+      }
+      @if $inPixels == false {
+        padding: $vertical-rem $paddingRight $vertical-rem $paddingLeft;
+      }
     }
-    height: txf-rhythm($lines, $offset: 2 * $brdw);
+  } @else {
+    @if $paddingLeader != 0 {
+      $ptop-px: txf-rhythm-fallback($paddingLeader);
+      $ptop-rem: txf-rhythm($paddingLeader);
+    }
+    @if $paddingTrailer != 0 {
+      $pbtm-px: txf-rhythm-fallback($paddingTrailer);
+      $pbtm-rem: txf-rhythm($paddingTrailer);
+    }
+    @if $paddingRight == $paddingLeft {
+      @if $fallback == true {
+        padding: $ptop-px $paddingRight $pbtm-px;
+      }
+      @if $inPixels == false {
+        padding: $ptop-rem $paddingRight $pbtm-rem;
+      }
+    } @else {
+      @if $fallback == true {
+        padding: $ptop-px $paddingRight $pbtm-px $paddingLeft;
+      }
+      @if $inPixels == false {
+        padding: $ptop-rem $paddingRight $pbtm-rem $paddingLeft;
+      }
+    }
   }
 }
 
@@ -305,41 +340,48 @@
 
 // Table Borders with Adjustment
 
-@mixin tx-table-borders($brdw: 1px, $lines: 1, $bstyle: solid, $bcolor: $black, $prgt: .5em, $plft: .5em, $fall: $tx-remFallback) {
-  $calculated-borderWidth-fallback: $brdw;
-  $calculated-borderWidth: $brdw / $fontSize * 1rem;
-  $calculated-verticalPadding-fallback: txf-rhythm-fallback($lines, $brdw);
-  $calculated-verticalPadding: txf-rhythm($lines, $brdw);
+@mixin tx-table-borders($width: 1px, $lines: 1, $style: solid, $color: $black, $paddingRight: .5em, $paddingLeft: .5em, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  $calculated-borderWidth-fallback: $width;
+  $calculated-borderWidth: $width / $fontSize * 1rem;
+  $calculated-verticalPadding-fallback: txf-rhythm-fallback($lines, $width);
+  $calculated-verticalPadding: txf-rhythm($lines, $width);
   @if $lines != 0 {
-    @if $prgt == $plft and $prgt != 0 {
-      @if $fall == true {
-        padding: ($calculated-verticalPadding-fallback) ($prgt) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback);
+    @if $paddingRight == $paddingLeft and $paddingRight != 0 {
+      @if $fallback == true {
+        padding: ($calculated-verticalPadding-fallback) ($paddingRight) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback);
       }
-      padding: ($calculated-verticalPadding) ($prgt) ($calculated-verticalPadding + $calculated-borderWidth);
+      @if $inPixels == false {
+        padding: ($calculated-verticalPadding) ($paddingRight) ($calculated-verticalPadding + $calculated-borderWidth);
+      }
     } @else {
-      @if $fall == true {
-        padding: ($calculated-verticalPadding-fallback) ($prgt) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback) ($plft);
+      @if $fallback == true {
+        padding: ($calculated-verticalPadding-fallback) ($paddingRight) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback) ($paddingLeft);
       }
-      padding: ($calculated-verticalPadding) ($prgt) ($calculated-verticalPadding + $calculated-borderWidth) ($plft);
+      @if $inPixels == false {
+        padding: ($calculated-verticalPadding) ($paddingRight) ($calculated-verticalPadding + $calculated-borderWidth) ($paddingLeft);
+      }
     }
   }
-  border: $brdw $bstyle $bcolor;
+  border: $width $style $color;
 }
 
 
 
 // Layers
 
-@mixin tx-layer($lr: content, $shift: 0) {
-  @if $lr == 'over' {
+@mixin tx-layer($layer: content, $shift: 0) {
+  @if $layer == 'over' {
     z-index: (200 + $shift);
-  } @else if $lr == 'top' {
+  } @else if $layer == 'top' {
     z-index: (100 + $shift);
-  } @else if $lr == 'content' {
+  } @else if $layer == 'content' {
     z-index: (50 + $shift);
-  } @else if $lr == 'bottom' {
+  } @else if $layer == 'bottom' {
     z-index: (0 + $shift);
-  } @else if $lr == 'under' {
+  } @else if $layer == 'under' {
     z-index: (-1 - $shift);
   }
 }
@@ -348,20 +390,17 @@
 
 // Sprites
 
-@mixin tx-sprite($name, $pos: true, $block: false, $pd: false, $color: null) {
-  @if $pos {
-    background: $color url(#{nth($name, 9)}) nth($name, 3) nth($name, 4);
-  } @else {
-    background: $color url(#{nth($name, 9)});
-  }
-  @if $block {
-    @include tx-sprite-block($name, $pd);
-  }
+@function txf-sprite-width($name) {
+  @return nth($name, 5);
 }
 
-@mixin tx-sprite-block($name, $pd: false) {
+@function txf-sprite-height($name) {
+  @return nth($name, 6);
+}
+
+@mixin tx-sprite-block($name, $padding: false) {
   width: nth($name, 5);
-  @if $pd {
+  @if $padding {
     @extend %tx-sprite-block;
     padding: nth($name, 6) 0 0;
   } @else {
@@ -377,22 +416,22 @@
   background-position: nth($name, 3) nth($name, 4);
 }
 
-@function txf-sprite-width($name) {
-  @return nth($name, 5);
+@mixin tx-sprite($sheet, $name, $position: true, $block: false, $padding: false, $color: null) {
+  @extend #{'%ssh-' + $sheet};
+  @if $block {
+    @include tx-sprite-block($name, $padding);
+  }
+  @if $color {
+    background-color: $color;
+  }
+  @if $position {
+    @include tx-sprite-position($name);
+  }
 }
 
-@function txf-sprite-height($name) {
-  @return nth($name, 6);
-}
-
-@mixin tx-sprite-dpi($sptsX, $spts) {
-  background-image: url(#{nth($sptsX, 3)});
-  background-size: nth($spts, 1) nth($spts, 2);
-}
 
 
-
-// Extend Data URI Image
+// Extend DataURI Image
 
 @mixin tx-extend-image($class, $ie: $tx-IE) {
   @if not $ie {
@@ -406,26 +445,32 @@
 
 // Block Placeholder
 
-@mixin tx-block-placeholder($img: '../images/tx/tx-placeholder.png') {
-  background: url($img);
+@mixin tx-block-placeholder($image: '../images/tx/tx-placeholder.png') {
+  background: url($image);
+}
+
+@mixin tx-icon($width: 15px, $height: 15px) {
+  @include tx-block-placeholder;
+  width: $width;
+  height: $height;
 }
 
 
 
 // Functions
 
-@function txf-rhythm($ln: 1, $offset: 0) {
-  $result: ($ln * $fontSize * $lineHeight - $offset) / $fontSize * 1rem;
-  @if #{$result} == '0rem' {
+@function txf-rhythm($lines: 1, $offset: 0) {
+  $result: ($lines * $lineHeight * $fontSize - $offset) / $fontSize * 1rem;
+  @if $result == '0rem' {
     @return 0;
   } @else {
     @return $result;
   }
 }
 
-@function txf-rhythm-fallback($ln: 1, $offset: 0) {
-  $result: ($ln * $fontSize * $lineHeight - $offset);
-  @if #{$result} == '0px' {
+@function txf-rhythm-fallback($lines: 1, $offset: 0) {
+  $result: ($lines * $lineHeight * $fontSize - $offset);
+  @if $result == '0px' {
     @return 0;
   } @else {
     @return $result;
@@ -434,12 +479,12 @@
 
 
 
-// Utilities
+// Utility Functions
 
 @function txf-pow($base, $exp) {
   $result: 1;
   @if $exp == 0 {
-    @return 1;
+    @return $result;
   } @else {
     @for $i from 1 through $exp {
       $result: $result * $base;

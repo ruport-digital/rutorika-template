@@ -12,18 +12,20 @@ function criticalModernizr(grunt, project) {
   var html = grunt.file.read(`${project.build.dir}${project.index}`);
   var modernizrPath = (`${project.build.dir}${html.match(/src=".*Modernizr\/.*?"/gm)}`).replace(/"|'|src=/gm, '');
   var modernizr = (`\n    <script id="modernizr" type="text/javascript">${grunt.file.read(modernizrPath)}</script>`).replace(/\/\*(?:\r?\n|\r|.)*\*\/(?:\r?\n|\r)/gm, '');
-  grunt.file.recurse(project.build.dir, (filePath, fileRoot, sub, fileName) => {inlineModernizr(grunt, modernizr, filePath, fileRoot, sub, fileName);});
+  grunt.file.recurse(project.build.dir, (filePath, fileRoot, sub, fileName) => inlineModernizr(grunt, modernizr, filePath, fileRoot, sub, fileName));
 }
 
-function dataURIPlaceholder(scssIE, grunt, project, file) {
+function dataURIPlaceholder(grunt, project, file) {
+  var scssIE = '';
   if (grunt.file.isFile(`${project.res.images.dir}${file}`)) {
     scssIE += `%ie-image-${file.split('.')[0]} {\n  background-image: url(${project.res.images.dir.replace(project.res.dir, '../')}${file});\n}\n\n`;
   }
+  return scssIE;
 }
 
 function dataURIFallback(grunt, project, helpers) {
   var scssIE = '';
-  project.res.images.dataURI.forEach(file => {dataURIPlaceholder(scssIE, grunt, project, file);});
+  project.res.images.dataURI.forEach(file => scssIE += dataURIPlaceholder(grunt, project, file));
   if (scssIE !== '') {
     grunt.file.write(`${project.res.css.sass}${helpers.scss}${helpers.temp}${helpers.dataURIFallback}`, scssIE);
   }
@@ -34,28 +36,50 @@ function dataURICleanup(grunt, project, helpers) {
   grunt.file.write(`${project.res.css.sass}${helpers.scss}${helpers.dataURISCSS}`, scss);
 }
 
-function spriteSCSS(grunt, project, helpers, scss, sprite) {
+function placeholderSpriteCSS(name, ext, densitySuffix, density) {
+  if (density !== 1) {
+    return `@mixin ssh-${name}${densitySuffix.replace('@', '-')} {\n\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}${densitySuffix.replace('@', '-')}, 3));\n    background-size: #{nth($ssh-${name}, 1)} #{nth($ssh-${name}, 2)};\n  }\n\n}`;
+  } else {
+    let placeholder = `%ssh-${name} {\n  background-image: url(nth($ssh-${name}, 3));\n}`;
+    let mixin = `@mixin ssh-${name} {\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}, 3));\n  }\n}`;
+    return `${placeholder}\n\n${mixin}`;
+  }
+}
+
+function eachDensitySpriteSCSS(grunt, scssPath, name, ext, density) {
+  var scss = '';
+  var densitySuffix = density === 1 ? '' : `@${density}x`;
+  var file = `${scssPath}${densitySuffix}.scss`;
+  if (grunt.file.isFile(file)) {
+    let block = grunt.file.read(file).replace(/(?:\r?\n|\r){2,}/gm, '');
+    let placeholder = placeholderSpriteCSS(name, ext, densitySuffix, density);
+    block = `// ${name}${densitySuffix}.${ext}\n\n${block}\n\n${placeholder}\n\n\n\n`;
+    scss += block;
+    grunt.file.delete(file);
+  }
+  return scss;
+}
+
+function spriteSCSS(grunt, project, helpers, sprite) {
+  var scss = '';
   var fullName = sprite.split('.');
   var name = fullName[0];
   var ext = fullName[1];
   var scssPath = `${project.res.css.sass}${helpers.scss}${helpers.temp}_${name}`;
-  project.res.images.desities.forEach(density => {
-    var densitySuffix = density === 1 ? '' : `@${density}x`;
-    var scssFile = `${scssPath}${densitySuffix}.scss`;
-    if (grunt.file.isFile(scssFile)) {
-      let scssBlock = grunt.file.read(scssFile).replace(/(?:\r?\n|\r){2,}/gm, '');
-      scssBlock = `// ${name}${densitySuffix}.${ext}\n\n${scssBlock}\n\n\n\n`;
-      scss += scssBlock;
-      grunt.file.delete(scssFile);
-    }
-  });
+  project.res.images.desities.forEach(density => scss += eachDensitySpriteSCSS(grunt, scssPath, name, ext, density));
+  return scss;
+}
+
+function eachSpriteSCSS(grunt, project, helpers) {
+  var scss = '';
+  project.res.images.sprites.forEach(sprite => scss += spriteSCSS(grunt, project, helpers, sprite));
+  return scss;
 }
 
 function spritesSCSS(grunt, project, helpers) {
   if (project.res.images.sprites.length > 0) {
-    var scss = '';
+    let scss = eachSpriteSCSS(grunt, project, helpers);
     grunt.file.delete(`${project.res.css.sass}${helpers.scss}${helpers.spritesSCSS}`);
-    project.res.images.sprites.forEach(sprite => {spriteSCSS(grunt, project, helpers, scss, sprite);});
     scss = scss.replace(/\/\*[^*]*\*+([^/*][^*]*\*+)*\/(?:\r?\n|\r)/gm, '').replace(/\, \)/gm, ')').replace(/(\s|\()0px/gm, '$1' + '0');
     scss = scss.replace(/\n\n\n\n$/gm, '\n');
     grunt.file.write(`${project.res.css.sass}${helpers.scss}${helpers.spritesSCSS}`, scss);

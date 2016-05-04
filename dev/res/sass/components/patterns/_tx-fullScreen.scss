@@ -1,0 +1,14 @@
+/* Full Screen */
+
+%tx-fullScreen {
+  min-height: 100%;
+
+  &-root {
+    height: 100%;
+  }
+
+  &-ancestor {
+    height: inherit;
+  }
+
+}

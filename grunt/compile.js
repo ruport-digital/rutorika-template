@@ -6,13 +6,17 @@ module.exports = (grunt, options) => {
   var tx = require('./tx/tx');
 
   var compileCondition = project.res.images.sprites.length > 0;
-  var compileTasks = ['clean:res', 'process-images', 'process-html', 'process-css', 'process-js'];
-  var compileTask = 'process-sprites';
-  var compileTaskIndex = 1;
+  var compileConditionalTask = 'process-sprites';
+  var compileConditionalTaskIndex = 1;
+  var compileTasks = [
+    'clean:res',
+    'process-images',
+    'process-html',
+    'process-css',
+    'process-js'
+  ];
 
-  grunt.registerTask('compile', 'Compiling', _ => {
-    tx.conditionalTask(grunt, project, compileCondition, compileTasks, compileTask, compileTaskIndex);
-  });
+  grunt.registerTask('compile', 'Compiling', _ => tx.conditionalTask(grunt, project, compileCondition, compileTasks, compileConditionalTask, compileConditionalTaskIndex));
 
   grunt.registerTask('compile-critical', [
     'critical',

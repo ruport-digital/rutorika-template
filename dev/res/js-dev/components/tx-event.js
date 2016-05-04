@@ -30,6 +30,11 @@ function trigger(object, event, propagate) {
   }
 }
 
+function target(event) {
+  return event.target || event.srcElement;
+}
+
 exports.bind = bind;
 exports.unbind = unbind;
 exports.trigger = trigger;
+exports.target = target;

@@ -14,6 +14,13 @@ select,
   touch-action: manipulation;
 }
 
+/* Link Touch State */
+
+.mdz-touchevents a:hover,
+.mdz-touchevents a:active {
+  color: #337ab7;
+}
+
 /* Typography & Vertical Rhythm */
 
 html {
@@ -334,32 +341,20 @@ a {
   color: #337ab7;
   -webkit-tap-highlight-color: rgba(35, 82, 124, .25);
   text-decoration: underline;
-  -webkit-text-decoration-color: rgba(51, 122, 183, .5);
-  -moz-text-decoration-color: rgba(51, 122, 183, .5);
-  text-decoration-color: rgba(51, 122, 183, .5);
-  -webkit-transition: color .15s, text-decoration-color .15s;
-  transition: color .15s, text-decoration-color .15s;
+  -webkit-transition: .25s;
+  transition: .25s;
 }
 
 a:visited {
   color: #6f5499;
-  -webkit-text-decoration-color: rgba(111, 84, 153, .5);
-  -moz-text-decoration-color: rgba(111, 84, 153, .5);
-  text-decoration-color: rgba(111, 84, 153, .5);
 }
 
 a:hover {
   color: #d9534f;
-  -webkit-text-decoration-color: rgba(217, 83, 79, .5);
-  -moz-text-decoration-color: rgba(217, 83, 79, .5);
-  text-decoration-color: rgba(217, 83, 79, .5);
 }
 
 a:active {
   color: #23527c;
-  -webkit-text-decoration-color: rgba(35, 82, 124, .5);
-  -moz-text-decoration-color: rgba(35, 82, 124, .5);
-  text-decoration-color: rgba(35, 82, 124, .5);
 }
 
 /* Forms */
@@ -424,6 +419,12 @@ input[type='number'] {
   appearance: none;
 }
 
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
 input::-moz-placeholder,
 textarea::-moz-placeholder {
   color: #ccc;
@@ -440,6 +441,11 @@ input::placeholder,
 textarea::placeholder {
   color: #ccc;
   opacity: 1;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 select {
@@ -470,19 +476,7 @@ textarea {
   font-size: inherit;
 }
 
-/* Lists Reset */
-
-.u-listReset,
-.u-listReset > li {
-  padding: 0;
-  margin: 0;
-}
-
-.u-listReset {
-  list-style: none;
-}
-
-/* Layout Base */
+/* Layout */
 
 html {
   -webkit-overflow-scrolling: touch;
@@ -514,16 +508,7 @@ body {
 
 @media handheld, only screen and (max-width: 45em) {
 
-  /* Typography & Rhythm */
-
-  table,
-  tr,
-  th,
-  td {
-    display: block;
-  }
-
-  /* Layout Base */
+  /* Layout */
 
   body {
     min-width: 0;
@@ -537,7 +522,7 @@ body {
 
   /*csslint regex-selectors: false*/
 
-  /* Typography & Rhythm */
+  /* Typography & Vertical Rhythm */
 
   @page {
     size: A4;
@@ -620,7 +605,7 @@ body {
     display: none;
   }
 
-  /* Layout Base */
+  /* Layout */
 
   body {
     width: auto;

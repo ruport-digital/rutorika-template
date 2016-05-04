@@ -1,0 +1,20 @@
+/* Fill */
+
+%tx-fill {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  &-block {
+    @extend %tx-fill;
+    position: absolute;
+    display: block;
+  }
+
+  &-pseudo {
+    @extend %tx-fill;
+    @include tx-pseudo;
+  }
+
+}

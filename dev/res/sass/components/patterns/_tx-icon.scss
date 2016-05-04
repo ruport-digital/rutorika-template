@@ -1,0 +1,63 @@
+@import '_tx-linkTouchStates';
+
+
+
+/* Icon */
+
+%tx-icon {
+
+  @extend %tx-linkTouchStates;
+
+  &:before,
+  &:after {
+    @include tx-pseudo;
+  }
+
+  &:before {
+    z-index: 1;
+  }
+
+  &:after {
+    z-index: 0;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:active {
+    @extend %tx-iconHover;
+    @extend %tx-iconHoverTouch;
+  }
+
+  &-is-active {
+    @extend %tx-iconHover;
+  }
+
+  &Hover {
+
+    &:before {
+      opacity: 0;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+
+  }
+
+  .mdz-touchevents & {
+
+    &:after {
+      display: none;
+    }
+
+    &HoverTouch {
+
+      &:before {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+}

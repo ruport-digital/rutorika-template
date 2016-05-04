@@ -13,8 +13,6 @@ $tx-button-borderColor: $tx-button-background;
   height: ($tx-button-height - $tx-button-borderWidth * 2);
   padding: 0 ($tx-button-padding - $tx-button-borderWidth);
   border: $tx-button-borderWidth solid $tx-button-borderColor;
-  color: $tx-button-color;
-  background: $tx-button-background;
   transition: $UITransition;
 
   &-link {
@@ -22,14 +20,16 @@ $tx-button-borderColor: $tx-button-background;
     text-decoration: none;
     line-height: ($tx-button-height - $tx-button-borderWidth * 2);
 
+    &:link,
     &:visited {
-      @extend %tx-buttonVisited;
+      @extend %tx-buttonInitial;
     }
 
   }
 
   &-input {
     @extend %tx-button;
+    @extend %tx-buttonInitial;
     line-height: 1;
     cursor: pointer;
   }
@@ -39,7 +39,7 @@ $tx-button-borderColor: $tx-button-background;
     @extend %tx-buttonHover;
   }
 
-  &Visited {
+  &Initial {
     color: $tx-button-color;
     background: $tx-button-background;
   }
@@ -47,6 +47,15 @@ $tx-button-borderColor: $tx-button-background;
   &Hover {
     color: $tx-button-hover;
     background: $tx-button-backgroundHover;
+  }
+
+  .mdz-touchevents & {
+
+    &:hover,
+    &:active {
+      @extend %tx-buttonInitial;
+    }
+
   }
 
 }

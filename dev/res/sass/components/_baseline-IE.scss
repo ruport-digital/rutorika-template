@@ -1,6 +1,8 @@
 $tx-IE: true;
 
-/* Typography & Vertical Rhythm (Internet Explorer < 8) */
+
+
+/* Typography & Vertical Rhythm */
 
 dfn {
   font-style: normal;
@@ -35,84 +37,6 @@ input {
 
   &[type='radio'] {
     @extend %formRadioCheckboxStyleIE;
-  }
-
-}
-
-
-
-/* Internet Explorer 6 */
-
-%buttonStyleIE6 {
-  @include tx-grid-height(1, $lh: false);
-  cursor: hand;
-}
-
-.ie6 {
-
-  label {
-    cursor: hand;
-  }
-
-  pre {
-    zoom: 1;
-  }
-
-  ul {
-    @extend %unorderedListStyleIE;
-  }
-
-  ol {
-    @extend %orderedListStyleIE;
-  }
-
-  .u-listReset {
-
-    ul {
-      @extend %unorderedListStyleIE;
-    }
-
-    ol {
-      @extend %orderedListStyleIE;
-    }
-
-    li {
-
-      li {
-        @include tx-rhythm(1, 1);
-      }
-
-    }
-
-  }
-
-  .u-descriptionListReset {
-
-    dl {
-
-      dt {
-        @include tx-rhythm(1);
-      }
-
-      dd {
-        @include tx-rhythm(0, 1, $mlft: 1.5em);
-        font-style: italic;
-      }
-
-    }
-
-  }
-
-  input {
-    vertical-align: text-bottom;
-  }
-
-  button {
-    @extend %buttonStyleIE6;
-  }
-
-  .button {
-    @extend %buttonStyleIE6;
   }
 
 }

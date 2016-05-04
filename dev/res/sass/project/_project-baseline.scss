@@ -1,13 +1,18 @@
-// Font
+// Fonts
 
 $sansSerifFontStack: 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
 $serifFontStack: 'Roboto Slab', 'Droid Serif', Cambria, Georgia , 'Times New Roman', Times, serif;
 $monospaceFontStack: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
 
 $font-sans: $sansSerifFontStack;
+$font-serif: $serifFontStack;
 $font-mono: $monospaceFontStack;
+
 $fontSize: 16px;
 $lineHeight: 1.5;
+
+$remFallback: true;
+
 $fontRatio: 1.2;
 $fontSizeQuotient: $fontSize / 16px;
 

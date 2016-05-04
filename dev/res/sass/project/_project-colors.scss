@@ -15,18 +15,12 @@ $underlineOpacity: .5;
 // Default Colors
 
 $text: $black;
+$background: $white;
+
+$print-color: $text;
+$print-background: $background;
+
 $link: $blue;
 $visited: $purple;
 $hover: $red;
 $active: $blueDark;
-$focus-outlineColor: $gray;
-
-$background: $white;
-
-$placeholder-color: $gray;
-
-$selection-color: $white;
-$selection-background: $blue;
-
-$print-color: $black;
-$print-background: $white;

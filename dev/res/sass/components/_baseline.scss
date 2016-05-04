@@ -1,4 +1,5 @@
 @import 'patterns/_tx-fastTouch';
+@import 'patterns/_tx-linkTouchStates';
 
 
 
@@ -127,7 +128,6 @@ h6 {
 
 p {
   @extend %marginStyle;
-  @extend %hyphenStyle;
 }
 
 dl {
@@ -140,13 +140,12 @@ dt {
 }
 
 dd {
-  @include tx-rhythm(.5, .5, $mlft: 1.5em);
+  @include tx-rhythm(.5, .5, $marginLeft: 1.5em);
   font-style: italic;
 }
 
 ul {
   @extend %marginStyle;
-  @extend %u-listResetStyle;
   list-style-type: disc;
 }
 
@@ -156,7 +155,7 @@ ol {
 }
 
 %nestedListsStyle {
-  @include tx-rhythm(1, 1, $mlft: 1.5em);
+  @include tx-rhythm(1, 1, $marginLeft: 1.5em);
 }
 
 li {
@@ -238,7 +237,7 @@ b {
 blockquote {
   @extend %quoteEmphasisStyle;
   @extend %quotesStyle;
-  @include tx-rhythm(1, 1, $mrgt: 3em, $mlft: 3em);
+  @include tx-rhythm(1, 1, $marginRight: 3em, $marginLeft: 3em);
 }
 
 em {
@@ -400,7 +399,7 @@ caption {
 %tableCellStyle {
   $tableCell-borderColor: $gray;
 
-  @include tx-table-borders(1px, 1, $bcolor: $tableCell-borderColor, $prgt: ($gap / 2), $plft: ($gap / 2));
+  @include tx-table-borders(1px, 1, $color: $tableCell-borderColor, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
 }
 
 table {
@@ -474,25 +473,22 @@ hr {
 a {
   @extend %focusStyle;
   @extend %tx-fastTouch;
+  @extend %tx-linkTouchStates;
   color: $link;
   -webkit-tap-highlight-color: rgba($active, .25);
   text-decoration: underline;
-  text-decoration-color: rgba($link, $underlineOpacity);
-  transition: color $UITransition, text-decoration-color $UITransition;
+  transition: $UITransition;
 
   &:visited {
     color: $visited;
-    text-decoration-color: rgba($visited, $underlineOpacity);
   }
 
   &:hover {
     color: $hover;
-    text-decoration-color: rgba($hover, $underlineOpacity);
   }
 
   &:active {
     color: $active;
-    text-decoration-color: rgba($active, $underlineOpacity);
   }
 
 }
@@ -622,18 +618,18 @@ select {
   @extend %formAlignStyle;
   @extend %formStyle;
   @extend %tx-fastTouch;
-  @include tx-grid-height(1.5, $lh: false);
+  @include tx-grid-height(1.5, $setLineHeight: false);
   vertical-align: top;
 
   &[multiple] {
-    @include tx-grid-height(5, $lh: false);
+    @include tx-grid-height(5, $setLineHeight: false);
   }
 
 }
 
 %buttonStyle {
   @extend %tx-fastTouch;
-  @include tx-grid-height(1.5, $lh: false);
+  @include tx-grid-height(1.5, $setLineHeight: false);
   padding: 0 ($gap / 2);
   cursor: pointer;
 }
@@ -659,7 +655,7 @@ textarea {
   @extend %formStyle;
   @extend %formPlaceholderStyle;
   @include tx-form-height(9, 1);
-  @include tx-rhythm-padding(.25, .25, $prgt: ($gap / 2), $plft: ($gap / 2));
+  @include tx-rhythm-padding(.25, .25, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
   display: block;
   overflow: auto;
   font-size: inherit;

@@ -10,7 +10,7 @@
     "babelify": "*",
     "backstopjs": "*",
     "chai": "*",
-    "grunt": "^1.0.0",
+    "grunt": "*",
     "grunt-analyze-css": "*",
     "grunt-arialinter": "*",
     "grunt-autoprefixer": "*",
