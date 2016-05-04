@@ -2,13 +2,20 @@
 
 'use strict';
 
-var transition = require('./tx-transition')();
-var translateGallery = require('./tx-translate').css;
-
-const SLIDE_THRESHOLD = 15;
-const NEXT_SHIFT = 50;
+const DOT_NAVIGATION_CLASS = 'js-dotsNavigation';
+const DOT_CLASS = 'js-dotsPage';
+const DOT_CLASS_ACTIVE = 'js-dotsPage-is-active';
+const CLASS_ACTIVE_SUFFIX = '-is-active';
 
 function swipe(gallery, navigation, navigationItemClassName, jQDocument) {
+
+  var transition = require('./tx-transition')();
+  var translateGallery = require('./tx-translate').css;
+
+  const SLIDE_THRESHOLD = 15;
+  const NEXT_SHIFT = 50;
+  const SLIDES_CLASS_FIXING = 'slides-are-fixing';
+  const SLIDES_CLASS_CHANGING = 'slides-are-changing';
 
   var doc;
   var object;
@@ -40,8 +47,9 @@ function swipe(gallery, navigation, navigationItemClassName, jQDocument) {
   }
 
   function finalizeSlide() {
-    object.removeClass('slides-are-fixing');
-    object.off(transition);
+    object
+      .removeClass(`${SLIDES_CLASS_FIXING} ${SLIDES_CLASS_CHANGING}`)
+      .off(transition);
   }
 
   function fixSlide() {
@@ -51,11 +59,16 @@ function swipe(gallery, navigation, navigationItemClassName, jQDocument) {
       } else if (pointDiffX < -NEXT_SHIFT && galleryStatus !== 'end') {
         index += 1;
       }
-      linkActive.removeClass(`${linkClassName}-is-active js-dotsPage-is-active`);
-      links.filter(`.${linkClassName}:eq(${index})`).addClass(`${linkClassName}-is-active js-dotsPage-is-active`);
-      object.addClass('slides-are-fixing').trigger('swipe');
-      object.on(transition, finalizeSlide);
-      object.css(translateGallery('x', `${-100 * index}%`));
+      linkActive.removeClass(`${linkClassName}${CLASS_ACTIVE_SUFFIX} ${DOT_CLASS_ACTIVE}`);
+      links
+        .filter(`.${linkClassName}:eq(${index})`)
+        .addClass(`${linkClassName}${CLASS_ACTIVE_SUFFIX} ${DOT_CLASS_ACTIVE}`);
+      object
+        .addClass(SLIDES_CLASS_FIXING)
+        .trigger('swipe');
+      object
+        .on(transition, finalizeSlide)
+        .css(translateGallery('x', `${-100 * index}%`));
     }
   }
 
@@ -63,7 +76,7 @@ function swipe(gallery, navigation, navigationItemClassName, jQDocument) {
     pointStartX = event ? event.originalEvent.touches[0].pageX : 0;
     pointShift = 1;
     positionStart = object.offset().left;
-    linkActive = links.filter(`.${linkClassName}-is-active`);
+    linkActive = links.filter(`.${linkClassName}${CLASS_ACTIVE_SUFFIX}`);
     index = links.index(linkActive);
     if (index === 0) {
       galleryStatus = 'start';
@@ -79,22 +92,30 @@ function swipe(gallery, navigation, navigationItemClassName, jQDocument) {
     fixSlide();
   }
 
-  function prev() {
+  function preChange(event) {
+    if (event) {
+      event.preventDefault();
+    }
     getData();
+    object.addClass(SLIDES_CLASS_CHANGING);
+  }
+
+  function prevItem(event) {
+    preChange(event);
     if (galleryStatus !== 'start') {
       fakeSwipe(NEXT_SHIFT + 1);
     }
   }
 
-  function next() {
-    getData();
+  function nextItem(event) {
+    preChange(event);
     if (galleryStatus !== 'end') {
       fakeSwipe(-NEXT_SHIFT - 1);
     }
   }
 
   function touchStart(event) {
-    if (!object.is('.slides-are-fixing')) {
+    if (!object.is(`.${SLIDES_CLASS_FIXING}`) || !object.is(`.${SLIDES_CLASS_CHANGING}`)) {
       pointDiffX = 0;
       getData(event);
       doc
@@ -117,19 +138,40 @@ function swipe(gallery, navigation, navigationItemClassName, jQDocument) {
     requestAnimationFrame(fixSlide);
   }
 
-  function setup() {
-    doc = jQDocument;
-    object = gallery;
-    links = navigation;
-    linkClassName = navigationItemClassName;
-    object.on('touchstart', touchStart);
+  function updateLinks() {
+    linkActive.removeClass(`${linkClassName}${CLASS_ACTIVE_SUFFIX} ${DOT_CLASS_ACTIVE}`);
+    links
+      .filter(`.${linkClassName}:eq(${index})`)
+      .addClass(`${linkClassName}${CLASS_ACTIVE_SUFFIX} ${DOT_CLASS_ACTIVE}`);
   }
 
-  setup();
+  function setItem(newIndex) {
+    linkActive = links.filter(`.${linkClassName}${CLASS_ACTIVE_SUFFIX}`);
+    index = newIndex;
+    object.css(translateGallery('x', `${-100 * index}%`));
+    updateLinks();
+  }
+
+  function getNumber() {
+    return index + 1;
+  }
+
+  function getSize() {
+    return links.length;
+  }
+
+  doc = jQDocument;
+  object = gallery;
+  links = navigation;
+  linkClassName = navigationItemClassName;
+  object.on('touchstart', touchStart);
 
   return {
-    prev: prev,
-    next: next
+    prev: prevItem,
+    next: nextItem,
+    set: setItem,
+    number: getNumber,
+    size: getSize
   };
 
 }
@@ -139,11 +181,11 @@ function init(gallery, navigation, navigationItemClassName, jQDocument) {
 }
 
 function dots(size, listClass, pageClass) {
-  var navigation = `<ul class="${listClass} js-dotsNavigation u-listReset">`;
-  for (let index = 0; index < size; index += 1) {
-    navigation = index === 0 ? navigation + `<li class="${pageClass} ${pageClass}-is-active js-dotsPage-is-active js-dotsPage"></li>` : navigation + `<li class="${pageClass} js-dotsPage"></li>`;
+  var navigation = `<ol class="${listClass} ${DOT_NAVIGATION_CLASS}"><li class="${pageClass} ${pageClass}${CLASS_ACTIVE_SUFFIX} ${DOT_CLASS_ACTIVE} ${DOT_CLASS}"></li>`;
+  for (let index = 1; index < size; index += 1) {
+    navigation += `<li class="${pageClass} ${DOT_CLASS}"></li>`;
   }
-  navigation += '</ul>';
+  navigation += '</ol>';
   return navigation;
 }
 

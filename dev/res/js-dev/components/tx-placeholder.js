@@ -2,10 +2,10 @@
 
 'use strict';
 
-var querySelectorPolyfill = require('./tx-querySelectorAll.js');
-var eventTools = require('./tx-event');
-
 module.exports = _ => {
+
+  var querySelectorPolyfill = require('./tx-querySelectorAll.js');
+  var eventTools = require('./tx-event');
 
   var fields;
 
