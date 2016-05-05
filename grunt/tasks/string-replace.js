@@ -58,19 +58,19 @@ module.exports = (grunt, options) => {
           pattern: /\[data-dev-note\][\s\S]*?\}(?:\r?\n|\r)*/g,
           replacement: ''
         }, {
-          pattern: /(?:^(?: |\t)*(?:\r?\n|\r)|\/\*(?!.*csslint)((?:[^\{\}]|\r?\n|\r)*?)\*\/(?:\r?\n|\r| |\t)*(?:\r?\n|\r)(?=\/\*((?:[^\{\}]|\r?\n|\r)*?)\*\/(?:\r?\n|\r| |\t)*(?:\r?\n|\r))|\/\*.*(?:# sourceMappingURL|uncss>)[\s\S]*?\*\/(?:\r?\n|\r)*)/g,
+          pattern: /\*(?! *csslint|\/)[^*{]*\*+([^/*][^*]*\*+)*\/(?:\r?\n|\r|\t| )*\//g,
+          replacement: ''
+        }, {
+          pattern: /\/\*.*(?:# sourceMappingURL|uncss>)[\s\S]*?\*\/(?:\r?\n|\r)*/g,
           replacement: ''
         }, {
           pattern: /(@media.*\{|(?:\*\/|\})\n(?=\}))/g,
           replacement: '$1\n'
         }, {
-          pattern: /(?:\r?\n|\r)*((?: |\t)*)\/\*(?!.*csslint)([\s\S]*?)\*\/(?:\r?\n|\r)*(?:\r?\n|\r)/g,
-          replacement: '\n\n$1/*$2*/\n\n'
-        }, {
-          pattern: /^(( |\t)*(?:\r?\n|\r))+/g,
+          pattern: /^(?:(?: |\t)*(?:\r?\n|\r))+/g,
           replacement: ''
         }, {
-          pattern: /(( |\t)*(?:\r?\n|\r))+$/g,
+          pattern: /(?:(?: |\t)*(?:\r?\n|\r))+$/g,
           replacement: '\n'
         }]
       },
@@ -81,11 +81,8 @@ module.exports = (grunt, options) => {
     js: {
       options: {
         replacements: [{
-          pattern: /(?:\r?\n|\r)(?: |\t)*\/\* (?:jshint|global|exports).*\*\//g,
-          replacement: ''
-        }, {
-          pattern: /(.)$/g,
-          replacement: '$1\n'
+          pattern: /((?:\r?\n|\r)+\/\* jshint[\s\S]*?\*\/)/g,
+          replacement: '\n$1'
         }]
       },
       files: {

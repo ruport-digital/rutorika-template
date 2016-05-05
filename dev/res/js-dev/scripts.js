@@ -2,4 +2,6 @@
 
 'use strict';
 
-(function() {})();
+var eventTool = require('./tx/tx-event');
+
+eventTool.bind();

@@ -54,6 +54,5 @@ module.exports = function(grunt) {
 
   loadConfig(grunt, {configPath: configPath, jitGrunt: {staticMappings: staticMappings}, data: data});
   loadConfig(grunt, {jitGrunt: true, init: false, data: data });
-  require('time-grunt')(grunt);
 
 };

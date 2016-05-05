@@ -5,7 +5,7 @@ module.exports = (grunt) => {
   grunt.registerTask('build-resources', [
     'compile',
     'clean:build',
-    'copy',
+    'copy:build',
     'imagemin:meta',
     'htmlmin',
     'prettify',

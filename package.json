@@ -36,14 +36,12 @@
     "grunt-csscomb": "*",
     "grunt-csscss": "*",
     "grunt-datauri": "*",
-    "grunt-fixmyjs": "*",
     "grunt-htmlhint": "0.9.9",
     "grunt-jscs": "*",
     "grunt-jsinspect": "*",
     "grunt-mocha-test": "*",
     "grunt-prettify": "*",
     "grunt-processhtml": "*",
-    "grunt-remove-logging": "*",
     "grunt-sass": "*",
     "grunt-scss-lint": "*",
     "grunt-spritesmith": "*",
@@ -51,8 +49,7 @@
     "grunt-uncss": "*",
     "load-grunt-config": "*",
     "mocha": "*",
-    "rewire": "*",
-    "time-grunt": "*"
+    "rewire": "*"
   },
   "scripts": {
     "build": "grunt build",

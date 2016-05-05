@@ -1,4 +1,4 @@
-/* jshint browser: true */
+/* jshint browser:true */
 /* global self */
 /* global caches */
 
