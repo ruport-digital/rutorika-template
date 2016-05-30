@@ -5,12 +5,13 @@ module.exports = (grunt, options) => {
   return {
     options: {
       map: true,
-      browsers: project.browsers,
-      cascade: false
+      processors: [
+        require('autoprefixer')({browsers: project.browsers})
+      ]
     },
-    prefix: {
+    process: {
       cwd: project.res.css.dir,
-      src: ['*.css', '!*-IE.css'],
+      src: ['*.css', '!*.min.css', '!*-IE.css'],
       dest: project.res.css.dir,
       expand: true
     }

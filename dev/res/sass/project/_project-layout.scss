@@ -1,18 +1,24 @@
 // Layout
 
 $breakpoints: (
+  phoneMax: 720px,
   desktopMin: 980px,
   desktopWide: 1366px,
-  desktopMax: 1920px,
-  phoneMax: 720px
+  desktopMax: 1920px
 );
 
 $breakpointsRem: (
+  phoneMax: txf-breakpointRem(phoneMax),
   desktopMin: txf-breakpointRem(desktopMin),
   desktopWide: txf-breakpointRem(desktopWide),
-  desktopMax: txf-breakpointRem(desktopMax),
-  phoneMax: txf-breakpointRem(phoneMax)
+  desktopMax: txf-breakpointRem(desktopMax)
 );
+
+$breakpointsDPI: (
+  retina: 150,
+  retinaHD: 250
+);
+
 
 
 // Gap

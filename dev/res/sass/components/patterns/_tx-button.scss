@@ -13,7 +13,7 @@ $tx-button-borderColor: $tx-button-background;
   height: ($tx-button-height - $tx-button-borderWidth * 2);
   padding: 0 ($tx-button-padding - $tx-button-borderWidth);
   border: $tx-button-borderWidth solid $tx-button-borderColor;
-  transition: $UITransition;
+  transition: $UITransitionDefault;
 
   &-link {
     @extend %tx-button;

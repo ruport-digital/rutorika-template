@@ -6,14 +6,14 @@
     visibility: hidden;
     opacity: 0;
     transform: translateX(-100%) translateZ(0);
-    transition: opacity $UITransition, visibility $UITransition-instant $UITransition, transform $UITransition-instant $UITransition;
+    transition: opacity $UITransitionDefault, visibility $UITransitionDefault step-end, transform $UITransitionDefault step-end;
   }
 
   &In {
     visibility: visible;
     opacity: 1;
     transform: translateZ(0);
-    transition: opacity $UITransition, transform $UITransition-instant, visibility $UITransition-instant;
+    transition: opacity $UITransitionDefault, transform $UITransitionDefault step-start, visibility $UITransitionDefault step-start;
   }
 
 }

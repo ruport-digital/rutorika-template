@@ -7,7 +7,7 @@ var CONFIG = {
     'last 2 versions',
     'Firefox ESR',
     'Opera 12.1',
-    'Explorer >= 7'
+    'Explorer >= 8'
   ],
 
   DEVELOPMENT_DIR: 'dev',        // Development

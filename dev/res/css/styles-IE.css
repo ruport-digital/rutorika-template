@@ -13,3 +13,7 @@ input[type='radio'] {
   width: 13px;
   height: 13px;
 }
+
+input {
+  overflow: visible;
+}

@@ -74,6 +74,7 @@ summary {
 }
 
 %headerStyle {
+  @include tx-rhythm(2, .75);
   font-weight: bold;
   text-rendering: auto;
   page-break-after: avoid;
@@ -84,42 +85,36 @@ summary {
 
 h1 {
   @extend %headerStyle;
-  @include tx-rhythm(1, 2);
   @include tx-font-size(h1);
 }
 
 h2 {
   @extend %headerStyle;
-  @include tx-rhythm(1, 1);
   @include tx-font-size(h2);
 }
 
 h3 {
   @extend %headerStyle;
-  @include tx-rhythm(1, 1);
   @include tx-font-size(h3);
 }
 
 h4 {
   @extend %headerStyle;
-  @include tx-rhythm(1, 1);
   @include tx-font-size(h4);
 }
 
 h5 {
   @extend %headerStyle;
-  @include tx-rhythm(1, 1);
   @include tx-font-size(h5);
 }
 
 h6 {
   @extend %headerStyle;
-  @include tx-rhythm(1, 1);
   @include tx-font-size(h6);
 }
 
 %marginStyle {
-  @include tx-rhythm(1, 1);
+  @include tx-rhythm(.75, .75);
 }
 
 %monoStyle {
@@ -128,6 +123,10 @@ h6 {
 
 p {
   @extend %marginStyle;
+}
+
+%listStyle {
+  padding: 0 0 0 1em;
 }
 
 dl {
@@ -140,22 +139,25 @@ dt {
 }
 
 dd {
-  @include tx-rhythm(.5, .5, $marginLeft: 1.5em);
+  @extend %listStyle;
+  @include tx-rhythm(.5, .5);
   font-style: italic;
 }
 
 ul {
   @extend %marginStyle;
-  list-style-type: disc;
+  @extend %listStyle;
+  list-style: disc;
 }
 
 ol {
   @extend %marginStyle;
-  list-style-type: decimal;
+  @extend %listStyle;
+  list-style: decimal;
 }
 
 %nestedListsStyle {
-  @include tx-rhythm(1, 1, $marginLeft: 1.5em);
+  @include tx-rhythm(1, 1);
 }
 
 li {
@@ -188,7 +190,6 @@ li {
 pre {
   @extend %marginStyle;
   @extend %monoStyle;
-  @extend %highlightedStyle;
   overflow: hidden;
   padding: 0 1.5em;
   white-space: pre-wrap;
@@ -333,13 +334,12 @@ kbd {
   @extend %attentionStyle;
   @include tx-inline-block;
   @include tx-grid-height(1, 1);
-  padding: 0 .5em;
+  padding: 0 .25em;
   border-radius: 3px;
   background: $kbd-bg;
   background-clip: padding-box;
   font-weight: bold;
   font-family: $font-mono;
-  letter-spacing: .1em;
   vertical-align: top;
 }
 
@@ -403,7 +403,7 @@ caption {
 }
 
 table {
-  @extend %marginStyle;
+  @include tx-rhythm(1, 1);
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
@@ -474,23 +474,10 @@ a {
   @extend %focusStyle;
   @extend %tx-fastTouch;
   @extend %tx-linkTouchStates;
-  color: $link;
+  @include tx-link($link, $visited, $hover, $active);
   -webkit-tap-highlight-color: rgba($active, .25);
   text-decoration: underline;
-  transition: $UITransition;
-
-  &:visited {
-    color: $visited;
-  }
-
-  &:hover {
-    color: $hover;
-  }
-
-  &:active {
-    color: $active;
-  }
-
+  transition: $UITransitionDefault;
 }
 
 

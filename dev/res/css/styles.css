@@ -35,7 +35,6 @@ body {
   color: #333;
   font-family: 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
   -webkit-font-feature-settings: 'liga', 'kern';
-  -moz-font-feature-settings: 'liga', 'kern';
   font-feature-settings: 'liga', 'kern';
   -epub-hyphens: manual;
   -webkit-hyphens: manual;
@@ -50,10 +49,11 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 48px 0 18px;
+  margin: 3rem 0 1.125rem;
   font-weight: bold;
   text-rendering: auto;
-  -webkit-break-after: avoid;
-  -moz-break-after: avoid;
+  -webkit-column-break-after: avoid;
   page-break-after: avoid;
   break-after: avoid;
   orphans: 3;
@@ -61,48 +61,36 @@ h6 {
 }
 
 h1 {
-  margin: 24px 0 48px;
-  margin: 1.5rem 0 3rem;
   font-size: 39.81312px;
   font-size: 2.48832rem;
   line-height: 1.20563;
 }
 
 h2 {
-  margin: 24px 0;
-  margin: 1.5rem 0;
   font-size: 33.1776px;
   font-size: 2.0736rem;
   line-height: 1.44676;
 }
 
 h3 {
-  margin: 24px 0;
-  margin: 1.5rem 0;
   font-size: 27.648px;
   font-size: 1.728rem;
   line-height: 1.73611;
 }
 
 h4 {
-  margin: 24px 0;
-  margin: 1.5rem 0;
   font-size: 23.04px;
   font-size: 1.44rem;
   line-height: 1.04167;
 }
 
 h5 {
-  margin: 24px 0;
-  margin: 1.5rem 0;
   font-size: 19.2px;
   font-size: 1.2rem;
   line-height: 1.25;
 }
 
 h6 {
-  margin: 24px 0;
-  margin: 1.5rem 0;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -113,16 +101,21 @@ dl,
 ul,
 ol,
 pre,
-address,
-table {
-  margin: 24px 0;
-  margin: 1.5rem 0;
+address {
+  margin: 18px 0;
+  margin: 1.125rem 0;
 }
 
 pre,
 code,
 var {
   font-family: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
+}
+
+dd,
+ul,
+ol {
+  padding: 0 0 0 1em;
 }
 
 dt {
@@ -132,22 +125,22 @@ dt {
 }
 
 dd {
-  margin: 12px 0 12px 1.5em;
-  margin: .75rem 0 .75rem 1.5em;
+  margin: 12px 0;
+  margin: .75rem 0;
   font-style: italic;
 }
 
 ul {
-  list-style-type: disc;
+  list-style: disc;
 }
 
 ol {
-  list-style-type: decimal;
+  list-style: decimal;
 }
 
 li > ul {
-  margin: 24px 0 24px 1.5em;
-  margin: 1.5rem 0 1.5rem 1.5em;
+  margin: 24px 0;
+  margin: 1.5rem 0;
 }
 
 li {
@@ -171,7 +164,6 @@ th {
   font-weight: bold;
 }
 
-pre,
 code,
 var {
   color: #d9534f;
@@ -238,13 +230,12 @@ del {
 kbd {
   height: 22px;
   height: 1.375rem;
-  padding: 0 .5em;
+  padding: 0 .25em;
   border-radius: 3px;
   background: #ccc;
   background-clip: padding-box;
   font-weight: bold;
   font-family: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
-  letter-spacing: .1em;
   line-height: 1.375;
   vertical-align: top;
 }
@@ -294,6 +285,8 @@ table {
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+  margin: 24px 0;
+  margin: 1.5rem 0;
 }
 
 th {
@@ -341,8 +334,8 @@ a {
   color: #337ab7;
   -webkit-tap-highlight-color: rgba(35, 82, 124, .25);
   text-decoration: underline;
-  -webkit-transition: .25s;
-  transition: .25s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a:visited {
@@ -506,7 +499,7 @@ body {
 
 /* Phone */
 
-@media handheld, only screen and (max-width: 45em) {
+@media only screen and (max-width: 45em) {
 
   /* Layout */
 

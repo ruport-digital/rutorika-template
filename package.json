@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "*",
     "babel-preset-es2015": "*",
     "babelify": "*",
     "backstopjs": "*",
@@ -13,7 +14,6 @@
     "grunt": "*",
     "grunt-analyze-css": "*",
     "grunt-arialinter": "*",
-    "grunt-autoprefixer": "*",
     "grunt-backstop": "*",
     "grunt-browserify": "*",
     "grunt-cleanempty": "*",
@@ -40,6 +40,7 @@
     "grunt-jscs": "*",
     "grunt-jsinspect": "*",
     "grunt-mocha-test": "*",
+    "grunt-postcss": "*",
     "grunt-prettify": "*",
     "grunt-processhtml": "*",
     "grunt-sass": "*",

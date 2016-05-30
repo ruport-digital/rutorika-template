@@ -1,6 +1,6 @@
 /* Phone */
 
-@media handheld, only screen and (max-width: txf-breakpoint(phoneMax)) {
+@include tx-breakpoint($max: phoneMax) {
 
   @import 'phone/_baseline-phone';
 
@@ -10,4 +10,4 @@
 
 }
 
-@media only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 1.5dppx), only screen and (max-width: txf-breakpoint(phoneMax)) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min--moz-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-device-pixel-ratio: 1.5), only screen and (max-width: txf-breakpoint(phoneMax)) and (min-resolution: 150dpi) {}
+@include tx-breakpoint($max: phoneMax, $dpi: retina) {}

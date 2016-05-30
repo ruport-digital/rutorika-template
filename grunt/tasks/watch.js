@@ -15,7 +15,7 @@ module.exports = (grunt, options) => {
       files: [`**/*.${helpers.imageFiles}`],
       tasks: [
         'sass',
-        'autoprefixer',
+        'postcss',
         'processhtml'
       ]
     },
@@ -23,7 +23,7 @@ module.exports = (grunt, options) => {
       files: [`${project.res.css.sass}**/*.{scss,sass}`],
       tasks: [
         'sass',
-        'autoprefixer'
+        'postcss'
       ]
     },
     javascript: {

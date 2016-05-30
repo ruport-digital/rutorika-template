@@ -1,7 +1,9 @@
 // Transitions
 
-$UITransition: .25s;
-$UITransition-instant: .0001s;
+$UITransitionDefault: .2s;
+$UITransitionMedium: .3s;
+$UITransitionSlow: .4s;
+$UITransitionSlowest: .5s;
 
 
 

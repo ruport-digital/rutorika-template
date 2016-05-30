@@ -63,7 +63,10 @@ module.exports = config => {
       dataURIFallback: '_project-imagesIE.scss',
       sprites: config.SPRITES.map(sprite => `!**/${sprite.split('.')[0]}*/*.*`),
       imageFiles: '{png,jpg,jpeg,gif,svg}',
-      uncssIgnore: [
+      uncssIgnoreFiles: [
+        '404.html'
+      ],
+      uncssIgnoreClasses: [
         /.*-is-.*/,
         /.*-has-.*/,
         /.*-are-.*/,

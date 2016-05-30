@@ -30,6 +30,7 @@ img {
 }
 
 input {
+  overflow: visible;
 
   &[type='checkbox'] {
     @extend %formRadioCheckboxStyleIE;

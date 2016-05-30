@@ -16,13 +16,11 @@
       "url": "../../build/styleGuide.html",
       "selectors": ["body"],
       "hideSelectors": [],
-      "removeSelectors": []
+      "removeSelectors": [],
+      "readyEvent": null,
+      "delay": 500
     }
   ],
-  "paths": {
-    "bitmaps_reference": "../../tests/backstop/bitmaps_reference/",
-    "bitmaps_test": "../../tests/backstop/bitmaps_test/"
-  },
-  "engine": "phantomjs",
+  "engine": "slimerjs",
   "report": ["CLI"]
 }

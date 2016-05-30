@@ -43,7 +43,7 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('process-css', [
     'sass',
-    'autoprefixer',
+    'postcss',
     'uncss',
     'csscomb',
     'cssc',
