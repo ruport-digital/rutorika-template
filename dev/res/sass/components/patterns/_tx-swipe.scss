@@ -1,0 +1,31 @@
+/* Swipe */
+
+%tx-swipe {
+
+  &Holder {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &Slides {
+    position: relative;
+    transform: translateZ(0);
+
+    &:before {
+      @include tx-pseudo;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 10000px;
+    }
+
+  }
+
+  &Slide {
+    @include tx-inline-block;
+    width: 100%;
+    vertical-align: top;
+  }
+
+}

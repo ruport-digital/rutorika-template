@@ -27,7 +27,7 @@ module.exports = (element, callback) => {
     object = element;
     task = callback;
     active = false;
-    activeClassName = `${object.className.split(' ').shift()}-is-active`;
+    activeClassName = `${object.classList.item(0)}-is-active`;
     eventTools.bind(object, 'click', toggle);
   } else {
     return false;

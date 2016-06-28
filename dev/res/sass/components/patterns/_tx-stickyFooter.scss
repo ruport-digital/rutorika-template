@@ -1,0 +1,14 @@
+/* Sticky Footer */
+
+%tx-stickyFooter {
+
+  &Content {
+    flex-grow: 1;
+  }
+
+  &Wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

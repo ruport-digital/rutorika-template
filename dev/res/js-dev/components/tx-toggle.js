@@ -3,11 +3,11 @@
 'use strict';
 
 function activate(object, className) {
-  object.className += ` ${className}`;
+  object.classList.add(className);
 }
 
 function deactivate(object, className) {
-  object.className = object.className.replace(` ${className}`, '');
+  object.classList.remove(className);
 }
 
 function state(object, className) {
