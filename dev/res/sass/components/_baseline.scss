@@ -14,63 +14,63 @@ body {
   @include tx-hyphens;
   color: $text;
   font-family: $font-sans;
-  font-feature-settings: 'liga', 'kern';
+  font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1, 'frac' 1;
 }
 
-%HTML5BlocksStyle {
+%blockStyle {
   display: block;
 }
 
 article {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 aside {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 canvas {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 figure {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 figcaption {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 footer {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 header {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 hgroup {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 nav {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 main {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 progress {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 section {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 summary {
-  @extend %HTML5BlocksStyle;
+  @extend %blockStyle;
 }
 
 %headerStyle {

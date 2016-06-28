@@ -93,9 +93,9 @@ linters:
     force_nesting: true
 
   NameFormat:
-    enabled: false
-    allow_leading_underscore: true
-    convention: hyphenated_lowercase
+    enabled: true
+    allow_leading_underscore: false
+    convention: ^[a-zA-Z]{1}[a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*$
 
   NestingDepth:
     enabled: true
@@ -367,8 +367,8 @@ linters:
     max_depth: 4
 
   SelectorFormat:
-    enabled: false
-    convention: hyphenated_lowercase
+    enabled: true
+    convention: ^[a-z]{1}[a-zA-Z0-9]*(?:-[a-zA-Z0-9]+)*$
 
   Shorthand:
     enabled: true
