@@ -60,26 +60,44 @@
 
 // Link
 
-@mixin tx-link($linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null) {
-  @if ($linkColor) {
+@mixin tx-link($all: false, $linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null) {
+  @if $linkColor and $all == true {
     color: $linkColor;
-  }
 
-  @if ($visitedColor) {
-    &:visited {
-      color: $visitedColor;
-    }
-  }
-
-  @if ($hoverColor) {
-    &:hover {
+    &:visited,
+    &:hover,
+    &:active {
       color: $hoverColor;
     }
-  }
+  } @else {
+    @if ($linkColor) {
+      color: $linkColor;
+    }
+    @if ($visitedColor) {
 
-  @if ($activeColor) {
-    &:active {
-      color: $activeColor;
+      &:visited {
+        color: $visitedColor;
+      }
+    }
+    @if $hoverColor and ($hoverColor == $activeColor) {
+
+      &:hover,
+      &:active {
+        color: $hoverColor;
+      }
+    } @else {
+      @if ($hoverColor) {
+
+        &:hover {
+          color: $hoverColor;
+        }
+      }
+      @if ($activeColor) {
+
+        &:active {
+          color: $activeColor;
+        }
+      }
     }
   }
 }

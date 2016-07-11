@@ -13,7 +13,7 @@
     visibility: visible;
     opacity: 1;
     transform: translateZ(0);
-    transition: opacity $UITransitionDefault, transform $UITransitionDefault step-start, visibility $UITransitionDefault step-start;
+    transition: opacity $UITransitionDefault, visibility $UITransitionDefault step-start, transform $UITransitionDefault step-start;
   }
 
 }

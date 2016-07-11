@@ -15,7 +15,7 @@ function state(object, className) {
 }
 
 function toggle(object, className, externalState) {
-  var triggerState = typeof externalState !== 'undefined' ? externalState : state(object, className);
+  var triggerState = externalState || state(object, className);
   if (triggerState) {
     deactivate(object, className);
   } else {

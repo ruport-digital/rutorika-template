@@ -18,14 +18,20 @@ function unbind(object, type, callback) {
   }
 }
 
-function trigger(object, event, propagate) {
+function trigger(object, event, propagate, data) {
   propagate = propagate || false;
   if (document.createEvent) {
-    let eventObj = document.createEvent('MouseEvents');
+    let eventObj = document.createEvent('UIEvents');
+    if (data) {
+      eventObj.data = data;
+    }
     eventObj.initEvent(event, propagate, false);
     object.dispatchEvent(eventObj);
   } else {
     let eventObj = document.createEventObject();
+    if (data) {
+      eventObj.data = data;
+    }
     object.fireEvent(`on${event}`, eventObj);
   }
 }
