@@ -67,7 +67,7 @@
     &:visited,
     &:hover,
     &:active {
-      color: $hoverColor;
+      color: $linkColor;
     }
   } @else {
     @if ($linkColor) {
