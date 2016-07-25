@@ -60,7 +60,7 @@
 
 // Link
 
-@mixin tx-link($all: false, $linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null) {
+@mixin tx-link($linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null, $all: false) {
   @if $linkColor and $all == true {
     color: $linkColor;
 
@@ -490,15 +490,15 @@
 }
 
 @mixin tx-sprite-image($name) {
-  background-image: url(#{nth($name, 9)});
+  @extend #{'%ssh-' + $sheet};
 }
 
 @mixin tx-sprite-position($name) {
   background-position: nth($name, 3) nth($name, 4);
 }
 
-@mixin tx-sprite($sheet, $name, $position: true, $block: false, $padding: false, $color: null) {
-  @extend #{'%ssh-' + $sheet};
+@mixin tx-sprite($name, $name, $position: true, $block: false, $padding: false, $color: null) {
+  @include tx-sprite-image($name);
   @if $block {
     @include tx-sprite-block($name, $padding);
   }

@@ -2,6 +2,15 @@
 
 'use strict';
 
+function setData(event, data) {
+  event.data = data;
+  return event;
+}
+
+function getData(event) {
+  return event.data;
+}
+
 function bind(object, type, callback) {
   if (document.addEventListener) {
     object.addEventListener(type, callback);
@@ -18,21 +27,21 @@ function unbind(object, type, callback) {
   }
 }
 
-function trigger(object, event, propagate, data) {
+function trigger(object, eventName, propagate, data) {
   propagate = propagate || false;
   if (document.createEvent) {
-    let eventObj = document.createEvent('UIEvents');
+    let event = document.createEvent('UIEvents');
     if (data) {
-      eventObj.data = data;
+      setData(event, data);
     }
-    eventObj.initEvent(event, propagate, false);
-    object.dispatchEvent(eventObj);
+    event.initEvent(eventName, propagate, false);
+    object.dispatchEvent(event);
   } else {
-    let eventObj = document.createEventObject();
+    let event = document.createEventObject();
     if (data) {
-      eventObj.data = data;
+      setData(event, data);
     }
-    object.fireEvent(`on${event}`, eventObj);
+    object.fireEvent(`on${eventName}`, event);
   }
 }
 
@@ -44,3 +53,5 @@ exports.bind = bind;
 exports.unbind = unbind;
 exports.trigger = trigger;
 exports.target = target;
+exports.getData = getData;
+exports.setData = setData;

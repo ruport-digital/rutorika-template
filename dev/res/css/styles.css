@@ -34,8 +34,8 @@ html {
 body {
   color: #333;
   font-family: 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
-  -webkit-font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1, 'frac' 1;
-  font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1, 'frac' 1;
+  -webkit-font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
+  font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
   -epub-hyphens: manual;
   -webkit-hyphens: manual;
   -moz-hyphens: manual;
@@ -170,10 +170,13 @@ var {
 }
 
 pre {
-  overflow: hidden;
+  overflow-x: auto;
   padding: 0 1.5em;
   white-space: pre-wrap;
   word-wrap: break-word;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
 }
 
 var {
@@ -331,7 +334,7 @@ textarea:focus {
 /* Links */
 
 a {
-  color: #6f5499;
+  color: #337ab7;
   -webkit-tap-highlight-color: rgba(35, 82, 124, .25);
   text-decoration: underline;
   -webkit-transition: .2s;
@@ -339,10 +342,14 @@ a {
 }
 
 a:visited {
-  color: #d9534f;
+  color: #6f5499;
 }
 
 a:hover {
+  color: #d9534f;
+}
+
+a:active {
   color: #23527c;
 }
 

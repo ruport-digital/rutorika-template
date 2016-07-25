@@ -7,7 +7,7 @@ module.exports = (grunt, options) => {
   var tx = require('./tx/tx');
 
   var imageCondition = project.res.images.dataURI.length > 0;
-  var imageTasks = ['imagemin:images', 'clean:images'];
+  var imageTasks = ['imagemin:images'];
   var imageTask = 'process-dataURI';
   var imageTaskIndex = 1;
 
@@ -30,7 +30,8 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('process-sprites', [
     'sprite',
-    'spritesSCSS'
+    'spritesSCSS',
+    'clean:images'
   ]);
 
   grunt.registerTask('process-images', [

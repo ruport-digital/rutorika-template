@@ -14,7 +14,7 @@ body {
   @include tx-hyphens;
   color: $text;
   font-family: $font-sans;
-  font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1, 'frac' 1;
+  font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
 }
 
 %blockStyle {
@@ -190,10 +190,11 @@ li {
 pre {
   @extend %marginStyle;
   @extend %monoStyle;
-  overflow: hidden;
+  overflow-x: auto;
   padding: 0 1.5em;
   white-space: pre-wrap;
   word-wrap: break-word;
+  tab-size: 2;
 }
 
 code {

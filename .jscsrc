@@ -2,6 +2,5 @@
   "preset": "google",
   "disallowSpacesInAnonymousFunctionExpression": null,
   "excludeFiles": ["node_modules/**"],
-  "maximumLineLength": 256,
-  "esnext": true
+  "maximumLineLength": 256
 }
