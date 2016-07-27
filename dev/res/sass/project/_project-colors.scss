@@ -1,26 +1,57 @@
-// Colors
+// White
 
 $white: #fff;
+
+
+
+// Black
+
+$black: #000;
+$black-light: #333;
+
+
+
+// Gray
+
+$gray: #666;
+$gray-light: #ccc;
+$gray-dark: #4d4d4d;
+
+
+
+// Red
+
 $red: #d9534f;
+$red-light: #e48481;
+$red-dark: #7e1e1b;
+
+
+// Blue
+
 $blue: #337ab7;
-$blueDark: #23527c;
+$blue-light: #87b6de;
+$blue-dark: #23527c;
+
+
+
+// Purple
+
 $purple: #6f5499;
-$gray: #ccc;
-$black: #333;
-
-$underlineOpacity: .5;
+$purple-light: #937bb7;
+$purple-dark: #302442;
 
 
 
-// Default Colors
+// Yellow
 
-$text: $black;
-$background: $white;
+$yellow: #ffda48;
+$yellow-light: #ffe066;
+$yellow-dark: #997a00;
 
-$print-color: $text;
-$print-background: $background;
 
-$link: $blue;
-$visited: $purple;
-$hover: $red;
-$active: $blueDark;
+
+// Green
+
+$green: #2bde73;
+$green-light: #7beaa8;
+$green-dark: #158442;

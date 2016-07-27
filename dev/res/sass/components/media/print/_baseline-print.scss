@@ -6,7 +6,7 @@
 }
 
 %printBackground {
-  background: $print-background;
+  background: $background-print;
 }
 
 html {
@@ -15,14 +15,14 @@ html {
 
 body {
   @extend %printBackground;
-  color: $print-color;
+  color: $text-print;
   font-size: 12pt;
   line-height: 1.5;
 }
 
 %printResetStyle {
   border: 0;
-  color: $print-color;
+  color: $text-print;
   text-decoration: none;
 }
 
@@ -113,16 +113,12 @@ tr {
 }
 
 a {
-  color: $print-color;
+  @include tx-link($text-print, $all: true);
   text-decoration: none;
 
   &:after {
     content: ' (' attr(href) ')';
     font-size: 90%;
-  }
-
-  &:visited {
-    color: $print-color;
   }
 
   &[href^='javascript:'] {

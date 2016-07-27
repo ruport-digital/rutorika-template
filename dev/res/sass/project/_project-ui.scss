@@ -7,19 +7,26 @@ $UITransitionSlowest: .5s;
 
 
 
-// Focus
+// Links
+
+$link: $blue;
+$visited: $purple;
+$hover: $red;
+$active: $blue-dark;
+
+$underlineOpacity: .5;
 
 $focus-outlineWidth: 1px;
-$focus-outlineColor: $gray;
+$focus-outlineColor: $gray-light;
 
 
 
 // Fields
 
 $field-borderWidth: 1px;
-$field-borderColor: $gray;
+$field-borderColor: $gray-light;
 
-$placeholder-color: $gray;
+$placeholder-color: $gray-light;
 
 
 

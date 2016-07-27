@@ -226,8 +226,8 @@ address {
 }
 
 del {
-  border-bottom: 1px dotted #ccc;
-  color: #ccc;
+  border-bottom: 1px dotted #666;
+  color: #666;
 }
 
 kbd {
@@ -235,7 +235,7 @@ kbd {
   height: 1.375rem;
   padding: 0 .25em;
   border-radius: 3px;
-  background: #ccc;
+  background: #666;
   background-clip: padding-box;
   font-weight: bold;
   font-family: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
@@ -281,7 +281,7 @@ td,
 th {
   padding: 23px 15px 24px;
   padding: 1.4375rem 15px 1.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid #666;
 }
 
 table {
@@ -417,25 +417,25 @@ input[type='number'] {
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #ccc;
+  color: #666;
   opacity: 1;
 }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #ccc;
+  color: #666;
   opacity: 1;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #ccc;
+  color: #666;
   opacity: 1;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #ccc;
+  color: #666;
   opacity: 1;
 }
 
@@ -583,13 +583,15 @@ body {
     text-decoration: none;
   }
 
+  a:visited,
+  a:hover,
+  a:active {
+    color: #333;
+  }
+
   a:after {
     content: ' (' attr(href) ')';
     font-size: 90%;
-  }
-
-  a:visited {
-    color: #333;
   }
 
   /* Forms */
