@@ -1,13 +1,13 @@
-/* Swipe */
+/* Slider */
 
-%tx-swipe {
+%tx-slider {
 
   &Holder {
     position: relative;
     overflow: hidden;
   }
 
-  &Slides {
+  &Body {
     position: relative;
     transform: translateZ(0);
 
