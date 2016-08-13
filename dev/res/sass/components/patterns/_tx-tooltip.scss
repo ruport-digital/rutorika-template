@@ -1,0 +1,69 @@
+/* Tooltip */
+
+$tx-tooltip-padding: $gap / 2;
+$tx-tooltip-color: $white;
+$tx-tooltip-background: $blue;
+$tx-tooltip-height: 30px;
+$tx-tooltip-fontSize: $fontSize * .75;
+$tx-tooltip-shift: 7px;
+$tx-tail-size: 12px;
+
+%tx-tooltip {
+  @include tx-inline-block;
+  position: relative;
+
+  &Base {
+    bottom: 100%;
+    left: 50%;
+    background: $tx-tooltip-background;
+    opacity: 0;
+    pointer-events: none;
+    transition: $UITransitionDefault;
+  }
+
+  &Active {
+    opacity: 1;
+  }
+
+  &:before {
+    @extend %tx-tooltipBase;
+    @include tx-font-size($tx-tooltip-fontSize, 1);
+    position: absolute;
+    z-index: -1;
+    content: attr(data-tip);
+    display: block;
+    height: $tx-tooltip-height;
+    padding: 0 $tx-tooltip-padding;
+    border-radius: 5px;
+    color: $tx-tooltip-color;
+    background: $tx-tooltip-background;
+    line-height: $tx-tooltip-height;
+    white-space: nowrap;
+    transform: translateX(-50%) translateY(7px) translateZ(0);
+  }
+
+  &:after {
+    @extend %tx-tooltipBase;
+    @include tx-pseudo;
+    z-index: -2;
+    width: $tx-tail-size;
+    height: $tx-tail-size;
+    background: linear-gradient(-45deg, $tx-tooltip-background, $tx-tooltip-background 7.25px, transparent 7.25px, transparent);
+    transform: translateX(-50%) translateY(11px) translateZ(0) rotate(45deg);
+  }
+
+  &:hover {
+
+    &:before {
+      @extend %tx-tooltipActive;
+      transform: translateX(-50%) translateY(-10px) translateZ(0);
+    }
+
+    &:after {
+      @extend %tx-tooltipActive;
+      transform: translateX(-50%) translateY(-6px) translateZ(0) rotate(45deg);
+    }
+
+  }
+
+}

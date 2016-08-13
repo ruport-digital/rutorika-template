@@ -2,62 +2,89 @@
 
 'use strict';
 
-module.exports = _ => {
+var eventTool = require('./tx-event');
 
-  var querySelectorPolyfill = require('./tx-querySelectorAll.js');
-  var eventTools = require('./tx-event');
+const ACTIVE_CLASS_NAME = 'js-field-is-showingPlaceholder';
 
-  var fields;
+function fieldPlaceholder(node) {
 
-  const ACTIVE_CLASS = 'js-input-is-showingPlaceholder';
+  var field;
 
-  function selectFields() {
-    var fields;
-    var fieldsPlaceholders = [];
-    if (!document.querySelectorAll) {
-      querySelectorPolyfill();
-    }
-    fields = document.querySelectorAll('input, textarea');
-    for (let index = 0, length = fields.length; index < length; index += 1) {
-      if (fields[index].getAttribute('placeholder') !== null) {
-        fieldsPlaceholders.push(fields[index]);
-      }
-    }
-    return fieldsPlaceholders;
-  }
-
-  function getTarget(event) {
-    return event.currentTarget || event.srcElement;
-  }
+  /* Actions */
 
   function addPlaceholder(field) {
     if (field.value === '') {
-      field.classList.add(ACTIVE_CLASS);
+      field.classList.add(ACTIVE_CLASS_NAME);
       field.value = field.getAttribute('placeholder');
     }
   }
 
   function removePlaceholder(field) {
     if (field.value === field.getAttribute('placeholder')) {
-      field.classList.remove(ACTIVE_CLASS);
+      field.classList.remove(ACTIVE_CLASS_NAME);
       field.value = '';
     }
   }
 
-  function fieldFocus(event) {
-    removePlaceholder(getTarget(event));
+  /* Interactions */
+
+  function onFocus(event) {
+    removePlaceholder(eventTool.target(event));
   }
 
-  function fieldBlur(event) {
-    addPlaceholder(getTarget(event));
+  function onBlur(event) {
+    addPlaceholder(eventTool.target(event));
   }
 
-  fields = selectFields();
-  for (let index = 0, length = fields.length; index < length; index += 1) {
-    let field = fields[index];
+  function initInteractions() {
+    eventTool.bind(field, 'focus', onFocus);
+    eventTool.bind(field, 'blur', onBlur);
+  }
+
+  function removeInteractions() {
+    eventTool.unbind(field, 'focus', onFocus);
+    eventTool.unbind(field, 'blur', onBlur);
+  }
+
+  /* Initialization */
+
+  function initValues() {
+    field = node;
+  }
+
+  function initPlaceholder() {
+    initValues();
+    initInteractions();
     addPlaceholder(field);
-    eventTools.bind(field, 'focus', fieldFocus);
-    eventTools.bind(field, 'blur', fieldBlur);
   }
 
-};
+  function removeValues() {
+    field = null;
+  }
+
+  function destroy() {
+    removeInteractions();
+    removeValues();
+  }
+
+  initPlaceholder();
+
+  /* Interface */
+
+  return {
+    destroy: destroy
+  };
+
+}
+
+function init() {
+  var fields = document.querySelectorAll('input, textarea');
+  fields.forEach(fieldPlaceholder);
+}
+
+function destroy(fields) {
+  fields.forEach(field => field.destroy());
+}
+
+exports.init = init;
+exports.destroy = destroy;

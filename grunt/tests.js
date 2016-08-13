@@ -31,7 +31,7 @@ module.exports = (grunt) => {
     'regressions',
     'mochaTest',
     'quality',
-    'performance',
+    'performance'
   ]);
 
 };

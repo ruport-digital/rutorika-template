@@ -41,17 +41,6 @@ module.exports = (grunt, options) => {
         './': [`${project.build.dir}*.html`]
       }
     },
-    indentation: {
-      options: {
-        replacements: [{
-          pattern: /(<!-->)(?:\r?\n|\r)(<html.*>)(?:\r?\n|\r)*(?: |\t)*(<!--<!\[endif\]-->)/g,
-          replacement: '$1 $2 $3'
-        }]
-      },
-      files: {
-        './': [`${project.build.dir}*.html`, `${project.dir}*.html`]
-      }
-    },
     css: {
       options: {
         replacements: [{

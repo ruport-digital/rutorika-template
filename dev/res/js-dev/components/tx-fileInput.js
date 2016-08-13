@@ -2,72 +2,121 @@
 
 'use strict';
 
-var querySelectorPolyfill = require('./tx-querySelectorAll.js');
-var textContentPolyfill = require('./tx-textContent.js');
-var eventTools = require('./tx-event');
+var eventTool = require('./tx-event');
 
-module.exports = (selectors, text) => {
+const WRAP_CLASS_NAME_SUFFIX = '-wrap';
+const VALUE_CLASS_NAME_SUFFIX = '-value';
+const BUTTON_CLASS_NAME_SUFFIX = '-button';
+const WRAPED_CLASS_NAME_SUFFIX = '-is-wrapped';
 
-  function fileInput(field, text) {
+function createWrap(className) {
+  var element = document.createElement('div');
+  element.className = `${className}${WRAP_CLASS_NAME_SUFFIX}`;
+  return element;
+}
 
-    var input;
-    var className;
-    var activeClassName;
-    var wrapElement;
-    var valueElement;
-    var buttonElement;
-    var buttonText;
+function createValue(className) {
+  var element = document.createElement('div');
+  element.className = `${className}${VALUE_CLASS_NAME_SUFFIX}`;
+  return element;
+}
 
-    function fieldChange(event) {
-      valueElement.textContent = input.value.split('\\')[2];
-    }
+function createButton(className, text) {
+  var element = document.createElement('a');
+  element.href = '#';
+  element.textContent = text;
+  element.className = `${className}${BUTTON_CLASS_NAME_SUFFIX}`;
+  return element;
+}
 
-    function fieldClick(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      eventTools.trigger(input, 'click', false);
-    }
+function wrapInput(className, input, wrap, value, button) {
+  var parent = input.parentNode;
+  wrap.appendChild(value);
+  wrap.appendChild(button);
+  parent.insertBefore(wrap, input);
+  wrap.appendChild(input);
+  input.classList.add(`${className}${WRAPED_CLASS_NAME_SUFFIX}`);
+}
 
-    function wrap() {
-      var parent = input.parentNode;
-      wrapElement = document.createElement('div');
-      wrapElement.className = `${className}-wrap`;
-      valueElement = document.createElement('div');
-      valueElement.className = `${className}-value`;
-      buttonElement = document.createElement('a');
-      buttonElement.href = '#';
-      buttonElement.textContent = buttonText;
-      buttonElement.className = `${className}-button`;
-      wrapElement.appendChild(valueElement);
-      wrapElement.appendChild(buttonElement);
-      parent.insertBefore(wrapElement, input);
-      wrapElement.appendChild(input);
-      input.classList.add(`${className}-is-wrapped`);
-    }
+function fileInput(field, text) {
 
+  var input;
+  var className;
+  var wrap;
+  var value;
+  var button;
+
+  /* Interactions */
+
+  function onChange(event) {
+    value.textContent = input.value.split('\\')[2];
+  }
+
+  function onClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    eventTool.trigger(input, 'click', false);
+  }
+
+  function initInteractions() {
+    eventTool.bind(input, 'change', onChange);
+    eventTool.bind(wrap, 'click', onClick);
+    eventTool.bind(button, 'click', onClick);
+  }
+
+  function removeInteractions() {
+    eventTool.unbind(input, 'change', onChange);
+    eventTool.unbind(wrap, 'click', onClick);
+    eventTool.unbind(button, 'click', onClick);
+  }
+
+  /* Initialization */
+
+  function initValues() {
     input = field;
-    buttonText = text || 'Browse';
     className = input.classList.item(0);
-    activeClassName = `${className}-is-active`;
-    wrap(input);
-    eventTools.bind(input, 'change', fieldChange);
-    eventTools.bind(wrapElement, 'click', fieldClick);
-    eventTools.bind(buttonElement, 'click', fieldClick);
-
+    wrap = createWrap(className);
+    value = createValue(className);
+    button = createButton(className, text);
   }
 
-  function selectFields(selectors) {
-    if (!document.querySelectorAll) {
-      querySelectorPolyfill();
-    }
-    return document.querySelectorAll(selectors);
+  function initField() {
+    initValues();
+    wrapInput(className, input, wrap, value, button);
+    initInteractions();
   }
 
-  var fields = selectFields(selectors);
-  textContentPolyfill();
-  for (let index = 0, length = fields.length; index < length; index += 1) {
-    let field = fields[index];
-    fileInput(field, text);
+  function removeValues() {
+    input = null;
+    className = null;
+    wrap = null;
+    value = null;
+    button = null;
   }
 
-};
+  function destroyField() {
+    removeInteractions();
+    removeValues();
+  }
+
+  initField();
+
+  /* Interface */
+
+  return {
+    destroy: destroyField
+  };
+
+}
+
+function init(selector, text) {
+  var fields = document.querySelectorAll(selector);
+  fields.forEach(field => fileInput(field, text));
+}
+
+function destroy(fields) {
+  fields.forEach(field => field.destroy());
+}
+
+exports.init = init;
+exports.destroy = destroy;

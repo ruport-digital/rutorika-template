@@ -2,38 +2,98 @@
 
 'use strict';
 
-module.exports = (element, callback) => {
+var eventTools = require('./tx-event');
 
-  var eventTools = require('./tx-event');
-  var trigger = require('./tx-toggle');
+const ACTIVE_CLASS_NAME_SUFFIX = '-is-active';
 
-  var object;
+module.exports = (node, callback) => {
+
+  var trigger;
   var task;
-  var active;
   var activeClassName;
+  var active;
 
-  function toggle(event) {
-    if (event) {
-      event.preventDefault();
-    }
-    trigger.toggle(object, activeClassName, active);
+  /* Actions */
+
+  function runTask() {
     if (typeof task === 'function') {
       task();
     }
-    active = !active;
   }
 
-  if (element) {
-    object = element;
-    task = callback;
-    active = false;
-    activeClassName = `${object.classList.item(0)}-is-active`;
-    eventTools.bind(object, 'click', toggle);
-  } else {
-    return false;
+  function activate() {
+    if (!active) {
+      active = true;
+      trigger.classList.add(activeClassName);
+      runTask();
+    }
   }
+
+  function deactivate() {
+    if (active) {
+      active = false;
+      trigger.classList.remove(activeClassName);
+      runTask();
+    }
+  }
+
+  function toggle(event) {
+    if (active) {
+      deactivate();
+    } else {
+      activate();
+    }
+  }
+
+  /* Interactions */
+
+  function onClick(event) {
+    event.preventDefault();
+    toggle();
+  }
+
+  function initInteractions() {
+    eventTools.bind(trigger, 'click', onClick);
+  }
+
+  function removeInteractions() {
+    eventTools.unbind(trigger, 'click', onClick);
+  }
+
+  /* Initialization */
+
+  function initValues() {
+    trigger = node;
+    task = callback;
+    activeClassName = `${trigger.classList.item(0)}${ACTIVE_CLASS_NAME_SUFFIX}`;
+    active = false;
+  }
+
+  function init() {
+    initValues();
+    initInteractions();
+  }
+
+  function removeValues() {
+    trigger = null;
+    task = null;
+    activeClassName = null;
+    active = null;
+  }
+
+  function destroy() {
+    removeInteractions();
+    removeValues();
+  }
+
+  init();
+
+  /* Interface */
 
   return {
+    destroy: destroy,
+    activate: activate,
+    deactivate: deactivate,
     toggle: toggle
   };
 

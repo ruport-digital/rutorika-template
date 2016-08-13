@@ -9,14 +9,13 @@ module.exports = (grunt) => {
     'imagemin:meta',
     'htmlmin',
     'prettify',
-    'string-replace:indentation',
-    'compress',
+    'compress'
   ]);
 
   grunt.registerTask('build-finalize', [
     'string-replace:build',
     'cleanempty',
-    'test',
+    'test'
   ]);
 
   grunt.registerTask('build', [
