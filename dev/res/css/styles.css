@@ -1,11 +1,9 @@
 /* Inline-block */
-
 kbd {
   display: inline-block;
 }
 
 /* Fast Touch */
-
 a,
 label,
 select,
@@ -15,19 +13,17 @@ select,
 }
 
 /* Link Touch State */
-
 .mdz-touchevents a:hover,
 .mdz-touchevents a:active {
   color: #337ab7;
 }
 
 /* Typography & Vertical Rhythm */
-
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  text-size-adjust: 100%; 
   line-height: 1.5;
 }
 
@@ -35,10 +31,9 @@ body {
   color: #333;
   font-family: 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
   -webkit-font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
-  font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
+  font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1; 
   -epub-hyphens: manual;
   -webkit-hyphens: manual;
-  -moz-hyphens: manual;
   -ms-hyphens: manual;
   hyphens: manual;
 }
@@ -186,7 +181,6 @@ var {
 blockquote {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after {
   content: none;
@@ -287,7 +281,7 @@ th {
 table {
   width: 100%;
   border-spacing: 0;
-  border-collapse: collapse;
+  border-collapse: collapse; 
   margin: 24px 0;
   margin: 1.5rem 0;
 }
@@ -311,19 +305,16 @@ legend {
 }
 
 /* Selection */
-
 ::-moz-selection {
   color: #fff;
   background: #337ab7;
 }
-
 ::selection {
   color: #fff;
   background: #337ab7;
 }
 
 /* Focus */
-
 a:focus,
 input:focus,
 select:focus,
@@ -332,7 +323,6 @@ textarea:focus {
 }
 
 /* Links */
-
 a {
   color: #337ab7;
   -webkit-tap-highlight-color: rgba(35, 82, 124, .25);
@@ -340,21 +330,17 @@ a {
   -webkit-transition: .2s;
   transition: .2s;
 }
-
 a:visited {
   color: #6f5499;
 }
-
 a:hover {
   color: #d9534f;
 }
-
 a:active {
   color: #23527c;
 }
 
 /* Forms */
-
 label {
   cursor: pointer;
 }
@@ -379,9 +365,7 @@ textarea {
 input {
   border: 0;
 }
-
-input::-moz-focus-inner,
-button::-moz-focus-inner {
+input::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
@@ -449,7 +433,6 @@ select {
   height: 2.25rem;
   vertical-align: top;
 }
-
 select[multiple] {
   height: 120px;
   height: 7.5rem;
@@ -473,7 +456,6 @@ textarea {
 }
 
 /* Layout */
-
 html {
   -webkit-overflow-scrolling: touch;
   min-height: 100%;
@@ -493,7 +475,6 @@ body {
 }
 
 /* Field */
-
 .field {
   height: 34px;
   height: 2.125rem;
@@ -501,11 +482,9 @@ body {
 }
 
 /* Phone */
-
 @media only screen and (max-width: 45em) {
 
   /* Layout */
-
   body {
     min-width: 0;
   }
@@ -513,29 +492,23 @@ body {
 }
 
 /* Print */
-
 @media print {
 
   /*csslint regex-selectors: false*/
-
   /* Typography & Vertical Rhythm */
-
   @page {
     size: A4;
     margin: .5cm;
   }
-
   html,
   body {
     background: #fff;
   }
-
   body {
     color: #333;
     font-size: 12pt;
     line-height: 1.5;
   }
-
   pre,
   code,
   var,
@@ -547,12 +520,10 @@ body {
     color: #333;
     text-decoration: none;
   }
-
   p {
     orphans: 3;
     widows: 3;
   }
-
   blockquote,
   table,
   tr {
@@ -560,58 +531,46 @@ body {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-
   acronym[title]:after,
   abbr[title]:after,
   ins[title]:after {
     content: ' (' attr(title) ')';
   }
-
   thead {
     display: table-header-group;
   }
-
   /* Links */
-
   a[href^='mailto:']:after,
   a[href^='tel:']:after {
     content: '';
   }
-
   a {
     color: #333;
     text-decoration: none;
   }
-
   a:visited,
   a:hover,
   a:active {
     color: #333;
   }
-
   a:after {
     content: ' (' attr(href) ')';
     font-size: 90%;
   }
-
   /* Forms */
-
   form,
   input,
   select,
   textarea {
     display: none;
   }
-
   /* Layout */
-
   body {
     width: auto;
     min-width: 0;
     max-width: none;
     padding: 2.54cm;
   }
-
   /*csslint regex-selectors: warning*/
 
 }
