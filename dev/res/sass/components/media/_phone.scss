@@ -6,8 +6,10 @@
 
   @import 'phone/_layout-phone';
 
-  @import 'phone/_ui-phone';
-
 }
 
-@include tx-breakpoint($max: phoneMax, $dpi: retina) {}
+@include tx-breakpoint($max: phoneMax, $dpi: retina) {
+
+  @import 'phone/_hdpi-phone';
+
+}

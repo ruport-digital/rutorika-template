@@ -1,12 +1,35 @@
 /* Typography & Vertical Rhythm */
 
-@page {
-  size: A4;
-  margin: .5cm;
+%printReset {
+  border: 0;
+  color: $text-print;
+  text-decoration: none;
 }
 
 %printBackground {
   background: $background-print;
+}
+
+%pageBreakPrevent {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+%titleContent {
+
+  &[title] {
+
+    &:after {
+      content: ' (' attr(title) ')';
+    }
+
+  }
+
+}
+
+@page {
+  size: A4;
+  margin: .5cm;
 }
 
 html {
@@ -20,76 +43,53 @@ body {
   line-height: 1.5;
 }
 
-%printResetStyle {
-  border: 0;
-  color: $text-print;
-  text-decoration: none;
-}
-
 p {
   orphans: 3;
   widows: 3;
 }
 
 pre {
-  @extend %printResetStyle;
+  @extend %printReset;
 }
 
 code {
-  @extend %printResetStyle;
+  @extend %printReset;
 }
 
 var {
-  @extend %printResetStyle;
-}
-
-%pageBreakPreventStyle {
-  page-break-inside: avoid;
-  break-inside: avoid;
+  @extend %printReset;
 }
 
 blockquote {
-  @extend %pageBreakPreventStyle;
-}
-
-%titleContentStyle {
-
-  &[title] {
-
-    &:after {
-      content: ' (' attr(title) ')';
-    }
-
-  }
-
+  @extend %pageBreakPrevent;
 }
 
 acronym {
-  @extend %printResetStyle;
-  @extend %titleContentStyle;
+  @extend %printReset;
+  @extend %titleContent;
 }
 
 abbr {
-  @extend %printResetStyle;
-  @extend %titleContentStyle;
+  @extend %printReset;
+  @extend %titleContent;
 }
 
 ins {
-  @extend %printResetStyle;
-  @extend %titleContentStyle;
+  @extend %printReset;
+  @extend %titleContent;
 }
 
 del {
-  @extend %printResetStyle;
-  @extend %titleContentStyle;
+  @extend %printReset;
+  @extend %titleContent;
 }
 
 img {
-  @extend %pageBreakPreventStyle;
+  @extend %pageBreakPrevent;
 }
 
 table {
-  @extend %pageBreakPreventStyle;
+  @extend %pageBreakPrevent;
 }
 
 thead {
@@ -97,14 +97,14 @@ thead {
 }
 
 tr {
-  @extend %pageBreakPreventStyle;
+  @extend %pageBreakPrevent;
 }
 
 
 
 /* Links */
 
-%otherHREFStyle {
+%otherHREF {
 
   &:after {
     content: '';
@@ -122,20 +122,20 @@ a {
   }
 
   &[href^='javascript:'] {
-    @extend %otherHREFStyle;
+    @extend %otherHREF;
   }
 
 
   &[href^='#'] {
-    @extend %otherHREFStyle;
+    @extend %otherHREF;
   }
 
   &[href^='mailto:'] {
-    @extend %otherHREFStyle;
+    @extend %otherHREF;
   }
 
   &[href^='tel:'] {
-    @extend %otherHREFStyle;
+    @extend %otherHREF;
   }
 
 }
@@ -144,26 +144,26 @@ a {
 
 /* Forms */
 
-%hideFormStyle {
+%hideForm {
   display: none;
 }
 
 form {
-  @extend %hideFormStyle;
+  @extend %hideForm;
 }
 
 input {
-  @extend %hideFormStyle;
+  @extend %hideForm;
 }
 
 select {
-  @extend %hideFormStyle;
+  @extend %hideForm;
 }
 
 button {
-  @extend %hideFormStyle;
+  @extend %hideForm;
 }
 
 textarea {
-  @extend %hideFormStyle;
+  @extend %hideForm;
 }

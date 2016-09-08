@@ -5,6 +5,10 @@
 
 /* Typography & Vertical Rhythm */
 
+%block {
+  display: block;
+}
+
 html {
   @include tx-baseline;
   text-size-adjust: 100%;
@@ -17,63 +21,59 @@ body {
   font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
 }
 
-%blockStyle {
-  display: block;
-}
-
 article {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 aside {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 canvas {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 figure {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 figcaption {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 footer {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 header {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 hgroup {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 nav {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 main {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 progress {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 section {
-  @extend %blockStyle;
+  @extend %block;
 }
 
 summary {
-  @extend %blockStyle;
+  @extend %block;
 }
 
-%headerStyle {
+%header {
   @include tx-rhythm(2, .75);
   font-weight: bold;
   text-rendering: auto;
@@ -84,53 +84,58 @@ summary {
 }
 
 h1 {
-  @extend %headerStyle;
+  @extend %header;
   @include tx-font-size(h1);
 }
 
 h2 {
-  @extend %headerStyle;
+  @extend %header;
   @include tx-font-size(h2);
 }
 
 h3 {
-  @extend %headerStyle;
+  @extend %header;
   @include tx-font-size(h3);
 }
 
 h4 {
-  @extend %headerStyle;
+  @extend %header;
   @include tx-font-size(h4);
 }
 
 h5 {
-  @extend %headerStyle;
+  @extend %header;
   @include tx-font-size(h5);
 }
 
 h6 {
-  @extend %headerStyle;
+  @extend %header;
   @include tx-font-size(h6);
 }
 
-%marginStyle {
+%defaultBlock {
   @include tx-rhythm(.75, .75);
 }
 
-%monoStyle {
+%list {
+  padding: 0 0 0 1em;
+
+  &-nested {
+    @include tx-rhythm(1, 1);
+  }
+
+}
+
+%mono {
   font-family: $font-mono;
 }
 
 p {
-  @extend %marginStyle;
-}
-
-%listStyle {
-  padding: 0 0 0 1em;
+  @extend %defaultBlock;
 }
 
 dl {
-  @extend %marginStyle;
+  @extend %defaultBlock;
 }
 
 dt {
@@ -139,57 +144,47 @@ dt {
 }
 
 dd {
-  @extend %listStyle;
+  @extend %list;
   @include tx-rhythm(.5, .5);
   font-style: italic;
 }
 
 ul {
-  @extend %marginStyle;
-  @extend %listStyle;
+  @extend %defaultBlock;
+  @extend %list;
   list-style: disc;
 }
 
 ol {
-  @extend %marginStyle;
-  @extend %listStyle;
+  @extend %defaultBlock;
+  @extend %list;
   list-style: decimal;
-}
-
-%nestedListsStyle {
-  @include tx-rhythm(1, 1);
 }
 
 li {
   @include tx-rhythm(.5, .5);
 
-  >ul {
-    @extend %nestedListsStyle;
+  > ul {
+    @extend %list-nested;
   }
 
-  >ol {
-    @extend %nestedListsStyle;
+  > ol {
+    @extend %list-nested;
   }
 
 }
 
-%quoteEmphasisStyle {
-  font-style: italic;
-}
-
-%attentionStyle {
+%attention {
   font-weight: bold;
 }
 
-%highlightedStyle {
-  $highlighted-color: $red;
-
-  color: $highlighted-color;
+%highlight {
+  color: $highlight-color;
 }
 
 pre {
-  @extend %marginStyle;
-  @extend %monoStyle;
+  @extend %defaultBlock;
+  @extend %mono;
   overflow-x: auto;
   padding: 0 1.5em;
   white-space: pre-wrap;
@@ -198,35 +193,39 @@ pre {
 }
 
 code {
-  @extend %monoStyle;
-  @extend %highlightedStyle;
+  @extend %mono;
+  @extend %highlight;
 }
 
 samp {
-  @extend %monoStyle;
-  @extend %highlightedStyle;
+  @extend %mono;
+  @extend %highlight;
 }
 
 var {
-  @extend %monoStyle;
-  @extend %highlightedStyle;
-  @extend %attentionStyle;
+  @extend %mono;
+  @extend %highlight;
+  @extend %attention;
   font-style: normal;
 }
 
 tt {
-  @extend %monoStyle;
+  @extend %mono;
 }
 
 strong {
-  @extend %attentionStyle;
+  @extend %attention;
 }
 
 b {
-  @extend %attentionStyle;
+  @extend %attention;
 }
 
-%quotesStyle {
+%quoteEmphasis {
+  font-style: italic;
+}
+
+%quotes {
   quotes: none;
 
   &:before,
@@ -237,129 +236,127 @@ b {
 }
 
 blockquote {
-  @extend %quoteEmphasisStyle;
-  @extend %quotesStyle;
+  @extend %quoteEmphasis;
+  @extend %quotes;
   @include tx-rhythm(1, 1, $marginRight: 3em, $marginLeft: 3em);
 }
 
 em {
-  @extend %quoteEmphasisStyle;
+  @extend %quoteEmphasis;
 }
 
 cite {
-  @extend %quoteEmphasisStyle;
+  @extend %quoteEmphasis;
 }
 
 q {
-  @extend %quoteEmphasisStyle;
-  @extend %quotesStyle;
+  @extend %quoteEmphasis;
+  @extend %quotes;
 }
 
 i {
-  @extend %quoteEmphasisStyle;
+  @extend %quoteEmphasis;
 }
 
-%interactiveStyle {
+%interactive {
   text-decoration: none;
   cursor: help;
 }
 
-%interactiveHighlightStyle {
+%interactiveHighlight {
   $interactiveHighlight-color: $blue;
 
   border-bottom: 1px dotted $interactiveHighlight-color;
   color: $interactiveHighlight-color;
 }
 
-%removedStyle {
+%removed {
   text-decoration: line-through;
 }
 
-%acronymAbbrStyle {
+%acronymAbbr {
   margin: 0 -.075em 0 0;
   letter-spacing: .075em;
 }
 
+%small {
+  @include tx-font-size(small, 0);
+}
+
+%supSub {
+  @extend %small;
+  position: relative;
+}
+
 address {
-  @extend %marginStyle;
+  @extend %defaultBlock;
   font-style: normal;
 }
 
 dfn {
-  @extend %attentionStyle;
+  @extend %attention;
 }
 
 acronym {
-  @extend %attentionStyle;
-  @extend %interactiveStyle;
-  @extend %interactiveHighlightStyle;
-  @extend %acronymAbbrStyle;
+  @extend %attention;
+  @extend %interactive;
+  @extend %interactiveHighlight;
+  @extend %acronymAbbr;
 }
 
 abbr {
-  @extend %attentionStyle;
-  @extend %interactiveStyle;
-  @extend %interactiveHighlightStyle;
-  @extend %acronymAbbrStyle;
+  @extend %attention;
+  @extend %interactive;
+  @extend %interactiveHighlight;
+  @extend %acronymAbbr;
 }
 
 ins {
-  @extend %interactiveStyle;
-  @extend %interactiveHighlightStyle;
+  @extend %interactive;
+  @extend %interactiveHighlight;
 }
 
 mark {
-  @extend %interactiveHighlightStyle;
+  @extend %interactiveHighlight;
 }
 
 del {
   $del-color: $gray;
   $del-borderWidth: 1px;
 
-  @extend %removedStyle;
+  @extend %removed;
   border-bottom: $del-borderWidth dotted $del-color;
   color: $del-color;
 }
 
 strike {
-  @extend %removedStyle;
+  @extend %removed;
 }
 
 s {
-  @extend %removedStyle;
+  @extend %removed;
 }
 
 kbd {
-  $kbd-bg: $gray;
-
-  @extend %attentionStyle;
+  @extend %attention;
   @include tx-inline-block;
   @include tx-grid-height(1, 1);
   padding: 0 .25em;
   border-radius: 3px;
-  background: $kbd-bg;
+  background: $kbd-background;
   background-clip: padding-box;
   font-weight: bold;
   font-family: $font-mono;
   vertical-align: top;
 }
 
-%smallStyle {
-  @include tx-font-size(small, 0);
-}
-
-%supSubStyle {
-  @extend %smallStyle;
-  position: relative;
-}
-
 sup {
-  @extend %supSubStyle;
+  @extend %supSub;
   top: -.65em;
 }
 
 sub {
-  @extend %supSubStyle;
+  @extend %supSub;
   bottom: -.25em;
 }
 
@@ -368,7 +365,7 @@ big {
 }
 
 small {
-  @extend %smallStyle;
+  @extend %small;
 }
 
 u {
@@ -384,23 +381,21 @@ img {
 }
 
 audio {
-  @extend %marginStyle;
+  @extend %defaultBlock;
 }
 
 video {
-  @extend %marginStyle;
+  @extend %defaultBlock;
+}
+
+%tableCell {
+  @include tx-table-borders(1px, 1, $color: $tableCell-borderColor, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
 }
 
 caption {
   @include tx-rhythm-padding(0, .5);
   font-weight: bold;
   text-align: left;
-}
-
-%tableCellStyle {
-  $tableCell-borderColor: $gray;
-
-  @include tx-table-borders(1px, 1, $color: $tableCell-borderColor, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
 }
 
 table {
@@ -411,29 +406,13 @@ table {
 }
 
 td {
-  @extend %tableCellStyle;
+  @extend %tableCell;
 }
 
 th {
-  @extend %attentionStyle;
-  @extend %tableCellStyle;
+  @extend %attention;
+  @extend %tableCell;
   text-align: left;
-}
-
-fieldset {
-  display: block;
-  padding: 0;
-  border: 0;
-  margin: 0;
-}
-
-legend {
-  $legend-padding: 1.5em;
-
-  position: relative;
-  left: -$legend-padding;
-  padding: 0 $legend-padding;
-  font-weight: bold;
 }
 
 hr {
@@ -459,7 +438,7 @@ hr {
 
 /* Focus */
 
-%focusStyle {
+%focus {
 
   &:focus {
     outline: $focus-outlineWidth dotted $focus-outlineColor;
@@ -472,7 +451,7 @@ hr {
 /* Links */
 
 a {
-  @extend %focusStyle;
+  @extend %focus;
   @extend %tx-fastTouch;
   @extend %tx-linkTouchStates;
   @include tx-link($link, $visited, $hover, $active);
@@ -485,26 +464,40 @@ a {
 
 /* Forms */
 
+fieldset {
+  @extend %block;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+legend {
+  position: relative;
+  left: -$legend-padding;
+  padding: 0 $legend-padding;
+  font-weight: bold;
+}
+
 label {
   @extend %tx-fastTouch;
   cursor: pointer;
 }
 
-%formBaselineStyle {
-  @extend %focusStyle;
+%formBaseline {
+  @extend %focus;
   margin: 0;
   font-family: inherit;
 }
 
-%formFontStyle {
+%formFont {
   font-size: inherit;
 }
 
-%formBoxSizingStyle {
+%formBoxSizing {
   box-sizing: content-box;
 }
 
-%formBorderResetStyle {
+%formBorderReset {
   border: 0;
 
   &::-moz-focus-inner {
@@ -514,61 +507,61 @@ label {
 
 }
 
-%formTextResetStyle {
+%formTextReset {
   text-transform: none;
 }
 
-%formAlignStyle {
+%formAlign {
   vertical-align: top;
 }
 
-%formStyle {
+%form {
   border: $field-borderWidth solid $field-borderColor;
 }
 
-%formRadioCheckboxStyle {
+%formRadioCheckbox {
   box-sizing: border-box;
   vertical-align: middle;
 }
 
-%formAppearanceResetStyle {
+%formAppearanceReset {
   appearance: none;
 }
 
-%formInactiveStyle {
+%formInactive {
   opacity: .5;
   cursor: default;
   cursor: not-allowed;
 }
 
-%formPlaceholderStyle {
-  $formPlaceholderStyle-color: $gray;
+%formPlaceholder {
+  $formPlaceholder-color: $gray;
 
   &::placeholder {
-    color: $formPlaceholderStyle-color;
+    color: $formPlaceholder-color;
     opacity: 1;
   }
 
 }
 
 input {
-  @extend %formBaselineStyle;
-  @extend %formFontStyle;
-  @extend %formBoxSizingStyle;
-  @extend %formBorderResetStyle;
-  @extend %formAlignStyle;
-  @extend %formPlaceholderStyle;
+  @extend %formBaseline;
+  @extend %formFont;
+  @extend %formBoxSizing;
+  @extend %formBorderReset;
+  @extend %formAlign;
+  @extend %formPlaceholder;
 
   &[type='radio'] {
-    @extend %formRadioCheckboxStyle;
+    @extend %formRadioCheckbox;
   }
 
   &[type='checkbox'] {
-    @extend %formRadioCheckboxStyle;
+    @extend %formRadioCheckbox;
   }
 
   &[type='submit'] {
-    @extend %formAppearanceResetStyle;
+    @extend %formAppearanceReset;
   }
 
   &[type='file'] {
@@ -577,11 +570,11 @@ input {
   }
 
   &[type='search'] {
-    @extend %formAppearanceResetStyle;
+    @extend %formAppearanceReset;
   }
 
   &[type='number'] {
-    @extend %formAppearanceResetStyle;
+    @extend %formAppearanceReset;
 
     &::-webkit-inner-spin-button {
       appearance: none;
@@ -590,21 +583,21 @@ input {
   }
 
   &[disabled] {
-    @extend %formInactiveStyle;
+    @extend %formInactive;
   }
 
   &[readonly] {
-    @extend %formInactiveStyle;
+    @extend %formInactive;
   }
 
 }
 
 select {
-  @extend %formBaselineStyle;
-  @extend %formFontStyle;
-  @extend %formTextResetStyle;
-  @extend %formAlignStyle;
-  @extend %formStyle;
+  @extend %formBaseline;
+  @extend %formFont;
+  @extend %formTextReset;
+  @extend %formAlign;
+  @extend %form;
   @extend %tx-fastTouch;
   @include tx-grid-height(1.5, $setLineHeight: false);
   vertical-align: top;
@@ -615,7 +608,7 @@ select {
 
 }
 
-%buttonStyle {
+%button {
   @extend %tx-fastTouch;
   @include tx-grid-height(1.5, $setLineHeight: false);
   padding: 0 ($gap / 2);
@@ -623,37 +616,37 @@ select {
 }
 
 button {
-  @extend %formBaselineStyle;
-  @extend %formFontStyle;
-  @extend %formBoxSizingStyle;
-  @extend %formBorderResetStyle;
-  @extend %formTextResetStyle;
-  @extend %formAppearanceResetStyle;
-  @extend %buttonStyle;
+  @extend %formBaseline;
+  @extend %formFont;
+  @extend %formBoxSizing;
+  @extend %formBorderReset;
+  @extend %formTextReset;
+  @extend %formAppearanceReset;
+  @extend %button;
 
   &[disabled] {
-    @extend %formInactiveStyle;
+    @extend %formInactive;
   }
 
 }
 
 textarea {
-  @extend %formBaselineStyle;
-  @extend %formBoxSizingStyle;
-  @extend %formStyle;
-  @extend %formPlaceholderStyle;
+  @extend %block;
+  @extend %formBaseline;
+  @extend %formBoxSizing;
+  @extend %form;
+  @extend %formPlaceholder;
   @include tx-form-height(9, 1);
   @include tx-rhythm-padding(.25, .25, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
-  display: block;
   overflow: auto;
   font-size: inherit;
 
   &[disabled] {
-    @extend %formInactiveStyle;
+    @extend %formInactive;
   }
 
   &[readonly] {
-    @extend %formInactiveStyle;
+    @extend %formInactive;
   }
 
 }
