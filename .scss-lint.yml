@@ -349,6 +349,10 @@ linters:
       - -premailer-cellpadding
       - -premailer-cellspacing
 
+  PropertySpelling:
+    extra_properties:
+      - font-display
+
   PropertyUnits:
     enabled: true
     global: ["ch", "em", "ex", "rem", "cm", "in", "mm", "pc", "pt", "px", "q", "vh", "vw", "vmin", "vmax", "deg", "grad", "rad", "turn", "ms", "s", "Hz", "kHz", "dpi", "dpcm", "dppx", "%"]
