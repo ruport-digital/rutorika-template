@@ -1,5 +1,0 @@
-/* Tablet */
-
-@include tx-breakpoint($min: phoneMax, $max: desktopMin) {}
-
-@include tx-breakpoint($min: phoneMax, $max: desktopMin, $dpi: retina) {}

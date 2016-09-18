@@ -2,8 +2,7 @@
 
 %tx-noFlexbox {
 
-  .mdz-no-flexbox &,
-  .mdz-no-flexboxlegacy & {
+  .mdz-no-flexbox.mdz-no-flexboxlegacy & {
     @include tx-inline-block;
 
     &-parent {

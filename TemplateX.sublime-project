@@ -1,7 +1,7 @@
 {
   "color_variables_files": ["/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss", "D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"],
   "folders": [{
-      "folder_exclude_patterns": ["build", "design", "dev", "docs", "meta", "node_modules", "tests"],
+      "folder_exclude_patterns": ["build", "design", "dev", "docs", "meta", "node_modules", "sources", "tests"],
       "file_exclude_patterns": ["*.zip", "*.sublime-project"],
       "follow_symlinks": true,
       "name": "TemplateX: Project",

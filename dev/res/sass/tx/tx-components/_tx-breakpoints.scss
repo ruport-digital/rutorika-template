@@ -1,0 +1,65 @@
+// TX Breakpoints
+
+// Media Queries
+
+@mixin tx-media($name) {
+  @media #{map-get($mediaQueries, $name)} {
+
+    @content;
+
+  }
+}
+
+// Functions
+
+@function txf-breakpoint($point) {
+  @return map-get($breakpointsRem, $point);
+}
+
+@function txf-breakpointRem($point) {
+  @return #{(map-get($breakpoints, $point) / $fontSize) * $fontSizeQuotient}em
+}
+
+@function txf-dpiBreakpoints($baseBreakpoint, $dpiBreakpoints) {
+  $breakpointDPI: null;
+  @for $index from 1 through length($dpiBreakpoints) {
+    @if ($index == 1) {
+      $breakpointDPI: $baseBreakpoint unquote('and') unquote(nth($dpiBreakpoints, $index));
+    } @else {
+      $breakpointDPI: #{$breakpointDPI}#{unquote(',')} $baseBreakpoint unquote('and') unquote(nth($dpiBreakpoints, $index));
+    }
+  }
+  @return $breakpointDPI;
+}
+
+@function txf-breakpointQuery($min: null, $max: null, $dpi: null) {
+  $breakpoint: '';
+  @if ($min) {
+    $breakpoint: $breakpoint unquote('and') (min-width: txf-breakpoint($min));
+  }
+  @if ($max) {
+    $breakpoint: $breakpoint unquote('and') (max-width: txf-breakpoint($max));
+  }
+  @if ($dpi) {
+    $dpiValues: txf-dpiValues(map-get($breakpointsDPI, $dpi));
+    $breakpoint: txf-dpiBreakpoints($breakpoint, $dpiValues);
+  }
+  @return $breakpoint;
+}
+
+@function txf-deviceBreakpoint($name, $type: screen) {
+  @return #{only $type} map-get($breakpointQueries, $name);
+}
+
+@function txf-dpiValues($value) {
+  $valueNumber: $value / 100;
+  $valueFraction: $value / 50;
+  @return (
+    '(-webkit-min-device-pixel-ratio: #{$valueNumber})',
+    '(min--moz-device-pixel-ratio: #{$valueNumber})',
+    '(-o-min-device-pixel-ratio: #{($valueFraction)} / 2)',
+    '(min-device-pixel-ratio: #{$valueNumber})',
+    '(min-resolution: #{$value}dpi)',
+    '(min-resolution: #{$valueNumber}dppx)'
+  );
+}

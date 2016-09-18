@@ -1,0 +1,11 @@
+// TX Images
+
+// Extend DataURI Image
+
+@mixin tx-extend-image($class, $ie: $tx-IE) {
+  @if not $ie {
+    @extend #{'%image-' + $class};
+  } @else {
+    @extend #{'%ie-image-' + $class};
+  }
+}

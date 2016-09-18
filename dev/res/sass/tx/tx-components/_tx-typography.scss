@@ -1,0 +1,45 @@
+// TX Typography
+
+// Font Rendering
+
+@mixin tx-font-rendering($rendering: null) {
+  @if ($rendering == thin) {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  } @else {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
+  }
+}
+
+// Font Size
+
+@mixin tx-font-size($newFontSize, $lines: approx, $fallback: $remFallback) {
+  $size: 0;
+  @if type-of($newFontSize) == number {
+    $size: $newFontSize;
+  } @else {
+    $size: map-get($fontSizes, $newFontSize);
+  }
+  @if $fallback == true {
+    font-size: $size;
+  }
+  $newFontSizeRem: $size / $fontSize;
+  font-size: #{$newFontSizeRem}rem;
+  @if $lines != none and $lines != approx and $lines != 0 {
+    line-height: ($lines * $lineHeight) * ($fontSize / $size);
+  }
+  @if $lines == 0 {
+    line-height: 0;
+  }
+  @if $lines == approx {
+    line-height: ($lineHeight * ceil($size / ($fontSize * $lineHeight))) * ($fontSize / $size);
+  }
+}
+
+// Hyphens
+
+@mixin tx-hyphens($hyphens: manual) {
+  -epub-hyphens: $hyphens;
+  hyphens: $hyphens;
+}

@@ -6,11 +6,25 @@ html {
 }
 
 body {
-  $body-minWidth: (txf-breakpoint(desktopMin));
-
   @include tx-set-boundaries($body-minWidth);
   @include tx-scroll-bar(true);
   position: relative;
   padding: 0 $gap;
   background: $background;
+}
+
+/* Phone Layout */
+
+@include tx-media(phone) {
+
+  @import '_layout-phone';
+
+}
+
+/* Print Layout */
+
+@include tx-media(print) {
+
+  @import '_layout-print';
+
 }

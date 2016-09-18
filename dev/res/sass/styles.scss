@@ -1,12 +1,9 @@
+@import 'tx/_tx';
+
 @import 'project/_project';
 
-@import 'components/_baseline';
-@import 'components/_utilities';
-@import 'components/_layout';
-@import 'components/_hdpi';
+@import 'base/_baseline';
+@import 'base/_layout';
+@import 'base/_hdpi';
 
-@import 'components/media/_wide';
-@import 'components/media/_tablet';
-@import 'components/media/_phone';
-@import 'components/media/_print';
-@import 'components/media/_exotic';
+@import 'utilities/_utilities';

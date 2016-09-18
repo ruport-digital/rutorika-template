@@ -245,6 +245,7 @@ linters:
       - font-size
       - font-family
       - font-feature-settings
+      - font-display
       - src
       - text-align
       - text-align-last

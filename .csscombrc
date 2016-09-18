@@ -263,6 +263,7 @@
     "font-feature-settings",
     "-webkit-font-smoothing",
     "-moz-osx-font-smoothing",
+    "font-display",
     "src",
     "text-align",
     "-webkit-text-align-last",

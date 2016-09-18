@@ -1,0 +1,106 @@
+// TX Block
+
+// Block Placeholder
+
+@mixin tx-block-placeholder($image: '../images/tx/tx-placeholder.png') {
+  background: url($image);
+}
+
+@mixin tx-icon($width: 15px, $height: 15px) {
+  @include tx-block-placeholder;
+  width: $width;
+  height: $height;
+}
+
+// Inline Block
+
+@mixin tx-inline-block($ie: $tx-IE, $extend: true) {
+  @if $extend == true {
+    @if $ie != true {
+      @extend %tx-default-inline-block;
+    } @else {
+      @extend %tx-default-inline-block-IE;
+    }
+  } @else {
+    @if $ie != true {
+      display: inline-block;
+    }
+  }
+}
+
+// Pseudo Element
+
+@mixin tx-pseudo($position: absolute, $display: block, $content: '', $ie: $tx-IE, $extend: true) {
+  @if $position == 'absolute' and $display == 'block' and $content == '' and $extend == true {
+    @extend %tx-default-pseudo;
+  } @else {
+    @if $display == 'inline-block' {
+      @include tx-inline-block;
+    } @else {
+      display: $display;
+    }
+    @if not $ie {
+      content: '' + $content;
+    }
+    position: $position;
+  }
+}
+
+@mixin tx-pseudo-ie($before: true, $after: true, $class: '', $beforeContent: '', $afterContent: '') {
+  $beforeClass: ieBefore + $class;
+  $afterClass: ieAfter + $class;
+  @if $before == true and $after == true {
+    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' + $beforeClass + '">' + $beforeContent + '</i>"), insertAdjacentHTML("beforeEnd", "<i class="' + $afterClass + '">' + $afterContent + '</i>"))');
+  } @else if $before == true {
+    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' + $beforeClass + '">' + $beforeContent + '</i>"))');
+  } @else {
+    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("beforeEnd", "<i class="' + $afterClass + '">' + $afterContent + '</i>"))');
+  }
+}
+
+// Vertical Alignment
+
+@mixin tx-pseudo-va {
+  @extend %tx-default-pseudo-va;
+}
+
+// Layers
+
+@mixin tx-layer($layer: content, $shift: 0) {
+  @if $layer == 'over' {
+    z-index: (200 + $shift);
+  } @else if $layer == 'top' {
+    z-index: (100 + $shift);
+  } @else if $layer == 'content' {
+    z-index: (50 + $shift);
+  } @else if $layer == 'bottom' {
+    z-index: (0 + $shift);
+  } @else if $layer == 'under' {
+    z-index: (-1 - $shift);
+  }
+}
+
+// Max Width
+
+@mixin tx-max-width($width, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  @if $fallback == true {
+    max-width: $width;
+  }
+  @if $inPixels == false {
+    max-width: ($width / $fontSize) * 1rem;
+  }
+}
+
+// Slide Down
+
+@mixin tx-slide-down($maxHeight, $activeClass: '-is-active') {
+  max-height: 0;
+
+  &-#{$activeClass} {
+    max-height: $maxHeight;
+  }
+
+}

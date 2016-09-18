@@ -1,0 +1,205 @@
+// TX Rhythm
+
+// Rhythm
+
+@mixin tx-rhythm($leader: 0, $trailer: 0, $marginRight: 0, $marginLeft: 0, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  $mtop-px: 0;
+  $mtop-rem: 0;
+  $mbtm-px: 0;
+  $mbtm-rem: 0;
+  @if $leader == $trailer {
+    $vertical-px: txf-rhythm-fallback($leader);
+    $vertical-rem: txf-rhythm($leader);
+    @if $marginRight == $marginLeft {
+      @if $fallback == true {
+        margin: $vertical-px $marginRight;
+      }
+      @if $inPixels == false {
+        margin: $vertical-rem $marginRight;
+      }
+    } @else {
+      @if $fallback == true {
+        margin: $vertical-px $marginRight $vertical-px $marginLeft;
+      }
+      @if $inPixels == false {
+        margin: $vertical-rem $marginRight $vertical-rem $marginLeft;
+      }
+    }
+  } @else {
+    @if $leader != 0 {
+      $mtop-px: txf-rhythm-fallback($leader);
+      $mtop-rem: txf-rhythm($leader);
+    }
+    @if $trailer != 0 {
+      $mbtm-px: txf-rhythm-fallback($trailer);
+      $mbtm-rem: txf-rhythm($trailer);
+    }
+    @if $marginRight == $marginLeft {
+      @if $fallback == true {
+        margin: $mtop-px $marginRight $mbtm-px;
+      }
+      @if $inPixels == false {
+        margin: $mtop-rem $marginRight $mbtm-rem;
+      }
+    } @else {
+      @if $fallback == true {
+        margin: $mtop-px $marginRight $mbtm-px $marginLeft;
+      }
+      @if $inPixels == false {
+        margin: $mtop-rem $marginRight $mbtm-rem $marginLeft;
+      }
+    }
+  }
+}
+
+// Rhythm Padding
+
+@mixin tx-rhythm-padding($paddingLeader: 0, $paddingTrailer: 0, $paddingRight: 0, $paddingLeft: 0, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  $ptop-px: 0;
+  $ptop-rem: 0;
+  $pbtm-px: 0;
+  $pbtm-rem: 0;
+  @if $paddingLeader == $paddingTrailer {
+    $vertical-px: txf-rhythm-fallback($paddingLeader);
+    $vertical-rem: txf-rhythm($paddingLeader);
+    @if $paddingRight == $paddingLeft {
+      @if $fallback == true {
+        padding: $vertical-px $paddingRight;
+      }
+      @if $inPixels == false {
+        padding: $vertical-rem $paddingRight;
+      }
+    } @else {
+      @if $fallback == true {
+        padding: $vertical-px $paddingRight $vertical-px $paddingLeft;
+      }
+      @if $inPixels == false {
+        padding: $vertical-rem $paddingRight $vertical-rem $paddingLeft;
+      }
+    }
+  } @else {
+    @if $paddingLeader != 0 {
+      $ptop-px: txf-rhythm-fallback($paddingLeader);
+      $ptop-rem: txf-rhythm($paddingLeader);
+    }
+    @if $paddingTrailer != 0 {
+      $pbtm-px: txf-rhythm-fallback($paddingTrailer);
+      $pbtm-rem: txf-rhythm($paddingTrailer);
+    }
+    @if $paddingRight == $paddingLeft {
+      @if $fallback == true {
+        padding: $ptop-px $paddingRight $pbtm-px;
+      }
+      @if $inPixels == false {
+        padding: $ptop-rem $paddingRight $pbtm-rem;
+      }
+    } @else {
+      @if $fallback == true {
+        padding: $ptop-px $paddingRight $pbtm-px $paddingLeft;
+      }
+      @if $inPixels == false {
+        padding: $ptop-rem $paddingRight $pbtm-rem $paddingLeft;
+      }
+    }
+  }
+}
+
+// Height in Grid Units
+
+@mixin tx-grid-height($lines: 1, $borderWidth: 0, $setLineHeight: true, $setPadding: false, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  @if $setPadding == true {
+    @if $fallback == true {
+      padding: txf-rhythm-fallback($lines, 2 * $borderWidth) 0 0;
+    }
+    @if $inPixels == false {
+      padding: txf-rhythm($lines, 2 * $borderWidth) 0 0;
+    }
+  } @else {
+    @if $fallback == true {
+      height: txf-rhythm-fallback($lines, 2 * $borderWidth);
+    }
+    @if $inPixels == false {
+      height: txf-rhythm($lines, 2 * $borderWidth);
+    }
+  }
+  @if $setLineHeight == true {
+    line-height: $lines * $lineHeight - ($borderWidth / ($fontSize / 1px)) * 2;
+  }
+}
+
+// Form Element Height in Grid Units
+
+@mixin tx-form-height($lines: 1, $borderWidth: 1, $setLineHeight: false, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  @if $setLineHeight == true {
+    line-height: $lines * $lineHeight - ($borderWidth / ($fontSize / 1px)) * 2;
+  } @else {
+    @if $fallback == true {
+      height: txf-rhythm-fallback($lines, $offset: 2 * $borderWidth);
+    }
+    @if $inPixels == false {
+      height: txf-rhythm($lines, $offset: 2 * $borderWidth);
+    }
+  }
+}
+
+// Table Borders with Adjustment
+
+@mixin tx-table-borders($width: 1px, $lines: 1, $style: solid, $color: $black, $paddingRight: .5em, $paddingLeft: .5em, $fallback: $remFallback, $inPixels: false) {
+  @if $inPixels == true {
+    $fallback: true;
+  }
+  $calculated-borderWidth-fallback: $width;
+  $calculated-borderWidth: $width / $fontSize * 1rem;
+  $calculated-verticalPadding-fallback: txf-rhythm-fallback($lines, $width);
+  $calculated-verticalPadding: txf-rhythm($lines, $width);
+  @if $lines != 0 {
+    @if $paddingRight == $paddingLeft and $paddingRight != 0 {
+      @if $fallback == true {
+        padding: ($calculated-verticalPadding-fallback) ($paddingRight) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback);
+      }
+      @if $inPixels == false {
+        padding: ($calculated-verticalPadding) ($paddingRight) ($calculated-verticalPadding + $calculated-borderWidth);
+      }
+    } @else {
+      @if $fallback == true {
+        padding: ($calculated-verticalPadding-fallback) ($paddingRight) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback) ($paddingLeft);
+      }
+      @if $inPixels == false {
+        padding: ($calculated-verticalPadding) ($paddingRight) ($calculated-verticalPadding + $calculated-borderWidth) ($paddingLeft);
+      }
+    }
+  }
+  border: $width $style $color;
+}
+
+// Functions
+
+@function txf-rhythm($lines: 1, $offset: 0) {
+  $result: ($lines * $lineHeight * $fontSize - $offset) / $fontSize * 1rem;
+  @if $result == '0rem' {
+    @return 0;
+  } @else {
+    @return $result;
+  }
+}
+
+@function txf-rhythm-fallback($lines: 1, $offset: 0) {
+  $result: ($lines * $lineHeight * $fontSize - $offset);
+  @if $result == '0px' {
+    @return 0;
+  } @else {
+    @return $result;
+  }
+}

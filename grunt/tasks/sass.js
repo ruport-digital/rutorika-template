@@ -5,7 +5,8 @@ module.exports = (grunt, options) => {
   return {
     options: {
       sourceMap: true,
-      precision: 5
+      precision: 5,
+      includePaths: [project.res.css.comp]
     },
     generate: {
       cwd: project.res.css.sass,

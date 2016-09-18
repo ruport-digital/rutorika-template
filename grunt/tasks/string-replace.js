@@ -44,9 +44,6 @@ module.exports = (grunt, options) => {
     css: {
       options: {
         replacements: [{
-          pattern: /\[data-dev-note\][\s\S]*?\}(?:\r?\n|\r)*/g,
-          replacement: ''
-        }, {
           pattern: /\*(?! *csslint|\/)[^*{]*\*+([^/*][^*]*\*+)*\/(?:\r?\n|\r|\t| )*\//g,
           replacement: ''
         }, {

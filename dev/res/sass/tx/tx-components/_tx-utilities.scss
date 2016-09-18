@@ -1,0 +1,13 @@
+// TX Utilities
+
+@function txf-pow($base, $exp) {
+  $result: 1;
+  @if $exp == 0 {
+    @return $result;
+  } @else {
+    @for $i from 1 through $exp {
+      $result: $result * $base;
+    }
+    @return $result;
+  }
+}

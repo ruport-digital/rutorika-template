@@ -1,26 +1,44 @@
-/* Lists Reset */
+/* Reset */
 
-%u-reset {
+%u-positionReset {
+  position: initial;
+}
+
+%u-boxReset {
   padding: 0;
   margin: 0;
 }
 
+
+
+/* Lists Reset */
+
+%u-bulletReset {
+
+  &:after {
+    display: none;
+  }
+
+}
+
 %u-listReset {
-  @extend %u-reset;
+  @extend %u-boxReset;
   list-style: none;
 
   > li {
-    @extend %u-reset;
+    @extend %u-positionReset;
+    @extend %u-boxReset;
+    @extend %u-bulletReset;
   }
 
 }
 
 %u-descriptionListReset {
-  @extend %u-reset;
+  @extend %u-boxReset;
 
   > dt,
   > dd {
-    @extend %u-reset;
+    @extend %u-boxReset;
     font-weight: normal;
     font-style: normal;
   }

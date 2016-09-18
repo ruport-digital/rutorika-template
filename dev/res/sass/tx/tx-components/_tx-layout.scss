@@ -1,0 +1,32 @@
+// TX Layout
+
+// Page Boundaries
+
+@mixin tx-set-boundaries($minWidth: map-get($breakpoints, desktopMin), $maxWidth: map-get($breakpoints, desktopMax), $minHeight: 100%, $center: true) {
+  @if $minWidth != none and $minWidth != 0 {
+    min-width: $minWidth;
+  }
+  @if $maxWidth != none and $maxWidth != 0 {
+    max-width: $maxWidth;
+  }
+  @if $minHeight != none and $minHeight != 0 {
+    min-height: $minHeight;
+  }
+  @if $center == true {
+    margin: 0 auto;
+  }
+}
+
+// Page Scroll
+
+@mixin tx-scroll-bar($condition: false, $autohide: true) {
+  @if $condition == true {
+    overflow-x: auto;
+    overflow-y: scroll;
+  } @else {
+    overflow: auto;
+  }
+  @if $autohide == true {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+}

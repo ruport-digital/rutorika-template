@@ -1,4 +1,4 @@
-// Layout
+// Breakpoints
 
 $breakpoints: (
   phoneMax: 720px,
@@ -15,12 +15,36 @@ $breakpointsRem: (
 );
 
 $breakpointsDPI: (
-  retina: 150,
-  retinaHD: 250
+  hdpi: 150,
+  xhdpi: 250
+);
+
+$breakpointQueries: (
+  hdpi: txf-breakpointQuery($dpi: hdpi),
+  xhdpi: txf-breakpointQuery($dpi: xhdpi),
+  phone: txf-breakpointQuery($max: phoneMax),
+  phone2x: txf-breakpointQuery($max: phoneMax, $dpi: hdpi),
+  tablet: txf-breakpointQuery($min: phoneMax, $max: desktopMin),
+  tablet2x: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $dpi: hdpi),
+  wide: txf-breakpointQuery($min: desktopWide),
+);
+
+$mediaQueries: (
+  hdpi: txf-deviceBreakpoint(hdpi),
+  xhdpi: txf-deviceBreakpoint(xhdpi),
+  phone: txf-deviceBreakpoint(phone),
+  phone2x: txf-deviceBreakpoint(phone2x),
+  tablet: txf-deviceBreakpoint(tablet),
+  tablet2x: txf-deviceBreakpoint(tablet2x),
+  wide: txf-deviceBreakpoint(wide),
+  print: 'print',
+  exotic: 'projection, tv'
 );
 
 
 
-// Gap
+// Layout
+
+$body-minWidth: (txf-breakpoint(desktopMin));
 
 $gap: 30px;

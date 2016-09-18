@@ -2,13 +2,13 @@
 
 %tx-stickyFooter {
 
-  &Content {
-    flex-grow: 1;
-  }
-
-  &Wrap {
+  &Holder {
     display: flex;
     flex-direction: column;
+  }
+
+  &Body {
+    flex-grow: 1;
   }
 
 }

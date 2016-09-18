@@ -1,0 +1,59 @@
+// TX Sprites
+
+// Sprites
+
+@mixin tx-sprite-block($name, $padding: false) {
+  width: nth($name, 5);
+  @if $padding {
+    @extend %tx-sprite-block;
+    padding: nth($name, 6) 0 0;
+  } @else {
+    height: nth($name, 6);
+  }
+}
+
+@mixin tx-sprite-image($name) {
+  $sheet: txf-spriteSheetName($name);
+  @extend #{'%ssh-' + $sheet};
+}
+
+@mixin tx-sprite-position($name) {
+  background-position: nth($name, 3) nth($name, 4);
+}
+
+@mixin tx-sprite($name, $position: true, $block: false, $padding: false, $color: null) {
+  @include tx-sprite-image($name);
+  @if $block {
+    @include tx-sprite-block($name, $padding);
+  }
+  @if $color {
+    background-color: $color;
+  }
+  @if $position {
+    @include tx-sprite-position($name);
+  }
+}
+
+// Functions
+
+@function txf-sprite-width($name) {
+  @return nth($name, 5);
+}
+
+@function txf-sprite-height($name) {
+  @return nth($name, 6);
+}
+
+@function txf-spriteSheetName($name) {
+  $string: nth($name, 9);
+  $length: str-length($string);
+  $index: str-index($string, '/');
+  @while $index != null {
+    $string: str-slice($string, ($index + 1), $length);
+    $length: str-length($string);
+    $index: str-index($string, '/');
+  }
+  $index: str-index($string, '.');
+  $string: str-slice($string, 0, ($index - 1));
+  @return $string;
+}
