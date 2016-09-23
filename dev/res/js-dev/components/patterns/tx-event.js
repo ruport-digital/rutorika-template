@@ -25,8 +25,9 @@ function unbind(object, type, callback) {
 
 /* Event Trigger */
 
-function triggerCreateEvent(object, eventName, propagate, data) {
-  let event = document.createEvent('UIEvents');
+function triggerCreateEvent(object, eventName, propagate, type, data) {
+  let eventType = type || 'MouseEvents';
+  let event = document.createEvent(eventType);
   if (data) {
     setData(event, data);
   }
