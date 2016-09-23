@@ -6,11 +6,13 @@ var eventTool = require('./tx-event');
 
 const ACTIVE_CLASS_NAME = 'js-field-is-showingPlaceholder';
 
+/* Placeholder Constructor */
+
 function fieldPlaceholder(node) {
 
   var field;
 
-  /* Actions */
+  /* Field Actions */
 
   function addPlaceholder(field) {
     if (field.value === '') {
@@ -26,7 +28,7 @@ function fieldPlaceholder(node) {
     }
   }
 
-  /* Interactions */
+  /* Field Interactions */
 
   function onFocus(event) {
     removePlaceholder(eventTool.target(event));
@@ -46,7 +48,7 @@ function fieldPlaceholder(node) {
     eventTool.unbind(field, 'blur', onBlur);
   }
 
-  /* Initialization */
+  /* Field Initialization */
 
   function initValues() {
     field = node;
@@ -69,13 +71,15 @@ function fieldPlaceholder(node) {
 
   initPlaceholder();
 
-  /* Interface */
+  /* Filed Interface */
 
   return {
     destroy: destroy
   };
 
 }
+
+/* Inititalization */
 
 function init() {
   var fields = document.querySelectorAll('input, textarea');
@@ -85,6 +89,8 @@ function init() {
 function destroy(fields) {
   fields.forEach(field => field.destroy());
 }
+
+/* Interface */
 
 exports.init = init;
 exports.destroy = destroy;

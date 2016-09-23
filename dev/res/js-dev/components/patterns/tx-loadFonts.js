@@ -1,19 +1,34 @@
 /* jshint browser:true */
-/* global Promise */
 
 'use strict';
 
 var FontFaceObserver = require('fontfaceobserver/fontfaceobserver.js');
 
-const CRITICAL_SUFFIX = 'Critical';
-const REST_SUFFIX = 'Rest';
 const LOADED_SUFFIX = '-is-loaded';
 
-module.exports = (fontCritical, fontsRest, className, object) => {
+function getFontClassName(fontName) {
+  var firstCharacter = fontName.charAt(0).toLowerCase();
+  var noSpaces = fontName.replace(/ /g, '');
+  return `${firstCharacter}${noSpaces.slice(1, noSpaces.length)}${LOADED_SUFFIX}`;
+}
+
+function fontPromise(font) {
+  var rest = new FontFaceObserver(font);
+  rest
+    .load()
+    .then(loadedFont => {
+      document.body.classList.add(getFontClassName(loadedFont.family));
+  });
+}
+
+module.exports = (fontCritical, fontsRest) => {
   var critical = new FontFaceObserver(fontCritical);
-  critical.load().then(_ => {
-    object.classList.add(`${className}${CRITICAL_SUFFIX}${LOADED_SUFFIX}`);
-    let restChecks = fontsRest.map(font => restChecks.push((new FontFaceObserver(font)).load()));
-    Promise.all(restChecks).then(_ => object.classList.add(`${className}${REST_SUFFIX}${LOADED_SUFFIX}`));
+  critical
+    .load()
+    .then(loadedFont => {
+      document.body.classList.add(getFontClassName(loadedFont.family));
+      if (fontsRest) {
+        fontsRest.forEach(fontPromise);
+      }
   });
 };

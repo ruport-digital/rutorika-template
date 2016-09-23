@@ -9,6 +9,8 @@ const VALUE_CLASS_NAME_SUFFIX = '-value';
 const BUTTON_CLASS_NAME_SUFFIX = '-button';
 const WRAPED_CLASS_NAME_SUFFIX = '-is-wrapped';
 
+/* HTML */
+
 function createWrap(className) {
   var element = document.createElement('div');
   element.className = `${className}${WRAP_CLASS_NAME_SUFFIX}`;
@@ -34,9 +36,11 @@ function wrapInput(className, input, wrap, value, button) {
   wrap.appendChild(value);
   wrap.appendChild(button);
   parent.insertBefore(wrap, input);
-  wrap.appendChild(input);
   input.classList.add(`${className}${WRAPED_CLASS_NAME_SUFFIX}`);
+  wrap.appendChild(input);
 }
+
+/* Field Constructor */
 
 function fileInput(field, text) {
 
@@ -46,7 +50,7 @@ function fileInput(field, text) {
   var value;
   var button;
 
-  /* Interactions */
+  /* Field Interactions */
 
   function onChange(event) {
     value.textContent = input.value.split('\\')[2];
@@ -70,7 +74,7 @@ function fileInput(field, text) {
     eventTool.unbind(button, 'click', onClick);
   }
 
-  /* Initialization */
+  /* Field Initialization */
 
   function initValues() {
     input = field;
@@ -101,13 +105,15 @@ function fileInput(field, text) {
 
   initField();
 
-  /* Interface */
+  /* Field Interface */
 
   return {
     destroy: destroyField
   };
 
 }
+
+/* Initialization */
 
 function init(selector, text) {
   var fields = document.querySelectorAll(selector);
@@ -117,6 +123,8 @@ function init(selector, text) {
 function destroy(fields) {
   fields.forEach(field => field.destroy());
 }
+
+/* Interface */
 
 exports.init = init;
 exports.destroy = destroy;

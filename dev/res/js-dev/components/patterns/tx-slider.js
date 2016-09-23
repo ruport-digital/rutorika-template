@@ -19,6 +19,8 @@ var createNode = require('./tx-createNode');
 var transition = require('./tx-transition')();
 var translateGallery = require('./tx-translate').css;
 
+/* Dots */
+
 function generateNavigationDots(size, pageClassName) {
   var navigationDots = '';
   for (let index = 0; index < size; index += 1) {
@@ -31,6 +33,8 @@ function dots(size, listClassName, pageClassName) {
   var navigation = `<ol class="${listClassName} ${DOT_NAVIGATION_CLASS_NAME}">${generateNavigationDots(size, pageClassName)}</ol>`;
   return createNode(navigation);
 }
+
+/* Slider Constructor */
 
 function init(object, navigationObject, pageClassName) {
 
@@ -151,7 +155,7 @@ function init(object, navigationObject, pageClassName) {
     animationFrame = frame;
   }
 
-  /* Utilities */
+  /* Slider Utilities */
 
   function updateDots() {
     getActiveSlideDot().classList.remove(getSliderDotActiveClassName(), DOT_ACTIVE_CLASS_NAME);
@@ -228,7 +232,7 @@ function init(object, navigationObject, pageClassName) {
     }
   }
 
-  /* Actions */
+  /* Slider Actions */
 
   function slide(index) {
     setActiveSlideIndex(index);
@@ -272,7 +276,7 @@ function init(object, navigationObject, pageClassName) {
     }
   }
 
-  /* Interactions */
+  /* Slider Interactions */
 
   function touchStart(event) {
     if (!getSlider().classList.contains(SLIDER_FIXING_CLASS_NAME) || !getSlider().classList.contains(SLIDER_CHANGING_CLASS_NAME)) {
@@ -301,7 +305,7 @@ function init(object, navigationObject, pageClassName) {
     eventTool.bind(getSlider(), 'touchstart', touchStart);
   }
 
-  /* Inititalization */
+  /* Slider Inititalization */
 
   function setDefaultValues() {
     setSlider();
@@ -312,10 +316,14 @@ function init(object, navigationObject, pageClassName) {
     setActiveSlideDot();
   }
 
-  setDefaultValues();
-  interactions();
+  function init() {
+    setDefaultValues();
+    interactions();
+  }
 
-  /* Interface */
+  init();
+
+  /* Slider Interface */
 
   return {
     prev: prevItem,
@@ -324,6 +332,8 @@ function init(object, navigationObject, pageClassName) {
   };
 
 }
+
+/* Interface */
 
 exports.dots = dots;
 exports.init = init;

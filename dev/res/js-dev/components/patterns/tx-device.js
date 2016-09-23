@@ -3,6 +3,8 @@
 
 'use strict';
 
+/* Device Size */
+
 function size() {
   return {
     width: window.screen.width,
@@ -10,9 +12,13 @@ function size() {
   };
 }
 
+/* Device Touch */
+
 function touch() {
   return Modernizr.touchevents;
 }
+
+/* Device */
 
 function detect() {
   return {
