@@ -56,22 +56,24 @@ function fileInput(field, text) {
     value.textContent = input.value.split('\\')[2];
   }
 
-  function onClick(event) {
+  function onWrapClick(event) {
+    eventTool.trigger(input, 'click');
+  }
+
+  function onButtonClick(event) {
     event.preventDefault();
-    event.stopPropagation();
-    eventTool.trigger(input, 'click', false);
   }
 
   function initInteractions() {
     eventTool.bind(input, 'change', onChange);
-    eventTool.bind(wrap, 'click', onClick);
-    eventTool.bind(button, 'click', onClick);
+    eventTool.bind(wrap, 'click', onWrapClick);
+    eventTool.bind(button, 'click', onButtonClick);
   }
 
   function removeInteractions() {
     eventTool.unbind(input, 'change', onChange);
-    eventTool.unbind(wrap, 'click', onClick);
-    eventTool.unbind(button, 'click', onClick);
+    eventTool.unbind(wrap, 'click', onWrapClick);
+    eventTool.unbind(button, 'click', onButtonClick);
   }
 
   /* Field Initialization */
@@ -116,7 +118,7 @@ function fileInput(field, text) {
 /* Initialization */
 
 function init(selector, text) {
-  var fields = document.querySelectorAll(selector);
+  var fields = [].slice.call(document.querySelectorAll(selector));
   fields.forEach(field => fileInput(field, text));
 }
 

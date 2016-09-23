@@ -262,7 +262,7 @@ function init(object, navigationObject, pageClassName) {
   }
 
   function positionSlider() {
-    eventTool.trigger(slider, SLIDER_EVENT);
+    eventTool.trigger(slider, SLIDER_EVENT, false, 'UIEvents');
     eventTool.bind(slider, transition, finalizeSlide);
     getSlider().classList.add(SLIDER_FIXING_CLASS_NAME);
     translateSlider(calculateCompleteDistance());

@@ -29,7 +29,8 @@ module.exports = (nodeSelector, defaultTab) => {
 
   function makePairs() {
     var tabObjects = typeof nodeSelector === 'string' ? document.getElementsByClassName(nodeSelector) : nodeSelector;
-    [].forEach.call(tabObjects, addPair);
+    tabObjects = [].slice.call(tabObjects);
+    tabObjects.forEach(addPair);
   }
 
   function destroyPairs() {

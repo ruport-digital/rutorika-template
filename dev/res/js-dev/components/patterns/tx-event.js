@@ -25,8 +25,7 @@ function unbind(object, type, callback) {
 
 /* Event Trigger */
 
-function triggerCreateEvent(object, eventName, propagate, type, data) {
-  let eventType = type || 'MouseEvents';
+function triggerCreateEvent(object, eventName, propagate, eventType, data) {
   let event = document.createEvent(eventType);
   if (data) {
     setData(event, data);
@@ -43,10 +42,11 @@ function triggerCreateEventObject(object, eventName, propagate, data) {
   object.fireEvent(`on${eventName}`, event);
 }
 
-function trigger(object, eventName, propagate, data) {
+function trigger(object, eventName, propagate, eventType, data) {
   propagate = propagate || false;
+  eventType = eventType || 'MouseEvents';
   if (document.createEvent) {
-    triggerCreateEvent(object, eventName, propagate, data);
+    triggerCreateEvent(object, eventName, propagate, eventType, data);
   } else {
     triggerCreateEventObject(object, eventName, propagate, data);
   }

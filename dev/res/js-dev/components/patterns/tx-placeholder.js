@@ -82,7 +82,7 @@ function fieldPlaceholder(node) {
 /* Inititalization */
 
 function init() {
-  var fields = document.querySelectorAll('input, textarea');
+  var fields = [].slice.call(document.querySelectorAll('input, textarea'));
   fields.forEach(fieldPlaceholder);
 }
 
