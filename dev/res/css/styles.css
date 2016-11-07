@@ -14,7 +14,7 @@ select {
 /* Link Touch State */
 .mdz-touchevents a:hover,
 .mdz-touchevents a:active {
-  color: #337ab7;
+  color: #176191;
 }
 
 /* Baseline, Typography & Vertical Rhythm */
@@ -159,7 +159,7 @@ th {
 
 code,
 var {
-  color: #d9534f;
+  color: #ff3f2e;
 }
 
 pre {
@@ -205,8 +205,8 @@ ins {
 acronym,
 abbr,
 ins {
-  border-bottom: 1px dotted #337ab7;
-  color: #337ab7;
+  border-bottom: 1px dotted #176191;
+  color: #176191;
 }
 
 del {
@@ -297,11 +297,11 @@ th {
 /* Selection */
 ::-moz-selection {
   color: #fff;
-  background: #337ab7;
+  background: #176191;
 }
 ::selection {
   color: #fff;
-  background: #337ab7;
+  background: #176191;
 }
 
 /* Focus */
@@ -314,8 +314,8 @@ textarea:focus {
 
 /* Links */
 a {
-  color: #337ab7;
-  -webkit-tap-highlight-color: rgba(35, 82, 124, .25);
+  color: #176191;
+  -webkit-tap-highlight-color: rgba(15, 66, 99, .25);
   text-decoration: underline;
   -webkit-transition: .2s;
   transition: .2s;
@@ -324,10 +324,10 @@ a:visited {
   color: #6f5499;
 }
 a:hover {
-  color: #d9534f;
+  color: #ff3f2e;
 }
 a:active {
-  color: #23527c;
+  color: #0f4263;
 }
 
 /* Forms */
