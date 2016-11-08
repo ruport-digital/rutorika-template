@@ -1,3 +1,5 @@
+/* csslint ignore:start */
+
 /* Typography & Vertical Rhythm */
 
 %printReset {
@@ -167,3 +169,5 @@ button {
 textarea {
   @extend %hideForm;
 }
+
+/* csslint ignore:end */

@@ -58,6 +58,12 @@ module.exports = (grunt, options) => {
         }, {
           pattern: /(?:(?: |\t)*(?:\r?\n|\r))+$/g,
           replacement: '\n'
+        }, {
+          pattern: /((?:\s{2}|\t{1})\}\n)(\s{2}|\t{1})/g,
+          replacement: '$1\n$2'
+        }, {
+          pattern: /\*\//g,
+          replacement: '*/\n'
         }]
       },
       files: {

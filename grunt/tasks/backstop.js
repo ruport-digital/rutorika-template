@@ -17,10 +17,10 @@ module.exports = (grunt, options) => {
     },
     ref: {
       options: {
-        setup: false,
-        configure: false,
+        setup: true,
+        configure: true,
         'create_references': true,
-        'run_tests': false
+        'run_tests': true
       }
     }
   };

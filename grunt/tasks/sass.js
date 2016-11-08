@@ -6,7 +6,8 @@ module.exports = (grunt, options) => {
     options: {
       sourceMap: true,
       precision: 5,
-      includePaths: [project.res.css.comp]
+      includePaths: [project.res.css.comp],
+      outputStyle: 'expanded'
     },
     generate: {
       cwd: project.res.css.sass,

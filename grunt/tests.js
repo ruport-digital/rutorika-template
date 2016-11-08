@@ -19,16 +19,7 @@ module.exports = (grunt) => {
     'analyzecss'
   ]);
 
-  grunt.registerTask('reference', [
-    'backstop:ref'
-  ]);
-
-  grunt.registerTask('regressions', [
-    'backstop:test'
-  ]);
-
   grunt.registerTask('test', [
-    'regressions',
     'mochaTest',
     'quality',
     'performance'

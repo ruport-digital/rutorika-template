@@ -18,6 +18,7 @@
   "import": "warning",
   "important": "warning",
   "known-properties": false,
+  "order-alphabetical": false,
   "outline-none": "warning",
   "overqualified-elements": "warning",
   "qualified-headings": "warning",
