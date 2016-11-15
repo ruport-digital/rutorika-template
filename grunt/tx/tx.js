@@ -40,7 +40,7 @@ function placeholderSpriteCSS(name, ext, densitySuffix, density) {
   if (density !== 1) {
     return `@mixin ssh-${name}${densitySuffix.replace('@', '-')} {\n\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}${densitySuffix.replace('@', '-')}, 3));\n    background-size: #{nth($ssh-${name}, 1)} #{nth($ssh-${name}, 2)};\n  }\n\n}`;
   } else {
-    return `@mixin ssh-${name} {\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}, 3));\n  }\n}`;
+    return `@mixin ssh-${name} {\n\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}, 3));\n  }\n\n}`;
   }
 }
 
