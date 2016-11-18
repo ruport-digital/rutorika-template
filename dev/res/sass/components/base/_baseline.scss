@@ -667,7 +667,7 @@ textarea {
 
 /* Print Baseline, Typography & Vertical Rhythm */
 
-@include tx-media(phone) {
+@include tx-media(print) {
 
   @import '_baseline-print';
 

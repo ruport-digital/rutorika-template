@@ -466,7 +466,7 @@ select {
 
 /* Print Baseline, Typography & Vertical Rhythm */
 
-@media only screen and (max-width: 45em) {
+@media print {
 
   /* csslint ignore:start */
 
