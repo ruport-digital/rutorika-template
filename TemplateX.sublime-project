@@ -8,10 +8,6 @@
       "path": "."
     }, {
       "follow_symlinks": true,
-      "name": "TemplateX: Grunt",
-      "path": "."
-    }, {
-      "follow_symlinks": true,
       "name": "TemplateX: HTML",
       "path": "dev/res/templates"
     }, {
