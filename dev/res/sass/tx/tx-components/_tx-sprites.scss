@@ -5,7 +5,8 @@
 @mixin tx-sprite-block($name, $padding: false) {
   width: nth($name, 5);
   @if $padding {
-    @extend %tx-sprite-block;
+    overflow: hidden;
+    height: 0;
     padding: nth($name, 6) 0 0;
   } @else {
     height: nth($name, 6);
@@ -21,7 +22,7 @@
   background-position: nth($name, 3) nth($name, 4);
 }
 
-@mixin tx-sprite($name, $position: true, $block: false, $padding: false, $color: null) {
+@mixin tx-sprite($name, $block: false, $padding: false, $position: true, $color: null) {
   @include tx-sprite-image($name);
   @if $block {
     @include tx-sprite-block($name, $padding);
