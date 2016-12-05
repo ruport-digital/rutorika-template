@@ -4,7 +4,7 @@ module.exports = (grunt, options) => {
 
   return {
     options: {
-      config: '.jscsrc'
+      configFile: '.eslintrc'
     },
     test: {
       cwd: project.res.js.devDir,

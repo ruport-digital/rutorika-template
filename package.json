@@ -34,23 +34,25 @@
     "grunt-csscomb": "*",
     "grunt-csscss": "*",
     "grunt-datauri": "*",
+    "grunt-eslint": "^19.0.0",
     "grunt-htmlhint": "0.9.9",
     "grunt-jscs": "*",
     "grunt-jsinspect": "*",
     "grunt-mocha-test": "*",
+    "grunt-phantomcss": "*",
     "grunt-postcss": "*",
     "grunt-prettify": "*",
     "grunt-processhtml": "*",
     "grunt-sass": "*",
-    "grunt-scss-lint": "*",
+    "grunt-sass-lint": "*",
     "grunt-spritesmith": "*",
     "grunt-string-replace": "*",
     "grunt-uncss": "*",
     "load-grunt-config": "*",
-    "mocha": "*",
-    "rewire": "*"
+    "mocha": "*"
   },
   "scripts": {
+    "postinstall": "cd node_modules/grunt-phantomcss && npm install",
     "build": "grunt build",
     "start": "grunt watch",
     "test": "grunt test"

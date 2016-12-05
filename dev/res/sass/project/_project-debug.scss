@@ -78,8 +78,12 @@ $debug-a11y-outlineColor: $red;
 
 @if ($tx-debug == true) {
 
-  img:not([alt]) {
-    outline: 1em solid $debug-a11y-outlineColor;
+  img {
+
+    &:not([alt]) {
+      outline: 1em solid $debug-a11y-outlineColor;
+    }
+
   }
 
 }
