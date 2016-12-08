@@ -319,10 +319,10 @@ mark {
   @extend %interactiveHighlight;
 }
 
-del {
-  $del-color: $gray;
-  $del-borderWidth: 1px;
+$del-color: $gray;
+$del-borderWidth: 1px;
 
+del {
   @extend %removed;
   border-bottom: $del-borderWidth dotted $del-color;
   color: $del-color;

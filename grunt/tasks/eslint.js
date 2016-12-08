@@ -10,7 +10,8 @@ module.exports = (grunt, options) => {
       cwd: project.res.js.devDir,
       src: [
         '*.js',
-        `${project.res.js.comp.replace(project.dir, '')}/**/*.js`
+        `${project.res.js.comp.replace(project.dir, '')}/**/*.js`,
+        `!${project.res.js.service}.js`
       ],
       expand: true
     }

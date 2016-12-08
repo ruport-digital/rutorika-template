@@ -1,6 +1,5 @@
-/* jshint browser:true */
-/* global self */
-/* global caches */
+/* eslint-env browser:true */
+/* global self, caches */
 
 'use strict';
 
