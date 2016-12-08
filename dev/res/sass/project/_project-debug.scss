@@ -31,6 +31,8 @@ $debug-devNote-color: $white;
 $debug-devNote-background: $red;
 $debug-devNote-fontSize: 12px;
 
+$debug-devNoteTip-background: rgba($debug-devNote-background, .5);
+
 @if ($tx-debug == true) {
 
   %debug-devNoteStyle {
@@ -46,7 +48,7 @@ $debug-devNote-fontSize: 12px;
     padding: 0 $debug-devNote-padding;
 
     &:hover {
-      background: rgba($debug-devNote-background, .5);
+      background: $debug-devNoteTip-background;
 
       &:after {
         @extend %debug-devNoteStyle;

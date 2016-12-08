@@ -8,11 +8,7 @@ module.exports = (grunt, options) => {
     },
     test: {
       cwd: project.res.js.devDir,
-      src: [
-        '*.js',
-        `${project.res.js.comp.replace(project.dir, '')}/**/*.js`,
-        `!${project.res.js.service}.js`
-      ],
+      src: ['*.js', `${project.res.js.comp.replace(project.dir, '')}/**/*.js`, `!${project.res.js.service}.js`],
       expand: true
     }
   };

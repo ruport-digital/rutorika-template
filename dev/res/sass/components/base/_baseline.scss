@@ -453,12 +453,14 @@ hr {
 
 /* Links */
 
+$link-tapColor: rgba($active, .25);
+
 a {
   @extend %focus;
   @extend %tx-fastTouch;
   @extend %tx-linkTouchStates;
   @include tx-link($link, $visited, $hover, $active);
-  -webkit-tap-highlight-color: rgba($active, .25);
+  -webkit-tap-highlight-color: $link-tapColor;
   text-decoration: underline;
   transition: $UITransitionDefault;
 }

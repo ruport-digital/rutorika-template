@@ -59,6 +59,7 @@ module.exports = config => {
     },
 
     helpers: {
+      txpath: '**/tx/**/*.',
       temp: 'tmp/',
       scss: 'project/',
       spritesSCSS: '_project-sprites.scss',

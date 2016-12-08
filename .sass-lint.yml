@@ -108,6 +108,8 @@ rules:
     - 1
     - extra-properties:
         - font-display
+        - '-webkit-overflow-scrolling'
+        - '-ms-interpolation-mode'
 
   no-qualifying-elements:
     - 1
@@ -123,16 +125,12 @@ rules:
 
   no-vendor-prefixes:
     - 1
+    - ignore-non-standard: true
     - additional-identifiers: []
       excluded-identifiers:
         - hyphens
-        - tap-highlight-color
-        - overflow-scrolling
-        - osx-font-smoothing
-        - font-smoothing
-        - interpolation-mode
-        - focus-inner
-        - inner-spin-button
+        - '-webkit-font-smoothing'
+        - '-moz-osx-font-smoothing'
 
   placeholder-in-extend: 1
 
@@ -173,6 +171,8 @@ rules:
         - overflow
         - overflow-x
         - overflow-y
+        - '-webkit-overflow-scrolling'
+        - '-ms-overflow-style'
         - overflow-scrolling
         - scroll-snap-points-y
         - scroll-snap-points-x
@@ -258,6 +258,7 @@ rules:
         - outline-style
         - outline-color
         - outline-offset
+        - '-webkit-tap-highlight-color'
         - tap-highlight-color
         - box-decoration-break
         - box-shadow
