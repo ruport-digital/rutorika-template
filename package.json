@@ -47,8 +47,7 @@
     "grunt-string-replace": "*",
     "grunt-uncss": "*",
     "load-grunt-config": "*",
-    "mocha": "*",
-    "rewire": "*"
+    "mocha": "*"
   },
   "scripts": {
     "build": "grunt build",
