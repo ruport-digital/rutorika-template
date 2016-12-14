@@ -4,6 +4,22 @@ kbd {
   display: inline-block;
 }
 
+/* Fast Touch */
+
+a,
+label,
+select {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/* Link Touch State */
+
+.mdz-touchevents a:hover,
+.mdz-touchevents a:active {
+  color: #176191;
+}
+
 /* Baseline, Typography & Vertical Rhythm */
 
 fieldset,
@@ -38,7 +54,7 @@ h4,
 h5,
 h6 {
   margin: 48px 0 18px;
-  margin: 3rem 0 1.125rem;
+  margin: 3rem 0 1.12rem;
   font-weight: bold;
   text-rendering: auto;
   -webkit-column-break-after: avoid;
@@ -49,27 +65,27 @@ h6 {
 }
 
 h1 {
-  font-size: 39.81312px;
-  font-size: 2.48832rem;
-  line-height: 1.20563;
+  font-size: 39.81px;
+  font-size: 2.49rem;
+  line-height: 1.21;
 }
 
 h2 {
-  font-size: 33.1776px;
-  font-size: 2.0736rem;
-  line-height: 1.44676;
+  font-size: 33.18px;
+  font-size: 2.07rem;
+  line-height: 1.45;
 }
 
 h3 {
-  font-size: 27.648px;
-  font-size: 1.728rem;
-  line-height: 1.73611;
+  font-size: 27.65px;
+  font-size: 1.73rem;
+  line-height: 1.74;
 }
 
 h4 {
   font-size: 23.04px;
   font-size: 1.44rem;
-  line-height: 1.04167;
+  line-height: 1.04;
 }
 
 h5 {
@@ -91,7 +107,7 @@ ol,
 pre,
 address {
   margin: 18px 0;
-  margin: 1.125rem 0;
+  margin: 1.12rem 0;
 }
 
 dd,
@@ -233,14 +249,14 @@ del {
 
 kbd {
   height: 22px;
-  height: 1.375rem;
+  height: 1.38rem;
   padding: 0 .25em;
   border-radius: 3px;
   background: #666;
   background-clip: padding-box;
   font-weight: bold;
   font-family: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
-  line-height: 1.375;
+  line-height: 1.38;
   vertical-align: top;
 }
 
@@ -253,15 +269,15 @@ sub {
 }
 
 big {
-  font-size: 33.1776px;
-  font-size: 2.0736rem;
+  font-size: 33.18px;
+  font-size: 2.07rem;
   line-height: 0;
 }
 
 td,
 th {
   padding: 23px 15px 24px;
-  padding: 1.4375rem 15px 1.5rem;
+  padding: 1.44rem 15px 1.5rem;
   border: 1px solid #666;
 }
 
@@ -442,35 +458,19 @@ select[multiple] {
 textarea {
   overflow: auto;
   height: 214px;
-  height: 13.375rem;
+  height: 13.38rem;
   padding: 6px 15px;
-  padding: .375rem 15px;
+  padding: .38rem 15px;
   font-size: inherit;
 }
 
-/* Fast Touch */
-
-a,
-label,
-select {
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}
-
-/* Link Touch State */
-
-.mdz-touchevents a:hover,
-.mdz-touchevents a:active {
-  color: #176191;
-}
-
-/* Print Baseline, Typography & Vertical Rhythm */
+/* Print Baseline */
 
 @media print {
 
   /* csslint ignore:start */
 
-  /* Typography & Vertical Rhythm */
+  /* Baseline, Typography & Vertical Rhythm */
 
   pre,
   code,

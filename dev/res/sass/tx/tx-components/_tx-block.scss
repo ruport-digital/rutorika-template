@@ -1,4 +1,6 @@
-// TX Block
+// TemplateX Block
+
+
 
 // Block Placeholder
 
@@ -11,6 +13,8 @@
   width: $width;
   height: $height;
 }
+
+
 
 // Inline Block
 
@@ -27,6 +31,8 @@
     }
   }
 }
+
+
 
 // Pseudo Element
 
@@ -58,11 +64,15 @@
   }
 }
 
+
+
 // Vertical Alignment
 
 @mixin tx-pseudo-va {
   @extend %tx-default-pseudo-va;
 }
+
+
 
 // Layers
 
@@ -80,6 +90,8 @@
   }
 }
 
+
+
 // Max Width
 
 @mixin tx-max-width($width, $fallback: $remFallback, $inPixels: false) {
@@ -93,6 +105,8 @@
     max-width: ($width / $fontSize) * 1rem;
   }
 }
+
+
 
 // Slide Down
 

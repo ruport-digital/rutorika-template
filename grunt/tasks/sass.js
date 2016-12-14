@@ -5,7 +5,7 @@ module.exports = (grunt, options) => {
   return {
     options: {
       sourceMap: true,
-      precision: 5,
+      precision: 2,
       includePaths: [project.res.css.comp],
       outputStyle: 'expanded'
     },

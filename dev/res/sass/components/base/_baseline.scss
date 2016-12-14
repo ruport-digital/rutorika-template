@@ -1,3 +1,10 @@
+/* TemplateX */
+
+@import 'patterns/_tx-fastTouch';
+@import 'patterns/_tx-linkTouchStates';
+
+
+
 /* Baseline, Typography & Vertical Rhythm */
 
 %block {
@@ -660,14 +667,7 @@ textarea {
 
 
 
-/* TemplateX Baseline */
-
-@import 'patterns/_tx-fastTouch';
-@import 'patterns/_tx-linkTouchStates';
-
-
-
-/* Print Baseline, Typography & Vertical Rhythm */
+/* Print Baseline */
 
 @include tx-media(print) {
 

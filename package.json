@@ -7,6 +7,7 @@
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "*",
+    "babel-preset-env": "*",
     "babel-preset-es2015": "*",
     "babelify": "*",
     "chai": "*",
@@ -34,7 +35,7 @@
     "grunt-csscomb": "*",
     "grunt-csscss": "*",
     "grunt-datauri": "*",
-    "grunt-eslint": "^19.0.0",
+    "grunt-eslint": "*",
     "grunt-htmlhint": "0.9.9",
     "grunt-jscs": "*",
     "grunt-jsinspect": "*",

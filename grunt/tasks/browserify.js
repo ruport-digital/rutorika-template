@@ -5,7 +5,7 @@ module.exports = (grunt, options) => {
   return {
     bundle: {
       options: {
-        transform: [['babelify', {'presets': ['es2015']}]],
+        transform: [['babelify', {'presets': ['es2015', ['env', {'targets': {'browsers': project.browsers}}]]}]],
         browserifyOptions: {
           paths: [project.res.js.comp]
         }

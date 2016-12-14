@@ -1,6 +1,8 @@
-// TX Sprites
+// TemplateX Sprites
 
-// Sprites
+
+
+// Sprite Block
 
 @mixin tx-sprite-block($name, $padding: false) {
   width: nth($name, 5);
@@ -13,14 +15,26 @@
   }
 }
 
+
+
+// Sprite Image
+
 @mixin tx-sprite-image($name) {
   $sheet: txf-spriteSheetName($name);
   @extend #{'%ssh-' + $sheet};
 }
 
+
+
+// Sprite Position
+
 @mixin tx-sprite-position($name) {
   background-position: nth($name, 3) nth($name, 4);
 }
+
+
+
+// Sprite Image
 
 @mixin tx-sprite($name, $block: false, $padding: false, $position: true, $color: null) {
   @include tx-sprite-image($name);
@@ -34,6 +48,8 @@
     @include tx-sprite-position($name);
   }
 }
+
+
 
 // Functions
 

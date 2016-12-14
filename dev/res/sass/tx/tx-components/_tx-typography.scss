@@ -1,4 +1,6 @@
-// TX Typography
+// TemplateX Typography
+
+
 
 // Font Rendering
 
@@ -11,6 +13,8 @@
     -webkit-font-smoothing: auto;
   }
 }
+
+
 
 // Font Size
 
@@ -36,6 +40,8 @@
     line-height: ($lineHeight * ceil($size / ($fontSize * $lineHeight))) * ($fontSize / $size);
   }
 }
+
+
 
 // Hyphens
 

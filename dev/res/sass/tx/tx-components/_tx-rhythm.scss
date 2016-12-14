@@ -1,4 +1,6 @@
-// TX Rhythm
+// TemplateX Rhythm
+
+
 
 // Rhythm
 
@@ -55,6 +57,8 @@
   }
 }
 
+
+
 // Rhythm Padding
 
 @mixin tx-rhythm-padding($paddingLeader: 0, $paddingTrailer: 0, $paddingRight: 0, $paddingLeft: 0, $fallback: $remFallback, $inPixels: false) {
@@ -110,6 +114,8 @@
   }
 }
 
+
+
 // Height in Grid Units
 
 @mixin tx-grid-height($lines: 1, $borderWidth: 0, $setLineHeight: true, $setPadding: false, $fallback: $remFallback, $inPixels: false) {
@@ -136,6 +142,8 @@
   }
 }
 
+
+
 // Form Element Height in Grid Units
 
 @mixin tx-form-height($lines: 1, $borderWidth: 1, $setLineHeight: false, $fallback: $remFallback, $inPixels: false) {
@@ -153,6 +161,8 @@
     }
   }
 }
+
+
 
 // Table Borders with Adjustment
 
@@ -183,6 +193,8 @@
   }
   border: $width $style $color;
 }
+
+
 
 // Functions
 
