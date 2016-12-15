@@ -5,14 +5,15 @@
 var tabPair = require('./tx-tabPair.js');
 var eventTool = require('./tx-event.js');
 
-module.exports = (nodeSelector, defaultTab) => {
+module.exports = (holderID, nodeSelector, defaultTab) => {
 
+  var holder;
   var pairs;
 
   /* Utilities */
 
   function addPair(tab) {
-    pairs.push(tabPair(tab));
+    pairs.push(tabPair(tab, holder));
   }
 
   function destroyPair(pair) {
@@ -53,11 +54,11 @@ module.exports = (nodeSelector, defaultTab) => {
   }
 
   function initEvents() {
-    eventTool.bind(document, 'tabswitch', onTabSwitch);
+    eventTool.bind(holder, 'tabswitch', onTabSwitch);
   }
 
   function removeEvents() {
-    eventTool.unbind(document, 'tabswitch', onTabSwitch);
+    eventTool.unbind(holder, 'tabswitch', onTabSwitch);
   }
 
   /* Inititlization */
@@ -72,6 +73,7 @@ module.exports = (nodeSelector, defaultTab) => {
   }
 
   function init() {
+    holder = document.getElementById(holderID);
     defaultValues();
     initEvents();
     makePairs();

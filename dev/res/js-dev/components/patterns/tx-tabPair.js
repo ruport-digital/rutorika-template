@@ -11,10 +11,11 @@ const CONTENT_ACTIVE_CLASS_NAME = `${CONTENT_CLASS_NAME}${ACTIVE_CLASS_NAME_SUFF
 
 var eventTool = require('./tx-event.js');
 
-module.exports = element => {
+module.exports = (element, holder) => {
 
   var tab;
   var content;
+  var catcher;
   var active;
 
   /* Utilities */
@@ -27,7 +28,7 @@ module.exports = element => {
 
   function activate() {
     if (!active) {
-      eventTool.trigger(document, EVENT, false, 'UIEvents');
+      eventTool.trigger(catcher, EVENT, false, 'UIEvent');
       active = true;
       tab.classList.add(TAB_ACTIVE_CLASS_NAME);
       content.classList.add(CONTENT_ACTIVE_CLASS_NAME);
@@ -66,6 +67,7 @@ module.exports = element => {
   function defaultValues() {
     tab = element;
     content = document.getElementById(getId());
+    catcher = holder;
     active = false;
   }
 
@@ -76,8 +78,10 @@ module.exports = element => {
 
   function removeValues() {
     element = null;
+    holder = null;
     tab = null;
     content = null;
+    catcher = null;
     active = null;
   }
 
