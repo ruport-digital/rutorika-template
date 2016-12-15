@@ -1,36 +1,68 @@
 {
-  "color_variables_files": ["/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss", "/Users/biryukov/Projects/TemplateX/dev/res/sass/project/_project.scss", "D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"],
-  "folders": [{
-      "folder_exclude_patterns": ["build", "design", "dev", "docs", "meta", "node_modules", "sources", "tests"],
-      "file_exclude_patterns": ["*.zip", "*.sublime-project"],
-      "follow_symlinks": true,
-      "name": "TemplateX: Project",
-      "path": "."
-    }, {
-      "follow_symlinks": true,
-      "name": "TemplateX: HTML",
-      "path": "dev/res/templates"
-    }, {
-      "follow_symlinks": true,
-      "name": "TemplateX: Sass",
-      "path": "dev/res/sass"
-    }, {
-      "follow_symlinks": true,
-      "name": "TemplateX: JavaScript",
-      "path": "dev/res/js-dev"
-    }, {
-      "folder_exclude_patterns": ["backstop"],
-      "follow_symlinks": true,
-      "name": "TemplateX: Tests",
-      "path": "tests"
-    }, {
-      "file_exclude_patterns": ["*.png", "*.jpg", "*.jpeg", "*.gif", "*.svg", "*.ico"],
-      "follow_symlinks": true,
-      "name": "TemplateX: Meta",
-      "path": "meta"
-    }, {
-      "follow_symlinks": true,
-      "name": "TemplateX: Docs",
-      "path": "docs"
-    }]
+	"color_variables_files":
+	[
+		"/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss",
+		"/Users/biryukov/Projects/TemplateX/dev/res/sass/project/_project.scss",
+		"D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"
+	],
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.zip",
+				"*.sublime-project"
+			],
+			"folder_exclude_patterns":
+			[
+				"build",
+				"design",
+				"dev",
+				"docs",
+				"meta",
+				"node_modules",
+				"sources",
+				"tests"
+			],
+			"name": "TemplateX: Project",
+			"path": "."
+		},
+		{
+			"name": "TemplateX: HTML",
+			"path": "dev/res/templates"
+		},
+		{
+			"name": "TemplateX: Sass",
+			"path": "dev/res/sass"
+		},
+		{
+			"name": "TemplateX: JavaScript",
+			"path": "dev/res/js-dev"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"backstop"
+			],
+			"name": "TemplateX: Tests",
+			"path": "tests"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				"*.png",
+				"*.jpg",
+				"*.jpeg",
+				"*.gif",
+				"*.svg",
+				"*.ico"
+			],
+			"name": "TemplateX: Meta",
+			"path": "meta"
+		},
+		{
+			"name": "TemplateX: Docs",
+			"path": "docs"
+		}
+	]
 }
