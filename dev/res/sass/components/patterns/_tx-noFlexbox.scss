@@ -2,16 +2,12 @@
 
 %tx-noFlexbox {
 
-  .mdz-no-flexbox {
+  .mdz-no-flexbox.mdz-no-flexboxlegacy & {
+    @include tx-inline-block;
 
-    &.mdz-no-flexboxlegacy & {
-      @include tx-inline-block;
-
-      &-parent {
-        display: block;
-        font-size: 0;
-      }
-
+    &-parent {
+      display: block;
+      font-size: 0;
     }
 
   }
