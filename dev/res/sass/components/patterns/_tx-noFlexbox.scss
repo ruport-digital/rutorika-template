@@ -6,14 +6,13 @@
 
     &.mdz-no-flexboxlegacy & {
       @include tx-inline-block;
-
-      &-parent {
-        display: block;
-        font-size: 0;
-      }
-
     }
 
+  }
+
+  &-parent {
+    display: block;
+    font-size: 0;
   }
 
 }
