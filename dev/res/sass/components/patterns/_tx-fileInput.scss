@@ -15,8 +15,8 @@ $tx-fileInput-borderColor: $gray;
 
   &-input {
     position: absolute;
-    z-index: -1;
     left: -10000px;
+    visibility: hidden;
   }
 
   &-value {
