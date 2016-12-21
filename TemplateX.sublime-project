@@ -40,10 +40,6 @@
 			"path": "dev/res/js-dev"
 		},
 		{
-			"folder_exclude_patterns":
-			[
-				"backstop"
-			],
 			"name": "TemplateX: Tests",
 			"path": "tests"
 		},
