@@ -132,7 +132,12 @@
     }
   }
   @if $setLineHeight == true {
-    line-height: $lines * $lineHeight - ($borderWidth / ($fontSize / 1px)) * 2;
+    @if $fallback == true {
+      line-height: txf-rhythm-fallback($lines, 2 * $borderWidth);
+    }
+    @if $inPixels == false {
+      line-height: txf-rhythm($lines, 2 * $borderWidth);
+    }
   }
 }
 
