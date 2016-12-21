@@ -40,7 +40,6 @@ module.exports = config => {
         }
       },
       tests: {
-        backstop: `${config.TESTS_DIR}/backstop/`,
         mocha: `${config.TESTS_DIR}/mocha/`
       },
       build: {
