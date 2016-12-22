@@ -2,7 +2,6 @@
 	"color_variables_files":
 	[
 		"/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss",
-		"/Users/biryukov/Projects/TemplateX/dev/res/sass/project/_project.scss",
 		"D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"
 	],
 	"folders":
@@ -44,15 +43,6 @@
 			"path": "tests"
 		},
 		{
-			"file_exclude_patterns":
-			[
-				"*.png",
-				"*.jpg",
-				"*.jpeg",
-				"*.gif",
-				"*.svg",
-				"*.ico"
-			],
 			"name": "TemplateX: Meta",
 			"path": "meta"
 		},
