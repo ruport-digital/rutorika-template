@@ -1,5 +1,8 @@
 {
-  "color_variables_files": ["/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss", "D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"],
+  "color_variables_files": [
+    "/Users/uncleFucka/Projects/TemplateX/dev/res/sass/project/_project.scss",
+    "D:/Projects/Projects/TemplateX/dev/res/sass/project/_project.scss"
+  ],
   "folders": [{
       "folder_exclude_patterns": ["build", "design", "dev", "docs", "meta", "node_modules", "sources", "tests"],
       "file_exclude_patterns": ["*.zip", "*.sublime-project"],
@@ -23,7 +26,7 @@
       "name": "TemplateX: Tests",
       "path": "tests"
     }, {
-      "file_exclude_patterns": ["*.png", "*.jpg", "*.jpeg", "*.gif", "*.svg", "*.ico"],
+      "file_exclude_patterns": ["*.ico"],
       "follow_symlinks": true,
       "name": "TemplateX: Meta",
       "path": "meta"
