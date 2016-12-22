@@ -26,7 +26,6 @@
       "name": "TemplateX: Tests",
       "path": "tests"
     }, {
-      "file_exclude_patterns": ["*.ico"],
       "follow_symlinks": true,
       "name": "TemplateX: Meta",
       "path": "meta"
