@@ -129,8 +129,6 @@ rules:
     - additional-identifiers: []
       excluded-identifiers:
         - hyphens
-        - '-webkit-font-smoothing'
-        - '-moz-osx-font-smoothing'
 
   placeholder-in-extend: 1
 
