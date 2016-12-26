@@ -9,7 +9,10 @@ module.exports = (grunt, options) => {
     },
     html: {
       files: [`${project.res.templates.dir}**/*.html`],
-      tasks: ['processhtml']
+      tasks: [
+        'clean:html',
+        'processhtml'
+      ]
     },
     images: {
       files: [`**/*.${helpers.imageFiles}`],

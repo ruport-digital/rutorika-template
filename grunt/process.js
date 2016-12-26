@@ -39,6 +39,7 @@ module.exports = (grunt, options) => {
   ]);
 
   grunt.registerTask('process-html', [
+    'clean:html',
     'processhtml'
   ]);
 

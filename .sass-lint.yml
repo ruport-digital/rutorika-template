@@ -125,7 +125,7 @@ rules:
 
   no-vendor-prefixes:
     - 1
-    - ignore-non-standard: true
+    - ignore-non-standard: false
     - additional-identifiers: []
       excluded-identifiers:
         - hyphens
