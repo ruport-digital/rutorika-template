@@ -1,8 +1,6 @@
 /* eslint-env browser:true */
 /* global self, caches */
 
-'use strict';
-
 var CACHE_NAME = 'tx-cache-v1';
 
 var offline = [
@@ -12,7 +10,10 @@ var offline = [
 ];
 
 function addAllToCahche(cache) {
-  return cache.addAll(offline);
+  return cache.addAll(offline)
+    .then(function() {
+        self.skipWaiting();
+    });
 }
 
 function onInstall(event) {

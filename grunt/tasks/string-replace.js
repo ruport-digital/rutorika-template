@@ -12,6 +12,9 @@ module.exports = (grunt, options) => {
           pattern: /@tx-language/gi,
           replacement: project.language
         }, {
+          pattern: /@tx-amp/gi,
+          replacement: project.amp ? ' amp' : ''
+        }, {
           pattern: /(?:<span data-dev-note=".*?">)(.*)(?:<\/span>)/gi,
           replacement: '$1'
         }, {

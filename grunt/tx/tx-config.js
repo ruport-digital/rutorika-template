@@ -5,6 +5,7 @@ module.exports = config => {
     project: {
       name: config.PROJECT,
       language: config.LANGUAGE,
+      amp: config.AMP,
       browsers: config.BROWSERS,
       meta: `${config.META_DIR}/`,
       dir: `${config.DEVELOPMENT_DIR}/`,

@@ -2,6 +2,7 @@ var CONFIG = {
 
   PROJECT: 'TemplateX',              // Project Name
   LANGUAGE: 'ru',                    // Language
+  AMP: false,                        // Google AMP
   BROWSERS: [                        // Browser Support
     '> 1%',
     'last 2 versions',
@@ -13,9 +14,10 @@ var CONFIG = {
   DEVELOPMENT_DIR: 'dev',            // Development
   BUILD_DIR: 'build',                // Build
   META_DIR: 'meta',                  // Meta Content
+
   TESTS_DIR: 'tests',                // Tests
   MOCHA_DIR: 'mocha',                // Mocha
-  PHCSS_DIR: 'phantomcss',                // PhantomCSS
+  PHCSS_DIR: 'phantomcss',           // PhantomCSS
   PHCSS_SCREENS_DIR: 'screenshots',  // PhantomCSS Screenshots
   PHCSS_RESULTS_DIR: 'results',      // PhantomCSS Results
 
@@ -31,21 +33,21 @@ var CONFIG = {
   CRITICAL_MOBILE_W: 320,            // Critical Width on Mobile
   CRITICAL_MOBILE_H: 640,            // Critical Height on Mobile
 
-  CSS_IMAGES_DIR: 'images',         // CSS Images
-  SPRITES: [],                      // CSS Images that Should be Compiled into Separate Sprite Sheets
-  DATA_URI: [],                     // CSS Images that Should be Converted into DataURI
-  DENSITIES: [1, 2, 3],             // Pixel Densities
+  CSS_IMAGES_DIR: 'images',          // CSS Images
+  SPRITES: [],                       // CSS Images that Should be Compiled into Separate Sprite Sheets
+  DATA_URI: [],                      // CSS Images that Should be Converted into DataURI
+  DENSITIES: [1, 2, 3],              // Pixel Densities
 
-  SASS_DIR: 'sass',                 // Sass
-  CSS_DIR: 'css',                   // CSS
-  CSS_FILENAME: 'styles',           // CSS Filename
+  SASS_DIR: 'sass',                  // Sass
+  CSS_DIR: 'css',                    // CSS
+  CSS_FILENAME: 'styles',            // CSS Filename
 
-  JS_DEV_DIR: 'js-dev',             // Development JavaScript
-  JS_DIR: 'js',                     // JavaScript
-  JS_BUNDLE: 'scripts',             // JavaScript Filename
-  JS_SERVICE: 'service',            // JavaScript Filename
+  JS_DEV_DIR: 'js-dev',              // Development JavaScript
+  JS_DIR: 'js',                      // JavaScript
+  JS_BUNDLE: 'scripts',              // JavaScript Filename
+  JS_SERVICE: 'service',             // JavaScript Filename
 
-  FONTS_DIR: 'fonts'                // Fonts
+  FONTS_DIR: 'fonts'                 // Fonts
 
 }
 
