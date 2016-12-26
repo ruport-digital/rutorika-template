@@ -669,8 +669,4 @@ textarea {
 
 /* Print Baseline */
 
-@include tx-media(print) {
-
-  @import '_baseline-print';
-
-}
+@import '_baseline-print';

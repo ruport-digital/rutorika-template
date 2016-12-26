@@ -17,18 +17,10 @@ body {
 
 /* Phone Layout */
 
-@include tx-media(phone) {
-
-  @import '_layout-phone';
-
-}
+@import '_layout-phone';
 
 
 
 /* Print Layout */
 
-@include tx-media(print) {
-
-  @import '_layout-print';
-
-}
+@import '_layout-print';

@@ -1,5 +1,9 @@
-/* Layout */
+@include tx-media(phone) {
 
-body {
-  min-width: 0;
+  /* Layout */
+
+  body {
+    min-width: 0;
+  }
+
 }

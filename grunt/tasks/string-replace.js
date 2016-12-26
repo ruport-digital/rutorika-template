@@ -15,6 +15,9 @@ module.exports = (grunt, options) => {
           pattern: /@tx-amp/gi,
           replacement: project.amp ? ' amp' : ''
         }, {
+          pattern: /@tx-theme/gi,
+          replacement: project.theme
+        }, {
           pattern: /(?:<span data-dev-note=".*?">)(.*)(?:<\/span>)/gi,
           replacement: '$1'
         }, {
@@ -41,7 +44,7 @@ module.exports = (grunt, options) => {
         }]
       },
       files: {
-        './': [`${project.build.dir}*.html`]
+        './': [`${project.build.dir}*.{html,webapp,json}`]
       }
     },
     css: {

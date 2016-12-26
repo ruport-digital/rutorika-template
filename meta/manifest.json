@@ -1,0 +1,45 @@
+{
+	"name": "@tx-title",
+  "short_name": "@tx-title",
+	"description": "",
+  "lang": "@tx-language",
+	"icons": [
+    {
+      "src": "icon-60.png",
+      "sizes": "60x60",
+      "type": "image/png",
+      "density": "1"
+    }, {
+      "src": "icon-60@2x.png",
+      "sizes": "60x60",
+      "type": "image/png",
+      "density": "2"
+    }, {
+      "src": "icon-60@3x.png",
+      "sizes": "60x60",
+      "type": "image/png",
+      "density": "3"
+    }, {
+      "src": "icon-70.png",
+      "sizes": "70x70",
+      "type": "image/png",
+      "density": "1"
+    }, {
+      "src": "icon-70@2x.png",
+      "sizes": "70x70",
+      "type": "image/png",
+      "density": "2"
+    }, {
+      "src": "icon-70@3x.png",
+      "sizes": "70x60",
+      "type": "image/png",
+      "density": "3"
+    }
+  ],
+  "scope": "/",
+  "start_url": "index.html",
+  "display": "any",
+  "background_color": "@tx-theme",
+  "theme_color": "@tx-theme",
+
+}

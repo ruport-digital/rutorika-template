@@ -3,6 +3,8 @@ var CONFIG = {
   PROJECT: 'TemplateX',              // Project Name
   LANGUAGE: 'ru',                    // Language
   AMP: false,                        // Google AMP
+  THEME: '#fd746c',                  // Theme Color
+
   BROWSERS: [                        // Browser Support
     '> 1%',
     'last 2 versions',

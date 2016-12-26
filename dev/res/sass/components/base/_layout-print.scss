@@ -1,8 +1,12 @@
-/* Layout */
+@include tx-media(print) {
 
-body {
-  width: auto;
-  min-width: 0;
-  max-width: none;
-  padding: 2.54cm;
+  /* Layout */
+
+  body {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    padding: 2.54cm;
+  }
+
 }
