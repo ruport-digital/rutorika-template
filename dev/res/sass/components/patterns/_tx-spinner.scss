@@ -1,20 +1,39 @@
 /* Spinner */
 
-$tx-spinner-size: 200px;
-
 $tx-spinner-strokeWidth: 4px;
+$tx-spinnerUnder-strokeWidth: 3px;
 $tx-spinnerTrack-stroke: $gray;
+
+$tx-spinner-size: 200px;
+$tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
 
 %spinner {
 
   &-track {
     @extend %tx-progress-baseline;
+    opacity: .25;
     stroke: $tx-progressTrack-stroke;
   }
 
   &-indicator {
     @extend %tx-progress-baseline;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    stroke-width: $tx-spinner-strokeWidth;
     stroke-dashoffset: 1;
+
+    &1 {
+      animation-name: spin1;
+    }
+
+    &2 {
+      animation-name: spin2;
+    }
+
+    &3 {
+      animation-name: spin3;
+    }
+
   }
 
 }
@@ -22,6 +41,77 @@ $tx-spinnerTrack-stroke: $gray;
 %tx-progress-baseline {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
-  stroke-width: $tx-progress-strokeWidth;
   fill: none;
+}
+
+@keyframes spin1 {
+
+  0% {
+    stroke-dasharray: 0 0 0 $tx-spinner-length;
+  }
+
+  10% {
+    stroke-dasharray: 0 0 0 $tx-spinner-length;
+  }
+
+  55% {
+    stroke-dasharray: 0 0 $tx-spinner-length 0;
+  }
+
+  90% {
+    stroke-dasharray: 0 $tx-spinner-length 0 0;
+  }
+
+  100% {
+    stroke-dasharray: 0 $tx-spinner-length 0 0;
+  }
+
+}
+
+@keyframes spin2 {
+
+  0% {
+    stroke-dasharray: 0 0 0 $tx-spinner-length;
+  }
+
+  5% {
+    stroke-dasharray: 0 0 0 $tx-spinner-length;
+  }
+
+  50% {
+    stroke-dasharray: 0 0 $tx-spinner-length 0;
+  }
+
+  60% {
+    stroke-dasharray: 0 0 $tx-spinner-length 0;
+  }
+
+  95% {
+    stroke-dasharray: 0 $tx-spinner-length 0 0;
+  }
+
+  100% {
+    stroke-dasharray: 0 $tx-spinner-length 0 0;
+  }
+
+}
+
+@keyframes spin3 {
+
+  0% {
+    stroke-dasharray: 0 0 0 $tx-spinner-length;
+  }
+
+  45% {
+    stroke-dasharray: 0 0 $tx-spinner-length 0;
+  }
+
+  65% {
+    stroke-dasharray: 0 0 $tx-spinner-length 0;
+  }
+
+  100% {
+    stroke-dasharray: 0 $tx-spinner-length 0 0;
+  }
+
 }
