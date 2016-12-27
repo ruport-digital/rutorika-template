@@ -1,0 +1,27 @@
+/* Spinner */
+
+$tx-spinner-size: 200px;
+
+$tx-spinner-strokeWidth: 4px;
+$tx-spinnerTrack-stroke: $gray;
+
+%spinner {
+
+  &-track {
+    @extend %tx-progress-baseline;
+    stroke: $tx-progressTrack-stroke;
+  }
+
+  &-indicator {
+    @extend %tx-progress-baseline;
+    stroke-dashoffset: 1;
+  }
+
+}
+
+%tx-progress-baseline {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-width: $tx-progress-strokeWidth;
+  fill: none;
+}

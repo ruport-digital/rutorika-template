@@ -1,0 +1,42 @@
+/* Progress Hoder */
+
+$tx-progress-size: 200px;
+
+$tx-progress-strokeWidth: 4px;
+$tx-progressTrack-stroke: $gray;
+$tx-progressIndicator-stroke: $blue;
+
+%tx-progress {
+
+  &-track {
+    @extend %tx-progress-baseline;
+    stroke: $tx-progressTrack-stroke;
+  }
+
+  &-indicator {
+    @extend %tx-progress-baseline;
+    stroke: $tx-progressIndicator-stroke;
+    stroke-dasharray: 0 10000;
+    stroke-dashoffset: 1;
+  }
+
+  &-percentage {
+    @include tx-font-size(h1, none);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $tx-progress-size;
+    height: $tx-progress-size;
+    color: $tx-progressIndicator-stroke;
+    text-align: center;
+    line-height: $tx-progress-size;
+  }
+
+}
+
+%tx-progress-baseline {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-width: $tx-progress-strokeWidth;
+  fill: none;
+}

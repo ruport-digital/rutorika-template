@@ -1,0 +1,17 @@
+/* Fixed Header */
+
+$tx-fixedHeader-height: 30px;
+
+%tx-fixedHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $tx-fixedHeader-height;
+  transform: translateZ(0);
+
+  &-content {
+    padding: $tx-fixedHeader-height 0 0;
+  }
+
+}

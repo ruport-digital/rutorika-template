@@ -1,0 +1,12 @@
+/* Off Screen Navigation */
+
+%tx-offScreenNav {
+  pointer-events: none;
+  transform: translateX(-100%) translateZ(0);
+
+  &-is-active {
+    pointer-events: all;
+    transform: translateX(0) translateZ(0);
+  }
+
+}

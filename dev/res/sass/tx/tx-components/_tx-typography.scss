@@ -43,6 +43,18 @@
 
 
 
+// Responsive Typography
+
+@mixin tx-responsive-typo() {
+
+  :root {
+    font-size: calc(1vw + 1vh + .5vmin);
+  }
+
+}
+
+
+
 // Hyphens
 
 @mixin tx-hyphens($hyphens: manual) {
