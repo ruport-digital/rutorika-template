@@ -41,6 +41,9 @@ module.exports = (grunt, options) => {
         }, {
           pattern: /(?:\r?\n|\r)<\/noscript>/gi,
           replacement: '</noscript>'
+        }, {
+          pattern: /(\s[а-яА-Яa-zA-Z]{1,2})\s/gi,
+          replacement: '$1&nbsp;'
         }]
       },
       files: {
