@@ -6,6 +6,9 @@ function generateTask(project, helpers, tasks, name, ext, density, densitySuffix
     imgPath: `${imgPath}${name}${densitySuffix}.${ext}`,
     padding: 5 * density,
     cssSpritesheetName: `ssh-${name}${densitySuffix.replace('@', '-')}`,
+    algorithmOpts: {
+        sort: false
+    },
     cssVarMap(item) {
       item.name = `spt-${item.name}`;
     },

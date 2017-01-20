@@ -49,6 +49,7 @@
     "grunt-spritesmith": "*",
     "grunt-string-replace": "*",
     "grunt-uncss": "*",
+    "imagemin-pngquant-gfw": "*",
     "load-grunt-config": "*",
     "mocha": "*"
   },

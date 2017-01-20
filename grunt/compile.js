@@ -2,21 +2,24 @@
 
 module.exports = (grunt, options) => {
 
-  var project = options.project;
-  var tx = require('./tx/tx');
+  const project = options.project;
+  const tx = require('./tx/tx');
 
-  var compileCondition = project.res.images.sprites.length > 0;
-  var compileConditionalTask = 'process-sprites';
-  var compileConditionalTaskIndex = 1;
-  var compileTasks = [
+  const spritesTasks = [];
+
+  const bitmapSprites = project.res.images.sprites.filter(value => value.split('.').pop() !== 'svg');
+  if (bitmapSprites.length > 0) {
+    spritesTasks.push('process-sprites');
+  }
+
+  grunt.registerTask('compile', [
     'clean:res',
+    ...spritesTasks,
     'process-images',
     'process-html',
     'process-css',
     'process-js'
-  ];
-
-  grunt.registerTask('compile', 'Compiling', _ => tx.conditionalTask(grunt, project, compileCondition, compileTasks, compileConditionalTask, compileConditionalTaskIndex));
+  ]);
 
   grunt.registerTask('compile-critical', [
     'critical',
