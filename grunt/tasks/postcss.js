@@ -6,7 +6,7 @@ module.exports = (grunt, options) => {
     options: {
       map: true,
       processors: [
-        require('autoprefixer')({browsers: project.browsers})
+        require('autoprefixer')()
       ]
     },
     process: {

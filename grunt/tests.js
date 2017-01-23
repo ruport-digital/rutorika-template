@@ -11,6 +11,7 @@ module.exports = (grunt) => {
     'colorguard',
     'eslint',
     'jsinspect',
+    'unused:unused',
     'clean:reports'
   ]);
 

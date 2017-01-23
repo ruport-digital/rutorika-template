@@ -11,6 +11,7 @@
     "babel-preset-es2015": "*",
     "babelify": "*",
     "chai": "*",
+    "eslint-plugin-compat": "^1.0.0",
     "grunt": "*",
     "grunt-analyze-css": "*",
     "grunt-arialinter": "*",
@@ -49,6 +50,7 @@
     "grunt-spritesmith": "*",
     "grunt-string-replace": "*",
     "grunt-uncss": "*",
+    "grunt-unused": "*",
     "load-grunt-config": "*",
     "mocha": "*"
   },

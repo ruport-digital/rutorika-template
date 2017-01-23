@@ -1,4 +1,8 @@
 {
+  "env": {
+    "browser": true
+  },
+  "plugins": ["compat"],
   "extends": "eslint:all",
   "rules": {
     "accessor-pairs": "off",
@@ -322,9 +326,9 @@
     "sort-vars": "off",
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", {
-      "anonymous": "always",
+      "anonymous": "never",
       "named": "never",
-      "asyncArrow": "always"
+      "asyncArrow": "never"
     }],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
@@ -398,6 +402,7 @@
     "import/unambiguous": "off",
     "import/no-webpack-loader-syntax": "off",
     "import/no-unassigned-import": "off",
-    "import/no-named-default": "off"
+    "import/no-named-default": "off",
+    "compat/compat": 2
   }
 }
