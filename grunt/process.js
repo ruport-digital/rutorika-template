@@ -2,14 +2,11 @@
 
 module.exports = (grunt, options) => {
 
-  var project = options.project;
-  var helpers = options.helpers;
-  var tx = require('./tx/tx');
+  const project = options.project;
+  const helpers = options.helpers;
+  const tx = require('./tx/tx');
 
-  var imageCondition = project.res.images.dataURI.length > 0;
-  var imageTasks = ['imagemin:images'];
-  var imageTask = 'process-dataURI';
-  var imageTaskIndex = 1;
+  const imageTasks = project.res.images.dataURI.length > 0 ? ['process-dataURI'] : [];
 
   grunt.registerTask('criticalModernizr', 'Inlining Modernizr', _ => tx.criticalModernizr(grunt, project));
 
@@ -19,7 +16,7 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('spritesSCSS', 'SCSS variables with sprites data', _ => tx.spritesSCSS(grunt, project, helpers));
 
-  grunt.registerTask('imageTasks', 'Compiling images', _ => tx.conditionalTask(grunt, project, imageCondition, imageTasks, imageTask, imageTaskIndex));
+  grunt.registerTask('vectorSprite', 'Compiling Vector Sprites', _ => tx.vectorSprites(grunt, project, helpers));
 
   grunt.registerTask('process-dataURI', [
     'datauri',
@@ -35,7 +32,8 @@ module.exports = (grunt, options) => {
   ]);
 
   grunt.registerTask('process-images', [
-    'imageTasks'
+    'imagemin:images',
+    ...imageTasks
   ]);
 
   grunt.registerTask('process-html', [

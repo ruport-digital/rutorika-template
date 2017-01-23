@@ -51,6 +51,7 @@
     "grunt-string-replace": "*",
     "grunt-uncss": "*",
     "grunt-unused": "*",
+    "imagemin-pngquant-gfw": "*",
     "load-grunt-config": "*",
     "mocha": "*"
   },
