@@ -4,8 +4,4 @@
 
 'use strict';
 
-fetch('some request').then(function () {
-  console.log('!!!');
-});
-
 },{}]},{},[1]);
