@@ -12,7 +12,6 @@
     "chai": "*",
     "grunt": "*",
     "grunt-analyze-css": "*",
-    "grunt-arialinter": "*",
     "grunt-browserify": "*",
     "grunt-cleanempty": "*",
     "grunt-colorguard": "*",
