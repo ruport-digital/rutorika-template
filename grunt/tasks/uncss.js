@@ -10,9 +10,7 @@ module.exports = (grunt, options) => {
       timeout: 1000
     },
     optimize: {
-      files: {
-        [`${project.res.css.dir}${project.res.css.filename}.css`]: [`${project.dir}*.html`, ...ignoredFiles]
-      }
+      files: {[`${project.res.css.dir}${project.res.css.filename}.css`]: [`${project.dir}*.html`, ...ignoredFiles]}
     }
   };
 

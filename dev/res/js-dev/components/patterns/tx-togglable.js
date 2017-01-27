@@ -1,17 +1,14 @@
 /* jshint browser:true */
 
-'use strict';
-
-var eventTools = require('./tx-event');
+const eventTool = require('./tx-event');
 
 const ACTIVE_CLASS_NAME_SUFFIX = '-is-active';
 
 module.exports = (node, callback) => {
-
-  var trigger;
-  var task;
-  var activeClassName;
-  var active;
+  let trigger;
+  let task;
+  let activeClassName;
+  let active;
 
   /* Actions */
 
@@ -37,7 +34,7 @@ module.exports = (node, callback) => {
     }
   }
 
-  function toggle(event) {
+  function toggle() {
     if (active) {
       deactivate();
     } else {
@@ -53,11 +50,11 @@ module.exports = (node, callback) => {
   }
 
   function initInteractions() {
-    eventTools.bind(trigger, 'click', onClick);
+    eventTool.bind(trigger, 'click', onClick);
   }
 
   function removeInteractions() {
-    eventTools.unbind(trigger, 'click', onClick);
+    eventTool.unbind(trigger, 'click', onClick);
   }
 
   /* Initialization */
@@ -91,10 +88,9 @@ module.exports = (node, callback) => {
   /* Interface */
 
   return {
-    destroy: destroy,
-    activate: activate,
-    deactivate: deactivate,
-    toggle: toggle
+    destroy,
+    activate,
+    deactivate,
+    toggle,
   };
-
 };

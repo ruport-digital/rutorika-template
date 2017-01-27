@@ -8,7 +8,10 @@ module.exports = (grunt, options) => {
     },
     optimize: {
       cwd: project.res.js.dir,
-      src: ['*.js', '!*.min.js'],
+      src: [
+        '*.js',
+        '!*.min.js'
+      ],
       dest: project.res.js.dir,
       ext: '.min.js',
       expand: true

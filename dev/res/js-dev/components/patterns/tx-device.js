@@ -1,14 +1,12 @@
 /* jshint browser:true */
 /* global Modernizr */
 
-'use strict';
-
 /* Device Size */
 
 function size() {
   return {
     width: window.screen.width,
-    height: window.screen.height
+    height: window.screen.height,
   };
 }
 
@@ -23,7 +21,7 @@ function touch() {
 function detect() {
   return {
     touch: touch(),
-    size: size()
+    size: size(),
   };
 }
 

@@ -1,27 +1,21 @@
 /* jshint browser:true */
 
-'use strict';
-
 const SIZE = 200;
-
 const TRACK_SUFFIX = 'Track';
 const INDICATOR_SUFFIX = 'Indicator';
 const PERCENTAGE_SUFFIX = 'Percentage';
 
 module.exports = (id, className) => {
-
   let container;
-
   let svg;
   let track;
   let indicator;
   let percentage;
-
   let progress;
   let length;
 
   function createSVG(svgClassName) {
-    let element = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     element.setAttribute('width', SIZE);
     element.setAttribute('height', SIZE);
     element.setAttribute('viewBox', `0 0 ${SIZE} ${SIZE}`);
@@ -30,8 +24,8 @@ module.exports = (id, className) => {
   }
 
   function createCircle(circleClassName) {
-    let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    let half = SIZE / 2;
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    const half = SIZE / 2;
     circle.setAttribute('cx', half);
     circle.setAttribute('cy', half);
     circle.setAttribute('r', half - 2);
@@ -40,7 +34,7 @@ module.exports = (id, className) => {
   }
 
   function createPercentage(percentageClassName) {
-    let element = document.createElement('div');
+    const element = document.createElement('div');
     element.className = percentageClassName;
     return element;
   }
@@ -57,7 +51,7 @@ module.exports = (id, className) => {
   }
 
   function calculateDashArray() {
-    let dashLength = length * progress;
+    const dashLength = length * progress;
     return `${dashLength} ${length - dashLength}`;
   }
 
@@ -80,7 +74,6 @@ module.exports = (id, className) => {
   createDOM();
 
   return {
-    set: setProgress
+    set: setProgress,
   };
-
 };

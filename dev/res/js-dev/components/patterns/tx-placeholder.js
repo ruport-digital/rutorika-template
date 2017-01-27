@@ -1,27 +1,24 @@
 /* jshint browser:true */
 
-'use strict';
-
-var eventTool = require('./tx-event');
+const eventTool = require('./tx-event');
 
 const ACTIVE_CLASS_NAME = 'js-field-is-showingPlaceholder';
 
 /* Placeholder Constructor */
 
 function fieldPlaceholder(node) {
-
-  var field;
+  let field;
 
   /* Field Actions */
 
-  function addPlaceholder(field) {
+  function addPlaceholder() {
     if (field.value === '') {
       field.classList.add(ACTIVE_CLASS_NAME);
       field.value = field.getAttribute('placeholder');
     }
   }
 
-  function removePlaceholder(field) {
+  function removePlaceholder() {
     if (field.value === field.getAttribute('placeholder')) {
       field.classList.remove(ACTIVE_CLASS_NAME);
       field.value = '';
@@ -64,7 +61,7 @@ function fieldPlaceholder(node) {
     field = null;
   }
 
-  function destroy() {
+  function destroyPlaceholder() {
     removeInteractions();
     removeValues();
   }
@@ -74,15 +71,14 @@ function fieldPlaceholder(node) {
   /* Filed Interface */
 
   return {
-    destroy: destroy
+    destroy: destroyPlaceholder,
   };
-
 }
 
 /* Inititalization */
 
 function init() {
-  var fields = [].slice.call(document.querySelectorAll('input, textarea'));
+  const fields = [].slice.call(document.querySelectorAll('input, textarea'));
   fields.forEach(fieldPlaceholder);
 }
 

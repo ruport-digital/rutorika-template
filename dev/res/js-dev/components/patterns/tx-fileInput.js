@@ -1,8 +1,6 @@
 /* jshint browser:true */
 
-'use strict';
-
-var eventTool = require('./tx-event');
+const eventTool = require('./tx-event');
 
 const WRAP_CLASS_NAME_SUFFIX = '-wrap';
 const VALUE_CLASS_NAME_SUFFIX = '-value';
@@ -12,19 +10,19 @@ const WRAPED_CLASS_NAME_SUFFIX = '-is-wrapped';
 /* HTML */
 
 function createWrap(className) {
-  var element = document.createElement('div');
+  const element = document.createElement('div');
   element.className = `${className}${WRAP_CLASS_NAME_SUFFIX}`;
   return element;
 }
 
 function createValue(className) {
-  var element = document.createElement('div');
+  const element = document.createElement('div');
   element.className = `${className}${VALUE_CLASS_NAME_SUFFIX}`;
   return element;
 }
 
 function createButton(className, text) {
-  var element = document.createElement('a');
+  const element = document.createElement('a');
   element.href = '#';
   element.textContent = text;
   element.className = `${className}${BUTTON_CLASS_NAME_SUFFIX}`;
@@ -32,7 +30,7 @@ function createButton(className, text) {
 }
 
 function wrapInput(className, input, wrap, value, button) {
-  var parent = input.parentNode;
+  const parent = input.parentNode;
   wrap.appendChild(value);
   wrap.appendChild(button);
   parent.insertBefore(wrap, input);
@@ -43,20 +41,19 @@ function wrapInput(className, input, wrap, value, button) {
 /* Field Constructor */
 
 function fileInput(field, text) {
-
-  var input;
-  var className;
-  var wrap;
-  var value;
-  var button;
+  let input;
+  let className;
+  let wrap;
+  let value;
+  let button;
 
   /* Field Interactions */
 
-  function onChange(event) {
-    value.textContent = input.value.split('\\')[2];
+  function onChange() {
+    value.textContent = input.value.split('\\').pop();
   }
 
-  function onWrapClick(event) {
+  function onWrapClick() {
     eventTool.trigger(input, 'click');
   }
 
@@ -110,15 +107,14 @@ function fileInput(field, text) {
   /* Field Interface */
 
   return {
-    destroy: destroyField
+    destroy: destroyField,
   };
-
 }
 
 /* Initialization */
 
 function init(selector, text) {
-  var fields = [].slice.call(document.querySelectorAll(selector));
+  const fields = [].slice.call(document.querySelectorAll(selector));
   fields.forEach(field => fileInput(field, text));
 }
 

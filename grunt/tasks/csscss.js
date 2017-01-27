@@ -6,15 +6,14 @@ module.exports = (grunt, options) => {
   return {
     options: {
       shorthand: false,
-      verbose: true,
-      ignoreSassMixins: true,
+      verbose: true
     },
     test: {
-      cwd: project.res.css.sass,
+      cwd: project.res.css.dir,
       src: [
-        '**/*.{scss,sass}',
-        '!**/*-IE.{scss,sass}',
-        `!${helpers.txpath}{scss,sass}`
+        '*.css',
+        '!*.min.css',
+        '!*-IE.css'
       ],
       expand: true
     }

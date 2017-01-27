@@ -10,7 +10,10 @@ module.exports = (grunt, options) => {
     },
     test: {
       cwd: project.res.css.dir,
-      src: ['*.min.css', '!*-IE.min.css'],
+      src: [
+        '*.min.css',
+        '!*-IE.min.css'
+      ],
       expand: true
     }
   };

@@ -5,14 +5,6 @@ var CONFIG = {
   AMP: false,                        // Google AMP
   THEME: '#fd746c',                  // Theme Color
 
-  BROWSERS: [                        // Browser Support
-    '> 1%',
-    'last 2 versions',
-    'Firefox ESR',
-    'Opera 12.1',
-    'Explorer >= 8'
-  ],
-
   DEVELOPMENT_DIR: 'dev',            // Development
   BUILD_DIR: 'build',                // Build
   META_DIR: 'meta',                  // Meta Content
@@ -36,7 +28,7 @@ var CONFIG = {
   CRITICAL_MOBILE_H: 640,            // Critical Height on Mobile
 
   CSS_IMAGES_DIR: 'images',          // CSS Images
-  SPRITES: ['sprites.svg'],                       // CSS Images that Should be Compiled into Separate Sprite Sheets
+  SPRITES: [],                       // CSS Images that Should be Compiled into Separate Sprite Sheets
   DATA_URI: [],                      // CSS Images that Should be Converted into DataURI
   DENSITIES: [1, 2, 3],              // Pixel Densities
 

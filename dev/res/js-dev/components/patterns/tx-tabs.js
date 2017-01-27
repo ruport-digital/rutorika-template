@@ -1,14 +1,11 @@
 /* jshint browser:true */
 
-'use strict';
-
-var tabPair = require('./tx-tabPair.js');
-var eventTool = require('./tx-event.js');
+const tabPair = require('./tx-tabPair.js');
+const eventTool = require('./tx-event.js');
 
 module.exports = (holderID, nodeSelector, defaultTab) => {
-
-  var holder;
-  var pairs;
+  let holder;
+  let pairs;
 
   /* Utilities */
 
@@ -29,8 +26,7 @@ module.exports = (holderID, nodeSelector, defaultTab) => {
   }
 
   function makePairs() {
-    var tabObjects = typeof nodeSelector === 'string' ? document.getElementsByClassName(nodeSelector) : nodeSelector;
-    tabObjects = [].slice.call(tabObjects);
+    const tabObjects = [].slice.call(typeof nodeSelector === 'string' ? document.getElementsByClassName(nodeSelector) : nodeSelector);
     tabObjects.forEach(addPair);
   }
 
@@ -41,7 +37,7 @@ module.exports = (holderID, nodeSelector, defaultTab) => {
   /* Actions */
 
   function deactivateActive() {
-    var active = findActive();
+    const active = findActive();
     if (active) {
       active.deactivate();
     }
@@ -68,7 +64,7 @@ module.exports = (holderID, nodeSelector, defaultTab) => {
   }
 
   function activateDefault() {
-    var active = defaultTab || 0;
+    const active = defaultTab || 0;
     pairs[active].activate();
   }
 
@@ -81,8 +77,6 @@ module.exports = (holderID, nodeSelector, defaultTab) => {
   }
 
   function removeValues() {
-    nodeSelector = null;
-    defaultTab = null;
     pairs = null;
   }
 
@@ -97,7 +91,6 @@ module.exports = (holderID, nodeSelector, defaultTab) => {
   /* Interface */
 
   return {
-    destroy: destroy
+    destroy,
   };
-
 };

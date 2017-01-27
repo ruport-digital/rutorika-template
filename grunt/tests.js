@@ -6,7 +6,6 @@ module.exports = (grunt) => {
     'htmlhint',
     'sasslint',
     'csslint',
-    'csscss',
     'colorguard',
     'eslint',
     'jsinspect',

@@ -8,7 +8,7 @@ module.exports = (grunt, options) => {
     },
     test: {
       cwd: project.tests.mocha,
-      src: ['**/*.js'],
+      src: ['*.js'],
       expand: true
     }
   };

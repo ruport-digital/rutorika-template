@@ -1,9 +1,14 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
+  },
+  "extends": "eslint:all",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "plugins": ["compat"],
-  "extends": "eslint:all",
   "rules": {
     "accessor-pairs": "off",
     "array-callback-return": "error",
@@ -78,10 +83,6 @@
     }, {
       "property": "__defineSetter__",
       "message": "Please use Object.defineProperty instead."
-    }, {
-      "object": "Math",
-      "property": "pow",
-      "message": "Use the exponentiation operator (**) instead."
     }],
     "no-return-assign": "error",
     "no-return-await": "error",

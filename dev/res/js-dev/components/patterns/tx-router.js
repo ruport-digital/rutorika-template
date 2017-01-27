@@ -1,9 +1,6 @@
 /* jshint browser:true */
 
-'use strict';
-
 const eventManager = require('./tx-event');
-
 let task;
 
 function go(url) {

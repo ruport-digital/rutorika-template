@@ -1,12 +1,11 @@
 /* jshint browser:true */
 
-'use strict';
-
 /* Event Data */
 
 function setData(event, data) {
-  event.data = data;
-  return event;
+  const newEvent = event;
+  newEvent.data = data;
+  return newEvent;
 }
 
 function getData(event) {
@@ -26,7 +25,7 @@ function unbind(object, type, callback) {
 /* Event Trigger */
 
 function triggerCreateEvent(object, eventName, propagate, eventType, data) {
-  let event = document.createEvent(eventType);
+  const event = document.createEvent(eventType);
   if (data) {
     setData(event, data);
   }
@@ -35,16 +34,14 @@ function triggerCreateEvent(object, eventName, propagate, eventType, data) {
 }
 
 function triggerCreateEventObject(object, eventName, propagate, data) {
-  let event = document.createEventObject();
+  const event = document.createEventObject();
   if (data) {
     setData(event, data);
   }
   object.fireEvent(`on${eventName}`, event);
 }
 
-function trigger(object, eventName, propagate, eventType, data) {
-  propagate = propagate || false;
-  eventType = eventType || 'MouseEvents';
+function trigger(object, eventName, propagate = false, eventType = 'MouseEvents', data) {
   if (document.createEvent) {
     triggerCreateEvent(object, eventName, propagate, eventType, data);
   } else {
