@@ -3,6 +3,7 @@
 module.exports = (grunt, options) => {
 
   const project = options.project;
+  const helpers = options.helpers;
   const tx = require('./tx/tx');
 
   const spritesTasks = [];
@@ -12,10 +13,14 @@ module.exports = (grunt, options) => {
     spritesTasks.push('process-sprites');
   }
 
+  const dataURITasks = project.res.images.dataURI.length > 0 ? ['process-dataURI'] : [];
+
+  grunt.registerTask('criticalModernizr', 'Inlining Modernizr', _ => tx.criticalModernizr(grunt, project));
+
   grunt.registerTask('compile', [
     'clean:res',
     ...spritesTasks,
-    'process-images',
+    ...dataURITasks,
     'process-html',
     'process-css',
     'process-js'

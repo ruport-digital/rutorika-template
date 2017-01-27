@@ -31,7 +31,9 @@ module.exports = (grunt, options) => {
     },
     javascript: {
       files: [`${project.res.js.devDir}**/*.js`, `!${project.res.js.devDir}${project.res.js.service}.js`],
-      tasks: ['browserify']
+      tasks: [
+        'browserify'
+      ]
     },
     livereload: {
       options: {

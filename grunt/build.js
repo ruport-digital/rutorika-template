@@ -2,44 +2,60 @@
 
 module.exports = (grunt) => {
 
-  grunt.registerTask('build-resources', [
+  grunt.registerTask('build', [
     'compile',
+    'test',
     'clean:build',
     'copy:build',
-    'imagemin:meta',
+    'copy:meta',
+    'imagemin',
     'htmlmin',
     'prettify',
-    'compress'
-  ]);
-
-  grunt.registerTask('build-finalize', [
-    'copy:meta',
+    'compress',
     'string-replace:build',
     'cleanempty'
   ]);
 
-  grunt.registerTask('build', [
-    'build-resources',
-    'build-finalize',
-    'test'
-  ]);
-
   grunt.registerTask('build-fast', [
-    'build-resources',
-    'build-finalize'
+    'compile',
+    'clean:build',
+    'copy:build',
+    'copy:meta',
+    'imagemin',
+    'htmlmin',
+    'prettify',
+    'compress',
+    'string-replace:build',
+    'cleanempty'
   ]);
 
   grunt.registerTask('build-critical', [
-    'build-resources',
+    'compile',
+    'test',
+    'clean:build',
+    'copy:build',
+    'copy:meta',
+    'imagemin',
+    'htmlmin',
+    'prettify',
+    'compress',
     'compile-critical',
-    'build-finalize',
-    'test'
+    'string-replace:build',
+    'cleanempty'
   ]);
 
   grunt.registerTask('build-critical-fast', [
-    'build-resources',
+    'compile',
+    'clean:build',
+    'copy:build',
+    'copy:meta',
+    'imagemin',
+    'htmlmin',
+    'prettify',
+    'compress',
     'compile-critical',
-    'build-finalize'
+    'string-replace:build',
+    'cleanempty'
   ]);
 
 };

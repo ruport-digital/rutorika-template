@@ -7,7 +7,7 @@ module.exports = (grunt, options) => {
       htmlhintrc: '.htmlhintrc'
     },
     test: {
-      cwd: project.build.dir,
+      cwd: project.dir,
       src: ['*.html'],
       expand: true
     }
