@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const SIZE = 200;
 const TRACK_SUFFIX = 'Track';
 const INDICATOR_SUFFIX = 'Indicator';

@@ -1,4 +1,3 @@
-/* jshint browser:true */
 /* global Modernizr */
 
 /* Device Size */

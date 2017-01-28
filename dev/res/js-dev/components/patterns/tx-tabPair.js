@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const eventTool = require('./tx-event.js');
 const togglable = require('./tx-togglable.js');
 

@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const eventTool = require('./tx-event');
 
 const WRAP_CLASS_NAME_SUFFIX = '-wrap';

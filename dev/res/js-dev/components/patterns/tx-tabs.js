@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const tabPair = require('./tx-tabPair.js');
 const eventTool = require('./tx-event.js');
 

@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const eventTool = require('./tx-event');
 
 const ACTIVE_CLASS_NAME = 'js-field-is-showingPlaceholder';

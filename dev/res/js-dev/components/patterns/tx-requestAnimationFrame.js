@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 module.exports = () => {
   let lastTime = 0;
   const vendors = ['ms', 'moz', 'webkit', 'o'];

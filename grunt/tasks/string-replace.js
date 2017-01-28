@@ -81,7 +81,7 @@ module.exports = (grunt, options) => {
     js: {
       options: {
         replacements: [{
-          pattern: /((?:\r?\n|\r)+\/\* jshint[\s\S]*?\*\/)/g,
+          pattern: /((?:\r?\n|\r)+\/\* eslint[\s\S]*?\*\/)/g,
           replacement: '\n$1',
         }],
       },

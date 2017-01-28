@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 module.exports = () => {
   const transitions = ['transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'transitionend', 'webkitTransitionEnd'];
   const element = document.createElement('element');

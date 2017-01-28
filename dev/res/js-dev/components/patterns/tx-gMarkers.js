@@ -1,4 +1,3 @@
-/* jshint browser:true */
 /* global google */
 
 module.exports = (map, markers, icon) => {

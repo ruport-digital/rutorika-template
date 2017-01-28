@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const eventManager = require('./tx-event');
 
 const SINGLE_SWIPE = 'singleswipe';
