@@ -1,7 +1,4 @@
-'use strict';
-
 module.exports = (grunt) => {
-
   grunt.registerTask('build', [
     'compile',
     'test',
@@ -13,7 +10,7 @@ module.exports = (grunt) => {
     'prettify',
     'compress',
     'string-replace:build',
-    'cleanempty'
+    'cleanempty',
   ]);
 
   grunt.registerTask('build-fast', [
@@ -26,7 +23,7 @@ module.exports = (grunt) => {
     'prettify',
     'compress',
     'string-replace:build',
-    'cleanempty'
+    'cleanempty',
   ]);
 
   grunt.registerTask('build-critical', [
@@ -41,7 +38,7 @@ module.exports = (grunt) => {
     'compress',
     'compile-critical',
     'string-replace:build',
-    'cleanempty'
+    'cleanempty',
   ]);
 
   grunt.registerTask('build-critical-fast', [
@@ -55,7 +52,6 @@ module.exports = (grunt) => {
     'compress',
     'compile-critical',
     'string-replace:build',
-    'cleanempty'
+    'cleanempty',
   ]);
-
 };

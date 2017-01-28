@@ -1,19 +1,16 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
-  var helpers = options.helpers;
+  const { project, helpers } = options;
 
   return {
     options: {
-      separator: '\n\n'
+      separator: '\n\n',
     },
     dataURI: {
       src: [
         `${project.res.css.sass}${helpers.scss}${helpers.temp}${helpers.dataURI}`,
-        `${project.res.css.sass}${helpers.scss}${helpers.temp}${helpers.dataURIFallback}`
+        `${project.res.css.sass}${helpers.scss}${helpers.temp}${helpers.dataURIFallback}`,
       ],
       dest: `${project.res.css.sass}${helpers.scss}${helpers.dataURISCSS}`,
-    }
+    },
   };
-
 };

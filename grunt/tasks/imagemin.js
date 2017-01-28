@@ -1,28 +1,25 @@
+const pngquant = require('imagemin-pngquant-gfw');
+
 module.exports = (grunt, options) => {
-
-  var project = options.project;
-  var helpers = options.helpers;
-
-  var pngquant = require('imagemin-pngquant-gfw');
+  const { project, helpers } = options;
 
   return {
     options: {
-      optimizationLevel: 7,
+      optimizationLevel: 5,
       svgoPlugins: [{
-        removeViewBox: false
+        removeViewBox: false,
       }],
-      use: [pngquant()]
+      use: [pngquant()],
     },
     images: {
       cwd: project.build.dir,
       src: [
         `**/*.${helpers.imageFiles}`,
         `!${project.res.fonts.dir.replace(project.dir, '')}**/*.svg`,
-        ...helpers.sprites
+        ...helpers.sprites,
       ],
       dest: project.build.dir,
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

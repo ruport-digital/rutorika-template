@@ -1,19 +1,17 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      configFile: '.eslintrc'
+      configFile: '.eslintrc',
     },
     test: {
       cwd: project.res.js.devDir,
       src: [
         '**/*.js',
-        `!${project.res.js.service}.js`
+        `!${project.res.js.service}.js`,
       ],
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

@@ -1,6 +1,5 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: grunt.file.readJSON('.htmlminrc'),
@@ -8,8 +7,7 @@ module.exports = (grunt, options) => {
       cwd: project.build.dir,
       src: ['*.html'],
       dest: project.build.dir,
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

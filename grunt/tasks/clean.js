@@ -1,25 +1,22 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
-  var helpers = options.helpers;
+  const { project, helpers } = options;
 
   return {
     res: [
       project.res.css.dir,
-      `${project.res.js.dir}*.js`
+      `${project.res.js.dir}*.js`,
     ],
     html: [
-      `${project.dir}*.html`
+      `${project.dir}*.html`,
     ],
     images: [
-      `${project.res.css.sass}${helpers.scss}${helpers.temp}`
+      `${project.res.css.sass}${helpers.scss}${helpers.temp}`,
     ],
     reports: [
-      `*.css`
+      '*.css',
     ],
     build: [
-      project.build.dir
-    ]
+      project.build.dir,
+    ],
   };
-
 };

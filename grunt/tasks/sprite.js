@@ -1,4 +1,9 @@
-function generateTask(project, helpers, tasks, name, ext, density, densitySuffix, directoryPath, spritePath, imgPath) {
+/* eslint max-len: "off" */
+/* eslint no-param-reassign: "off" */
+
+const tasks = {};
+
+function generateTask(project, helpers, name, ext, density, densitySuffix, directoryPath, spritePath, imgPath) {
   tasks[`${name}${densitySuffix}`] = {
     src: `${directoryPath}*.${ext}`,
     dest: `${spritePath}${name}${densitySuffix}.${ext}`,
@@ -7,45 +12,44 @@ function generateTask(project, helpers, tasks, name, ext, density, densitySuffix
     padding: 5 * density,
     cssSpritesheetName: `ssh-${name}${densitySuffix.replace('@', '-')}`,
     algorithmOpts: {
-        sort: false
+      sort: false,
     },
     cssVarMap(item) {
       item.name = `spt-${item.name}`;
     },
     cssOpts: {
       functions: false,
-      variableNameTransforms: []
-    }
+      variableNameTransforms: [],
+    },
   };
 }
 
-function getDensity(grunt, project, helpers, tasks, name, ext, density, spritePath, imgPath) {
-  var densitySuffix = density === 1 ? '' : `@${density}x`;
-  var directoryPath = `${spritePath}${name}${densitySuffix}/`;
+function getDensity(grunt, project, helpers, name, ext, density, spritePath, imgPath) {
+  const densitySuffix = density === 1 ? '' : `@${density}x`;
+  const directoryPath = `${spritePath}${name}${densitySuffix}/`;
   if (grunt.file.exists(directoryPath)) {
-    generateTask(project, helpers, tasks, name, ext, density, densitySuffix, directoryPath, spritePath, imgPath);
+    generateTask(project, helpers, name, ext, density, densitySuffix, directoryPath, spritePath, imgPath);
   }
 }
 
-function getSprite(grunt, project, helpers, sprite, tasks, spritePath, imgPath) {
-  var name = sprite.split('.')[0];
-  var ext = sprite.split('.')[1];
-  project.res.images.desities.forEach(density => getDensity(grunt, project, helpers, tasks, name, ext, density, spritePath, imgPath));
+function getSprite(grunt, project, helpers, sprite, spritePath, imgPath) {
+  const [name, ext] = sprite.split('.');
+  project.res.images.desities.forEach((density) => {
+    getDensity(grunt, project, helpers, name, ext, density, spritePath, imgPath);
+  });
 }
 
 function generateTasks(grunt, project, helpers) {
-  var tasks = {};
-  var spritePath = project.res.images.dir;
-  var imgPath = `../${spritePath.replace(project.res.dir, '')}`;
-  project.res.images.sprites.forEach(sprite => getSprite(grunt, project, helpers, sprite, tasks, spritePath, imgPath));
+  const spritePath = project.res.images.dir;
+  const imgPath = `../${spritePath.replace(project.res.dir, '')}`;
+  project.res.images.sprites.forEach((sprite) => {
+    getSprite(grunt, project, helpers, sprite, spritePath, imgPath);
+  });
   return tasks;
 }
 
 module.exports = (grunt, options) => {
-
-  var project = options.project;
-  var helpers = options.helpers;
+  const { project, helpers } = options;
 
   return generateTasks(grunt, project, helpers);
-
 };

@@ -1,23 +1,21 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
       includeBase: project.res.templates.comp,
       commentMarker: '@tx-process',
-      recursive: true
+      recursive: true,
     },
     templates: {
       cwd: project.res.templates.dir,
       src: [
         '*.html',
         '!* copy*.html',
-        '!* - Copy*.html'
+        '!* - Copy*.html',
       ],
       dest: project.dir,
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

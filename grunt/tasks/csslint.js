@@ -1,20 +1,18 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      csslintrc: '.csslintrc'
+      csslintrc: '.csslintrc',
     },
     test: {
       cwd: project.res.css.dir,
       src: [
         '*.css',
         '!*.min.css',
-        '!*-IE.css'
+        '!*-IE.css',
       ],
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

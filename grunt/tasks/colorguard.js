@@ -1,6 +1,5 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     test: {
@@ -8,10 +7,9 @@ module.exports = (grunt, options) => {
       src: [
         '*.css',
         '!*.min.css',
-        '!*-IE.css'
+        '!*-IE.css',
       ],
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

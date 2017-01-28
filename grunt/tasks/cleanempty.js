@@ -1,14 +1,12 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      noJunk: true
+      noJunk: true,
     },
     build: {
-      src: [`${project.build.dir}**/*`]
-    }
+      src: [`${project.build.dir}**/*`],
+    },
   };
-
 };

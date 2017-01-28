@@ -1,17 +1,15 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      config: '.csscombrc'
+      config: '.csscombrc',
     },
     optimize: {
       cwd: project.res.css.dir,
       src: ['*.css'],
       dest: project.res.css.dir,
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

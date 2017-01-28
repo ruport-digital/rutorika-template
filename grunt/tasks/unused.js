@@ -1,6 +1,5 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
@@ -8,9 +7,8 @@ module.exports = (grunt, options) => {
       directory: [
         `${project.dir}*.html`,
         `${project.res.css.dir}*.css`,
-        `${project.res.js.dir}*.js`
-      ]
-    }
+        `${project.res.js.dir}*.js`,
+      ],
+    },
   };
-
 };

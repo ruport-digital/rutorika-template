@@ -1,6 +1,5 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
@@ -13,14 +12,13 @@ module.exports = (grunt, options) => {
         height: project.build.critical.heightMobile,
       }],
       minify: true,
-      extract: false
+      extract: false,
     },
     optimize: {
       cwd: project.build.dir,
       src: ['*.html'],
       dest: project.build.dir,
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

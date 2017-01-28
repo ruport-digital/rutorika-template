@@ -1,21 +1,19 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      preserveComments: false
+      preserveComments: false,
     },
     optimize: {
       cwd: project.res.js.dir,
       src: [
         '*.js',
-        '!*.min.js'
+        '!*.min.js',
       ],
       dest: project.res.js.dir,
       ext: '.min.js',
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

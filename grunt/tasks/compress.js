@@ -1,19 +1,17 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     res: {
       options: {
-        mode: 'gzip'
+        mode: 'gzip',
       },
       cwd: project.build.dir,
       src: ['**/*.min.{css,js}'],
       dest: project.build.dir,
       ext: '.gz',
       extDot: 'last',
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

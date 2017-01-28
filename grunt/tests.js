@@ -1,7 +1,4 @@
-'use strict';
-
 module.exports = (grunt) => {
-
   grunt.registerTask('quality', [
     'htmlhint',
     'sasslint',
@@ -10,17 +7,16 @@ module.exports = (grunt) => {
     'eslint',
     'jsinspect',
     'unused:unused',
-    'clean:reports'
+    'clean:reports',
   ]);
 
   grunt.registerTask('performance', [
-    'analyzecss'
+    'analyzecss',
   ]);
 
   grunt.registerTask('test', [
     'mochaTest',
     'quality',
-    'performance'
+    'performance',
   ]);
-
 };

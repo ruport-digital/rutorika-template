@@ -1,16 +1,14 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      htmlhintrc: '.htmlhintrc'
+      htmlhintrc: '.htmlhintrc',
     },
     test: {
       cwd: project.dir,
       src: ['*.html'],
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

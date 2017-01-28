@@ -1,12 +1,10 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
-  var helpers = options.helpers;
+  const { project, helpers } = options;
 
   function generateTasks() {
-    var tasks = {
+    const tasks = {
       src: [],
-      dest: `${project.res.css.sass}${helpers.scss}${helpers.temp}${helpers.dataURI}`
+      dest: `${project.res.css.sass}${helpers.scss}${helpers.temp}${helpers.dataURI}`,
     };
     project.res.images.dataURI.forEach(image => tasks.src.push(`${project.res.images.dir}${image}`));
     return tasks;
@@ -14,9 +12,8 @@ module.exports = (grunt, options) => {
 
   return {
     options: {
-      classPrefix: 'image-'
+      classPrefix: 'image-',
     },
-    images: generateTasks()
+    images: generateTasks(),
   };
-
 };

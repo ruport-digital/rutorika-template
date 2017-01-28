@@ -1,21 +1,19 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
       outputMetrics: 'error',
       softFail: true,
-      thresholds: grunt.file.readJSON('.analyzecssrc')
+      thresholds: grunt.file.readJSON('.analyzecssrc'),
     },
     test: {
       cwd: project.res.css.dir,
       src: [
         '*.min.css',
-        '!*-IE.min.css'
+        '!*-IE.min.css',
       ],
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

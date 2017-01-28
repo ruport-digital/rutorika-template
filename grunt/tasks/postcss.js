@@ -1,22 +1,22 @@
-module.exports = (grunt, options) => {
+const autoprefixer = require('autoprefixer');
 
-  var project = options.project;
+module.exports = (grunt, options) => {
+  const { project } = options;
 
   return {
     options: {
       map: true,
-      processors: [require('autoprefixer')()]
+      processors: [autoprefixer()],
     },
     process: {
       cwd: project.res.css.dir,
       src: [
         '*.css',
         '!*.min.css',
-        '!*-IE.css'
+        '!*-IE.css',
       ],
       dest: project.res.css.dir,
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

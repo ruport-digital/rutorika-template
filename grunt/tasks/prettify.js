@@ -1,23 +1,21 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      config: '.jsbeautifyrc'
+      config: '.jsbeautifyrc',
     },
     build: {
       cwd: project.build.dir,
       src: ['*.html'],
       dest: project.build.dir,
-      expand: true
+      expand: true,
     },
     dev: {
       cwd: project.dir,
       src: ['*.html'],
       dest: project.dir,
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

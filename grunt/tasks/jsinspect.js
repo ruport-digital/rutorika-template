@@ -1,13 +1,11 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     test: {
       cwd: project.res.js.devDir,
       src: ['**/*.js'],
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

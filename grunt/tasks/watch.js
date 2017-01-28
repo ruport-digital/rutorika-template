@@ -1,51 +1,48 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
-  var helpers = options.helpers;
+  const { project, helpers } = options;
 
   return {
     options: {
-      spawn: false
+      spawn: false,
     },
     html: {
       files: [`${project.res.templates.dir}**/*.html`],
       tasks: [
         'clean:html',
-        'processhtml'
-      ]
+        'processhtml',
+      ],
     },
     images: {
       files: [`**/*.${helpers.imageFiles}`],
       tasks: [
         'sass',
         'postcss',
-        'processhtml'
-      ]
+        'processhtml',
+      ],
     },
     sass: {
       files: [`${project.res.css.sass}**/*.{scss,sass}`],
       tasks: [
         'sass',
-        'postcss'
-      ]
+        'postcss',
+      ],
     },
     javascript: {
       files: [`${project.res.js.devDir}**/*.js`, `!${project.res.js.devDir}${project.res.js.service}.js`],
       tasks: [
-        'browserify'
-      ]
+        'browserify',
+      ],
     },
     livereload: {
       options: {
-        livereload: true
+        livereload: true,
       },
       files: [
         `${project.dir}*.html`,
         `${project.res.css.dir}**/*.css`,
         `${project.res.js.dir}**/*.{js,json}`,
-        `${project.dir}**/*.${helpers.imageFiles}`
-      ]
-    }
+        `${project.dir}**/*.${helpers.imageFiles}`,
+      ],
+    },
   };
-
 };

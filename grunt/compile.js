@@ -1,10 +1,7 @@
-'use strict';
+const tx = require('./tx/tx');
 
 module.exports = (grunt, options) => {
-
-  const project = options.project;
-  const helpers = options.helpers;
-  const tx = require('./tx/tx');
+  const { project } = options;
 
   const spritesTasks = [];
 
@@ -15,7 +12,7 @@ module.exports = (grunt, options) => {
 
   const dataURITasks = project.res.images.dataURI.length > 0 ? ['process-dataURI'] : [];
 
-  grunt.registerTask('criticalModernizr', 'Inlining Modernizr', _ => tx.criticalModernizr(grunt, project));
+  grunt.registerTask('criticalModernizr', 'Inlining Modernizr', () => tx.criticalModernizr(grunt, project));
 
   grunt.registerTask('compile', [
     'clean:res',
@@ -23,12 +20,11 @@ module.exports = (grunt, options) => {
     ...dataURITasks,
     'process-html',
     'process-css',
-    'process-js'
+    'process-js',
   ]);
 
   grunt.registerTask('compile-critical', [
     'critical',
-    'criticalModernizr'
+    'criticalModernizr',
   ]);
-
 };

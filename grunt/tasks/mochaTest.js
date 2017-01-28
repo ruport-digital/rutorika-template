@@ -1,16 +1,14 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: {
-      quiet: false
+      quiet: false,
     },
     test: {
       cwd: project.tests.mocha,
       src: ['*.js'],
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };

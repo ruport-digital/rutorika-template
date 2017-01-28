@@ -1,6 +1,5 @@
 module.exports = (grunt, options) => {
-
-  var project = options.project;
+  const { project } = options;
 
   return {
     options: grunt.file.readJSON('.csscrc'),
@@ -9,8 +8,7 @@ module.exports = (grunt, options) => {
       src: ['*.css'],
       dest: project.res.css.dir,
       ext: '.min.css',
-      expand: true
-    }
+      expand: true,
+    },
   };
-
 };
