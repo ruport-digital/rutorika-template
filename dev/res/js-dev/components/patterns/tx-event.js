@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 /* Event Data */
 
 function setData(event, data) {

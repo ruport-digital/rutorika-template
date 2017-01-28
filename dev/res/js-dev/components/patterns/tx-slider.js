@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const eventTool = require('./tx-event');
 const createNode = require('./tx-createNode');
 const transition = require('./tx-transition')();

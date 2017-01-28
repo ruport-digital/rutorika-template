@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const togglable = require('./tx-togglable');
 
 const ACTIVE_CLASS_NAME_SUFFIX = '-is-active';

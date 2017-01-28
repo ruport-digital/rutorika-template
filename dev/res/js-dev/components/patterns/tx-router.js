@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const eventManager = require('./tx-event');
 let task;
 

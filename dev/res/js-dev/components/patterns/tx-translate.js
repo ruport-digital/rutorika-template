@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 /* Utilities */
 
 function properties(axis, distance) {

@@ -1,5 +1,3 @@
-/* jshint browser:true */
-
 const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.js');
 
 const LOADED_SUFFIX = '-is-loaded';

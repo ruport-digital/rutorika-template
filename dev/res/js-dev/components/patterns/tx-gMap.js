@@ -1,4 +1,3 @@
-/* jshint browser:true */
 /* global google */
 
 const markers = require('./tx-gMarkers');
