@@ -22,6 +22,7 @@ available commands.
 * Common basic Media Queries.
 * Basic print stylesheet.
 * Boilerplate Service Worker.
+* Boilerplate WebApp manifest.
 * Uses [Modernizr](http://modernizr.com/) for feature detection.
 * Uses [Grunt](http://gruntjs.com/) as it's task runner ([Getting started with Grunt.JS](http://gruntjs.com/getting-started)).
 
