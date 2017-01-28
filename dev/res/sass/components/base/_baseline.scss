@@ -380,6 +380,8 @@ u {
   text-decoration: underline;
 }
 
+// sass-lint:disable no-vendor-prefixes
+
 img {
   height: auto;
   max-width: 100%;
@@ -387,6 +389,8 @@ img {
   vertical-align: top;
   -ms-interpolation-mode: bicubic;
 }
+
+// sass-lint:enable no-vendor-prefixes
 
 audio {
   @extend %defaultBlock;
@@ -460,17 +464,21 @@ hr {
 
 /* Links */
 
-$link-tapColor: rgba($active, .25);
+$tapColor: rgba($active, .25);
+
+// sass-lint:disable no-vendor-prefixes
 
 a {
   @extend %focus;
   @extend %tx-fastTouch;
   @extend %tx-linkTouchStates;
   @include tx-link($link, $visited, $hover, $active);
-  -webkit-tap-highlight-color: $link-tapColor;
+  -webkit-tap-highlight-color: $tapColor;
   text-decoration: underline;
   transition: $UITransitionDefault;
 }
+
+// sass-lint:enable no-vendor-prefixes
 
 
 
@@ -511,6 +519,8 @@ label {
   box-sizing: content-box;
 }
 
+// sass-lint:disable no-vendor-prefixes
+
 %formBorderReset {
   border: 0;
 
@@ -520,6 +530,8 @@ label {
   }
 
 }
+
+// sass-lint:enable no-vendor-prefixes
 
 %formTextReset {
   text-transform: none;
@@ -587,6 +599,8 @@ input {
     @extend %formAppearanceReset;
   }
 
+  // sass-lint:disable no-vendor-prefixes
+
   &[type='number'] {
     @extend %formAppearanceReset;
 
@@ -595,6 +609,8 @@ input {
     }
 
   }
+
+  // sass-lint:enable no-vendor-prefixes
 
   &[disabled] {
     @extend %formInactive;

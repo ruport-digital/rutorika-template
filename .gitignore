@@ -15,6 +15,7 @@ npm-debug.log
 
 .sass-cache
 .tmp
+.map
 node_modules
 bower_components
 phantomcss

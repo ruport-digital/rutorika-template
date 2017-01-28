@@ -23,6 +23,8 @@
 
 // Page Scroll
 
+// sass-lint:disable no-vendor-prefixes
+
 @mixin tx-scroll-bar($condition: false, $autohide: true) {
   @if $condition == true {
     overflow-x: auto;

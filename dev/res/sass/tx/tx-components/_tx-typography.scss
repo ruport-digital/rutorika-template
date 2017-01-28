@@ -4,6 +4,8 @@
 
 // Font Rendering
 
+// sass-lint:disable no-vendor-prefixes
+
 @mixin tx-font-rendering($rendering: null) {
   @if ($rendering == thin) {
     -moz-osx-font-smoothing: grayscale;
@@ -13,6 +15,8 @@
     -webkit-font-smoothing: auto;
   }
 }
+
+// sass-lint:enable no-vendor-prefixes
 
 
 

@@ -1,9 +1,13 @@
 /* Layout */
 
+// sass-lint:disable no-vendor-prefixes
+
 html {
   -webkit-overflow-scrolling: touch;
   min-height: 100%;
 }
+
+// sass-lint:enable no-vendor-prefixes
 
 body {
   @include tx-set-boundaries($body-minWidth);

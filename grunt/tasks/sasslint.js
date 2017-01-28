@@ -1,5 +1,5 @@
 module.exports = (grunt, options) => {
-  const { project, helpers } = options;
+  const { project } = options;
 
   return {
     options: {
@@ -11,7 +11,6 @@ module.exports = (grunt, options) => {
       src: [
         '**/*.{scss,sass}',
         '!**/*-IE.{scss,sass}',
-        `!${helpers.txpath}{scss,sass}`,
       ],
       expand: true,
     },
