@@ -1,1 +1,1 @@
-var chai = require('chai');
+const chai = require('chai');
