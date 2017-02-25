@@ -28,18 +28,18 @@ module.exports = (grunt, options) => {
   ]);
 
   grunt.registerTask('process-css', [
-    'sass',
+    'sass:build',
     'csscss',
     'postcss',
-    'uncss',
     'csscomb',
     'cssc',
+    'uncss',
     'string-replace:css',
     'cssmin',
   ]);
 
   grunt.registerTask('process-js', [
-    'browserify',
+    'browserify:build',
     'copy:service',
     'string-replace:js',
     'uglify',

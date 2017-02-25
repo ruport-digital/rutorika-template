@@ -15,7 +15,7 @@ module.exports = (grunt, options) => {
     images: {
       files: [`**/*.${helpers.imageFiles}`],
       tasks: [
-        'sass',
+        'sass:dev',
         'postcss',
         'processhtml',
       ],
@@ -23,14 +23,14 @@ module.exports = (grunt, options) => {
     sass: {
       files: [`${project.res.css.sass}**/*.{scss,sass}`],
       tasks: [
-        'sass',
+        'sass:dev',
         'postcss',
       ],
     },
     javascript: {
       files: [`${project.res.js.devDir}**/*.js`, `!${project.res.js.devDir}${project.res.js.service}.js`],
       tasks: [
-        'browserify',
+        'browserify:dev',
       ],
     },
     livereload: {
@@ -39,9 +39,9 @@ module.exports = (grunt, options) => {
       },
       files: [
         `${project.dir}*.html`,
+        `${project.dir}**/*.{json,${helpers.imageFiles}}`,
         `${project.res.css.dir}**/*.css`,
-        `${project.res.js.dir}**/*.{js,json}`,
-        `${project.dir}**/*.${helpers.imageFiles}`,
+        `${project.res.js.dir}**/*.js`,
       ],
     },
   };

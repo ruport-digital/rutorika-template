@@ -19,16 +19,11 @@
 // Inline Block
 
 @mixin tx-inline-block($ie: $tx-IE, $extend: true) {
-  @if $extend == true {
-    @if $ie != true {
-      @extend %tx-default-inline-block;
-    } @else {
-      @extend %tx-default-inline-block-IE;
-    }
+  @if $ie != true {
+    display: inline-block;
   } @else {
-    @if $ie != true {
-      display: inline-block;
-    }
+    display: inline;
+    zoom: 1;
   }
 }
 
@@ -38,7 +33,9 @@
 
 @mixin tx-pseudo($position: absolute, $display: block, $content: '', $ie: $tx-IE, $extend: true) {
   @if $position == 'absolute' and $display == 'block' and $content == '' and $extend == true {
-    @extend %tx-default-pseudo;
+    position: absolute;
+    content: '';
+    display: block;
   } @else {
     @if $display == 'inline-block' {
       @include tx-inline-block;
@@ -69,7 +66,12 @@
 // Vertical Alignment
 
 @mixin tx-pseudo-va {
-  @extend %tx-default-pseudo-va;
+  position: relative;
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
 }
 
 

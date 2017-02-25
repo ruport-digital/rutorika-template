@@ -550,9 +550,15 @@ label {
   vertical-align: middle;
 }
 
+// sass-lint:disable no-vendor-prefixes
+
 %formAppearanceReset {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
 }
+
+// sass-lint:enable no-vendor-prefixes
 
 %formInactive {
   opacity: .5;
@@ -605,7 +611,7 @@ input {
     @extend %formAppearanceReset;
 
     &::-webkit-inner-spin-button {
-      appearance: none;
+      @extend %formAppearanceReset;
     }
 
   }

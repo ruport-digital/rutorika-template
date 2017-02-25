@@ -23,12 +23,6 @@ module.exports = (grunt, options) => {
           pattern: / +data-dev-note=".*?"/gi,
           replacement: '',
         }, {
-          pattern: new RegExp(`${project.res.css.dir.replace(project.dir, '')}${project.res.css.filename}(-IE)*.css`, 'gi'),
-          replacement: `${project.res.css.dir.replace(project.dir, '')}${project.res.css.filename}$1.min.css`,
-        }, {
-          pattern: new RegExp(`${project.res.js.dir.replace(project.dir, '')}${project.res.js.bundle}.js`, 'gi'),
-          replacement: `${project.res.js.dir.replace(project.dir, '')}${project.res.js.bundle}.min.js`,
-        }, {
           pattern: /<style type="text\/css">(?:\r?\n|\r)/gi,
           replacement: '<style type="text/css">',
         }, {
@@ -46,7 +40,7 @@ module.exports = (grunt, options) => {
         }],
       },
       files: {
-        './': [`${project.build.dir}*.{html,webapp,json}`],
+        './': [`${project.build.dir}*.{html,webapp,json}, ${project.dir}*.{html}`],
       },
     },
     css: {

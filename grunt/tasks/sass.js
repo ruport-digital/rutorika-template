@@ -8,7 +8,14 @@ module.exports = (grunt, options) => {
       includePaths: [project.res.css.comp],
       outputStyle: 'expanded',
     },
-    generate: {
+    dev: {
+      cwd: project.res.css.sass,
+      src: ['**/*.{scss,sass}'],
+      dest: project.res.css.dir,
+      ext: '.min.css',
+      expand: true,
+    },
+    build: {
       cwd: project.res.css.sass,
       src: ['**/*.{scss,sass}'],
       dest: project.res.css.dir,

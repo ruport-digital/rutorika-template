@@ -150,6 +150,8 @@ rules:
         - counter-increment
         - counter-reset
         - quotes
+        - '-webkit-appearance'
+        - '-moz-appearance'
         - appearance
         - display
         - float

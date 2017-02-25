@@ -42,7 +42,9 @@ function dataURICleanup(grunt, project, helpers) {
 
 function placeholderSpriteCSS(name, ext, densitySuffix, density) {
   if (density !== 1) {
-    return `@mixin ssh-${name}${densitySuffix.replace('@', '-')} {\n\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}${densitySuffix.replace('@', '-')}, 3));\n    background-size: #{nth($ssh-${name}, 1)} #{nth($ssh-${name}, 2)};\n  }\n\n}`;
+    const mixinRegular = `@mixin ssh-${name}${densitySuffix.replace('@', '-')} {\n\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}${densitySuffix.replace('@', '-')}, 3));\n    background-size: #{nth($ssh-${name}, 1)} #{nth($ssh-${name}, 2)};\n  }\n\n}`;
+    const mixinRelative = `@mixin ssh-${name}${densitySuffix.replace('@', '-')}-rel {\n\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}${densitySuffix.replace('@', '-')}, 3));\n }\n\n}`;
+    return `${mixinRegular}\n\n${mixinRelative}`;
   }
   return `@mixin ssh-${name} {\n\n  %ssh-${name} {\n    background-image: url(nth($ssh-${name}, 3));\n  }\n\n}`;
 }
@@ -52,7 +54,7 @@ function eachDensitySpriteSCSS(grunt, scssPath, name, ext, density) {
   const densitySuffix = density === 1 ? '' : `@${density}x`;
   const file = `${scssPath}${densitySuffix}.scss`;
   if (grunt.file.isFile(file)) {
-    let block = grunt.file.read(file).replace(/(?:\r?\n|\r){2,}/gm, '');
+    let block = grunt.file.read(file).replace(/\/\/.*(?:\r?\n|\r)|(?:\r?\n|\r){2,}/gm, '');
     const placeholder = placeholderSpriteCSS(name, ext, densitySuffix, density);
     block = `// ${name}${densitySuffix}.${ext}\n\n${block}\n\n${placeholder}\n\n\n\n`;
     scss += block;

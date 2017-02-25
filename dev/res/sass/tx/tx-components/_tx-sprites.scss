@@ -17,6 +17,19 @@
 
 
 
+// Sprite Block
+
+@mixin tx-sprite-block-rel($name) {
+
+  &:before {
+    @include tx-pseudo(relative);
+    padding: ((nth($name, 6) / nth($name, 5)) * 100%) 0 0;
+  }
+
+}
+
+
+
 // Sprite Image
 
 // sass-lint:disable placeholder-in-extend
@@ -40,6 +53,30 @@
 
 
 
+// Sprite Position With Relative Size
+
+@mixin tx-sprite-position-rel($name) {
+  $horPos: txf-strip-units(nth($name, 1)) / txf-strip-units(nth($name, 7));
+  $horSize: (txf-strip-units(nth($name, 5)) * $horPos) / txf-strip-units(nth($name, 7));
+  $horShift: (txf-strip-units(nth($name, 5)) * $horSize) / txf-strip-units(nth($name, 7));
+  $hor: ($horPos + $horSize + $horShift) * 100%;
+  $vertPos: txf-strip-units(nth($name, 2)) / txf-strip-units(nth($name, 8));
+  $vertSize: (txf-strip-units(nth($name, 6)) * $vertPos) / txf-strip-units(nth($name, 8));
+  $vertShift: (txf-strip-units(nth($name, 6)) * $vertSize) / txf-strip-units(nth($name, 8));
+  $vert: ($vertPos + $vertSize + $vertShift) * 100%;
+  background-position: $hor $vert;
+}
+
+
+
+// Background Size With Relative Size
+
+@mixin tx-sprite-size-rel($name) {
+  background-size: ((nth($name, 7) / nth($name, 5)) * 100%) ((nth($name, 8) / nth($name, 6)) * 100%);
+}
+
+
+
 // Sprite Image
 
 @mixin tx-sprite($name, $block: false, $padding: false, $position: true, $color: null) {
@@ -53,6 +90,24 @@
   @if $position {
     @include tx-sprite-position($name);
   }
+}
+
+
+
+// Sprite Image With Relative Size
+
+@mixin tx-sprite-rel($name, $block: false, $position: true, $color: null) {
+  @include tx-sprite-image($name);
+  @if $block {
+    @include tx-sprite-block-rel($name);
+  }
+  @if $color {
+    background-color: $color;
+  }
+  @if $position {
+    @include tx-sprite-position-rel($name);
+  }
+  @include tx-sprite-size-rel($name);
 }
 
 
@@ -79,4 +134,8 @@
   $index: str-index($string, '.');
   $string: str-slice($string, 0, ($index - 1));
   @return $string;
+}
+
+@function txf-strip-units($value) {
+  @return $value / ($value * 0 + 1);
 }
