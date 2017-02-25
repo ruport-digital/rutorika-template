@@ -28,6 +28,13 @@ rendering path.
 $ grunt build-critical
 ```
 
+Run `grunt build-fast` to build project and without  running test or
+linters.
+
+```sh
+$ grunt build-fast
+```
+
 ## Process images, scripts, stylesheets and HTML
 
 Run `grunt compile` to generate, optimise and minify images, scripts
@@ -37,6 +44,12 @@ Run `grunt compile` to generate, optimise and minify images, scripts
 
 ```sh
 $ grunt compile
+```
+
+Run `grunt process-sprites` to compile sprites
+
+```sh
+$ grunt process-sprites
 ```
 
 ## Linting & testing
