@@ -7,7 +7,6 @@ module.exports = (grunt) => {
     'eslint',
     'jsinspect',
     'unused:unused',
-    'clean:reports',
   ]);
 
   grunt.registerTask('performance', [

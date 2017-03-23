@@ -29,13 +29,11 @@ module.exports = config => ({
         dir: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.CSS_DIR}/`,
         sass: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.SASS_DIR}/`,
         comp: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.SASS_DIR}/${config.COMPONENTS_DIR}/`,
-        filename: config.CSS_FILENAME,
       },
       js: {
         dir: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.JS_DIR}/`,
         devDir: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.JS_DEV_DIR}/`,
         comp: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.JS_DEV_DIR}/${config.COMPONENTS_DIR}/`,
-        bundle: config.JS_BUNDLE,
         service: config.JS_SERVICE,
       },
       fonts: {
@@ -71,6 +69,7 @@ module.exports = config => ({
     dataURIFallback: '_project-imagesIE.scss',
     sprites: config.SPRITES.map(sprite => `!**/${sprite.split('.')[0]}*/*.*`),
     imageFiles: '{png,jpg,jpeg,gif,svg}',
+    imageJpegFiles: '{jpg,jpeg}',
     uncssIgnoreFiles: [
       '404.html',
     ],

@@ -13,3 +13,5 @@
     @extend #{'%ie-image-' + $class};
   }
 }
+
+// sass-lint:enable placeholder-in-extend

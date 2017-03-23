@@ -468,15 +468,17 @@ $tapColor: rgba($active, .25);
 
 // sass-lint:disable no-vendor-prefixes
 
+@extend %tx-linkTouchStates;
+
 a {
   @extend %focus;
-  @extend %tx-fastTouch;
-  @extend %tx-linkTouchStates;
   @include tx-link($link, $visited, $hover, $active);
   -webkit-tap-highlight-color: $tapColor;
   text-decoration: underline;
   transition: $UITransitionDefault;
 }
+
+@include tx-linkTouchStates;
 
 // sass-lint:enable no-vendor-prefixes
 
@@ -553,8 +555,8 @@ label {
 // sass-lint:disable no-vendor-prefixes
 
 %formAppearanceReset {
-  -moz-appearance: none;
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 

@@ -4,7 +4,6 @@
   "description": "TemplateX",
   "main": "build/index.html",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "*",
     "babel-preset-env": "*",
@@ -33,9 +32,9 @@
     "grunt-critical": "*",
     "grunt-cssc": "*",
     "grunt-csscomb": "*",
-    "grunt-csscss": "*",
     "grunt-datauri": "*",
     "grunt-eslint": "*",
+    "grunt-guetzli": "^0.1.6",
     "grunt-htmlhint": "*",
     "grunt-jscs": "*",
     "grunt-jsinspect": "*",

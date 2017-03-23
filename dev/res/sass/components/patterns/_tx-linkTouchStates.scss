@@ -1,14 +1,16 @@
 /* Link Touch State */
 
-$tx-linkTouchState-color: $link;
+@mixin tx-linkTouchStates {
 
-%tx-linkTouchStates {
+  @include tx-media(coarse) {
 
-  .mdz-touchevents & {
+    a {
 
-    &:hover,
-    &:active {
-      color: $tx-linkTouchState-color;
+      &:hover,
+      &:active {
+        color: $link;
+      }
+
     }
 
   }

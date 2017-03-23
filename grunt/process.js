@@ -29,7 +29,6 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('process-css', [
     'sass:build',
-    'csscss',
     'postcss',
     'csscomb',
     'cssc',

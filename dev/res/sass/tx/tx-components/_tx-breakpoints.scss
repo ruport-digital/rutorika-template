@@ -4,8 +4,8 @@
 
 // Media Queries
 
-@mixin tx-media($name) {
-  @media #{map-get($mediaQueries, $name)} {
+@mixin tx-media($name, $pixels: false) {
+  @media #{txf-media($name, $pixels)} {
 
     @content;
 
@@ -16,12 +16,17 @@
 
 // Functions
 
-@function txf-breakpoint($point) {
-  @return map-get($breakpointsRem, $point);
+@function txf-media($name, $pixels: false) {
+  $finalName: if($pixels, #{$name + unquote('-pixels')}, $name);
+  @return #{map-get($mediaQueries, $finalName)};
 }
 
-@function txf-breakpointRem($point) {
-  @return #{(map-get($breakpoints, $point) / $fontSize) * $fontSizeQuotient}em;
+@function txf-breakpoint($point, $pixels: false) {
+  @if ($pixels) {
+    @return map-get($breakpoints, $point);
+  } @else {
+    @return #{(map-get($breakpoints, $point) / $fontSize) * $fontSizeQuotient}em;
+  }
 }
 
 @function txf-dpiBreakpoints($baseBreakpoint, $dpiBreakpoints) {
@@ -36,13 +41,13 @@
   @return $breakpointDPI;
 }
 
-@function txf-breakpointQuery($min: null, $max: null, $dpi: null, $type: screen) {
+@function txf-breakpointQuery($min: null, $max: null, $dpi: null, $type: screen, $pixels: false) {
   $breakpoint: only $type;
   @if ($min) {
-    $breakpoint: $breakpoint unquote('and') (min-width: txf-breakpoint($min));
+    $breakpoint: $breakpoint unquote('and') (min-width: txf-breakpoint($min, $pixels));
   }
   @if ($max) {
-    $breakpoint: $breakpoint unquote('and') (max-width: txf-breakpoint($max));
+    $breakpoint: $breakpoint unquote('and') (max-width: txf-breakpoint($max, $pixels));
   }
   @if ($dpi) {
     $dpiValues: txf-dpiValues(map-get($breakpointsDPI, $dpi));
@@ -51,8 +56,9 @@
   @return $breakpoint;
 }
 
-@function txf-deviceBreakpoint($name, $type: screen) {
-  @return map-get($breakpointQueries, $name);
+@function txf-deviceBreakpoint($name, $pixels: false) {
+  $finalName: if($pixels, #{$name + unquote('-pixels')}, $name);
+  @return map-get($breakpointQueries, $finalName);
 }
 
 @function txf-dpiValues($value) {

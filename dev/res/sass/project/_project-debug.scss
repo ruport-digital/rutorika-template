@@ -80,10 +80,84 @@ $debug-a11y-outlineColor: $red;
 
 @if ($tx-debug == true) {
 
+  %debugOutline {
+    outline: 1em solid $debug-a11y-outlineColor;
+  }
+
+  * {
+
+    &[style] {
+      @extend %debugOutline;
+    }
+
+  }
+
+  html {
+
+    &:not([lang]),
+    &[lang = ''] {
+      @extend %debugOutline;
+    }
+
+  }
+
+  meta {
+
+    &[charset] {
+
+      &:not([charset='UTF-8']) {
+        @extend %debugOutline;
+        display: block;
+      }
+
+    }
+
+  }
+
   img {
 
     &:not([alt]) {
-      outline: 1em solid $debug-a11y-outlineColor;
+      @extend %debugOutline;
+    }
+
+  }
+
+  a {
+
+    &:not([href]),
+    &[href = ''],
+    &[href *= 'javascript:void(0)'] {
+      @extend %debugOutline;
+    }
+
+    &:empty {
+      @extend %debugOutline;
+    }
+
+  }
+
+  input,
+  select,
+  textarea {
+
+    &:not([id]) {
+      @extend %debugOutline;
+    }
+
+  }
+
+  button {
+
+    &:empty {
+      @extend %debugOutline;
+    }
+
+  }
+
+  label {
+
+    &:not([for]) {
+      @extend %debugOutline;
     }
 
   }

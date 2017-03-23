@@ -34,11 +34,9 @@ var CONFIG = {
 
   SASS_DIR: 'sass',                  // Sass
   CSS_DIR: 'css',                    // CSS
-  CSS_FILENAME: 'styles',            // CSS Filename
 
   JS_DEV_DIR: 'js-dev',              // Development JavaScript
   JS_DIR: 'js',                      // JavaScript
-  JS_BUNDLE: 'scripts',              // JavaScript Filename
   JS_SERVICE: 'service',             // JavaScript Filename
 
   FONTS_DIR: 'fonts'                 // Fonts

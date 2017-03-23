@@ -10,14 +10,14 @@ module.exports = (grunt, options) => {
     },
     dev: {
       cwd: project.res.css.sass,
-      src: ['**/*.{scss,sass}'],
+      src: ['**/*.{scss,sass,css}'],
       dest: project.res.css.dir,
       ext: '.min.css',
       expand: true,
     },
     build: {
       cwd: project.res.css.sass,
-      src: ['**/*.{scss,sass}'],
+      src: ['**/*.{scss,sass,css}'],
       dest: project.res.css.dir,
       ext: '.css',
       expand: true,

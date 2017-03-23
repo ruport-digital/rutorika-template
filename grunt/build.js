@@ -6,10 +6,12 @@ module.exports = (grunt) => {
     'copy:build',
     'copy:meta',
     'imagemin',
+    'guetzli',
     'htmlmin',
     'prettify',
     'compress',
     'string-replace:build',
+    'clean:reports',
     'cleanempty',
   ]);
 
@@ -19,10 +21,12 @@ module.exports = (grunt) => {
     'copy:build',
     'copy:meta',
     'imagemin',
+    'guetzli',
     'htmlmin',
     'prettify',
     'compress',
     'string-replace:build',
+    'clean:reports',
     'cleanempty',
   ]);
 
@@ -33,11 +37,13 @@ module.exports = (grunt) => {
     'copy:build',
     'copy:meta',
     'imagemin',
+    'guetzli',
     'htmlmin',
     'prettify',
     'compress',
     'compile-critical',
     'string-replace:build',
+    'clean:reports',
     'cleanempty',
   ]);
 
@@ -47,11 +53,13 @@ module.exports = (grunt) => {
     'copy:build',
     'copy:meta',
     'imagemin',
+    'guetzli',
     'htmlmin',
     'prettify',
     'compress',
     'compile-critical',
     'string-replace:build',
+    'clean:reports',
     'cleanempty',
   ]);
 };

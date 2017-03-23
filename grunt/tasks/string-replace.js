@@ -37,7 +37,7 @@ module.exports = (grunt, options) => {
         }],
       },
       files: {
-        './': [`${project.build.dir}*.{html,webapp,json}, ${project.dir}*.{html}`],
+        './': [`${project.build.dir}*.{html,webapp,json}`, `${project.dir}*.html`],
       },
     },
     css: {
@@ -74,6 +74,9 @@ module.exports = (grunt, options) => {
         replacements: [{
           pattern: /((?:\r?\n|\r)+\/\* eslint[\s\S]*?\*\/)/g,
           replacement: '\n$1',
+        }, {
+          pattern: /"use strict";/g,
+          replacement: '\n"use strict";',
         }],
       },
       files: {

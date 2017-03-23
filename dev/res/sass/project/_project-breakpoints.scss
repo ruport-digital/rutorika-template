@@ -7,13 +7,6 @@ $breakpoints: (
   desktopMax: 1920px
 );
 
-$breakpointsRem: (
-  phoneMax: txf-breakpointRem(phoneMax),
-  desktopMin: txf-breakpointRem(desktopMin),
-  desktopWide: txf-breakpointRem(desktopWide),
-  desktopMax: txf-breakpointRem(desktopMax)
-);
-
 $breakpointsDPI: (
   hdpi: 150,
   xhdpi: 250
@@ -23,24 +16,38 @@ $breakpointQueries: (
   hdpi: txf-breakpointQuery($dpi: hdpi),
   xhdpi: txf-breakpointQuery($dpi: xhdpi),
   phone: txf-breakpointQuery($max: phoneMax),
+  phone-pixels: txf-breakpointQuery($max: phoneMax, $pixels: true),
   phone2x: txf-breakpointQuery($max: phoneMax, $dpi: hdpi),
+  phone2x-pixels: txf-breakpointQuery($max: phoneMax, $dpi: hdpi, $pixels: true),
   phone3x: txf-breakpointQuery($max: phoneMax, $dpi: xhdpi),
+  phone3x-pixels: txf-breakpointQuery($max: phoneMax, $dpi: xhdpi, $pixels: true),
   tablet: txf-breakpointQuery($min: phoneMax, $max: desktopMin),
+  tablet-pixels: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $pixels: true),
   tablet2x: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $dpi: hdpi),
+  tablet2x-pixels: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $dpi: hdpi, $pixels: true),
   tablet3x: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $dpi: xhdpi),
+  tablet3x-pixels: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $dpi: xhdpi, $pixels: true),
   wide: txf-breakpointQuery($min: desktopWide),
+  wide-pixels: txf-breakpointQuery($min: desktopWide, $pixels: true),
 );
 
 $mediaQueries: (
   hdpi: txf-deviceBreakpoint(hdpi),
   xhdpi: txf-deviceBreakpoint(xhdpi),
   phone: txf-deviceBreakpoint(phone),
+  phone-pixels: txf-deviceBreakpoint(phone, $pixels: true),
   phone2x: txf-deviceBreakpoint(phone2x),
+  phone2x-pixels: txf-deviceBreakpoint(phone2x, $pixels: true),
   phone3x: txf-deviceBreakpoint(phone3x),
+  phone3x-pixels: txf-deviceBreakpoint(phone3x, $pixels: true),
   tablet: txf-deviceBreakpoint(tablet),
+  tablet-pixels: txf-deviceBreakpoint(tablet, $pixels: true),
   tablet2x: txf-deviceBreakpoint(tablet2x),
+  tablet2x-pixels: txf-deviceBreakpoint(tablet2x, $pixels: true),
   tablet3x: txf-deviceBreakpoint(tablet3x),
+  tablet3x-pixels: txf-deviceBreakpoint(tablet3x, $pixels: true),
   wide: txf-deviceBreakpoint(wide),
+  wide-pixels: txf-deviceBreakpoint(wide, $pixels: true),
   print: 'print',
   exotic: 'projection, tv',
   home: '(display-mode: standalone)',
