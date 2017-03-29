@@ -77,7 +77,7 @@ summary {
   @extend %block;
 }
 
-%header {
+%heading {
   @include tx-rhythm(2, .75);
   font-weight: bold;
   text-rendering: auto;
@@ -88,32 +88,32 @@ summary {
 }
 
 h1 {
-  @extend %header;
+  @extend %heading;
   @include tx-font-size(h1);
 }
 
 h2 {
-  @extend %header;
+  @extend %heading;
   @include tx-font-size(h2);
 }
 
 h3 {
-  @extend %header;
+  @extend %heading;
   @include tx-font-size(h3);
 }
 
 h4 {
-  @extend %header;
+  @extend %heading;
   @include tx-font-size(h4);
 }
 
 h5 {
-  @extend %header;
+  @extend %heading;
   @include tx-font-size(h5);
 }
 
 h6 {
-  @extend %header;
+  @extend %heading;
   @include tx-font-size(h6);
 }
 
@@ -143,13 +143,13 @@ dl {
 }
 
 dt {
-  @include tx-rhythm(1, .5);
+  @extend %defaultBlock;
   font-weight: bold;
 }
 
 dd {
+  @extend %defaultBlock;
   @extend %list;
-  @include tx-rhythm(.5, .5);
   font-style: italic;
 }
 
@@ -199,19 +199,19 @@ pre {
 }
 
 code {
-  @extend %mono;
   @extend %highlight;
+  @extend %mono;
 }
 
 samp {
-  @extend %mono;
   @extend %highlight;
+  @extend %mono;
 }
 
 var {
-  @extend %mono;
-  @extend %highlight;
   @extend %attention;
+  @extend %highlight;
+  @extend %mono;
   font-style: normal;
 }
 
@@ -242,8 +242,8 @@ b {
 }
 
 blockquote {
-  @extend %quoteEmphasis;
   @extend %quotes;
+  @extend %quoteEmphasis;
   @include tx-rhythm(1, 1, $marginRight: 3em, $marginLeft: 3em);
 }
 
@@ -256,8 +256,8 @@ cite {
 }
 
 q {
-  @extend %quoteEmphasis;
   @extend %quotes;
+  @extend %quoteEmphasis;
 }
 
 i {
@@ -269,9 +269,9 @@ i {
   cursor: help;
 }
 
-%interactiveHighlight {
-  $interactiveHighlight-color: $blue;
+$interactiveHighlight-color: $blue;
 
+%interactiveHighlight {
   border-bottom: 1px dotted $interactiveHighlight-color;
   color: $interactiveHighlight-color;
 }
@@ -304,17 +304,17 @@ dfn {
 }
 
 acronym {
+  @extend %acronymAbbr;
   @extend %attention;
   @extend %interactive;
   @extend %interactiveHighlight;
-  @extend %acronymAbbr;
 }
 
 abbr {
+  @extend %acronymAbbr;
   @extend %attention;
   @extend %interactive;
   @extend %interactiveHighlight;
-  @extend %acronymAbbr;
 }
 
 ins {
@@ -468,8 +468,6 @@ $tapColor: rgba($active, .25);
 
 // sass-lint:disable no-vendor-prefixes
 
-@extend %tx-linkTouchStates;
-
 a {
   @extend %focus;
   @include tx-link($link, $visited, $hover, $active);
@@ -568,8 +566,31 @@ label {
   cursor: not-allowed;
 }
 
+// sass-lint:disable no-vendor-prefixes
+
+$formPlaceholder-color: $gray;
+
 %formPlaceholder {
-  $formPlaceholder-color: $gray;
+
+  &::-webkit-input-placeholder {
+    color: $formPlaceholder-color;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    color: $formPlaceholder-color;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $formPlaceholder-color;
+    opacity: 1;
+  }
+
+  &:-moz-placeholder {
+    color: $formPlaceholder-color;
+    opacity: 1;
+  }
 
   &::placeholder {
     color: $formPlaceholder-color;
@@ -578,12 +599,14 @@ label {
 
 }
 
+// sass-lint:enable no-vendor-prefixes
+
 input {
-  @extend %formBaseline;
-  @extend %formFont;
-  @extend %formBoxSizing;
-  @extend %formBorderReset;
   @extend %formAlign;
+  @extend %formBaseline;
+  @extend %formBorderReset;
+  @extend %formBoxSizing;
+  @extend %formFont;
   @extend %formPlaceholder;
 
   &[type='radio'] {
@@ -603,17 +626,22 @@ input {
     border: 0;
   }
 
+  // sass-lint:disable no-vendor-prefixes
+
   &[type='search'] {
     @extend %formAppearanceReset;
-  }
 
-  // sass-lint:disable no-vendor-prefixes
+    ::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+
+  }
 
   &[type='number'] {
     @extend %formAppearanceReset;
 
     &::-webkit-inner-spin-button {
-      @extend %formAppearanceReset;
+      -webkit-appearance: none;
     }
 
   }
@@ -631,11 +659,11 @@ input {
 }
 
 select {
+  @extend %form;
+  @extend %formAlign;
   @extend %formBaseline;
   @extend %formFont;
   @extend %formTextReset;
-  @extend %formAlign;
-  @extend %form;
   @extend %tx-fastTouch;
   @include tx-grid-height(1.5, $setLineHeight: false);
   vertical-align: top;
@@ -654,12 +682,12 @@ select {
 }
 
 button {
-  @extend %formBaseline;
-  @extend %formFont;
-  @extend %formBoxSizing;
-  @extend %formBorderReset;
-  @extend %formTextReset;
   @extend %formAppearanceReset;
+  @extend %formBaseline;
+  @extend %formBorderReset;
+  @extend %formBoxSizing;
+  @extend %formFont;
+  @extend %formTextReset;
   @extend %button;
 
   &[disabled] {
@@ -670,9 +698,9 @@ button {
 
 textarea {
   @extend %block;
+  @extend %form;
   @extend %formBaseline;
   @extend %formBoxSizing;
-  @extend %form;
   @extend %formPlaceholder;
   @include tx-form-height(9, 1);
   @include tx-rhythm-padding(.25, .25, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
