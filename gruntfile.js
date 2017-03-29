@@ -28,6 +28,7 @@ var CONFIG = {
   CRITICAL_MOBILE_H: 640,            // Critical Height on Mobile
 
   CSS_IMAGES_DIR: 'images',          // CSS Images
+  SOURCE_IMAGES_DIR: 'sources',      // CSS Images
   SPRITES: [],                       // CSS Images that Should be Compiled into Separate Sprite Sheets
   DATA_URI: [],                      // CSS Images that Should be Converted into DataURI
   DENSITIES: [1, 2, 3],              // Pixel Densities
