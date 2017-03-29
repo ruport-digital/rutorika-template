@@ -26,7 +26,7 @@ function generateTask(project, helpers, name, ext, density, densitySuffix, direc
 
 function getDensity(grunt, project, helpers, name, ext, density, spritePath, imgPath) {
   const densitySuffix = density === 1 ? '' : `@${density}x`;
-  const directoryPath = `${spritePath}${name}${densitySuffix}/`;
+  const directoryPath = `${project.res.images.sources}${name}${densitySuffix}/`;
   if (grunt.file.exists(directoryPath)) {
     generateTask(project, helpers, name, ext, density, densitySuffix, directoryPath, spritePath, imgPath);
   }

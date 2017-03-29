@@ -14,10 +14,15 @@
 
 @import 'base/_baseline';
 @import 'base/_layout';
-@import 'base/_sprites';
 
 
 
 // Utilities
 
 @import 'utilities/_utilities';
+
+
+
+// Project Sprites
+
+@import 'base/_sprites';

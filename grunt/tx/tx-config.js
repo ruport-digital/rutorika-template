@@ -21,6 +21,7 @@ module.exports = config => ({
       },
       images: {
         dir: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.CSS_IMAGES_DIR}/`,
+        sources: `${config.SOURCE_IMAGES_DIR}/`,
         sprites: config.SPRITES,
         dataURI: config.DATA_URI,
         desities: config.DENSITIES,
