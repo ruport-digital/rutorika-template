@@ -1,9 +1,22 @@
 module.exports = (grunt, options) => {
   const { project } = options;
 
+  function getFiles() {
+    const files = [];
+    grunt.file.recurse(project.res.css.dir.replace(project.dir, project.build.dir), (absPath) => {
+      const pathArray = absPath.split('.');
+      const extension = pathArray.pop();
+      const min = pathArray.pop();
+      if ((extension === 'css') && (min === 'min')) {
+        files.push(absPath);
+      }
+    });
+    return files;
+  }
+
   return {
     options: {
-      css: `${project.res.css.dir}${project.res.css.filename}.css`,
+      css: getFiles(),
       dimensions: [{
         width: project.build.critical.widthDesktop,
         height: project.build.critical.heightDesktop,
@@ -13,6 +26,7 @@ module.exports = (grunt, options) => {
       }],
       minify: true,
       extract: false,
+      inline: true,
     },
     optimize: {
       cwd: project.build.dir,

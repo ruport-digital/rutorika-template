@@ -32,7 +32,7 @@ module.exports = (grunt, options) => {
     'postcss',
     'csscomb',
     'cssc',
-    'uncss',
+    // 'uncss',
     'string-replace:css',
     'cssmin',
   ]);

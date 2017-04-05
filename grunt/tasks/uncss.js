@@ -1,22 +1,24 @@
 module.exports = (grunt, options) => {
   const { project, helpers } = options;
   const ignoredFiles = helpers.uncssIgnoreFiles.map(file => `!${project.dir}${file}`);
-  const files = {};
 
-  grunt.file.recurse(project.res.css.dir, (absPath) => {
-    const pathArray = absPath.split('.');
-    const extension = pathArray.pop();
-    const min = pathArray.pop();
-    if ((extension === 'css') && (min !== 'min')) {
-      files[absPath] = [`${project.dir}*.html`, ...ignoredFiles];
-    }
-  });
+  function getFiles() {
+    const files = {};
+    grunt.file.recurse(project.res.css.dir, (absPath) => {
+      const pathArray = absPath.split('.');
+      const extension = pathArray.pop();
+      const min = pathArray.pop();
+      if ((extension === 'css') && (min === 'min')) {
+        files[absPath] = [`${project.dir}*.html`, ...ignoredFiles];
+      }
+    });
+    return files;
+  }
 
   return {
     options: {
       ignore: helpers.uncssIgnoreClasses,
-      timeout: 1000,
     },
-    optimize: { files },
+    optimize: { files: getFiles() },
   };
 };
