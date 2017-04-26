@@ -363,7 +363,6 @@ a {
   color: #4c8cca;
   -webkit-tap-highlight-color: rgba(15, 66, 99, .25);
   text-decoration: underline;
-  -webkit-transition: .2s;
   transition: .2s;
 }
 
@@ -682,4 +681,42 @@ body {
     padding: 2.54cm;
   }
 
+}
+
+/* Fonts */
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/opensans-regular.eot');
+  src: url('../fonts/OpenSans/opensans-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/OpenSans/opensans-regular.woff2') format('woff2'), url('../fonts/OpenSans/opensans-regular.woff') format('woff'), url('../fonts/OpenSans/opensans-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: normal;
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/opensans-bold.eot');
+  src: url('../fonts/OpenSans/opensans-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/OpenSans/opensans-bold.woff2') format('woff2'), url('../fonts/OpenSans/opensans-bold.woff') format('woff'), url('../fonts/OpenSans/opensans-bold-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: italic;
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/opensans-italic.eot');
+  src: url('../fonts/OpenSans/opensans-italic.eot?#iefix') format('embedded-opentype'), url('../fonts/OpenSans/opensans-italic.woff2') format('woff2'), url('../fonts/OpenSans/opensans-italic.woff') format('woff'), url('../fonts/OpenSans/opensans-italic-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/opensans-bolditalic.eot');
+  src: url('../fonts/OpenSans/opensans-bolditalic.eot?#iefix') format('embedded-opentype'), url('../fonts/OpenSans/opensans-bolditalic.woff2') format('woff2'), url('../fonts/OpenSans/opensans-bolditalic.woff') format('woff'), url('../fonts/OpenSans/opensans-bolditalic-webfont.ttf') format('truetype');
+}
+
+.font-OpenSans-is-loaded a {
+  font-family: 'Open Sans';
 }

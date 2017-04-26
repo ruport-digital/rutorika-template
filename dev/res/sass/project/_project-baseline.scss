@@ -18,6 +18,13 @@ $font-sans: $sansSerifFontStack;
 $font-serif: $serifFontStack;
 $font-mono: $monospaceFontStack;
 
+$font-variants: (
+  regular: regular,
+  bold: bold,
+  italic: italic,
+  bolditalic: bolditalic
+);
+
 $fontSize: 16px;
 $lineHeight: 1.5;
 

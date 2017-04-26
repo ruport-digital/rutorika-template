@@ -163,3 +163,20 @@ $debug-a11y-outlineColor: $red;
   }
 
 }
+
+
+
+// Animation & Transition Debug
+
+// sass-lint:disable no-important
+
+@if ($tx-debug == true) {
+
+  %debug-animation {
+    transition-duration: 10s !important;
+    animation-duration: 10s !important;
+  }
+
+}
+
+// sass-lint:enable no-important

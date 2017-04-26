@@ -2,6 +2,65 @@
 
 
 
+// Font-face
+
+// sass-lint:disable placeholder-in-extend
+// sass-lint:disable extends-before-declarations
+
+@mixin tx-font-family($family) {
+  $familyNorm: txf-str-replace(#{$family}, ' ');
+  $familyExtend: #{%}font-#{$familyNorm};
+  @extend #{$familyExtend};
+}
+
+// sass-lint:enable placeholder-in-extend
+// sass-lint:enable extends-before-declarations
+
+@mixin tx-font-face($family, $filename, $variants) {
+  $familyNorm: txf-str-replace(#{$family}, ' ');
+  @each $variant, $name in $variants {
+
+    @font-face {
+      @include tx-font-variant($variant);
+      font-family: '#{$family}';
+      src: url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.eot');
+      src: url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.eot?#iefix') format('embedded-opentype'), url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.woff2') format('woff2'), url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.woff') format('woff'), url('../fonts/#{$familyNorm}/#{$filename}-#{$name}-webfont.ttf') format('truetype');
+    }
+  }
+
+  $extend: #{%}font-#{$familyNorm};
+  $loaded: font-#{$familyNorm}-is-loaded;
+
+  #{$extend} {
+
+    .#{$loaded} & {
+      font-family: '#{$family}';
+    }
+
+  }
+}
+
+@mixin tx-font-variant($variant) {
+  @if $variant == bold {
+    font-weight: bold;
+    font-style: normal;
+  } @else if $variant == italic {
+    font-weight: normal;
+    font-style: italic;
+  } @else if $variant == bolditalic {
+    font-weight: bold;
+    font-style: italic;
+  } @else if type-of($variant) == number {
+    font-weight: $variant;
+    font-style: normal;
+  } @else {
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+
+
 // Font Rendering
 
 // sass-lint:disable no-vendor-prefixes
@@ -64,4 +123,16 @@
 @mixin tx-hyphens($hyphens: manual) {
   -epub-hyphens: $hyphens;
   hyphens: $hyphens;
+}
+
+
+
+// Functions
+
+@function txf-str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + txf-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
 }

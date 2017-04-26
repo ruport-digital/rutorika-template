@@ -1,0 +1,7 @@
+/* Fonts */
+
+@include tx-font-face('Open Sans', opensans, $font-variants);
+
+a {
+  @include tx-font-family('Open Sans');
+}
