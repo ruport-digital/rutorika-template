@@ -1,6 +1,6 @@
 const eventTool = require('./tx-event');
 const createNode = require('./tx-createNode');
-const transition = require('./tx-transition')();
+const transition = require('./tx-transition')('transition', 'end');
 const translateGallery = require('./tx-translate').css;
 
 const SLIDE_THRESHOLD = 15;
@@ -157,8 +157,8 @@ function init(object, navigationObject, pageClassName) {
   }
 
   function setStatus(fixing, changing) {
-    sliderFixing = fixing || sliderFixing;
-    sliderChanging = changing || sliderChanging;
+    sliderFixing = fixing;
+    sliderChanging = changing;
   }
 
   /* Slider Utilities */
@@ -198,7 +198,7 @@ function init(object, navigationObject, pageClassName) {
   function finalizeSlide() {
     setStatus(false, false);
     getSlider().classList.remove(SLIDER_FIXING_CLASS_NAME, SLIDER_CHANGING_CLASS_NAME);
-    eventTool.unbind(getSlider(), transition, finalizeSlide);
+    getSlider().removeEventListener(transition, finalizeSlide);
   }
 
   function updateInteractionParameters(event) {
@@ -249,7 +249,7 @@ function init(object, navigationObject, pageClassName) {
 
   function positionSlider() {
     eventTool.trigger(getSlider(), SLIDER_EVENT, false, 'UIEvents');
-    eventTool.bind(getSlider(), transition, finalizeSlide);
+    getSlider().addEventListener(transition, finalizeSlide);
     setStatus(true, true);
     getSlider().classList.add(SLIDER_FIXING_CLASS_NAME);
     translateSlider(calculateCompleteDistance());
@@ -296,23 +296,24 @@ function init(object, navigationObject, pageClassName) {
   }
 
   function touchEnd() {
-    eventTool.unbind(document, 'touchmove', touchMove);
-    eventTool.unbind(document, 'touchend', touchEnd);
+    document.removeEventListener('touchmove', touchMove, true);
+    document.removeEventListener('touchend', touchEnd);
     cancelAnimationFrame(getAnimationFrame());
     requestAnimationFrame(fixSlider);
   }
 
   function touchStart(event) {
+    event.preventDefault();
     const status = getStatus();
     if (!status.fixing || !status.changing) {
       updateInteractionParameters(event);
-      eventTool.bind(document, 'touchmove', touchMove);
-      eventTool.bind(document, 'touchend', touchEnd);
+      document.addEventListener('touchmove', touchMove, true);
+      document.addEventListener('touchend', touchEnd);
     }
   }
 
-  function interactions() {
-    eventTool.bind(getSlider(), 'touchstart', touchStart);
+  function subscribe() {
+    getSlider().parentElement.addEventListener('touchstart', touchStart);
   }
 
   /* Slider Inititalization */
@@ -328,7 +329,7 @@ function init(object, navigationObject, pageClassName) {
 
   function initSlider() {
     setDefaultValues();
-    interactions();
+    subscribe();
   }
 
   initSlider();

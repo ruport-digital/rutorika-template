@@ -1,11 +1,31 @@
-module.exports = () => {
-  const transitions = ['transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'transitionend', 'webkitTransitionEnd'];
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+module.exports = (event, state) => {
+  const eventEnd = `${event}${state}`;
+  const eventCap = capitalize(event);
+  const eventEndCap = `${capitalize(event)}${capitalize(state)}`;
+  const transitionEvents = [
+    eventEnd,
+    `o${eventEndCap}`,
+    `MS${eventEndCap}`,
+    eventEnd,
+    `webkit${eventEndCap}`,
+  ];
+  const transitions = [
+    event,
+    `o${eventCap}`,
+    `MS${eventCap}`,
+    `Moz${eventCap}`,
+    `Webkit${eventCap}`,
+  ];
   const element = document.createElement('element');
   let transitionEvent;
-  transitions.some((transition) => {
+  transitions.some((transition, index) => {
     const condition = element.style[transition] !== undefined;
     if (condition) {
-      transitionEvent = transition;
+      transitionEvent = transitionEvents[index];
     }
     return condition;
   });
