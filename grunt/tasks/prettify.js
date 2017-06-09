@@ -5,13 +5,7 @@ module.exports = (grunt, options) => {
     options: {
       config: '.jsbeautifyrc',
     },
-    build: {
-      cwd: project.build.dir,
-      src: ['*.html'],
-      dest: project.build.dir,
-      expand: true,
-    },
-    dev: {
+    optimize: {
       cwd: project.dir,
       src: ['*.html'],
       dest: project.dir,

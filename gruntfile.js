@@ -1,5 +1,4 @@
-var CONFIG = {
-
+const CONFIG = {
   PROJECT: 'TemplateX',              // Project Name
   LANGUAGE: 'ru',                    // Language
   AMP: false,                        // Google AMP
@@ -40,18 +39,15 @@ var CONFIG = {
   JS_DIR: 'js',                      // JavaScript
   JS_SERVICE: 'service',             // JavaScript Filename
 
-  FONTS_DIR: 'fonts'                 // Fonts
-
+  FONTS_DIR: 'fonts',                // Fonts
 }
 
-module.exports = function(grunt) {
+module.exports = (grunt) => {
+  const loadConfig = require('load-grunt-config');
+  const configPath = `${process.cwd()}/grunt/tasks/`
+  const staticMappings = require('./grunt/tx/tx-mapping');
+  const data = require('./grunt/tx/tx-config')(CONFIG);
 
-  var loadConfig = require('load-grunt-config');
-  var configPath = `${process.cwd()}/grunt/tasks/`
-  var staticMappings = require('./grunt/tx/tx-mapping');
-  var data = require('./grunt/tx/tx-config')(CONFIG);
-
-  loadConfig(grunt, {configPath: configPath, jitGrunt: {staticMappings: staticMappings}, data: data});
-  loadConfig(grunt, {jitGrunt: true, init: false, data: data });
-
+  loadConfig(grunt, { configPath, jitGrunt: { staticMappings }, data});
+  loadConfig(grunt, { jitGrunt: true, init: false, data });
 };

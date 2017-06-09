@@ -17,6 +17,7 @@ module.exports = (grunt, options) => {
   grunt.registerTask('compile', [
     'clean:res',
     ...spritesTasks,
+    'process-images',
     ...dataURITasks,
     'process-html',
     'process-css',

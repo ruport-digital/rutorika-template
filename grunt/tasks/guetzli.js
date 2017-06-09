@@ -2,17 +2,20 @@ module.exports = (grunt, options) => {
   const { project, helpers } = options;
 
   return {
-    images: {
-      cwd: project.build.dir,
-      src: [
-        `**/*.${helpers.imageJpegFiles}`,
-        ...helpers.sprites,
-      ],
-      dest: project.build.dir,
+    options: {
+      quality: 80,
+    },
+    optimize: {
+      cwd: project.res.images.dir,
+      src: `**/*.${helpers.imageJpegFiles}`,
+      dest: project.res.images.dir,
       expand: true,
     },
-    options: {
-      quality: 84,
+    meta: {
+      cwd: project.build.dir,
+      src: `*.${helpers.imageFiles}`,
+      dest: project.build.dir,
+      expand: true,
     },
   };
 };

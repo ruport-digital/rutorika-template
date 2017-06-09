@@ -4,9 +4,9 @@ module.exports = (grunt, options) => {
   return {
     options: grunt.file.readJSON('.htmlminrc'),
     optimize: {
-      cwd: project.build.dir,
+      cwd: project.dir,
       src: ['*.html'],
-      dest: project.build.dir,
+      dest: project.dir,
       expand: true,
     },
   };

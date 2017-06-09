@@ -15,7 +15,6 @@ module.exports = (grunt, options) => {
         `!${project.res.templates.dir.replace(project.dir, '')}/**`,
         `!${project.res.css.sass.replace(project.dir, '')}/**`,
         ...helpers.dontCopy,
-        ...helpers.sprites,
       ],
       dest: project.build.dir,
       expand: true,

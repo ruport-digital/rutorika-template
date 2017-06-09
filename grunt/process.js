@@ -22,9 +22,17 @@ module.exports = (grunt, options) => {
     'clean:images',
   ]);
 
+  grunt.registerTask('process-images', [
+    'newer:imagemin:optimize',
+    // 'newer:guetzli:optimize',
+  ]);
+
   grunt.registerTask('process-html', [
     'clean:html',
     'processhtml',
+    'htmlmin',
+    'prettify',
+    'string-replace:html',
   ]);
 
   grunt.registerTask('process-css', [
@@ -42,5 +50,20 @@ module.exports = (grunt, options) => {
     'copy:service',
     'string-replace:js',
     'uglify',
+  ]);
+
+  grunt.registerTask('process-build', [
+    'clean:build',
+    'copy:build',
+    'copy:meta',
+  ]);
+
+  grunt.registerTask('process-finalize', [
+    'compress',
+    'imagemin:meta',
+    // 'newer:guetzli:meta',
+    'string-replace:build',
+    'clean:reports',
+    'cleanempty',
   ]);
 };

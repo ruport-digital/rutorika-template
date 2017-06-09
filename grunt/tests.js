@@ -1,11 +1,11 @@
 module.exports = (grunt) => {
   grunt.registerTask('quality', [
-    'htmlhint',
-    'sasslint',
-    'csslint',
-    'colorguard',
-    'eslint',
-    'jsinspect',
+    'newer:htmlhint',
+    'newer:sasslint',
+    'newer:csslint',
+    'newer:colorguard',
+    'newer:eslint',
+    'newer:jsinspect',
     'unused:unused',
   ]);
 

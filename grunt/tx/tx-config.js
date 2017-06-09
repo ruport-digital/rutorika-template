@@ -68,7 +68,6 @@ module.exports = config => ({
     dataURISCSS: '_project-images.scss',
     dataURI: '_project-base64.scss',
     dataURIFallback: '_project-imagesIE.scss',
-    sprites: config.SPRITES.map(sprite => `!**/${sprite.split('.')[0]}*/*.*`),
     imageFiles: '{png,jpg,jpeg,gif,svg}',
     imageJpegFiles: '{jpg,jpeg}',
     uncssIgnoreFiles: [

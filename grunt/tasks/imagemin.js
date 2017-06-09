@@ -11,13 +11,18 @@ module.exports = (grunt, options) => {
       }],
       use: [pngquant()],
     },
-    images: {
-      cwd: project.build.dir,
+    optimize: {
+      cwd: project.res.images.dir,
       src: [
         `**/*.${helpers.imageFiles}`,
         `!${project.res.fonts.dir.replace(project.dir, '')}**/*.svg`,
-        ...helpers.sprites,
       ],
+      dest: project.res.images.dir,
+      expand: true,
+    },
+    meta: {
+      cwd: project.build.dir,
+      src: `*.${helpers.imageFiles}`,
       dest: project.build.dir,
       expand: true,
     },

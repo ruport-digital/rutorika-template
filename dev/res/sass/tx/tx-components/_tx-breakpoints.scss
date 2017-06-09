@@ -41,7 +41,7 @@
   @return $breakpointDPI;
 }
 
-@function txf-breakpointQuery($min: null, $max: null, $dpi: null, $type: screen, $pixels: false) {
+@function txf-breakpointQuery($min: null, $max: null, $dpi: null, $type: screen, $pixels: false, $orientation: false) {
   $breakpoint: only $type;
   @if ($min) {
     $breakpoint: $breakpoint unquote('and') (min-width: txf-breakpoint($min, $pixels));
@@ -53,12 +53,14 @@
     $dpiValues: txf-dpiValues(map-get($breakpointsDPI, $dpi));
     $breakpoint: txf-dpiBreakpoints($breakpoint, $dpiValues);
   }
+  @if ($orientation) {
+    $breakpoint: $breakpoint unquote('and') (orientation: $orientation);
+  }
   @return $breakpoint;
 }
 
-@function txf-deviceBreakpoint($name, $pixels: false) {
-  $finalName: if($pixels, #{$name + unquote('-pixels')}, $name);
-  @return map-get($breakpointQueries, $finalName);
+@function txf-deviceBreakpoint($name) {
+  @return map-get($breakpointQueries, $name);
 }
 
 @function txf-dpiValues($value) {
