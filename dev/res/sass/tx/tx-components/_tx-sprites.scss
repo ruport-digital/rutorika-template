@@ -112,6 +112,14 @@
 
 
 
+// Sprite Shift
+
+@mixin tx-sprite-shift($name, $x: 0, $y: 0) {
+  margin: ((txf-sprite-height($name) / -2) + $y) 0 0 ((txf-sprite-width($name) / -2) + $x);
+}
+
+
+
 // Functions
 
 @function txf-sprite-width($name) {
