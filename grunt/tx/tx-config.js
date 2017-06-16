@@ -8,7 +8,7 @@ module.exports = config => ({
     language: config.LANGUAGE,
     amp: config.AMP,
     theme: config.THEME,
-    browsers: fs.readFileSync('./browserslist', 'utf8').split('\n').slice(0, -1),
+    browsers: fs.readFileSync('./browserslist', 'utf8').split(/(?:\r?\n|\r)/g).slice(0, -1),
     meta: `${config.META_DIR}/`,
     dir: `${config.DEVELOPMENT_DIR}/`,
     images: `${config.DEVELOPMENT_DIR}/${config.IMAGES_DIR}/`,
@@ -70,6 +70,7 @@ module.exports = config => ({
     dataURIFallback: '_project-imagesIE.scss',
     imageFiles: '{png,jpg,jpeg,gif,svg}',
     imageJpegFiles: '{jpg,jpeg}',
+    imagePngFiles: 'png',
     uncssIgnoreFiles: [
       '404.html',
     ],

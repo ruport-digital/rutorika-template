@@ -194,6 +194,8 @@
     "no-unused-vars": ["error", { "vars": "local", "args": "after-used" }],
     "no-use-before-define": "error",
     "array-bracket-spacing": ["error", "never"],
+    "array-bracket-newline": ["error", "never"],
+    "array-element-newline": ["error", "never"],
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "camelcase": ["error", { "properties": "never" }],

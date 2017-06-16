@@ -41,6 +41,7 @@
     "grunt-mocha-test": "*",
     "grunt-newer": "*",
     "grunt-phantomcss": "*",
+    "grunt-pngmin": "^1.3.0",
     "grunt-postcss": "*",
     "grunt-prettify": "*",
     "grunt-processhtml": "*",
@@ -50,12 +51,10 @@
     "grunt-string-replace": "*",
     "grunt-uncss": "*",
     "grunt-unused": "*",
-    "imagemin-pngquant-gfw": "*",
     "load-grunt-config": "*",
     "mocha": "*"
   },
   "scripts": {
-    "postinstall": "cd node_modules/grunt-phantomcss && npm install",
     "build": "grunt build",
     "start": "grunt concurrent",
     "test": "grunt test"

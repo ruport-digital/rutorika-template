@@ -24,6 +24,7 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('process-images', [
     'newer:imagemin:optimize',
+    'newer:pngmin:optimize',
     // 'newer:guetzli:optimize',
   ]);
 

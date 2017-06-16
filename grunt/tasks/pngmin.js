@@ -3,23 +3,21 @@ module.exports = (grunt, options) => {
 
   return {
     options: {
-      optimizationLevel: 5,
-      svgoPlugins: [{
-        removeViewBox: false,
-      }],
+      concurrency: 8,
+      ext: '.png',
+      quality: '65-80',
+      force: true,
+      speed: 2,
     },
     optimize: {
       cwd: project.res.images.dir,
-      src: [
-        `**/*.${helpers.imageFiles}`,
-        `!${project.res.fonts.dir.replace(project.dir, '')}**/*.svg`,
-      ],
+      src: `**/*.${helpers.imagePngFiles}`,
       dest: project.res.images.dir,
       expand: true,
     },
     meta: {
       cwd: project.build.dir,
-      src: `*.${helpers.imageFiles}`,
+      src: `*.${helpers.imagePngFiles}`,
       dest: project.build.dir,
       expand: true,
     },
