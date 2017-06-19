@@ -56,8 +56,9 @@
   },
   "scripts": {
     "build": "grunt build",
-    "start": "grunt concurrent",
-    "test": "grunt test"
+    "start": "grunt watch-project",
+    "test": "grunt test",
+    "txfullinstall": "cd node_modules/grunt-phantomcss && npm install"
   },
   "author": "uncle.funkay@gmail.com",
   "license": "ISC",

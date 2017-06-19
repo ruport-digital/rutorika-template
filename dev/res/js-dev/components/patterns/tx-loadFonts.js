@@ -1,11 +1,11 @@
 const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.js');
 
+const LOADED_PREFIX = 'font-';
 const LOADED_SUFFIX = '-is-loaded';
 
 function getFontClassName(fontName) {
-  const firstCharacter = fontName.charAt(0).toLowerCase();
   const noSpaces = fontName.replace(/ /g, '');
-  return `${firstCharacter}${noSpaces.slice(1, noSpaces.length)}${LOADED_SUFFIX}`;
+  return `${LOADED_PREFIX}${noSpaces}${LOADED_SUFFIX}`;
 }
 
 function fontPromise(font) {

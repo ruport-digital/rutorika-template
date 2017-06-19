@@ -16,15 +16,17 @@
 // sass-lint:enable placeholder-in-extend
 // sass-lint:enable extends-before-declarations
 
-@mixin tx-font-face($family, $filename, $variants) {
+@mixin tx-font-face($family, $filename, $variants, $extensions) {
   $familyNorm: txf-str-replace(#{$family}, ' ');
   @each $variant, $name in $variants {
 
     @font-face {
       @include tx-font-variant($variant);
       font-family: '#{$family}';
-      src: url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.eot');
-      src: url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.eot?#iefix') format('embedded-opentype'), url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.woff2') format('woff2'), url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.woff') format('woff'), url('../fonts/#{$familyNorm}/#{$filename}-#{$name}-webfont.ttf') format('truetype');
+      @if map-has-key($extensions, eot) {
+        src: url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.eot');
+      }
+      src: txf-font-face-format($extensions, $familyNorm, $filename, $name);
     }
   }
 
@@ -135,4 +137,22 @@
     @return str-slice($string, 1, $index - 1) + $replace + txf-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
   @return $string;
+}
+
+@function txf-font-face-format($extensions, $familyNorm, $filename, $name) {
+  $result: '';
+  @each $extension, $format in $extensions {
+    $comma: '';
+    @if $result == '' {
+      $comma: '';
+    } @else {
+      $comma: ', ';
+    }
+    @if $extension == eot {
+      $result: #{$result}#{$comma}#{url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.#{$extension}?#iefix') format('#{$format}')};
+    } @else {
+      $result: #{$result}#{$comma}#{url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.#{$extension}') format('#{$format}')};
+    }
+  }
+  @return $result;
 }

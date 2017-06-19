@@ -18,20 +18,27 @@ $font-sans: $sansSerifFontStack;
 $font-serif: $serifFontStack;
 $font-mono: $monospaceFontStack;
 
-$font-variants: (
+$fontSize: 16px;
+$lineHeight: 1.5;
+
+$fontVariants: (
   regular: regular,
   bold: bold,
   italic: italic,
   bolditalic: bolditalic
 );
 
-$fontSize: 16px;
-$lineHeight: 1.5;
-
-$remFallback: true;
+$fontFormats: (
+  eot: embedded-opentype,
+  woff2: woff2,
+  woff: woff,
+  ttf: truetype
+);
 
 $fontRatio: 1.2;
 $fontSizeQuotient: $fontSize / 16px;
+
+$remFallback: true;
 
 
 
