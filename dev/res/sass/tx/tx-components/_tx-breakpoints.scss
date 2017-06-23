@@ -4,6 +4,10 @@
 
 // Media Queries
 
+@mixin tx-mq($name, $pixels: false) {
+  @include tx-media($name, $pixels: false);
+}
+
 @mixin tx-media($name, $pixels: false) {
   @media #{txf-media($name, $pixels)} {
 
@@ -65,13 +69,13 @@
 
 @function txf-dpiValues($value) {
   $valueNumber: $value / 100;
-  $valueFraction: $value / 50;
+  // $valueFraction: $value / 50;
   @return (
-  '(-webkit-min-device-pixel-ratio: #{$valueNumber})',
-  '(min--moz-device-pixel-ratio: #{$valueNumber})',
-  '(-o-min-device-pixel-ratio: #{($valueFraction)} / 2)',
-  '(min-device-pixel-ratio: #{$valueNumber})',
-  '(min-resolution: #{$value}dpi)',
+  // '(-webkit-min-device-pixel-ratio: #{$valueNumber})',
+  // '(min--moz-device-pixel-ratio: #{$valueNumber})',
+  // '(-o-min-device-pixel-ratio: #{($valueFraction)} / 2)',
+  // '(min-device-pixel-ratio: #{$valueNumber})',
+  // '(min-resolution: #{$value}dpi)',
   '(min-resolution: #{$valueNumber}dppx)'
   );
 }
