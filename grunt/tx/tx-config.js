@@ -24,7 +24,7 @@ module.exports = config => ({
         sources: `${config.SOURCE_IMAGES_DIR}/`,
         sprites: config.SPRITES,
         dataURI: config.DATA_URI,
-        desities: config.DENSITIES,
+        densities: config.DENSITIES,
       },
       css: {
         dir: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.CSS_DIR}/`,
@@ -68,9 +68,11 @@ module.exports = config => ({
     dataURISCSS: '_project-images.scss',
     dataURI: '_project-base64.scss',
     dataURIFallback: '_project-imagesIE.scss',
-    imageFiles: '{png,jpg,jpeg,gif,svg}',
+    imageFiles: '{png,jpg,jpeg,gif,webp,svg}',
     imageJpegFiles: '{jpg,jpeg}',
     imagePngFiles: 'png',
+    imageRasterFiles: 'png,jpg,jpeg,gif,webp',
+    imageVectorFiles: 'svg',
     uncssIgnoreFiles: [
       '404.html',
     ],

@@ -34,9 +34,11 @@ function getDensity(grunt, project, helpers, name, ext, density, spritePath, img
 
 function getSprite(grunt, project, helpers, sprite, spritePath, imgPath) {
   const [name, ext] = sprite.split('.');
-  project.res.images.desities.forEach((density) => {
-    getDensity(grunt, project, helpers, name, ext, density, spritePath, imgPath);
-  });
+  if (helpers.imageRasterFiles.indexOf(ext) !== -1) {
+    project.res.images.densities.forEach((density) => {
+      getDensity(grunt, project, helpers, name, ext, density, spritePath, imgPath);
+    });
+  }
 }
 
 function generateTasks(grunt, project, helpers) {

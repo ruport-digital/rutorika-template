@@ -5,7 +5,11 @@ module.exports = (grunt, options) => {
     options: {
       optimizationLevel: 5,
       svgoPlugins: [{
+        removeTitle: true,
+      }, {
         removeViewBox: false,
+      }, {
+        removeUselessDefs: false,
       }],
     },
     optimize: {

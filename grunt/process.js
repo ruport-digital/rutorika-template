@@ -16,10 +16,14 @@ module.exports = (grunt, options) => {
     'dataURICleanup',
   ]);
 
-  grunt.registerTask('process-sprites', [
+  grunt.registerTask('process-raster-sprites', [
     'sprite',
     'spritesSCSS',
     'clean:images',
+  ]);
+
+  grunt.registerTask('process-vector-sprites', [
+    'svgstore',
   ]);
 
   grunt.registerTask('process-images', [

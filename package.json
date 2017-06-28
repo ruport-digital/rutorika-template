@@ -49,6 +49,7 @@
     "grunt-sass-lint": "*",
     "grunt-spritesmith": "*",
     "grunt-string-replace": "*",
+    "grunt-svgstore": "*",
     "grunt-uncss": "*",
     "grunt-unused": "*",
     "load-grunt-config": "*",
