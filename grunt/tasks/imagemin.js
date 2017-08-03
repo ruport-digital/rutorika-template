@@ -7,18 +7,35 @@ module.exports = (grunt, options) => {
       svgoPlugins: [{
         removeTitle: true,
       }, {
+        removeDesc: true,
+      }, {
         removeViewBox: false,
       }, {
         removeUselessDefs: false,
+      }, {
+        removeAttrs: {
+          attrs: [
+            'g:id',
+            'path:id',
+            'line:id',
+            'rect:id',
+            'circle:id',
+            'fill-rule',
+            'stroke-linecap',
+            'stroke-linejoin',
+          ],
+        },
+      }, {
+        cleanupIDs: false,
       }],
     },
     optimize: {
-      cwd: project.res.images.dir,
+      cwd: project.res.dir,
       src: [
         `**/*.${helpers.imageFiles}`,
         `!${project.res.fonts.dir.replace(project.dir, '')}**/*.svg`,
       ],
-      dest: project.res.images.dir,
+      dest: project.res.dir,
       expand: true,
     },
     meta: {

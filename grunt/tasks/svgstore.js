@@ -4,13 +4,23 @@
 const tasks = {
   options: {
     prefix: 'spt-',
+    svg: {
+      class: 'sourceSVG',
+    },
+    formatting: {
+      indent_size: 2,
+    },
+    includeTitleElement: false,
+    preserveDescElement: false,
+    cleanup: true,
+    cleanupdefs: true,
   },
 };
 
 function generateTask(project, helpers, name, ext, directoryPath, spritePath) {
   tasks[`${name}`] = {
     src: `${directoryPath}*.${ext}`,
-    dest: `${spritePath}${name}.${ext}`,
+    dest: `${spritePath}_${name}.${ext}`,
   };
 }
 
@@ -23,7 +33,7 @@ function getSprite(grunt, project, helpers, sprite, spritePath) {
 }
 
 function generateTasks(grunt, project, helpers) {
-  const spritePath = project.res.images.dir;
+  const spritePath = project.res.templates.comp;
   project.res.images.sprites.forEach((sprite) => {
     getSprite(grunt, project, helpers, sprite, spritePath);
   });
