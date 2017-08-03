@@ -16,6 +16,8 @@ module.exports = (grunt, options) => {
     'dataURICleanup',
   ]);
 
+  grunt.registerTask('process-sprites', tx.processSprites(grunt, project, helpers));
+
   grunt.registerTask('process-raster-sprites', [
     'sprite',
     'spritesSCSS',

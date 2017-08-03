@@ -93,7 +93,21 @@ function spritesSCSS(grunt, project, helpers) {
   }
 }
 
+function processSprites(grunt, project, helpers) {
+  const spritesTasks = [];
+  const rasterSprites = project.res.images.sprites.filter(value => value.split('.').pop() !== helpers.imageVectorFiles);
+  if (rasterSprites.length > 0) {
+    spritesTasks.push('process-raster-sprites');
+  }
+  const vectorSprites = project.res.images.sprites.filter(value => value.split('.').pop() === helpers.imageVectorFiles);
+  if (vectorSprites.length > 0) {
+    spritesTasks.push('process-vector-sprites');
+  }
+  return spritesTasks;
+}
+
 exports.criticalModernizr = criticalModernizr;
 exports.dataURIFallback = dataURIFallback;
 exports.dataURICleanup = dataURICleanup;
 exports.spritesSCSS = spritesSCSS;
+exports.processSprites = processSprites;

@@ -26,9 +26,11 @@ function generateTask(project, helpers, name, ext, directoryPath, spritePath) {
 
 function getSprite(grunt, project, helpers, sprite, spritePath) {
   const [name, ext] = sprite.split('.');
-  const directoryPath = `${project.res.images.sources}${name}/`;
-  if (grunt.file.exists(directoryPath)) {
-    generateTask(project, helpers, name, ext, directoryPath, spritePath);
+  if (helpers.imageVectorFiles.indexOf(ext) !== -1) {
+    const directoryPath = `${project.res.images.sources}${name}/`;
+    if (grunt.file.exists(directoryPath)) {
+      generateTask(project, helpers, name, ext, directoryPath, spritePath);
+    }
   }
 }
 
