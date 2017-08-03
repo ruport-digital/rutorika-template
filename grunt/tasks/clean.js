@@ -4,7 +4,7 @@ module.exports = (grunt, options) => {
   return {
     res: [
       `${project.res.dir}**/*.map`,
-      `${project.res.css.dir}*.css`,
+      `${project.res.css.dir}**/*.css`,
       `${project.res.js.dir}*.js`,
     ],
     html: [

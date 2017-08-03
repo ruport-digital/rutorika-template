@@ -27,6 +27,7 @@ module.exports = (grunt, options) => {
     'process-html',
     'process-css',
     'process-js',
+    'cleanempty:res',
   ]);
 
   grunt.registerTask('compile-critical', [

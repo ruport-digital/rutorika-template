@@ -4,6 +4,7 @@ module.exports = (grunt, options) => {
   return {
     options: {
       spawn: false,
+      event: ['added', 'changed'],
     },
     html: {
       files: [`${project.res.templates.dir}**/*.html`],
@@ -36,6 +37,7 @@ module.exports = (grunt, options) => {
     livereload: {
       options: {
         livereload: true,
+        interrupt: true,
       },
       files: [
         `${project.dir}*.html`,
