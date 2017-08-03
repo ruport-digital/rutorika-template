@@ -68,7 +68,7 @@ function spriteSCSS(grunt, project, helpers, sprite) {
   const fullName = sprite.split('.');
   const [name, ext] = fullName;
   const scssPath = `${project.res.css.sass}${helpers.scss}${helpers.temp}_${name}`;
-  project.res.images.desities.forEach((density) => {
+  project.res.images.densities.forEach((density) => {
     scss += eachDensitySpriteSCSS(grunt, scssPath, name, ext, density);
   });
   return scss;

@@ -649,7 +649,7 @@ input {
 
   // sass-lint:enable no-vendor-prefixes
 
-  &[disabled] {
+  &:disabled {
     @extend %formInactive;
   }
 
@@ -691,7 +691,7 @@ button {
   @extend %formTextReset;
   @extend %button;
 
-  &[disabled] {
+  &:disabled {
     @extend %formInactive;
   }
 
@@ -708,7 +708,7 @@ textarea {
   overflow: auto;
   font-size: inherit;
 
-  &[disabled] {
+  &:disabled {
     @extend %formInactive;
   }
 

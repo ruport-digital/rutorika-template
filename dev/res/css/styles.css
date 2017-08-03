@@ -473,10 +473,10 @@ button {
   appearance: none;
 }
 
-input[disabled],
+input:disabled,
 input[readonly],
-button[disabled],
-textarea[disabled],
+button:disabled,
+textarea:disabled,
 textarea[readonly] {
   opacity: .5;
   cursor: default;
