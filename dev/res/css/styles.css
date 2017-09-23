@@ -60,6 +60,7 @@ h6 {
   font-weight: bold;
   text-rendering: auto;
   -webkit-column-break-after: avoid;
+  page-break-after: avoid;
   break-after: avoid;
   orphans: 3;
   widows: 3;
@@ -170,7 +171,7 @@ th {
 code,
 samp,
 var {
-  color: #ee1c25;
+  color: #cc2929;
 }
 
 pre {
@@ -223,8 +224,8 @@ acronym,
 abbr,
 ins,
 mark {
-  border-bottom: 1px dotted #4c8cca;
-  color: #4c8cca;
+  border-bottom: 1px dotted #2988cc;
+  color: #2988cc;
 }
 
 del,
@@ -257,8 +258,8 @@ address {
 }
 
 del {
-  border-bottom: 1px dotted #acacac;
-  color: #acacac;
+  border-bottom: 1px dotted #999;
+  color: #999;
 }
 
 kbd {
@@ -267,7 +268,7 @@ kbd {
   height: 1.38rem;
   padding: 0 .25em;
   border-radius: 3px;
-  background: #acacac;
+  background: #999;
   background-clip: padding-box;
   font-weight: bold;
   font-family: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
@@ -306,7 +307,7 @@ td,
 th {
   padding: 23px 15px 24px;
   padding: 1.44rem 15px 1.5rem;
-  border: 1px solid #acacac;
+  border: 1px solid #999;
 }
 
 caption {
@@ -341,11 +342,11 @@ hr {
 
 ::-moz-selection {
   color: #fff;
-  background: #4c8cca;
+  background: #2988cc;
 }
 ::selection {
   color: #fff;
-  background: #4c8cca;
+  background: #2988cc;
 }
 
 /* Focus */
@@ -361,8 +362,8 @@ textarea:focus {
 /* Links */
 
 a {
-  color: #4c8cca;
-  -webkit-tap-highlight-color: rgba(15, 66, 99, .25);
+  color: #2988cc;
+  -webkit-tap-highlight-color: rgba(45, 112, 179, .25);
   text-decoration: underline;
   -webkit-text-decoration-skip: ink;
   text-decoration-skip: ink;
@@ -371,22 +372,22 @@ a {
 }
 
 a:visited {
-  color: #ad628d;
+  color: #af1fcc;
 }
 
 a:hover {
-  color: #ee1c25;
+  color: #cc2929;
 }
 
 a:active {
-  color: #0f4263;
+  color: #2d70b3;
 }
 
 @media (pointer: coarse) {
 
   a:hover,
   a:active {
-    color: #4c8cca;
+    color: #2988cc;
   }
 
 }
@@ -485,19 +486,25 @@ textarea[readonly] {
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #acacac;
+  color: #999;
+  opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999;
   opacity: 1;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #acacac;
+  color: #999;
   opacity: 1;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #acacac;
+  color: #999;
   opacity: 1;
 }
 
@@ -571,6 +578,7 @@ textarea {
   table,
   tr {
     -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
     break-inside: avoid;
   }
 
