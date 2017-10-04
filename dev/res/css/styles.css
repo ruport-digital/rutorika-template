@@ -60,7 +60,6 @@ h6 {
   font-weight: bold;
   text-rendering: auto;
   -webkit-column-break-after: avoid;
-  page-break-after: avoid;
   break-after: avoid;
   orphans: 3;
   widows: 3;
@@ -490,12 +489,6 @@ textarea::-webkit-input-placeholder {
   opacity: 1;
 }
 
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: #999;
-  opacity: 1;
-}
-
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: #999;
@@ -506,6 +499,11 @@ input::placeholder,
 textarea::placeholder {
   color: #999;
   opacity: 1;
+}
+
+input {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 input[type='file'] {
@@ -578,7 +576,6 @@ textarea {
   table,
   tr {
     -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
     break-inside: avoid;
   }
 

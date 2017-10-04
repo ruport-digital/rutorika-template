@@ -18,6 +18,14 @@ module.exports = (grunt, options) => {
     'cleanempty:res',
   ]);
 
+  grunt.registerTask('compile-fast', [
+    'sass:dev',
+    'postcss',
+    'browserify:dev',
+    'clean:html',
+    'processhtml',
+  ]);
+
   grunt.registerTask('compile-critical', [
     'critical',
     'criticalModernizr',

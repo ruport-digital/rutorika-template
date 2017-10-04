@@ -7,7 +7,7 @@ module.exports = (grunt, options) => {
       event: ['added', 'changed'],
     },
     html: {
-      files: [`${project.res.templates.dir}**/*.html`],
+      files: [`${project.res.templates.dir}**/*.{html,svg}`],
       tasks: [
         'clean:html',
         'processhtml',

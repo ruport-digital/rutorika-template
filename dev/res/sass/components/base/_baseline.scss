@@ -609,6 +609,7 @@ input {
   @extend %formBoxSizing;
   @extend %formFont;
   @extend %formPlaceholder;
+  box-shadow: none;
 
   &[type='radio'] {
     @extend %formRadioCheckbox;

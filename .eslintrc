@@ -193,9 +193,9 @@
     "no-undefined": "off",
     "no-unused-vars": ["error", { "vars": "local", "args": "after-used" }],
     "no-use-before-define": "error",
-    "array-bracket-spacing": ["error", "never"],
-    "array-bracket-newline": ["error", "never"],
-    "array-element-newline": ["error", "never"],
+    "array-bracket-spacing": "off",
+    "array-bracket-newline": "off",
+    "array-element-newline": "off",
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "camelcase": ["error", { "properties": "never" }],
@@ -247,9 +247,9 @@
       "after": "always"
     }],
     "max-depth": ["off", 4],
-    "max-len": ["error", 100, 2, {
+    "max-len": ["error", 150, 2, {
       "ignoreUrls": true,
-      "ignoreComments": false,
+      "ignoreComments": true,
       "ignoreRegExpLiterals": true,
       "ignoreStrings": true,
       "ignoreTemplateLiterals": true
