@@ -1,7 +1,7 @@
 module.exports = () => ({
   options: {
     logConcurrentOutput: true,
-    limit: 5,
+    limit: 6,
   },
   projectWatch: [
     'watch:html',
@@ -9,5 +9,13 @@ module.exports = () => ({
     'watch:sass',
     'watch:javascript',
     'watch:livereload',
+  ],
+  projectWatchServer: [
+    'watch:html',
+    'watch:images',
+    'watch:sass',
+    'watch:javascript',
+    'watch:livereload',
+    'connect:dev',
   ],
 });

@@ -5,7 +5,7 @@ module.exports = (grunt, options) => {
     options: {
       debug: true,
       keepalive: true,
-      port: 8000,
+      port: project.port,
     },
     dev: {
       options: {

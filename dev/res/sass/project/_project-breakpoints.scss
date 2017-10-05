@@ -27,9 +27,9 @@ $breakpointQueries: (
   phone: txf-breakpointQuery($max: phoneMax),
   phone2x: txf-breakpointQuery($max: phoneMax, $dpi: hdpi),
   phone3x: txf-breakpointQuery($max: phoneMax, $dpi: xhdpi),
-  tablet: txf-breakpointQuery($min: phoneMax, $max: desktopMin),
-  tablet2x: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $dpi: hdpi),
-  tablet3x: txf-breakpointQuery($min: phoneMax, $max: desktopMin, $dpi: xhdpi),
+  tablet: txf-breakpointQuery($max: desktopMin),
+  tablet2x: txf-breakpointQuery($max: desktopMin, $dpi: hdpi),
+  tablet3x: txf-breakpointQuery($max: desktopMin, $dpi: xhdpi),
   wide: txf-breakpointQuery($min: desktopWide),
 );
 
@@ -57,4 +57,9 @@ $mediaQueries: (
   progressive: '(scan: progressive)',
   interlace: '(scan: interlace)',
   grid: '(grid)',
+  still: '(prefers-reduced-motion: reduce)',
+  motion: '(prefers-reduced-motion: no-preference)',
+  contrast: '(-ms-high-contrast: active)',
+  bow: '(-ms-high-contrast: black-on-white)',
+  wob: '(-ms-high-contrast: white-on-black)',
 );

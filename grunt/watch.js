@@ -1,6 +1,12 @@
 module.exports = (grunt) => {
   grunt.registerTask('watch-project', [
     'compile-fast',
-    'concurrent',
+    'concurrent:projectWatch',
+  ]);
+
+  grunt.registerTask('watch-project-server', [
+    'compile-fast',
+    'notify:connect_start',
+    'concurrent:projectWatchServer',
   ]);
 };

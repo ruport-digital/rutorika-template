@@ -3,6 +3,7 @@ const CONFIG = {
   LANGUAGE: 'ru',                    // Language
   AMP: false,                        // Google AMP
   THEME: '#fd746c',                  // Theme Color
+  PORT: 3000,                        // Server Port
 
   DEVELOPMENT_DIR: 'dev',            // Development
   BUILD_DIR: 'build',                // Build

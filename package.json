@@ -6,6 +6,7 @@
   "private": true,
   "devDependencies": {
     "autoprefixer": "*",
+    "babel-plugin-sitrep": "*",
     "babel-preset-env": "*",
     "babel-preset-es2015": "*",
     "babelify": "*",
@@ -40,8 +41,9 @@
     "grunt-jsinspect": "*",
     "grunt-mocha-test": "*",
     "grunt-newer": "*",
+    "grunt-notify": "*",
     "grunt-phantomcss": "*",
-    "grunt-pngmin": "^1.3.0",
+    "grunt-pngmin": "*",
     "grunt-postcss": "*",
     "grunt-prettify": "*",
     "grunt-processhtml": "*",
@@ -57,7 +59,10 @@
   },
   "scripts": {
     "build": "grunt build",
-    "start": "grunt watch-project",
+    "prod": "grunt build",
+    "production": "grunt build",
+    "dev": "grunt watch-project-server",
+    "start": "grunt watch-project-server",
     "test": "grunt test",
     "txfullinstall": "cd node_modules/grunt-phantomcss && npm install"
   },

@@ -4,12 +4,14 @@ module.exports = (grunt) => {
     'test',
     'process-build',
     'process-finalize',
+    'notify:build',
   ]);
 
   grunt.registerTask('build-fast', [
     'compile',
     'process-build',
     'process-finalize',
+    'notify:build',
   ]);
 
   grunt.registerTask('build-critical', [
@@ -18,6 +20,7 @@ module.exports = (grunt) => {
     'process-build',
     'compile-critical',
     'process-finalize',
+    'notify:build',
   ]);
 
   grunt.registerTask('build-critical-fast', [
@@ -25,5 +28,6 @@ module.exports = (grunt) => {
     'process-build',
     'compile-critical',
     'process-finalize',
+    'notify:build',
   ]);
 };

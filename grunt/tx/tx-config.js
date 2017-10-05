@@ -8,6 +8,7 @@ module.exports = config => ({
     language: config.LANGUAGE,
     amp: config.AMP,
     theme: config.THEME,
+    port: config.PORT,
     browsers: fs.readFileSync('./browserslist', 'utf8').split(/(?:\r?\n|\r)/g).slice(0, -1),
     meta: `${config.META_DIR}/`,
     dir: `${config.DEVELOPMENT_DIR}/`,

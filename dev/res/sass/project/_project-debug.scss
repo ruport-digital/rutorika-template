@@ -2,9 +2,11 @@ $tx-debug: false;
 
 
 
-// Vertical Rhythm Lines
-
 @if ($tx-debug == true) {
+
+  // sass-lint:disable no-important
+
+  // Vertical Rhythm Lines
 
   %debug-rhythm {
     $debugGridColor: $blue;
@@ -18,22 +20,18 @@ $tx-debug: false;
     pointer-events: none;
   }
 
-}
 
 
+  // Developer Note
 
-// Developer Note
+  $debug-devNote-width: 200px;
+  $debug-devNote-padding: 5px;
+  $debug-devNote-borderRadius: 2px;
+  $debug-devNote-color: $white;
+  $debug-devNote-background: $red;
+  $debug-devNote-fontSize: 12px;
 
-$debug-devNote-width: 200px;
-$debug-devNote-padding: 5px;
-$debug-devNote-borderRadius: 2px;
-$debug-devNote-color: $white;
-$debug-devNote-background: $red;
-$debug-devNote-fontSize: 12px;
-
-$debug-devNoteTip-background: rgba($debug-devNote-background, .5);
-
-@if ($tx-debug == true) {
+  $debug-devNoteTip-background: rgba($debug-devNote-background, .5);
 
   %debug-devNoteStyle {
     border-radius: $debug-devNote-borderRadius;
@@ -69,16 +67,12 @@ $debug-devNoteTip-background: rgba($debug-devNote-background, .5);
 
   }
 
-}
 
 
+  // Accessibility Debug
 
-// Accessibility Debug
-
-$debug-a11y-outlineWidth: 2px;
-$debug-a11y-outlineColor: $red;
-
-@if ($tx-debug == true) {
+  $debug-a11y-outlineWidth: 2px;
+  $debug-a11y-outlineColor: $red;
 
   %debugOutline {
     outline: 1em solid $debug-a11y-outlineColor;
@@ -162,21 +156,111 @@ $debug-a11y-outlineColor: $red;
 
   }
 
-}
+
+
+  // Semantics Debug
+
+  $debug-semFlowTags: (h1, h2, h3, h4, h5, h6, p, ul, ol, dl, header, footer, nav, section, main, aside, article, figure, figcaption, progress, summary, blockquote, pre, code, address, table, fieldset, legend, label);
+  $debug-semTextTags: (dfn, acronym, abbr, ins, mark, del, strike, kbd, samp, var, strong, em, cite, q);
+  $debug-unsemTags: (div, span, b, i, s, sup, sub, big, small, u);
+  $debug-attrs: (style);
+
+  $debug-semantics-fontSize: 10px;
+  $debug-semFlowTags-color: $blue;
+  $debug-semTextTags-color: $yellow-darkest;
+  $debug-unsemTags-color: $red;
+  $debug-attrs-color: $purple;
+
+  %debug-tag {
+    position: absolute;
+    z-index: 10000;
+    font-weight: bold;
+  }
+
+  @each $debug-tag in $debug-semFlowTags {
+
+    #{$debug-tag} {
+
+      &:after {
+        @extend %debug-tag;
+        @include tx-font-size($debug-sem-fontSize, none);
+        content: ' <' + quote(#{$debug-tag}) + '>';
+        color: $debug-semFlowTags-color;
+      }
+
+    }
+
+  }
+
+  @each $debug-tag in $debug-semTextTags {
+
+    #{$debug-tag} {
+
+      &:after {
+        @extend %debug-tag;
+        @include tx-font-size($debug-sem-fontSize, none);
+        content: ' <' + quote(#{$debug-tag}) + '>';
+        color: $debug-semTextTags-color;
+      }
+
+    }
+
+  }
+
+  @each $debug-tag in $debug-unsemTags {
+
+    #{$debug-tag} {
+
+      &:after {
+        @extend %debug-tag;
+        @include tx-font-size($debug-sem-fontSize, none);
+        content: ' <' + quote(#{$debug-tag}) + '>';
+        color: $debug-unsemTags-color;
+      }
+
+    }
+
+  }
+
+  @each $debug-attr in $debug-attrs {
+
+    #{$debug-attr} {
+
+      &:after {
+        @extend %debug-tag;
+        @include tx-font-size($debug-sem-fontSize, none);
+        content: ' <' + quote(#{$debug-attr}) + '>';
+        color: $debug-attrs-color;
+      }
+
+    }
+
+  }
 
 
 
-// Animation & Transition Debug
+  // Alignment Debug
 
-// sass-lint:disable no-important
+  $debug-alignment-background: rgba($gray-dark, .2);
 
-@if ($tx-debug == true) {
+  %debug-alignment {
+    background: $debug-alignment-background !important;
+
+    * {
+      background: $debug-alignment-background !important;
+    }
+
+  }
+
+
+
+  // Animation & Transition Debug
 
   %debug-animation {
     transition-duration: 10s !important;
     animation-duration: 10s !important;
   }
 
-}
+  // sass-lint:enable no-important
 
-// sass-lint:enable no-important
+}

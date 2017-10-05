@@ -6,6 +6,7 @@ module.exports = (grunt, options) => {
       transform: [
         ['babelify', { presets: ['es2015', ['env', { targets: { browsers: project.browsers } }]] }],
       ],
+      plugins: ['sitrep'],
       browserifyOptions: {
         paths: [project.res.js.comp],
       },

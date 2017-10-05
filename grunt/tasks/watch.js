@@ -11,6 +11,7 @@ module.exports = (grunt, options) => {
       tasks: [
         'clean:html',
         'processhtml',
+        'notify:watch_html',
       ],
     },
     images: {
@@ -19,6 +20,7 @@ module.exports = (grunt, options) => {
         'sass:dev',
         'postcss',
         'processhtml',
+        'notify:watch_images',
       ],
     },
     sass: {
@@ -26,12 +28,14 @@ module.exports = (grunt, options) => {
       tasks: [
         'sass:dev',
         'postcss',
+        'notify:watch_sass',
       ],
     },
     javascript: {
       files: [`${project.res.js.devDir}**/*.js`, `!${project.res.js.devDir}${project.res.js.service}.js`],
       tasks: [
         'browserify:dev',
+        'notify:watch_javascript',
       ],
     },
     livereload: {
