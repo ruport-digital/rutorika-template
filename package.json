@@ -4,8 +4,10 @@
   "description": "TemplateX",
   "main": "build/index.html",
   "private": true,
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "*",
+    "babel-core": "*",
     "babel-plugin-sitrep": "*",
     "babel-preset-env": "*",
     "babel-preset-es2015": "*",
@@ -54,6 +56,8 @@
     "grunt-svgstore": "*",
     "grunt-uncss": "*",
     "grunt-unused": "*",
+    "imagemin-pngcrush": "*",
+    "imagemin-pngquant": "*",
     "load-grunt-config": "*",
     "mocha": "*"
   },

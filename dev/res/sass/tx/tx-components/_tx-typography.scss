@@ -16,7 +16,7 @@
 // sass-lint:enable placeholder-in-extend
 // sass-lint:enable extends-before-declarations
 
-@mixin tx-font-face($family, $filename, $variants, $extensions) {
+@mixin tx-font-face($family, $filename, $variants, $extensions, $append: false) {
   $familyNorm: txf-str-replace(#{$family}, ' ');
   @each $variant, $name in $variants {
 
@@ -36,7 +36,7 @@
   #{$extend} {
 
     .#{$loaded} & {
-      font-family: '#{$family}';
+      font-family: unquote('"' + $family + '"' + txf-appended-stack($append));
     }
 
   }
@@ -155,4 +155,8 @@
     }
   }
   @return $result;
+}
+
+@function txf-appended-stack($append) {
+  @return if($append, unquote(', ' + $fontFamily), '');
 }

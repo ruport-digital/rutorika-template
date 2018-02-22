@@ -19,3 +19,5 @@ To install project's development dependencies run this:
 ```sh
 $ npm install
 ```
+
+When installing on Windows it is best to use administrative privileges.

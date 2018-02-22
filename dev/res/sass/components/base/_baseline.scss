@@ -20,7 +20,7 @@ html {
 body {
   @include tx-hyphens;
   color: $text;
-  font-family: $font-sans;
+  font-family: $fontFamily;
   font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
   font-display: swap;
 }

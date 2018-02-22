@@ -1,3 +1,6 @@
+const pngcrush = require('imagemin-pngcrush');
+const pngquant = require('imagemin-pngquant');
+
 module.exports = (grunt, options) => {
   const { project, helpers } = options;
 
@@ -28,6 +31,10 @@ module.exports = (grunt, options) => {
       }, {
         cleanupIDs: false,
       }],
+      use: [
+        pngcrush(),
+        pngquant(),
+      ],
     },
     optimize: {
       cwd: project.res.dir,
