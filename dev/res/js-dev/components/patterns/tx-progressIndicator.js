@@ -1,9 +1,10 @@
-const SIZE = 200;
 const TRACK_SUFFIX = 'Track';
 const INDICATOR_SUFFIX = 'Indicator';
 const PERCENTAGE_SUFFIX = 'Percentage';
 
-module.exports = (id, className) => {
+const SIZE = 200;
+
+export default function progressIndicator(id, className) {
   let container;
   let svg;
   let track;
@@ -74,4 +75,4 @@ module.exports = (id, className) => {
   return {
     set: setProgress,
   };
-};
+}

@@ -1,11 +1,11 @@
-const eventManager = require('./tx-event');
+import * as eventManager from 'patterns/tx-eventManager';
 
-const SINGLE_SWIPE = 'singleswipe';
-const DOUBLE_EVENT = 'doubleswipe';
-const PINCH_EVENT = 'pinch';
+const SINGLE_EVENT = 'gesture:singleswipe';
+const DOUBLE_EVENT = 'gesture:doubleswipe';
+const PINCH_EVENT = 'gesture:pinch';
 const PINCH_THRESHOLD = 100;
 
-module.exports = (catcher) => {
+export default function gestures(catcher) {
   let downTouches;
   let downDistance;
 
@@ -22,18 +22,17 @@ module.exports = (catcher) => {
     };
   }
 
+  function processTouchMove(touchEvent, gestureEvent) {
+    const delta = claculateDelta(touchEvent.touches[0]);
+    eventManager.trigger(catcher, gestureEvent, false, 'UIEvent', { delta });
+  }
+
   function onSingleToucheMove(event) {
-    requestAnimationFrame(() => {
-      const delta = claculateDelta(event.touches[0]);
-      eventManager.trigger(catcher, SINGLE_SWIPE, false, 'UIEvent', { delta });
-    });
+    requestAnimationFrame(() => { processTouchMove(event, SINGLE_EVENT); });
   }
 
   function onDoubleToucheMove(event) {
-    requestAnimationFrame(() => {
-      const delta = claculateDelta(event.touches[0]);
-      eventManager.trigger(catcher, DOUBLE_EVENT, false, 'UIEvent', { delta });
-    });
+    requestAnimationFrame(() => { processTouchMove(event, DOUBLE_EVENT); });
   }
 
   function onPinch(event) {
@@ -70,4 +69,4 @@ module.exports = (catcher) => {
   }
 
   eventManager.bind(catcher, 'touchstart', onTouchStart, false);
-};
+}

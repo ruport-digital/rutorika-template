@@ -1,15 +1,13 @@
-const eventManager = require('./tx-event');
+import * as eventManager from 'patterns/tx-eventManager';
+
 let task;
 
-function go(url) {
+export function go(url) {
   window.history.pushState(null, null, url);
   task();
 }
 
-function init(changeView) {
+export function init(changeView) {
   task = changeView;
   eventManager.bind(window, 'popstate', task);
 }
-
-exports.init = init;
-exports.go = go;

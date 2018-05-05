@@ -1,4 +1,4 @@
-const eventTool = require('./tx-event');
+import * as eventManager from 'patterns/tx-eventManager';
 
 const WRAP_CLASS_NAME_SUFFIX = '-wrap';
 const VALUE_CLASS_NAME_SUFFIX = '-value';
@@ -52,7 +52,7 @@ function fileInput(field, text) {
   }
 
   function onWrapClick() {
-    eventTool.trigger(input, 'click');
+    eventManager.trigger(input, 'click');
   }
 
   function onButtonClick(event) {
@@ -60,15 +60,15 @@ function fileInput(field, text) {
   }
 
   function initInteractions() {
-    eventTool.bind(input, 'change', onChange);
-    eventTool.bind(wrap, 'click', onWrapClick);
-    eventTool.bind(button, 'click', onButtonClick);
+    eventManager.bind(input, 'change', onChange);
+    eventManager.bind(wrap, 'click', onWrapClick);
+    eventManager.bind(button, 'click', onButtonClick);
   }
 
   function removeInteractions() {
-    eventTool.unbind(input, 'change', onChange);
-    eventTool.unbind(wrap, 'click', onWrapClick);
-    eventTool.unbind(button, 'click', onButtonClick);
+    eventManager.unbind(input, 'change', onChange);
+    eventManager.unbind(wrap, 'click', onWrapClick);
+    eventManager.unbind(button, 'click', onButtonClick);
   }
 
   /* Field Initialization */
@@ -111,16 +111,11 @@ function fileInput(field, text) {
 
 /* Initialization */
 
-function init(selector, text) {
+export function init(selector, text) {
   const fields = [].slice.call(document.querySelectorAll(selector));
   fields.forEach(field => fileInput(field, text));
 }
 
-function destroy(fields) {
+export function destroy(fields) {
   fields.forEach(field => field.destroy());
 }
-
-/* Interface */
-
-exports.init = init;
-exports.destroy = destroy;

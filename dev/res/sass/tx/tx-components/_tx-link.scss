@@ -4,7 +4,10 @@
 
 // Link States Color
 
-@mixin tx-link($linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null, $all: false) {
+@mixin tx-link($linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null, $all: true) {
+  @if ($visitedColor != $hoverColor) or ($visitedColor != $activeColor) or ($hoverColor != $activeColor) {
+    $all: false;
+  }
   @if $linkColor and $all == true {
     color: $linkColor;
 

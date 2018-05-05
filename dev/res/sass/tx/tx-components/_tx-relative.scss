@@ -1,0 +1,86 @@
+// TemplateX Relative Units
+
+
+
+// Relative Styles
+
+@mixin tx-relative-prop-multiple($prop, $values, $base, $units, $shorthand, $fallback) {
+  $values: txf-relative-values($values, $base, $units, $fallback);
+  @if $fallback {
+    #{$prop}: txf-sanitize-shorthand(map-get($values, fallbackStyle));
+  }
+  #{$prop}: txf-sanitize-shorthand(map-get($values, relativeStyle));
+}
+
+@mixin tx-relative-prop-single($prop, $values, $base, $units, $fallback) {
+  @if $fallback {
+    #{$prop}: $values;
+  }
+  #{$prop}: txf-relative($values, $base, $units);
+};
+
+@mixin tx-relative-prop($prop, $values, $base, $units, $shorthand: true, $fallback: true) {
+  @if type-of($values) == 'list' {
+    @include tx-relative-prop-multiple($prop, $values, $base, $units, $shorthand, $fallback);
+  } @else {
+    @include tx-relative-prop-single($prop, $values, $base, $units, $fallback);
+  };
+};
+
+
+
+
+// Return a Single Value or Find a Value in the List
+
+@function txf-value-or-list($values, $index) {
+  @if type-of($values) == 'list' {
+    @return nth($values, $index);
+  } @else {
+    @return $values;
+  }
+}
+
+
+
+// Generate Unit Multiplier
+
+@function txf-relative-converter($unit) {
+  @if ($unit == 'vw') or ($unit == 'vh') {
+    @return 100;
+  } @else {
+    @return 1;
+  }
+}
+
+
+
+// Convert to the Relative Value
+
+@function txf-relative($value, $base, $unit) {
+  @return #{($value / $base) * txf-relative-converter($unit)}#{$unit};
+}
+
+
+
+// Convert to the Relative Values
+
+@function txf-relative-values($values, $bases, $units, $fallback) {
+  $resultFallback: '';
+  $resultRelative: '';
+  @for $index from 1 through length($values) {
+    $value: nth($values, $index);
+    $unit: txf-value-or-list($units, $index);
+    $base: txf-value-or-list($bases, $index);
+    $resultFallback: $resultFallback + if($resultFallback == '', '', ' ') + $value;
+    $resultRelative: $resultRelative + if($resultRelative == '', '', ' ') + txf-relative($value, $base, $unit);
+  }
+  @return (fallbackStyle: unquote($resultFallback), relativeStyle: unquote($resultRelative));
+}
+
+
+
+// Limit Relative Value at Breakpoint
+
+@function txf-relative-limit($value, $base, $breakpoint) {
+  @return ($value / $base) * $breakpoint;
+}

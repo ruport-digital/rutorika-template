@@ -1,19 +1,21 @@
-const eventTool = require('./tx-event');
-const createNode = require('./tx-createNode');
-const transition = require('./tx-transition')('transition', 'end');
-const translateGallery = require('./tx-translate').css;
-
-const SLIDE_THRESHOLD = 15;
-const NEXT_SHIFT = 50;
+import * as eventManager from 'patterns/tx-eventManager';
+import createNode from 'patterns/tx-createNode';
+import transition from 'patterns/tx-transition';
+import translate from 'patterns/tx-translate';
 
 const SLIDER_CLASS_NAME = 'slider';
 const SLIDER_FIXING_CLASS_NAME = `${SLIDER_CLASS_NAME}-is-fixing`;
 const SLIDER_CHANGING_CLASS_NAME = `${SLIDER_CLASS_NAME}-is-changing`;
-const SLIDER_EVENT = 'swipe';
 const SLIDE_ACTIVE_CLASS_NAME_SUFFIX = '-is-active';
 const DOT_NAVIGATION_CLASS_NAME = 'js-dotsNavigation';
 const DOT_CLASS_NAME = 'js-dotsPage';
 const DOT_ACTIVE_CLASS_NAME = `${DOT_CLASS_NAME}${SLIDE_ACTIVE_CLASS_NAME_SUFFIX}`;
+
+const TANSITION_EVENT = transition('transition', 'end');
+const SLIDER_EVENT = 'slider:swipe';
+
+const SLIDE_THRESHOLD = 15;
+const NEXT_SHIFT = 50;
 
 /* Dots */
 
@@ -25,14 +27,14 @@ function generateNavigationDots(size, pageClassName) {
   return navigationDots;
 }
 
-function dots(size, listClassName, pageClassName) {
+export function dots(size, listClassName, pageClassName) {
   const navigation = `<ol class="${listClassName} ${DOT_NAVIGATION_CLASS_NAME}">${generateNavigationDots(size, pageClassName)}</ol>`;
   return createNode(navigation);
 }
 
 /* Slider Constructor */
 
-function init(object, navigationObject, pageClassName) {
+export function init(object, navigationObject, pageClassName) {
   let slider;
   let sliderDots;
   let sliderDotClassName;
@@ -40,6 +42,7 @@ function init(object, navigationObject, pageClassName) {
   let sliderFixing;
   let sliderChanging;
   let sliderMax;
+  let sliderPosition;
   let activeSlideIndex;
   let activeSlideDot;
   let pointStartX;
@@ -72,6 +75,10 @@ function init(object, navigationObject, pageClassName) {
 
   function getSliderMax() {
     return sliderMax;
+  }
+
+  function getSliderPosition() {
+    return sliderPosition;
   }
 
   function getActiveSlideIndex() {
@@ -126,6 +133,13 @@ function init(object, navigationObject, pageClassName) {
 
   function setSliderMax() {
     sliderMax = sliderDots.length - 1;
+  }
+
+  function setSliderPosition() {
+    const parent = getSlider().parentElement;
+    const offset = parent.getBoundingClientRect().left;
+    const padding = parseInt(getComputedStyle(parent, null).getPropertyValue('padding-left'), 10);
+    sliderPosition = offset + padding;
   }
 
   function setActiveSlideIndex(index) {
@@ -187,7 +201,7 @@ function init(object, navigationObject, pageClassName) {
   }
 
   function translateSlider(distance) {
-    getSlider().style.transform = translateGallery('x', distance).transform;
+    getSlider().style.transform = translate.css('x', distance).transform;
   }
 
   function shiftSlider() {
@@ -198,7 +212,7 @@ function init(object, navigationObject, pageClassName) {
   function finalizeSlide() {
     setStatus(false, false);
     getSlider().classList.remove(SLIDER_FIXING_CLASS_NAME, SLIDER_CHANGING_CLASS_NAME);
-    getSlider().removeEventListener(transition, finalizeSlide);
+    getSlider().removeEventListener(TANSITION_EVENT, finalizeSlide);
   }
 
   function updateInteractionParameters(event) {
@@ -206,7 +220,7 @@ function init(object, navigationObject, pageClassName) {
     setPointStartX(startPoint);
     setPointShift(1);
     setPointDiffX(0);
-    setPositionStart(getSlider().getBoundingClientRect().left);
+    setPositionStart(getSlider().getBoundingClientRect().left - getSliderPosition());
   }
 
   function preventClick(event) {
@@ -241,15 +255,21 @@ function init(object, navigationObject, pageClassName) {
 
   /* Slider Actions */
 
-  function slide(index) {
+  function setItem(index) {
     setActiveSlideIndex(index);
     updateDots();
     translateSlider(calculateCompleteDistance());
   }
 
+  function slideItem(index) {
+    getSlider().classList.add(SLIDER_CHANGING_CLASS_NAME);
+    getSlider().addEventListener(TANSITION_EVENT, finalizeSlide);
+    setItem(index);
+  }
+
   function positionSlider() {
-    eventTool.trigger(getSlider(), SLIDER_EVENT, false, 'UIEvents');
-    getSlider().addEventListener(transition, finalizeSlide);
+    eventManager.trigger(getSlider(), SLIDER_EVENT, false, 'UIEvents');
+    getSlider().addEventListener(TANSITION_EVENT, finalizeSlide);
     setStatus(true, true);
     getSlider().classList.add(SLIDER_FIXING_CLASS_NAME);
     translateSlider(calculateCompleteDistance());
@@ -287,7 +307,7 @@ function init(object, navigationObject, pageClassName) {
 
   /* Slider Interactions */
 
-  function touchMove(event) {
+  function onTouchMove(event) {
     setPointDiffX(event.touches[0].pageX - getPointStartX());
     if (Math.abs(getPointDiffX()) > SLIDE_THRESHOLD) {
       event.preventDefault();
@@ -295,25 +315,30 @@ function init(object, navigationObject, pageClassName) {
     }
   }
 
-  function touchEnd() {
-    document.removeEventListener('touchmove', touchMove, true);
-    document.removeEventListener('touchend', touchEnd);
+  function onTouchEnd() {
+    document.removeEventListener('touchmove', onTouchMove, true);
+    document.removeEventListener('touchend', onTouchEnd);
     cancelAnimationFrame(getAnimationFrame());
     requestAnimationFrame(fixSlider);
   }
 
-  function touchStart(event) {
+  function onTouchStart(event) {
     event.preventDefault();
     const status = getStatus();
     if (!status.fixing || !status.changing) {
       updateInteractionParameters(event);
-      document.addEventListener('touchmove', touchMove, true);
-      document.addEventListener('touchend', touchEnd);
+      document.addEventListener('touchmove', onTouchMove, true);
+      document.addEventListener('touchend', onTouchEnd);
     }
   }
 
+  function onResize() {
+    setSliderPosition();
+  }
+
   function subscribe() {
-    getSlider().parentElement.addEventListener('touchstart', touchStart);
+    getSlider().parentElement.addEventListener('touchstart', onTouchStart);
+    window.addEventListener('resize', onResize);
   }
 
   /* Slider Inititalization */
@@ -323,6 +348,7 @@ function init(object, navigationObject, pageClassName) {
     setSliderDotClassName();
     setSliderDots();
     setSliderMax();
+    setSliderPosition();
     setActiveSlideIndex(0);
     setActiveSlideDot();
   }
@@ -339,11 +365,10 @@ function init(object, navigationObject, pageClassName) {
   return {
     prev: prevItem,
     next: nextItem,
-    set: slide,
+    set: setItem,
+    slide: slideItem,
+    current: getActiveSlideIndex,
+    max: getSliderMax,
+    object: getSlider,
   };
 }
-
-/* Interface */
-
-exports.dots = dots;
-exports.init = init;

@@ -1,4 +1,4 @@
-module.exports = () => {
+export default function rAFPolyfill() {
   let lastTime = 0;
   const vendors = ['ms', 'moz', 'webkit', 'o'];
   for (let x = 0; x < vendors.length && !window.requestAnimationFrame; x += 1) {
@@ -19,4 +19,4 @@ module.exports = () => {
       clearTimeout(id);
     };
   }
-};
+}

@@ -1,8 +1,8 @@
-const togglable = require('./tx-togglable');
+import togglable from 'patterns/tx-togglable';
 
 const ACTIVE_CLASS_NAME_SUFFIX = '-is-active';
 
-module.exports = (toggleID, navigationID) => {
+export default function offscreenNav(toggleID, navigationID) {
   let navigation;
   let activeClassName;
 
@@ -15,4 +15,4 @@ module.exports = (toggleID, navigationID) => {
   activeClassName = `${navigationID}${ACTIVE_CLASS_NAME_SUFFIX}`;
 
   return togglable(toggle, toggleNavigation);
-};
+}

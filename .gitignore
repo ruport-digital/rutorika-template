@@ -19,13 +19,16 @@ package-lock.json
 node_modules
 bower_components
 phantomcss
-
 *.map
 
 #TX
 
 build
 design
+dev/res/css
+dev/res/js
+dev/*.html
+*.gz
 
 *.gz
 *.build.zip

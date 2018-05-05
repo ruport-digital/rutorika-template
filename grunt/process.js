@@ -66,7 +66,7 @@ module.exports = (grunt, options) => {
   ]);
 
   grunt.registerTask('process-finalize', [
-    'compress',
+    // 'compress',
     'imagemin:meta',
     // 'newer:guetzli:meta',
     'string-replace:build',

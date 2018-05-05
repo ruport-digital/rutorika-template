@@ -1,7 +1,6 @@
 /* TemplateX */
 
 @import 'patterns/_tx-fastTouch';
-@import 'patterns/_tx-linkTouchStates';
 
 
 
@@ -417,6 +416,7 @@ table {
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+  empty-cells: hide;
 }
 
 td {
@@ -474,10 +474,13 @@ a {
   -webkit-tap-highlight-color: $tapColor;
   text-decoration: underline;
   text-decoration-skip: ink;
-  transition: $UITransitionDefault;
-}
+  transition: color $UITransitionDefault;
 
-@include tx-linkTouchStates;
+  @include tx-media(coarse) {
+    @include tx-link($link, $visited, $link, $link);
+  }
+
+}
 
 // sass-lint:enable no-vendor-prefixes
 

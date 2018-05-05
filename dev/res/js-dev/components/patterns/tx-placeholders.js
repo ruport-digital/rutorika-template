@@ -1,4 +1,4 @@
-const eventTool = require('./tx-event');
+import * as eventManager from 'patterns/tx-eventManager';
 
 const ACTIVE_CLASS_NAME = 'js-field-is-showingPlaceholder';
 
@@ -26,21 +26,21 @@ function fieldPlaceholder(node) {
   /* Field Interactions */
 
   function onFocus(event) {
-    removePlaceholder(eventTool.target(event));
+    removePlaceholder(eventManager.target(event));
   }
 
   function onBlur(event) {
-    addPlaceholder(eventTool.target(event));
+    addPlaceholder(eventManager.target(event));
   }
 
   function initInteractions() {
-    eventTool.bind(field, 'focus', onFocus);
-    eventTool.bind(field, 'blur', onBlur);
+    eventManager.bind(field, 'focus', onFocus);
+    eventManager.bind(field, 'blur', onBlur);
   }
 
   function removeInteractions() {
-    eventTool.unbind(field, 'focus', onFocus);
-    eventTool.unbind(field, 'blur', onBlur);
+    eventManager.unbind(field, 'focus', onFocus);
+    eventManager.unbind(field, 'blur', onBlur);
   }
 
   /* Field Initialization */
@@ -75,16 +75,11 @@ function fieldPlaceholder(node) {
 
 /* Inititalization */
 
-function init() {
+export function init() {
   const fields = [].slice.call(document.querySelectorAll('input, textarea'));
   fields.forEach(fieldPlaceholder);
 }
 
-function destroy(fields) {
+export function destroy(fields) {
   fields.forEach(field => field.destroy());
 }
-
-/* Interface */
-
-exports.init = init;
-exports.destroy = destroy;

@@ -4,7 +4,7 @@
 
 // Page Boundaries
 
-@mixin tx-set-boundaries($minWidth: map-get($breakpoints, desktopMin), $maxWidth: map-get($breakpoints, desktopMax), $minHeight: 100%, $center: true) {
+@mixin tx-boundaries($minWidth: map-get($breakpoints, desktopMin), $maxWidth: map-get($breakpoints, desktopMax), $minHeight: 100%, $center: true) {
   @if $minWidth != none and $minWidth != 0 {
     min-width: $minWidth;
   }

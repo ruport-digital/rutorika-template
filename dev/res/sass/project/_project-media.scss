@@ -44,6 +44,7 @@ $mediaQueries: (
   tablet3x: txf-deviceBreakpoint(tablet3x),
   wide: txf-deviceBreakpoint(wide),
   print: 'print',
+  speech: 'speech',
   exotic: 'projection, tv',
   home: '(display-mode: standalone)',
   full: '(device-width: 100vw) and (device-height: 100vh)',

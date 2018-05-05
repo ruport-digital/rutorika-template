@@ -1,31 +1,28 @@
-/* eslint-env browser:true */
-/* global self, caches */
+/* global self */
+/* global caches */
+/* eslint prefer-destructuring: 'off' */
+/* eslint prefer-arrow-callback: 'off' */
+/* eslint func-names: 'off' */
+/* eslint no-var: 'off' */
+/* eslint compat/compat: 'off' */
 
 var CACHE_NAME = 'tx-cache-v1';
 
 var offline = [
   '/',
   '/res/css/styles.min.css',
-  '/res/js/scripts.min.js'
+  '/res/js/scripts.min.js',
 ];
 
 function addAllToCahche(cache) {
-  return cache.addAll(offline)
-    .then(function() {
-        self.skipWaiting();
-    });
+  return cache.addAll(offline).then(self.skipWaiting);
 }
 
 function onInstall(event) {
-  event.waitUntil(
-    caches
-      .open(CACHE_NAME)
-      .then(addAllToCahche)
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then(addAllToCahche));
 }
 
 function onFetch(event) {
-
   var request = event.request;
 
   function fetchedFromNetwork(response) {
@@ -45,11 +42,9 @@ function onFetch(event) {
 
   if (request.method !== 'GET') {
     event.respondWith(fetch(request));
-    return;
   } else {
     event.respondWith(caches.match(request).then(queriedCache));
   }
-
 }
 
 self.addEventListener('install', onInstall);

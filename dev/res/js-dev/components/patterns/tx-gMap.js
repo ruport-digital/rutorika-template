@@ -1,8 +1,8 @@
 /* global google */
 
-const markers = require('./tx-gMarkers');
+import gMarker from 'patterns/tx-gMarker';
 
-module.exports = (mapID, centerCoords, markersCoords, markerImage) => {
+export default function gMap(mapID, centerCoords, markersCoords, markerImage) {
   const center = new google.maps.LatLng(centerCoords.lat, centerCoords.lon);
   const options = {
     center,
@@ -13,6 +13,6 @@ module.exports = (mapID, centerCoords, markersCoords, markerImage) => {
 
   return {
     map,
-    markers: markers(map, markersCoords, markerImage),
+    markers: gMarker(map, markersCoords, markerImage),
   };
-};
+}

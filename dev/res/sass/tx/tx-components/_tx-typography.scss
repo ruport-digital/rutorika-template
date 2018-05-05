@@ -93,8 +93,7 @@
   @if $fallback == true {
     font-size: $size;
   }
-  $newFontSizeRem: $size / $fontSize;
-  font-size: #{$newFontSizeRem}rem;
+  font-size: txf-relative($size, $fontSize, 'rem');
   @if $lines != none and $lines != approx and $lines != 0 {
     line-height: ($lines * $lineHeight) * ($fontSize / $size);
   }
@@ -122,10 +121,16 @@
 
 // Hyphens
 
+// sass-lint:disable no-vendor-prefixes
+
 @mixin tx-hyphens($hyphens: manual) {
   -epub-hyphens: $hyphens;
+  -webkit-hyphens: $hyphens;
+  -moz-hyphens: $hyphens;
   hyphens: $hyphens;
 }
+
+// sass-lint:enable no-vendor-prefixes
 
 
 

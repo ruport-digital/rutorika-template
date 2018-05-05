@@ -13,6 +13,7 @@ module.exports = (grunt, options) => {
         '*.html',
         '!* copy*.html',
         '!* - Copy*.html',
+        '!* copie*.html',
       ],
       dest: project.dir,
       expand: true,

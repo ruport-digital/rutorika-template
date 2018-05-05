@@ -407,5 +407,8 @@
     "import/no-unassigned-import": "off",
     "import/no-named-default": "off",
     "compat/compat": 2
+  },
+  "settings": {
+    "polyfills": ["promises"]
   }
 }

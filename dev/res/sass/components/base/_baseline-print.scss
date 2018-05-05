@@ -38,6 +38,7 @@
 
   html {
     @extend %printBackground;
+    box-decoration-break: clone;
   }
 
   body {

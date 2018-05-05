@@ -41,14 +41,14 @@ const CONFIG = {
   JS_SERVICE: 'service',             // JavaScript Filename
 
   FONTS_DIR: 'fonts',                // Fonts
-}
+};
+
+const loadConfig = require('load-grunt-config');
+const configPath = `${process.cwd()}/grunt/tasks/`;
+const staticMappings = require('./grunt/tx/tx-mapping');
+const data = require('./grunt/tx/tx-config')(CONFIG);
 
 module.exports = (grunt) => {
-  const loadConfig = require('load-grunt-config');
-  const configPath = `${process.cwd()}/grunt/tasks/`
-  const staticMappings = require('./grunt/tx/tx-mapping');
-  const data = require('./grunt/tx/tx-config')(CONFIG);
-
-  loadConfig(grunt, { configPath, jitGrunt: { staticMappings }, data});
+  loadConfig(grunt, { configPath, jitGrunt: { staticMappings }, data });
   loadConfig(grunt, { jitGrunt: true, init: false, data });
 };

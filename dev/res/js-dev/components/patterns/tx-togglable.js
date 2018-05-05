@@ -1,8 +1,8 @@
-const eventTool = require('./tx-event');
+import * as eventManager from 'patterns/tx-eventManager';
 
 const ACTIVE_CLASS_NAME_SUFFIX = '-is-active';
 
-module.exports = (node, callback) => {
+export default function togglable(node, callback) {
   let trigger;
   let task;
   let activeClassName;
@@ -48,11 +48,11 @@ module.exports = (node, callback) => {
   }
 
   function initInteractions() {
-    eventTool.bind(trigger, 'click', onClick);
+    eventManager.bind(trigger, 'click', onClick);
   }
 
   function removeInteractions() {
-    eventTool.unbind(trigger, 'click', onClick);
+    eventManager.unbind(trigger, 'click', onClick);
   }
 
   /* Initialization */
@@ -91,4 +91,4 @@ module.exports = (node, callback) => {
     deactivate,
     toggle,
   };
-};
+}

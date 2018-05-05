@@ -12,6 +12,14 @@
   $mtop-rem: 0;
   $mbtm-px: 0;
   $mbtm-rem: 0;
+  $marginRightUnitless: txf-stripUnit($marginRight);
+  $marginLeftUnitless: txf-stripUnit($marginLeft);
+  @if $marginRightUnitless == 0 {
+    $marginRight: 0;
+  }
+  @if $marginLeftUnitless == 0 {
+    $marginLeft: 0;
+  }
   @if $leader == $trailer {
     $vertical-px: txf-rhythm-fallback($leader);
     $vertical-rem: txf-rhythm($leader);
@@ -69,6 +77,14 @@
   $ptop-rem: 0;
   $pbtm-px: 0;
   $pbtm-rem: 0;
+  $paddingRightUnitless: txf-stripUnit($paddingRight);
+  $paddingLeftUnitless: txf-stripUnit($paddingLeft);
+  @if $paddingRightUnitless == 0 {
+    $paddingRight: 0;
+  }
+  @if $paddingLeftUnitless == 0 {
+    $paddingLeft: 0;
+  }
   @if $paddingLeader == $paddingTrailer {
     $vertical-px: txf-rhythm-fallback($paddingLeader);
     $vertical-rem: txf-rhythm($paddingLeader);

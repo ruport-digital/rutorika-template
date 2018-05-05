@@ -26,3 +26,48 @@
   }
   @return $number;
 }
+
+
+
+// Split String
+
+@function txf-split-string($string, $separator) {
+  $array: ();
+  $index: str-index($string, $separator);
+  @while $index != null {
+    $item: str-slice($string, 1, $index - 1);
+    $array: append($array, $item);
+    $string: str-slice($string, $index + 1);
+    $index: str-index($string, $separator);
+  }
+  $array: append($array, $string);
+  @return $array;
+}
+
+
+
+// Sanitize Shorthand
+
+@function txf-sanitize-shorthand($style) {
+  $array: txf-split-string($style, ' ');
+  $length: length($array);
+  @if ($length <= 2) or ($length >= 5) {
+    @return $style;
+  } @else if ($length == 3) {
+    @if (nth($array, 1) == nth($array, 3)) {
+      @return #{nth($array, 1)} #{nth($array, 2)};
+    } @else {
+      @return $style;
+    }
+  } @else if ($length == 4) {
+    @if (nth($array, 2) == nth($array, 4)) {
+      @if (nth($array, 1) == nth($array, 3)) {
+        @return #{nth($array, 1)} #{nth($array, 2)};
+      } @else {
+        @return #{nth($array, 1)} #{nth($array, 2)} #{nth($array, 3)};
+      }
+    } @else {
+      @return $style;
+    }
+  }
+}

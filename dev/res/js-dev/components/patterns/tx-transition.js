@@ -2,7 +2,7 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-module.exports = (event, state) => {
+export default function cssTransition(event, state) {
   const eventEnd = `${event}${state}`;
   const eventCap = capitalize(event);
   const eventEndCap = `${capitalize(event)}${capitalize(state)}`;
@@ -18,4 +18,4 @@ module.exports = (event, state) => {
     return condition;
   });
   return transitionEvent;
-};
+}

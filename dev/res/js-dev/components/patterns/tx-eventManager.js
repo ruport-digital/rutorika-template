@@ -6,17 +6,17 @@ function setData(event, data) {
   return newEvent;
 }
 
-function getData(event) {
+export function getData(event) {
   return event.data;
 }
 
 /* Event Binding */
 
-function bind(object, type, callback) {
+export function bind(object, type, callback) {
   object.addEventListener(type, callback);
 }
 
-function unbind(object, type, callback) {
+export function unbind(object, type, callback) {
   object.removeEventListener(type, callback);
 }
 
@@ -39,7 +39,7 @@ function triggerCreateEventObject(object, eventName, propagate, data) {
   object.fireEvent(`on${eventName}`, event);
 }
 
-function trigger(object, eventName, propagate = false, eventType = 'MouseEvents', data) {
+export function trigger(object, eventName, propagate = false, eventType = 'MouseEvents', data) {
   if (document.createEvent) {
     triggerCreateEvent(object, eventName, propagate, eventType, data);
   } else {
@@ -49,14 +49,6 @@ function trigger(object, eventName, propagate = false, eventType = 'MouseEvents'
 
 /* Event Target */
 
-function target(event) {
+export function target(event) {
   return event.target;
 }
-
-/* Interface */
-
-exports.getData = getData;
-exports.bind = bind;
-exports.unbind = unbind;
-exports.trigger = trigger;
-exports.target = target;

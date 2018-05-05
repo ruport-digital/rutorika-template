@@ -4,7 +4,9 @@ module.exports = (grunt, options) => {
   return {
     options: {
       transform: [
-        ['babelify', { presets: ['es2015', ['env', { targets: { browsers: project.browsers } }]] }],
+        ['babelify', { presets: [
+          ['env', { targets: { browsers: project.browsers } }]
+        ] }],
       ],
       plugins: ['sitrep'],
       browserifyOptions: {

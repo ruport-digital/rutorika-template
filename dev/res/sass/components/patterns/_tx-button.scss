@@ -49,11 +49,12 @@ $tx-button-borderColor: $tx-button-background;
     background: $tx-button-backgroundHover;
   }
 
-  .mdz-touchevents & {
+  @include tx-media(coarse) {
 
     &:hover,
     &:active {
-      @extend %tx-buttonInitial;
+      color: $tx-button-color;
+      background: $tx-button-background;
     }
 
   }

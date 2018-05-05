@@ -17,28 +17,13 @@ body {
   font-size: 1rem;
   line-height: $lineHeight;
   line-height: calc(#{$lineHeight}rem + (#{$tx-lineHeight-max} - #{$tx-lineHeight-min}) * ((100vw - #{map-get($breakpoints, phoneMax)}) / (#{txf-stripUnit(map-get($breakpoints, desktopWide))} - #{txf-stripUnit(map-get($breakpoints, phoneMax))})));
-}
 
-
-
-/* Wide Molten Typograpy */
-
-@include tx-media(wide) {
-
-  body {
+  @include tx-media(wide) {
     font-size: $tx-fontSize-max;
     line-height: $tx-lineHeight-max;
   }
 
-}
-
-
-
-/* Phone Molten Typograpy */
-
-@include tx-media(phone) {
-
-  body {
+  @include tx-media(phone) {
     font-size: $tx-fontSize-min;
     line-height: $tx-lineHeight-min;
   }
