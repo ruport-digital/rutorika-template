@@ -13,8 +13,8 @@ module.exports = (grunt, options) => {
     'process-images',
     ...dataURITasks,
     'process-html',
-    'process-css',
     'process-js',
+    'process-css',
     'cleanempty:res',
   ]);
 

@@ -56,14 +56,20 @@
 // Sprite Position With Relative Size
 
 @mixin tx-sprite-position-rel($name) {
-  $horPos: txf-strip-units(nth($name, 1)) / txf-strip-units(nth($name, 7));
-  $horSize: (txf-strip-units(nth($name, 5)) * $horPos) / txf-strip-units(nth($name, 7));
-  $horShift: (txf-strip-units(nth($name, 5)) * $horSize) / txf-strip-units(nth($name, 7));
-  $hor: ($horPos + $horSize + $horShift) * 100%;
-  $vertPos: txf-strip-units(nth($name, 2)) / txf-strip-units(nth($name, 8));
-  $vertSize: (txf-strip-units(nth($name, 6)) * $vertPos) / txf-strip-units(nth($name, 8));
-  $vertShift: (txf-strip-units(nth($name, 6)) * $vertSize) / txf-strip-units(nth($name, 8));
-  $vert: ($vertPos + $vertSize + $vertShift) * 100%;
+  $x: txf-strip-units(nth($name, 1));
+  $y: txf-strip-units(nth($name, 2));
+  $width: txf-strip-units(nth($name, 5));
+  $height: txf-strip-units(nth($name, 6));
+  $totalWidth: txf-strip-units(nth($name, 7));
+  $totalHeight: txf-strip-units(nth($name, 8));
+  $horPos: $x / $totalWidth;
+  $horSize: $width / $totalWidth;
+  $horShift: $x / ($totalWidth - $width);
+  $hor: ($horPos + $horSize * $horShift) * 100%;
+  $vertPos: $y / $totalHeight;
+  $vertSize: $height / $totalHeight;
+  $vertShift: $y / ($totalHeight - $height);
+  $vert: ($vertPos + $vertSize * $vertShift) * 100%;
   background-position: $hor $vert;
 }
 

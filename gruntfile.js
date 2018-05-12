@@ -1,3 +1,5 @@
+/* eslint no-multi-spaces: 'off' */
+
 const CONFIG = {
   PROJECT: 'TemplateX',              // Project Name
   LANGUAGE: 'ru',                    // Language

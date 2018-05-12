@@ -1,0 +1,17 @@
+// Cascade
+
+// sass-lint:disable no-empty-rulesets
+
+@each $query, $breakpoint in $breakpointQueries {
+
+  @include tx-media($query) {
+
+    .tx-cascadeDummy {
+      margin: 0;
+    }
+
+  }
+
+}
+
+// sass-lint:disable no-empty-rulesets

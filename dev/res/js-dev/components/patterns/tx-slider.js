@@ -12,7 +12,8 @@ const DOT_CLASS_NAME = 'js-dotsPage';
 const DOT_ACTIVE_CLASS_NAME = `${DOT_CLASS_NAME}${SLIDE_ACTIVE_CLASS_NAME_SUFFIX}`;
 
 const TANSITION_EVENT = transition('transition', 'end');
-const SLIDER_EVENT = 'slider:swipe';
+const PRESWIPE_EVENT = 'slider:preswipe';
+const SWIPE_EVENT = 'slider:swipe';
 
 const SLIDE_THRESHOLD = 15;
 const NEXT_SHIFT = 50;
@@ -178,9 +179,11 @@ export function init(object, navigationObject, pageClassName) {
   /* Slider Utilities */
 
   function updateDots() {
-    getActiveSlideDot().classList.remove(getSliderDotActiveClassName(), DOT_ACTIVE_CLASS_NAME);
+    getActiveSlideDot().classList.remove(getSliderDotActiveClassName());
+    getActiveSlideDot().classList.remove(DOT_ACTIVE_CLASS_NAME);
     setActiveSlideDot();
-    getActiveSlideDot().classList.add(getSliderDotActiveClassName(), DOT_ACTIVE_CLASS_NAME);
+    getActiveSlideDot().classList.add(getSliderDotActiveClassName());
+    getActiveSlideDot().classList.add(DOT_ACTIVE_CLASS_NAME);
   }
 
   function calculatePositions() {
@@ -210,8 +213,10 @@ export function init(object, navigationObject, pageClassName) {
   }
 
   function finalizeSlide() {
+    eventManager.trigger(getSlider(), SWIPE_EVENT, false, 'UIEvent');
     setStatus(false, false);
-    getSlider().classList.remove(SLIDER_FIXING_CLASS_NAME, SLIDER_CHANGING_CLASS_NAME);
+    getSlider().classList.remove(SLIDER_FIXING_CLASS_NAME);
+    getSlider().classList.remove(SLIDER_CHANGING_CLASS_NAME);
     getSlider().removeEventListener(TANSITION_EVENT, finalizeSlide);
   }
 
@@ -268,7 +273,7 @@ export function init(object, navigationObject, pageClassName) {
   }
 
   function positionSlider() {
-    eventManager.trigger(getSlider(), SLIDER_EVENT, false, 'UIEvents');
+    eventManager.trigger(getSlider(), PRESWIPE_EVENT, false, 'UIEvent');
     getSlider().addEventListener(TANSITION_EVENT, finalizeSlide);
     setStatus(true, true);
     getSlider().classList.add(SLIDER_FIXING_CLASS_NAME);
