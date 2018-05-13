@@ -36,7 +36,7 @@
     "grunt-csscomb": "*",
     "grunt-datauri": "*",
     "grunt-eslint": "*",
-    "grunt-force-task": "^2.0.0",
+    "grunt-force-task": "*",
     "grunt-guetzli": "*",
     "grunt-htmlhint": "*",
     "grunt-jscs": "*",
