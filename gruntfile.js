@@ -5,6 +5,7 @@ const CONFIG = {
   LANGUAGE: 'ru',                    // Language
   AMP: false,                        // Google AMP
   THEME: '#fd746c',                  // Theme Color
+  HTTPS: false,                      // Protocol
   PORT: 3000,                        // Server Port
 
   DEVELOPMENT_DIR: 'dev',            // Development
@@ -24,10 +25,10 @@ const CONFIG = {
 
   TEMPLATES_DIR: 'templates',        // Templates
   INDEX_PAGE: 'index.html',          // Index Page
-  CRITICAL_DESK_W: 1280,             // Critical Width on Desktop
-  CRITICAL_DESK_H: 800,              // Critical Height on Desktop
-  CRITICAL_MOBILE_W: 320,            // Critical Width on Mobile
-  CRITICAL_MOBILE_H: 640,            // Critical Height on Mobile
+  CRITICAL_DESK_W: 1280,             // Desktop Critical Width
+  CRITICAL_DESK_H: 800,              // Desktop Critical Height
+  CRITICAL_MOBILE_W: 320,            // Mobile Critical Width
+  CRITICAL_MOBILE_H: 640,            // Mobile Critical Height
 
   CSS_IMAGES_DIR: 'images',          // CSS Images
   SOURCE_IMAGES_DIR: 'sources',      // CSS Images

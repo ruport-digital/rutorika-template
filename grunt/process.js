@@ -9,6 +9,8 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('spritesSCSS', 'SCSS variables with sprites data', () => tx.spritesSCSS(grunt, project, helpers));
 
+  grunt.registerTask('generatePages', 'Generate HTML-file with links to all of the pages', () => tx.generatePages(grunt, project, helpers));
+
   grunt.registerTask('process-dataURI', [
     'datauri',
     'dataURIFallback',
@@ -37,6 +39,7 @@ module.exports = (grunt, options) => {
   grunt.registerTask('process-html', [
     'clean:html',
     'processhtml',
+    'generatePages',
     'htmlmin',
     'prettify',
     'string-replace:html',
@@ -54,7 +57,7 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('process-js', [
     'browserify:build',
-    'copy:service',
+    'copy:serviceBuild',
     'string-replace:js',
     'uglify',
   ]);

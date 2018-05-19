@@ -2,7 +2,14 @@ module.exports = (grunt, options) => {
   const { project, helpers } = options;
 
   return {
-    service: {
+    serviceDev: {
+      cwd: project.res.js.devDir,
+      src: `${project.res.js.service}.js`,
+      dest: project.res.js.dir,
+      ext: '.min.js',
+      expand: true,
+    },
+    serviceBuild: {
       cwd: project.res.js.devDir,
       src: `${project.res.js.service}.js`,
       dest: project.res.js.dir,

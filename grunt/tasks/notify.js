@@ -26,6 +26,12 @@ module.exports = (grunt, options) => {
         message: 'JavaScript has been transpiled',
       },
     },
+    watch_service: {
+      options: {
+        title: 'Development',
+        message: 'Service Worker has been copied',
+      },
+    },
     connect_start: {
       options: {
         title: 'Development',

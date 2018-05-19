@@ -11,7 +11,7 @@ function properties(axis, distance) {
 
 /* CSS Object */
 
-export function translateCSS(axis, distance) {
+export function css(axis, distance) {
   const css = properties(axis, distance);
   return {
     '-webkit-transform': css.propertyLayer,
@@ -24,7 +24,7 @@ export function translateCSS(axis, distance) {
 
 /* CSS String */
 
-export function translateString(axis, distance) {
+export function string(axis, distance) {
   const css = properties(axis, distance);
   return `-webkit-transform:${css.propertyLayer};-moz-transform:${css.propertyLayer};-ms-transform:${css.property};-o-transform:${css.property};transform:${css.propertyLayer};`;
 }

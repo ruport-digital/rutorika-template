@@ -345,6 +345,7 @@ rules:
         - cursor
         - pointer-events
         - touch-action
+        - user-select
         - nav-index
         - nav-up
         - nav-right

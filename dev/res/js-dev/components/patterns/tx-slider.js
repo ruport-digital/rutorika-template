@@ -1,7 +1,7 @@
 import * as eventManager from 'patterns/tx-eventManager';
 import createNode from 'patterns/tx-createNode';
 import transition from 'patterns/tx-transition';
-import translate from 'patterns/tx-translate';
+import * as translate from 'patterns/tx-translate';
 
 const SLIDER_CLASS_NAME = 'slider';
 const SLIDER_FIXING_CLASS_NAME = `${SLIDER_CLASS_NAME}-is-fixing`;

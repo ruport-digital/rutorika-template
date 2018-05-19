@@ -106,8 +106,18 @@ function processSprites(grunt, project, helpers) {
   return spritesTasks;
 }
 
+function generatePages(grunt, project, helpers) {
+  const files = grunt.file.expand({ cwd: project.dir }, '*.html');
+  if (files.length > 0) {
+    const links = files.map(file => `<a href="/${file}">${file}</a>`).join('<br><br>');
+    const html = `<!DOCTYPE html><html><body><pre>${links}</pre></body></html>`;
+    grunt.file.write(`${project.dir}${helpers.pages}`, html);
+  }
+}
+
 exports.criticalModernizr = criticalModernizr;
 exports.dataURIFallback = dataURIFallback;
 exports.dataURICleanup = dataURICleanup;
 exports.spritesSCSS = spritesSCSS;
 exports.processSprites = processSprites;
+exports.generatePages = generatePages;

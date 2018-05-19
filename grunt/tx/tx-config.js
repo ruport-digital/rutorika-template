@@ -8,6 +8,7 @@ module.exports = config => ({
     language: config.LANGUAGE,
     amp: config.AMP,
     theme: config.THEME,
+    https: config.HTTPS,
     port: config.PORT,
     browsers: fs.readFileSync('./browserslist', 'utf8').split(/(?:\r?\n|\r)/g).slice(0, -1),
     meta: `${config.META_DIR}/`,
@@ -89,7 +90,9 @@ module.exports = config => ({
       '!**/*.map',
       '!**/**-dev/**',
       '!**/tx-*.*',
+      '!**/_tx-*.*',
       '!**/tx/**',
     ],
+    pages: '_tx-pages.html',
   },
 });

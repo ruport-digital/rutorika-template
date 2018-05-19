@@ -5,12 +5,14 @@ module.exports = (grunt, options) => {
     options: {
       spawn: false,
       event: ['added', 'changed'],
+      interrupt: true,
     },
     html: {
       files: [`${project.res.templates.dir}**/*.{html,svg}`],
       tasks: [
         'clean:html',
         'processhtml',
+        'generatePages',
         'notify:watch_html',
       ],
     },
@@ -38,10 +40,16 @@ module.exports = (grunt, options) => {
         'notify:watch_javascript',
       ],
     },
+    service: {
+      files: [`${project.res.js.devDir}${project.res.js.service}.js`],
+      tasks: [
+        'copy:serviceDev',
+        'notify:watch_service',
+      ],
+    },
     livereload: {
       options: {
         livereload: true,
-        interrupt: true,
       },
       files: [
         `${project.dir}*.html`,

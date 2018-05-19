@@ -22,8 +22,10 @@ module.exports = (grunt, options) => {
     'sass:dev',
     'postcss',
     'browserify:dev',
+    'copy:serviceDev',
     'clean:html',
     'processhtml',
+    'generatePages',
   ]);
 
   grunt.registerTask('compile-critical', [
