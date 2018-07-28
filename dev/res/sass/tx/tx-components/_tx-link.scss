@@ -5,47 +5,61 @@
 // Link States Color
 
 @mixin tx-link($linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null, $all: true) {
-  @if ($visitedColor != $hoverColor) or ($visitedColor != $activeColor) or ($hoverColor != $activeColor) {
-    $all: false;
-  }
-  @if $linkColor and $all == true {
+  @if ($linkColor and $all == short) {
     color: $linkColor;
 
-    &:visited,
+    &:visited {
+      color: $linkColor;
+    }
+
     &:hover,
     &:active {
-      color: $linkColor;
+      color: $visitedColor;
     }
+
   } @else {
-    @if ($linkColor) {
+    @if ($visitedColor != $hoverColor) or ($visitedColor != $activeColor) or ($hoverColor != $activeColor) {
+      $all: false;
+    }
+    @if $linkColor and $all == true {
       color: $linkColor;
-    }
-    @if ($visitedColor) {
 
-      &:visited {
-        color: $visitedColor;
-      }
-    }
-    @if $hoverColor and ($hoverColor == $activeColor) {
-
+      &:visited,
       &:hover,
       &:active {
-        color: $hoverColor;
+        color: $linkColor;
       }
     } @else {
-      @if ($hoverColor) {
+      @if ($linkColor) {
+        color: $linkColor;
+      }
+      @if ($visitedColor) {
 
-        &:hover {
+        &:visited {
+          color: $visitedColor;
+        }
+      }
+      @if $hoverColor and ($hoverColor == $activeColor) {
+
+        &:hover,
+        &:active {
           color: $hoverColor;
         }
-      }
-      @if ($activeColor) {
+      } @else {
+        @if ($hoverColor) {
 
-        &:active {
-          color: $activeColor;
+          &:hover {
+            color: $hoverColor;
+          }
+        }
+        @if ($activeColor) {
+
+          &:active {
+            color: $activeColor;
+          }
         }
       }
-    }
 
+    }
   }
 }

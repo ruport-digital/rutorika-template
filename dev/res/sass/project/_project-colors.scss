@@ -1,73 +1,88 @@
 // White
 
-$white: #fff;
+$white-100: #fff;
+
+$white: $white-100;
 
 
 
 // Black
 
-$black: #000;
-$black-light: #24292e;
+$black-500: #24292e;
+$black-900: #000;
+
+$black: $black-900;
 
 
 
 // Gray
 
-$gray-lightest: #e5e5e5;
-$gray-light: #ccc;
-$gray: #999;
-$gray-dark: #737373;
-$gray-darkest: #595959;
+$gray-100: #e5e5e5;
+$gray-300: #ccc;
+$gray-500: #999;
+$gray-700: #737373;
+$gray-900: #595959;
 
+$gray: $gray-500;
 
 
 // Red
 
-$red-lightest: #ff978c;
-$red-light: #f26d61;
-$red: #cc2929;
-$red-dark: #a62934;
-$red-darkest: #8c232c;
+$red-100: #ff978c;
+$red-300: #f26d61;
+$red-500: #cc2929;
+$red-700: #a62934;
+$red-900: #8c232c;
+
+$red: $red-500;
 
 
 
 // Blue
 
-$blue-lightest: #59c8ff;
-$blue-light: #39ace5;
-$blue: #2988cc;
-$blue-dark: #2d70b3;
-$blue-darkest: #234f8c;
+$blue-100: #59c8ff;
+$blue-300: #39ace5;
+$blue-500: #2988cc;
+$blue-700: #2d70b3;
+$blue-900: #234f8c;
+
+$blue: $blue-500;
 
 
 
 // Purple
 
-$purple-lightest: #f373ff;
-$purple-light: #d739e5;
-$purple: #af1fcc;
-$purple-dark: #8e22b3;
-$purple-darkest: #692680;
+$purple-100: #f373ff;
+$purple-300: #d739e5;
+$purple-500: #af1fcc;
+$purple-700: #8e22b3;
+$purple-900: #692680;
+
+$purple: $purple-500;
 
 
 
 // Yellow
 
-$yellow-lightest: #fff58c;
-$yellow-light: #f5e962;
-$yellow: #f6e002;
-$yellow-dark: #e5c910;
-$yellow-darkest: #dba621;
+$yellow-100: #fff58c;
+$yellow-300: #f5e962;
+$yellow-500: #f6e002;
+$yellow-700: #e5c910;
+$yellow-900: #dba621;
+
+$yellow: $yellow-500;
 
 
 
 // Green
 
-$green-lightest: #9ff26b;
-$green-light: #77eb67;
-$green: #29cc5f;
-$green-dark: #39ad6f;
-$green-darkest: #298a73;
+$green-100: #9ff26b;
+$green-300: #77eb67;
+$green-500: #29cc5f;
+$green-700: #39ad6f;
+$green-900: #298a73;
+
+$green: $green-500;
 
 
 
@@ -78,4 +93,4 @@ $twitterColor: #0084b4;
 $vkColor: #507299;
 $okColor: #ee8208;
 $instagramColor: #8a3ab9;
-$youtTubeColor: #e52d27;
+$youTubeColor: #e52d27;

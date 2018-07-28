@@ -18,6 +18,19 @@
 
 
 
+// Square Root
+
+@function txf-sqrt($value) {
+  $x0: 1;
+  $x1: $x0;
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($value)) / (2 * $x0);
+    $x0: $x1;
+  }
+  @return $x1;
+}
+
+
 // Strip Units
 
 @function txf-stripUnit($number) {

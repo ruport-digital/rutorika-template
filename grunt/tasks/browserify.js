@@ -5,10 +5,11 @@ module.exports = (grunt, options) => {
     options: {
       transform: [
         ['babelify', { presets: [
-          ['env', { targets: { browsers: project.browsers } }]
+          ['env', { targets: { browsers: project.browsers } }],
         ] }],
       ],
       plugins: ['sitrep'],
+      cacheFile: './browserify-cache.json',
       browserifyOptions: {
         paths: [project.res.js.comp],
       },

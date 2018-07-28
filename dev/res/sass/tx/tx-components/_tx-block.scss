@@ -4,12 +4,23 @@
 
 // Block Placeholder
 
-@mixin tx-block-placeholder($image: '../images/tx/tx-placeholder.png') {
-  background: url($image);
+@function txf-stripe($color) {
+  $transparent: rgba($color, 0);
+  @return linear-gradient(135deg, $color, $color 12.5%, $transparent 12.5%, $transparent 37.5%, $color 37.5%, $color 62.5%, $transparent 62.5%, $transparent 87.5%, $color 87.5%, $color);
+}
+
+@mixin tx-stripes($width, $color: $red) {
+  $side: #{txf-sqrt(txf-pow(txf-stripUnit($width) * 4, 2) / 2)}px;
+  background-image: txf-stripe($color);
+  background-size: $side $side;
+}
+
+@mixin tx-block($color: $red) {
+  @include tx-stripes(1.5px, $color);
 }
 
 @mixin tx-icon($width: 15px, $height: 15px) {
-  @include tx-block-placeholder;
+  @include tx-block;
   width: $width;
   height: $height;
 }

@@ -43,6 +43,7 @@ $mediaQueries: (
   tablet2x: txf-deviceBreakpoint(tablet2x),
   tablet3x: txf-deviceBreakpoint(tablet3x),
   wide: txf-deviceBreakpoint(wide),
+  watch: '(max-device-width: 42mm) and (min-device-width: 38mm)',
   print: 'print',
   speech: 'speech',
   exotic: 'projection, tv',

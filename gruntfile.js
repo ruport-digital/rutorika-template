@@ -38,6 +38,8 @@ const CONFIG = {
 
   SASS_DIR: 'sass',                  // Sass
   CSS_DIR: 'css',                    // CSS
+  GRID_COUNT: 12,                    // Vertical Grid Column Count
+  GRID_GAP: 20,                      // Vertical Grid Gap
 
   JS_DEV_DIR: 'js-dev',              // Development JavaScript
   JS_DIR: 'js',                      // JavaScript
@@ -50,8 +52,10 @@ const loadConfig = require('load-grunt-config');
 const configPath = `${process.cwd()}/grunt/tasks/`;
 const staticMappings = require('./grunt/tx/tx-mapping');
 const data = require('./grunt/tx/tx-config')(CONFIG);
+const txCheck = require('./grunt/tx/tx-check');
 
 module.exports = (grunt) => {
+  txCheck(grunt, data);
   loadConfig(grunt, { configPath, jitGrunt: { staticMappings }, data });
   loadConfig(grunt, { jitGrunt: true, init: false, data });
 };

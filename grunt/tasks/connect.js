@@ -44,17 +44,23 @@ function servePages(res, next, dir, pages) {
   fs.readFile(`${dir}${pages}`, (error, buffer) => generatePagesResponse(error, buffer, res, next));
 }
 
+function servePage(res, next, dir, pathname) {
+  fs.readFile(`${dir}${pathname}.html`, (error, buffer) => generatePagesResponse(error, buffer, res, next));
+}
+
 function is404(dir, pathname) {
   if (pathname === '/') return false;
-  if (!fs.existsSync(`${dir}${pathname}`) && pathname.indexOf('.html') > -1) return true;
-  else if (pathname.indexOf('.') > -1) return false;
-  return true;
+  if (!(fs.existsSync(`${dir}${pathname}`) || fs.existsSync(`${dir}${pathname}.html`))) return true;
+  return false;
 }
 
 function pagesMiddleware(req, res, next, dir, pages) {
   const reqURL = url.parse(req.url);
   const { pathname } = reqURL;
+  if (pathname === '/s' || pathname === '/style') return servePage(res, next, dir, 'style');
+  if (pathname === '/t' || pathname === '/typo') return servePage(res, next, dir, 'typography');
   if (pathname === '/p' || pathname === '/pages' || is404(dir, pathname)) return servePages(res, next, dir, pages);
+  if (!fs.existsSync(`${dir}${pathname}`) && fs.existsSync(`${dir}${pathname}.html`)) return servePage(res, next, dir, pathname);
   return next();
 }
 

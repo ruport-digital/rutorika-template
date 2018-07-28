@@ -77,7 +77,7 @@ summary {
 }
 
 %heading {
-  @include tx-rhythm(2, .75);
+  @include tx-rhythm(2, 1);
   font-weight: bold;
   text-rendering: auto;
   page-break-after: avoid;
@@ -117,7 +117,7 @@ h6 {
 }
 
 %defaultBlock {
-  @include tx-rhythm(.75, .75);
+  @include tx-rhythm(1, 1);
 }
 
 %list {
@@ -507,6 +507,7 @@ legend {
 label {
   @extend %tx-fastTouch;
   cursor: pointer;
+  user-select: none;
 }
 
 %formBaseline {
@@ -526,7 +527,6 @@ label {
 // sass-lint:disable no-vendor-prefixes
 
 %formBorderReset {
-  border: 0;
 
   &::-moz-focus-inner {
     padding: 0;
@@ -537,6 +537,14 @@ label {
 
 // sass-lint:enable no-vendor-prefixes
 
+%form {
+  border: $field-borderWidth solid $field-borderColor;
+}
+
+%formInput {
+  padding: 0 ($gap / 2);
+}
+
 %formTextReset {
   text-transform: none;
 }
@@ -545,12 +553,11 @@ label {
   vertical-align: top;
 }
 
-%form {
-  border: $field-borderWidth solid $field-borderColor;
-}
-
 %formRadioCheckbox {
   box-sizing: border-box;
+  height: auto;
+  padding: 0;
+  border: 0;
   vertical-align: middle;
 }
 
@@ -603,15 +610,26 @@ $formPlaceholder-color: $gray;
 
 }
 
+%button {
+  @extend %tx-fastTouch;
+  @include tx-grid-height(2, $setLineHeight: false);
+  padding: 0 ($gap / 2);
+  border: 0;
+  cursor: pointer;
+}
+
 // sass-lint:enable no-vendor-prefixes
 
 input {
+  @extend %form;
+  @extend %formInput;
   @extend %formAlign;
   @extend %formBaseline;
   @extend %formBorderReset;
   @extend %formBoxSizing;
   @extend %formFont;
   @extend %formPlaceholder;
+  @include tx-form-height(2, $setLineHeight: false);
   box-shadow: none;
 
   &[type='radio'] {
@@ -624,6 +642,17 @@ input {
 
   &[type='submit'] {
     @extend %formAppearanceReset;
+    @extend %button;
+  }
+
+  &[type='reset'] {
+    @extend %formAppearanceReset;
+    @extend %button;
+  }
+
+  &[type='button'] {
+    @extend %formAppearanceReset;
+    @extend %button;
   }
 
   &[type='file'] {
@@ -670,20 +699,13 @@ select {
   @extend %formFont;
   @extend %formTextReset;
   @extend %tx-fastTouch;
-  @include tx-grid-height(1.5, $setLineHeight: false);
+  @include tx-grid-height(2, $setLineHeight: false);
   vertical-align: top;
 
   &[multiple] {
     @include tx-grid-height(5, $setLineHeight: false);
   }
 
-}
-
-%button {
-  @extend %tx-fastTouch;
-  @include tx-grid-height(1.5, $setLineHeight: false);
-  padding: 0 ($gap / 2);
-  cursor: pointer;
 }
 
 button {
@@ -707,8 +729,8 @@ textarea {
   @extend %formBaseline;
   @extend %formBoxSizing;
   @extend %formPlaceholder;
-  @include tx-form-height(9, 1);
-  @include tx-rhythm-padding(.25, .25, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
+  @include tx-form-height(8, 1);
+  @include tx-rhythm-padding(.5, .5, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
   overflow: auto;
   font-size: inherit;
 

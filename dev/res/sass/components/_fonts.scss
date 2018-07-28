@@ -1,7 +1,3 @@
 /* Fonts */
 
-@include tx-font-face('Open Sans', opensans, $fontVariants, $fontFormats, true);
-
-body {
-  @include tx-font-family('Open Sans');
-}
+@include tx-font-face('Open Sans', opensans, $fontVariants, $fontFormats, true, true);

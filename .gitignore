@@ -12,6 +12,8 @@ Thumbs.db
 npm-debug.log
 package-lock.json
 
+
+
 #Dev
 
 .sass-cache
@@ -20,6 +22,9 @@ node_modules
 bower_components
 phantomcss
 *.map
+browserify-cache.json
+
+
 
 #TX
 
@@ -30,6 +35,5 @@ dev/res/js
 dev/*.html
 *.gz
 
-*.gz
 *.build.zip
 *.sublime-workspace

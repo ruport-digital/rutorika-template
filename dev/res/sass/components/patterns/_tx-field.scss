@@ -4,10 +4,21 @@ $tx-field-height: 48px;
 $tx-field-padding: ($gap / 2);
 $tx-field-borderWidth: 2px;
 $tx-field-borderColor: $gray;
+$tx-field-valid-caretColor: $green;
+$tx-field-error-caretColor: $red;
 
 %tx-field {
   height: ($tx-field-height - $tx-field-borderWidth * 2);
-  padding: 0 $tx-field-padding;
   border: $tx-field-borderWidth solid $tx-field-borderColor;
-}
 
+  &-valid {
+    border-color: $tx-field-valid-caretColor;
+    caret-color: $tx-field-valid-caretColor;
+  }
+
+  &-error {
+    border-color: $tx-field-error-caretColor;
+    caret-color: $tx-field-error-caretColor;
+  }
+
+}
