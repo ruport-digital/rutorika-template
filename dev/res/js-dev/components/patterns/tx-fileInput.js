@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 'off' */
+
 import * as eventManager from 'patterns/tx-eventManager';
 
 const WRAP_CLASS_NAME_SUFFIX = '-wrap';

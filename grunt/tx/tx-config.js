@@ -66,6 +66,10 @@ module.exports = config => ({
     txpath: '**/tx/**/*.',
     temp: 'tmp/',
     scss: 'project/',
+    externalResources: [
+      'node_modules/',
+      'bower_components/',
+    ],
     spritesSCSS: '_project-sprites.scss',
     dataURISCSS: '_project-images.scss',
     dataURI: '_project-base64.scss',

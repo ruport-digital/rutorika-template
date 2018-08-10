@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 'off' */
+
 import * as eventManager from 'patterns/tx-eventManager';
 import createNode from 'patterns/tx-createNode';
 import transition from 'patterns/tx-transition';

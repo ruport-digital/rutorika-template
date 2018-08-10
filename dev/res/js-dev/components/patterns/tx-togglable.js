@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 'off' */
+
 import * as eventManager from 'patterns/tx-eventManager';
 
 const ACTIVE_CLASS_NAME_SUFFIX = '-is-active';

@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 'off' */
+
 /* Utilities */
 
 function properties(axis, distance) {
@@ -12,19 +14,19 @@ function properties(axis, distance) {
 /* CSS Object */
 
 export function css(axis, distance) {
-  const css = properties(axis, distance);
+  const style = properties(axis, distance);
   return {
-    '-webkit-transform': css.propertyLayer,
-    '-moz-transform': css.propertyLayer,
-    '-ms-transform': css.property,
-    '-o-transform': css.property,
-    transform: css.propertyLayer,
+    '-webkit-transform': style.propertyLayer,
+    '-moz-transform': style.propertyLayer,
+    '-ms-transform': style.property,
+    '-o-transform': style.property,
+    transform: style.propertyLayer,
   };
 }
 
 /* CSS String */
 
 export function string(axis, distance) {
-  const css = properties(axis, distance);
-  return `-webkit-transform:${css.propertyLayer};-moz-transform:${css.propertyLayer};-ms-transform:${css.property};-o-transform:${css.property};transform:${css.propertyLayer};`;
+  const style = properties(axis, distance);
+  return `-webkit-transform:${style.propertyLayer};-moz-transform:${style.propertyLayer};-ms-transform:${style.property};-o-transform:${style.property};transform:${style.propertyLayer};`;
 }

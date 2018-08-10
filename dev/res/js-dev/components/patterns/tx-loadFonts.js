@@ -6,7 +6,7 @@ const LOADED_PREFIX = 'font-';
 const LOADED_SUFFIX = '-is-loaded';
 
 function generateFontClassName(fontName) {
-  const noSpaces = fontName.replace(/\s/g, '');
+  const noSpaces = fontName.replace(/\s/gu, '');
   return `${LOADED_PREFIX}${noSpaces}${LOADED_SUFFIX}`;
 }
 

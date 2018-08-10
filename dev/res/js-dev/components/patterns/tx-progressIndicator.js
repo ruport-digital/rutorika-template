@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 'off' */
+
 const TRACK_SUFFIX = 'Track';
 const INDICATOR_SUFFIX = 'Indicator';
 const PERCENTAGE_SUFFIX = 'Percentage';

@@ -1,3 +1,5 @@
+/* eslint max-lines-per-function: 'off' */
+
 import * as eventManager from 'patterns/tx-eventManager';
 
 const SINGLE_EVENT = 'gesture:singleswipe';

@@ -1,12 +1,15 @@
+const sass = require('node-sass');
+
 module.exports = (grunt, options) => {
-  const { project } = options;
+  const { project, helpers } = options;
 
   return {
     options: {
       sourceMap: true,
       precision: 2,
-      includePaths: [project.res.css.comp],
+      includePaths: [project.res.css.comp, ...helpers.externalResources],
       outputStyle: 'expanded',
+      implementation: sass,
     },
     dev: {
       cwd: project.res.css.sass,
