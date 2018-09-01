@@ -11,6 +11,7 @@ module.exports = config => ({
     https: config.HTTPS,
     port: config.PORT,
     browsers: fs.readFileSync('./browserslist', 'utf8').split(/(?:\r?\n|\r)/g).slice(0, -1),
+    branch: 'dev',
     meta: `${config.META_DIR}/`,
     dir: `${config.DEVELOPMENT_DIR}/`,
     images: `${config.DEVELOPMENT_DIR}/${config.IMAGES_DIR}/`,

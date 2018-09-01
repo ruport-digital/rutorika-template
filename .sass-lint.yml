@@ -160,18 +160,36 @@ rules:
         - display
         - float
         - clear
+        - order
+        - align-items
+        - align-content
+        - justify-content
+        - align-self
+        - flex
         - flex-flow
         - flex-direction
         - flex-wrap
-        - justify-content
-        - align-items
-        - align-content
-        - order
         - flex-grow
         - flex-shrink
         - flex-basis
-        - flex
-        - align-self
+        - grid
+        - grid-area
+        - grid-template
+        - grid-template-areas
+        - grid-template-rows
+        - grid-template-columns
+        - grid-column
+        - grid-column-start
+        - grid-column-end
+        - grid-row
+        - grid-row-start
+        - grid-row-end
+        - grid-auto-rows
+        - grid-auto-columns
+        - grid-auto-flow
+        - grid-gap
+        - grid-row-gap
+        - grid-column-gap
         - overflow
         - overflow-x
         - overflow-y

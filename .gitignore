@@ -33,6 +33,8 @@ design
 dev/res/css
 dev/res/js
 dev/*.html
+dev/res/images/**/tx-*.*
+dev/res/templates/**/_tx-*.*
 *.gz
 
 *.build.zip

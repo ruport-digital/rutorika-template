@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="22px" viewBox="0 0 26 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>mediaVolume</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="mediaVolume" stroke="#337AB7" stroke-width="2">
+            <path d="M12,21 L12,1 L5,7 L3,7 C1.8954305,7 1,7.88670635 1,8.99810135 L1,13.0018986 C1,14.1054196 1.88772964,15 3,15 L5,15 L12,21 Z" id="dynamic"></path>
+            <path d="M21.4840143,19.8912634 C23.6645838,17.5662541 25,14.4390786 25,11 C25,7.56092137 23.6645838,4.4337459 21.4840143,2.10873657" id="soundWave-3"></path>
+            <path d="M18.5658561,17.1554901 C20.0754811,15.5458682 21,13.3809006 21,11 C21,8.61909941 20.0754811,6.45413178 18.5658561,4.84450993" id="soundWave-2"></path>
+            <path d="M15.6476978,14.4197167 C16.4863784,13.5254823 17,12.3227226 17,11 C17,9.67727745 16.4863784,8.47451766 15.6476978,7.5802833" id="soundWave-1"></path>
+        </g>
+    </g>
+</svg>

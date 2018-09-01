@@ -5,15 +5,20 @@ module.exports = (grunt, options) => {
     options: {
       quality: 80,
     },
-    optimize: {
-      cwd: project.res.images.dir,
-      src: `**/*.${helpers.imageJpegFiles}`,
-      dest: project.res.images.dir,
+    sprites: {
+      cwd: project.dir,
+      src: [
+        ...project.res.images.dataURI.reduce((acc, image) => {
+          if (helpers.imageJpegFiles.replace(/\{|\}/ug,'').split(',').indexOf(image.split('.').pop())) acc.push(`${project.res.images.dir.replace(project.dir, '')}${image}`);
+          return acc;
+        }, []),
+      ],
+      dest: project.dir,
       expand: true,
     },
-    meta: {
+    optimize: {
       cwd: project.build.dir,
-      src: `*.${helpers.imageFiles}`,
+      src: `*.${helpers.imageJpegFiles}`,
       dest: project.build.dir,
       expand: true,
     },

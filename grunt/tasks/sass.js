@@ -1,5 +1,3 @@
-const sass = require('node-sass');
-
 module.exports = (grunt, options) => {
   const { project, helpers } = options;
 
@@ -9,7 +7,6 @@ module.exports = (grunt, options) => {
       precision: 2,
       includePaths: [project.res.css.comp, ...helpers.externalResources],
       outputStyle: 'expanded',
-      implementation: sass,
     },
     dev: {
       cwd: project.res.css.sass,

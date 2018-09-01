@@ -90,17 +90,8 @@
 // Layers
 
 @mixin tx-layer($layer: content, $shift: 0) {
-  @if $layer == 'over' {
-    z-index: (200 + $shift);
-  } @else if $layer == 'top' {
-    z-index: (100 + $shift);
-  } @else if $layer == 'content' {
-    z-index: (50 + $shift);
-  } @else if $layer == 'bottom' {
-    z-index: (0 + $shift);
-  } @else if $layer == 'under' {
-    z-index: (-1 - $shift);
-  }
+  $zIndex: map-get($layers, $layer);
+  z-index: ($zIndex + $shift);
 }
 
 

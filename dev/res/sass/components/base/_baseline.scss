@@ -569,16 +569,6 @@ label {
   appearance: none;
 }
 
-// sass-lint:enable no-vendor-prefixes
-
-%formInactive {
-  opacity: .5;
-  cursor: default;
-  cursor: not-allowed;
-}
-
-// sass-lint:disable no-vendor-prefixes
-
 $formPlaceholder-color: $gray;
 
 %formPlaceholder {
@@ -610,6 +600,8 @@ $formPlaceholder-color: $gray;
 
 }
 
+// sass-lint:enable no-vendor-prefixes
+
 %button {
   @extend %tx-fastTouch;
   @include tx-grid-height(2, $setLineHeight: false);
@@ -618,7 +610,11 @@ $formPlaceholder-color: $gray;
   cursor: pointer;
 }
 
-// sass-lint:enable no-vendor-prefixes
+%formInactive {
+  opacity: .5;
+  cursor: default;
+  cursor: not-allowed;
+}
 
 input {
   @extend %form;

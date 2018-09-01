@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>mediaRepeat</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="mediaRepeat" stroke="#337AB7" stroke-width="2">
+            <polyline id="repeatArrowBottom" points="8 13 5 16 8 19"></polyline>
+            <path d="M23,10 C23,13.3137085 20.3137085,16 17,16 L5,16" id="repeatTailBottom"></path>
+            <polyline id="repeatArrowTop" points="16 1 19 4 16 7"></polyline>
+            <path d="M1,10 C1,6.6862915 3.6862915,4 7,4 L18,4" id="repeatTailTop"></path>
+        </g>
+    </g>
+</svg>

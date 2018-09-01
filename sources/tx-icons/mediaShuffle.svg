@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>mediaShuffle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="mediaShuffle" stroke="#337AB7" stroke-width="2">
+            <path d="M8,4 C6.18973592,5.81428619 3.76544001,7 1,7" id="shuffleTailTL" transform="translate(4.500000, 5.500000) scale(1, -1) translate(-4.500000, -5.500000) "></path>
+            <path d="M21,13 C19.1897359,14.8142862 16.76544,16 14,16" id="shuffleTailBR" transform="translate(17.500000, 14.500000) scale(-1, 1) translate(-17.500000, -14.500000) "></path>
+            <polyline id="shuffleArrowBottom" points="20 13 23 16 20 19"></polyline>
+            <path d="M8,13 C6.18973592,14.8142862 3.76544001,16 1,16" id="shuffleTailBL"></path>
+            <path d="M21,4 C19.1897359,5.81428619 16.76544,7 14,7" id="shuffleTailTR" transform="translate(17.500000, 5.500000) scale(-1, -1) translate(-17.500000, -5.500000) "></path>
+            <polyline id="shuffleArrowTop" points="20 1 23 4 20 7"></polyline>
+            <path d="M8,7 L14,13" id="shuffleTailCenter"></path>
+        </g>
+    </g>
+</svg>

@@ -92,6 +92,7 @@ module.exports = (grunt, options) => {
           const dir = `${project.build.dir}${project.res.js.dir.replace(project.dir)}`;
           const filename = `${project.res.js.service}.min.js`;
           middlewares.unshift((req, res, next) => swMiddleware(req, res, next, dir, filename));
+          middlewares.unshift((req, res, next) => pagesMiddleware(req, res, next, project.build.dir, helpers.pages));
           return middlewares;
         },
       },

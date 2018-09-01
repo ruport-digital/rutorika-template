@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>mediaFullScreen</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="mediaFullScreen" stroke="#337AB7" stroke-width="2">
+            <path d="M1,1 L6,6" id="fsTLTail"></path>
+            <polyline id="fsTLArrow" points="1 6 1 1 6 1"></polyline>
+            <path d="M17,1 L12,6" id="fsTRTail"></path>
+            <polyline id="fsTRArrow" points="17 6 17 1 12 1"></polyline>
+            <path d="M17,17 L12,12" id="fsBRTail"></path>
+            <polyline id="fsBRArrow" points="17 12 17 17 12 17"></polyline>
+            <path d="M1,17 L6,12" id="fsBLTail"></path>
+            <polyline id="fsBLArrow" points="1 12 1 17 6 17"></polyline>
+        </g>
+    </g>
+</svg>

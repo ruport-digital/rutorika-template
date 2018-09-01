@@ -39,6 +39,14 @@ $fontFormats: (
 $fontRatio: 1.2;
 $fontSizeQuotient: $fontSize / 16px;
 
+$layers: (
+  over: 200,
+  top: 100,
+  content: 50,
+  bottom: 0,
+  under: -1,
+);
+
 $remFallback: true;
 
 
