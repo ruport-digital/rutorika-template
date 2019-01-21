@@ -9,7 +9,7 @@
 
 @mixin tx-font-family($family) {
   $familyNorm: txf-str-replace(#{$family}, ' ');
-  $familyExtend: #{%}font-#{$familyNorm};
+  $familyExtend: #{'%'}font-#{$familyNorm};
   @extend #{$familyExtend};
 }
 
@@ -30,7 +30,7 @@
     }
   }
 
-  $extend: #{%}font-#{$familyNorm};
+  $extend: #{'%'}font-#{$familyNorm};
   $loaded: font-#{$familyNorm}-is-loaded;
 
   @if ($base) {
@@ -61,8 +61,17 @@
     font-weight: bold;
     font-style: italic;
   } @else if type-of($variant) == number {
-    font-weight: $variant;
-    font-style: normal;
+    $string: inspect($variant);
+    $dashIndex: str-index($string, '-');
+    @if type-of($dashIndex) == number {
+      $weight: str-slice($string, 0, $dashIndex - 1);
+      $style: str-slice($string, $dashIndex + 1);
+      font-weight: $weight;
+      font-style: $style;
+    } @else {
+      font-weight: $variant;
+      font-style: normal;
+    }
   } @else {
     font-weight: normal;
     font-style: normal;

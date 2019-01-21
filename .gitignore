@@ -12,6 +12,12 @@ Thumbs.db
 npm-debug.log
 package-lock.json
 
+.vscode
+.idea
+.settings
+.classpath
+.project
+
 
 
 #Dev

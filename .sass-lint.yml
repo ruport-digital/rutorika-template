@@ -203,6 +203,7 @@ rules:
         - scroll-snap-destination
         - clip
         - box-sizing
+        - '-webkit-box-decoration-break'
         - box-decoration-break
         - width
         - height

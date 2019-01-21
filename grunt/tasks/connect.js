@@ -50,7 +50,7 @@ function servePage(res, next, dir, pathname) {
 
 function is404(dir, pathname) {
   if (pathname === '/') return false;
-  if (!(fs.existsSync(`${dir}${pathname}`) || fs.existsSync(`${dir}${pathname}.html`))) return true;
+  if ((!pathname.match(/\.[0-9a-zA-Z]{2,5}$/gu) && !fs.existsSync(`${dir}${pathname}`)) && !fs.existsSync(`${dir}${pathname}.html`)) return true;
   return false;
 }
 
@@ -79,8 +79,8 @@ module.exports = (grunt, options) => {
         base: project.dir,
         middleware: (connect, connectOptions, middlewares) => {
           const filename = `${project.res.js.service}.min.js`;
-          middlewares.unshift((req, res, next) => swMiddleware(req, res, next, project.res.js.dir, filename));
           middlewares.unshift((req, res, next) => pagesMiddleware(req, res, next, project.dir, helpers.pages));
+          middlewares.unshift((req, res, next) => swMiddleware(req, res, next, project.res.js.dir, filename));
           return middlewares;
         },
       },
@@ -91,8 +91,8 @@ module.exports = (grunt, options) => {
         middleware: (connect, connectOptions, middlewares) => {
           const dir = `${project.build.dir}${project.res.js.dir.replace(project.dir)}`;
           const filename = `${project.res.js.service}.min.js`;
-          middlewares.unshift((req, res, next) => swMiddleware(req, res, next, dir, filename));
           middlewares.unshift((req, res, next) => pagesMiddleware(req, res, next, project.build.dir, helpers.pages));
+          middlewares.unshift((req, res, next) => swMiddleware(req, res, next, dir, filename));
           return middlewares;
         },
       },
