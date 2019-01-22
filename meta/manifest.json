@@ -3,43 +3,44 @@
   "short_name": "@tx-title",
 	"description": "",
   "lang": "@tx-language",
-	"icons": [
+  "icons": [
     {
       "src": "icon-60.png",
       "sizes": "60x60",
-      "type": "image/png",
-      "density": "1"
+      "type": "image/png"
     }, {
       "src": "icon-60@2x.png",
-      "sizes": "60x60",
-      "type": "image/png",
-      "density": "2"
+      "sizes": "120x120",
+      "type": "image/png"
     }, {
       "src": "icon-60@3x.png",
-      "sizes": "60x60",
-      "type": "image/png",
-      "density": "3"
+      "sizes": "180x180",
+      "type": "image/png"
     }, {
-      "src": "icon-70.png",
-      "sizes": "70x70",
-      "type": "image/png",
-      "density": "1"
+      "src": "icon-76.png",
+      "sizes": "76x76",
+      "type": "image/png"
     }, {
-      "src": "icon-70@2x.png",
-      "sizes": "70x70",
-      "type": "image/png",
-      "density": "2"
+      "src": "icon-76@2x.png",
+      "sizes": "152x152",
+      "type": "image/png"
     }, {
-      "src": "icon-70@3x.png",
-      "sizes": "70x70",
-      "type": "image/png",
-      "density": "3"
+      "src": "icon-76@3x.png",
+      "sizes": "228x228",
+      "type": "image/png"
+    }, {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "scope": "/",
-  "start_url": "index.html",
-  "display": "any",
-  "background_color": "@tx-theme",
-  "theme_color": "@tx-theme",
-
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "@tx-theme"
 }
