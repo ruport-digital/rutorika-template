@@ -17,6 +17,7 @@ module.exports = (grunt, options) => {
       cacheFile: './browserify-cache.json',
       browserifyOptions: {
         paths: [project.res.js.comp],
+        debug: true,
       },
     },
     dev: {
