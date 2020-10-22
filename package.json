@@ -1,8 +1,6 @@
 {
   "name": "templatex",
   "version": "0.0.1",
-  "description": "TemplateX",
-  "private": true,
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.0.0",
@@ -61,11 +59,7 @@
   },
   "scripts": {
     "build": "grunt build",
-    "prod": "grunt build",
-    "production": "grunt build",
-    "dev": "grunt watch-project-server",
     "start": "grunt watch-project-server",
-    "spts": "grunt process-sprites",
     "sprites": "grunt process-sprites",
     "test": "grunt test",
     "txfullinstall": "cd node_modules/grunt-phantomcss && npm install"
