@@ -2,10 +2,10 @@ module.exports = (grunt) => {
   grunt.registerTask('quality', [
     'newer:htmlhint',
     'newer:sasslint',
-    'newer:csslint',
+    'force:csslint',
     'newer:colorguard',
     'newer:eslint',
-    'newer:jsinspect',
+    // 'newer:jsinspect',
     'unused:unused',
   ]);
 
