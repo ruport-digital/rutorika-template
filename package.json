@@ -59,10 +59,16 @@
   },
   "scripts": {
     "build": "grunt build",
+    "build:critical": "grunt build-critical",
+    "build:fast": "grunt build-fast",
+    "build:critical-fast": "grunt build-critical-fast",
+    "compile": "grunt compile",
+    "performance": "grunt performance",
     "start": "grunt watch-project-server",
     "sprites": "grunt process-sprites",
     "test": "grunt test",
-    "txfullinstall": "cd node_modules/grunt-phantomcss && npm install"
+    "txfullinstall": "cd node_modules/grunt-phantomcss && npm install",
+    "quality": "grunt quality"
   },
   "author": "uncle.funkay@gmail.com",
   "license": "ISC",
