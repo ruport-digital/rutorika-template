@@ -26,6 +26,15 @@ available commands.
 * Uses [Modernizr](http://modernizr.com/) for feature detection.
 * Uses [Grunt](http://gruntjs.com/) as it's task runner ([Getting started with Grunt.JS](http://gruntjs.com/getting-started)).
 
+## Common issues
+> ERR! Failed at the node-sass postinstall script 'node scripts/build.js'
+
+Try to install this:
+```
+sudo apt install -y build-essential gcc make libpng-dev
+```
+And make sure python2 is installed
+
 ## Inspiration
 
 TemplateX was partly inspired by
