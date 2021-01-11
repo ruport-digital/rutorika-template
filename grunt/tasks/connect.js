@@ -73,6 +73,7 @@ module.exports = (grunt, options) => {
       keepalive: true,
       port: project.port,
       protocol: project.https ? 'https' : 'http',
+      livereload: true,
     },
     dev: {
       options: {
