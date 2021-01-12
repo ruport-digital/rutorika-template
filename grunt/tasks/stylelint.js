@@ -3,8 +3,8 @@ module.exports = (grunt, options) => {
 
   return {
     options: {
-      configFile: '.sass-lint.yml',
-      formatter: 'stylish',
+      configFile: '.stylelintrc',
+      formatter: 'string',
     },
     test: {
       cwd: project.res.css.sass,

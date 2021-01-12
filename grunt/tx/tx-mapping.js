@@ -1,6 +1,6 @@
 module.exports = {
   analyzecss: 'grunt-analyze-css',
   force: 'grunt-force-task',
-  sasslint: 'grunt-sass-lint',
+  stylelint: 'grunt-stylelint',
   sprite: 'grunt-spritesmith',
 };
