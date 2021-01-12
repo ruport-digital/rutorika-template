@@ -56,8 +56,12 @@
     "imagemin-pngquant": "6.0.0",
     "load-grunt-config": "0.19.2",
     "mocha": "5.2.0",
+    "stylelint": "^13.8.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   },
   "scripts": {
     "build": "grunt build",

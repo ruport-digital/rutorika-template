@@ -3,7 +3,7 @@ module.exports = (grunt, options) => {
 
   return {
     options: {
-      configFile: '.stylelintrc',
+      configFile: '.stylelintrc.json',
       formatter: 'string',
     },
     test: {
