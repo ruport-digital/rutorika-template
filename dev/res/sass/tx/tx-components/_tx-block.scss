@@ -45,8 +45,8 @@
 @mixin tx-pseudo($position: absolute, $display: block, $content: '', $ie: $tx-IE, $extend: true) {
   @if $position == 'absolute' and $display == 'block' and $content == '' and $extend == true {
     position: absolute;
-    content: '';
     display: block;
+    content: '';
   } @else {
     @if $display == 'inline-block' {
       @include tx-inline-block;
@@ -78,11 +78,11 @@
 
 @mixin tx-pseudo-va {
   position: relative;
-  content: '';
   display: inline-block;
   width: 0;
   height: 100%;
   vertical-align: middle;
+  content: '';
 }
 
 

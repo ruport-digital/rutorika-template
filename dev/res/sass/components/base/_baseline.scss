@@ -190,8 +190,8 @@ $highlight-color: $red;
 pre {
   @extend %defaultBlock;
   @extend %mono;
-  overflow-x: auto;
   padding: 0 1.5em;
+  overflow-x: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
   tab-size: 2;
@@ -271,8 +271,8 @@ i {
 $interactiveHighlight-color: $blue;
 
 %interactiveHighlight {
-  border-bottom: 1px dotted $interactiveHighlight-color;
   color: $interactiveHighlight-color;
+  border-bottom: 1px dotted $interactiveHighlight-color;
 }
 
 %removed {
@@ -330,8 +330,8 @@ $del-borderWidth: 1px;
 
 del {
   @extend %removed;
-  border-bottom: $del-borderWidth dotted $del-color;
   color: $del-color;
+  border-bottom: $del-borderWidth dotted $del-color;
 }
 
 strike {
@@ -349,12 +349,12 @@ kbd {
   @include tx-inline-block;
   @include tx-grid-height(1, 1);
   padding: 0 .25em;
-  border-radius: 3px;
-  background: $kbd-background;
-  background-clip: padding-box;
   font-weight: bold;
   font-family: $font-mono;
   vertical-align: top;
+  background: $kbd-background;
+  background-clip: padding-box;
+  border-radius: 3px;
 }
 
 sup {
@@ -382,10 +382,10 @@ u {
 // sass-lint:disable no-vendor-prefixes
 
 img {
-  height: auto;
   max-width: 100%;
-  border: 0;
+  height: auto;
   vertical-align: top;
+  border: 0;
   -ms-interpolation-mode: bicubic;
 }
 
@@ -414,9 +414,9 @@ caption {
 table {
   @include tx-rhythm(1, 1);
   width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
   empty-cells: hide;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 td {
@@ -490,9 +490,9 @@ a {
 
 fieldset {
   @extend %block;
+  margin: 0;
   padding: 0;
   border: 0;
-  margin: 0;
 }
 
 $legend-padding: 1.5em;
@@ -557,8 +557,8 @@ label {
   box-sizing: border-box;
   height: auto;
   padding: 0;
-  border: 0;
   vertical-align: middle;
+  border: 0;
 }
 
 // sass-lint:disable no-vendor-prefixes
@@ -611,9 +611,9 @@ $formPlaceholder-color: $gray;
 }
 
 %formInactive {
-  opacity: .5;
   cursor: default;
   cursor: not-allowed;
+  opacity: .5;
 }
 
 input {

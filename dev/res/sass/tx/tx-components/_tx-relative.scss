@@ -17,15 +17,15 @@
     #{$prop}: $values;
   }
   #{$prop}: txf-relative($values, $base, $units);
-};
+}
 
 @mixin tx-relative-prop($prop, $values, $base, $units, $shorthand: true, $fallback: true) {
   @if type-of($values) == 'list' {
     @include tx-relative-prop-multiple($prop, $values, $base, $units, $shorthand, $fallback);
   } @else {
     @include tx-relative-prop-single($prop, $values, $base, $units, $fallback);
-  };
-};
+  }
+}
 
 
 

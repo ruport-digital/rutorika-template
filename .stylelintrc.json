@@ -19,6 +19,7 @@
     "selector-pseudo-element-colon-notation": null,
     "value-keyword-case": null,
     "comment-empty-line-before": null,
+    "no-empty-source": null,
     "order/order": [
       "dollar-variables",
       "custom-properties",

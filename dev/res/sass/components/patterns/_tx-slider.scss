@@ -8,19 +8,19 @@
   }
 
   &Body {
-    position: relative
+    position: relative;
     display: flex;
-    filter: brightness(1.01);
     transform: translateZ(0);
+    filter: brightness(1.01);
   }
 
   &Slide {
     flex-shrink: 0;
     width: 100%;
     vertical-align: top;
-    touch-action: manipulation;
-    user-select: none;
     transform: translateZ(0);
+    user-select: none;
+    touch-action: manipulation;
   }
 
 }

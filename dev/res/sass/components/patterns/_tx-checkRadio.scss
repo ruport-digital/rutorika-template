@@ -6,8 +6,8 @@ $tx-checkRadioBox-borderColor: $gray;
 
 %tx-checkRadio {
   position: absolute;
-  z-index: -1;
   left: -10000px;
+  z-index: -1;
 
   &-label {
     position: relative;
@@ -21,8 +21,8 @@ $tx-checkRadioBox-borderColor: $gray;
     left: 0;
     width: ($tx-checkRadioBox-size - $tx-checkRadioBox-borderWidth * 2);
     height: ($tx-checkRadioBox-size - $tx-checkRadioBox-borderWidth * 2);
-    border: $tx-checkRadioBox-borderWidth solid $tx-checkRadioBox-borderColor;
     margin: ($tx-checkRadioBox-size / -2) 0 0;
+    border: $tx-checkRadioBox-borderWidth solid $tx-checkRadioBox-borderColor;
   }
 
   &-check {
@@ -136,9 +136,9 @@ $tx-radioCheck-background: $blue;
     @extend %tx-checkRadio-check;
     width: $tx-radioCheck-size;
     height: $tx-radioCheck-size;
-    border-radius: 50%;
     margin: ($tx-radioCheck-size / -2) 0 0 ($tx-radioCheck-size / -2);
     background: $tx-radioCheck-background;
+    border-radius: 50%;
   }
 
   &Focus {

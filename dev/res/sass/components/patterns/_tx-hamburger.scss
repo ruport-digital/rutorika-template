@@ -8,8 +8,8 @@ $tx-hamburger-lineColor: $red;
 %tx-hamburger {
   height: $tx-hamburger-height;
   color: $tx-hamburger-lineColor;
-  text-decoration: none;
   line-height: $tx-hamburger-height;
+  text-decoration: none;
 
   &:before,
   &:after {
@@ -56,8 +56,8 @@ $tx-hamburger-lineColor: $red;
 
 %tx-hamburger-label {
   position: relative;
-  z-index: -1;
   top: 0;
+  z-index: -1;
   display: block;
   padding: 0 0 0 ($tx-hamburger-width + 5px);
 
@@ -71,8 +71,8 @@ $tx-hamburger-lineColor: $red;
   &-is-active {
 
     &:before {
-      opacity: 0;
       transform: rotate(-45deg);
+      opacity: 0;
     }
 
   }

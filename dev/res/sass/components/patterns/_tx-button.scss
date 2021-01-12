@@ -17,8 +17,8 @@ $tx-button-borderColor: $tx-button-background;
 
   &-link {
     @extend %tx-button;
-    text-decoration: none;
     line-height: ($tx-button-height - $tx-button-borderWidth * 2);
+    text-decoration: none;
 
     &:link,
     &:visited {
