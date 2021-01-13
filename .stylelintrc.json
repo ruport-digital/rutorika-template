@@ -14,7 +14,6 @@
     "block-closing-brace-empty-line-before": null,
     "declaration-empty-line-before": null,
     "at-rule-empty-line-before": null,
-    "rule-empty-line-before": null,
     "block-closing-brace-newline-after": null,
     "selector-pseudo-element-colon-notation": null,
     "value-keyword-case": null,
