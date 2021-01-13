@@ -1,7 +1,6 @@
 /* Sticky Footer */
 
 %tx-stickyFooter {
-
   &Holder {
     display: flex;
     flex-direction: column;
@@ -10,5 +9,4 @@
   &Body {
     flex-grow: 1;
   }
-
 }

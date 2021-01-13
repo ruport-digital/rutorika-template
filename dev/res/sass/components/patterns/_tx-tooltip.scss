@@ -53,7 +53,6 @@ $tx-tail-size: 12px;
   }
 
   &:hover {
-
     &:before {
       @extend %tx-tooltipActive;
       transform: translateX(-50%) translateY(-10px) translateZ(0);
@@ -63,7 +62,5 @@ $tx-tail-size: 12px;
       @extend %tx-tooltipActive;
       transform: translateX(-50%) translateY(-6px) translateZ(0) rotate(45deg);
     }
-
   }
-
 }

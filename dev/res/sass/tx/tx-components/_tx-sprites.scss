@@ -20,12 +20,10 @@
 // Sprite Block
 
 @mixin tx-sprite-block-rel($name) {
-
   &:before {
     @include tx-pseudo(relative);
     padding: ((nth($name, 6) / nth($name, 5)) * 100%) 0 0;
   }
-
 }
 
 

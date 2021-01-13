@@ -12,7 +12,6 @@ $tx-debug: false;
   $debugGridColor: $purple;
 
   %debug-rhythm {
-
     &:after {
       position: absolute;
       top: 0;
@@ -26,7 +25,6 @@ $tx-debug: false;
       content: '';
       pointer-events: none;
     }
-
   }
 
 
@@ -71,9 +69,7 @@ $tx-debug: false;
         line-height: 1.2;
         content: 'Dev Note:\A' attr(data-dev-note);
       }
-
     }
-
   }
 
 
@@ -88,7 +84,6 @@ $tx-debug: false;
   }
 
   * {
-
     &[style] {
       @extend %debugOutline;
     }
@@ -96,37 +91,28 @@ $tx-debug: false;
   }
 
   html {
-
     &:not([lang]),
     &[lang=''] {
       @extend %debugOutline;
     }
-
   }
 
   meta {
-
     &[charset] {
-
       &:not([charset='UTF-8']) {
         @extend %debugOutline;
         display: block;
       }
-
     }
-
   }
 
   img {
-
     &:not([alt]) {
       @extend %debugOutline;
     }
-
   }
 
   a {
-
     &:not([href]),
     &[href=''],
     &[href*='javascript:void(0)'] {
@@ -136,33 +122,26 @@ $tx-debug: false;
     &:empty {
       @extend %debugOutline;
     }
-
   }
 
   input,
   select,
   textarea {
-
     &:not([id]) {
       @extend %debugOutline;
     }
-
   }
 
   button {
-
     &:empty {
       @extend %debugOutline;
     }
-
   }
 
   label {
-
     &:not([for]) {
       @extend %debugOutline;
     }
-
   }
 
 
@@ -196,59 +175,43 @@ $tx-debug: false;
   }
 
   @each $debug-tag in $debug-semFlowTags {
-
     #{$debug-tag} {
-
       &:after {
         @extend %debug-tag;
         background: $debug-semFlowTags-color;
         content: ' <' + quote(#{$debug-tag}) + '>';
       }
-
     }
-
   }
 
   @each $debug-tag in $debug-semTextTags {
-
     #{$debug-tag} {
-
       &:after {
         @extend %debug-tag;
         background: $debug-semTextTags-color;
         content: ' <' + quote(#{$debug-tag}) + '>';
       }
-
     }
-
   }
 
   @each $debug-tag in $debug-unsemTags {
-
     #{$debug-tag} {
-
       &:after {
         @extend %debug-tag;
         background: $debug-unsemTags-color;
         content: ' <' + quote(#{$debug-tag}) + '>';
       }
-
     }
-
   }
 
   @each $debug-attr in $debug-attrs {
-
     #{$debug-attr} {
-
       &:after {
         @extend %debug-tag;
         background: $debug-attrs-color;
         content: ' <' + quote(#{$debug-attr}) + '>';
       }
-
     }
-
   }
 
 
@@ -263,7 +226,6 @@ $tx-debug: false;
     * {
       background: $debug-alignment-background !important;
     }
-
   }
 
 

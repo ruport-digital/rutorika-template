@@ -8,7 +8,6 @@ $tx-spinner-size: 200px;
 $tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
 
 %spinner {
-
   &-track {
     @extend %tx-progress-baseline;
     opacity: .25;
@@ -33,9 +32,7 @@ $tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
     &3 {
       animation-name: spin3;
     }
-
   }
-
 }
 
 %tx-progress-baseline {
@@ -45,7 +42,6 @@ $tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
 }
 
 @keyframes spin1 {
-
   0% {
     stroke-dasharray: 0 0 0 $tx-spinner-length;
   }
@@ -65,11 +61,9 @@ $tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
   100% {
     stroke-dasharray: 0 $tx-spinner-length 0 0;
   }
-
 }
 
 @keyframes spin2 {
-
   0% {
     stroke-dasharray: 0 0 0 $tx-spinner-length;
   }
@@ -93,11 +87,9 @@ $tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
   100% {
     stroke-dasharray: 0 $tx-spinner-length 0 0;
   }
-
 }
 
 @keyframes spin3 {
-
   0% {
     stroke-dasharray: 0 0 0 $tx-spinner-length;
   }
@@ -113,5 +105,4 @@ $tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
   100% {
     stroke-dasharray: 0 $tx-spinner-length 0 0;
   }
-
 }

@@ -20,15 +20,11 @@
   }
 
   %titleContent {
-
     &[title] {
-
       &:after {
         content: ' (' attr(title) ')';
       }
-
     }
-
   }
 
   @page {
@@ -110,7 +106,6 @@
   /* Links */
 
   %otherHREF {
-
     &:after {
       content: '';
     }
@@ -130,7 +125,6 @@
       @extend %otherHREF;
     }
 
-
     &[href^='#'] {
       @extend %otherHREF;
     }
@@ -142,7 +136,6 @@
     &[href^='tel:'] {
       @extend %otherHREF;
     }
-
   }
 
 

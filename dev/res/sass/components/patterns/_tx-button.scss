@@ -24,7 +24,6 @@ $tx-button-borderColor: $tx-button-background;
     &:visited {
       @extend %tx-buttonInitial;
     }
-
   }
 
   &-input {
@@ -50,13 +49,10 @@ $tx-button-borderColor: $tx-button-background;
   }
 
   @include tx-media(coarse) {
-
     &:hover,
     &:active {
       color: $tx-button-color;
       background: $tx-button-background;
     }
-
   }
-
 }

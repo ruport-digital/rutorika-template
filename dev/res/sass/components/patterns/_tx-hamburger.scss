@@ -32,7 +32,6 @@ $tx-hamburger-lineColor: $red;
   }
 
   &-is-active {
-
     &:before {
       transform: translateY($tx-hamburger-height / 2 - $tx-hamburger-lineWidth / 2) rotate(-45deg);
     }
@@ -40,7 +39,6 @@ $tx-hamburger-lineColor: $red;
     &:after {
       transform: translateY($tx-hamburger-height / -2 + $tx-hamburger-lineWidth / 2) rotate(-135deg);
     }
-
   }
 
   &-line {
@@ -51,7 +49,6 @@ $tx-hamburger-lineColor: $red;
     transform-origin: 50% 50%;
     transition: $UITransitionSlow;
   }
-
 }
 
 %tx-hamburger-label {
@@ -69,12 +66,9 @@ $tx-hamburger-lineColor: $red;
   }
 
   &-is-active {
-
     &:before {
       transform: rotate(-45deg);
       opacity: 0;
     }
-
   }
-
 }
