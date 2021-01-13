@@ -1,14 +1,12 @@
-# [Template X](https://github.com/uncleF/TemplateX)
+# [Rutorika Template](https://github.com/ruport-digital/rutorika-template)
 
 ## Overview
 
-Template X was designed to improve front-end developer's workflow, by
-providing basic project structure and foundation on top of the customizable
-building tools. You'll be able to start develop right away — clone the
-repo or just [download](https://github.com/uncleF/TemplateX/releases/latest) it.
+You'll be able to start develop right away — clone the
+repo.
 
 ```sh
-$ git clone https://github.com/uncleF/TemplateX.git
+$ git clone https://github.com/ruport-digital/rutorika-template
 ```
 
 Check [INSTALL.md](docs/INSTALL.md) to verify if your development
@@ -30,12 +28,7 @@ available commands.
 > ERR! Failed at the node-sass postinstall script 'node scripts/build.js'
 
 Try to install this:
-```
+```sh
 sudo apt install -y build-essential gcc make libpng-dev
 ```
 And make sure python2 is installed
-
-## Inspiration
-
-TemplateX was partly inspired by
-[Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/).
