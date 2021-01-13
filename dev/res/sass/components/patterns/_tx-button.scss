@@ -17,14 +17,13 @@ $tx-button-borderColor: $tx-button-background;
 
   &-link {
     @extend %tx-button;
-    text-decoration: none;
     line-height: ($tx-button-height - $tx-button-borderWidth * 2);
+    text-decoration: none;
 
     &:link,
     &:visited {
       @extend %tx-buttonInitial;
     }
-
   }
 
   &-input {
@@ -50,13 +49,10 @@ $tx-button-borderColor: $tx-button-background;
   }
 
   @include tx-media(coarse) {
-
     &:hover,
     &:active {
       color: $tx-button-color;
       background: $tx-button-background;
     }
-
   }
-
 }

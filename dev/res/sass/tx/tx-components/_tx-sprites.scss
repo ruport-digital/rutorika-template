@@ -7,9 +7,9 @@
 @mixin tx-sprite-block($name, $padding: false) {
   width: nth($name, 5);
   @if $padding {
-    overflow: hidden;
     height: 0;
     padding: nth($name, 6) 0 0;
+    overflow: hidden;
   } @else {
     height: nth($name, 6);
   }
@@ -20,12 +20,10 @@
 // Sprite Block
 
 @mixin tx-sprite-block-rel($name) {
-
   &:before {
     @include tx-pseudo(relative);
     padding: ((nth($name, 6) / nth($name, 5)) * 100%) 0 0;
   }
-
 }
 
 

@@ -16,7 +16,6 @@
     &:active {
       color: $visitedColor;
     }
-
   } @else {
     @if ($visitedColor != $hoverColor) or ($visitedColor != $activeColor) or ($hoverColor != $activeColor) {
       $all: false;
@@ -34,32 +33,27 @@
         color: $linkColor;
       }
       @if ($visitedColor) {
-
         &:visited {
           color: $visitedColor;
         }
       }
       @if $hoverColor and ($hoverColor == $activeColor) {
-
         &:hover,
         &:active {
           color: $hoverColor;
         }
       } @else {
         @if ($hoverColor) {
-
           &:hover {
             color: $hoverColor;
           }
         }
         @if ($activeColor) {
-
           &:active {
             color: $activeColor;
           }
         }
       }
-
     }
   }
 }

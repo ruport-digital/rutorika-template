@@ -1,0 +1,28 @@
+
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-rational-order",
+    "stylelint-config-recommended-scss"
+  ],
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "rules": {
+    "string-quotes": "single",
+    "function-name-case": null,
+    "number-leading-zero": null,
+    "max-empty-lines": null,
+    "block-closing-brace-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "block-closing-brace-newline-after": null,
+    "selector-pseudo-element-colon-notation": null,
+    "value-keyword-case": null,
+    "comment-empty-line-before": null,
+    "no-empty-source": null,
+    "order/order": [
+      "dollar-variables",
+      "custom-properties",
+      "declarations"
+    ]
+  }
+}

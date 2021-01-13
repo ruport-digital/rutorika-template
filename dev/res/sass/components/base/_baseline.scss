@@ -126,7 +126,6 @@ h6 {
   &-nested {
     @include tx-rhythm(1, 1);
   }
-
 }
 
 %mono {
@@ -174,7 +173,6 @@ li {
   > ol {
     @extend %list-nested;
   }
-
 }
 
 %attention {
@@ -190,8 +188,8 @@ $highlight-color: $red;
 pre {
   @extend %defaultBlock;
   @extend %mono;
-  overflow-x: auto;
   padding: 0 1.5em;
+  overflow-x: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
   tab-size: 2;
@@ -237,7 +235,6 @@ b {
   &:after {
     content: none;
   }
-
 }
 
 blockquote {
@@ -271,8 +268,8 @@ i {
 $interactiveHighlight-color: $blue;
 
 %interactiveHighlight {
-  border-bottom: 1px dotted $interactiveHighlight-color;
   color: $interactiveHighlight-color;
+  border-bottom: 1px dotted $interactiveHighlight-color;
 }
 
 %removed {
@@ -330,8 +327,8 @@ $del-borderWidth: 1px;
 
 del {
   @extend %removed;
-  border-bottom: $del-borderWidth dotted $del-color;
   color: $del-color;
+  border-bottom: $del-borderWidth dotted $del-color;
 }
 
 strike {
@@ -349,12 +346,12 @@ kbd {
   @include tx-inline-block;
   @include tx-grid-height(1, 1);
   padding: 0 .25em;
-  border-radius: 3px;
-  background: $kbd-background;
-  background-clip: padding-box;
   font-weight: bold;
   font-family: $font-mono;
   vertical-align: top;
+  background: $kbd-background;
+  background-clip: padding-box;
+  border-radius: 3px;
 }
 
 sup {
@@ -382,10 +379,10 @@ u {
 // sass-lint:disable no-vendor-prefixes
 
 img {
-  height: auto;
   max-width: 100%;
-  border: 0;
+  height: auto;
   vertical-align: top;
+  border: 0;
   -ms-interpolation-mode: bicubic;
 }
 
@@ -414,9 +411,9 @@ caption {
 table {
   @include tx-rhythm(1, 1);
   width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
   empty-cells: hide;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 td {
@@ -453,11 +450,9 @@ hr {
 /* Focus */
 
 %focus {
-
   &:focus {
     outline: $focus-outlineWidth dotted $focus-outlineColor;
   }
-
 }
 
 
@@ -465,8 +460,6 @@ hr {
 /* Links */
 
 $tapColor: rgba($active, .25);
-
-// sass-lint:disable no-vendor-prefixes
 
 a {
   @extend %focus;
@@ -479,10 +472,7 @@ a {
   @include tx-media(coarse) {
     @include tx-link($link, $visited, $link, $link);
   }
-
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 
 
@@ -490,9 +480,9 @@ a {
 
 fieldset {
   @extend %block;
+  margin: 0;
   padding: 0;
   border: 0;
-  margin: 0;
 }
 
 $legend-padding: 1.5em;
@@ -524,18 +514,13 @@ label {
   box-sizing: content-box;
 }
 
-// sass-lint:disable no-vendor-prefixes
-
 %formBorderReset {
-
   &::-moz-focus-inner {
     padding: 0;
     border: 0;
   }
 
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 %form {
   border: $field-borderWidth solid $field-borderColor;
@@ -557,11 +542,9 @@ label {
   box-sizing: border-box;
   height: auto;
   padding: 0;
-  border: 0;
   vertical-align: middle;
+  border: 0;
 }
-
-// sass-lint:disable no-vendor-prefixes
 
 %formAppearanceReset {
   -webkit-appearance: none;
@@ -572,7 +555,6 @@ label {
 $formPlaceholder-color: $gray;
 
 %formPlaceholder {
-
   &::-webkit-input-placeholder {
     color: $formPlaceholder-color;
     opacity: 1;
@@ -597,10 +579,7 @@ $formPlaceholder-color: $gray;
     color: $formPlaceholder-color;
     opacity: 1;
   }
-
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 %button {
   @extend %tx-fastTouch;
@@ -611,9 +590,9 @@ $formPlaceholder-color: $gray;
 }
 
 %formInactive {
-  opacity: .5;
   cursor: default;
   cursor: not-allowed;
+  opacity: .5;
 }
 
 input {
@@ -656,8 +635,6 @@ input {
     border: 0;
   }
 
-  // sass-lint:disable no-vendor-prefixes
-
   &[type='search'] {
     @extend %formAppearanceReset;
 
@@ -676,8 +653,6 @@ input {
 
   }
 
-  // sass-lint:enable no-vendor-prefixes
-
   &:disabled {
     @extend %formInactive;
   }
@@ -685,7 +660,6 @@ input {
   &[readonly] {
     @extend %formInactive;
   }
-
 }
 
 select {
@@ -701,7 +675,6 @@ select {
   &[multiple] {
     @include tx-grid-height(5, $setLineHeight: false);
   }
-
 }
 
 button {
@@ -716,7 +689,6 @@ button {
   &:disabled {
     @extend %formInactive;
   }
-
 }
 
 textarea {
@@ -737,7 +709,6 @@ textarea {
   &[readonly] {
     @extend %formInactive;
   }
-
 }
 
 

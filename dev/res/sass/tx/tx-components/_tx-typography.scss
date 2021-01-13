@@ -34,19 +34,15 @@
   $loaded: font-#{$familyNorm}-is-loaded;
 
   @if ($base) {
-
     .#{$loaded} {
       font-family: unquote('"' + $family + '"' + txf-appended-stack($append));
     }
-
   }
 
   #{$extend} {
-
     .#{$loaded} & {
       font-family: unquote('"' + $family + '"' + txf-appended-stack($append));
     }
-
   }
 }
 
@@ -127,11 +123,9 @@
 // Responsive Typography
 
 @mixin tx-responsive-typo() {
-
   :root {
     font-size: calc(1vw + 1vh + .5vmin);
   }
-
 }
 
 

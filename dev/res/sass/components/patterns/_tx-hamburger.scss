@@ -8,8 +8,8 @@ $tx-hamburger-lineColor: $red;
 %tx-hamburger {
   height: $tx-hamburger-height;
   color: $tx-hamburger-lineColor;
-  text-decoration: none;
   line-height: $tx-hamburger-height;
+  text-decoration: none;
 
   &:before,
   &:after {
@@ -32,7 +32,6 @@ $tx-hamburger-lineColor: $red;
   }
 
   &-is-active {
-
     &:before {
       transform: translateY($tx-hamburger-height / 2 - $tx-hamburger-lineWidth / 2) rotate(-45deg);
     }
@@ -40,7 +39,6 @@ $tx-hamburger-lineColor: $red;
     &:after {
       transform: translateY($tx-hamburger-height / -2 + $tx-hamburger-lineWidth / 2) rotate(-135deg);
     }
-
   }
 
   &-line {
@@ -51,13 +49,12 @@ $tx-hamburger-lineColor: $red;
     transform-origin: 50% 50%;
     transition: $UITransitionSlow;
   }
-
 }
 
 %tx-hamburger-label {
   position: relative;
-  z-index: -1;
   top: 0;
+  z-index: -1;
   display: block;
   padding: 0 0 0 ($tx-hamburger-width + 5px);
 
@@ -69,12 +66,9 @@ $tx-hamburger-lineColor: $red;
   }
 
   &-is-active {
-
     &:before {
-      opacity: 0;
       transform: rotate(-45deg);
+      opacity: 0;
     }
-
   }
-
 }

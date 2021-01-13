@@ -5,9 +5,9 @@
   /* Baseline, Typography & Vertical Rhythm */
 
   %printReset {
-    border: 0;
     color: $text-print;
     text-decoration: none;
+    border: 0;
   }
 
   %printBackground {
@@ -20,15 +20,11 @@
   }
 
   %titleContent {
-
     &[title] {
-
       &:after {
         content: ' (' attr(title) ')';
       }
-
     }
-
   }
 
   @page {
@@ -110,7 +106,6 @@
   /* Links */
 
   %otherHREF {
-
     &:after {
       content: '';
     }
@@ -122,14 +117,13 @@
     text-decoration: none;
 
     &:after {
-      content: ' (' attr(href) ')';
       font-size: 90%;
+      content: ' (' attr(href) ')';
     }
 
     &[href^='javascript:'] {
       @extend %otherHREF;
     }
-
 
     &[href^='#'] {
       @extend %otherHREF;
@@ -142,7 +136,6 @@
     &[href^='tel:'] {
       @extend %otherHREF;
     }
-
   }
 
 
