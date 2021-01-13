@@ -1,9 +1,9 @@
 // Media Queries
 
 $breakpoints: (
-  phoneMax: 720px,
-  desktopMin: 980px,
-  desktopWide: 1366px,
+  phoneMax: (768px - 1px),
+  desktopMin: (1200px - 1px),
+  desktopWide: 1735px,
   desktopMax: 1920px
 );
 
