@@ -25,10 +25,10 @@ $tx-fileInput-borderColor: $gray;
 
   &-button {
     @extend %tx-button-link;
-    @include tx-inline-block;
     position: absolute;
     top: -$tx-fileInput-borderWidth;
     right: -$tx-fileInput-borderWidth;
+    display: inline-block;
   }
 
 }
