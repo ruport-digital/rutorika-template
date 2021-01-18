@@ -54,12 +54,6 @@ module.exports = config => ({
     },
     build: {
       dir: `${config.BUILD_DIR}/`,
-      critical: {
-        widthDesktop: config.CRITICAL_DESK_W,
-        heightDesktop: config.CRITICAL_DESK_H,
-        widthMobile: config.CRITICAL_MOBILE_W,
-        heightMobile: config.CRITICAL_MOBILE_H,
-      },
     },
   },
 

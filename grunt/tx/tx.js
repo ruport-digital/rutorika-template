@@ -1,22 +1,5 @@
 /* eslint no-useless-concat: "off" */
 
-function inlineModernizr(grunt, modernizr, filePath, fileRoot, sub, fileName) {
-  const filenameArray = fileName.split('.');
-  if (filenameArray[(filenameArray.length - 1)] === 'html') {
-    const file = (grunt.file.read(filePath)).replace(/(?:\s|\t)*.*src=".*Modernizr\/.*(?=\r?\n|\r)/ugm, modernizr);
-    grunt.file.write(filePath, file);
-  }
-}
-
-function criticalModernizr(grunt, project) {
-  const html = grunt.file.read(`${project.build.dir}${project.index}`);
-  const modernizrPath = (`${project.build.dir}${html.match(/src=".*Modernizr\/.*?"/ugm)}`).replace(/"|'|src=/ugm, '');
-  const modernizr = (`\n    <script id="modernizr" type="text/javascript">${grunt.file.read(modernizrPath)}</script>`).replace(/\/\*(?:\r?\n|\r|.)*\*\/(?:\r?\n|\r)/ugm, '');
-  grunt.file.recurse(project.build.dir, (filePath, fileRoot, sub, fileName) => {
-    inlineModernizr(grunt, modernizr, filePath, fileRoot, sub, fileName);
-  });
-}
-
 function dataURIPlaceholder(grunt, project, file) {
   let scssIE = '';
   if (grunt.file.isFile(`${project.res.images.dir}${file}`)) {
@@ -118,7 +101,6 @@ function generatePages(grunt, project, helpers) {
   }
 }
 
-exports.criticalModernizr = criticalModernizr;
 exports.dataURIFallback = dataURIFallback;
 exports.dataURICleanup = dataURICleanup;
 exports.spritesSCSS = spritesSCSS;

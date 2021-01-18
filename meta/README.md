@@ -21,7 +21,7 @@ Here are the main commands:
 Run `grunt watch-project` to watch project.
 
 ```sh
-$ grunt watch-project 
+$ grunt watch-project
 ```
 
 ## Build
@@ -33,25 +33,11 @@ and prepare it for deployment.
 $ grunt build
 ```
 
-Run `grunt build-critical` to build project and optimise it's critical
-rendering path.
-
-```sh
-$ grunt build-critical
-```
-
 Run `grunt build-fast` to build project without running tests or
 linters.
 
 ```sh
 $ grunt build-fast
-```
-
-Run `grunt build-critical-fast` to build project and optimise it's critical
-rendering path without running tests or linters.
-
-```sh
-$ grunt build-critical-fast
 ```
 
 ## Process images, scripts, stylesheets and HTML

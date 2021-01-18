@@ -28,7 +28,6 @@
     "grunt-contrib-imagemin": "2.0.1",
     "grunt-contrib-uglify": "3.4.0",
     "grunt-contrib-watch": "1.1.0",
-    "grunt-critical": "1.1.1",
     "grunt-cssc": "0.2.6",
     "grunt-csscomb": "3.1.1",
     "grunt-datauri": "0.4.0",
@@ -65,9 +64,7 @@
   },
   "scripts": {
     "build": "grunt build",
-    "build:critical": "grunt build-critical",
     "build:fast": "grunt build-fast",
-    "build:critical-fast": "grunt build-critical-fast",
     "compile": "grunt compile",
     "performance": "grunt performance",
     "start": "grunt watch-project-server",
