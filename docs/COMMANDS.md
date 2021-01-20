@@ -55,12 +55,6 @@ scripts ([ESLint](http://eslint.org/)), HTML-files ([HTMLHint](http://htmlhint.c
 $ npm run quality
 ```
 
-Run `grunt performance` to check project for potential performance issues.
-
-```sh
-$ npm run performance
-```
-
 Run `grunt test` to run unit tests.
 
 ```sh

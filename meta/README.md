@@ -67,12 +67,6 @@ scripts ([ESLint](http://eslint.org/)), HTML-files ([HTMLHint](http://htmlhint.c
 $ grunt quality
 ```
 
-Run `grunt performance` to check project for potential performance issues.
-
-```sh
-$ grunt performance
-```
-
 Run `grunt test` to run unit tests.
 
 ```sh
