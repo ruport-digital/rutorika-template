@@ -27,19 +27,6 @@
 
 
 
-// Inline Block
-
-@mixin tx-inline-block($ie: $tx-IE, $extend: true) {
-  @if $ie != true {
-    display: inline-block;
-  } @else {
-    display: inline;
-    zoom: 1;
-  }
-}
-
-
-
 // Pseudo Element
 
 @mixin tx-pseudo($position: absolute, $display: block, $content: '', $ie: $tx-IE, $extend: true) {
@@ -49,7 +36,7 @@
     content: '';
   } @else {
     @if $display == 'inline-block' {
-      @include tx-inline-block;
+      display: inline-block;
     } @else {
       display: $display;
     }

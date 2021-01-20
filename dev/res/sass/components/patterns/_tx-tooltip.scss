@@ -9,8 +9,8 @@ $tx-tooltip-shift: 7px;
 $tx-tail-size: 12px;
 
 %tx-tooltip {
-  @include tx-inline-block;
   position: relative;
+  display: inline-block;
 
   &Base {
     bottom: 100%;
