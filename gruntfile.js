@@ -13,7 +13,6 @@ const CONFIG = {
   META_DIR: 'meta',                  // Meta Content
 
   TESTS_DIR: 'tests',                // Tests
-  MOCHA_DIR: 'mocha',                // Mocha
 
   IMAGES_DIR: 'images',              // Content Images
 

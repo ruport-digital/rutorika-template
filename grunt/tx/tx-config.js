@@ -44,9 +44,6 @@ module.exports = config => ({
         dir: `${config.DEVELOPMENT_DIR}/${config.RESOURCES_DIR}/${config.FONTS_DIR}/`,
       },
     },
-    tests: {
-      mocha: `${config.TESTS_DIR}/${config.MOCHA_DIR}`,
-    },
     build: {
       dir: `${config.BUILD_DIR}/`,
     },
