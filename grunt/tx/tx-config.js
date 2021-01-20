@@ -46,11 +46,6 @@ module.exports = config => ({
     },
     tests: {
       mocha: `${config.TESTS_DIR}/${config.MOCHA_DIR}`,
-      phantomcss: {
-        dir: `${config.TESTS_DIR}/${config.PHCSS_DIR}`,
-        screenshots: `${config.TESTS_DIR}/${config.PHCSS_DIR}/${config.PHCSS_SCREENS_DIR}`,
-        results: `${config.TESTS_DIR}/${config.PHCSS_DIR}/${config.PHCSS_RESULTS_DIR}`,
-      },
     },
     build: {
       dir: `${config.BUILD_DIR}/`,

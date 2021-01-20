@@ -1,7 +1,7 @@
 /* eslint no-multi-spaces: 'off' */
 
 const CONFIG = {
-  PROJECT: 'TemplateX',              // Project Name
+  PROJECT: 'Rutorika Template',      // Project Name
   LANGUAGE: 'ru',                    // Language
   AMP: false,                        // Google AMP
   THEME: '#fd746c',                  // Theme Color
@@ -14,9 +14,6 @@ const CONFIG = {
 
   TESTS_DIR: 'tests',                // Tests
   MOCHA_DIR: 'mocha',                // Mocha
-  PHCSS_DIR: 'phantomcss',           // PhantomCSS
-  PHCSS_SCREENS_DIR: 'screenshots',  // PhantomCSS Screenshots
-  PHCSS_RESULTS_DIR: 'results',      // PhantomCSS Results
 
   IMAGES_DIR: 'images',              // Content Images
 
