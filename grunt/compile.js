@@ -1,10 +1,4 @@
-const tx = require('./tx/tx');
-
-module.exports = (grunt, options) => {
-  const { project } = options;
-
-  grunt.registerTask('criticalModernizr', 'Inlining Modernizr', () => tx.criticalModernizr(grunt, project));
-
+module.exports = (grunt) => {
   grunt.registerTask('compile', [
     'clean:res',
     'process-sprites',
@@ -22,10 +16,5 @@ module.exports = (grunt, options) => {
     'clean:html',
     'processhtml',
     'generatePages',
-  ]);
-
-  grunt.registerTask('compile-critical', [
-    'critical',
-    'criticalModernizr',
   ]);
 };

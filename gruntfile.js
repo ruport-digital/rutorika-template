@@ -25,10 +25,6 @@ const CONFIG = {
 
   TEMPLATES_DIR: 'templates',        // Templates
   INDEX_PAGE: 'index.html',          // Index Page
-  CRITICAL_DESK_W: 1280,             // Desktop Critical Width
-  CRITICAL_DESK_H: 800,              // Desktop Critical Height
-  CRITICAL_MOBILE_W: 320,            // Mobile Critical Width
-  CRITICAL_MOBILE_H: 640,            // Mobile Critical Height
 
   CSS_IMAGES_DIR: 'images',          // CSS Images
   SOURCE_IMAGES_DIR: 'sources',      // CSS Images

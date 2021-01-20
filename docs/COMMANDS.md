@@ -21,25 +21,11 @@ and prepare it for deployment.
 $ npm run build
 ```
 
-Run `grunt build-critical` to build project and optimise it's critical
-rendering path.
-
-```sh
-$ npm run build:critical
-```
-
 Run `grunt build-fast` to build project without running tests or
 linters.
 
 ```sh
 $ npm run build:fast
-```
-
-Run `grunt build-critical-fast` to build project and optimise it's critical
-rendering path without running tests or linters.
-
-```sh
-$ npm run build:critical-fast
 ```
 
 ## Process images, scripts, stylesheets and HTML
