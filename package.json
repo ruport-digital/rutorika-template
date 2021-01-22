@@ -29,7 +29,7 @@
     "grunt-contrib-uglify": "3.4.0",
     "grunt-contrib-watch": "1.1.0",
     "grunt-cssc": "0.2.6",
-    "grunt-csscomb": "3.1.1",
+    "grunt-csscomb": "4.2.0",
     "grunt-datauri": "0.4.0",
     "grunt-eslint": "21.0.0",
     "grunt-force-task": "2.0.0",
