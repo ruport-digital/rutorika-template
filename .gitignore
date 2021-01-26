@@ -26,7 +26,6 @@ package-lock.json
 .tmp
 node_modules
 bower_components
-phantomcss
 *.map
 browserify-cache.json
 
