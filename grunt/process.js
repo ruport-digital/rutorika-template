@@ -35,13 +35,11 @@ module.exports = (grunt, options) => {
   grunt.registerTask('process-sprite-images', [
     'imagemin:sprites',
     'pngmin:sprites',
-    // 'newer:guetzli:sprites',
   ]);
 
   grunt.registerTask('process-build-images', [
     'newer:imagemin:optimize',
     'newer:pngmin:optimize',
-    // 'newer:guetzli:optimize',
   ]);
 
   grunt.registerTask('process-html', [
