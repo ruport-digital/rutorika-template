@@ -9,12 +9,7 @@ module.exports = (grunt) => {
     'unused:unused',
   ]);
 
-  grunt.registerTask('performance', [
-    'analyzecss',
-  ]);
-
   grunt.registerTask('test', [
     'quality',
-    'performance',
   ]);
 };

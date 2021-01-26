@@ -1,6 +1,6 @@
 {
-  "name": "templatex",
-  "version": "0.0.1",
+  "name": "rutorika-template",
+  "version": "0.0.2",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.0.0",
@@ -11,7 +11,6 @@
     "babelify": "9.0.0",
     "eslint-plugin-compat": "2.5.1",
     "grunt": "1.0.3",
-    "grunt-analyze-css": "1.1.0",
     "grunt-browserify": "5.3.0",
     "grunt-cleanempty": "1.0.4",
     "grunt-colorguard": "0.2.0",
@@ -41,7 +40,7 @@
     "grunt-postcss": "0.9.0",
     "grunt-prettify": "0.4.0",
     "grunt-processhtml": "0.4.1",
-    "grunt-sass": "^2.1.0",
+    "grunt-sass": "^3.1.0",
     "grunt-spritesmith": "6.6.2",
     "grunt-string-replace": "1.3.1",
     "grunt-stylelint": "^0.16.0",
@@ -51,6 +50,7 @@
     "imagemin-pngcrush": "5.1.0",
     "imagemin-pngquant": "6.0.0",
     "load-grunt-config": "0.19.2",
+    "node-sass": "^5.0.0",
     "stylelint": "^13.8.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended-scss": "^4.2.0",
@@ -60,15 +60,11 @@
   },
   "scripts": {
     "build": "grunt build",
-    "build:fast": "grunt build-fast",
-    "compile": "grunt compile",
-    "performance": "grunt performance",
     "start": "grunt watch-project-server",
     "sprites": "grunt process-sprites",
     "test": "grunt test",
     "quality": "grunt quality"
   },
-  "author": "uncle.funkay@gmail.com",
   "license": "ISC",
   "directories": {
     "doc": "docs",
