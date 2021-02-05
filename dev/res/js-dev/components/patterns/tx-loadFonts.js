@@ -12,12 +12,10 @@ function generateFontClassName(fontName) {
 
 function loadFont(font) {
   const fontLoading = new FontFaceObserver(font);
-  return fontLoading
-    .load()
-    .then((loadedFont) => {
-      document.body.classList.add(generateFontClassName(loadedFont.family));
-      return Promise.resolve();
-    });
+  return fontLoading.load().then((loadedFont) => {
+    document.body.classList.add(generateFontClassName(loadedFont.family));
+    return Promise.resolve();
+  });
 }
 
 function loadFonts(fonts) {

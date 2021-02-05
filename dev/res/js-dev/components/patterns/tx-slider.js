@@ -25,13 +25,19 @@ const NEXT_SHIFT = 50;
 function generateNavigationDots(size, pageClassName) {
   let navigationDots = '';
   for (let index = 0; index < size; index += 1) {
-    navigationDots += index === 0 ? `<li class="${pageClassName} ${pageClassName}${SLIDE_ACTIVE_CLASS_NAME_SUFFIX} ${DOT_ACTIVE_CLASS_NAME} ${DOT_CLASS_NAME}"></li>` : `<li class="${pageClassName} ${DOT_CLASS_NAME}"></li>`;
+    navigationDots +=
+      index === 0
+        ? `<li class="${pageClassName} ${pageClassName}${SLIDE_ACTIVE_CLASS_NAME_SUFFIX} ${DOT_ACTIVE_CLASS_NAME} ${DOT_CLASS_NAME}"></li>`
+        : `<li class="${pageClassName} ${DOT_CLASS_NAME}"></li>`;
   }
   return navigationDots;
 }
 
 export function dots(size, listClassName, pageClassName) {
-  const navigation = `<ol class="${listClassName} ${DOT_NAVIGATION_CLASS_NAME}">${generateNavigationDots(size, pageClassName)}</ol>`;
+  const navigation = `<ol class="${listClassName} ${DOT_NAVIGATION_CLASS_NAME}">${generateNavigationDots(
+    size,
+    pageClassName
+  )}</ol>`;
   return createNode(navigation);
 }
 
@@ -126,7 +132,9 @@ export function init(object, navigationObject, pageClassName) {
   }
 
   function setSliderDots() {
-    sliderDots = navigationObject.getElementsByClassName(getSliderDotClassName());
+    sliderDots = navigationObject.getElementsByClassName(
+      getSliderDotClassName()
+    );
   }
 
   function setSliderDotClassName() {
@@ -141,7 +149,10 @@ export function init(object, navigationObject, pageClassName) {
   function setSliderPosition() {
     const parent = getSlider().parentElement;
     const offset = parent.getBoundingClientRect().left;
-    const padding = parseInt(getComputedStyle(parent, null).getPropertyValue('padding-left'), 10);
+    const padding = parseInt(
+      getComputedStyle(parent, null).getPropertyValue('padding-left'),
+      10
+    );
     sliderPosition = offset + padding;
   }
 
@@ -191,7 +202,10 @@ export function init(object, navigationObject, pageClassName) {
   function calculatePositions() {
     if (getActiveSlideIndex() === 0 && getPointDiffX() > 0) {
       setPointShift(4);
-    } else if (getActiveSlideIndex() === getSliderMax() && getPointDiffX() < 0) {
+    } else if (
+      getActiveSlideIndex() === getSliderMax() &&
+      getPointDiffX() < 0
+    ) {
       setPointShift(4);
     }
   }
@@ -202,6 +216,7 @@ export function init(object, navigationObject, pageClassName) {
 
   function calculateSlideDistance() {
     const correction = getPointDiffX() < 0 ? SLIDE_THRESHOLD : -SLIDE_THRESHOLD;
+    // eslint-disable-next-line prettier/prettier
     return `${getPositionStart() + ((getPointDiffX() + correction) / getPointShift())}px`;
   }
 
@@ -227,7 +242,9 @@ export function init(object, navigationObject, pageClassName) {
     setPointStartX(startPoint);
     setPointShift(1);
     setPointDiffX(0);
-    setPositionStart(getSlider().getBoundingClientRect().left - getSliderPosition());
+    setPositionStart(
+      getSlider().getBoundingClientRect().left - getSliderPosition()
+    );
   }
 
   function preventClick(event) {
@@ -245,7 +262,9 @@ export function init(object, navigationObject, pageClassName) {
   }
 
   function slidingForward() {
-    return getPointDiffX() < -NEXT_SHIFT && getActiveSlideIndex() !== getSliderMax();
+    return (
+      getPointDiffX() < -NEXT_SHIFT && getActiveSlideIndex() !== getSliderMax()
+    );
   }
 
   function slidingBack() {

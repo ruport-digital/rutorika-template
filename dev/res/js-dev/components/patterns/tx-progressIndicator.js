@@ -16,7 +16,10 @@ export default function progressIndicator(id, className) {
   let length;
 
   function createSVG(svgClassName) {
-    const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const element = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'svg'
+    );
     element.setAttribute('width', SIZE);
     element.setAttribute('height', SIZE);
     element.setAttribute('viewBox', `0 0 ${SIZE} ${SIZE}`);
@@ -25,7 +28,10 @@ export default function progressIndicator(id, className) {
   }
 
   function createCircle(circleClassName) {
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    const circle = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'circle'
+    );
     const half = SIZE / 2;
     circle.setAttribute('cx', half);
     circle.setAttribute('cy', half);
@@ -59,7 +65,10 @@ export default function progressIndicator(id, className) {
   function setProgress(amount) {
     progress = amount;
     percentage.textContent = calculatePercentage();
-    indicator.setAttribute('style', `stroke-dasharray: ${calculateDashArray()}`);
+    indicator.setAttribute(
+      'style',
+      `stroke-dasharray: ${calculateDashArray()}`
+    );
   }
 
   function init() {

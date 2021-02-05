@@ -5,14 +5,11 @@
 /* eslint func-names: 'off' */
 /* eslint no-var: 'off' */
 /* eslint compat/compat: 'off' */
+/* eslint-disable space-before-function-paren */
 
 var CACHE_NAME = 'tx-cache-v1';
 
-var offline = [
-  '/',
-  '/res/css/styles.min.css',
-  '/res/js/scripts.min.js',
-];
+var offline = ['/', '/res/css/styles.min.css', '/res/js/scripts.min.js'];
 
 function addAllToCahche(cache) {
   return cache.addAll(offline).then(self.skipWaiting);
@@ -27,11 +24,9 @@ function onFetch(event) {
 
   function fetchedFromNetwork(response) {
     var clonedResponse = response.clone();
-    caches
-      .open(CACHE_NAME)
-      .then(function(cache) {
-        cache.put(request, clonedResponse);
-      });
+    caches.open(CACHE_NAME).then(function (cache) {
+      cache.put(request, clonedResponse);
+    });
     return response;
   }
 

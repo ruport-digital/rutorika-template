@@ -39,7 +39,13 @@ function triggerCreateEventObject(object, eventName, propagate, data) {
   object.fireEvent(`on${eventName}`, event);
 }
 
-export function trigger(object, eventName, propagate = false, eventType = 'MouseEvents', data) {
+export function trigger(
+  object,
+  eventName,
+  propagate = false,
+  eventType = 'MouseEvents',
+  data
+) {
   if (document.createEvent) {
     triggerCreateEvent(object, eventName, propagate, eventType, data);
   } else {
