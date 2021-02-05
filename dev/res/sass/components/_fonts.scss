@@ -1,3 +1,10 @@
 /* Fonts */
 
-@include tx-font-face('Open Sans', opensans, $fontVariants, $fontFormats, true, true);
+@include tx-font-face(
+  'Open Sans',
+  opensans,
+  $fontVariants,
+  $fontFormats,
+  true,
+  true
+);

@@ -1,5 +1,4 @@
 @include tx-media(print) {
-
   /* csslint ignore:start */
 
   /* Baseline, Typography & Vertical Rhythm */
@@ -29,7 +28,7 @@
 
   @page {
     size: A4;
-    margin: .5cm;
+    margin: 0.5cm;
   }
 
   html {
@@ -101,15 +100,12 @@
     @extend %pageBreakPrevent;
   }
 
-
-
   /* Links */
 
   %otherHREF {
     &:after {
       content: '';
     }
-
   }
 
   a {
@@ -138,8 +134,6 @@
     }
   }
 
-
-
   /* Forms */
 
   %hideForm {
@@ -167,5 +161,4 @@
   }
 
   /* csslint ignore:end */
-
 }

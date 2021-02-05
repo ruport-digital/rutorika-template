@@ -1,14 +1,10 @@
 // TX SVG
 
-
-
 // Angled Edge
 
 @mixin tx-angled-edge($width, $height, $position, $fill) {
   background: url('data:image/svg+xml;utf8,<svg width="#{$width}" height="#{$height}" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#{$fill}" d="#{txf-angle-position($position, $width, $height)}"></path></svg>');
 }
-
-
 
 // Functions
 
@@ -17,7 +13,7 @@
     'tr': 'M0 #{$height}H#{$width}V0Z',
     'tl': 'M#{$width} #{$height}H0V0Z',
     'br': 'M0 0H#{$width}V#{$height}Z',
-    'bl': 'M#{$width} 0H0V#{$height}Z'
+    'bl': 'M#{$width} 0H0V#{$height}Z',
   );
   @return map-get($angled-edge-points, $position);
 }

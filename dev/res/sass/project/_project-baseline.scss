@@ -6,13 +6,14 @@ $background: $white;
 $text-print: $text;
 $background-print: $background;
 
-
-
 // Fonts
 
-$sansSerifFontStack: 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
-$serifFontStack: 'Roboto Slab', 'Droid Serif', Cambria, Georgia , 'Times New Roman', Times, serif;
-$monospaceFontStack: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier, Freemono, 'Nimbus Mono L', monospace;
+$sansSerifFontStack: 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue',
+  Helvetica, Calibri, Arial, sans-serif;
+$serifFontStack: 'Roboto Slab', 'Droid Serif', Cambria, Georgia,
+  'Times New Roman', Times, serif;
+$monospaceFontStack: Consolas, Monaco, 'Andale Mono', 'Courier New', Courier,
+  Freemono, 'Nimbus Mono L', monospace;
 
 $font-sans: $sansSerifFontStack;
 $font-serif: $serifFontStack;
@@ -26,14 +27,14 @@ $fontVariants: (
   regular: regular,
   bold: bold,
   italic: italic,
-  bolditalic: bolditalic
+  bolditalic: bolditalic,
 );
 
 $fontFormats: (
   eot: embedded-opentype,
   woff2: woff2,
   woff: woff,
-  ttf: truetype
+  ttf: truetype,
 );
 
 $fontRatio: 1.2;
@@ -49,8 +50,6 @@ $layers: (
 
 $remFallback: true;
 
-
-
 // Typography
 
 $fontSizes: (
@@ -60,6 +59,6 @@ $fontSizes: (
   h4: $fontSize * txf-pow($fontRatio, 2),
   h5: $fontSize * $fontRatio,
   h6: $fontSize,
-  small: $fontSize * .75,
-  large: $fontSize * txf-pow($fontRatio, 4)
+  small: $fontSize * 0.75,
+  large: $fontSize * txf-pow($fontRatio, 4),
 );

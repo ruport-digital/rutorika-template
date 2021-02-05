@@ -4,7 +4,7 @@ $tx-tooltip-padding: $gap / 2;
 $tx-tooltip-color: $white;
 $tx-tooltip-background: $blue;
 $tx-tooltip-height: 30px;
-$tx-tooltip-fontSize: $fontSize * .75;
+$tx-tooltip-fontSize: $fontSize * 0.75;
 $tx-tooltip-shift: 7px;
 $tx-tail-size: 12px;
 
@@ -48,7 +48,13 @@ $tx-tail-size: 12px;
     z-index: -2;
     width: $tx-tail-size;
     height: $tx-tail-size;
-    background: linear-gradient(-45deg, $tx-tooltip-background, $tx-tooltip-background 7.25px, transparent 7.25px, transparent);
+    background: linear-gradient(
+      -45deg,
+      $tx-tooltip-background,
+      $tx-tooltip-background 7.25px,
+      transparent 7.25px,
+      transparent
+    );
     transform: translateX(-50%) translateY(11px) translateZ(0) rotate(45deg);
   }
 

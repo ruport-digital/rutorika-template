@@ -9,15 +9,12 @@
   padding: 0;
 }
 
-
-
 /* Lists Reset */
 
 %u-bulletReset {
   &:after {
     display: none;
   }
-
 }
 
 %u-listReset {
@@ -29,7 +26,6 @@
     @extend %u-boxReset;
     @extend %u-bulletReset;
   }
-
 }
 
 %u-descriptionListReset {
@@ -43,15 +39,11 @@
   }
 }
 
-
-
 /* Image Blocker */
 
 %u-imageBlocker {
   background-image: none;
 }
-
-
 
 /* Visually Hidden */
 
