@@ -30,6 +30,6 @@ jobs:
           make install
         env:
           CI: true
-      - name: Run linter
+      - name: Run build
         run: |
           make build
