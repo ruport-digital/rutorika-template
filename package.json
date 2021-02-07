@@ -69,7 +69,6 @@
     "test": "npx jest",
     "quality": "grunt quality"
   },
-  "type": "module",
   "license": "ISC",
   "directories": {
     "doc": "docs",
