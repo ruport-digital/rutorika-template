@@ -112,8 +112,7 @@
       "arrays": "always-multiline",
       "objects": "always-multiline",
       "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "never"
+      "exports": "always-multiline"
     }],
     "no-cond-assign": ["error", "always"],
     "no-console": "warn",
