@@ -83,5 +83,5 @@ export function init() {
 }
 
 export function destroy(fields) {
-  fields.forEach(field => field.destroy());
+  fields.forEach((field) => field.destroy());
 }

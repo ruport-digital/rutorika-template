@@ -3,12 +3,12 @@
     "browser": true,
     "node": true
   },
-  "extends": "eslint:all",
+  "extends": ["eslint:all", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["compat"],
+  "plugins": ["compat", "prettier"],
   "rules": {
     "accessor-pairs": "off",
     "array-callback-return": "error",
@@ -112,8 +112,7 @@
       "arrays": "always-multiline",
       "objects": "always-multiline",
       "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "always-multiline"
+      "exports": "always-multiline"
     }],
     "no-cond-assign": ["error", "always"],
     "no-console": "warn",
@@ -151,7 +150,6 @@
     "valid-jsdoc": "off",
     "valid-typeof": ["error", { "requireStringLiterals": true }],
     "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": false }],
-    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "constructor-super": "error",
     "generator-star-spacing": ["error", { "before": false, "after": true }],
@@ -406,7 +404,8 @@
     "import/no-webpack-loader-syntax": "off",
     "import/no-unassigned-import": "off",
     "import/no-named-default": "off",
-    "compat/compat": 2
+    "compat/compat": 2,
+    "prettier/prettier": "error"
   },
   "settings": {
     "polyfills": ["promises"]

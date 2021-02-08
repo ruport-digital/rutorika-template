@@ -1,9 +1,6 @@
 $tx-debug: false;
 
-
-
 @if ($tx-debug == true) {
-
   // sass-lint:disable no-important
 
   // Vertical Rhythm Lines
@@ -20,14 +17,18 @@ $tx-debug: false;
       display: block;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, $debugGridColor, $debugGridColor 1px, transparent 1px, transparent);
+      background: linear-gradient(
+        to bottom,
+        $debugGridColor,
+        $debugGridColor 1px,
+        transparent 1px,
+        transparent
+      );
       background-size: 100% $debugGridHeight;
       content: '';
       pointer-events: none;
     }
   }
-
-
 
   // Developer Note
 
@@ -38,7 +39,7 @@ $tx-debug: false;
   $debug-devNote-background: $red;
   $debug-devNote-fontSize: 12px;
 
-  $debug-devNoteTip-background: rgba($debug-devNote-background, .5);
+  $debug-devNoteTip-background: rgba($debug-devNote-background, 0.5);
 
   %debug-devNoteStyle {
     color: $debug-devNote-color;
@@ -67,12 +68,10 @@ $tx-debug: false;
         font-weight: normal;
         font-size: $debug-devNote-fontSize;
         line-height: 1.2;
-        content: 'Dev Note:\A' attr(data-dev-note);
+        content: 'Dev Note:\A'attr(data-dev-note);
       }
     }
   }
-
-
 
   // Accessibility Debug
 
@@ -87,7 +86,6 @@ $tx-debug: false;
     &[style] {
       @extend %debugOutline;
     }
-
   }
 
   html {
@@ -144,12 +142,55 @@ $tx-debug: false;
     }
   }
 
-
-
   // Semantics Debug
 
-  $debug-semFlowTags: (h1, h2, h3, h4, h5, h6, p, ul, ol, dl, header, footer, nav, section, main, aside, article, figure, figcaption, progress, summary, blockquote, pre, code, address, table, fieldset, legend, label);
-  $debug-semTextTags: (dfn, acronym, abbr, ins, mark, del, strike, kbd, samp, var, strong, em, cite, q);
+  $debug-semFlowTags: (
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    dl,
+    header,
+    footer,
+    nav,
+    section,
+    main,
+    aside,
+    article,
+    figure,
+    figcaption,
+    progress,
+    summary,
+    blockquote,
+    pre,
+    code,
+    address,
+    table,
+    fieldset,
+    legend,
+    label
+  );
+  $debug-semTextTags: (
+    dfn,
+    acronym,
+    abbr,
+    ins,
+    mark,
+    del,
+    strike,
+    kbd,
+    samp,
+    var,
+    strong,
+    em,
+    cite,
+    q
+  );
   $debug-unsemTags: (div, span, b, i, s, sup, sub, big, small, u);
   $debug-attrs: (style);
 
@@ -164,14 +205,14 @@ $tx-debug: false;
     position: absolute;
     z-index: 10000;
     display: inline-block;
-    padding: 0 .5em;
+    padding: 0 0.5em;
     color: $debug-semantics-color !important;
     font-weight: bold !important;
     font-size: $debug-semantics-fontSize !important;
     font-style: normal !important;
     line-height: 1.5 !important;
     letter-spacing: normal !important;
-    border-radius: .25em;
+    border-radius: 0.25em;
   }
 
   @each $debug-tag in $debug-semFlowTags {
@@ -214,11 +255,9 @@ $tx-debug: false;
     }
   }
 
-
-
   // Alignment Debug
 
-  $debug-alignment-background: rgba($gray-700, .2);
+  $debug-alignment-background: rgba($gray-700, 0.2);
 
   %debug-alignment {
     background: $debug-alignment-background !important;
@@ -228,8 +267,6 @@ $tx-debug: false;
     }
   }
 
-
-
   // Animation & Transition Debug
 
   %debug-animation {
@@ -238,5 +275,4 @@ $tx-debug: false;
   }
 
   // sass-lint:enable no-important
-
 }

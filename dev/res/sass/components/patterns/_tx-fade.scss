@@ -5,13 +5,17 @@
     transform: translateX(-100%) translateZ(0);
     visibility: hidden;
     opacity: 0;
-    transition: opacity $UITransitionDefault, visibility $UITransitionDefault step-end, transform $UITransitionDefault step-end;
+    transition: opacity $UITransitionDefault,
+      visibility $UITransitionDefault step-end,
+      transform $UITransitionDefault step-end;
   }
 
   &In {
     transform: translateZ(0);
     visibility: visible;
     opacity: 1;
-    transition: opacity $UITransitionDefault, visibility $UITransitionDefault step-start, transform $UITransitionDefault step-start;
+    transition: opacity $UITransitionDefault,
+      visibility $UITransitionDefault step-start,
+      transform $UITransitionDefault step-start;
   }
 }

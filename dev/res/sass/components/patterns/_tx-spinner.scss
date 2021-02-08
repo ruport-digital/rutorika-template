@@ -10,7 +10,7 @@ $tx-spinner-length: ($tx-spinner-size - $tx-spinner-strokeWidth / 2) * 3.14;
 %spinner {
   &-track {
     @extend %tx-progress-baseline;
-    opacity: .25;
+    opacity: 0.25;
     stroke: $tx-progressTrack-stroke;
   }
 

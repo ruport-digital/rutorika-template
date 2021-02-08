@@ -4,14 +4,13 @@ $breakpoints: (
   phoneMax: 767px,
   desktopMin: 1199px,
   desktopWide: 1735px,
-  desktopMax: 1920px
+  desktopMax: 1920px,
 );
 
 $breakpointsDPI: (
   hdpi: 150,
-  xhdpi: 250
+  xhdpi: 250,
 );
-
 
 /**
 
@@ -22,15 +21,46 @@ $orientation: false|portrait|landscape - screen orientation
 */
 
 $breakpointQueries: (
-  wide: txf-breakpointQuery($min: desktopWide),
-  hdpi: txf-breakpointQuery($dpi: hdpi),
-  xhdpi: txf-breakpointQuery($dpi: xhdpi),
-  tablet: txf-breakpointQuery($max: desktopMin),
-  tablet2x: txf-breakpointQuery($max: desktopMin, $dpi: hdpi),
-  tablet3x: txf-breakpointQuery($max: desktopMin, $dpi: xhdpi),
-  phone: txf-breakpointQuery($max: phoneMax),
-  phone2x: txf-breakpointQuery($max: phoneMax, $dpi: hdpi),
-  phone3x: txf-breakpointQuery($max: phoneMax, $dpi: xhdpi),
+  wide:
+    txf-breakpointQuery(
+      $min: desktopWide,
+    ),
+  hdpi:
+    txf-breakpointQuery(
+      $dpi: hdpi,
+    ),
+  xhdpi:
+    txf-breakpointQuery(
+      $dpi: xhdpi,
+    ),
+  tablet:
+    txf-breakpointQuery(
+      $max: desktopMin,
+    ),
+  tablet2x:
+    txf-breakpointQuery(
+      $max: desktopMin,
+      $dpi: hdpi,
+    ),
+  tablet3x:
+    txf-breakpointQuery(
+      $max: desktopMin,
+      $dpi: xhdpi,
+    ),
+  phone:
+    txf-breakpointQuery(
+      $max: phoneMax,
+    ),
+  phone2x:
+    txf-breakpointQuery(
+      $max: phoneMax,
+      $dpi: hdpi,
+    ),
+  phone3x:
+    txf-breakpointQuery(
+      $max: phoneMax,
+      $dpi: xhdpi,
+    ),
 );
 
 $mediaQueries: (

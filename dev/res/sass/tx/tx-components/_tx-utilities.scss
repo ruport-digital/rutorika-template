@@ -1,7 +1,5 @@
 // TemplateX Utilities
 
-
-
 // Base to the Exponent Power
 
 @function txf-pow($base, $exp) {
@@ -16,8 +14,6 @@
   }
 }
 
-
-
 // Square Root
 
 @function txf-sqrt($value) {
@@ -30,7 +26,6 @@
   @return $x1;
 }
 
-
 // Strip Units
 
 @function txf-stripUnit($number) {
@@ -39,8 +34,6 @@
   }
   @return $number;
 }
-
-
 
 // Split String
 
@@ -56,8 +49,6 @@
   $array: append($array, $string);
   @return $array;
 }
-
-
 
 // Sanitize Shorthand
 

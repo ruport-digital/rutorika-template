@@ -1,10 +1,14 @@
 // TemplateX Link
 
-
-
 // Link States Color
 
-@mixin tx-link($linkColor: null, $visitedColor: null, $hoverColor: null, $activeColor: null, $all: true) {
+@mixin tx-link(
+  $linkColor: null,
+  $visitedColor: null,
+  $hoverColor: null,
+  $activeColor: null,
+  $all: true
+) {
   @if ($linkColor and $all == short) {
     color: $linkColor;
 
@@ -17,7 +21,10 @@
       color: $visitedColor;
     }
   } @else {
-    @if ($visitedColor != $hoverColor) or ($visitedColor != $activeColor) or ($hoverColor != $activeColor) {
+    @if ($visitedColor != $hoverColor) or
+      ($visitedColor != $activeColor) or
+      ($hoverColor != $activeColor)
+    {
       $all: false;
     }
     @if $linkColor and $all == true {

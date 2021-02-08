@@ -2,8 +2,6 @@
 
 @import 'patterns/_tx-fastTouch';
 
-
-
 /* Baseline, Typography & Vertical Rhythm */
 
 %block {
@@ -164,7 +162,7 @@ ol {
 }
 
 li {
-  @include tx-rhythm(.5, .5);
+  @include tx-rhythm(0.5, 0.5);
 
   > ul {
     @extend %list-nested;
@@ -277,8 +275,8 @@ $interactiveHighlight-color: $blue;
 }
 
 %acronymAbbr {
-  margin: 0 -.075em 0 0;
-  letter-spacing: .075em;
+  margin: 0 -0.075em 0 0;
+  letter-spacing: 0.075em;
 }
 
 %small {
@@ -345,7 +343,7 @@ kbd {
   @extend %attention;
   @include tx-grid-height(1, 1);
   display: inline-block;
-  padding: 0 .25em;
+  padding: 0 0.25em;
   font-weight: bold;
   font-family: $font-mono;
   vertical-align: top;
@@ -356,12 +354,12 @@ kbd {
 
 sup {
   @extend %supSub;
-  top: -.65em;
+  top: -0.65em;
 }
 
 sub {
   @extend %supSub;
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 big {
@@ -399,11 +397,17 @@ video {
 $tableCell-borderColor: $gray;
 
 %tableCell {
-  @include tx-table-borders(1px, 1, $color: $tableCell-borderColor, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
+  @include tx-table-borders(
+    1px,
+    1,
+    $color: $tableCell-borderColor,
+    $paddingRight: ($gap / 2),
+    $paddingLeft: ($gap / 2)
+  );
 }
 
 caption {
-  @include tx-rhythm-padding(0, .5);
+  @include tx-rhythm-padding(0, 0.5);
   font-weight: bold;
   text-align: left;
 }
@@ -436,16 +440,12 @@ hr {
   border-top: 1px solid $hr-borderColor;
 }
 
-
-
 /* Selection */
 
 ::selection {
   color: $selection-color;
   background: $selection-background;
 }
-
-
 
 /* Focus */
 
@@ -455,11 +455,9 @@ hr {
   }
 }
 
-
-
 /* Links */
 
-$tapColor: rgba($active, .25);
+$tapColor: rgba($active, 0.25);
 
 a {
   @extend %focus;
@@ -473,8 +471,6 @@ a {
     @include tx-link($link, $visited, $link, $link);
   }
 }
-
-
 
 /* Forms */
 
@@ -519,7 +515,6 @@ label {
     padding: 0;
     border: 0;
   }
-
 }
 
 %form {
@@ -592,7 +587,7 @@ $formPlaceholder-color: $gray;
 %formInactive {
   cursor: default;
   cursor: not-allowed;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 input {
@@ -641,7 +636,6 @@ input {
     ::-webkit-search-cancel-button {
       -webkit-appearance: none;
     }
-
   }
 
   &[type='number'] {
@@ -650,7 +644,6 @@ input {
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
     }
-
   }
 
   &:disabled {
@@ -698,7 +691,12 @@ textarea {
   @extend %formBoxSizing;
   @extend %formPlaceholder;
   @include tx-form-height(8, 1);
-  @include tx-rhythm-padding(.5, .5, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
+  @include tx-rhythm-padding(
+    0.5,
+    0.5,
+    $paddingRight: ($gap / 2),
+    $paddingLeft: ($gap / 2)
+  );
   overflow: auto;
   font-size: inherit;
 
@@ -710,8 +708,6 @@ textarea {
     @extend %formInactive;
   }
 }
-
-
 
 /* Print Baseline */
 

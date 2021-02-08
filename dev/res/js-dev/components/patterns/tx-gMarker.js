@@ -9,5 +9,5 @@ function newMarker(marker, map, icon) {
 }
 
 export default function gMarker(map, markers, icon) {
-  return markers.map(marker => newMarker(marker, map, icon));
+  return markers.map((marker) => newMarker(marker, map, icon));
 }

@@ -1,10 +1,15 @@
 // TemplateX Rhythm
 
-
-
 // Rhythm
 
-@mixin tx-rhythm($leader: 0, $trailer: 0, $marginRight: 0, $marginLeft: 0, $fallback: $remFallback, $inPixels: false) {
+@mixin tx-rhythm(
+  $leader: 0,
+  $trailer: 0,
+  $marginRight: 0,
+  $marginLeft: 0,
+  $fallback: $remFallback,
+  $inPixels: false
+) {
   @if $inPixels == true {
     $fallback: true;
   }
@@ -65,11 +70,16 @@
   }
 }
 
-
-
 // Rhythm Padding
 
-@mixin tx-rhythm-padding($paddingLeader: 0, $paddingTrailer: 0, $paddingRight: 0, $paddingLeft: 0, $fallback: $remFallback, $inPixels: false) {
+@mixin tx-rhythm-padding(
+  $paddingLeader: 0,
+  $paddingTrailer: 0,
+  $paddingRight: 0,
+  $paddingLeft: 0,
+  $fallback: $remFallback,
+  $inPixels: false
+) {
   @if $inPixels == true {
     $fallback: true;
   }
@@ -130,11 +140,16 @@
   }
 }
 
-
-
 // Height in Grid Units
 
-@mixin tx-grid-height($lines: 1, $borderWidth: 0, $setLineHeight: true, $setPadding: false, $fallback: $remFallback, $inPixels: false) {
+@mixin tx-grid-height(
+  $lines: 1,
+  $borderWidth: 0,
+  $setLineHeight: true,
+  $setPadding: false,
+  $fallback: $remFallback,
+  $inPixels: false
+) {
   @if $inPixels == true {
     $fallback: true;
   }
@@ -163,11 +178,15 @@
   }
 }
 
-
-
 // Form Element Height in Grid Units
 
-@mixin tx-form-height($lines: 1, $borderWidth: 1, $setLineHeight: false, $fallback: $remFallback, $inPixels: false) {
+@mixin tx-form-height(
+  $lines: 1,
+  $borderWidth: 1,
+  $setLineHeight: false,
+  $fallback: $remFallback,
+  $inPixels: false
+) {
   @if $inPixels == true {
     $fallback: true;
   }
@@ -183,11 +202,18 @@
   }
 }
 
-
-
 // Table Borders with Adjustment
 
-@mixin tx-table-borders($width: 1px, $lines: 1, $style: solid, $color: $black, $paddingRight: .5em, $paddingLeft: .5em, $fallback: $remFallback, $inPixels: false) {
+@mixin tx-table-borders(
+  $width: 1px,
+  $lines: 1,
+  $style: solid,
+  $color: $black,
+  $paddingRight: 0.5em,
+  $paddingLeft: 0.5em,
+  $fallback: $remFallback,
+  $inPixels: false
+) {
   @if $inPixels == true {
     $fallback: true;
   }
@@ -198,24 +224,38 @@
   @if $lines != 0 {
     @if $paddingRight == $paddingLeft and $paddingRight != 0 {
       @if $fallback == true {
-        padding: ($calculated-verticalPadding-fallback) ($paddingRight) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback);
+        padding: ($calculated-verticalPadding-fallback)
+          ($paddingRight)
+          (
+            $calculated-verticalPadding-fallback +
+              $calculated-borderWidth-fallback
+          );
       }
       @if $inPixels == false {
-        padding: ($calculated-verticalPadding) ($paddingRight) ($calculated-verticalPadding + $calculated-borderWidth);
+        padding: ($calculated-verticalPadding)
+          ($paddingRight)
+          ($calculated-verticalPadding + $calculated-borderWidth);
       }
     } @else {
       @if $fallback == true {
-        padding: ($calculated-verticalPadding-fallback) ($paddingRight) ($calculated-verticalPadding-fallback + $calculated-borderWidth-fallback) ($paddingLeft);
+        padding: ($calculated-verticalPadding-fallback)
+          ($paddingRight)
+          (
+            $calculated-verticalPadding-fallback +
+              $calculated-borderWidth-fallback
+          )
+          ($paddingLeft);
       }
       @if $inPixels == false {
-        padding: ($calculated-verticalPadding) ($paddingRight) ($calculated-verticalPadding + $calculated-borderWidth) ($paddingLeft);
+        padding: ($calculated-verticalPadding)
+          ($paddingRight)
+          ($calculated-verticalPadding + $calculated-borderWidth)
+          ($paddingLeft);
       }
     }
   }
   border: $width $style $color;
 }
-
-
 
 // Functions
 

@@ -1,7 +1,5 @@
 // TemplateX Typography
 
-
-
 // Font-face
 
 // sass-lint:disable placeholder-in-extend
@@ -16,10 +14,16 @@
 // sass-lint:enable placeholder-in-extend
 // sass-lint:enable extends-before-declarations
 
-@mixin tx-font-face($family, $filename, $variants, $extensions, $append: false, $base: false) {
+@mixin tx-font-face(
+  $family,
+  $filename,
+  $variants,
+  $extensions,
+  $append: false,
+  $base: false
+) {
   $familyNorm: txf-str-replace(#{$family}, ' ');
   @each $variant, $name in $variants {
-
     @font-face {
       @include tx-font-variant($variant);
       font-family: '#{$family}';
@@ -74,8 +78,6 @@
   }
 }
 
-
-
 // Font Rendering
 
 // sass-lint:disable no-vendor-prefixes
@@ -91,8 +93,6 @@
 }
 
 // sass-lint:enable no-vendor-prefixes
-
-
 
 // Font Size
 
@@ -114,21 +114,18 @@
     line-height: 0;
   }
   @if $lines == approx {
-    line-height: ($lineHeight * ceil($size / ($fontSize * $lineHeight))) * ($fontSize / $size);
+    line-height: ($lineHeight * ceil($size / ($fontSize * $lineHeight))) *
+      ($fontSize / $size);
   }
 }
-
-
 
 // Responsive Typography
 
 @mixin tx-responsive-typo() {
   :root {
-    font-size: calc(1vw + 1vh + .5vmin);
+    font-size: calc(1vw + 1vh + 0.5vmin);
   }
 }
-
-
 
 // Hyphens
 
@@ -143,14 +140,17 @@
 
 // sass-lint:enable no-vendor-prefixes
 
-
-
 // Functions
 
 @function txf-str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + txf-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str-slice($string, 1, $index - 1) + $replace +
+      txf-str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
   }
   @return $string;
 }
@@ -165,9 +165,11 @@
       $comma: ', ';
     }
     @if $extension == eot {
-      $result: #{$result}#{$comma}#{url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.#{$extension}?#iefix') format('#{$format}')};
+      $result: #{$result}#{$comma}#{url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.#{$extension}?#iefix')
+        format('#{$format}')};
     } @else {
-      $result: #{$result}#{$comma}#{url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.#{$extension}') format('#{$format}')};
+      $result: #{$result}#{$comma}#{url('../fonts/#{$familyNorm}/#{$filename}-#{$name}.#{$extension}')
+        format('#{$format}')};
     }
   }
   @return $result;

@@ -12,8 +12,8 @@ export default function gestures(catcher) {
   let downDistance;
 
   function calculateDistance(touches) {
-    const sqrDiffX = Math.pow((touches[1].clientX - touches[0].clientX), 2);
-    const sqrDiffY = Math.pow((touches[1].clientY - touches[0].clientY), 2);
+    const sqrDiffX = Math.pow(touches[1].clientX - touches[0].clientX, 2);
+    const sqrDiffY = Math.pow(touches[1].clientY - touches[0].clientY, 2);
     return Math.sqrt(sqrDiffX + sqrDiffY);
   }
 
@@ -30,11 +30,15 @@ export default function gestures(catcher) {
   }
 
   function onSingleToucheMove(event) {
-    requestAnimationFrame(() => { processTouchMove(event, SINGLE_EVENT); });
+    requestAnimationFrame(() => {
+      processTouchMove(event, SINGLE_EVENT);
+    });
   }
 
   function onDoubleToucheMove(event) {
-    requestAnimationFrame(() => { processTouchMove(event, DOUBLE_EVENT); });
+    requestAnimationFrame(() => {
+      processTouchMove(event, DOUBLE_EVENT);
+    });
   }
 
   function onPinch(event) {
