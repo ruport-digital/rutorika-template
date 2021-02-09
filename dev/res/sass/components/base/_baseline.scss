@@ -485,9 +485,9 @@ legend {
 }
 
 label {
-  @extend %tx-fastTouch;
   cursor: pointer;
   user-select: none;
+  touch-action: manipulation;
 }
 
 %formBaseline {
@@ -571,11 +571,11 @@ $formPlaceholder-color: $gray;
 }
 
 %button {
-  @extend %tx-fastTouch;
   @include tx-grid-height(2, $setLineHeight: false);
   padding: 0 ($gap / 2);
   border: 0;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 %formInactive {
@@ -655,9 +655,9 @@ select {
   @extend %formBaseline;
   @extend %formFont;
   @extend %formTextReset;
-  @extend %tx-fastTouch;
   @include tx-grid-height(2, $setLineHeight: false);
   vertical-align: top;
+  touch-action: manipulation;
 
   &[multiple] {
     @include tx-grid-height(5, $setLineHeight: false);
