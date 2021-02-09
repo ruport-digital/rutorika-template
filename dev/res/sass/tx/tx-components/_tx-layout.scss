@@ -24,8 +24,6 @@
 
 // Page Scroll
 
-// sass-lint:disable no-vendor-prefixes
-
 @mixin tx-scroll-bar($condition: false, $autohide: true) {
   @if $condition == true {
     overflow-x: auto;
@@ -37,5 +35,3 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 }
-
-// sass-lint:enable no-vendor-prefixes

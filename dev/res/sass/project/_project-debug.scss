@@ -1,8 +1,6 @@
 $tx-debug: false;
 
 @if ($tx-debug == true) {
-  // sass-lint:disable no-important
-
   // Vertical Rhythm Lines
 
   $debugGridHeight: $fontSize * $lineHeight;
@@ -273,6 +271,4 @@ $tx-debug: false;
     transition-duration: 10s !important;
     animation-duration: 10s !important;
   }
-
-  // sass-lint:enable no-important
 }

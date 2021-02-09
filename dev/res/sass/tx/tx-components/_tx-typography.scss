@@ -2,17 +2,11 @@
 
 // Font-face
 
-// sass-lint:disable placeholder-in-extend
-// sass-lint:disable extends-before-declarations
-
 @mixin tx-font-family($family) {
   $familyNorm: txf-str-replace(#{$family}, ' ');
   $familyExtend: #{'%'}font-#{$familyNorm};
   @extend #{$familyExtend};
 }
-
-// sass-lint:enable placeholder-in-extend
-// sass-lint:enable extends-before-declarations
 
 @mixin tx-font-face(
   $family,
@@ -80,8 +74,6 @@
 
 // Font Rendering
 
-// sass-lint:disable no-vendor-prefixes
-
 @mixin tx-font-rendering($rendering: null) {
   @if ($rendering == thin) {
     -moz-osx-font-smoothing: grayscale;
@@ -91,8 +83,6 @@
     -webkit-font-smoothing: auto;
   }
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 // Font Size
 
@@ -129,16 +119,12 @@
 
 // Hyphens
 
-// sass-lint:disable no-vendor-prefixes
-
 @mixin tx-hyphens($hyphens: manual) {
   -epub-hyphens: $hyphens;
   -webkit-hyphens: $hyphens;
   -moz-hyphens: $hyphens;
   hyphens: $hyphens;
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 // Functions
 
