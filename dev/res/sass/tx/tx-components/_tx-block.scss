@@ -69,46 +69,6 @@
   }
 }
 
-@mixin tx-pseudo-ie(
-  $before: true,
-  $after: true,
-  $class: '',
-  $beforeContent: '',
-  $afterContent: ''
-) {
-  $beforeClass: ieBefore + $class;
-  $afterClass: ieAfter + $class;
-  @if $before == true and $after == true {
-    zoom: unquote(
-      'expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' +
-        $beforeClass +
-        '">' +
-        $beforeContent +
-        '</i>"), insertAdjacentHTML("beforeEnd", "<i class="' +
-        $afterClass +
-        '">' +
-        $afterContent +
-        '</i>"))'
-    );
-  } @else if $before == true {
-    zoom: unquote(
-      'expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' +
-        $beforeClass +
-        '">' +
-        $beforeContent +
-        '</i>"))'
-    );
-  } @else {
-    zoom: unquote(
-      'expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("beforeEnd", "<i class="' +
-        $afterClass +
-        '">' +
-        $afterContent +
-        '</i>"))'
-    );
-  }
-}
-
 // Vertical Alignment
 
 @mixin tx-pseudo-va {
