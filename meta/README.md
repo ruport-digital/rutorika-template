@@ -1,4 +1,4 @@
-# TemplateX
+# Rutorika Template
 
 > Short blurb about what your product does.
 
