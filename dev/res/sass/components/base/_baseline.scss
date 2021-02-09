@@ -374,8 +374,6 @@ u {
   text-decoration: underline;
 }
 
-// sass-lint:disable no-vendor-prefixes
-
 img {
   max-width: 100%;
   height: auto;
@@ -383,8 +381,6 @@ img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 audio {
   @extend %defaultBlock;
