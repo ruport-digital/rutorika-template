@@ -87,7 +87,6 @@ module.exports = (grunt, options) => {
   ]);
 
   grunt.registerTask('process-finalize', [
-    // 'compress',
     'process-build-images',
     'string-replace:build',
     'clean:reports',
