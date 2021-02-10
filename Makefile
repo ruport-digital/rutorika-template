@@ -7,7 +7,10 @@ start:
 develop: start
 
 lint:
-	npm run test
+	npm run lint
+
+test:
+	npx jest --watchAll
 
 build:
 	npm run build
