@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project } = options;
 
   return {
@@ -6,10 +6,7 @@ module.exports = (grunt, options) => {
       noJunk: true,
     },
     res: {
-      src: [
-        `${project.res.css.dir}**/*`,
-        `${project.res.js.dir}**/*`,
-      ],
+      src: [`${project.res.css.dir}**/*`, `${project.res.js.dir}**/*`],
     },
     build: {
       src: [`${project.build.dir}**/*`],

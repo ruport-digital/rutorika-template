@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project, helpers } = options;
 
   return {
@@ -7,17 +7,9 @@ module.exports = (grunt, options) => {
       `${project.res.css.dir}**/*.css`,
       `${project.res.js.dir}*.js`,
     ],
-    html: [
-      `${project.dir}*.html`,
-    ],
-    images: [
-      `${project.res.css.sass}${helpers.scss}${helpers.temp}`,
-    ],
-    reports: [
-      '*.css',
-    ],
-    build: [
-      project.build.dir,
-    ],
+    html: [`${project.dir}*.html`],
+    images: [`${project.res.css.sass}${helpers.scss}${helpers.temp}`],
+    reports: ['*.css'],
+    build: [project.build.dir],
   };
 };

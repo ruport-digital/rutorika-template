@@ -1,8 +1,10 @@
+/* eslint-disable require-unicode-regexp */
+/* eslint-disable max-lines-per-function */
 /* eslint no-sync: "off" */
 
 const fs = require('fs');
 
-module.exports = config => ({
+module.exports = (config) => ({
   project: {
     name: config.PROJECT,
     language: config.LANGUAGE,
@@ -10,7 +12,10 @@ module.exports = config => ({
     theme: config.THEME,
     https: config.HTTPS,
     port: config.PORT,
-    browsers: fs.readFileSync('./browserslist', 'utf8').split(/(?:\r?\n|\r)/g).slice(0, -1),
+    browsers: fs
+      .readFileSync('./browserslist', 'utf8')
+      .split(/(?:\r?\n|\r)/g)
+      .slice(0, -1),
     branch: 'dev',
     meta: `${config.META_DIR}/`,
     dir: `${config.DEVELOPMENT_DIR}/`,
@@ -53,10 +58,7 @@ module.exports = config => ({
     txpath: '**/tx/**/*.',
     temp: 'tmp/',
     scss: 'project/',
-    externalResources: [
-      'node_modules/',
-      'bower_components/',
-    ],
+    externalResources: ['node_modules/', 'bower_components/'],
     spritesSCSS: '_project-sprites.scss',
     dataURISCSS: '_project-images.scss',
     dataURI: '_project-base64.scss',
@@ -66,9 +68,7 @@ module.exports = config => ({
     imagePngFiles: 'png',
     imageRasterFiles: 'png,jpg,jpeg,gif,webp',
     imageVectorFiles: 'svg',
-    uncssIgnoreFiles: [
-      '404.html',
-    ],
+    uncssIgnoreFiles: ['404.html'],
     uncssIgnoreClasses: [
       /.*-is-.*/,
       /.*-has-.*/,

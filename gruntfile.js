@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint no-multi-spaces: 'off' */
 
 const CONFIG = {

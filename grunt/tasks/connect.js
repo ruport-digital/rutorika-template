@@ -18,7 +18,9 @@ function generateSWResponse(error, buffer, res, next) {
 }
 
 function serveSW(res, next, dir, filename) {
-  fs.readFile(`${dir}${filename}`, (error, buffer) => generateSWResponse(error, buffer, res, next));
+  fs.readFile(`${dir}${filename}`, (error, buffer) =>
+    generateSWResponse(error, buffer, res, next)
+  );
 }
 
 function swMiddleware(req, res, next, dir, filename) {
@@ -41,30 +43,51 @@ function generatePagesResponse(error, buffer, res, next) {
 }
 
 function servePages(res, next, dir, pages) {
-  fs.readFile(`${dir}${pages}`, (error, buffer) => generatePagesResponse(error, buffer, res, next));
+  fs.readFile(`${dir}${pages}`, (error, buffer) =>
+    generatePagesResponse(error, buffer, res, next)
+  );
 }
 
 function servePage(res, next, dir, pathname) {
-  fs.readFile(`${dir}${pathname}.html`, (error, buffer) => generatePagesResponse(error, buffer, res, next));
+  fs.readFile(`${dir}${pathname}.html`, (error, buffer) =>
+    generatePagesResponse(error, buffer, res, next)
+  );
 }
 
 function is404(dir, pathname) {
   if (pathname === '/') return false;
-  if ((!pathname.match(/\.[0-9a-zA-Z]{2,5}$/gu) && !fs.existsSync(`${dir}${pathname}`)) && !fs.existsSync(`${dir}${pathname}.html`)) return true;
+  if (
+    !pathname.match(/\.[0-9a-zA-Z]{2,5}$/gu) &&
+    !fs.existsSync(`${dir}${pathname}`) &&
+    !fs.existsSync(`${dir}${pathname}.html`)
+  ) {
+    return true;
+  }
   return false;
 }
 
 function pagesMiddleware(req, res, next, dir, pages) {
   const reqURL = url.parse(req.url);
   const { pathname } = reqURL;
-  if (pathname === '/s' || pathname === '/style') return servePage(res, next, dir, 'style');
-  if (pathname === '/t' || pathname === '/typo') return servePage(res, next, dir, 'typography');
-  if (pathname === '/p' || pathname === '/pages' || is404(dir, pathname)) return servePages(res, next, dir, pages);
-  if (!fs.existsSync(`${dir}${pathname}`) && fs.existsSync(`${dir}${pathname}.html`)) return servePage(res, next, dir, pathname);
+  if (pathname === '/s' || pathname === '/style') {
+    return servePage(res, next, dir, 'style');
+  }
+  if (pathname === '/t' || pathname === '/typo') {
+    return servePage(res, next, dir, 'typography');
+  }
+  if (pathname === '/p' || pathname === '/pages' || is404(dir, pathname)) {
+    return servePages(res, next, dir, pages);
+  }
+  if (
+    !fs.existsSync(`${dir}${pathname}`) &&
+    fs.existsSync(`${dir}${pathname}.html`)
+  ) {
+    return servePage(res, next, dir, pathname);
+  }
   return next();
 }
 
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project, helpers } = options;
 
   return {
@@ -78,10 +101,14 @@ module.exports = (grunt, options) => {
     dev: {
       options: {
         base: project.dir,
-        middleware: (connect, connectOptions, middlewares) => {
+        middleware: (_connect, _connectOptions, middlewares) => {
           const filename = `${project.res.js.service}.min.js`;
-          middlewares.unshift((req, res, next) => pagesMiddleware(req, res, next, project.dir, helpers.pages));
-          middlewares.unshift((req, res, next) => swMiddleware(req, res, next, project.res.js.dir, filename));
+          middlewares.unshift((req, res, next) =>
+            pagesMiddleware(req, res, next, project.dir, helpers.pages)
+          );
+          middlewares.unshift((req, res, next) =>
+            swMiddleware(req, res, next, project.res.js.dir, filename)
+          );
           return middlewares;
         },
       },
@@ -89,11 +116,17 @@ module.exports = (grunt, options) => {
     build: {
       options: {
         base: project.build.dir,
-        middleware: (connect, connectOptions, middlewares) => {
-          const dir = `${project.build.dir}${project.res.js.dir.replace(project.dir)}`;
+        middleware: (_connect, _connectOptions, middlewares) => {
+          const dir = `${project.build.dir}${project.res.js.dir.replace(
+            project.dir
+          )}`;
           const filename = `${project.res.js.service}.min.js`;
-          middlewares.unshift((req, res, next) => pagesMiddleware(req, res, next, project.build.dir, helpers.pages));
-          middlewares.unshift((req, res, next) => swMiddleware(req, res, next, dir, filename));
+          middlewares.unshift((req, res, next) =>
+            pagesMiddleware(req, res, next, project.build.dir, helpers.pages)
+          );
+          middlewares.unshift((req, res, next) =>
+            swMiddleware(req, res, next, dir, filename)
+          );
           return middlewares;
         },
       },

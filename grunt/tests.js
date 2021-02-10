@@ -9,7 +9,5 @@ module.exports = (grunt) => {
     'unused:unused',
   ]);
 
-  grunt.registerTask('test', [
-    'quality',
-  ]);
+  grunt.registerTask('test', ['quality']);
 };

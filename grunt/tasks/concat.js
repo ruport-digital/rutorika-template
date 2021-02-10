@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project, helpers } = options;
 
   return {

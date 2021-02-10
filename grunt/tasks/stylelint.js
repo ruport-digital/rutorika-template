@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project } = options;
 
   return {
@@ -8,10 +8,7 @@ module.exports = (grunt, options) => {
     },
     test: {
       cwd: project.res.css.sass,
-      src: [
-        '**/*.{scss,sass}',
-        '!**/*-IE.{scss,sass}',
-      ],
+      src: ['**/*.{scss,sass}', '!**/*-IE.{scss,sass}'],
       expand: true,
     },
   };

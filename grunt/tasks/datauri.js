@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project, helpers } = options;
 
   function generateTasks() {
@@ -6,7 +6,9 @@ module.exports = (grunt, options) => {
       src: [],
       dest: `${project.res.css.sass}${helpers.scss}${helpers.temp}${helpers.dataURI}`,
     };
-    project.res.images.dataURI.forEach(image => tasks.src.push(`${project.res.images.dir}${image}`));
+    project.res.images.dataURI.forEach((image) =>
+      tasks.src.push(`${project.res.images.dir}${image}`)
+    );
     return tasks;
   }
 

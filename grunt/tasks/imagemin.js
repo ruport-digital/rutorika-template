@@ -31,7 +31,7 @@ const SVGO_OPTIONS = {
   ],
 };
 
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project, helpers } = options;
 
   return {
@@ -49,7 +49,10 @@ module.exports = (grunt, options) => {
       cwd: project.dir,
       src: [
         `${project.res.templates.comp.replace(project.dir, '')}**/*.svg`,
-        ...project.res.images.dataURI.map(image => `${project.res.images.dir.replace(project.dir, '')}${image}`),
+        ...project.res.images.dataURI.map(
+          (image) =>
+            `${project.res.images.dir.replace(project.dir, '')}${image}`
+        ),
       ],
       dest: project.dir,
       expand: true,
