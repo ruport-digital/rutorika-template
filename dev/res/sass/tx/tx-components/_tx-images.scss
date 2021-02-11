@@ -1,8 +1,4 @@
-// TemplateX Images
-
 // Extend DataURI Image
-
-// sass-lint:disable placeholder-in-extend
 
 @mixin tx-extend-image($class, $ie: $tx-IE) {
   @if not $ie {
@@ -11,5 +7,3 @@
     @extend #{'%ie-image-' + $class};
   }
 }
-
-// sass-lint:enable placeholder-in-extend

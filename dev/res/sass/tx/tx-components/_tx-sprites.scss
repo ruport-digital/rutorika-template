@@ -1,5 +1,3 @@
-// TemplateX Sprites
-
 // Sprite Block
 
 @mixin tx-sprite-block($name, $padding: false) {
@@ -24,16 +22,10 @@
 
 // Sprite Image
 
-// sass-lint:disable placeholder-in-extend
-// sass-lint:disable extends-before-declarations
-
 @mixin tx-sprite-image($name) {
   $sheet: txf-spriteSheetName($name);
   @extend #{'%ssh-' + $sheet};
 }
-
-// sass-lint:enable placeholder-in-extend
-// sass-lint:enable extends-before-declarations
 
 // Sprite Position
 

@@ -1,14 +1,10 @@
 /* Layout */
 
-// sass-lint:disable no-vendor-prefixes
-
 html {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   min-height: 100%;
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 body {
   @include tx-boundaries;
