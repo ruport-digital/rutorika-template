@@ -52,7 +52,6 @@
     "imagemin-pngcrush": "7.0.0",
     "imagemin-pngquant": "9.0.1",
     "jest": "^26.6.3",
-    "jest-cli": "^26.6.3",
     "load-grunt-config": "0.19.2",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.1",

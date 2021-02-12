@@ -38,7 +38,13 @@ make build
 > ERR! Failed at the node-sass postinstall script 'node scripts/build.js'
 
 Try to install this:
+
 ```sh
 sudo apt install -y build-essential gcc make libpng-dev
 ```
+
 And make sure python2 is installed
+
+```sh
+sudo apt install python2
+```

@@ -13,8 +13,6 @@ const CONFIG = {
   BUILD_DIR: 'build',                // Build
   META_DIR: 'meta',                  // Meta Content
 
-  TESTS_DIR: 'tests',                // Tests
-
   IMAGES_DIR: 'images',              // Content Images
 
   RESOURCES_DIR: 'res',              // Resources

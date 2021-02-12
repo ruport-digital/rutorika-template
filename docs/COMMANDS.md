@@ -9,7 +9,7 @@ Here are the main commands:
 Run `grunt watch-project-server` to watch project.
 
 ```sh
-$ npm start
+$ npx grunt watch-project-server
 ```
 
 ## Build
@@ -18,14 +18,14 @@ Run `grunt build` to compile resources, collect project into `/build`
 and prepare it for deployment.
 
 ```sh
-$ npm run build
+$ npx grunt build
 ```
 
 Run `grunt build-fast` to build project without running tests or
 linters.
 
 ```sh
-$ npm run build:fast
+$ npx grunt build-fast
 ```
 
 ## Process images, scripts, stylesheets and HTML
@@ -36,13 +36,13 @@ Run `grunt compile` to generate, optimise and minify images, scripts
 [CSScomb](http://csscomb.com/), etc.) and HTML-files.
 
 ```sh
-$ npm run compile
+$ npx grunt compile
 ```
 
 Run `grunt process-sprites` to compile sprites
 
 ```sh
-$ npm run sprites
+$ npx grunt process-sprites
 ```
 
 ## Linting & testing
@@ -52,11 +52,11 @@ Run `grunt quality` to lint project's stylesheets ([CSS Lint](http://csslint.net
 scripts ([ESLint](http://eslint.org/)), HTML-files ([HTMLHint](http://htmlhint.com/)).
 
 ```sh
-$ npm run quality
+$ npx grunt quality
 ```
 
 Run `grunt test` to run unit tests.
 
 ```sh
-$ npm run test
+$ npx grunt test
 ```
