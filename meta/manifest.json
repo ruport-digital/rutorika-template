@@ -1,38 +1,45 @@
 {
-	"name": "@tx-title",
+  "name": "@tx-title",
   "short_name": "@tx-title",
-	"description": "",
+  "description": "",
   "lang": "@tx-language",
   "icons": [
     {
       "src": "icon-60.png",
       "sizes": "60x60",
       "type": "image/png"
-    }, {
+    },
+    {
       "src": "icon-60@2x.png",
       "sizes": "120x120",
       "type": "image/png"
-    }, {
+    },
+    {
       "src": "icon-60@3x.png",
       "sizes": "180x180",
       "type": "image/png"
-    }, {
+    },
+    {
       "src": "icon-76.png",
       "sizes": "76x76",
       "type": "image/png"
-    }, {
+    },
+    {
       "src": "icon-76@2x.png",
       "sizes": "152x152",
       "type": "image/png"
-    }, {
+    },
+    {
       "src": "icon-76@3x.png",
       "sizes": "228x228",
       "type": "image/png"
-    }, {
+    },
+    {
       "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
-    }, {
+    },
+    {
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"

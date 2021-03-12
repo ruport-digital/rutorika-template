@@ -3,7 +3,7 @@ module.exports = (_grunt, options) => {
 
   return {
     options: {
-      configFile: '.eslintrc',
+      configFile: '.eslintrc.json',
     },
     test: {
       cwd: project.res.js.devDir,

@@ -7,6 +7,7 @@ start:
 develop: start
 
 lint:
+	npx editorconfig-checker
 	npm run lint
 
 test:
