@@ -1,9 +1,5 @@
 /* Baseline, Typography & Vertical Rhythm */
 
-%block {
-  display: block;
-}
-
 html {
   font-size: $fontSize;
   text-size-adjust: 100%;
@@ -19,55 +15,55 @@ body {
 }
 
 article {
-  @extend %block;
+  display: block;
 }
 
 aside {
-  @extend %block;
+  display: block;
 }
 
 canvas {
-  @extend %block;
+  display: block;
 }
 
 figure {
-  @extend %block;
+  display: block;
 }
 
 figcaption {
-  @extend %block;
+  display: block;
 }
 
 footer {
-  @extend %block;
+  display: block;
 }
 
 header {
-  @extend %block;
+  display: block;
 }
 
 hgroup {
-  @extend %block;
+  display: block;
 }
 
 nav {
-  @extend %block;
+  display: block;
 }
 
 main {
-  @extend %block;
+  display: block;
 }
 
 progress {
-  @extend %block;
+  display: block;
 }
 
 section {
-  @extend %block;
+  display: block;
 }
 
 summary {
-  @extend %block;
+  display: block;
 }
 
 %heading {
@@ -467,7 +463,7 @@ a {
 /* Forms */
 
 fieldset {
-  @extend %block;
+  display: block;
   margin: 0;
   padding: 0;
   border: 0;
@@ -677,7 +673,7 @@ button {
 }
 
 textarea {
-  @extend %block;
+  display: block;
   @extend %form;
   @extend %formBaseline;
   @extend %formBoxSizing;
