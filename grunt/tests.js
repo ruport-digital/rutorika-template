@@ -5,7 +5,6 @@ module.exports = (grunt) => {
     'force:csslint',
     'newer:colorguard',
     'newer:eslint',
-    // 'newer:jsinspect',
     'unused:unused',
   ]);
 
