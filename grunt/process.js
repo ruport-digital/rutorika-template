@@ -59,7 +59,6 @@ module.exports = (grunt, options) => {
     'processhtml',
     'generatePages',
     'htmlmin',
-    'prettify',
     'string-replace:html',
   ]);
 
