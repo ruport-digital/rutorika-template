@@ -1,5 +1,3 @@
-/* global Promise */
-
 import FontFaceObserver from 'fontfaceobserver';
 
 const LOADED_PREFIX = 'font-';

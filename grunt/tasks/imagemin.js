@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const gifsicle = require('imagemin-gifsicle');
 const jpegtran = require('imagemin-jpegtran');
 const optipng = require('imagemin-optipng');

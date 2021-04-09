@@ -1,7 +1,4 @@
-/* eslint-disable prefer-named-capture-group */
-/* eslint-disable require-unicode-regexp */
-/* eslint-disable max-lines-per-function */
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project } = options;
 
   return {
