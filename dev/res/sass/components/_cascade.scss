@@ -1,9 +1,0 @@
-// Cascade
-
-@each $query, $breakpoint in $breakpointQueries {
-  @include tx-media($query) {
-    .tx-cascadeDummy {
-      margin: 0;
-    }
-  }
-}

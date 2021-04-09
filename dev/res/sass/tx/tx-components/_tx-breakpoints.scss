@@ -1,7 +1,3 @@
-// TemplateX Breakpoints
-
-
-
 // Media Queries
 
 @mixin tx-mq($name, $pixels: false) {
@@ -10,13 +6,9 @@
 
 @mixin tx-media($name, $pixels: false) {
   @media #{txf-media($name, $pixels)} {
-
     @content;
-
   }
 }
-
-
 
 // Functions
 
@@ -37,28 +29,52 @@
   $breakpointDPI: null;
   @for $index from 1 through length($dpiBreakpoints) {
     @if ($index == 1) {
-      $breakpointDPI: $baseBreakpoint unquote('and') unquote(nth($dpiBreakpoints, $index));
+      $breakpointDPI: $baseBreakpoint
+        unquote('and')
+        unquote(nth($dpiBreakpoints, $index));
     } @else {
-      $breakpointDPI: #{$breakpointDPI}#{unquote(',')} $baseBreakpoint unquote('and') unquote(nth($dpiBreakpoints, $index));
+      $breakpointDPI: #{$breakpointDPI}#{unquote(',')}
+        $baseBreakpoint
+        unquote('and')
+        unquote(nth($dpiBreakpoints, $index));
     }
   }
   @return $breakpointDPI;
 }
 
-@function txf-breakpointQuery($min: null, $max: null, $dpi: null, $type: screen, $pixels: false, $orientation: false) {
+@function txf-breakpointQuery(
+  $min: null,
+  $max: null,
+  $dpi: null,
+  $type: screen,
+  $pixels: false,
+  $orientation: false
+) {
   $breakpoint: only $type;
   @if ($min) {
-    $breakpoint: $breakpoint unquote('and') (min-width: txf-breakpoint($min, $pixels));
+    $breakpoint: $breakpoint
+      unquote('and')
+      (
+        min-width: txf-breakpoint($min, $pixels),
+      );
   }
   @if ($max) {
-    $breakpoint: $breakpoint unquote('and') (max-width: txf-breakpoint($max, $pixels));
+    $breakpoint: $breakpoint
+      unquote('and')
+      (
+        max-width: txf-breakpoint($max, $pixels),
+      );
   }
   @if ($dpi) {
     $dpiValues: txf-dpiValues(map-get($breakpointsDPI, $dpi));
     $breakpoint: txf-dpiBreakpoints($breakpoint, $dpiValues);
   }
   @if ($orientation) {
-    $breakpoint: $breakpoint unquote('and') (orientation: $orientation);
+    $breakpoint: $breakpoint
+      unquote('and')
+      (
+        orientation: $orientation,
+      );
   }
   @return $breakpoint;
 }

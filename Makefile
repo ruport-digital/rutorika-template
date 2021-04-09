@@ -7,7 +7,11 @@ start:
 develop: start
 
 lint:
-	npm run test
+	npx editorconfig-checker
+	npm run lint
+
+test:
+	npx jest --watchAll
 
 build:
 	npm run build

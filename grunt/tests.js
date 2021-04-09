@@ -5,11 +5,8 @@ module.exports = (grunt) => {
     'force:csslint',
     'newer:colorguard',
     'newer:eslint',
-    // 'newer:jsinspect',
     'unused:unused',
   ]);
 
-  grunt.registerTask('test', [
-    'quality',
-  ]);
+  grunt.registerTask('test', ['quality']);
 };

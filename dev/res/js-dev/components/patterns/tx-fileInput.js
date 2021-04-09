@@ -115,9 +115,9 @@ function fileInput(field, text) {
 
 export function init(selector, text) {
   const fields = [].slice.call(document.querySelectorAll(selector));
-  fields.forEach(field => fileInput(field, text));
+  fields.forEach((field) => fileInput(field, text));
 }
 
 export function destroy(fields) {
-  fields.forEach(field => field.destroy());
+  fields.forEach((field) => field.destroy());
 }

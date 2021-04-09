@@ -3,7 +3,17 @@
 
 const tasks = {};
 
-function generateTask(project, helpers, name, ext, density, densitySuffix, directoryPath, spritePath, imgPath) {
+function generateTask(
+  project,
+  helpers,
+  name,
+  ext,
+  density,
+  densitySuffix,
+  directoryPath,
+  spritePath,
+  imgPath
+) {
   tasks[`${name}${densitySuffix}`] = {
     src: `${directoryPath}*.${ext}`,
     dest: `${spritePath}${name}${densitySuffix}.${ext}`,
@@ -24,11 +34,30 @@ function generateTask(project, helpers, name, ext, density, densitySuffix, direc
   };
 }
 
-function getDensity(grunt, project, helpers, name, ext, density, spritePath, imgPath) {
+function getDensity(
+  grunt,
+  project,
+  helpers,
+  name,
+  ext,
+  density,
+  spritePath,
+  imgPath
+) {
   const densitySuffix = density === 1 ? '' : `@${density}x`;
   const directoryPath = `${project.res.images.sources}${name}${densitySuffix}/`;
   if (grunt.file.exists(directoryPath)) {
-    generateTask(project, helpers, name, ext, density, densitySuffix, directoryPath, spritePath, imgPath);
+    generateTask(
+      project,
+      helpers,
+      name,
+      ext,
+      density,
+      densitySuffix,
+      directoryPath,
+      spritePath,
+      imgPath
+    );
   }
 }
 
@@ -36,7 +65,16 @@ function getSprite(grunt, project, helpers, sprite, spritePath, imgPath) {
   const [name, ext] = sprite.split('.');
   if (helpers.imageRasterFiles.indexOf(ext) !== -1) {
     project.res.images.densities.forEach((density) => {
-      getDensity(grunt, project, helpers, name, ext, density, spritePath, imgPath);
+      getDensity(
+        grunt,
+        project,
+        helpers,
+        name,
+        ext,
+        density,
+        spritePath,
+        imgPath
+      );
     });
   }
 }

@@ -1,7 +1,3 @@
-// TemplateX Sprites
-
-
-
 // Sprite Block
 
 @mixin tx-sprite-block($name, $padding: false) {
@@ -15,8 +11,6 @@
   }
 }
 
-
-
 // Sprite Block
 
 @mixin tx-sprite-block-rel($name) {
@@ -26,30 +20,18 @@
   }
 }
 
-
-
 // Sprite Image
-
-// sass-lint:disable placeholder-in-extend
-// sass-lint:disable extends-before-declarations
 
 @mixin tx-sprite-image($name) {
   $sheet: txf-spriteSheetName($name);
   @extend #{'%ssh-' + $sheet};
 }
 
-// sass-lint:enable placeholder-in-extend
-// sass-lint:enable extends-before-declarations
-
-
-
 // Sprite Position
 
 @mixin tx-sprite-position($name) {
   background-position: nth($name, 3) nth($name, 4);
 }
-
-
 
 // Sprite Position With Relative Size
 
@@ -71,19 +53,22 @@
   background-position: $hor $vert;
 }
 
-
-
 // Background Size With Relative Size
 
 @mixin tx-sprite-size-rel($name) {
-  background-size: ((nth($name, 7) / nth($name, 5)) * 100%) ((nth($name, 8) / nth($name, 6)) * 100%);
+  background-size: ((nth($name, 7) / nth($name, 5)) * 100%)
+    ((nth($name, 8) / nth($name, 6)) * 100%);
 }
-
-
 
 // Sprite Image
 
-@mixin tx-sprite($name, $block: false, $padding: false, $position: true, $color: null) {
+@mixin tx-sprite(
+  $name,
+  $block: false,
+  $padding: false,
+  $position: true,
+  $color: null
+) {
   @include tx-sprite-image($name);
   @if $block {
     @include tx-sprite-block($name, $padding);
@@ -95,8 +80,6 @@
     @include tx-sprite-position($name);
   }
 }
-
-
 
 // Sprite Image With Relative Size
 
@@ -114,15 +97,12 @@
   @include tx-sprite-size-rel($name);
 }
 
-
-
 // Sprite Shift
 
 @mixin tx-sprite-shift($name, $x: 0, $y: 0) {
-  margin: ((txf-sprite-height($name) / -2) + $y) 0 0 ((txf-sprite-width($name) / -2) + $x);
+  margin: ((txf-sprite-height($name) / -2) + $y) 0 0
+    ((txf-sprite-width($name) / -2) + $x);
 }
-
-
 
 // Functions
 

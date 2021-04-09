@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint no-multi-spaces: 'off' */
 
 const CONFIG = {
@@ -11,8 +12,6 @@ const CONFIG = {
   DEVELOPMENT_DIR: 'dev',            // Development
   BUILD_DIR: 'build',                // Build
   META_DIR: 'meta',                  // Meta Content
-
-  TESTS_DIR: 'tests',                // Tests
 
   IMAGES_DIR: 'images',              // Content Images
 

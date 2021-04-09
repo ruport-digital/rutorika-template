@@ -1,14 +1,10 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project } = options;
 
   return {
     test: {
       cwd: project.res.css.dir,
-      src: [
-        '*.css',
-        '!*.min.css',
-        '!*-IE.css',
-      ],
+      src: ['*.css', '!*.min.css', '!*-IE.css'],
       expand: true,
     },
   };

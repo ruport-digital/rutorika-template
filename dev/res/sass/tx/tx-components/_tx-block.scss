@@ -1,12 +1,20 @@
-// TemplateX Block
-
-
-
 // Block Placeholder
 
 @function txf-stripe($color) {
   $transparent: rgba($color, 0);
-  @return linear-gradient(135deg, $color, $color 12.5%, $transparent 12.5%, $transparent 37.5%, $color 37.5%, $color 62.5%, $transparent 62.5%, $transparent 87.5%, $color 87.5%, $color);
+  @return linear-gradient(
+    135deg,
+    $color,
+    $color 12.5%,
+    $transparent 12.5%,
+    $transparent 37.5%,
+    $color 37.5%,
+    $color 62.5%,
+    $transparent 62.5%,
+    $transparent 87.5%,
+    $color 87.5%,
+    $color
+  );
 }
 
 @mixin tx-stripes($width, $color: $red) {
@@ -25,12 +33,24 @@
   height: $height;
 }
 
-
-
 // Pseudo Element
 
-@mixin tx-pseudo($position: absolute, $display: block, $content: '', $ie: $tx-IE, $extend: true) {
-  @if $position == 'absolute' and $display == 'block' and $content == '' and $extend == true {
+@mixin tx-pseudo(
+  $position: absolute,
+  $display: block,
+  $content: '',
+  $ie: $tx-IE,
+  $extend: true
+) {
+  @if $position ==
+    'absolute' and
+    $display ==
+    'block' and
+    $content ==
+    '' and
+    $extend ==
+    true
+  {
     position: absolute;
     display: block;
     content: '';
@@ -47,20 +67,6 @@
   }
 }
 
-@mixin tx-pseudo-ie($before: true, $after: true, $class: '', $beforeContent: '', $afterContent: '') {
-  $beforeClass: ieBefore + $class;
-  $afterClass: ieAfter + $class;
-  @if $before == true and $after == true {
-    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' + $beforeClass + '">' + $beforeContent + '</i>"), insertAdjacentHTML("beforeEnd", "<i class="' + $afterClass + '">' + $afterContent + '</i>"))');
-  } @else if $before == true {
-    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("afterBegin", "<i class="' + $beforeClass + '">' + $beforeContent + '</i>"))');
-  } @else {
-    zoom: unquote('expression(this.runtimeStyle.zoom = 1, insertAdjacentHTML("beforeEnd", "<i class="' + $afterClass + '">' + $afterContent + '</i>"))');
-  }
-}
-
-
-
 // Vertical Alignment
 
 @mixin tx-pseudo-va {
@@ -72,16 +78,12 @@
   content: '';
 }
 
-
-
 // Layers
 
 @mixin tx-layer($layer: content, $shift: 0) {
   $zIndex: map-get($layers, $layer);
   z-index: ($zIndex + $shift);
 }
-
-
 
 // Max Width
 
@@ -97,8 +99,6 @@
   }
 }
 
-
-
 // Slide Down
 
 @mixin tx-slide-down($maxHeight, $activeClass: '-is-active') {
@@ -107,5 +107,4 @@
   &-#{$activeClass} {
     max-height: $maxHeight;
   }
-
 }

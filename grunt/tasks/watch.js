@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project, helpers } = options;
 
   return {
@@ -18,34 +18,22 @@ module.exports = (grunt, options) => {
     },
     images: {
       files: [`**/*.${helpers.imageFiles}`],
-      tasks: [
-        'sass:dev',
-        'postcss',
-        'processhtml',
-        'notify:watch_images',
-      ],
+      tasks: ['sass:dev', 'postcss', 'processhtml', 'notify:watch_images'],
     },
     sass: {
       files: [`${project.res.css.sass}**/*.{scss,sass}`],
-      tasks: [
-        'sass:dev',
-        'postcss',
-        'notify:watch_sass',
-      ],
+      tasks: ['sass:dev', 'postcss', 'notify:watch_sass'],
     },
     javascript: {
-      files: [`${project.res.js.devDir}**/*.js`, `!${project.res.js.devDir}${project.res.js.service}.js`],
-      tasks: [
-        'browserify:dev',
-        'notify:watch_javascript',
+      files: [
+        `${project.res.js.devDir}**/*.js`,
+        `!${project.res.js.devDir}${project.res.js.service}.js`,
       ],
+      tasks: ['browserify:dev', 'notify:watch_javascript'],
     },
     service: {
       files: [`${project.res.js.devDir}${project.res.js.service}.js`],
-      tasks: [
-        'copy:serviceDev',
-        'notify:watch_service',
-      ],
+      tasks: ['copy:serviceDev', 'notify:watch_service'],
     },
     livereload: {
       options: {

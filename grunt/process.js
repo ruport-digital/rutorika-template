@@ -1,17 +1,31 @@
+/* eslint-disable max-lines-per-function */
 const tx = require('./tx/tx');
 
 module.exports = (grunt, options) => {
   const { project, helpers } = options;
 
-  const dataURITasks = project.res.images.dataURI.length > 0 ? ['process-dataURI'] : [];
+  const dataURITasks =
+    project.res.images.dataURI.length > 0 ? ['process-dataURI'] : [];
 
-  grunt.registerTask('dataURIFallback', 'Fallback classes for the images in DataURI', () => tx.dataURIFallback(grunt, project, helpers));
+  grunt.registerTask(
+    'dataURIFallback',
+    'Fallback classes for the images in DataURI',
+    () => tx.dataURIFallback(grunt, project, helpers)
+  );
 
-  grunt.registerTask('dataURICleanup', 'Cleanup DataURI placeholders', () => tx.dataURICleanup(grunt, project, helpers));
+  grunt.registerTask('dataURICleanup', 'Cleanup DataURI placeholders', () =>
+    tx.dataURICleanup(grunt, project, helpers)
+  );
 
-  grunt.registerTask('spritesSCSS', 'SCSS variables with sprites data', () => tx.spritesSCSS(grunt, project, helpers));
+  grunt.registerTask('spritesSCSS', 'SCSS variables with sprites data', () =>
+    tx.spritesSCSS(grunt, project, helpers)
+  );
 
-  grunt.registerTask('generatePages', 'Generate HTML-file with links to all of the pages', () => tx.generatePages(grunt, project, helpers));
+  grunt.registerTask(
+    'generatePages',
+    'Generate HTML-file with links to all of the pages',
+    () => tx.generatePages(grunt, project, helpers)
+  );
 
   grunt.registerTask('process-dataURI', [
     'datauri',
@@ -21,16 +35,14 @@ module.exports = (grunt, options) => {
     'clean:images',
   ]);
 
-  grunt.registerTask('process-sprites', [ ...tx.processSprites(grunt, project, helpers), ...dataURITasks ]);
-
-  grunt.registerTask('process-raster-sprites', [
-    'sprite',
-    'spritesSCSS',
+  grunt.registerTask('process-sprites', [
+    ...tx.processSprites(grunt, project, helpers),
+    ...dataURITasks,
   ]);
 
-  grunt.registerTask('process-vector-sprites', [
-    'svgstore',
-  ]);
+  grunt.registerTask('process-raster-sprites', ['sprite', 'spritesSCSS']);
+
+  grunt.registerTask('process-vector-sprites', ['svgstore']);
 
   grunt.registerTask('process-sprite-images', [
     'imagemin:sprites',
@@ -74,7 +86,6 @@ module.exports = (grunt, options) => {
   ]);
 
   grunt.registerTask('process-finalize', [
-    // 'compress',
     'process-build-images',
     'string-replace:build',
     'clean:reports',

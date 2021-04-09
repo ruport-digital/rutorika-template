@@ -1,9 +1,9 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project } = options;
 
   return {
     options: {
-      configFile: '.eslintrc',
+      configFile: '.eslintrc.json',
     },
     test: {
       cwd: project.res.js.devDir,

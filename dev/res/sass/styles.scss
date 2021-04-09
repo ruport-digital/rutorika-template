@@ -1,40 +1,24 @@
-// TemplateX (Mixins, Patterns, Helpers)
+// Mixins, Patterns, Helpers
 
 @import 'tx/_tx';
-
-
 
 // Project Global Properties
 
 @import 'project/_project';
-
-
 
 // Project Baseline
 
 @import 'base/_baseline';
 @import 'base/_layout';
 
-
-
 // Utilities
 
 @import 'utilities/_utilities';
-
-
 
 // Components
 
 @import '_fonts';
 
-
-
 // Sprites
 
 @import '_sprites';
-
-
-
-// Cascade
-
-@import '_cascade';

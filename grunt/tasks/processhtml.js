@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project } = options;
 
   return {
@@ -9,12 +9,7 @@ module.exports = (grunt, options) => {
     },
     templates: {
       cwd: project.res.templates.dir,
-      src: [
-        '*.html',
-        '!* copy*.html',
-        '!* - Copy*.html',
-        '!* copie*.html',
-      ],
+      src: ['*.html', '!* copy*.html', '!* - Copy*.html', '!* copie*.html'],
       dest: project.dir,
       expand: true,
     },

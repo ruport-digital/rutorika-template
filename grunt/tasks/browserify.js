@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project } = options;
 
   return {
@@ -8,7 +8,10 @@ module.exports = (grunt, options) => {
           'babelify',
           {
             presets: [
-              ['@babel/preset-env', { targets: { browsers: project.browsers } }],
+              [
+                '@babel/preset-env',
+                { targets: { browsers: project.browsers } },
+              ],
             ],
             plugins: ['lodash', 'sitrep'],
           },
@@ -22,20 +25,14 @@ module.exports = (grunt, options) => {
     },
     dev: {
       cwd: project.res.js.devDir,
-      src: [
-        '*.js',
-        `!${project.res.js.service}.js`,
-      ],
+      src: ['*.js', `!${project.res.js.service}.js`],
       dest: project.res.js.dir,
       ext: '.min.js',
       expand: true,
     },
     build: {
       cwd: project.res.js.devDir,
-      src: [
-        '*.js',
-        `!${project.res.js.service}.js`,
-      ],
+      src: ['*.js', `!${project.res.js.service}.js`],
       dest: project.res.js.dir,
       expand: true,
     },

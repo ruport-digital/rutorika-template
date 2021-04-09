@@ -1,12 +1,10 @@
 // Transitions
 
-$UITransitionDefault: .2s;
-$UITransitionFast: .1s;
-$UITransitionMedium: .3s;
-$UITransitionSlow: .4s;
-$UITransitionSlowest: .5s;
-
-
+$UITransitionDefault: 0.2s;
+$UITransitionFast: 0.1s;
+$UITransitionMedium: 0.3s;
+$UITransitionSlow: 0.4s;
+$UITransitionSlowest: 0.5s;
 
 // Links
 
@@ -15,12 +13,10 @@ $visited: $purple;
 $hover: $red;
 $active: $blue-700;
 
-$underlineOpacity: .5;
+$underlineOpacity: 0.5;
 
 $focus-outlineWidth: 1px;
 $focus-outlineColor: $gray-300;
-
-
 
 // Fields
 
@@ -28,8 +24,6 @@ $field-borderWidth: 1px;
 $field-borderColor: $gray-300;
 
 $placeholder-color: $gray-300;
-
-
 
 // Selection
 

@@ -17,7 +17,14 @@ const tasks = {
   },
 };
 
-function generateTask(project, helpers, name, ext, directoryPath, spritePath) {
+function generateTask(
+  _project,
+  _helpers,
+  name,
+  ext,
+  directoryPath,
+  spritePath
+) {
   tasks[`${name}`] = {
     src: `${directoryPath}*.${ext}`,
     dest: `${spritePath}_${name}.${ext}`,

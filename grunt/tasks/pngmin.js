@@ -1,4 +1,4 @@
-module.exports = (grunt, options) => {
+module.exports = (_grunt, options) => {
   const { project, helpers } = options;
 
   return {
@@ -13,7 +13,11 @@ module.exports = (grunt, options) => {
       cwd: project.dir,
       src: [
         ...project.res.images.dataURI.reduce((acc, image) => {
-          if (image.split('.').pop() === helpers.imagePngFiles) acc.push(`${project.res.images.dir.replace(project.dir, '')}${image}`);
+          if (image.split('.').pop() === helpers.imagePngFiles) {
+            acc.push(
+              `${project.res.images.dir.replace(project.dir, '')}${image}`
+            );
+          }
           return acc;
         }, []),
       ],

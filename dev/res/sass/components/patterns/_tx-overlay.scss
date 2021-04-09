@@ -1,12 +1,13 @@
 @import '_tx-fade';
 
-
-
 /* Overlay */
 
-$tx-overlay-opacity: .75;
+$tx-overlay-opacity: 0.75;
 $tx-overlay-backgroundSolid: $black;
-$tx-overlay-backgroundOpacity: rgba($tx-overlay-backgroundSolid, $tx-overlay-opacity);
+$tx-overlay-backgroundOpacity: rgba(
+  $tx-overlay-backgroundSolid,
+  $tx-overlay-opacity
+);
 
 %tx-overlay {
   @extend %tx-fadeOut;
@@ -29,5 +30,4 @@ $tx-overlay-backgroundOpacity: rgba($tx-overlay-backgroundSolid, $tx-overlay-opa
   &-is-active {
     @extend %tx-fadeIn;
   }
-
 }

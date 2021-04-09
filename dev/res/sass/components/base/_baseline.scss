@@ -1,14 +1,4 @@
-/* TemplateX */
-
-@import 'patterns/_tx-fastTouch';
-
-
-
 /* Baseline, Typography & Vertical Rhythm */
-
-%block {
-  display: block;
-}
 
 html {
   font-size: $fontSize;
@@ -25,55 +15,55 @@ body {
 }
 
 article {
-  @extend %block;
+  display: block;
 }
 
 aside {
-  @extend %block;
+  display: block;
 }
 
 canvas {
-  @extend %block;
+  display: block;
 }
 
 figure {
-  @extend %block;
+  display: block;
 }
 
 figcaption {
-  @extend %block;
+  display: block;
 }
 
 footer {
-  @extend %block;
+  display: block;
 }
 
 header {
-  @extend %block;
+  display: block;
 }
 
 hgroup {
-  @extend %block;
+  display: block;
 }
 
 nav {
-  @extend %block;
+  display: block;
 }
 
 main {
-  @extend %block;
+  display: block;
 }
 
 progress {
-  @extend %block;
+  display: block;
 }
 
 section {
-  @extend %block;
+  display: block;
 }
 
 summary {
-  @extend %block;
+  display: block;
 }
 
 %heading {
@@ -164,7 +154,7 @@ ol {
 }
 
 li {
-  @include tx-rhythm(.5, .5);
+  @include tx-rhythm(0.5, 0.5);
 
   > ul {
     @extend %list-nested;
@@ -277,8 +267,8 @@ $interactiveHighlight-color: $blue;
 }
 
 %acronymAbbr {
-  margin: 0 -.075em 0 0;
-  letter-spacing: .075em;
+  margin: 0 -0.075em 0 0;
+  letter-spacing: 0.075em;
 }
 
 %small {
@@ -345,7 +335,7 @@ kbd {
   @extend %attention;
   @include tx-grid-height(1, 1);
   display: inline-block;
-  padding: 0 .25em;
+  padding: 0 0.25em;
   font-weight: bold;
   font-family: $font-mono;
   vertical-align: top;
@@ -356,12 +346,12 @@ kbd {
 
 sup {
   @extend %supSub;
-  top: -.65em;
+  top: -0.65em;
 }
 
 sub {
   @extend %supSub;
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 big {
@@ -376,8 +366,6 @@ u {
   text-decoration: underline;
 }
 
-// sass-lint:disable no-vendor-prefixes
-
 img {
   max-width: 100%;
   height: auto;
@@ -385,8 +373,6 @@ img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
-
-// sass-lint:enable no-vendor-prefixes
 
 audio {
   @extend %defaultBlock;
@@ -399,11 +385,17 @@ video {
 $tableCell-borderColor: $gray;
 
 %tableCell {
-  @include tx-table-borders(1px, 1, $color: $tableCell-borderColor, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
+  @include tx-table-borders(
+    1px,
+    1,
+    $color: $tableCell-borderColor,
+    $paddingRight: ($gap / 2),
+    $paddingLeft: ($gap / 2)
+  );
 }
 
 caption {
-  @include tx-rhythm-padding(0, .5);
+  @include tx-rhythm-padding(0, 0.5);
   font-weight: bold;
   text-align: left;
 }
@@ -436,16 +428,12 @@ hr {
   border-top: 1px solid $hr-borderColor;
 }
 
-
-
 /* Selection */
 
 ::selection {
   color: $selection-color;
   background: $selection-background;
 }
-
-
 
 /* Focus */
 
@@ -455,11 +443,9 @@ hr {
   }
 }
 
-
-
 /* Links */
 
-$tapColor: rgba($active, .25);
+$tapColor: rgba($active, 0.25);
 
 a {
   @extend %focus;
@@ -474,12 +460,10 @@ a {
   }
 }
 
-
-
 /* Forms */
 
 fieldset {
-  @extend %block;
+  display: block;
   margin: 0;
   padding: 0;
   border: 0;
@@ -495,9 +479,9 @@ legend {
 }
 
 label {
-  @extend %tx-fastTouch;
   cursor: pointer;
   user-select: none;
+  touch-action: manipulation;
 }
 
 %formBaseline {
@@ -519,7 +503,6 @@ label {
     padding: 0;
     border: 0;
   }
-
 }
 
 %form {
@@ -582,17 +565,17 @@ $formPlaceholder-color: $gray;
 }
 
 %button {
-  @extend %tx-fastTouch;
   @include tx-grid-height(2, $setLineHeight: false);
   padding: 0 ($gap / 2);
   border: 0;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 %formInactive {
   cursor: default;
   cursor: not-allowed;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 input {
@@ -641,7 +624,6 @@ input {
     ::-webkit-search-cancel-button {
       -webkit-appearance: none;
     }
-
   }
 
   &[type='number'] {
@@ -650,7 +632,6 @@ input {
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
     }
-
   }
 
   &:disabled {
@@ -668,9 +649,9 @@ select {
   @extend %formBaseline;
   @extend %formFont;
   @extend %formTextReset;
-  @extend %tx-fastTouch;
   @include tx-grid-height(2, $setLineHeight: false);
   vertical-align: top;
+  touch-action: manipulation;
 
   &[multiple] {
     @include tx-grid-height(5, $setLineHeight: false);
@@ -692,13 +673,18 @@ button {
 }
 
 textarea {
-  @extend %block;
+  display: block;
   @extend %form;
   @extend %formBaseline;
   @extend %formBoxSizing;
   @extend %formPlaceholder;
   @include tx-form-height(8, 1);
-  @include tx-rhythm-padding(.5, .5, $paddingRight: ($gap / 2), $paddingLeft: ($gap / 2));
+  @include tx-rhythm-padding(
+    0.5,
+    0.5,
+    $paddingRight: ($gap / 2),
+    $paddingLeft: ($gap / 2)
+  );
   overflow: auto;
   font-size: inherit;
 
@@ -710,8 +696,6 @@ textarea {
     @extend %formInactive;
   }
 }
-
-
 
 /* Print Baseline */
 

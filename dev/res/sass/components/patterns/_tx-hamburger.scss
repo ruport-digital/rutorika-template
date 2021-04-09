@@ -33,11 +33,17 @@ $tx-hamburger-lineColor: $red;
 
   &-is-active {
     &:before {
-      transform: translateY($tx-hamburger-height / 2 - $tx-hamburger-lineWidth / 2) rotate(-45deg);
+      transform: translateY(
+          $tx-hamburger-height / 2 - $tx-hamburger-lineWidth / 2
+        )
+        rotate(-45deg);
     }
 
     &:after {
-      transform: translateY($tx-hamburger-height / -2 + $tx-hamburger-lineWidth / 2) rotate(-135deg);
+      transform: translateY(
+          $tx-hamburger-height / -2 + $tx-hamburger-lineWidth / 2
+        )
+        rotate(-135deg);
     }
   }
 

@@ -1,7 +1,3 @@
-// TemplateX Aspect Ratio
-
-
-
 // Height to Width Ratio
 
 @mixin tx-ratio($width, $height, $placeholderName) {
@@ -15,5 +11,4 @@
     width: 100%;
     height: 100%;
   }
-
 }
