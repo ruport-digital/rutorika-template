@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const sass = require('node-sass');
 
 module.exports = (_grunt, options) => {

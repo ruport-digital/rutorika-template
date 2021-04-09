@@ -1,6 +1,3 @@
-/* eslint max-len: "off" */
-/* eslint no-param-reassign: "off" */
-
 const tasks = {
   options: {
     prefix: 'spt-',
