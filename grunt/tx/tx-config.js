@@ -68,15 +68,6 @@ module.exports = (config) => ({
     imagePngFiles: 'png',
     imageRasterFiles: 'png,jpg,jpeg,gif,webp',
     imageVectorFiles: 'svg',
-    uncssIgnoreFiles: ['404.html'],
-    uncssIgnoreClasses: [
-      /.*-is-.*/,
-      /.*-has-.*/,
-      /.*-are-.*/,
-      /mdz-.*/,
-      /js-.*/,
-      /ie\d/,
-    ],
     dontCopy: [
       '!**/*.map',
       '!**/**-dev/**',
