@@ -84,6 +84,6 @@ module.exports = (config) => ({
       '!**/_tx-*.*',
       '!**/tx/**',
     ],
-    pages: '_tx-pages.html',
+    pages: '_pages.html',
   },
 });
