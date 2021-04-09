@@ -1,10 +1,8 @@
-/* global self */
-/* global caches */
+/* eslint-disable no-restricted-globals */
 /* eslint prefer-destructuring: 'off' */
 /* eslint prefer-arrow-callback: 'off' */
 /* eslint func-names: 'off' */
 /* eslint no-var: 'off' */
-/* eslint compat/compat: 'off' */
 /* eslint-disable space-before-function-paren */
 
 var CACHE_NAME = 'tx-cache-v1';
