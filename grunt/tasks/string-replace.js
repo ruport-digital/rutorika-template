@@ -47,10 +47,6 @@ module.exports = (_grunt, options) => {
       options: {
         replacements: [
           {
-            pattern: /\*(?! *csslint|\/)[^*{]*\*+([^/*][^*]*\*+)*\/(?:\r?\n|\r|\t| )*\//g,
-            replacement: '',
-          },
-          {
             pattern: /(@media.*\{|(?:\*\/|\})\n(?=\}))/g,
             replacement: '$1\n',
           },

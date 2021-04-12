@@ -49,8 +49,7 @@ $ grunt process-sprites
 
 ## Linting & testing
 
-Run `grunt quality` to lint project's stylesheets ([CSS Lint](http://csslint.net) and
-[CSS Colorguard](https://github.com/SlexAxton/css-colorguard)),
+Run `grunt quality` to lint project's stylesheets ([CSS Colorguard](https://github.com/SlexAxton/css-colorguard)),
 scripts ([ESLint](http://eslint.org/)), HTML-files ([HTMLHint](http://htmlhint.com/)).
 
 ```sh

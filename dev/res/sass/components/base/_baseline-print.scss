@@ -1,6 +1,4 @@
 @include tx-media(print) {
-  /* csslint ignore:start */
-
   /* Baseline, Typography & Vertical Rhythm */
 
   %printReset {
@@ -159,6 +157,4 @@
   textarea {
     @extend %hideForm;
   }
-
-  /* csslint ignore:end */
 }
