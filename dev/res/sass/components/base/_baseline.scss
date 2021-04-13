@@ -14,54 +14,18 @@ body {
   font-display: swap;
 }
 
-article {
-  display: block;
-}
-
-aside {
-  display: block;
-}
-
-canvas {
-  display: block;
-}
-
-figure {
-  display: block;
-}
-
-figcaption {
-  display: block;
-}
-
-footer {
-  display: block;
-}
-
-header {
-  display: block;
-}
-
-hgroup {
-  display: block;
-}
-
-nav {
-  display: block;
-}
-
-main {
-  display: block;
-}
-
-progress {
-  display: block;
-}
-
-section {
-  display: block;
-}
-
+article,
+aside,
+canvas,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+nav,
+main,
+progress,
+section,
 summary {
   display: block;
 }
@@ -106,10 +70,6 @@ h6 {
   @include tx-font-size(h6);
 }
 
-%defaultBlock {
-  @include tx-rhythm(1, 1);
-}
-
 %list {
   padding: 0 0 0 1em;
 
@@ -123,32 +83,32 @@ h6 {
 }
 
 p {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
 }
 
 dl {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
 }
 
 dt {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
   font-weight: bold;
 }
 
 dd {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
   @extend %list;
   font-style: italic;
 }
 
 ul {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
   @extend %list;
   list-style: disc;
 }
 
 ol {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
   @extend %list;
   list-style: decimal;
 }
@@ -176,7 +136,7 @@ $highlight-color: $red;
 }
 
 pre {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
   @extend %mono;
   padding: 0 1.5em;
   overflow-x: auto;
@@ -229,25 +189,25 @@ b {
 
 blockquote {
   @extend %quotes;
-  @extend %quoteEmphasis;
   @include tx-rhythm(1, 1, $marginRight: 3em, $marginLeft: 3em);
+  font-style: italic;
 }
 
 em {
-  @extend %quoteEmphasis;
+  font-style: italic;
 }
 
 cite {
-  @extend %quoteEmphasis;
+  font-style: italic;
 }
 
 q {
   @extend %quotes;
-  @extend %quoteEmphasis;
+  font-style: italic;
 }
 
 i {
-  @extend %quoteEmphasis;
+  font-style: italic;
 }
 
 %interactive {
@@ -281,7 +241,7 @@ $interactiveHighlight-color: $blue;
 }
 
 address {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
   font-style: normal;
 }
 
@@ -375,11 +335,11 @@ img {
 }
 
 audio {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
 }
 
 video {
-  @extend %defaultBlock;
+  @include tx-rhythm(1, 1);
 }
 
 $tableCell-borderColor: $gray;
@@ -494,10 +454,6 @@ label {
   font-size: inherit;
 }
 
-%formBoxSizing {
-  box-sizing: content-box;
-}
-
 %formBorderReset {
   &::-moz-focus-inner {
     padding: 0;
@@ -584,7 +540,6 @@ input {
   @extend %formAlign;
   @extend %formBaseline;
   @extend %formBorderReset;
-  @extend %formBoxSizing;
   @extend %formFont;
   @extend %formPlaceholder;
   @include tx-form-height(2, $setLineHeight: false);
@@ -662,7 +617,6 @@ button {
   @extend %formAppearanceReset;
   @extend %formBaseline;
   @extend %formBorderReset;
-  @extend %formBoxSizing;
   @extend %formFont;
   @extend %formTextReset;
   @extend %button;
@@ -676,7 +630,6 @@ textarea {
   display: block;
   @extend %form;
   @extend %formBaseline;
-  @extend %formBoxSizing;
   @extend %formPlaceholder;
   @include tx-form-height(8, 1);
   @include tx-rhythm-padding(
