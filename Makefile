@@ -13,6 +13,9 @@ lint:
 test:
 	npx jest --watchAll
 
+test-coverage:
+	npx jest --collect-coverage
+
 build:
 	npm run build
 

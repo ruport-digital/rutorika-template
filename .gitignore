@@ -28,7 +28,7 @@ node_modules
 bower_components
 *.map
 browserify-cache.json
-
+coverage
 
 
 #TX
