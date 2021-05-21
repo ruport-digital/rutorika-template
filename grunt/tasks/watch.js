@@ -9,31 +9,26 @@ module.exports = (_grunt, options) => {
     },
     html: {
       files: [`${project.res.templates.dir}**/*.{html,svg}`],
-      tasks: [
-        'clean:html',
-        'processhtml',
-        'generatePages',
-        'notify:watch_html',
-      ],
+      tasks: ['clean:html', 'processhtml', 'generatePages'],
     },
     images: {
       files: [`**/*.${helpers.imageFiles}`],
-      tasks: ['sass:dev', 'postcss', 'processhtml', 'notify:watch_images'],
+      tasks: ['sass:dev', 'postcss', 'processhtml'],
     },
     sass: {
       files: [`${project.res.css.sass}**/*.{scss,sass}`],
-      tasks: ['sass:dev', 'postcss', 'notify:watch_sass'],
+      tasks: ['sass:dev', 'postcss'],
     },
     javascript: {
       files: [
         `${project.res.js.devDir}**/*.js`,
         `!${project.res.js.devDir}${project.res.js.service}.js`,
       ],
-      tasks: ['browserify:dev', 'notify:watch_javascript'],
+      tasks: ['browserify:dev'],
     },
     service: {
       files: [`${project.res.js.devDir}${project.res.js.service}.js`],
-      tasks: ['copy:serviceDev', 'notify:watch_service'],
+      tasks: ['copy:serviceDev'],
     },
     livereload: {
       options: {

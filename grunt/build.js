@@ -4,13 +4,11 @@ module.exports = (grunt) => {
     'test',
     'process-build',
     'process-finalize',
-    'notify:build',
   ]);
 
   grunt.registerTask('build-fast', [
     'compile',
     'process-build',
     'process-finalize',
-    'notify:build',
   ]);
 };
