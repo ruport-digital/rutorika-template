@@ -44,15 +44,9 @@ module.exports = (grunt, options) => {
 
   grunt.registerTask('process-vector-sprites', ['svgstore']);
 
-  grunt.registerTask('process-sprite-images', [
-    'imagemin:sprites',
-    'pngmin:sprites',
-  ]);
+  grunt.registerTask('process-sprite-images', ['imagemin:sprites']);
 
-  grunt.registerTask('process-build-images', [
-    'newer:imagemin:optimize',
-    'newer:pngmin:optimize',
-  ]);
+  grunt.registerTask('process-build-images', ['newer:imagemin:optimize']);
 
   grunt.registerTask('process-html', [
     'clean:html',
