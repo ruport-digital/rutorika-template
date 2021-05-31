@@ -30,12 +30,12 @@ jobs:
           make install
         env:
           CI: true
-      - name: Run linter
-        run: |
-          make lint
       - name: Run tests
         run: |
           npm test
+      - name: Run linter
+        run: |
+          make lint
       - name: Run build
         run: |
           make build
