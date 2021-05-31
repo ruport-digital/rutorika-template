@@ -7,8 +7,8 @@ start:
 develop: start
 
 lint:
-	npx editorconfig-checker
 	npm run lint
+	npx editorconfig-checker
 
 test:
 	npx jest --watchAll
