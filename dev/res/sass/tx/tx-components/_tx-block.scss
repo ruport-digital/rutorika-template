@@ -84,27 +84,3 @@
   $zIndex: map-get($layers, $layer);
   z-index: ($zIndex + $shift);
 }
-
-// Max Width
-
-@mixin tx-max-width($width, $fallback: $remFallback, $inPixels: false) {
-  @if $inPixels == true {
-    $fallback: true;
-  }
-  @if $fallback == true {
-    max-width: $width;
-  }
-  @if $inPixels == false {
-    max-width: ($width / $fontSize) * 1rem;
-  }
-}
-
-// Slide Down
-
-@mixin tx-slide-down($maxHeight, $activeClass: '-is-active') {
-  max-height: 0;
-
-  &-#{$activeClass} {
-    max-height: $maxHeight;
-  }
-}
