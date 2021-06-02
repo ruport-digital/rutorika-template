@@ -12,7 +12,7 @@ const SVGO_OPTIONS = {
     { removeDesc: true },
     { removeViewBox: false },
     { removeUselessDefs: false },
-    { removeXMLNS: true },
+    { removeXMLNS: false },
     { removeRasterImages: true },
     { cleanupIDs: false },
     {
