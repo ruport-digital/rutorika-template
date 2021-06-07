@@ -4,7 +4,7 @@
 
 ### [Node.js](https://nodejs.org)
 
-[Node.js](https://nodejs.org) version at or above 0.10.x
+[Node.js](https://nodejs.org) version at 14.15.5
 
 ### [Grunt](http://gruntjs.com/)
 

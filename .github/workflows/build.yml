@@ -30,12 +30,8 @@ jobs:
           make install
         env:
           CI: true
-      - name: Run tests
-        run: |
-          npm test
-      - name: Run linter
-        run: |
-          make lint
-      - name: Run build
+      - name: Run build and tests
         run: |
           make build
+          npm test
+          npx editorconfig-checker
